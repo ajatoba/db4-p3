@@ -1,0 +1,13 @@
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN" "http://www.getahead.ltd.uk/dwr/dwr10.dtd">
+<dwr>
+    <allow>
+        <create creator="new" javascript="br.com.db4.buskaza.controller.ajax">
+            <param name="class" value="br.com.db4.buskaza.controller.ajax.LocadorAjaxController"/>
+        </create>
+        <convert converter="locador" match="br.com.db4.buskaza.controller.form.LocadorForm"/>
+    </allow>
+</dwr>
+
+
+
+

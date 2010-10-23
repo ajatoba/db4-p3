@@ -1,0 +1,64 @@
+<!DOCTYPE struts-config PUBLIC   
+      "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"  
+      "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd" >
+
+<struts-config>
+
+	<!-- Form Bean Definitions -->
+	<form-beans>
+		<form-bean name="usuarioForm"
+			type="br.com.db4.buskaza.controller.form.UsuarioForm"></form-bean>
+		
+		<form-bean name="locadorForm"
+			type="br.com.db4.buskaza.controller.form.LocadorForm"></form-bean>
+
+	</form-beans>
+
+	<global-exceptions>
+		<exception key="global.error" type="java.lang.Exception"
+			handler="br.com.db4.buskaza.controller.exception.GlobalExceptionHandler" />
+	</global-exceptions>
+
+	<global-forwards>
+		<forward name="erro" path="/WEB-INF/jsp/erro.jsp" />
+
+
+	</global-forwards>
+
+	<!-- Action Mapping Definitions -->
+	<action-mappings>
+
+
+		<action path="/usuario"
+			type="br.com.db4.buskaza.controller.action.UsuarioAction" parameter="act"
+			scope="request" name="usuarioForm" validate="true" input="/WEB-INF/jsp/cadastro/form_cadastro_in.jsp">
+
+			<forward name="formulario" path="/WEB-INF/jsp/cadastro/form_cadastro_in.jsp" />
+			<forward name="saida" path="/WEB-INF/jsp/cadastro/form_cadastro_out.jsp" />
+		</action>
+		
+		<action path="/locador"
+			type="br.com.db4.buskaza.controller.action.LocadorAction" parameter="act"
+			scope="request" name="locadorForm" validate="true" input="/WEB-INF/jsp/cadastro/form_cadastro_in.jsp">
+
+			<forward name="formulario" path="/WEB-INF/jsp/cadastro/form_cadastro_in.jsp" />
+			<forward name="saida" path="/WEB-INF/jsp/cadastro/form_cadastro_out.jsp" />
+		</action>
+
+
+	</action-mappings>
+
+	<controller nocache="true" />
+
+	<message-resources key="i18n_pt" parameter="MessageResources_pt_BR" />
+	<message-resources key="i18n_en" parameter="MessageResources_en_US" />
+	<message-resources parameter="MessageResources" />
+
+
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+
+</struts-config>
