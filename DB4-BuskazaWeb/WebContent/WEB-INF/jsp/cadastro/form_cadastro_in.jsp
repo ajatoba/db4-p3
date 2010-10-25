@@ -8,16 +8,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<link href="${pageContext.request.contextPath}/_css/cadastro.css" rel="stylesheet" type="text/css" />
+<link href="/html/_css/cadastro.css" rel="stylesheet" type="text/css" />
 
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
-<script type="text/javascript" src="${pageContext.request.contextPath}/requiered/jquery.js" ></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/jqtransformplugin/jquery.jqtransform.js" ></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/includes/scripts/funcoes_js_mascara.js" ></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/includes/scripts/funcoes_js_validacoes.js" ></script>
+	<link rel="stylesheet" href="/html/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
+<script type="text/javascript" src="/html/requiered/jquery.js" ></script>
+	<script type="text/javascript" src="/html/jqtransformplugin/jquery.jqtransform.js" ></script>
+	<script type="text/javascript" src="/html/includes/scripts/funcoes_js_mascara.js" ></script>
+	<script type="text/javascript" src="/html/includes/scripts/funcoes_js_validacoes.js" ></script>
 	<script language="javascript">
 		$(function(){
-			$('#form').jqTransform({imgPath:'${pageContext.request.contextPath}/jqtransformplugin/img/'});
+			$('#form').jqTransform({imgPath:'/html/jqtransformplugin/img/'});
 		});
 
 
@@ -28,21 +28,21 @@
 			}			
 		}
 	</script>
-<link href="${pageContext.request.contextPath}/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="/html/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body>
 <div id="linha_topo"></div>
 <div id="site">
-<div id="top_header"><img src="${pageContext.request.contextPath}/images/top_01.jpg" width="991" height="31" /></div>
-<div id="meio_header"><img src="${pageContext.request.contextPath}/images/top_02.jpg" width="991" height="86" /></div>
-<div id="bottom_header"><img src="${pageContext.request.contextPath}/images/top_03.jpg" width="991" height="77" /></div>
+<div id="top_header"><img src="/html/images/top_01.jpg" width="991" height="31" /></div>
+<div id="meio_header"><img src="/html/images/top_02.jpg" width="991" height="86" /></div>
+<div id="bottom_header"><img src="/html/images/top_03.jpg" width="991" height="77" /></div>
 <!--CADASTRO-->
 <div id="cont_cadastro">
-<div id="indice_cadastro"><img src="${pageContext.request.contextPath}/_img/indice_cadastro_02.jpg" width="971" height="55" /></div>
+<div id="indice_cadastro"><img src="/html/_img/indice_cadastro_02.jpg" width="971" height="55" /></div>
 <div id="formulario_cadastro">
-  <p><img src="${pageContext.request.contextPath}/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt"><bean:message key="label.cadastro.titulo"/></span><br />
+  <p><img src="/html/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt"><bean:message key="label.cadastro.titulo"/></span><br />
     <br />
   </p>
   <font color="red">
@@ -134,7 +134,7 @@
 
   </div>
   <div class="end_correspondencia">
-    <img src="${pageContext.request.contextPath}/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt"><bean:message key="label.cadastro.titulo.endereco"/></span>
+    <img src="/html/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt"><bean:message key="label.cadastro.titulo.endereco"/></span>
     <br /><br />
     <table width="95%" border="0" cellspacing="0" cellpadding="0">
   <tr class="MyriadProRegular">
@@ -160,9 +160,9 @@
 
     </div>
     <div class="planos_adesao">
-      <img src="${pageContext.request.contextPath}/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt" ><bean:message key="label.cadastro.titulo.plano"/></span></div>
+      <img src="/html/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt" ><bean:message key="label.cadastro.titulo.plano"/></span></div>
   <div class="btn_cadastrar">
-  <div class="btn"><a href="#" onclick="gravarLocador();" ><img src="${pageContext.request.contextPath}/_img/btn_cadastrar_proprietario.jpg" width="211" height="30" /></a></div>
+  <div class="btn"><a href="#" onclick="gravarLocador();" ><img src="/html/_img/btn_cadastrar_proprietario.jpg" width="211" height="30" /></a></div>
   </div>
   </html:form>
   <p>&nbsp; </p>
@@ -172,8 +172,8 @@
 </div>
 <!--FIM CADASTRO-->
 <div id="linha_meio"></div>
-<div id="boxes"><img src="${pageContext.request.contextPath}/images/formulario_proprietario(zig.jpg" width="991" height="283" /></div>
-<div id="bottom"><img src="${pageContext.request.contextPath}/images/formulario_proprietario(zig.gif" width="991" height="253" /></div>
+<div id="boxes"><img src="/html/images/formulario_proprietario(zig.jpg" width="991" height="283" /></div>
+<div id="bottom"><img src="/html/images/formulario_proprietario(zig.gif" width="991" height="253" /></div>
 
 </div>
 </body>
