@@ -10,14 +10,14 @@
 <title>Untitled Document</title>
 <link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
 
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
-<script type="text/javascript" src="${pageContext.request.contextPath}/requiered/jquery.js" ></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/jqtransformplugin/jquery.jqtransform.js" ></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/includes/scripts/funcoes_js_mascara.js" ></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/includes/scripts/funcoes_js_validacoes.js" ></script>
+	<link rel="stylesheet" href="/buzkaza/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
+<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
+	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
+	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_mascara.js" ></script>
+	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_validacoes.js" ></script>
 	<script language="javascript">
 		$(function(){
-			$('#form').jqTransform({imgPath:'${pageContext.request.contextPath}/jqtransformplugin/img/'});
+			$('#form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
 		});
 
 
@@ -28,7 +28,7 @@
 			}			
 		}
 	</script>
-<link href="${pageContext.request.contextPath}/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 
 </head>
 
