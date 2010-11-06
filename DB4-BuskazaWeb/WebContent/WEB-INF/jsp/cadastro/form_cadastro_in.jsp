@@ -37,7 +37,7 @@
 <div id="site">
 <div id="top_header"><img src="/buzkaza/images/top_01.jpg" width="991" height="31" /></div>
 <div id="meio_header"><img src="/buzkaza/images/top_02.jpg" width="991" height="86" /></div>
-<div id="bottom_header"><img src="buzkaza/images/top_03.jpg" width="991" height="77" /></div>
+<div id="bottom_header"><img src="/buzkaza/images/top_03.jpg" width="991" height="77" /></div>
 <!--CADASTRO-->
 <div id="cont_cadastro">
 <div id="indice_cadastro"><img src="/buzkaza/_img/indice_cadastro_02.jpg" width="971" height="55" /></div>
