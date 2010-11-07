@@ -7,13 +7,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Buzkaza</title>
 <link href="/buzkaza/teaser/_css/estilo.css" rel="stylesheet" type="text/css" />
 
 <link href="/buzkaza/teaser/_css/fontes.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
-<script type="text/javascript" src="/buzkaza/teaser/requiered/jquery.js" ></script>
+	<script type="text/javascript" src="/buzkaza/teaser/requiered/jquery.js" ></script>
 	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
+	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_mascara.js" ></script>
+	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_validacoes.js" ></script>
+	
 	<script language="javascript">
 		$(function(){
 			$('#form').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
@@ -21,13 +24,13 @@
 
 		function gravarLocador(){
 			var form = 	document.locadorForm;
-			//if(checkForm(form)){
-				document.forms[0].submit();
-			//}			
+			if(checkForm(form)){
+				form.submit();
+			}			
 		}
 		
 	</script>
-<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -69,7 +72,7 @@
 <div id="cont_cadastro">
   <div id="indice_cadastro"></div>
   <div id="formulario_cadastro">
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt">InformaÃ§Ãµes do proprietÃ¡rio</span><br />
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt">Informações do proprietário</span><br />
       <br />
     </p>
 
@@ -79,7 +82,7 @@
         <table width="95%" border="0" cellpadding="0" cellspacing="0" align="center">
           <tr>
             <td width="18%" class="MyriadProRegular">Modalidade</td>
-            <td width="58%" class="MyriadProRegular">Nome Completo / RazÃ£o Social</td>
+            <td width="58%" class="MyriadProRegular">Nome Completo / Razão Social</td>
             <td width="24%" class="MyriadProRegular">Nome para contato</td>
           </tr>
           <tr>
@@ -129,7 +132,7 @@
           <div class="alinha_table">
             <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td width="16%" rowspan="2" class="MyriadProSemiboldIt">Criar usuÃ¡rio &gt;</td>
+                <td width="16%" rowspan="2" class="MyriadProSemiboldIt">Criar usuário &gt;</td>
                 <td width="20%" class="MyriadProRegular">Email (login)</td>
                 <td width="20%" class="MyriadProRegular">Confirmar Email (login)</td>
                 <td width="20%" class="MyriadProRegular">Senha</td>
@@ -145,14 +148,14 @@
           </div>
         </div>
       </div>
-      <div class="end_correspondencia"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt">EndereÃ§o para correspondÃªncia</span> <br />
+      <div class="end_correspondencia"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt">Endereço para correspondência</span> <br />
         <br />
         <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr class="MyriadProRegular">
-            <td>EndereÃ§o</td>
+            <td>Endereço</td>
             <td>Estado</td>
             <td>Cidade</td>
-            <td>PaÃ­s</td>
+            <td>País</td>
             <td>CEP</td>
           </tr>
           
@@ -176,10 +179,10 @@
       <div class="planos_adesao">
         <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr>
-            <td><div><input type="checkbox" name="chbox" checked="checked" id=""></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Desejo receber informaÃ§Ãµes  deste site no meu email</span></div></td>
+            <td><div><html:checkbox property="locadorEntity.recebeInfo" styleClass="MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Desejo receber informações  deste site no meu email</span></div></td>
           </tr>
           <tr>
-            <td><div><input type="checkbox" name="chbox" checked="checked" id=""></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Li e aceito os termos e condiÃ§Ãµes deste site</span></div></td>
+            <td><div><html:checkbox property="locadorEntity.leuCondicoes" styleClass="MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Li e aceito os termos e condições deste site</span></div></td>
           </tr>
         </table>
       </div>
