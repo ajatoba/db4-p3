@@ -20,6 +20,26 @@ public class UsuarioForm extends ActionForm {
 	private String cep;
 
 	private Integer pais;
+	
+	protected boolean recebeInfo;
+	
+	protected boolean leuCondicoes;
+
+	public boolean isRecebeInfo() {
+		return recebeInfo;
+	}
+
+	public void setRecebeInfo(boolean recebeInfo) {
+		this.recebeInfo = recebeInfo;
+	}
+
+	public boolean isLeuCondicoes() {
+		return leuCondicoes;
+	}
+
+	public void setLeuCondicoes(boolean leuCondicoes) {
+		this.leuCondicoes = leuCondicoes;
+	}
 
 	public Usuario getUsuarioEntity() {
 		return usuarioEntity;
@@ -28,8 +48,6 @@ public class UsuarioForm extends ActionForm {
 	public void setUsuarioEntity(Usuario usuarioEntity) {
 		this.usuarioEntity = usuarioEntity;
 	}
-
-	
 
 	public String getEmailConfirma() {
 		return emailConfirma;
