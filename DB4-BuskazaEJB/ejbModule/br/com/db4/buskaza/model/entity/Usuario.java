@@ -46,6 +46,26 @@ public class Usuario implements Serializable {
 	@JoinTable(name ="tb_usuario_perfil")    
 	Collection<Perfil> perfis;
 
+	protected boolean recebeInfo;
+	
+	protected boolean leuCondicoes;
+	
+	public boolean isRecebeInfo() {
+		return recebeInfo;
+	}
+
+	public void setRecebeInfo(boolean recebeInfo) {
+		this.recebeInfo = recebeInfo;
+	}
+
+	public boolean isLeuCondicoes() {
+		return leuCondicoes;
+	}
+
+	public void setLeuCondicoes(boolean leuCondicoes) {
+		this.leuCondicoes = leuCondicoes;
+	}
+
 	public Integer getCodigo() {
 		return codigo;
 	}
