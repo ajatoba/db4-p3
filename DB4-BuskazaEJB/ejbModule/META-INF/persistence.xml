@@ -27,11 +27,11 @@
 
 			<!--
 				<property name="hibernate.hbm2ddl.auto" value="create-drop">
-				<property name="hibernate.hbm2ddl.auto" value="create"> <property
-				name="hibernate.hbm2ddl.auto" value="update" />-->
+				<property name="hibernate.hbm2ddl.auto" value="create"> 
+				<property name="hibernate.hbm2ddl.auto" value="update" />
+			-->
+			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
 			
-			<property name="hibernate.hbm2ddl.auto" value="update" />
-
 			<property name="hibernate.cache.use_query_cache" value="true" />
 			<property name="hibernate.cache.use_second_level_cache" value="true" />
 			<property name="hibernate.cache.provider_class" value="net.sf.ehcache.hibernate.EhCacheProvider" />
