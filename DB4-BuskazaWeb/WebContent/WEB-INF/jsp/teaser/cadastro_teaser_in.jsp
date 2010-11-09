@@ -19,7 +19,7 @@
 	
 	<script language="javascript">
 		$(function(){
-			$('#form').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
+			$('#locadorForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
 		});
 
 		function gravarLocador(){
@@ -72,7 +72,7 @@
 <div id="cont_cadastro">
   <div id="indice_cadastro"></div>
   <div id="formulario_cadastro">
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt">Informações do proprietário</span><br />
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt">Informaï¿½ï¿½es do proprietï¿½rio</span><br />
       <br />
     </p>
 
@@ -82,7 +82,7 @@
         <table width="95%" border="0" cellpadding="0" cellspacing="0" align="center">
           <tr>
             <td width="18%" class="MyriadProRegular">Modalidade</td>
-            <td width="58%" class="MyriadProRegular">Nome Completo / Razão Social</td>
+            <td width="58%" class="MyriadProRegular">Nome Completo / Razï¿½o Social</td>
             <td width="24%" class="MyriadProRegular">Nome para contato</td>
           </tr>
           <tr>
@@ -132,7 +132,7 @@
           <div class="alinha_table">
             <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td width="16%" rowspan="2" class="MyriadProSemiboldIt">Criar usuário &gt;</td>
+                <td width="16%" rowspan="2" class="MyriadProSemiboldIt">Criar usuï¿½rio &gt;</td>
                 <td width="20%" class="MyriadProRegular">Email (login)</td>
                 <td width="20%" class="MyriadProRegular">Confirmar Email (login)</td>
                 <td width="20%" class="MyriadProRegular">Senha</td>
@@ -148,14 +148,14 @@
           </div>
         </div>
       </div>
-      <div class="end_correspondencia"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt">Endereço para correspondência</span> <br />
+      <div class="end_correspondencia"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt">Endereï¿½o para correspondï¿½ncia</span> <br />
         <br />
         <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr class="MyriadProRegular">
-            <td>Endereço</td>
+            <td>Endereï¿½o</td>
             <td>Estado</td>
             <td>Cidade</td>
-            <td>País</td>
+            <td>Paï¿½s</td>
             <td>CEP</td>
           </tr>
           
@@ -179,10 +179,10 @@
       <div class="planos_adesao">
         <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr>
-            <td><div><html:checkbox property="locadorEntity.recebeInfo" styleClass="MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Desejo receber informações  deste site no meu email</span></div></td>
+            <td><div><html:checkbox property="locadorEntity.recebeInfo" styleClass="MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Desejo receber informaï¿½ï¿½es  deste site no meu email</span></div></td>
           </tr>
           <tr>
-            <td><div><html:checkbox property="locadorEntity.leuCondicoes" styleClass="MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Li e aceito os termos e condições deste site</span></div></td>
+            <td><div><html:checkbox property="locadorEntity.leuCondicoes" styleClass="MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Li e aceito os termos e condiï¿½ï¿½es deste site</span></div></td>
           </tr>
         </table>
       </div>
