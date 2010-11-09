@@ -17,6 +17,10 @@
 		<class>br.com.db4.buskaza.model.entity.Pais</class>
 		<class>br.com.db4.buskaza.model.entity.Perfil</class>
 		<class>br.com.db4.buskaza.model.entity.Telefone</class>
+		<class>br.com.db4.buskaza.model.entity.Imovel</class>
+		<class>br.com.db4.buskaza.model.entity.Equipamento</class>
+		<class>br.com.db4.buskaza.model.entity.Foto</class>
+		<class>br.com.db4.buskaza.model.entity.Planta</class>
 	
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
