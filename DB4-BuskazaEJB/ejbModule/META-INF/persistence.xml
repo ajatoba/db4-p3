@@ -14,6 +14,7 @@
 		<class>br.com.db4.buskaza.model.entity.Endereco</class>
 		<class>br.com.db4.buskaza.model.entity.Estado</class>
 		<class>br.com.db4.buskaza.model.entity.Locador</class>
+		<class>br.com.db4.buskaza.model.entity.Locatario</class>
 		<class>br.com.db4.buskaza.model.entity.Pais</class>
 		<class>br.com.db4.buskaza.model.entity.Perfil</class>
 		<class>br.com.db4.buskaza.model.entity.Telefone</class>
@@ -36,6 +37,8 @@
 			-->
 			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
 			
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+
 			<property name="hibernate.cache.use_query_cache" value="true" />
 			<property name="hibernate.cache.use_second_level_cache" value="true" />
 			<property name="hibernate.cache.provider_class" value="net.sf.ehcache.hibernate.EhCacheProvider" />

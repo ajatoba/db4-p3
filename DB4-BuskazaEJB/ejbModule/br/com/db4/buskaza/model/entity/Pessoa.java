@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.validator.NotNull;
 
@@ -37,6 +38,7 @@ public class Pessoa extends Usuario implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "id_banco")  
+	@Transient
 	protected Banco banco;
 
 	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
