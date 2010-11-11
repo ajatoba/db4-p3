@@ -11,6 +11,9 @@
 		
 		<form-bean name="locadorForm"
 			type="br.com.db4.buskaza.controller.form.LocadorForm"></form-bean>
+			
+		<form-bean name="locatarioForm"
+			type="br.com.db4.buskaza.controller.form.LocatarioForm"></form-bean>
 		
 		<form-bean name="imovelForm"
 			type="br.com.db4.buskaza.controller.form.ImovelForm"></form-bean>
@@ -71,6 +74,16 @@
 			<forward name="formulario" path="/WEB-INF/jsp/cadastro/form_cadastro_in.jsp" />
 			<forward name="saida" path="/WEB-INF/jsp/cadastro/form_cadastro_out.jsp" />
 		</action>
+		
+		<action path="/locatario"
+			type="br.com.db4.buskaza.controller.action.LocatarioAction" parameter="act"
+			scope="request" name="locatarioForm" validate="true" input="/WEB-INF/jsp/locatario/form_locatario_in.jsp">
+
+			<forward name="formulario" path="/WEB-INF/jsp/locatario/form_locatario_in.jsp" />
+			<forward name="saida" path="/WEB-INF/jsp/locatario/form_locatario_out.jsp" />
+		</action>
+
+
 		-->
 	</action-mappings>
 
