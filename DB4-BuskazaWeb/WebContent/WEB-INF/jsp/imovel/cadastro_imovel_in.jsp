@@ -29,7 +29,7 @@
 <div id="bottom_header"><img src="/buzkaza/images/top_03.jpg" width="991" height="77" /></div>
 <!--CADASTRO-->
 
-<html:form method="post" styleId="imovelForm" action="/imovel?act=incluirImovel">
+<html:form method="post" styleId="imovelForm" action="/imovel?act=incluirImovel" enctype="multipart/form-data">
 
 
 <div id="cont_cadastro">
@@ -38,15 +38,16 @@
       <tr>
         <td>Upload de Fotos</td>
         <td><label for="fileField"></label>
-          <input type="file" name="fileField" id="fileField" />
-          <input type="file" name="fileField2" id="fileField2" />
-          <input type="file" name="fileField3" id="fileField3" />
-          <input type="file" name="fileField4" id="fileField4" />
-          <input type="file" name="fileField5" id="fileField5" /></td>
+        <html:file property="arquivoFoto[1]" /><br/>
+        <html:file property="arquivoFoto[2]" /><br/>
+        <html:file property="arquivoFoto[3]" /><br/>
+        <html:file property="arquivoFoto[4]" /><br/>
+        <html:file property="arquivoFoto[5]" /><br/>
+          </td>
       </tr>
       <tr>
         <td>Upload  da Planta </td>
-        <td><html:text property="planta"/></td>
+        <td><html:file property="planta" /></td>
       </tr>
       <tr>
         <td>Capacidade</td>
@@ -302,6 +303,7 @@ até
         <td>Ferramenta cria automaticamente</td>
       </tr>
     </table>
+    <html:submit value="ok"/>
     </html:form>
     <p><br />
   </p>

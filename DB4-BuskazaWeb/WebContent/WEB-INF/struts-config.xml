@@ -7,13 +7,8 @@
 	<!-- Form Bean Definitions -->
 	<form-beans>
 		<form-bean name="usuarioForm"
-			type="br.com.db4.buskaza.controller.form.UsuarioForm"></form-bean>
+			type="br.com.db4.buskaza.controller.form.UsuarioForm"></form-bean>	
 		
-		<form-bean name="locadorForm"
-			type="br.com.db4.buskaza.controller.form.LocadorForm"></form-bean>
-			
-		<form-bean name="locatarioForm"
-			type="br.com.db4.buskaza.controller.form.LocatarioForm"></form-bean>
 		
 		<form-bean name="imovelForm"
 			type="br.com.db4.buskaza.controller.form.ImovelForm"></form-bean>
@@ -40,15 +35,8 @@
 
 			<forward name="formulario" path="/WEB-INF/jsp/teaser/cadastro_teaser_in.jsp" />
 			<forward name="saida" path="/WEB-INF/jsp/teaser/cadastro_teaser_out.jsp" />
-		</action>
+		</action>		
 		
-		<action path="/locador"
-			type="br.com.db4.buskaza.controller.action.LocadorAction" parameter="act"
-			scope="request" name="locadorForm" validate="true" input="/WEB-INF/jsp/teaser/cadastro_teaser_in.jsp">
-
-			<forward name="formulario" path="/WEB-INF/jsp/teaser/cadastro_teaser_in.jsp" />
-			<forward name="saida" path="/WEB-INF/jsp/teaser/cadastro_teaser_out.jsp" />
-		</action>
 		
 		<action path="/imovel"
 			type="br.com.db4.buskaza.controller.action.ImovelAction" parameter="act"
@@ -58,33 +46,7 @@
 			<forward name="saida" path="/WEB-INF/jsp/imovel/cadastro_imovel_out.jsp" />
 		</action>
 		
-		<!-- 
-		<action path="/usuario"
-			type="br.com.db4.buskaza.controller.action.UsuarioAction" parameter="act"
-			scope="request" name="usuarioForm" validate="true" input="/WEB-INF/jsp/cadastro/form_cadastro_in.jsp">
-
-			<forward name="formulario" path="/WEB-INF/jsp/cadastro/form_cadastro_in.jsp" />
-			<forward name="saida" path="/WEB-INF/jsp/cadastro/form_cadastro_out.jsp" />
-		</action>
-		
-		<action path="/locador"
-			type="br.com.db4.buskaza.controller.action.LocadorAction" parameter="act"
-			scope="request" name="locadorForm" validate="true" input="/WEB-INF/jsp/cadastro/form_cadastro_in.jsp">
-
-			<forward name="formulario" path="/WEB-INF/jsp/cadastro/form_cadastro_in.jsp" />
-			<forward name="saida" path="/WEB-INF/jsp/cadastro/form_cadastro_out.jsp" />
-		</action>
-		
-		<action path="/locatario"
-			type="br.com.db4.buskaza.controller.action.LocatarioAction" parameter="act"
-			scope="request" name="locatarioForm" validate="true" input="/WEB-INF/jsp/locatario/form_locatario_in.jsp">
-
-			<forward name="formulario" path="/WEB-INF/jsp/locatario/form_locatario_in.jsp" />
-			<forward name="saida" path="/WEB-INF/jsp/locatario/form_locatario_out.jsp" />
-		</action>
-
-
-		-->
+	
 	</action-mappings>
 
 	<controller nocache="true" />
