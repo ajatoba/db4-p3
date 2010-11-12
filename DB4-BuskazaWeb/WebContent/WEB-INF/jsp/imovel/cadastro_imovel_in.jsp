@@ -27,9 +27,38 @@
 <div id="top_header"><img src="/buzkaza/images/top_01.jpg" width="991" height="31" /></div>
 <div id="meio_header"><img src="/buzkaza/images/top_02.jpg" width="991" height="86" /></div>
 <div id="bottom_header"><img src="/buzkaza/images/top_03.jpg" width="991" height="77" /></div>
+
+<!-- MENSAGEM DE ERRO -->
+    <font color="red">
+  
+		<logic:messagesPresent property="erro">
+			<html:messages property="erro" id="erro">
+				<div class="btn_erro"></div>
+        		<div class="msg_erro">
+        			<span class="MyriadErro">
+        				<bean:write name="erro"/>
+        			</span>
+        		</div>						
+			</html:messages>
+		</logic:messagesPresent>
+				
+		<logic:messagesNotPresent property="erro">
+			<logic:present name="erro">
+				<div class="btn_erro"></div>
+        		<div class="msg_erro">
+        			<span class="MyriadErro">
+        				<bean:write name="erro"/>
+        			</span>
+        		</div>	
+			</logic:present>
+				
+		</logic:messagesNotPresent>
+  	</font>
+    <!-- ****************** -->
+
 <!--CADASTRO-->
 
-<html:form method="post" styleId="imovelForm" action="/imovel?act=incluirImovel" enctype="multipart/form-data">
+<html:form method="post" styleId="imovelForm" action="/imovel.do?act=incluirImovel" enctype="multipart/form-data">
 
 
 <div id="cont_cadastro">
@@ -184,24 +213,38 @@
       </tr>
       <tr>
         <td>Energia</td>
-        <td><select name="select8" id="select8">
-        </select>           Se selecionar o Sim aparece um TextField para adicionar o Valor</td>
+        <td>
+        	<select name="energiaBoolean">
+	        		<option value="sim">Sim</option>
+	        		<option value="não">Não</option>
+	        </select>
+        	<html:text property="energia"/>
+
+		</td>
       </tr>
       <tr>
         <td>Internet </td>
-        <td><select name="select9" id="select9">
-        </select>
-          Se selecionar o Sim aparece um TextField para adicionar o Valor</td>
+        <td>
+	        <select name="internetBoolean">
+	        		<option value="sim">Sim</option>
+	        		<option value="não">Não</option>
+	        </select>
+        	<html:text property="internet"/>  
+		</td>
       </tr>
       <tr>
         <td>Diarista </td>
-        <td><select name="select10" id="select10">
-        </select>
-          Se selecionar o Sim aparece um TextField para adicionar o Valor</td>
+        <td>
+			<select name="diaristaBoolean">
+	        		<option value="sim">Sim</option>
+	        		<option value="não">Não</option>
+	        </select>
+        	<html:text property="diarista"/>
+		</td>
       </tr>
       <tr>
         <td>Outro</td>
-        <td><input type="text" name="textfield9" id="textfield9" /></td>
+        <td><html:text property="outraTaxaExtra"/></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -217,26 +260,68 @@
       </tr>
       <tr>
         <td>Calção</td>
-        <td><select name="select11" id="select11">
-        </select>
-Se selecionar o Sim aparece um TextField para adicionar o Valor</td>
+        <td>
+			<select name="calcaoBoolean">
+	        		<option value="sim">Sim</option>
+	        		<option value="não">Não</option>
+	        </select>
+        	<html:text property="calcao"/>
+		</td>
       </tr>
       <tr>
         <td>Horário Check In</td>
-        <td><input type="text" name="textfield10" id="textfield10" /> 
+        <td><html:select property="checkInEntradaHora">  
+				<html:option value="10">10</html:option>
+       			<html:option value="11">11</html:option>
+			</html:select>:
+			<html:select property="checkInEntradaMinuto">  
+				<html:option value="10">10</html:option>
+       			<html:option value="11">11</html:option>
+			</html:select>
           até
-          <input type="text" name="textfield12" id="textfield12" /></td>
+          <html:select property="checkInSaidaHora">  
+				<html:option value="10">10</html:option>
+       			<html:option value="11">11</html:option>
+			</html:select>:
+			<html:select property="checkInSaidaMinuto">  
+				<html:option value="10">10</html:option>
+       			<html:option value="11">11</html:option>
+			</html:select>			
+			</td>
       </tr>
       <tr>
         <td>Horário Check Out</td>
-        <td><input type="text" name="textfield11" id="textfield11" />
-até
-  <input type="text" name="textfield11" id="textfield13" /></td>
+        <td>
+        	<html:select property="checkOutEntradaHora">  
+				<html:option value="10">10</html:option>
+       			<html:option value="11">11</html:option>
+			</html:select>:
+			<html:select property="checkOutEntradaMinuto">  
+				<html:option value="10">10</html:option>
+       			<html:option value="11">11</html:option>
+			</html:select>
+          até
+          <html:select property="checkOutSaidaHora">  
+				<html:option value="10">10</html:option>
+       			<html:option value="11">11</html:option>
+			</html:select>:
+			<html:select property="checkOutSaidaMinuto">  
+				<html:option value="10">10</html:option>
+       			<html:option value="11">11</html:option>
+			</html:select>
+          </td>
       </tr>
       <tr>
         <td>Late Checkout</td>
         <td>Até 
-          <input type="text" name="textfield13" id="textfield14" /></td>
+          <html:select property="lateCheckOutHora">  
+				<html:option value="10">10</html:option>
+       			<html:option value="11">11</html:option>
+			</html:select>:
+			<html:select property="lateCheckOutMinuto">  
+				<html:option value="10">10</html:option>
+       			<html:option value="11">11</html:option>
+			</html:select></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -248,21 +333,15 @@ até
       </tr>
       <tr>
         <td>Nome</td>
-        <td><input type="text" name="textfield16" id="textfield17" /></td>
+        <td><html:text property="nomeCheckIn"/></td>
       </tr>
       <tr>
         <td>Telefone</td>
-        <td><input type="text" name="textfield15" id="textfield16" /></td>
+        <td><html:text property="telefone"/></td>
       </tr>
       <tr>
         <td>Quem receberá o hóspede</td>
-        <td><input type="text" name="textfield14" id="textfield15" /></td>
-      </tr>
-      <tr>
-        <td>Moeda</td>
-        <td><select name="select12" id="select12">
-        </select>
-          **Ao lado de cada sigla vai uma bandeirinha, rouba essa aqui depois a  gente muda <a href="http://www.only-apartments.com/imgs/curr/ue.png">http://www.only-apartments.com/imgs/curr/ue.png</a></td>
+        <td><html:text property="recepcionista"/></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -270,37 +349,36 @@ até
       </tr>
       <tr>
         <td>Tarifas</td>
-        <td><input type="text" name="textfield17" id="textfield18" /></td>
+        <td></td>
       </tr>
       <tr>
         <td>Diária: </td>
-        <td><input type="text" name="textfield18" id="textfield19" /></td>
+        <td><html:text property="tarifaDiaria"/></td>
       </tr>
       <tr>
         <td>Semanal:</td>
-        <td><input type="text" name="textfield19" id="textfield20" /></td>
+        <td><html:text property="tarifaSemanal"/></td>
       </tr>
       <tr>
         <td>Quinzenal</td>
-        <td><input type="text" name="textfield20" id="textfield21" /></td>
+        <td><html:text property="tarifaQuinzenal"/></td>
       </tr>
       <tr>
         <td>Mensal:</td>
-        <td><input type="text" name="textfield21" id="textfield22" /></td>
+        <td><html:text property="tarifaMensal"/></td>
       </tr>
       <tr>
         <td>Tarifas especiais:</td>
-        <td><select name="select13" id="select13">
-        </select>
-          Se selecionar  o Sim aparecem dois TextFields para adicionar a Descrição e o Valor.</td>
+        <td><select name="tarifasEspeciaisBoolean">
+	        		<option value="sim">Sim</option>
+	        		<option value="não">Não</option>
+	        </select>
+	        <html:text property="tarifaEspecialDescricao"/> - <html:text property="tarifaEspecialValor"/>
+	    </td>
       </tr>
       <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td><strong>ID  Anúncio</strong></td>
-        <td>Ferramenta cria automaticamente</td>
       </tr>
     </table>
     <html:submit value="ok"/>
