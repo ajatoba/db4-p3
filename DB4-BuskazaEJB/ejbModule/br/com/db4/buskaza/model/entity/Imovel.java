@@ -2,6 +2,7 @@ package br.com.db4.buskaza.model.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,9 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.validator.NotNull;
 
 @Entity
 @Table(name = "tb_imovel")
@@ -52,13 +56,9 @@ public class Imovel implements Serializable{
 	
 	private String linkGoogleMaps;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "id_estado")
 	private Estado estado;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_pais")
-	private Pais pais;
 	
 	private String municipio;
 	
@@ -70,20 +70,213 @@ public class Imovel implements Serializable{
 	@JoinTable(name ="tb_imovel_equipamento")    
 	private Collection<Equipamento> equipamentos;
 	
+	private double energia;
+	
+	private double internet;
+	
+	private double diarista;
+	
+	private String outraTaxaExtra; 
+	
+	private String condicoes;
+	
+	private double calcao;
+	
+	private Date checkInEntrada;
+	
+	private Date checkInSaida;
+	
+	private Date checkOutEntrada;
+	
+	private Date checkOutSaida; 
+	
+	private Date lateCheckOut;
+	
+	private String nomeCheckIn;
+	
+	private String telefone;
+	
+	private String recepcionista;
+	
+	private double tarifaDiaria; 
+	
+	private double tarifaSemanal;
+	
+	private double tarifaQuinzenal;
+	
+	private double tarifaMensal;
+	
+	private String tarifaEspecialDescricao;
+	
+	private double tarifaEspecialValor; 
+	
+	
+	public double getEnergia() {
+		return energia;
+	}
+
+	public void setEnergia(double energia) {
+		this.energia = energia;
+	}
+
+	public double getInternet() {
+		return internet;
+	}
+
+	public void setInternet(double internet) {
+		this.internet = internet;
+	}
+
+	public double getDiarista() {
+		return diarista;
+	}
+
+	public void setDiarista(double diarista) {
+		this.diarista = diarista;
+	}
+
+	public String getOutro() {
+		return outraTaxaExtra;
+	}
+
+	public void setOutro(String outro) {
+		this.outraTaxaExtra = outro;
+	}
+
+	public String getCondicoes() {
+		return condicoes;
+	}
+
+	public void setCondicoes(String condicoes) {
+		this.condicoes = condicoes;
+	}
+
+	public double getCalcao() {
+		return calcao;
+	}
+
+	public void setCalcao(double calcao) {
+		this.calcao = calcao;
+	}
+
+	public Date getCheckInEntrada() {
+		return checkInEntrada;
+	}
+
+	public void setCheckInEntrada(Date checkInEntrada) {
+		this.checkInEntrada = checkInEntrada;
+	}
+
+	public Date getCheckInSaida() {
+		return checkInSaida;
+	}
+
+	public void setCheckInSaida(Date checkInSaida) {
+		this.checkInSaida = checkInSaida;
+	}
+
+	public Date getCheckOutEntrada() {
+		return checkOutEntrada;
+	}
+
+	public void setCheckOutEntrada(Date checkOutEntrada) {
+		this.checkOutEntrada = checkOutEntrada;
+	}
+
+	public Date getCheckOutSaida() {
+		return checkOutSaida;
+	}
+
+	public void setCheckOutSaida(Date checkOutSaida) {
+		this.checkOutSaida = checkOutSaida;
+	}
+
+	public Date getLateCheckOut() {
+		return lateCheckOut;
+	}
+
+	public void setLateCheckOut(Date lateCheckOut) {
+		this.lateCheckOut = lateCheckOut;
+	}
+
+	public String getNomeCheckIn() {
+		return nomeCheckIn;
+	}
+
+	public void setNomeCheckIn(String nomeCheckIn) {
+		this.nomeCheckIn = nomeCheckIn;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getRecepcionista() {
+		return recepcionista;
+	}
+
+	public void setRecepcionista(String recepcionista) {
+		this.recepcionista = recepcionista;
+	}
+
+	public double getTarifaDiaria() {
+		return tarifaDiaria;
+	}
+
+	public void setTarifaDiaria(double tarifaDiaria) {
+		this.tarifaDiaria = tarifaDiaria;
+	}
+
+	public double getTarifaSemanal() {
+		return tarifaSemanal;
+	}
+
+	public void setTarifaSemanal(double tarifaSemanal) {
+		this.tarifaSemanal = tarifaSemanal;
+	}
+
+	public double getTarifaQuinzenal() {
+		return tarifaQuinzenal;
+	}
+
+	public void setTarifaQuinzenal(double tarifaQuinzenal) {
+		this.tarifaQuinzenal = tarifaQuinzenal;
+	}
+
+	public double getTarifaMensal() {
+		return tarifaMensal;
+	}
+
+	public void setTarifaMensal(double tarifaMensal) {
+		this.tarifaMensal = tarifaMensal;
+	}
+
+	public String getTarifaEspecialDescricao() {
+		return tarifaEspecialDescricao;
+	}
+
+	public void setTarifaEspecialDescricao(String tarifaEspecialDescricao) {
+		this.tarifaEspecialDescricao = tarifaEspecialDescricao;
+	}
+
+	public double getTarifaEspecialValor() {
+		return tarifaEspecialValor;
+	}
+
+	public void setTarifaEspecialValor(double tarifaEspecialValor) {
+		this.tarifaEspecialValor = tarifaEspecialValor;
+	}
+
 	public Estado getEstado() {
 		return estado;
 	}
 
 	public void setEstado(Estado estado) {
 		this.estado = estado;
-	}
-
-	public Pais getPais() {
-		return pais;
-	}
-
-	public void setPais(Pais pais) {
-		this.pais = pais;
 	}
 
 	public String getMunicipio() {
