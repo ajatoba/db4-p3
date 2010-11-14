@@ -29,5 +29,10 @@ public class ImovelBean implements ImovelBeanLocal {
 		return imovel.getCodigo();
 
 	}
+	
+	public void altualiza(Imovel imovel) {		
+			em.merge(imovel);
+		
+	}
 
 }

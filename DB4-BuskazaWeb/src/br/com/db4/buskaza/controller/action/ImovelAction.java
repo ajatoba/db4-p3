@@ -1,5 +1,7 @@
 package br.com.db4.buskaza.controller.action;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -13,12 +15,16 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.apache.struts.actions.DispatchAction;
+import org.apache.struts.upload.FormFile;
 
 import br.com.db4.buskaza.controller.exception.ValidacaoFormException;
 import br.com.db4.buskaza.controller.form.ImovelForm;
+import br.com.db4.buskaza.controller.helper.ImageHelper;
 import br.com.db4.buskaza.controller.util.Constants;
 import br.com.db4.buskaza.model.entity.Equipamento;
+import br.com.db4.buskaza.model.entity.Foto;
 import br.com.db4.buskaza.model.entity.Imovel;
+import br.com.db4.buskaza.model.entity.Usuario;
 import br.com.db4.buskaza.model.equipamento.ejb.EquipamentoBeanLocal;
 import br.com.db4.buskaza.model.estado.ejb.EstadoBeanLocal;
 import br.com.db4.buskaza.model.imovel.ejb.ImovelBeanLocal;
@@ -57,6 +63,8 @@ public class ImovelAction extends DispatchAction {
 		return mapping.findForward(Constants.FORWARD_SAIDA);
 	}
 	
+
+	
 	private void carregaListas(HttpServletRequest request) {
 
 		try {
@@ -75,7 +83,7 @@ public class ImovelAction extends DispatchAction {
 		
 	}
 	
-	private Imovel popularImovel(ImovelForm form) throws ValidacaoFormException {
+	private Imovel popularImovel(ImovelForm form) throws ValidacaoFormException, FileNotFoundException, IOException {
 		
 		Imovel imovel = form.getImovelEntity();	
 		
@@ -137,6 +145,24 @@ public class ImovelAction extends DispatchAction {
 		imovel.setTelefone(form.getTelefone());
 		imovel.setTransportePublico(form.isTransportePublico());
 		
+		
+		Usuario proprietario = new Usuario();
+		//TODO tirar o usuário hardcode e adicionar usuario logado.
+		proprietario.setCodigo(1);
+		
+		imovel.setUsuarioProprietario(proprietario);
+		
+		Collection<Foto> fotosImovel = new ArrayList<Foto>();
+		Collection<FormFile> fotos = form.getFotos();
+		for (FormFile formFile : fotos) {
+			if (formFile.getFileData()!= null && formFile.getFileData().length > 0){
+				fotosImovel.add(ImageHelper.gerarArquivo(formFile));
+			}
+		}
+		
+		if(fotosImovel!= null && fotosImovel.size() > 0){
+			imovel.setFotos(fotosImovel);
+		}
 		return imovel;
 	}
 }

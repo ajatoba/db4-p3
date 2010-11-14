@@ -12,5 +12,7 @@ public interface UsuarioBeanLocal {
 	public Integer incluirUsuario(Usuario usuario);
 
 	public Boolean existeLogin(String email);
+	
+	public Boolean existeCNPJCPF(String cnpjcpf);
 
 }

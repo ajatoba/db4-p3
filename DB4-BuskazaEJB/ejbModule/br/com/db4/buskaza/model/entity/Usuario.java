@@ -6,8 +6,6 @@ import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinTable;
@@ -23,18 +21,14 @@ import org.hibernate.validator.NotNull;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "tb_usuario")
-public class Usuario implements Serializable {
+public class Usuario extends Pessoa implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue
-	@Column(name = "id_cadastro")
-	protected Integer codigo;
-	
+	private static final long serialVersionUID = 1L;	
+
+		
 	@NotNull
 	@Column(unique = true)
 	protected String email;
@@ -49,6 +43,9 @@ public class Usuario implements Serializable {
 	protected boolean recebeInfo;
 	
 	protected boolean leuCondicoes;
+	
+	@NotNull
+	protected String nomeContato;
 	
 	public boolean isRecebeInfo() {
 		return recebeInfo;
@@ -65,15 +62,7 @@ public class Usuario implements Serializable {
 	public void setLeuCondicoes(boolean leuCondicoes) {
 		this.leuCondicoes = leuCondicoes;
 	}
-
-	public Integer getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
-	}
-
+	
 	public String getEmail() {
 		return email;
 	}
@@ -97,5 +86,15 @@ public class Usuario implements Serializable {
 	public void setPerfis(Collection<Perfil> perfis) {
 		this.perfis = perfis;
 	}
+
+	public String getNomeContato() {
+		return nomeContato;
+	}
+
+	public void setNomeContato(String nomeContato) {
+		this.nomeContato = nomeContato;
+	}
+	
+	
 
 }

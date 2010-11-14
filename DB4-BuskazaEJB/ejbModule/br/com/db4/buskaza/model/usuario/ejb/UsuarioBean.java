@@ -40,5 +40,15 @@ public class UsuarioBean implements UsuarioBeanLocal {
 		List<Pessoa> lista = query.getResultList();
 		return (lista != null && lista.size() > 0);
 	}
+	
+	public Boolean existeCNPJCPF(String cpfCnpj) {
+
+		Query query = em.createQuery("select x from Pessoa x where x.cpfCnpj = :cpfCnpj ");
+		query.setParameter("cpfCnpj", cpfCnpj);
+
+		List<Pessoa> lista = query.getResultList();
+		return (lista != null && lista.size() > 0);
+
+	}
 
 }

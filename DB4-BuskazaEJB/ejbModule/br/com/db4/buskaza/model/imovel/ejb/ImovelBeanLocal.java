@@ -10,4 +10,6 @@ public interface ImovelBeanLocal {
 	public static String LOCAL = "ejb/ImovelBean/local";
 	
 	public Integer incluirImovel(Imovel imovel);
+	
+	public void altualiza(Imovel imovel);
 }

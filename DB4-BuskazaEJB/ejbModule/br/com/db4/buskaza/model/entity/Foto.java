@@ -54,5 +54,4 @@ public class Foto implements Serializable{
 		this.caminhoThumbnail = caminhoThumbnail;
 	}
 	
-	
 }

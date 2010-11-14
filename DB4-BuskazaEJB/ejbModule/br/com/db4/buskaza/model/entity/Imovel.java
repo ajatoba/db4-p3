@@ -30,10 +30,9 @@ public class Imovel implements Serializable{
 	@GeneratedValue
 	@Column(name = "id_imovel")
 	private Integer codigo;
-	
-	@OneToMany(fetch = FetchType.LAZY)	
-	@JoinTable(name ="tb_foto")
-	@JoinColumn(name = "id_foto")
+		
+	@OneToMany(cascade = { CascadeType.PERSIST }, fetch=FetchType.EAGER)	
+	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
 	private Collection<Foto> fotos;
 	
 	@OneToOne(cascade = CascadeType.ALL)
@@ -109,6 +108,11 @@ public class Imovel implements Serializable{
 	private String tarifaEspecialDescricao;
 	
 	private double tarifaEspecialValor; 
+	
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name="id_usuario_proprietario")
+	private Usuario usuarioProprietario;
 	
 	
 	public double getEnergia() {
@@ -398,6 +402,13 @@ public class Imovel implements Serializable{
 	public void setEquipamentos(Collection<Equipamento> equipamentos) {
 		this.equipamentos = equipamentos;
 	}
-	
+
+	public Usuario getUsuarioProprietario() {
+		return usuarioProprietario;
+	}
+
+	public void setUsuarioProprietario(Usuario usuarioProprietario) {
+		this.usuarioProprietario = usuarioProprietario;
+	}	
 	
 }
