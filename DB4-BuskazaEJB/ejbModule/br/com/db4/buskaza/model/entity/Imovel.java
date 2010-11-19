@@ -17,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.validator.NotNull;
 
@@ -81,14 +83,19 @@ public class Imovel implements Serializable{
 	
 	private double calcao;
 	
+	@Temporal(TemporalType.TIME) 
 	private Date checkInEntrada;
 	
+	@Temporal(TemporalType.TIME)
 	private Date checkInSaida;
 	
+	@Temporal(TemporalType.TIME)
 	private Date checkOutEntrada;
 	
+	@Temporal(TemporalType.TIME)
 	private Date checkOutSaida; 
 	
+	@Temporal(TemporalType.TIME)
 	private Date lateCheckOut;
 	
 	private String nomeCheckIn;

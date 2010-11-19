@@ -14,5 +14,9 @@ public interface UsuarioBeanLocal {
 	public Boolean existeLogin(String email);
 	
 	public Boolean existeCNPJCPF(String cnpjcpf);
+	
+	public Usuario autenticarUsuario(String login, String senha);
+	
+	public Usuario autenticarAdministrador(String login, String senha);
 
 }

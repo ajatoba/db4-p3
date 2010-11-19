@@ -19,6 +19,7 @@ import br.com.db4.buskaza.controller.exception.ValidacaoFormException;
 import br.com.db4.buskaza.controller.form.UsuarioForm;
 import br.com.db4.buskaza.controller.util.Constants;
 import br.com.db4.buskaza.model.banco.ejb.BancoBeanLocal;
+import br.com.db4.buskaza.model.entity.Perfil;
 import br.com.db4.buskaza.model.entity.Telefone;
 import br.com.db4.buskaza.model.entity.Usuario;
 import br.com.db4.buskaza.model.estado.ejb.EstadoBeanLocal;
@@ -39,6 +40,14 @@ public class UsuarioAction extends DispatchAction {
 			UsuarioForm locadorForm = (UsuarioForm) form;
 			
 			Usuario usuario = popularUsuario(locadorForm);	
+			
+			//perfil de usuario
+			Perfil p = new Perfil();
+			p.setCodigo(2);
+			Collection<Perfil> perfis = new ArrayList<Perfil>();
+			perfis.add(p);			
+			usuario.setPerfis(perfis);
+			
 			
 			if (locadorForm.getSenhaConfirma() == null || (!locadorForm.getSenhaConfirma().equalsIgnoreCase(usuario.getSenha()))) {
 				throw new ValidacaoFormException("message.erro.validacao.senha");
@@ -146,5 +155,23 @@ public class UsuarioAction extends DispatchAction {
 		}		
 				
 		return usuario;
+	}
+	
+	public ActionForward autenticarUsuario(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response)  {
+		try{
+			UsuarioForm usuarioForm = (UsuarioForm) form;	
+			
+			UsuarioBeanLocal usuarioEjb = (UsuarioBeanLocal) ServiceLocator.getInstance().locateEJB(UsuarioBeanLocal.LOCAL);
+			Usuario usuario = usuarioEjb.autenticarUsuario(usuarioForm.getUsuarioEntity().getEmail(), usuarioForm.getUsuarioEntity().getSenha());
+			
+			return mapping.findForward("");
+		
+		} catch ( final Exception e ) {
+			
+		    final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    return formIncluirUsuario(mapping, form, request, response);		
+		}	
 	}
 }
