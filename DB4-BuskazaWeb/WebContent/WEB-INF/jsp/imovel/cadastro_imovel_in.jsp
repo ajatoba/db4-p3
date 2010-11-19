@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 	<script language="javascript">
 		$(function(){
-			$('#form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
+			$('#usuarioForm').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
 		});
 	</script>
 <link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
