@@ -94,7 +94,7 @@
       		  </html:select>            
             </td>
             <td height="50">
-            	<html:text property="usuarioEntity.nome" title="Nome" styleClass="string,MyriadProRegular"/>
+            	<html:text property="usuarioEntity.nome" title="Nome" size="50" styleClass="string,MyriadProRegular"/>
             </td>
             <td>
             	<html:text property="usuarioEntity.nomeContato" title="Nome do contato" styleClass="string,MyriadProRegular" />
@@ -116,10 +116,10 @@
             <td><table width="100%" border="0" cellspacing="5" cellpadding="0">
               <tr>
                 <td width="28%">
-                	<html:text size="3" title="DDD Fixo" maxlength="3" property="dddFixo" styleClass="number,MyriadProRegular" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
+                	<html:text size="6" title="DDD Fixo" maxlength="3" property="dddFixo" styleClass="number,MyriadProRegular" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
                 </td>
                 <td width="72%">
-                   	<html:text title="Numero fixo" property="numeroFixo" styleClass="number,MyriadProRegular" maxlength="8" size="8" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
+                   	<html:text title="Numero fixo" property="numeroFixo" styleClass="number,MyriadProRegular" maxlength="8" size="18" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
                 </td>
               </tr>
             </table></td>
