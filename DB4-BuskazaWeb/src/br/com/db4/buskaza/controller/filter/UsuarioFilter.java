@@ -10,6 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.db4.buskaza.controller.util.Constants;
 import br.com.db4.buskaza.model.entity.Usuario;
 
 /**
@@ -39,7 +40,7 @@ public class UsuarioFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		
-		Usuario usuario = req.getSession().getAttribute("usuario")!=null?(Usuario)req.getSession().getAttribute("usuario"):null;
+		Usuario usuario = req.getSession().getAttribute(Constants.USUARIO_SESSAO)!=null?(Usuario)req.getSession().getAttribute(Constants.USUARIO_SESSAO):null;
 		if (usuario == null){
 			//redireciona para tela de login			
             request.getRequestDispatcher( "/WEB-INF/jsp/login_usuario.jsp" ).forward( request, resp );           

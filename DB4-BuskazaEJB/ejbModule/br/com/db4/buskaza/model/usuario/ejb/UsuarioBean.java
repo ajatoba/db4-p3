@@ -17,7 +17,6 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.ejb.EntityManagerImpl;
 import org.hibernate.sql.JoinFragment;
 import org.jboss.ejb3.annotation.LocalBinding;
-import org.jboss.ejb3.entity.HibernateSession;
 
 import br.com.db4.buskaza.model.entity.Pessoa;
 import br.com.db4.buskaza.model.entity.Usuario;
@@ -58,31 +57,8 @@ public class UsuarioBean implements UsuarioBeanLocal {
 
 	}
 
-	public Usuario autenticarAdministrador(String login, String senha) {
-
-		HibernateSession hs = (HibernateSession) em;
-		Session session = hs.getHibernateSession();
-		Criteria criteria = session.createCriteria(Usuario.class);
-		criteria.setCacheable(true);
-		criteria.setCacheMode(CacheMode.NORMAL);
-		
-		if (login != null && login.length() > 0) {
-			criteria.add(Restrictions.eq("email", login));
-		}
-		
-		if (senha != null && senha.length() > 0) {
-			criteria.add(Restrictions.eq("senha", senha));
-		}
-		
-		List result = criteria.list();
-		
-		return (result!= null && result.size() > 0)?(Usuario)result.get(0):null;
-
-	}
-
-	public Usuario autenticarUsuario(String login, String senha) {
-//		HibernateSession hs = (HibernateSession) em;
-//		Session session = hs.getHibernateSession();
+	
+	public Usuario autenticarUsuario(String login, String senha, Integer tipoPerfil) {
 		
 		Session session;  
 		if (em.getDelegate() instanceof EntityManagerImpl) {  
@@ -105,14 +81,11 @@ public class UsuarioBean implements UsuarioBeanLocal {
 			criteria.add(Restrictions.eq("senha", senha));
 		}
 		
-		Criteria linesCritera = criteria.createCriteria("perfis", JoinFragment.INNER_JOIN);
-		//criteria.createAlias("perfis", "lines", JoinFragment.INNER_JOIN);
-	
-		linesCritera.add (Restrictions.eq("codigo", 1));
+		Criteria linesCritera = criteria.createCriteria("perfis", JoinFragment.INNER_JOIN);	
+		linesCritera.add (Restrictions.eq("codigo", tipoPerfil)); //Tipo de perfil de usuario
 		
 		criteria.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
-		List result = criteria.list();
-		
+		List result = criteria.list();		
 		return (result!= null && result.size() > 0)?(Usuario)result.get(0):null;
 	}
 

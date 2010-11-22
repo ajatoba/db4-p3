@@ -162,7 +162,9 @@ public class UsuarioAction extends DispatchAction {
 			UsuarioForm usuarioForm = (UsuarioForm) form;	
 			
 			UsuarioBeanLocal usuarioEjb = (UsuarioBeanLocal) ServiceLocator.getInstance().locateEJB(UsuarioBeanLocal.LOCAL);
-			Usuario usuario = usuarioEjb.autenticarUsuario(usuarioForm.getUsuarioEntity().getEmail(), usuarioForm.getUsuarioEntity().getSenha());
+			Usuario usuario = usuarioEjb.autenticarUsuario(usuarioForm.getUsuarioEntity().getEmail(), usuarioForm.getUsuarioEntity().getSenha(),Constants.tipoPerfilUsuario);
+			
+			request.getSession().setAttribute(Constants.USUARIO_SESSAO, usuario);
 			
 			return mapping.findForward("");
 		
@@ -173,5 +175,59 @@ public class UsuarioAction extends DispatchAction {
 		    saveErrors( request, actionErrors );
 		    return formIncluirUsuario(mapping, form, request, response);		
 		}	
+	}
+	
+	public ActionForward autenticarAdministrador(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response)  {
+		try{
+			UsuarioForm usuarioForm = (UsuarioForm) form;	
+			
+			UsuarioBeanLocal usuarioEjb = (UsuarioBeanLocal) ServiceLocator.getInstance().locateEJB(UsuarioBeanLocal.LOCAL);
+			Usuario usuario = usuarioEjb.autenticarUsuario(usuarioForm.getUsuarioEntity().getEmail(), usuarioForm.getUsuarioEntity().getSenha(), Constants.tipoPerfilAdministrador);
+			
+			request.getSession().setAttribute(Constants.ADMIN_SESSAO, usuario);
+			
+			return mapping.findForward("");
+		
+		} catch ( final Exception e ) {
+			
+		    final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    return formIncluirUsuario(mapping, form, request, response);		
+		}	
+	}
+	
+	public ActionForward logofAdministrador(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response)  {
+		try{
+			
+			request.getSession().removeAttribute(Constants.ADMIN_SESSAO);	
+			
+			return mapping.findForward("");
+		
+		} catch ( final Exception e ) {
+			
+		    final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    return formIncluirUsuario(mapping, form, request, response);		
+		}
+	
+	}
+	
+	public ActionForward logofUsuario(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response)  {
+		try{
+			
+			request.getSession().removeAttribute(Constants.USUARIO_SESSAO);	
+			
+			return mapping.findForward("");
+		
+		} catch ( final Exception e ) {
+			
+		    final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    return formIncluirUsuario(mapping, form, request, response);		
+		}
+	
 	}
 }

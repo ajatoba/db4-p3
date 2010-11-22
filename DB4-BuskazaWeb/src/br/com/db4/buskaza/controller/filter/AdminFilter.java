@@ -10,6 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.db4.buskaza.controller.util.Constants;
 import br.com.db4.buskaza.model.entity.Usuario;
 
 /**
@@ -38,7 +39,7 @@ public class AdminFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		
-		Usuario usuario = req.getSession().getAttribute("usuario_admin")!=null?(Usuario)req.getSession().getAttribute("usuario_admin"):null;
+		Usuario usuario = req.getSession().getAttribute(Constants.ADMIN_SESSAO)!=null?(Usuario)req.getSession().getAttribute(Constants.ADMIN_SESSAO):null;
 		if (usuario == null){
 			//redireciona para tela de login			
             request.getRequestDispatcher( "/WEB-INF/jsp/login_admin.jsp" ).forward( request, resp );           
