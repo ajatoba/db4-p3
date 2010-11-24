@@ -22,7 +22,7 @@ public class ImovelForm extends ActionForm {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Imovel imovelEntity;
+	protected Imovel imovelEntity;
 	
 	private FormFile planta;
 	
@@ -32,9 +32,9 @@ public class ImovelForm extends ActionForm {
 	
 	private int indexFotos;
 	
-	private Integer[] equipamentos;
+	protected Integer[] equipamentos;
 	
-	private Integer capacidade;
+	protected Integer capacidade;
 	
 	private Integer quartos;
 	
@@ -50,9 +50,9 @@ public class ImovelForm extends ActionForm {
 	
 	private String linkGoogleMaps;
 	
-	private Integer estado;
+	protected String estado;
 	
-	private Integer pais;
+	protected Integer pais;
 	
 	private String municipio;
 	
@@ -486,11 +486,11 @@ public class ImovelForm extends ActionForm {
 		this.linkGoogleMaps = linkGoogleMaps;
 	}
 
-	public Integer getEstado() {
+	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Integer estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
