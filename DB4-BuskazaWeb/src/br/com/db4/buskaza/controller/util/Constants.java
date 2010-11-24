@@ -21,5 +21,10 @@ public interface Constants {
 	public static final Integer tipoPerfilAdministrador = 1;
 	
 	public static final Integer tipoPerfilUsuario = 2;
+	
+	public static final String FORWARD_ENTRADA_BUSCA_AVANCADA_IMOVEIS = "formulario_busca";
+	
+	public static final String FORWARD_SAIDA_BUSCA_AVANCADA_IMOVEIS = "resultado_busca";
+	
 
 }
