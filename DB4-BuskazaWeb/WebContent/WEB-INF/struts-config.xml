@@ -7,12 +7,10 @@
 	<!-- Form Bean Definitions -->
 	<form-beans>
 		<form-bean name="usuarioForm"
-			type="br.com.db4.buskaza.controller.form.UsuarioForm"></form-bean>	
-		
-		
+			type="br.com.db4.buskaza.controller.form.UsuarioForm"></form-bean>		
 		<form-bean name="imovelForm"
-			type="br.com.db4.buskaza.controller.form.ImovelForm"></form-bean>
-
+			type="br.com.db4.buskaza.controller.form.ImovelForm"></form-bean>		
+		
 	</form-beans>
 
 	<global-exceptions>
@@ -44,9 +42,13 @@
 
 			<forward name="formulario" path="/WEB-INF/jsp/imovel/cadastro_imovel_in.jsp" />
 			<forward name="saida" path="/WEB-INF/jsp/imovel/cadastro_imovel_out.jsp" />
+			
+			<forward name="formulario_busca" path="/WEB-INF/jsp/imovel/busca_avancada_imovel_in.jsp" />
+			<forward name="resultado_busca" path="/WEB-INF/jsp/imovel/busca_avancada_imovel_out.jsp" />
+			
 		</action>
 		
-	
+
 	</action-mappings>
 
 	<controller nocache="true" />
