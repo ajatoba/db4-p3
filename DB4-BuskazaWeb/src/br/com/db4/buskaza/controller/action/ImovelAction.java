@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,13 +40,17 @@ public class ImovelAction extends DispatchAction {
 		return mapping.findForward(Constants.FORWARD_ENTRADA);
 	}
 	
+	public ActionForward formBuscarImovel(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response)  {
+		
+		carregaListas(request);		
+		return mapping.findForward(Constants.FORWARD_ENTRADA_BUSCA_AVANCADA_IMOVEIS);
+	}
+	
 	public ActionForward incluirImovel(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
 		
 		try {
 			
 			ImovelForm imovelForm = (ImovelForm)form;			
-			
-			System.out.println("LINK GMAPS=" + imovelForm.getLinkGoogleMaps());
 			
 			Imovel imovel = popularImovel(imovelForm);			
 			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
@@ -61,6 +66,33 @@ public class ImovelAction extends DispatchAction {
 		}
 		
 		return mapping.findForward(Constants.FORWARD_SAIDA);
+	}
+	
+	public ActionForward buscarImovel(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
+		
+		List<Imovel> imoveis = null;
+		
+		try {
+				
+			ImovelForm imovelForm = (ImovelForm)form;			
+			
+			Imovel imovel = popularImovel(imovelForm);			
+			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
+			
+			imoveis = imovelEjb.buscarImovel(imovel);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    return formBuscarImovel(mapping, form, request, response);
+		    
+		}
+		
+		request.setAttribute("imoveis", imoveis);
+		
+		return mapping.findForward(Constants.FORWARD_SAIDA_BUSCA_AVANCADA_IMOVEIS);
 	}
 	
 
@@ -87,7 +119,7 @@ public class ImovelAction extends DispatchAction {
 		
 		Imovel imovel = form.getImovelEntity();	
 		
-		Date checkInEntrada, checkInSaida, checkOutEntrada,checkOutSaida,lateCheckOut;
+		Date checkInEntrada=null, checkInSaida=null, checkOutEntrada=null,checkOutSaida=null,lateCheckOut=null;
 		Collection<Equipamento> equipamentos = null;
 		Equipamento equipamento = null;
 		
@@ -103,12 +135,21 @@ public class ImovelAction extends DispatchAction {
 				equipamentos.add(equipamento);
 			}			
 		}
-				
-		checkInEntrada = new Date(0,0,0,form.getCheckInEntradaHora().intValue(), form.getCheckInEntradaMinuto().intValue());
-		checkInSaida = new Date(0,0,0,form.getCheckInSaidaHora().intValue(), form.getCheckInSaidaMinuto().intValue());
-		checkOutEntrada = new Date(0,0,0,form.getCheckOutEntradaHora().intValue(), form.getCheckOutEntradaMinuto().intValue());
-		checkOutSaida = new Date(0,0,0,form.getCheckOutSaidaHora().intValue(), form.getCheckOutSaidaMinuto().intValue());
-		lateCheckOut = new Date(0,0,0,form.getLateCheckOutHora().intValue(), form.getLateCheckOutMinuto().intValue());
+		
+		if(form.getCheckInEntradaHora() != null && form.getCheckInEntradaMinuto()!= null)		
+			checkInEntrada = new Date(0,0,0,form.getCheckInEntradaHora().intValue(), form.getCheckInEntradaMinuto().intValue());
+		
+		if(form.getCheckInSaidaHora() != null && form.getCheckInSaidaMinuto() != null)
+			checkInSaida = new Date(0,0,0,form.getCheckInSaidaHora().intValue(), form.getCheckInSaidaMinuto().intValue());
+		
+		if (form.getCheckOutEntradaHora() != null && form.getCheckOutEntradaMinuto()!=null)
+			checkOutEntrada = new Date(0,0,0,form.getCheckOutEntradaHora().intValue(), form.getCheckOutEntradaMinuto().intValue());
+		
+		if(form.getCheckOutSaidaHora()!=null && form.getCheckOutSaidaMinuto()!=null)
+			checkOutSaida = new Date(0,0,0,form.getCheckOutSaidaHora().intValue(), form.getCheckOutSaidaMinuto().intValue());
+		
+		if(form.getLateCheckOutHora()!=null && form.getLateCheckOutMinuto()!=null)
+			lateCheckOut = new Date(0,0,0,form.getLateCheckOutHora().intValue(), form.getLateCheckOutMinuto().intValue());
 		
 		imovel.setEquipamentos(equipamentos);
 		imovel.setCheckInEntrada(checkInEntrada);
@@ -119,31 +160,81 @@ public class ImovelAction extends DispatchAction {
 		
 		//Setando demais atributos do form
 		imovel.setCalcao(form.getCalcao());
-		imovel.setCamas(form.getCamas());
-		imovel.setCapacidade(form.getCapacidade());
-		imovel.setComplemento(form.getComplemento());
-		imovel.setCondicoes(form.getCondicoes());
-		imovel.setDiarista(form.getDiarista());
-		imovel.setDistanciaCentro(form.getDistanciaCentro());
-		imovel.setEnergia(form.getEnergia());
-		imovel.setIdiomas(form.getIdiomas());
-		imovel.setInternet(form.getInternet());
-		imovel.setLinkGoogleMaps(form.getLinkGoogleMaps());
-		imovel.setLogradouro(form.getLogradouro());
-		imovel.setMetragem(form.getMetragem());
-		imovel.setMunicipio(form.getMunicipio());
-		imovel.setNomeCheckIn(form.getNomeCheckIn());
-		imovel.setOutro(form.getOutraTaxaExtra());
-		imovel.setQuartos(form.getQuartos());
-		imovel.setRecepcionista(form.getRecepcionista());
-		imovel.setTarifaDiaria(form.getTarifaDiaria());
-		imovel.setTarifaEspecialDescricao(form.getTarifaEspecialDescricao());
-		imovel.setTarifaEspecialValor(form.getTarifaEspecialValor());
-		imovel.setTarifaMensal(form.getTarifaMensal());
-		imovel.setTarifaQuinzenal(form.getTarifaQuinzenal());
-		imovel.setTarifaSemanal(form.getTarifaSemanal());
-		imovel.setTelefone(form.getTelefone());
-		imovel.setTransportePublico(form.isTransportePublico());
+		
+		if (form.getCamas() != null )
+			imovel.setCamas(form.getCamas());
+		
+		if(form.getCapacidade() != null)
+			imovel.setCapacidade(form.getCapacidade());
+		
+		if(form.getComplemento()!= null )
+			imovel.setComplemento(form.getComplemento());
+		
+		if(form.getCondicoes()!= null )
+			imovel.setCondicoes(form.getCondicoes());
+		
+		if(form.getDiarista() >0  )
+			imovel.setDiarista(form.getDiarista());
+		
+		if(form.getDistanciaCentro() > 0 )
+			imovel.setDistanciaCentro(form.getDistanciaCentro());
+		
+		if(form.getEnergia() > 0 )
+			imovel.setEnergia(form.getEnergia());
+		
+		if(form.getIdiomas()!= null )
+			imovel.setIdiomas(form.getIdiomas());
+		
+		if(form.getInternet()> 0 )
+			imovel.setInternet(form.getInternet());
+		
+		if(form.getLinkGoogleMaps()!= null )
+			imovel.setLinkGoogleMaps(form.getLinkGoogleMaps());
+		
+		if(form.getLogradouro()!= null )
+			imovel.setLogradouro(form.getLogradouro());
+		
+		if(form.getMetragem() > 0 )
+			imovel.setMetragem(form.getMetragem());
+		
+		if(form.getMunicipio()!= null )
+			imovel.setMunicipio(form.getMunicipio());
+		
+		if(form.getNomeCheckIn()!= null )
+			imovel.setNomeCheckIn(form.getNomeCheckIn());
+		
+		if(form.getOutraTaxaExtra()!= null )
+			imovel.setOutro(form.getOutraTaxaExtra());
+		
+		if(form.getQuartos()!= null )
+			imovel.setQuartos(form.getQuartos());
+		
+		if(form.getRecepcionista()!= null )
+			imovel.setRecepcionista(form.getRecepcionista());
+		
+		if(form.getTarifaDiaria() > 0 )
+			imovel.setTarifaDiaria(form.getTarifaDiaria());
+		
+		if(form.getTarifaEspecialDescricao()!= null )
+			imovel.setTarifaEspecialDescricao(form.getTarifaEspecialDescricao());
+		
+		if(form.getTarifaEspecialValor()> 0 )
+			imovel.setTarifaEspecialValor(form.getTarifaEspecialValor());
+		
+		if(form.getTarifaMensal() > 0 )
+			imovel.setTarifaMensal(form.getTarifaMensal());
+		
+		if(form.getTarifaQuinzenal() > 0 )
+			imovel.setTarifaQuinzenal(form.getTarifaQuinzenal());
+		
+		if(form.getTarifaSemanal() > 0 )
+			imovel.setTarifaSemanal(form.getTarifaSemanal());
+		
+		if(form.getTelefone()!= null )
+			imovel.setTelefone(form.getTelefone());
+		
+		if(form.isTransportePublico() )
+			imovel.setTransportePublico(form.isTransportePublico());
 		
 		
 		Usuario proprietario = new Usuario();
