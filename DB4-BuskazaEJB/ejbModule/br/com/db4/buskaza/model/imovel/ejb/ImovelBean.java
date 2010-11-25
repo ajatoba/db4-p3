@@ -8,16 +8,17 @@ import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.hibernate.CacheMode;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.ejb.EntityManagerImpl;
+import org.hibernate.sql.JoinFragment;
 import org.jboss.ejb3.annotation.LocalBinding;
 
-import br.com.db4.buskaza.model.entity.Equipamento;
-import br.com.db4.buskaza.model.entity.Estado;
 import br.com.db4.buskaza.model.entity.Imovel;
-import br.com.db4.buskaza.model.entity.Pais;
+import br.com.db4.buskaza.model.util.UtilsCollections;
 
 
 @Stateless
@@ -54,16 +55,25 @@ public class ImovelBean implements ImovelBeanLocal {
 		}
 		
 		Criteria c = session.createCriteria(Imovel.class); 
+		c.setCacheable(true);
+		c.setCacheMode(CacheMode.NORMAL);	
+		
         if (imovel.getEstado() != null) {        
-        c.add(Restrictions.ilike("estado", imovel.getEstado())); 
+        	c.add(Restrictions.ilike("estado.codigo", imovel.getEstado().getCodigo())); 
         } 
         
         if (imovel.getEquipamentos() != null && imovel.getEquipamentos().size() > 0) { 
-        c.add(Restrictions.in("equipamentos", imovel.getEquipamentos())); 
+        	//c.add(Restrictions.in("equipamentos", imovel.getEquipamentos())); 
+        	Criteria joinEquipamento = c.createCriteria("equipamentos", JoinFragment.INNER_JOIN);	
+        	joinEquipamento.add (Restrictions.in("codigo", UtilsCollections.listarPropriedadeInteger(imovel.getEquipamentos(),"codigo"))); 
         } 
+        
+        
         if (imovel.getCapacidade() != 0) { 
-        c.add(Restrictions.between("capacidade", new Integer(0), imovel.getCapacidade())); 
+        	c.add(Restrictions.between("capacidade", new Integer(0), imovel.getCapacidade())); 
         } 
+        
+        c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
         return c.list(); 
     } 
 	

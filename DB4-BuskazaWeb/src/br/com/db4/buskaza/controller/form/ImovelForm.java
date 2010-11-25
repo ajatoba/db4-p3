@@ -1,17 +1,13 @@
 package br.com.db4.buskaza.controller.form;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.upload.FormFile;
 
-import br.com.db4.buskaza.model.entity.Equipamento;
 import br.com.db4.buskaza.model.entity.Estado;
 import br.com.db4.buskaza.model.entity.Imovel;
-import br.com.db4.buskaza.model.entity.Pais;
 import br.com.db4.buskaza.model.util.LoggerUtil;
 
 

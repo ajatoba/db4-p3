@@ -19,6 +19,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.hibernate.validator.NotNull;
 
@@ -82,6 +83,9 @@ public class Imovel implements Serializable{
 	private String condicoes;
 	
 	private double calcao;
+	
+	@Transient
+	private String primeirafoto;
 	
 	@Temporal(TemporalType.TIME) 
 	private Date checkInEntrada;
@@ -416,6 +420,20 @@ public class Imovel implements Serializable{
 
 	public void setUsuarioProprietario(Usuario usuarioProprietario) {
 		this.usuarioProprietario = usuarioProprietario;
+	}
+
+	public String getPrimeirafoto() {
+		if(this.fotos!= null && this.fotos.size() > 0){
+			primeirafoto = this.fotos.iterator().next().getCaminhoThumbnail();
+		}
+		
+		return primeirafoto;
+	}
+
+	public void setPrimeirafoto(String primeirafoto) {
+		this.primeirafoto = primeirafoto;
 	}	
+	
+	
 	
 }

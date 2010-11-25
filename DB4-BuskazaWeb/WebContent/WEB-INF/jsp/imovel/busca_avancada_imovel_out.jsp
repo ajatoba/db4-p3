@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld"  prefix="bean"%>
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -265,7 +271,7 @@
 <div id="right_busca_avancada">
 <div id="conteudo_result_busca">
 <div id="top_resultado">
-<div class="retorno_busca"><span class="MyriadPro14">Sua busca retornou: 7 resultados</span></div>
+<div class="retorno_busca"><span class="MyriadPro14">Sua busca retornou: <bean:write name="resultado"/> resultados</span></div>
 <div class="ordenacao_busca">
 <span class="MyriadPro14">Ordenar :</span><br />
 
@@ -286,11 +292,12 @@
 </div>
 </div>
 <div id="sep_top_ba"></div>
+<logic:iterate id="ims"  name="imoveis">
 <div id="cont_ba">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="21%" rowspan="2" valign="top"><img src="/buzkaza/_img/fto_exemplo.jpg" width="140" height="104" /></td>
-    <td width="70%"><span class="MyriadPro20Azul">Jatobá</span><br />
+    <td width="21%" rowspan="2" valign="top"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="primeirafoto"/>" width="140" height="104" /></td>
+    <td width="70%"><span class="MyriadPro20Azul"><bean:write name="ims" property="usuarioProprietario.nome"/> </span><br />
       <span class="MyriadPro14">Rua Figueiredo Magalhães, Copacabana</span></td>
     <td width="10%"><img src="/buzkaza/_img/btn_detalhes.jpg" width="64" height="24" /></td>
     <td width="10%"><img src="/buzkaza/_img/btn_lista.jpg" width="85" height="24" /></td>
@@ -338,9 +345,8 @@
       </p></td>
   </tr>
 </table>
-
-
 </div>
+</logic:iterate>
 </div>
 
 </div>

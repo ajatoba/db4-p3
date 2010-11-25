@@ -91,6 +91,7 @@ public class ImovelAction extends DispatchAction {
 		}
 		
 		request.setAttribute("imoveis", imoveis);
+		request.setAttribute("resultado", imoveis.size());
 		
 		return mapping.findForward(Constants.FORWARD_SAIDA_BUSCA_AVANCADA_IMOVEIS);
 	}
