@@ -7,11 +7,13 @@ import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.hibernate.CacheMode;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.CriteriaSpecification;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.ejb.EntityManagerImpl;
 import org.hibernate.sql.JoinFragment;
@@ -45,7 +47,7 @@ public class ImovelBean implements ImovelBeanLocal {
 		
 	}
 
-	public List<Imovel> buscarImovel(Imovel imovel) { 
+	public List<Imovel> buscarImovel(Imovel imovel, Integer codigoPais) { 
 		Session session;  
 		if (em.getDelegate() instanceof EntityManagerImpl) {  
 		    EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
@@ -58,12 +60,11 @@ public class ImovelBean implements ImovelBeanLocal {
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);	
 		
-        if (imovel.getEstado() != null) {        
-        	c.add(Restrictions.ilike("estado.codigo", imovel.getEstado().getCodigo())); 
+        if (imovel.getEstado() != null && imovel.getEstado().getCodigo()!= null && imovel.getEstado().getCodigo().length() > 0) {        
+        	c.add(Restrictions.eq("estado.codigo", imovel.getEstado().getCodigo())); 
         } 
         
         if (imovel.getEquipamentos() != null && imovel.getEquipamentos().size() > 0) { 
-        	//c.add(Restrictions.in("equipamentos", imovel.getEquipamentos())); 
         	Criteria joinEquipamento = c.createCriteria("equipamentos", JoinFragment.INNER_JOIN);	
         	joinEquipamento.add (Restrictions.in("codigo", UtilsCollections.listarPropriedadeInteger(imovel.getEquipamentos(),"codigo"))); 
         } 
@@ -73,6 +74,43 @@ public class ImovelBean implements ImovelBeanLocal {
         	c.add(Restrictions.between("capacidade", new Integer(0), imovel.getCapacidade())); 
         } 
         
+        if (codigoPais != null && codigoPais > 0) {  
+        	
+    		Query query = em.createQuery("select x from br.com.db4.buskaza.model.entity.Estado x where x.pais.codigo = :id_pais");
+    		query.setParameter("id_pais",codigoPais);
+    		
+    		List estados = query.getResultList();
+    		
+    		if(estados != null && estados.size() > 0){
+    			Criteria estadoPais = c.createCriteria("estado", JoinFragment.INNER_JOIN);	
+        		estadoPais.add(Restrictions.in("codigo",UtilsCollections.listarPropriedadeString(estados, "codigo"))); 
+            } else
+            {
+            	return null;
+            }
+    	}        
+        
+        if (imovel.getMunicipio() != null && imovel.getMunicipio().length() > 0) {        
+        	c.add(Restrictions.like("municipio", imovel.getMunicipio(),MatchMode.ANYWHERE)); 
+        } 
+        
+        if (imovel.getBairro() != null && imovel.getBairro().length() > 0) {        
+        	c.add(Restrictions.like("bairro", imovel.getBairro(),MatchMode.ANYWHERE)); 
+        }
+        
+        if (imovel.getQuartos() > 0 ) {        
+        	c.add(Restrictions.eq("quartos", imovel.getQuartos())); 
+        }
+        
+        if (imovel.getMetragem() > 0 ) {        
+        	c.add(Restrictions.eq("metragem", imovel.getMetragem())); 
+        }
+        
+        	
+        if (imovel.getTarifaMensal() > 0 ) {        
+        	c.add(Restrictions.eq("tarifaMensal", imovel.getTarifaMensal())); 
+        } 
+        	
         c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
         return c.list(); 
     } 

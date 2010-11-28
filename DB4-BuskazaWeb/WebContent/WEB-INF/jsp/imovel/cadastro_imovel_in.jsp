@@ -82,6 +82,7 @@
         <td>Capacidade</td>
         <td>
         <html:select property="capacidade">
+        		<html:option value=""></html:option> 
       			<html:option value="1">1 Pessoa</html:option>
        			<html:option value="2">2 Pessoas</html:option>
       	</html:select>
@@ -91,6 +92,7 @@
         <td>Quartos</td>
         <td>
         <html:select property="quartos">
+        		<html:option value=""></html:option> 
       			<html:option value="1">1 Quarto</html:option>
        			<html:option value="2">2 Quartos</html:option>
       	</html:select>
@@ -100,6 +102,7 @@
         <td>Números  de Camas</td>
         <td>
         <html:select property="camas">
+        		<html:option value=""></html:option> 
       			<html:option value="1">1 Cama</html:option>
        			<html:option value="2">2 Camas</html:option>
       	</html:select>
@@ -109,6 +112,7 @@
         <td>Idiomas  Falados</td>
         <td>
 		<html:select property="idiomas">
+				<html:option value=""></html:option> 
       			<html:option value="1">Inglês</html:option>
        			<html:option value="2">Português</html:option>
       	</html:select>
@@ -118,6 +122,7 @@
         <td>Transporte  Público</td>
         <td>
 		<html:select property="transportePublico">
+				<html:option value=""></html:option> 
       			<html:option value="true">Sim</html:option>
        			<html:option value="false">Não</html:option>
       	</html:select>
@@ -127,6 +132,7 @@
         <td>Metragem  do Imóvel</td>
         <td>
 		<html:select property="metragem">
+				<html:option value=""></html:option> 
       			<html:option value="50.0">50m</html:option>
        			<html:option value="60.0">60m</html:option>
       	</html:select>
@@ -140,6 +146,11 @@
         <td>Link  Google Maps</td>
         <td><html:text property="linkGoogleMaps"/></td>
       </tr>
+      
+        <tr>
+        <td>Mapa  Google Maps</td>
+        <td><html:textarea cols="10" rows="5" property="mapaGoogleMaps"/></td>
+      </tr>
       <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
@@ -152,14 +163,23 @@
         <td>Endereço</td>
         <td><html:text property="logradouro"/></td>
       </tr>
+       <tr>
+        <td>Numero</td>
+        <td><html:text property="numero"/></td>
+      </tr>
+       <tr>
+        <td>Complemento</td>
+        <td><html:text property="complemento"/></td>
+      </tr>
       <tr>
         <td>Bairro</td>
-        <td><html:text property="complemento"/></td>
+        <td><html:text property="bairro"/></td>
       </tr>
       <tr>
         <td>Estado</td>
         <td>
-        	<html:select property="imovelEntity.estado.codigo">  
+        	<html:select property="imovelEntity.estado.codigo"> 
+        		<html:option value=""></html:option> 
 				<html:options collection="estados" property="codigo" labelProperty="nome" />
         	</html:select></td>
       </tr>
@@ -171,6 +191,7 @@
         <td>País </td>
         <td>
         	<html:select property="pais">  
+        		<html:option value=""></html:option> 
 				<html:options collection="paises" property="codigo" labelProperty="nome"/>
 			</html:select>
 		</td>

@@ -17,7 +17,7 @@ import org.hibernate.validator.NotNull;
 
 @Entity
 @Table(name = "tb_equipamento")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 @NamedQueries( {
     @NamedQuery(name = "listarEquipamentos", query = "select x from br.com.db4.buskaza.model.entity.Equipamento x ", cacheable = true, cacheMode = CacheModeType.NORMAL)
 })

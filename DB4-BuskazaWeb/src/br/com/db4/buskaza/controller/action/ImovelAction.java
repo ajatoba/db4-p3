@@ -79,7 +79,9 @@ public class ImovelAction extends DispatchAction {
 			Imovel imovel = popularImovel(imovelForm);			
 			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
 			
-			imoveis = imovelEjb.buscarImovel(imovel);
+			imoveis = imovelEjb.buscarImovel(imovel, imovelForm.getPais());
+			
+			carregaListas(request);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -91,7 +93,7 @@ public class ImovelAction extends DispatchAction {
 		}
 		
 		request.setAttribute("imoveis", imoveis);
-		request.setAttribute("resultado", imoveis.size());
+		request.setAttribute("resultado", (imoveis == null)?0:imoveis.size());
 		
 		return mapping.findForward(Constants.FORWARD_SAIDA_BUSCA_AVANCADA_IMOVEIS);
 	}
@@ -171,6 +173,17 @@ public class ImovelAction extends DispatchAction {
 		if(form.getComplemento()!= null )
 			imovel.setComplemento(form.getComplemento());
 		
+		if(form.getBairro()!= null )
+			imovel.setBairro(form.getBairro());
+		
+		try {
+			if(form.getNumero()!= null )
+				imovel.setNumero(Integer.parseInt(form.getNumero()));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
 		if(form.getCondicoes()!= null )
 			imovel.setCondicoes(form.getCondicoes());
 		
@@ -237,6 +250,9 @@ public class ImovelAction extends DispatchAction {
 		if(form.isTransportePublico() )
 			imovel.setTransportePublico(form.isTransportePublico());
 		
+		if(form.getMapaGoogleMaps() != null)
+			imovel.setMapaGooglemaps(form.getMapaGoogleMaps());
+		
 		
 		Usuario proprietario = new Usuario();
 		//TODO tirar o usuário hardcode e adicionar usuario logado.
@@ -254,6 +270,10 @@ public class ImovelAction extends DispatchAction {
 		
 		if(fotosImovel!= null && fotosImovel.size() > 0){
 			imovel.setFotos(fotosImovel);
+		}
+		
+		if(form.getPlanta()!= null && form.getPlanta().getFileData()!= null && form.getPlanta().getFileData().length > 0){
+			imovel.setPlanta(ImageHelper.gerarPlanta(form.getPlanta()));
 		}
 		return imovel;
 	}

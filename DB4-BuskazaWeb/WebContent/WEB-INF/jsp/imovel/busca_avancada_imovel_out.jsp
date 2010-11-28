@@ -33,6 +33,34 @@
 <div id="left_busca_avancada">
 <div id="top_busca_avancada"></div>
 <div id="busca_refinada">
+<!-- MENSAGEM DE ERRO -->
+    <font color="red">
+  
+		<logic:messagesPresent property="erro">
+			<html:messages property="erro" id="erro">
+				<div class="btn_erro"></div>
+        		<div class="msg_erro">
+        			<span class="MyriadErro">
+        				<bean:write name="erro"/>
+        			</span>
+        		</div>						
+			</html:messages>
+		</logic:messagesPresent>
+				
+		<logic:messagesNotPresent property="erro">
+			<logic:present name="erro">
+				<div class="btn_erro"></div>
+        		<div class="msg_erro">
+        			<span class="MyriadErro">
+        				<bean:write name="erro"/>
+        			</span>
+        		</div>	
+			</logic:present>
+				
+		</logic:messagesNotPresent>
+  	</font>
+    <!-- ****************** -->
+<html:form method="post" styleId="imovelBuscaForm" action="/imovel.do?act=buscarImovel">
 <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td colspan="2" class="MyriadPro20Azul">Redefinir Busca</td>
@@ -40,7 +68,7 @@
   <tr>
     <td colspan="2">&nbsp;</td>
   </tr>
-  <tr>
+  <!--tr>
     <td colspan="2">Tipo</td>
   </tr>
   <tr>
@@ -51,60 +79,42 @@
                 <option value="">Sitíos/Fazenda</option>
                 <option value="">Eventos</option>
 			</select></td>
+  </tr-->
+  <tr>
+    <td colspan="2">Pa�s</td>
   </tr>
   <tr>
-    <td colspan="2">País</td>
-  </tr>
-  <tr>
-    <td colspan="2"><select name="select" class="MyriadProRegular">
-				<option value="opt1">Diário</option>
-				<option value="">Semanal</option>
-                <option value="">Mensal</option>
-                <option value="">Trimestral</option>
-                <option value="">Semestral</option>
-                <option value="">Anual</option>
-			</select></td>
+    <td colspan="2">
+    	<html:select property="pais">  
+    			<html:option value=""></html:option> 
+				<html:options collection="paises" property="codigo" labelProperty="nome"/>
+		</html:select>
+    </td>
   </tr>
   <tr>
     <td colspan="2">Estado</td>
   </tr>
   <tr>
-    <td colspan="2"><select name="select" class="MyriadProRegular">
-				<option value="opt1">Diário</option>
-				<option value="">Semanal</option>
-                <option value="">Mensal</option>
-                <option value="">Trimestral</option>
-                <option value="">Semestral</option>
-                <option value="">Anual</option>
-			</select></td>
+    <td colspan="2">
+    	<html:select property="imovelEntity.estado.codigo">  
+    			<html:option value=""></html:option> 
+				<html:options collection="estados" property="codigo" labelProperty="nome" />
+        	</html:select>
+    </td>
   </tr>
   <tr>
     <td colspan="2">Cidade</td>
   </tr>
   <tr>
-    <td colspan="2"><select name="select" class="MyriadProRegular">
-				<option value="opt1">Diário</option>
-				<option value="">Semanal</option>
-                <option value="">Mensal</option>
-                <option value="">Trimestral</option>
-                <option value="">Semestral</option>
-                <option value="">Anual</option>
-			</select></td>
+    <td colspan="2"><html:text property="municipio"/></td>
   </tr>
   <tr>
     <td colspan="2">Bairro</td>
   </tr>
   <tr>
-    <td colspan="2"><select name="select" class="MyriadProRegular">
-				<option value="opt1">Diário</option>
-				<option value="">Semanal</option>
-                <option value="">Mensal</option>
-                <option value="">Trimestral</option>
-                <option value="">Semestral</option>
-                <option value="">Anual</option>
-			</select></td>
+    <td colspan="2"><html:text property="logradouro"/></td>
   </tr>
-  <tr>
+  <!--tr>
     <td colspan="2">Chegada</td>
   </tr>
   <tr>
@@ -205,66 +215,56 @@
         <option value="" class="MyriadProRegular">Novembro</option>
         <option value="" class="MyriadProRegular">Dezembro</option>
       </select></td>
-    </tr>
+    </tr-->
   <tr>
     <td width="50%">Capacidade</td>
     <td width="50%">Quartos</td>
   </tr>
   <tr>
-    <td><select name="select" class="MyriadProRegular">
-				<option value="opt1">Diário</option>
-				<option value="">Semanal</option>
-                <option value="">Mensal</option>
-                <option value="">Trimestral</option>
-                <option value="">Semestral</option>
-                <option value="">Anual</option>
-			</select></td>
-    <td><select name="select" class="MyriadProRegular">
-				<option value="opt1">Diário</option>
-				<option value="">Semanal</option>
-                <option value="">Mensal</option>
-                <option value="">Trimestral</option>
-                <option value="">Semestral</option>
-                <option value="">Anual</option>
-			</select></td>
+    <td>
+    
+    	  <html:select property="capacidade">
+    	  		<html:option value=""></html:option> 
+      			<html:option value="1">1 Pessoa</html:option>
+       			<html:option value="2">2 Pessoas</html:option>
+      	</html:select>
+    </td>
+    <td> <html:select property="quartos">
+    			<html:option value=""></html:option> 
+      			<html:option value="1">1 Quarto</html:option>
+       			<html:option value="2">2 Quartos</html:option>
+      	</html:select>
+      </td>
   </tr>
   <tr>
-    <td colspan="2">Área (m2)</td>
+    <td colspan="2">A�rea (m2)</td>
     </tr>
   <tr>
-    <td colspan="2"><select name="select" class="MyriadProRegular">
-				<option value="opt1">Diário</option>
-				<option value="">Semanal</option>
-                <option value="">Mensal</option>
-                <option value="">Trimestral</option>
-                <option value="">Semestral</option>
-                <option value="">Anual</option>
-			</select></td>
+    <td colspan="2">
+    	<html:select property="metragem">    	
+    			<html:option value=""></html:option> 
+      			<html:option value="50.0">50m</html:option>
+       			<html:option value="60.0">60m</html:option>
+      	</html:select>
+    </td>
   </tr>
   <tr>
-    <td colspan="2">Preço</td>
+    <td colspan="2">Pre�o mensal</td>
   </tr>
   <tr>
-    <td colspan="2"><select name="select" class="MyriadProRegular">
-				<option value="opt1">Diário</option>
-				<option value="">Semanal</option>
-                <option value="">Mensal</option>
-                <option value="">Trimestral</option>
-                <option value="">Semestral</option>
-                <option value="">Anual</option>
-			</select></td>
+    <td colspan="2"><html:text property="tarifaMensal"/></td>
   </tr>
   <tr>
     <td colspan="2">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2">Busca Avançada</td>
+    <td colspan="2">Busca Avan�ada</td>
   </tr>
   <tr>
-    <td colspan="2"><img src="/buzkaza/_img/btn_buscar_avancada.jpg" width="205" height="30" /></td>
+    <td colspan="2"><a href="#" onclick="javascript:document.forms[0].submit();"><img src="/buzkaza/_img/btn_buscar_avancada.jpg" width="205" height="30" border="0" /></a></td>
   </tr>
 </table>
-
+</html:form>
  </div>
 <div id="bottom_busca_avancada"></div>
 </div>
@@ -276,9 +276,9 @@
 <span class="MyriadPro14">Ordenar :</span><br />
 
 <select name="select2" class="MyriadProRegular">
-  <option value="opt1" class="MyriadProRegular">Janeiro</option>
-  <option value="" class="MyriadProRegular">Fevereiro</option>
-  <option value="" class="MyriadProRegular">Março</option>
+  <option value="01" class="MyriadProRegular">Janeiro</option>
+  <option value="02" class="MyriadProRegular">Fevereiro</option>
+  <option value="" class="MyriadProRegular">Mar�o</option>
   <option value="" class="MyriadProRegular">Abril</option>
   <option value="" class="MyriadProRegular">Maio</option>
   <option value="" class="MyriadProRegular">Junho</option>
@@ -292,30 +292,33 @@
 </div>
 </div>
 <div id="sep_top_ba"></div>
+<logic:present name="imoveis">
 <logic:iterate id="ims"  name="imoveis">
 <div id="cont_ba">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="21%" rowspan="2" valign="top"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="primeirafoto"/>" width="140" height="104" /></td>
+    <td width="21%" rowspan="2" valign="top"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="primeirafoto"/>" width="140" height="104" />
+    </td>
     <td width="70%"><span class="MyriadPro20Azul"><bean:write name="ims" property="usuarioProprietario.nome"/> </span><br />
-      <span class="MyriadPro14">Rua Figueiredo Magalhães, Copacabana</span></td>
+      <span class="MyriadPro14"><bean:write name="ims" property="logradouro"/>,<bean:write name="ims" property="numero"/> , <bean:write name="ims" property="bairro"/>, <bean:write name="ims" property="complemento"/>, <bean:write name="ims" property="municipio"/> - <bean:write name="ims" property="estado.codigo"/></span></td>
     <td width="10%"><img src="/buzkaza/_img/btn_detalhes.jpg" width="64" height="24" /></td>
     <td width="10%"><img src="/buzkaza/_img/btn_lista.jpg" width="85" height="24" /></td>
     <td width="10%"><img src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" /></td>
   </tr>
   <tr>
-    <td colspan="4" align="left">Diária : R$ 50,00<br />
+    <td colspan="4" align="left">Di�ria : R$ <bean:write name="ims" property="tarifaDiaria"/><br />
       Total (10 dias) : R$ 500,00 *Retorna a soma dos dias que ele selecionou<br />
       Reserva : R$ 250 *Retorna um valormediante a porcentagem do sinal escolhido pelo proprietário no cadastro do anúncio</p>
-      <p>Nota : 8,2<br />
-        Comentários : 216<br />
+      <p>Nota :<br />
+        Coment�rios : <br />
         <br />
-        Capacidade : 3<br />
-        Quartos : 2<br />
-        Metragem : 40m2<br />
+        Capacidade :  <bean:write name="ims" property="capacidade"/><br />
+        Quartos :  <bean:write name="ims" property="quartos"/><br />
+        Metragem :  <bean:write name="ims" property="metragem"/><br />
         <br />
-      
+    <!-- comentado para aparecer na p�gina de detalhes  
       <table width="100%" border="0" cellspacing="5" cellpadding="0">
+
         <tr>
           <td align="center"><img src="/buzkaza/_img/icones_verde_01.jpg" width="39" height="39" /></td>
           <td align="center"><img src="/buzkaza/_img/icones_verde_02.jpg" width="39" height="39" /></td>
@@ -341,12 +344,14 @@
           <td align="center"><img src="/buzkaza/_img/icones_cinza_10.jpg" width="39" height="39" /></td>
         </tr>
       </table>
+       -->
       <p>  <br />
       </p></td>
   </tr>
 </table>
 </div>
 </logic:iterate>
+ </logic:present>
 </div>
 
 </div>

@@ -12,6 +12,7 @@ import org.apache.struts.upload.FormFile;
 import org.jfree.chart.encoders.EncoderUtil;
 
 import br.com.db4.buskaza.model.entity.Foto;
+import br.com.db4.buskaza.model.entity.Planta;
 
 public class ImageHelper
 {
@@ -87,6 +88,44 @@ public class ImageHelper
         	out.write(resizeImage(arquivoBytes, 100));
         	
         	return foto;
+		
+		}finally{
+			if(out != null) out.close();
+		}
+    	
+    }
+    
+    
+    public static Planta gerarPlanta(FormFile formFile) throws IOException{    	  	
+    	FileOutputStream out  = null;
+    	
+    	try {
+    		Planta planta = new Planta();
+        	String path = System.getProperty("path_arquivos");   
+        	String nomeOriginal = formFile.getFileName();
+        	String extencao = nomeOriginal.split("\\.")[1];
+        	
+        	String nomeNovo = String.valueOf(System.currentTimeMillis());
+        	
+        	StringBuilder fotoNovo = new StringBuilder()
+        	.append(nomeNovo)
+        	.append(".")
+        	.append(extencao);
+        	
+        	
+        	
+        	planta.setCaminho(fotoNovo.toString());
+        	
+        	
+        	File caminho = new File(path);
+        	File arquivoFoto = new File(caminho,fotoNovo.toString());        	
+        	
+        	byte[] arquivoBytes = formFile.getFileData();
+        	
+        	out  = new FileOutputStream(arquivoFoto);
+        	out.write(arquivoBytes);        	
+        	
+        	return planta;
 		
 		}finally{
 			if(out != null) out.close();

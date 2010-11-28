@@ -81,12 +81,14 @@
   </tr>
   <tr>
     <td height="50" colspan="3">
-    		<html:select property="imovelEntity.estado.codigo" styleClass="MyriadProRegular">  
+    		<html:select property="imovelEntity.estado.codigo" styleClass="MyriadProRegular"> 
+    			<html:option value=""></html:option> 
 				<html:options collection="estados" property="codigo" labelProperty="nome" />
         	</html:select>
 	</td>
     <td height="50">
     		<html:select property="pais" styleClass="MyriadProRegular">  
+    		<html:option value=""></html:option>
 				<html:options collection="paises" property="codigo" labelProperty="nome"/>
 			</html:select>
     </td>
@@ -142,6 +144,7 @@
   <tr>
     <td width="33%" class="MyriadProRegular">
     
+    <logic:present name="equipamentos"> 
 	<logic:notEmpty name="equipamentos">
           	<logic:iterate name="equipamentos" id="equipamento">
 				  <tr>
@@ -154,6 +157,7 @@
 				  </tr>         
 	         </logic:iterate>
     </logic:notEmpty>
+    </logic:present>
 	
 	</td>
   </tr>

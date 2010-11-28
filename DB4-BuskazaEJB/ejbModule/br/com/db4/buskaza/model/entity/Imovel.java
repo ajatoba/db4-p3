@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -58,6 +59,9 @@ public class Imovel implements Serializable{
 	
 	private String linkGoogleMaps;
 	
+	@Lob 
+	private String mapaGooglemaps;
+	
 	@OneToOne
 	@JoinColumn(name = "id_estado")
 	private Estado estado;
@@ -65,6 +69,10 @@ public class Imovel implements Serializable{
 	private String municipio;
 	
 	private String complemento;
+	
+	private String bairro;
+	
+	private Integer numero;	
 	
 	private String logradouro;
 	
@@ -432,7 +440,34 @@ public class Imovel implements Serializable{
 
 	public void setPrimeirafoto(String primeirafoto) {
 		this.primeirafoto = primeirafoto;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public Integer getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Integer numero) {
+		this.numero = numero;
+	}
+
+	public String getMapaGooglemaps() {
+		return mapaGooglemaps;
+	}
+
+	public void setMapaGooglemaps(String mapaGooglemaps) {
+		this.mapaGooglemaps = mapaGooglemaps;
 	}	
+	
+	
+	
 	
 	
 	
