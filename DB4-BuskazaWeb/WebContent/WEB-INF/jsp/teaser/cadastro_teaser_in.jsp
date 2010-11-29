@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="/buzkaza/teaser/requiered/jquery.js" ></script>
 	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/includes/scripts/funcoes_js_mascara.js" ></script>
-	<script type="text/javascript"  src="${pageContext.request.contextPath}/includes/scripts/funcoes_js_validacoes.js" ></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/includes/scripts/funcoes_js_validacoes.js" ></script>
 	
 	<script language="javascript">
 		$(function(){
@@ -28,6 +28,29 @@
 				form.submit();
 			}			
 		}
+
+
+
+		 // não mostra o campo de CNPJ
+		   $("#cnpj").hide();
+		   
+		   $("#tipo_usuario").change(function() {
+			   tipo=   $("#tipo_usuario").val();
+			   
+				if( tipo== "F")
+				{
+					$("#cnpj").val("");
+					$("#cnpj").hide();		   	   
+				   	$("#cpf").show();
+				}
+				else if( tipo== "J")
+				{
+					$("#cnpj").show();
+					$("#cpf").val("");
+					$("#cpf").hide();	
+				}
+				
+			});
 		
 	</script>
 	<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
@@ -88,7 +111,7 @@
           </tr>
           <tr>
             <td width="18%">
-              <html:select property="usuarioEntity.modalidade" title="Modalidade" styleClass="MyriadProRegular,string">
+              <html:select property="usuarioEntity.modalidade" title="Modalidade" styleId="tipo_usuario" styleClass="MyriadProRegular,string">
       			<html:option value="F"><bean:message key="label.cadastro.campo.pessoafisica"/></html:option>
        			<html:option value="J"><bean:message key="label.cadastro.campo.pessoajuridica"/></html:option>
       		  </html:select>            
@@ -129,7 +152,9 @@
                 <td width="72%"><html:text title="Numero celular" property="numeroCelular" styleClass="number,MyriadProRegular" maxlength="8" size="18" value="" onkeydown="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" onkeypress="Mascara(this,Integer);"/></td>
               </tr>
             </table></td>
-            <td><html:text title="CNPJ" property="usuarioEntity.cpfCnpj" size="35" styleClass="number,MyriadProRegular" /></td>
+            <td><html:text title="CNPJ" property="usuarioEntity.cpfCnpj" size="35" styleId="cnpj"  styleClass="number,MyriadProRegular" />
+            	<html:text title="CPF" property="usuarioEntity.cpfCnpj" size="35" styleId="cpf"  styleClass="number,MyriadProRegular" />
+            </td>
           </tr>
         </table>
       </div>
