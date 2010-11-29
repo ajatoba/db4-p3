@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="/buzkaza/teaser/requiered/jquery.js" ></script>
 	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/includes/scripts/funcoes_js_mascara.js" ></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/includes/scripts/funcoes_js_validacoes.js" ></script>
+	<script type="text/javascript"  src="${pageContext.request.contextPath}/includes/scripts/funcoes_js_validacoes.js" ></script>
 	
 	<script language="javascript">
 		$(function(){
