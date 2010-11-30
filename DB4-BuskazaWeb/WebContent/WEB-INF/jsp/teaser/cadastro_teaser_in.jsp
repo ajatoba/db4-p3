@@ -156,7 +156,7 @@
                 <td width="72%"><html:text title="Numero celular" property="numeroCelular" styleClass="number,MyriadProRegular" maxlength="8" size="18" value="" onkeydown="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" onkeypress="Mascara(this,Integer);"/></td>
               </tr>
             </table></td>
-            <td><html:text title="CNPJ" property="usuarioEntity.cpfCnpj" size="35" styleId="cnpj"  styleClass="number,MyriadProRegular" />
+            <td><html:text title="CNPJ" property="usuarioEntity.cpfCnpj" size="35" styleId="cnpj" onkeypress="mascara(this,cpf)"  styleClass="number,MyriadProRegular" />
             	<html:text title="CPF" property="usuarioEntity.cpfCnpj" size="35" styleId="cpf"  styleClass="number,MyriadProRegular" />
             </td>
           </tr>
