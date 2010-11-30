@@ -157,7 +157,7 @@
               </tr>
             </table></td>
             <td><html:text title="CNPJ" property="usuarioEntity.cpfCnpj" size="35" styleId="cnpj" onkeypress="mascara(this,Cnpj)"  styleClass="number,MyriadProRegular" />
-            	<html:text title="CPF" property="usuarioEntity.cpfCnpj" size="35" styleId="cpf"  onkeypress="mascara(this,Cpf)" styleClass="number,MyriadProRegular" />
+            	<html:text title="CPF" property="usuarioEntity.cpf" size="35" styleId="cpf"  onkeypress="mascara(this,Cpf)" styleClass="number, MyriadProRegular" />
             </td>
           </tr>
         </table>
