@@ -20,6 +20,29 @@
 	<script language="javascript">
 		$(function(){
 			$('#usuarioForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
+
+			
+			 // não mostra o campo de CNPJ
+			   $("#cnpj").hide();
+			   
+			   $("#tipo_usuario").change(function() {
+				   tipo=   $("#tipo_usuario").val();
+				   
+					if( tipo== "F")
+					{
+						$("#cnpj").val("");
+						$("#cnpj").hide();		   	   
+					   	$("#cpf").show();
+					}
+					else if( tipo== "J")
+					{
+						$("#cnpj").show();
+						$("#cpf").val("");
+						$("#cpf").hide();	
+					}
+					
+				});
+				
 		});
 
 		function gravarUsuario(){
@@ -31,26 +54,7 @@
 
 
 
-		 // não mostra o campo de CNPJ
-		   $("#cnpj").hide();
-		   
-		   $("#tipo_usuario").change(function() {
-			   tipo=   $("#tipo_usuario").val();
-			   
-				if( tipo== "F")
-				{
-					$("#cnpj").val("");
-					$("#cnpj").hide();		   	   
-				   	$("#cpf").show();
-				}
-				else if( tipo== "J")
-				{
-					$("#cnpj").show();
-					$("#cpf").val("");
-					$("#cpf").hide();	
-				}
-				
-			});
+		
 		
 	</script>
 	<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
