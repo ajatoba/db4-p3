@@ -15,34 +15,15 @@
 	<script type="text/javascript" src="/buzkaza/teaser/requiered/jquery.js" ></script>
 	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/includes/scripts/funcoes_js_mascara.js" ></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/includes/scripts/jquery.maskedinput.min.js" ></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/includes/scripts/funcoes_js_validacoes.js" ></script>
 	
 	<script language="javascript">
 		$(function(){
 			$('#usuarioForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
-
 			
-			 // não mostra o campo de CNPJ
-			   $("#cnpj").hide();
-			   
-			   $("#tipo_usuario").change(function() {
-				   tipo=   $("#tipo_usuario").val();
-				   
-					if( tipo== "F")
-					{
-						$("#cnpj").val("");
-						$("#cnpj").hide();		   	   
-					   	$("#cpf").show();
-					}
-					else if( tipo== "J")
-					{
-						$("#cnpj").show();
-						$("#cpf").val("");
-						$("#cpf").hide();	
-					}
-					
-				});
-				
+			$("#cep").mask("99999-99");
+			$("#cpf").mask("999.999.999-99");			
 		});
 
 		function gravarUsuario(){
@@ -52,7 +33,25 @@
 			}			
 		}
 
-
+		function seleciona_tipo_usuario()
+		{
+				tipo=   $("#tipo_usuario").val();
+								
+				if( tipo== "F")
+				{
+					$("#pessoa").html('<input type="text" id="cpf" name="usuarioEntity.cpfCnpj"  size="35" value="" class="number,MyriadProRegular" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf)" onkeypress="Mascara(this,Cpf);" maxlength="14"/>');
+					
+					$("#cpf").jqTransInputText();
+					$("#cpf").mask("999.999.999-99");
+				}
+				else if( tipo== "J")
+				{
+					$("#pessoa").html('<input type="text" id="cnpj" name="usuarioEntity.cpfCnpj"  size="35" value="" class="number,MyriadProRegular" onkeydown="Mascara(this,Cnpj);" onkeyup="Mascara(this,Cnpj)" onkeypress="Mascara(this,Cnpj);" maxlength="19"/>');
+					
+					$("#cnpj").jqTransInputText();
+					$("#cnpj").mask("99.999.999/9999-99");
+				}
+		}
 
 		
 		
@@ -115,7 +114,7 @@
           </tr>
           <tr>
             <td width="18%">
-              <html:select property="usuarioEntity.modalidade" title="Modalidade" styleId="tipo_usuario" styleClass="MyriadProRegular,string">
+              <html:select property="usuarioEntity.modalidade" title="Modalidade" styleId="tipo_usuario" styleClass="MyriadProRegular,string" onchange="seleciona_tipo_usuario()">
       			<html:option value="F"><bean:message key="label.cadastro.campo.pessoafisica"/></html:option>
        			<html:option value="J"><bean:message key="label.cadastro.campo.pessoajuridica"/></html:option>
       		  </html:select>            
@@ -156,8 +155,9 @@
                 <td width="72%"><html:text title="Numero celular" property="numeroCelular" styleClass="number,MyriadProRegular" maxlength="8" size="18" value="" onkeydown="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" onkeypress="Mascara(this,Integer);"/></td>
               </tr>
             </table></td>
-            <td><html:text title="CNPJ" property="usuarioEntity.cpfCnpj" size="35" styleId="cnpj" onkeypress="mascara(this,Cnpj)"  styleClass="number,MyriadProRegular" />
-            	<html:text title="CPF" property="usuarioEntity.cpf" size="35" styleId="cpf"  onkeypress="mascara(this,Cpf)" styleClass="number, MyriadProRegular" />
+            <td>
+            		<div id="pessoa"><html:text property="usuarioEntity.cpfCnpj" size="35" styleId="cpf" maxlength="14" styleClass="number,MyriadProRegular" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf)" onkeypress="Mascara(this,Cpf);" /></div>
+            	
             </td>
           </tr>
         </table>
@@ -207,7 +207,7 @@
 					<html:options collection="paises" property="codigo" labelProperty="nome"/>
 				</html:select>
             </td>
-            <td><html:text property="cep" size="10" title="Cep" styleClass="number,MyriadProRegular" onkeydown="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" onkeypress="Mascara(this,Integer);"/></td>
+            <td><html:text property="cep" styleId="cep" size="10" title="Cep" styleClass="number,MyriadProRegular" maxlength="9"/></td>
           </tr>
         </table>
     </div>
