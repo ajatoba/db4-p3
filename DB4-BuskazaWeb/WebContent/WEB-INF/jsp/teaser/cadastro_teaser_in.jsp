@@ -22,7 +22,7 @@
 		$(function(){
 			$('#usuarioForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
 			
-			$("#cep").mask("99999-99");
+			$("#cep").mask("99999-999");
 			$("#cpf").mask("999.999.999-99");			
 		});
 
