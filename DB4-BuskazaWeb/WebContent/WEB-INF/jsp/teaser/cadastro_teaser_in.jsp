@@ -120,14 +120,14 @@
       		  </html:select>            
             </td>
             <td height="50">
-            	<html:text property="usuarioEntity.nome" title="Nome" size="40" styleClass="string,MyriadProRegular"/>
+            	<html:text property="usuarioEntity.nome" title="Nome" size="37" styleClass="string,MyriadProRegular"/>
             </td>
             <td>
             	<html:text property="usuarioEntity.nomeContato" title="Nome do contato" styleClass="string,MyriadProRegular" />
             </td>
             <td>
-            	<html:text size="3" maxlength="2" property="diaNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" /> &nbsp;
-            	<html:text size="3" maxlength="2" property="mesNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" /> &nbsp;
+            	<html:text size="3" maxlength="2" property="diaNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
+            	<html:text size="3" maxlength="2" property="mesNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
   				<html:text size="5" maxlength="4" property="anoNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
         	</td>
           </tr>
