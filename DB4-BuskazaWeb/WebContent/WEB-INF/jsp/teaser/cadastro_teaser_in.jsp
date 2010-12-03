@@ -108,9 +108,9 @@
         <table width="95%" border="0" cellpadding="0" cellspacing="0" align="center">
           <tr>
             <td width="18%" class="MyriadProRegular">Modalidade</td>
-            <td width="28%" class="MyriadProRegular">Nome Completo / Razão Social</td>
-            <td width="24%" class="MyriadProRegular">Nome para contato</td>
-             <td width="30%" class="MyriadProRegular">Data de nascimento</td>
+            <td width="28%" class="MyriadProRegular">&nbsp; Nome Completo / Razão Social</td>
+            <td width="24%" class="MyriadProRegular">&nbsp; Nome para contato</td>
+             <td width="30%" class="MyriadProRegular">&nbsp; Data de nascimento</td>
           </tr>
           <tr>
             <td width="18%">
@@ -120,22 +120,40 @@
       		  </html:select>            
             </td>
             <td height="50">
-            	<html:text property="usuarioEntity.nome" title="Nome" size="37" styleClass="string,MyriadProRegular"/>
+            	<table width="100%" border="0" cellspacing="5" cellpadding="0">
+              		<tr>
+                		<td><html:text property="usuarioEntity.nome" title="Nome" size="37" styleClass="string,MyriadProRegular"/></td>
+        			</tr>
+        		</table>
             </td>
             <td>
-            	<html:text property="usuarioEntity.nomeContato" title="Nome do contato" styleClass="string,MyriadProRegular" />
+            	<table width="100%" border="0" cellspacing="5" cellpadding="0">
+              		<tr>
+                		<td><html:text property="usuarioEntity.nomeContato" title="Nome do contato" styleClass="string,MyriadProRegular" /></td>
+        			</tr>
+        		</table>
             </td>
             <td>
-            	<html:text size="3" maxlength="2" property="diaNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
-            	<html:text size="3" maxlength="2" property="mesNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
-  				<html:text size="5" maxlength="4" property="anoNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
+            	<table width="90%" border="0" cellspacing="5" cellpadding="0">
+              		<tr>
+                	<td>
+            			<html:text size="3" maxlength="2" property="diaNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
+            		</td>
+            		<td>
+            			<html:text size="3" maxlength="2" property="mesNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
+  					</td>
+            		<td>
+  						<html:text size="5" maxlength="4" property="anoNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
+        			</td>
+        			</tr>
+        			</table>
         	</td>
           </tr>
         </table>
         <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr>
-            <td width="32%" class="MyriadProRegular">Telefone fixo</td>
-            <td width="36%" class="MyriadProRegular">Telefone Celular</td>
+            <td width="32%" class="MyriadProRegular">&nbsp; Telefone fixo</td>
+            <td width="36%" class="MyriadProRegular">&nbsp; Telefone Celular</td>
             <td width="32%" class="MyriadProRegular">CPF/ CNPJ</td>
           </tr>
           <tr>
