@@ -22,7 +22,7 @@
 		$(function(){
 			$('#usuarioForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
 			
-			$("#cep").mask("99999-999");
+			//$("#cep").mask("99999-999");
 			$("#cpf").mask("999.999.999-99");			
 		});
 
@@ -39,14 +39,14 @@
 								
 				if( tipo== "F")
 				{
-					$("#pessoa").html('<input type="text" id="cpf" name="usuarioEntity.cpfCnpj"  size="35" value="" class="cpf,MyriadProRegular" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf)" onkeypress="Mascara(this,Cpf);" maxlength="14"/>');
+					$("#pessoa").html('<input type="text" id="cpf" title="CPF"  name="usuarioEntity.cpfCnpj"  size="35" class="cpf,MyriadProRegular" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf)" onkeypress="Mascara(this,Cpf);" maxlength="14"/>');
 					
 					$("#cpf").jqTransInputText();
 					$("#cpf").mask("999.999.999-99");
 				}
 				else if( tipo== "J")
 				{
-					$("#pessoa").html('<input type="text" id="cnpj" name="usuarioEntity.cpfCnpj"  size="35" value="" class="cnpj,MyriadProRegular" onkeydown="Mascara(this,Cnpj);" onkeyup="Mascara(this,Cnpj)" onkeypress="Mascara(this,Cnpj);" maxlength="19"/>');
+					$("#pessoa").html('<input type="text" id="cnpj" name="usuarioEntity.cpfCnpj" title="CNPJ"  size="35" value="" class="cnpj,MyriadProRegular" onkeydown="Mascara(this,Cnpj);" onkeyup="Mascara(this,Cnpj)" onkeypress="Mascara(this,Cnpj);" maxlength="19"/>');
 					
 					$("#cnpj").jqTransInputText();
 					$("#cnpj").mask("99.999.999/9999-99");
@@ -120,14 +120,14 @@
       		  </html:select>            
             </td>
             <td height="50">
-            	<html:text property="usuarioEntity.nome" title="Nome" size="44" styleClass="string,MyriadProRegular"/>
+            	<html:text property="usuarioEntity.nome" title="Nome" size="40" styleClass="string,MyriadProRegular"/>
             </td>
             <td>
             	<html:text property="usuarioEntity.nomeContato" title="Nome do contato" styleClass="string,MyriadProRegular" />
             </td>
             <td>
-            	<html:text size="3" maxlength="2" property="diaNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
-            	<html:text size="3" maxlength="2" property="mesNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
+            	<html:text size="3" maxlength="2" property="diaNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" /> &nbsp;
+            	<html:text size="3" maxlength="2" property="mesNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" /> &nbsp;
   				<html:text size="5" maxlength="4" property="anoNascimento" onkeydown="Mascara(this,Integer);" onkeypress="Mascara(this,Integer);" onkeyup="Mascara(this,Integer)" />
         	</td>
           </tr>
@@ -156,7 +156,7 @@
               </tr>
             </table></td>
             <td>
-            		<div id="pessoa"><html:text property="usuarioEntity.cpfCnpj" size="35" styleId="cpf" maxlength="14" styleClass="cpf,MyriadProRegular" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf)" onkeypress="Mascara(this,Cpf);" /></div>
+            		<div id="pessoa"><html:text property="usuarioEntity.cpfCnpj" title="CPF" size="35" styleId="cpf" maxlength="14" styleClass="cpf,MyriadProRegular" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf)" onkeypress="Mascara(this,Cpf);" /></div>
             	
             </td>
           </tr>
