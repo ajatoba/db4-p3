@@ -120,7 +120,7 @@
       		  </html:select>            
             </td>
             <td height="50">
-            	<html:text property="usuarioEntity.nome" title="Nome" size="43" styleClass="string,MyriadProRegular"/>
+            	<html:text property="usuarioEntity.nome" title="Nome" size="44" styleClass="string,MyriadProRegular"/>
             </td>
             <td>
             	<html:text property="usuarioEntity.nomeContato" title="Nome do contato" styleClass="string,MyriadProRegular" />
