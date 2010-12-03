@@ -39,14 +39,14 @@
 								
 				if( tipo== "F")
 				{
-					$("#pessoa").html('<input type="text" id="cpf" name="usuarioEntity.cpfCnpj"  size="35" value="" class="number,MyriadProRegular" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf)" onkeypress="Mascara(this,Cpf);" maxlength="14"/>');
+					$("#pessoa").html('<input type="text" id="cpf" name="usuarioEntity.cpfCnpj"  size="35" value="" class="cpf,MyriadProRegular" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf)" onkeypress="Mascara(this,Cpf);" maxlength="14"/>');
 					
 					$("#cpf").jqTransInputText();
 					$("#cpf").mask("999.999.999-99");
 				}
 				else if( tipo== "J")
 				{
-					$("#pessoa").html('<input type="text" id="cnpj" name="usuarioEntity.cpfCnpj"  size="35" value="" class="number,MyriadProRegular" onkeydown="Mascara(this,Cnpj);" onkeyup="Mascara(this,Cnpj)" onkeypress="Mascara(this,Cnpj);" maxlength="19"/>');
+					$("#pessoa").html('<input type="text" id="cnpj" name="usuarioEntity.cpfCnpj"  size="35" value="" class="cnpj,MyriadProRegular" onkeydown="Mascara(this,Cnpj);" onkeyup="Mascara(this,Cnpj)" onkeypress="Mascara(this,Cnpj);" maxlength="19"/>');
 					
 					$("#cnpj").jqTransInputText();
 					$("#cnpj").mask("99.999.999/9999-99");
@@ -156,7 +156,7 @@
               </tr>
             </table></td>
             <td>
-            		<div id="pessoa"><html:text property="usuarioEntity.cpfCnpj" size="35" styleId="cpf" maxlength="14" styleClass="number,MyriadProRegular" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf)" onkeypress="Mascara(this,Cpf);" /></div>
+            		<div id="pessoa"><html:text property="usuarioEntity.cpfCnpj" size="35" styleId="cpf" maxlength="14" styleClass="cpf,MyriadProRegular" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf)" onkeypress="Mascara(this,Cpf);" /></div>
             	
             </td>
           </tr>
@@ -207,7 +207,7 @@
 					<html:options collection="paises" property="codigo" labelProperty="nome"/>
 				</html:select>
             </td>
-            <td><html:text property="cep" styleId="cep" size="10" title="Cep" styleClass="number,MyriadProRegular" maxlength="9"/></td>
+            <td><html:text property="cep" styleId="cep" size="10" title="Cep" styleClass="cep,MyriadProRegular" maxlength="9"/></td>
           </tr>
         </table>
     </div>
