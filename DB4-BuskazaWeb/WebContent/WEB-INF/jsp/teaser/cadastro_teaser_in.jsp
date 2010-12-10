@@ -107,17 +107,23 @@
       <div>
         <table width="95%" border="0" cellpadding="0" cellspacing="0" align="center">
           <tr>
-            <td width="18%" class="MyriadProRegular">Modalidade</td>
+            <td width="18%" class="MyriadProRegular">&nbsp; Modalidade</td>
             <td width="28%" class="MyriadProRegular">&nbsp; Nome Completo / Razão Social</td>
             <td width="24%" class="MyriadProRegular">&nbsp; Nome para contato</td>
              <td width="30%" class="MyriadProRegular">&nbsp; Data de nascimento</td>
           </tr>
           <tr>
             <td width="18%">
-              <html:select property="usuarioEntity.modalidade" title="Modalidade" styleId="tipo_usuario" styleClass="MyriadProRegular,string" onchange="seleciona_tipo_usuario()">
-      			<html:option value="F"><bean:message key="label.cadastro.campo.pessoafisica"/></html:option>
-       			<html:option value="J"><bean:message key="label.cadastro.campo.pessoajuridica"/></html:option>
-      		  </html:select>            
+            <table width="100%" border="0" cellspacing="5" cellpadding="0">
+              		<tr>
+                		<td>
+              			<html:select property="usuarioEntity.modalidade" title="Modalidade" styleId="tipo_usuario" styleClass="MyriadProRegular,string" onchange="seleciona_tipo_usuario()">
+      						<html:option value="F"><bean:message key="label.cadastro.campo.pessoafisica"/></html:option>
+       						<html:option value="J"><bean:message key="label.cadastro.campo.pessoajuridica"/></html:option>
+      		  			</html:select>
+      		  		</td>
+        		</tr>
+        		</table>
             </td>
             <td height="50">
             	<table width="100%" border="0" cellspacing="5" cellpadding="0">
