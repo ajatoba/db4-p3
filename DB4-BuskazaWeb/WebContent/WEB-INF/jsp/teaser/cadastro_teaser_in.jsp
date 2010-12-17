@@ -57,9 +57,6 @@
 					$("#cnpj").mask("99.999.999/9999-99");
 				}
 		}
-
-		
-		
 	</script>
 	
 	<script type="text/javascript" src="http://www.buzkaza.com.br/buzkaza/topup/top_up-min.js"></script>	
