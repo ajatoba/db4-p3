@@ -17,6 +17,8 @@ public interface UsuarioBeanLocal {
 	
 	public Usuario autenticarUsuario(String login, String senha,Integer tipoPerfil);
 	
+	public void confirmaUsuario(String email);
+	
 	
 
 }

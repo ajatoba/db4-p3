@@ -89,4 +89,21 @@ public class UsuarioBean implements UsuarioBeanLocal {
 		return (result!= null && result.size() > 0)?(Usuario)result.get(0):null;
 	}
 
+	public void confirmaUsuario(String email) {
+		
+		Query query = em.createQuery("update Usuario x set x.confirmado = true where x.email = :email ");
+		try {			
+			query.setParameter("email", email);
+			
+			query.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+	}
+
 }
