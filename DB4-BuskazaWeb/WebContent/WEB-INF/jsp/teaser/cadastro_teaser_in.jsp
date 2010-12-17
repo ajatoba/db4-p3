@@ -20,7 +20,10 @@
 	<script type="text/javascript" src="/buzkaza/includes/scripts/jquery.maskedinput.min.js" ></script>
 	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_validacoes.js" ></script>
 	
-	
+	<script type="text/javascript" src="/buzkaza/topup/top_up-min.js"></script>	
+	<script type="text/javascript">
+	   TopUp.addPresets({ "#demo a": { overlayClose: 1, readAltText: 0, shaded: 0, modal: 1, resizable:0, effect:'show' } });
+	</script>
 	
 	<script language="javascript">
 		$(function(){
@@ -321,6 +324,11 @@
           <tr>
             <td><div><html:checkbox title="Condicoes" property="usuarioEntity.leuCondicoes" styleClass="number,MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Li e aceito os termos e condições deste site</span></div></td>
           </tr>
+          
+          <tr>
+            <td><div id="demo"><span style="color:#666666;"><a href="http://www.buzkaza.com.br/teaser/iframe_planta.html" class="tu_iframe_600x391" style="color:#666666; text-decoration:underline">Veja aqui</a> o que você precisa para cadastrar seu imóvel</span></div></td>
+          </tr>
+          
         </table>
       </div>
       
