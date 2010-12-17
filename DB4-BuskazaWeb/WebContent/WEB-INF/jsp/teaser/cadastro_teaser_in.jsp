@@ -14,6 +14,12 @@
 	<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
 	
 	
+	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
+	
+	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_mascara.js" ></script>
+	<script type="text/javascript" src="/buzkaza/includes/scripts/jquery.maskedinput.min.js" ></script>
+	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_validacoes.js" ></script>
+	
 	
 	
 	<script language="javascript">
