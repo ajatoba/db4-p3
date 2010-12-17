@@ -49,6 +49,10 @@ public class UsuarioAction extends DispatchAction {
 			perfis.add(p);			
 			usuario.setPerfis(perfis);
 			
+			//AO ACABAR DE SE CADASTRAR, O USUÁRIO AINDA ESTÁ INATIVO, AGUARDANDO CONFIRMAÇÃO POR E-MAIL
+			usuario.setConfimado(false);
+			//**************************
+			
 			
 			if (locadorForm.getSenhaConfirma() == null || (!locadorForm.getSenhaConfirma().equalsIgnoreCase(usuario.getSenha()))) {
 				throw new ValidacaoFormException("message.erro.validacao.senha");
@@ -122,6 +126,22 @@ public class UsuarioAction extends DispatchAction {
 	};
 
 	public ActionForward confirmaUsuario(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response)  {
+		String email = request.getParameter("email");
+		
+		UsuarioBeanLocal usuarioEjb = null;
+		
+		try {
+			usuarioEjb = (UsuarioBeanLocal) ServiceLocator.getInstance().locateEJB(UsuarioBeanLocal.LOCAL);
+			usuarioEjb.confirmaUsuario(email);
+		} catch (Exception e) {
+			final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    e.printStackTrace();
+		    return mapping.findForward(Constants.FORWARD_CONFIRMA_USUARIO);
+		}
+		
+		
 		return mapping.findForward(Constants.FORWARD_CONFIRMA_USUARIO);
 	}
 	
