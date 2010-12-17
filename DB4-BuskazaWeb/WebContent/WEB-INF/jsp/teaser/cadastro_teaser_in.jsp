@@ -299,8 +299,8 @@
                 <td width="20%" class="MyriadProRegular">Confirmar Senha</td>
               </tr>
               <tr>
-                <td width="20%"><html:text title="Email" property="usuarioEntity.email" styleClass="email,MyriadProRegular" size="210"/></td>
-                <td width="20%"><html:text title="Confirmação de Email" property="emailConfirma" styleClass="email,MyriadProRegular" size="210"/></td>
+                <td width="20%"><html:text title="Email" property="usuarioEntity.email" styleClass="email,MyriadProRegular" size="205"/></td>
+                <td width="20%"><html:text title="Confirmação de Email" property="emailConfirma" styleClass="email,MyriadProRegular" size="205"/></td>
                 <td width="20%"><html:password title="Senha" property="usuarioEntity.senha" styleClass="string,MyriadProRegular" size="150"/></td>
                 <td width="20%"><html:password title="Confirmação de Senha" property="senhaConfirma" styleClass="string,MyriadProRegular" size="150"/></td>
               </tr>
