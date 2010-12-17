@@ -20,7 +20,6 @@
 	<script type="text/javascript" src="/buzkaza/includes/scripts/jquery.maskedinput.min.js" ></script>
 	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_validacoes.js" ></script>
 	
-	<script type="text/javascript" src="/buzkaza/topup/javascripts/top_up-min.js"></script>
 	
 	
 	<script language="javascript">
