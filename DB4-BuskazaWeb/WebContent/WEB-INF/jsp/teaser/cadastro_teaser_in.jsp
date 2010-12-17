@@ -13,8 +13,7 @@
 	<link href="/buzkaza/teaser/_css/fontes.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
 	
-	
-	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
+	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>
 	
 	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_mascara.js" ></script>
 	<script type="text/javascript" src="/buzkaza/includes/scripts/jquery.maskedinput.min.js" ></script>
