@@ -33,6 +33,7 @@
 
 			<forward name="formulario" path="/WEB-INF/jsp/teaser/cadastro_teaser_in.jsp" />
 			<forward name="saida" path="/WEB-INF/jsp/teaser/cadastro_teaser_out.jsp" />
+			<forward name="confirma_usuario" path="/WEB-INF/jsp/teaser/confirma_usuario_out.jsp" />
 		</action>		
 		
 		
