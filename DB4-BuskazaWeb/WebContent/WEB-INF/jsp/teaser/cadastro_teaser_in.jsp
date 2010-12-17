@@ -62,8 +62,7 @@
 	<script type="text/javascript" src="http://www.buzkaza.com.br/buzkaza/topup/javascripts/top_up-min.js"></script>	
 	<script type="text/javascript">
 	   TopUp.addPresets({ "#demo a": {  overlayClose: 1, readAltText: 0, shaded: 0, modal: 1, resizable:0, effect:'show' } });
-	</script>
-	
+	</script>	
 	
 	<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 </head>
