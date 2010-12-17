@@ -13,11 +13,12 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.apache.struts.actions.DispatchAction;
+import org.apache.struts.util.MessageResources;
 
 import br.com.db4.buskaza.controller.exception.PessoaExistenteException;
 import br.com.db4.buskaza.controller.exception.ValidacaoFormException;
 import br.com.db4.buskaza.controller.form.UsuarioForm;
-import br.com.db4.buskaza.controller.util.Constants;
+import br.com.db4.buskaza.controller.util.*;
 import br.com.db4.buskaza.model.banco.ejb.BancoBeanLocal;
 import br.com.db4.buskaza.model.entity.Perfil;
 import br.com.db4.buskaza.model.entity.Telefone;
@@ -65,6 +66,25 @@ public class UsuarioAction extends DispatchAction {
 				throw new PessoaExistenteException(Constants.MENSAGEM_ERRO_EMAIL_EXISTENTE);
 			}
 			
+			//ENVIANDO EMAIL DE CONFIRMAÇÃO
+			MessageResources messageResources = getResources(request, "app");
+			
+			String assunto="",mensagem="",remetente="",destinatario="";			
+			
+			mensagem  		= messageResources.getMessage("mail.mensagem");
+			mensagem 		= mensagem.replaceAll("<USUARIO>", usuario.getNome());
+			mensagem 		= mensagem.replaceAll("<EMAIL>", usuario.getEmail());
+			   
+			assunto 		= messageResources.getMessage("mail.assunto");			
+			remetente 		= messageResources.getMessage("mail.from");
+			destinatario 	= usuario.getEmail();			
+			   
+			SendMail sm = new SendMail();
+
+			sm.sendMail(remetente,destinatario,assunto,mensagem); 
+			//*****************************
+			
+			
 			usuarioEjb.incluirUsuario(usuario);				
 			
 		} catch ( final PessoaExistenteException e ) {
@@ -101,6 +121,9 @@ public class UsuarioAction extends DispatchAction {
 		return mapping.findForward(Constants.FORWARD_SAIDA);
 	};
 
+	public ActionForward confirmaUsuario(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response)  {
+		return mapping.findForward(Constants.FORWARD_CONFIRMA_USUARIO);
+	}
 	
 	private void carregaListas(HttpServletRequest request) {
 
