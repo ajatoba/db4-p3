@@ -26,5 +26,7 @@ public interface Constants {
 	
 	public static final String FORWARD_SAIDA_BUSCA_AVANCADA_IMOVEIS = "resultado_busca";
 	
+	public static final String FORWARD_CONFIRMA_USUARIO = "confirma_usuario";
+	
 
 }
