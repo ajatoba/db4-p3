@@ -57,6 +57,7 @@
 	<message-resources key="i18n_pt" parameter="MessageResources_pt_BR" />
 	<message-resources key="i18n_en" parameter="MessageResources_en_US" />
 	<message-resources parameter="MessageResources" />
+	<message-resources key="app" parameter="ApplicationResources" />
 
 
 
