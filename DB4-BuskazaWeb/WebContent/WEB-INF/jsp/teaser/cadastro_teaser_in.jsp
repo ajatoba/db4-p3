@@ -14,13 +14,13 @@
 	<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
 	
 	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>
-	
+	<!--
 	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
 	
 	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_mascara.js" ></script>
 	<script type="text/javascript" src="/buzkaza/includes/scripts/jquery.maskedinput.min.js" ></script>
 	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_validacoes.js" ></script>
-	
+	-->
 	
 	
 	<script language="javascript">
@@ -62,7 +62,7 @@
 		
 	</script>
 	
-	<script type="text/javascript" src="http://www.buzkaza.com.br/buzkaza/topup/javascripts/top_up-min.js"></script>
+	<script type="text/javascript" src="http://www.buzkaza.com.br/buzkaza/topup/top_up-min.js"></script>	
 	<script type="text/javascript">
 	   TopUp.addPresets({ "#demo a": {  overlayClose: 1, readAltText: 0, shaded: 0, modal: 1, resizable:0, effect:'show' } });
 	</script>
