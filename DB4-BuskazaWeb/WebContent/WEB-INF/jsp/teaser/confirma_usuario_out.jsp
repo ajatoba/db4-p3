@@ -26,16 +26,8 @@
 <div id="meio_cad">
 <!--FORM-->
 <div id="msg_finaliza_cadastro">
-  <div class="ok"></div>
-  <div class="msg_confirmado">
-  		<span class="MyriadPro24">Seus dados foram cadastrados com sucesso!
-  		<br><br>
-  		
-  		Agora vc precisa validar seu email.<br>
-  		Enviamos um link de validação para o seu email cadastrado
-  		</span>
-  </div>
-
+  <div class="confirmado"></div>
+  <div class="msg_confirmado"><span class="MyriadPro24">Seu cadastro foi confirmado com sucesso!</span></div>
 </div>
 <!--FORM-->
 </div>
