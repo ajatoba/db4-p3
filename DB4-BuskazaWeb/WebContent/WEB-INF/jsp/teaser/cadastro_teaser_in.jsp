@@ -13,7 +13,54 @@
 	<link href="/buzkaza/teaser/_css/fontes.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
 	
+	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>
 	
+	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
+	
+	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_mascara.js" ></script>
+	<script type="text/javascript" src="/buzkaza/includes/scripts/jquery.maskedinput.min.js" ></script>
+	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_validacoes.js" ></script>
+	
+	
+	
+	<script language="javascript">
+		$(function(){
+			$('#usuarioForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
+			
+			//$("#cep").mask("99999-999");
+			$("#cpf").mask("999.999.999-99");			
+		});
+
+		function gravarUsuario(){
+			var form = 	document.usuarioForm;
+			if(checkForm(form)){
+				form.submit();
+			}			
+		}
+
+		function seleciona_tipo_usuario()
+		{
+				tipo=   $("#tipo_usuario").val();
+								
+				if( tipo== "F")
+				{
+					$("#pessoa").html('<input type="text" id="cpf" title="CPF"  name="usuarioEntity.cpfCnpj" class="cpf,MyriadProRegular" onkeydown="Mascara(this,Cpf);" onkeyup="Mascara(this,Cpf)" onkeypress="Mascara(this,Cpf);" maxlength="14" size="135"/>');
+					
+					$("#cpf").jqTransInputText();
+					$("#cpf").mask("999.999.999-99");
+				}
+				else if( tipo== "J")
+				{
+					$("#pessoa").html('<input type="text" id="cnpj" name="usuarioEntity.cpfCnpj" title="CNPJ" value="" class="cnpj,MyriadProRegular" onkeydown="Mascara(this,Cnpj);" onkeyup="Mascara(this,Cnpj)" onkeypress="Mascara(this,Cnpj);" maxlength="19" size="135"/>');
+					
+					$("#cnpj").jqTransInputText();
+					$("#cnpj").mask("99.999.999/9999-99");
+				}
+		}
+
+		
+		
+	</script>
 	
 	<script type="text/javascript" src="http://www.buzkaza.com.br/buzkaza/topup/top_up-min.js"></script>	
 	<script type="text/javascript">
