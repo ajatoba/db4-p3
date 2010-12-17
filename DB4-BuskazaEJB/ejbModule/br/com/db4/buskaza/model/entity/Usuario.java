@@ -47,6 +47,17 @@ public class Usuario extends Pessoa implements Serializable {
 	@NotNull
 	protected String nomeContato;
 	
+	@NotNull
+	protected boolean confirmado;
+	
+	public boolean isConfimado() {
+		return confirmado;
+	}
+
+	public void setConfimado(boolean confimado) {
+		this.confirmado = confimado;
+	}
+
 	public boolean isRecebeInfo() {
 		return recebeInfo;
 	}
