@@ -13,17 +13,15 @@
 	<link href="/buzkaza/teaser/_css/fontes.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
 	
-	<script type="text/javascript" src="/buzkaza/teaser/requiered/jquery.js" ></script>
+	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>
+	
 	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
 	
 	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_mascara.js" ></script>
 	<script type="text/javascript" src="/buzkaza/includes/scripts/jquery.maskedinput.min.js" ></script>
 	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_validacoes.js" ></script>
 	
-	<script type="text/javascript" src="/buzkaza/topup/top_up-min.js"></script>	
-	<script type="text/javascript">
-	   TopUp.addPresets({ "#demo a": { overlayClose: 1, readAltText: 0, shaded: 0, modal: 1, resizable:0, effect:'show' } });
-	</script>
+	
 	
 	<script language="javascript">
 		$(function(){
@@ -63,6 +61,13 @@
 		
 		
 	</script>
+	
+	<script type="text/javascript" src="http://www.buzkaza.com.br/buzkaza/topup/javascripts/top_up-min.js"></script>
+	<script type="text/javascript">
+	   TopUp.addPresets({ "#demo a": {  overlayClose: 1, readAltText: 0, shaded: 0, modal: 1, resizable:0, effect:'show' } });
+	</script>
+	
+	
 	<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -306,8 +311,8 @@
                 <td width="20%" class="MyriadProRegular">Confirmar Senha</td>
               </tr>
               <tr>
-                <td width="20%"><html:text title="Email" property="usuarioEntity.email" styleClass="email,MyriadProRegular" size="205"/></td>
-                <td width="20%"><html:text title="Confirmação de Email" property="emailConfirma" styleClass="email,MyriadProRegular" size="205"/></td>
+                <td width="20%"><html:text title="Email" property="usuarioEntity.email" styleClass="email,MyriadProRegular" size="200"/></td>
+                <td width="20%"><html:text title="Confirmação de Email" property="emailConfirma" styleClass="email,MyriadProRegular" size="200"/></td>
                 <td width="20%"><html:password title="Senha" property="usuarioEntity.senha" styleClass="string,MyriadProRegular" size="150"/></td>
                 <td width="20%"><html:password title="Confirmação de Senha" property="senhaConfirma" styleClass="string,MyriadProRegular" size="150"/></td>
               </tr>
@@ -326,7 +331,7 @@
           </tr>
           
           <tr>
-            <td><div id="demo"><span style="color:#666666;"><a href="http://www.buzkaza.com.br/teaser/iframe_planta.html" class="tu_iframe_600x391" style="color:#666666; text-decoration:underline">Veja aqui</a> o que você precisa para cadastrar seu imóvel</span></div></td>
+            <td><div id="demo" style="color:#666666;"><a href="http://www.buzkaza.com.br/teaser/iframe_planta.html" class="tu_iframe_600x391">Veja aqui</a> o que você precisa para cadastrar seu imóvel</div></td>
           </tr>
           
         </table>
