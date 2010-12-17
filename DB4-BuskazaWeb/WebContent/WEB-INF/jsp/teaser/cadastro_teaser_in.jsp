@@ -8,14 +8,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza</title>
+
 	<link href="/buzkaza/teaser/_css/estilo.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/teaser/_css/fontes.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
+	
 	<script type="text/javascript" src="/buzkaza/teaser/requiered/jquery.js" ></script>
 	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
+	
 	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_mascara.js" ></script>
 	<script type="text/javascript" src="/buzkaza/includes/scripts/jquery.maskedinput.min.js" ></script>
 	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_validacoes.js" ></script>
+	
+	<script type="text/javascript" src="/buzkaza/topup/javascripts/top_up-min.js"></script>
+	
 	
 	<script language="javascript">
 		$(function(){
@@ -62,7 +68,7 @@
 
 <div id="cadastro">
 <div id="top_cad">
-<a href="index.html"><div id="link_back"></div></a>
+<a href="http://www.buzkaza.com.br/teaser/"><div id="link_back"></div></a>
 </div>
 <div id="meio_cad">
 
