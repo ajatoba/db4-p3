@@ -28,7 +28,41 @@
 	<script type="text/javascript" src="/buzkaza/thickbox/script/global.js" ></script>
 	
 	
-	<script language="javascript">
+	
+	<link href="/buzkaza/_css/jquery.alerts.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
+	<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js" ></script>
+
+
+
+<script type="text/javascript">
+                    
+        $(document).ready( function() {
+        
+			
+			$("#cadastrar_user").click( function() {
+				var form = 	document.usuarioForm;
+				
+				if(checkForm(form)){					
+					form.submit();
+				}
+				
+				if( mensagemAlert != "" ){
+					janelaAlert( mensagemAlert );
+					mensagemAlert = "";
+				}
+				
+			});
+			
+            function janelaAlert(mensagem)
+            {
+                $.alerts.dialogClass = "style_1";
+                jAlert( mensagem , 'Erro', function() {
+                    $.alerts.dialogClass = null; // reset to default
+                });
+            }
+        });
+
 		$(function(){
 			$('#usuarioForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
 			
@@ -288,8 +322,34 @@
             <td><html:text property="cep" styleId="cep" title="Cep" styleClass="cep,MyriadProRegular" maxlength="9" size="120"/></td>            
             <td><html:text property="usuarioEntity.endereco.municipio" title="Municipio" size="160" styleClass="string,MyriadProRegular"/></td>
             <td>
-            	<html:select property="usuarioEntity.endereco.estado.codigo" title="Estado" styleClass="string,MyriadProRegular">  
-					<html:options collection="estados" property="codigo" labelProperty="nome" />
+            	<html:select property="usuarioEntity.endereco.estado.codigo" title="Estado" styleClass="string,MyriadProRegular">
+                            <html:option value="AC">Acre</html:option> 
+                            <html:option value="AL">Alagoas</html:option> 
+                            <html:option value="AP">Amap&aacute;</html:option> 
+                            <html:option value="AM">Amazonas</html:option> 
+                            <html:option value="BA">Bahia</html:option> 
+                            <html:option value="CE">Cear&aacute;</html:option> 
+                            <html:option value="DF">Distrito Federal</html:option> 
+                            <html:option value="ES">Espir&iacute;to Santo</html:option> 
+                            <html:option value="GO">Goi&aacute;s</html:option> 
+                            <html:option value="MA">Maranh&atilde;o</html:option> 
+                            <html:option value="MT">Mato Grosso</html:option> 
+                            <html:option value="MS">Mato Grosso do Sul</html:option> 
+                            <html:option value="MG">Minas Gerais</html:option> 
+                            <html:option value="PA">Par&aacute;</html:option> 
+                            <html:option value="PB">Par&aacute;ba</html:option> 
+                            <html:option value="PR">Paran&aacute;</html:option> 
+                            <html:option value="PE">Pernambuco</html:option> 
+                            <html:option value="PI">Piau&iacute;</html:option> 
+                            <html:option value="RJ">Rio de Janeiro</html:option> 
+                            <html:option value="RN">Rio Grande do Norte</html:option> 
+                            <html:option value="RS">Rio Grande do Sul</html:option> 
+                            <html:option value="RO">Rond&ocirc;nia</html:option> 
+                            <html:option value="RR">Roraima</html:option> 
+                            <html:option value="SC">Santa Catarina</html:option> 
+                            <html:option value="SP">S&atilde;o Paulo</html:option> 
+                            <html:option value="SE">Sergipe</html:option> 
+                            <html:option value="TO">Tocantins</html:option> 
           		</html:select>  
           	</td>
             <td>            
@@ -344,7 +404,7 @@
 		
 
       <div class="btn_cadastrar">        
-        <div class="btn"><a href="#" onclick="gravarUsuario();" border="0"><img src="/buzkaza/teaser/_img/btn_cadastrar_user.jpg.jpg" width="211" height="30" border="0"/></a></div>
+        <div class="btn"><a href="#" border="0"><img src="/buzkaza/teaser/_img/btn_cadastrar_user.jpg.jpg" id="cadastrar_user" width="211" height="30" border="0"/></a></div>
       </div>
     </html:form>
     
