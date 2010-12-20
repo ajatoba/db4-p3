@@ -6,6 +6,7 @@
 var globalForm;
 var globalMsg = new Array();
 var globalMsgRequired = new Array();
+var mensagemAlert = "";
 
 var hazardChars = /[\"\'<>\/]/;
 
@@ -590,8 +591,10 @@ Array.prototype.formatAndShow = function() {
 	for ( var i = 0; i < this.length; i++) {
 		msg += ' * ' + this[i] + "\n";
 	}
-	msg += "\nApresentaram problema de validação. Verifique a obrigatoriedade e fomatação dos mesmos.";
-	alert(msg);
+	//msg += "\nApresentaram problema de validação. Verifique a obrigatoriedade e fomatação dos mesmos.";
+	//alert(msg);
+	mensagemAlert = "\nApresentaram problema de validação. Verifique a obrigatoriedade e fomatação dos mesmos." + msg;
+	
 	globalMsg = Array();
 }
 
