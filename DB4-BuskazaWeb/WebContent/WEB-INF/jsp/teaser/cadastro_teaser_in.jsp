@@ -144,7 +144,7 @@
             <td>
             	<table width="100%" border="0" cellspacing="5" cellpadding="0">
               		<tr>
-                		<td><html:text property="usuarioEntity.nomeContato" title="Nome do contato" size="230" styleClass="string,MyriadProRegular" /></td>
+                		<td><html:text property="usuarioEntity.nomeContato" title="Nacionalidade" size="230" styleClass="string,MyriadProRegular" /></td>
         			</tr>
         		</table>
             </td>
@@ -328,10 +328,10 @@
       <div class="planos_adesao">
         <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr>
-            <td><div><html:checkbox property="usuarioEntity.recebeInfo" styleClass="MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Desejo receber informações  deste site no meu email</span></div></td>
+            <td><div><html:checkbox title="Confirmação por email" property="usuarioEntity.recebeInfo" styleClass="MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Desejo receber informações  deste site no meu email</span></div></td>
           </tr>
           <tr>
-            <td><div><html:checkbox title="Condicoes" property="usuarioEntity.leuCondicoes" styleClass="number,MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Li e aceito os termos e condições deste site</span></div></td>
+            <td><div><html:checkbox title="Condições" property="usuarioEntity.leuCondicoes" styleClass="number,MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Li e aceito os termos e condições deste site</span></div></td>
           </tr>
           
           <tr>
