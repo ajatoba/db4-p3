@@ -18,9 +18,14 @@
 	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
 	
 	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_mascara.js" ></script>
-	<script type="text/javascript" src="/buzkaza/includes/scripts/jquery.maskedinput.min.js" ></script>
+	<script type="text/javascript" src="/buzkaza/includes/scripts/jquery.maskedinput-1.2.2.min.js" ></script>
 	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_validacoes.js" ></script>
 	
+	
+	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/script/thickbox.css" />
+	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/_css/estilo_iframe.css" />
+	<script type="text/javascript" src="/buzkaza/thickbox/script/thickbox.js" ></script>
+	<script type="text/javascript" src="/buzkaza/thickbox/script/global.js" ></script>
 	
 	
 	<script language="javascript">
@@ -59,10 +64,6 @@
 		}
 	</script>
 	
-	<script type="text/javascript" src="http://www.buzkaza.com.br/buzkaza/topup/javascripts/top_up-min.js"></script>	
-	<script type="text/javascript">
-	   TopUp.addPresets({ "#demo a": {  overlayClose: 1, readAltText: 0, shaded: 0, modal: 1, resizable:0, effect:'show' } });
-	</script>	
 	
 	<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 </head>
@@ -106,7 +107,7 @@
 <div id="cont_cadastro">
   <div id="indice_cadastro"></div>
   <div id="formulario_cadastro">
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt">Informações do proprietário</span><br />
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul">Informações do proprietário</span></span><br />
       <br />
     </p>
 
@@ -182,6 +183,7 @@
             </td>
             <td>
             
+
             
             
             <table width="90%" border="0" cellspacing="5" cellpadding="0">
@@ -254,21 +256,17 @@
         			</table>
             
             
-            
-            
-            
-            
             </td>
           </tr>
         </table>
       </div>
       
-      <div class="end_correspondencia"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.jpg" width="22" height="13" /><span class="MyriadProSemiboldIt">Endereço para correspondência</span> <br />
+      <div class="end_correspondencia"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul">Endereço para correspondência</span></span> <br />
         <br />
         
         <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr class="MyriadProRegular">
-            <td>Endereço</td>
+            <td>&nbsp; Endereço</td>
             <td>CEP</td>
             <td>Cidade</td>
             <td>Estado</td>            
@@ -276,7 +274,17 @@
           </tr>
           
           <tr>
-            <td height="50"><html:text title="Endereco" property="usuarioEntity.endereco.logradouro" size="270" styleClass="string,MyriadProRegular"/></td>
+            <td height="50">
+             	<table width="100%" border="0" cellspacing="5" cellpadding="0">
+              		<tr>
+                		<td>
+                        <html:text title="Endereco" property="usuarioEntity.endereco.logradouro" size="270" styleClass="string,MyriadProRegular"/>
+                        </td>
+                   </tr>
+                  </table>
+                        
+                        
+            </td>
             <td><html:text property="cep" styleId="cep" title="Cep" styleClass="cep,MyriadProRegular" maxlength="9" size="120"/></td>            
             <td><html:text property="usuarioEntity.endereco.municipio" title="Municipio" size="160" styleClass="string,MyriadProRegular"/></td>
             <td>
@@ -300,17 +308,17 @@
           <div class="alinha_table">
             <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td width="16%" rowspan="2" class="MyriadProSemiboldIt"><span id="azul">Crie aqui seu<br />login senha</span></td>
-                <td width="20%" class="MyriadProRegular">Email (login)</td>
-                <td width="20%" class="MyriadProRegular">Confirmar Email (login)</td>
-                <td width="20%" class="MyriadProRegular">Senha</td>
-                <td width="20%" class="MyriadProRegular">Confirmar Senha</td>
+                <td width="12%" rowspan="2" class="MyriadProSemiboldIt"><span id="titulo_azul">Crie aqui seu login senha</span></td>
+                <td width="25%" class="MyriadProRegular">Email (login)</td>
+                <td width="25%" class="MyriadProRegular">Confirmar Email (login)</td>
+                <td width="19%" class="MyriadProRegular">Senha</td>
+                <td width="19%" class="MyriadProRegular">Confirmar Senha</td>
               </tr>
               <tr>
-                <td width="20%"><html:text title="Email" property="usuarioEntity.email" styleClass="email,MyriadProRegular" size="200"/></td>
-                <td width="20%"><html:text title="Confirmação de Email" property="emailConfirma" styleClass="email,MyriadProRegular" size="200"/></td>
-                <td width="20%"><html:password title="Senha" property="usuarioEntity.senha" styleClass="string,MyriadProRegular" size="150"/></td>
-                <td width="20%"><html:password title="Confirmação de Senha" property="senhaConfirma" styleClass="string,MyriadProRegular" size="150"/></td>
+                <td width="25%"><html:text title="Email" property="usuarioEntity.email" styleClass="email,MyriadProRegular" size="200"/></td>
+                <td width="25%"><html:text title="Confirmação de Email" property="emailConfirma" styleClass="email,MyriadProRegular" size="200"/></td>
+                <td width="19%"><html:password title="Senha" property="usuarioEntity.senha" styleClass="string,MyriadProRegular" size="150"/></td>
+                <td width="19%"><html:password title="Confirmação de Senha" property="senhaConfirma" styleClass="string,MyriadProRegular" size="150"/></td>
               </tr>
             </table>
           </div>
@@ -327,7 +335,7 @@
           </tr>
           
           <tr>
-            <td><div id="demo" style="color:#666666;"><a href="http://www.buzkaza.com.br/teaser/iframe_planta.html" class="tu_iframe_600x391">Veja aqui</a> o que você precisa para cadastrar seu imóvel</div></td>
+            <td><div id="texto_cinza"><a class="thickbox" href="/buzkaza/thickbox/janelas.html?height=400&width=600" >Veja aqui</a> o que você precisa para cadastrar seu imóvel</div></td>
           </tr>
           
         </table>
