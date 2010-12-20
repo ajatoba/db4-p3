@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/_css/cadastro_imovel.css" rel="stylesheet" type="text/css" />
 
 	<link rel="stylesheet" href="jqtransformplugin/jqtransform.css" type="text/css" media="all" />
 <script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
@@ -62,356 +62,192 @@
 
 
 <div id="cont_cadastro">
-  <div id="formulario_cadastro_imovel">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">      
+<div id="indice_cadastro"><img src="_img/indice_cadastro_imovel_02.jpg" width="971" height="57" /></div>
+  <div id="formulario_cadastro_imovel"><form id="form">
+    <table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
-        <td>Upload de Fotos</td>
-        <td><label for="fileField"></label>
-        <html:file property="arquivoFoto[1]" /><br/>
-        <html:file property="arquivoFoto[2]" /><br/>
-        <html:file property="arquivoFoto[3]" /><br/>
-        <html:file property="arquivoFoto[4]" /><br/>
-        <html:file property="arquivoFoto[5]" /><br/>
-          </td>
+        <td colspan="2"><img src="_img/bullet_laranja.jpg" width="19" height="15" /><span class="MyriadPro18Azul_italic">Endereço</span></td>
+        <td width="24%">&nbsp;</td>
+        <td width="26%">&nbsp;</td>
+        <td width="10%">&nbsp;</td>
       </tr>
       <tr>
-        <td>Upload  da Planta </td>
-        <td><html:file property="planta" /></td>
-      </tr>
-      <tr>
-        <td>Capacidade</td>
-        <td>
-        <html:select property="capacidade">
-        		<html:option value=""></html:option> 
-      			<html:option value="1">1 Pessoa</html:option>
-       			<html:option value="2">2 Pessoas</html:option>
-      	</html:select>
-        </td>
-      </tr>
-      <tr>
-        <td>Quartos</td>
-        <td>
-        <html:select property="quartos">
-        		<html:option value=""></html:option> 
-      			<html:option value="1">1 Quarto</html:option>
-       			<html:option value="2">2 Quartos</html:option>
-      	</html:select>
-      	</td>
-      </tr>
-      <tr>
-        <td>Números  de Camas</td>
-        <td>
-        <html:select property="camas">
-        		<html:option value=""></html:option> 
-      			<html:option value="1">1 Cama</html:option>
-       			<html:option value="2">2 Camas</html:option>
-      	</html:select>
-      	</td>
-      </tr>
-      <tr>
-        <td>Idiomas  Falados</td>
-        <td>
-		<html:select property="idiomas">
-				<html:option value=""></html:option> 
-      			<html:option value="1">Inglês</html:option>
-       			<html:option value="2">Português</html:option>
-      	</html:select>
-		</td>
-      </tr>
-      <tr>
-        <td>Transporte  Público</td>
-        <td>
-		<html:select property="transportePublico">
-				<html:option value=""></html:option> 
-      			<html:option value="true">Sim</html:option>
-       			<html:option value="false">Não</html:option>
-      	</html:select>
-		</td>
-      </tr>
-      <tr>
-        <td>Metragem  do Imóvel</td>
-        <td>
-		<html:select property="metragem">
-				<html:option value=""></html:option> 
-      			<html:option value="50.0">50m</html:option>
-       			<html:option value="60.0">60m</html:option>
-      	</html:select>
-		</td>
-      </tr>
-      <tr>
-        <td>Distância  do Centro:</td>
-        <td><html:text property="distanciaCentro"/></td>
-      </tr>
-      <tr>
-        <td>Link  Google Maps</td>
-        <td><html:text property="linkGoogleMaps"/></td>
-      </tr>
-      
-        <tr>
-        <td>Mapa  Google Maps</td>
-        <td><html:textarea cols="10" rows="5" property="mapaGoogleMaps"/></td>
-      </tr>
-      <tr>
+        <td width="29%">&nbsp;</td>
+        <td width="11%">&nbsp;</td>
+        <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td>Localização</td>
-        <td>&nbsp;</td>
+        <td class="MyriadPro14">Endereço</td>
+        <td class="MyriadPro14">Número</td>
+        <td class="MyriadPro14">Complemento</td>
+        <td class="MyriadPro14">Bairro </td>
+        <td class="MyriadPro14">CEP</td>
       </tr>
       <tr>
-        <td>Endereço</td>
         <td><html:text property="logradouro"/></td>
-      </tr>
-       <tr>
-        <td>Numero</td>
         <td><html:text property="numero"/></td>
-      </tr>
-       <tr>
-        <td>Complemento</td>
         <td><html:text property="complemento"/></td>
-      </tr>
-      <tr>
-        <td>Bairro</td>
         <td><html:text property="bairro"/></td>
+        <td><html:text property="cep"/></td>
       </tr>
       <tr>
-        <td>Estado</td>
-        <td>
-        	<html:select property="imovelEntity.estado.codigo"> 
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="3"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="MyriadPro14">
+            <td>Cidade</td>
+            <td>Estado</td>
+            <td>País</td>
+          </tr>
+          <tr>
+            <td><html:text property="municipio"/></td>
+            <td><html:select property="imovelEntity.estado.codigo"> 
         		<html:option value=""></html:option> 
 				<html:options collection="estados" property="codigo" labelProperty="nome" />
         	</html:select></td>
-      </tr>
-      <tr>
-        <td>Cidade</td>
-        <td><html:text property="municipio"/></td>
-      </tr>
-      <tr>
-        <td>País </td>
-        <td>
-        	<html:select property="pais">  
+            <td><html:select property="pais">  
         		<html:option value=""></html:option> 
 				<html:options collection="paises" property="codigo" labelProperty="nome"/>
-			</html:select>
-		</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>Equipamentos</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td colspan="2"><table width="90%" border="0" align="center" cellpadding="0" cellspacing="2">
-          <tr>
-            <td colspan="3" class="MyriadProSemiboldIt"><img src="_img/bullet_cadastro.jpg" alt="" width="22" height="13" />Equipamentos no Imóvel</td>
+			</html:select></td>
           </tr>
-          <logic:notEmpty name="equipamentos">
-          	<logic:iterate name="equipamentos" id="equipamento">
-				  <tr>
-					  <td>
-						  <html:multibox property="equipamentos">
-						  	<bean:write name="equipamento" property="codigo"/>  
-						  </html:multibox> 
-						  <bean:write name="equipamento" property="nome"/>
-					  </td>
-				  </tr>         
-	         </logic:iterate>
-          </logic:notEmpty>
-
+        </table></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="5"><table width="70%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="40" colspan="2"><img src="_img/bullet_laranja.jpg" width="19" height="15" /><span class="MyriadPro18Azul_italic">Características do Imóvel</span></td>
+            <td width="14%">&nbsp;</td>
+            <td width="49%">&nbsp;</td>
+          </tr>
+          <tr class="MyriadPro14">
+            <td width="20%">Perfil do Imóvel</td>
+            <td width="17%">Quartos</td>
+            <td>Metragem</td>
+            <td>Capacidade</td>
+          </tr>
+          <tr>
+            <td><html:select property="perfil_imovel">
+				<html:option value=""></html:option> 
+      			<html:option value="casa">Casa</html:option>
+       			<html:option value="apartamento">Apartamento</html:option>
+                <html:option value="flat">Flat</html:option>
+      	</html:select></td>
+            <td><html:select property="quartos">
+        		<html:option value=""></html:option> 
+      			<html:option value="1">1 Quarto</html:option>
+       			<html:option value="2">2 Quartos</html:option>
+      	</html:select></td>
+            <td><html:select property="metragem">
+				<html:option value=""></html:option> 
+      			<html:option value="20.0">20m</html:option>
+       			<html:option value="30.0">30m</html:option>
+                <html:option value="30.0">40m</html:option>
+                <html:option value="30.0">50m</html:option>
+                <html:option value="30.0">60m</html:option>
+                <html:option value="30.0">70m</html:option>
+      	</html:select></td>
+            <td><html:select property="capacidade">
+        		<html:option value=""></html:option> 
+      			<html:option value="1">1 Pessoa</html:option>
+       			<html:option value="2">2 Pessoas</html:option>
+      	</html:select></td>
+          </tr>
         </table></td>
         </tr>
       <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>Taxas Extras</td>
         <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>Energia</td>
-        <td>
-        	<select name="energiaBoolean">
-	        		<option value="sim">Sim</option>
-	        		<option value="não">Não</option>
-	        </select>
-        	<html:text property="energia"/>
-
-		</td>
-      </tr>
-      <tr>
-        <td>Internet </td>
-        <td>
-	        <select name="internetBoolean">
-	        		<option value="sim">Sim</option>
-	        		<option value="não">Não</option>
-	        </select>
-        	<html:text property="internet"/>  
-		</td>
-      </tr>
-      <tr>
-        <td>Diarista </td>
-        <td>
-			<select name="diaristaBoolean">
-	        		<option value="sim">Sim</option>
-	        		<option value="não">Não</option>
-	        </select>
-        	<html:text property="diarista"/>
-		</td>
-      </tr>
-      <tr>
-        <td>Outro</td>
-        <td><html:text property="outraTaxaExtra"/></td>
-      </tr>
-      <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td>Condições</td>
+        <td class="MyriadPro14">Planta do Imóvel</td>
         <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>Calção</td>
-        <td>
-			<select name="calcaoBoolean">
-	        		<option value="sim">Sim</option>
-	        		<option value="não">Não</option>
-	        </select>
-        	<html:text property="calcao"/>
-		</td>
-      </tr>
-      <tr>
-        <td>Horário Check In</td>
-        <td><html:select property="checkInEntradaHora">  
-				<html:option value="10">10</html:option>
-       			<html:option value="11">11</html:option>
-			</html:select>:
-			<html:select property="checkInEntradaMinuto">  
-				<html:option value="10">10</html:option>
-       			<html:option value="11">11</html:option>
-			</html:select>
-          até
-          <html:select property="checkInSaidaHora">  
-				<html:option value="10">10</html:option>
-       			<html:option value="11">11</html:option>
-			</html:select>:
-			<html:select property="checkInSaidaMinuto">  
-				<html:option value="10">10</html:option>
-       			<html:option value="11">11</html:option>
-			</html:select>			
-			</td>
-      </tr>
-      <tr>
-        <td>Horário Check Out</td>
-        <td>
-        	<html:select property="checkOutEntradaHora">  
-				<html:option value="10">10</html:option>
-       			<html:option value="11">11</html:option>
-			</html:select>:
-			<html:select property="checkOutEntradaMinuto">  
-				<html:option value="10">10</html:option>
-       			<html:option value="11">11</html:option>
-			</html:select>
-          até
-          <html:select property="checkOutSaidaHora">  
-				<html:option value="10">10</html:option>
-       			<html:option value="11">11</html:option>
-			</html:select>:
-			<html:select property="checkOutSaidaMinuto">  
-				<html:option value="10">10</html:option>
-       			<html:option value="11">11</html:option>
-			</html:select>
-          </td>
-      </tr>
-      <tr>
-        <td>Late Checkout</td>
-        <td>Até 
-          <html:select property="lateCheckOutHora">  
-				<html:option value="10">10</html:option>
-       			<html:option value="11">11</html:option>
-			</html:select>:
-			<html:select property="lateCheckOutMinuto">  
-				<html:option value="10">10</html:option>
-       			<html:option value="11">11</html:option>
-			</html:select></td>
-      </tr>
-      <tr>
+        <td class="MyriadPro14">Link do vídeo no You Tube</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td>Check In</td>
+        <td colspan="2"><html:file property="planta" /></td>
+        <td colspan="2"><label for="textfield31"></label>
+          <html:text property="link_youtube"/></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td>Nome</td>
-        <td><html:text property="nomeCheckIn"/></td>
-      </tr>
-      <tr>
-        <td>Telefone</td>
-        <td><html:text property="telefone"/></td>
-      </tr>
-      <tr>
-        <td>Quem receberá o hóspede</td>
-        <td><html:text property="recepcionista"/></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
+        <td colspan="2">&nbsp;</td>
+        <td colspan="2">&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td>Tarifas</td>
-        <td></td>
+        <td colspan="5">&nbsp;</td>
       </tr>
       <tr>
-        <td>Diária: </td>
-        <td><html:text property="tarifaDiaria"/></td>
+        <td colspan="5"><span class="MyriadPro18Azul">Imagens  do Imóvel</span><span class="MyriadPro18"> Arquivo (Qtd minima 6, máx 15/máx 200kb)</span></td>
       </tr>
       <tr>
-        <td>Semanal:</td>
-        <td><html:text property="tarifaSemanal"/></td>
+        <td colspan="5"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="25%"><label for="fileField"></label>
+        <html:file property="arquivoFoto[1]" /><br/>
+        <html:file property="arquivoFoto[2]" /><br/>
+        <html:file property="arquivoFoto[3]" /><br/>
+        <html:file property="arquivoFoto[4]" /><br/>
+        <html:file property="arquivoFoto[5]" /><br/></td>
+            <td width="25%">&nbsp;</td>
+            </tr>
+          <tr>
+            <td colspan="2">&nbsp;</td>
+            </tr>
+          <tr>
+            <td colspan="2">&nbsp;</td>
+            </tr>
+          <tr>
+            <td width="25%">&nbsp;</td>
+            <td width="25%">&nbsp;</td>
+            </tr>
+        </table></td>
       </tr>
       <tr>
-        <td>Quinzenal</td>
-        <td><html:text property="tarifaQuinzenal"/></td>
+        <td colspan="5">&nbsp;</td>
       </tr>
       <tr>
-        <td>Mensal:</td>
-        <td><html:text property="tarifaMensal"/></td>
+        <td colspan="5">&nbsp;</td>
       </tr>
       <tr>
-        <td>Tarifas especiais:</td>
-        <td><select name="tarifasEspeciaisBoolean">
-	        		<option value="sim">Sim</option>
-	        		<option value="não">Não</option>
-	        </select>
-	        <html:text property="tarifaEspecialDescricao"/> - <html:text property="tarifaEspecialValor"/>
-	    </td>
+        <td colspan="5">&nbsp;</td>
       </tr>
       <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td colspan="5"><div style="float:right;"><img src="_img/btn_enviar_anuncio.jpg" width="211" height="40" /></div></td>
       </tr>
-    </table>
-    <html:submit value="ok"/>
-    </html:form>
+      </table></form>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
     <p><br />
-  </p>
+</p>
   <p>&nbsp; </p>
   <p>&nbsp;</p>
   </div>
 
-</div>
-<!--FIM CADASTRO-->
+</div><!--FIM CADASTRO-->
 <div id="linha_meio"></div>
 <div id="boxes"><img src="/buzkaza/images/formulario_proprietario(zig.jpg" width="991" height="283" /></div>
 <div id="bottom"><img src="/buzkaza/images/formulario_proprietario(zig.gif" width="991" height="253" /></div>
