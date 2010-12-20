@@ -405,6 +405,17 @@ function validaData(date, b) {
 }
 
 function isCpf(v) {
+	
+v = v.replace(".","");
+v = v.replace(".","");
+v = v.replace("-","");
+
+if (v == "") {
+	return false;
+}
+
+
+
 	var s = null;
 	var r = null;
 	// Não verifica caso o usuário não digite nenhum caracter.
@@ -440,6 +451,17 @@ function isCpf(v) {
 }
 
 function isCnpj(v) {
+
+v = v.replace(".","");
+v = v.replace(".","");
+v = v.replace("-","");
+v = v.replace("/","");
+
+
+if (v == "") {
+	return false;
+}
+
 	var dig1 = 0;
 	var dig2 = 0;
 	var x;
