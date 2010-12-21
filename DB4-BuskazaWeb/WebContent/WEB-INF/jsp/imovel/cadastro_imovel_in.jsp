@@ -21,8 +21,6 @@
 		});
 	</script>
 	
-	
-	
 	<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -78,13 +76,13 @@
     <table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
         <td colspan="2"><img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul"> Endereço</span></span><br /></td>
+        <td width="17%">&nbsp;</td>
+        <td width="17%">&nbsp;</td>
         <td width="24%">&nbsp;</td>
-        <td width="26%">&nbsp;</td>
-        <td width="10%">&nbsp;</td>
       </tr>
       <tr>
-        <td width="29%">&nbsp;</td>
-        <td width="11%">&nbsp;</td>
+        <td width="30%">&nbsp;</td>
+        <td width="12%">&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
@@ -111,7 +109,8 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="3"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <td colspan="3">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr class="MyriadPro14">
             <td>Cidade</td>
             <td>Estado</td>
