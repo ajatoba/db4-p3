@@ -2,7 +2,6 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld"  prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,7 +9,7 @@
 <title>Buzkaza</title>
 
 	<link href="/buzkaza/teaser/_css/estilo.css" rel="stylesheet" type="text/css" />
-	<link href="/buzkaza/teaser/_css/cadastro_imovel.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/_css/cadastro_imovel.css" rel="stylesheet" type="text/css" />
 
 	<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
 
@@ -21,6 +20,8 @@
 			$('#imovelForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
 		});
 	</script>
+	
+	
 	
 	<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 </head>
@@ -67,13 +68,16 @@
 
 
 <div id="cont_cadastro">
+<!--
 <div id="indice_cadastro"><img src="/buzkaza/_img/indice_cadastro_imovel_02.jpg" width="971" height="57" /></div>
+   -->
+ 
   <div id="formulario_cadastro_imovel">
   
   
     <table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
-        <td colspan="2"><img src="/buzkaza/_img/bullet_laranja.jpg" width="19" height="15" /><span class="MyriadPro18Azul_italic">Endereço</span></td>
+        <td colspan="2"><img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul"> Endereço</span></span><br /></td>
         <td width="24%">&nbsp;</td>
         <td width="26%">&nbsp;</td>
         <td width="10%">&nbsp;</td>
@@ -93,11 +97,11 @@
         <td class="MyriadPro14">CEP</td>
       </tr>
       <tr>
-        <td><html:text property="logradouro"/></td>
-        <td><html:text property="numero"/></td>
-        <td><html:text property="complemento"/></td>
-        <td><html:text property="bairro"/></td>
-        <td><input name="cep" type="text" /></td>
+        <td><html:text property="logradouro" size="260"/></td>
+        <td><html:text property="numero" size="88"/></td>
+        <td><html:text property="complemento" size="138"/></td>
+        <td><html:text property="bairro" size="138"/></td>
+        <td><input name="cep" type="text" size="138" /></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -114,7 +118,7 @@
             <td>País</td>
           </tr>
           <tr>
-            <td><html:text property="municipio"/></td>
+            <td><html:text property="municipio" size="160"/></td>
             <td><html:select property="imovelEntity.estado.codigo">
 							<html:option value="AC">Acre</html:option> 
                             <html:option value="AL">Alagoas</html:option> 
@@ -163,7 +167,7 @@
       <tr>
         <td colspan="5"><table width="70%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td height="40" colspan="2"><img src="/buzkaza/_img/bullet_laranja.jpg" width="19" height="15" /><span class="MyriadPro18Azul_italic">Características do Imóvel</span></td>
+            <td height="40" colspan="2"><img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul"> Características do Imóvel</span></span><br /></td>
             <td width="14%">&nbsp;</td>
             <td width="49%">&nbsp;</td>
           </tr>
@@ -182,12 +186,12 @@
   </select>
 </td>
             <td><html:select property="quartos">
-        		<html:option value=""></html:option> 
+        		<html:option value="">&nbsp;</html:option> 
       			<html:option value="1">1 Quarto</html:option>
        			<html:option value="2">2 Quartos</html:option>
       	</html:select></td>
             <td><html:select property="metragem">
-				<html:option value=""></html:option> 
+				<html:option value="">&nbsp;</html:option> 
       			<html:option value="20.0">20m</html:option>
        			<html:option value="30.0">30m</html:option>
                 <html:option value="30.0">40m</html:option>
@@ -196,7 +200,7 @@
                 <html:option value="30.0">70m</html:option>
       	</html:select></td>
             <td><html:select property="capacidade">
-        		<html:option value=""></html:option> 
+        		<html:option value="">&nbsp;</html:option> 
       			<html:option value="1">1 Pessoa</html:option>
        			<html:option value="2">2 Pessoas</html:option>
       	</html:select></td>
@@ -219,8 +223,7 @@
       </tr>
       <tr>
         <td colspan="2"><html:file property="planta" /></td>
-        <td colspan="2"><label for="textfield31"></label>
-          <input name="youtube" type="text" /></td>
+        <td colspan="2"><input name="youtube" type="text" size="245" /></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
@@ -237,14 +240,14 @@
       <tr>
         <td colspan="5"><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td width="25%"><label for="fileField"></label>
-        <html:file property="arquivoFoto[1]" /><br/>
-        <html:file property="arquivoFoto[2]" /><br/>
-        <html:file property="arquivoFoto[3]" /><br/>
-        <html:file property="arquivoFoto[4]" /><br/>
-        <html:file property="arquivoFoto[5]" /><br/>
-        <html:file property="arquivoFoto[6]" /><br/>
-        </td>
+            <td width="25%">
+		        <html:file property="arquivoFoto[1]" styleId="file1"/><br/>
+		        <html:file property="arquivoFoto[2]" styleId="file2"/><br/>
+		        <html:file property="arquivoFoto[3]" styleId="file3"/><br/>
+		        <html:file property="arquivoFoto[4]" styleId="file4"/><br/>
+		        <html:file property="arquivoFoto[5]" styleId="file5"/><br/>
+		        <html:file property="arquivoFoto[6]" styleId="file6"/><br/>
+        	</td>
             <td width="25%">&nbsp;</td>
             </tr>
           <tr>
