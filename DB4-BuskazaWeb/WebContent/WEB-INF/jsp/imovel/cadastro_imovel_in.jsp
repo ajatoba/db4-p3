@@ -247,7 +247,9 @@
   <p>&nbsp;</p>
   </div>
 
-</div><!--FIM CADASTRO-->
+</div>
+</html:form>
+<!--FIM CADASTRO-->
 <div id="linha_meio"></div>
 <div id="boxes"><img src="/buzkaza/images/formulario_proprietario(zig.jpg" width="991" height="283" /></div>
 <div id="bottom"><img src="/buzkaza/images/formulario_proprietario(zig.gif" width="991" height="253" /></div>
