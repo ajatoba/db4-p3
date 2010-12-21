@@ -8,27 +8,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza</title>
-<link href="/buzkaza/_css/cadastro_imovel.css" rel="stylesheet" type="text/css" />
 
-<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
-<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>
+	<link href="/buzkaza/teaser/_css/estilo.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/teaser/_css/cadastro_imovel.css" rel="stylesheet" type="text/css" />
+
+	<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
+
+	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>	
+	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
+	<script language="javascript">
+		$(function(){
+			$('#imovelForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
+		});
+	</script>
 	
-<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
-
-<script language="javascript">
-	$(function(){
-		$('#imovelForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
-	});
-</script>
-<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-<div id="linha_topo"></div>
-<div id="site">
-<div id="top_header"><img src="/buzkaza/images/top_01.jpg" width="991" height="31" /></div>
-<div id="meio_header"><img src="/buzkaza/images/top_02.jpg" width="991" height="86" /></div>
-<div id="bottom_header"><img src="/buzkaza/images/top_03.jpg" width="991" height="77" /></div>
+
+<div id="cadastro">
+<div id="top_cad">
+<a href="http://www.buzkaza.com.br/teaser/"><div id="link_back"></div></a>
+</div>
+<div id="meio_cad">
 
 <!-- MENSAGEM DE ERRO -->
     <font color="red">
@@ -65,7 +68,9 @@
 
 <div id="cont_cadastro">
 <div id="indice_cadastro"><img src="/buzkaza/_img/indice_cadastro_imovel_02.jpg" width="971" height="57" /></div>
-  <div id="formulario_cadastro_imovel"><form id="form">
+  <div id="formulario_cadastro_imovel">
+  
+  
     <table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
         <td colspan="2"><img src="/buzkaza/_img/bullet_laranja.jpg" width="19" height="15" /><span class="MyriadPro18Azul_italic">Endereço</span></td>
@@ -266,18 +271,24 @@
       <tr>
         <td colspan="5"><div style="float:right;"><input name="submit" type="image" src="/buzkaza/_img/btn_enviar_anuncio.jpg"  /></div></td>
       </tr>
-      </table></form>
+      </table>
   
 
   </div>
 
 </div>
 </html:form>
-<!--FIM CADASTRO-->
-<div id="linha_meio"></div>
-<div id="boxes"><img src="/buzkaza/images/formulario_proprietario(zig.jpg" width="991" height="283" /></div>
-<div id="bottom"><img src="/buzkaza/images/formulario_proprietario(zig.gif" width="991" height="253" /></div>
+    
+    <p>&nbsp; </p>
+    <p>&nbsp;</p>
+  </div>
+</div>
+<!--FORM-->
+<div id="bottom_cad"></div>
 
 </div>
+
+
 </body>
 </html>
+
