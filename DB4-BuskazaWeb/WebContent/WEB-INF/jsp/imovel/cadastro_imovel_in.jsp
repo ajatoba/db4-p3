@@ -7,17 +7,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Buzkaza</title>
 <link href="/buzkaza/_css/cadastro_imovel.css" rel="stylesheet" type="text/css" />
 
-	<link rel="stylesheet" href="/buzkaza/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
-<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
-	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
-	<script language="javascript">
-		$(function(){
-			$('#usuarioForm').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
-		});
-	</script>
+<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
+<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>
+	
+<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
+
+<script language="javascript">
+	$(function(){
+		$('#imovelForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
+	});
+</script>
 <link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -79,8 +81,8 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td class="MyriadPro14">EndereÃ§o</td>
-        <td class="MyriadPro14">NÃºmero</td>
+        <td class="MyriadPro14">Endereço</td>
+        <td class="MyriadPro14">Número</td>
         <td class="MyriadPro14">Complemento</td>
         <td class="MyriadPro14">Bairro </td>
         <td class="MyriadPro14">CEP</td>
@@ -104,7 +106,7 @@
           <tr class="MyriadPro14">
             <td>Cidade</td>
             <td>Estado</td>
-            <td>PaÃ­s</td>
+            <td>País</td>
           </tr>
           <tr>
             <td><html:text property="municipio"/></td>
@@ -136,7 +138,7 @@
             <td width="49%">&nbsp;</td>
           </tr>
           <tr class="MyriadPro14">
-            <td width="20%">Perfil do ImÃ³vel</td>
+            <td width="20%">Perfil do Imóvel</td>
             <td width="17%">Quartos</td>
             <td>Metragem</td>
             <td>Capacidade</td>
@@ -179,9 +181,9 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td class="MyriadPro14">Planta do ImÃ³vel</td>
+        <td class="MyriadPro14">Planta do Imóvel</td>
         <td>&nbsp;</td>
-        <td class="MyriadPro14">Link do vÃ­deo no You Tube</td>
+        <td class="MyriadPro14">Link do vídeo no You Tube</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
@@ -200,7 +202,7 @@
         <td colspan="5">&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="5"><span class="MyriadPro18Azul">Imagens  do ImÃ³vel</span><span class="MyriadPro18"> Arquivo (Qtd minima 6, mÃ¡x 15/mÃ¡x 200kb)</span></td>
+        <td colspan="5"><span class="MyriadPro18Azul">Imagens  do Imóvel</span><span class="MyriadPro18"> Arquivo (Qtd minima 6, máx 15/máx 200kb)</span></td>
       </tr>
       <tr>
         <td colspan="5"><table width="100%" border="0" cellspacing="0" cellpadding="0">
