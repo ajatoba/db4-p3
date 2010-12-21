@@ -10,9 +10,9 @@
 <title>Untitled Document</title>
 <link href="/buzkaza/_css/cadastro_imovel.css" rel="stylesheet" type="text/css" />
 
-	<link rel="stylesheet" href="jqtransformplugin/jqtransform.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="/buzkaza/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
 <script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
-	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
+	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
 	<script language="javascript">
 		$(function(){
 			$('#usuarioForm').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
@@ -62,11 +62,11 @@
 
 
 <div id="cont_cadastro">
-<div id="indice_cadastro"><img src="_img/indice_cadastro_imovel_02.jpg" width="971" height="57" /></div>
+<div id="indice_cadastro"><img src="/buzkaza/_img/indice_cadastro_imovel_02.jpg" width="971" height="57" /></div>
   <div id="formulario_cadastro_imovel"><form id="form">
     <table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
-        <td colspan="2"><img src="_img/bullet_laranja.jpg" width="19" height="15" /><span class="MyriadPro18Azul_italic">Endereço</span></td>
+        <td colspan="2"><img src="/buzkaza/_img/bullet_laranja.jpg" width="19" height="15" /><span class="MyriadPro18Azul_italic">EndereÃ§o</span></td>
         <td width="24%">&nbsp;</td>
         <td width="26%">&nbsp;</td>
         <td width="10%">&nbsp;</td>
@@ -79,8 +79,8 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td class="MyriadPro14">Endereço</td>
-        <td class="MyriadPro14">Número</td>
+        <td class="MyriadPro14">EndereÃ§o</td>
+        <td class="MyriadPro14">NÃºmero</td>
         <td class="MyriadPro14">Complemento</td>
         <td class="MyriadPro14">Bairro </td>
         <td class="MyriadPro14">CEP</td>
@@ -90,7 +90,7 @@
         <td><html:text property="numero"/></td>
         <td><html:text property="complemento"/></td>
         <td><html:text property="bairro"/></td>
-        <td><html:text property="cep"/></td>
+        <td><input name="cep" type="text" /></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -104,7 +104,7 @@
           <tr class="MyriadPro14">
             <td>Cidade</td>
             <td>Estado</td>
-            <td>País</td>
+            <td>PaÃ­s</td>
           </tr>
           <tr>
             <td><html:text property="municipio"/></td>
@@ -131,23 +131,24 @@
       <tr>
         <td colspan="5"><table width="70%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td height="40" colspan="2"><img src="_img/bullet_laranja.jpg" width="19" height="15" /><span class="MyriadPro18Azul_italic">Características do Imóvel</span></td>
+            <td height="40" colspan="2"><img src="/buzkaza/_img/bullet_laranja.jpg" width="19" height="15" /><span class="MyriadPro18Azul_italic">CaracterÃ­sticas do ImÃ³vel</span></td>
             <td width="14%">&nbsp;</td>
             <td width="49%">&nbsp;</td>
           </tr>
           <tr class="MyriadPro14">
-            <td width="20%">Perfil do Imóvel</td>
+            <td width="20%">Perfil do ImÃ³vel</td>
             <td width="17%">Quartos</td>
             <td>Metragem</td>
             <td>Capacidade</td>
           </tr>
           <tr>
-            <td><html:select property="perfil_imovel">
-				<html:option value=""></html:option> 
-      			<html:option value="casa">Casa</html:option>
-       			<html:option value="apartamento">Apartamento</html:option>
-                <html:option value="flat">Flat</html:option>
-      	</html:select></td>
+            <td>
+  <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+    <option>apartamento</option>
+    <option>casa</option>
+    <option>flat</option>
+  </select>
+</td>
             <td><html:select property="quartos">
         		<html:option value=""></html:option> 
       			<html:option value="1">1 Quarto</html:option>
@@ -178,16 +179,16 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td class="MyriadPro14">Planta do Imóvel</td>
+        <td class="MyriadPro14">Planta do ImÃ³vel</td>
         <td>&nbsp;</td>
-        <td class="MyriadPro14">Link do vídeo no You Tube</td>
+        <td class="MyriadPro14">Link do vÃ­deo no You Tube</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
       <tr>
         <td colspan="2"><html:file property="planta" /></td>
         <td colspan="2"><label for="textfield31"></label>
-          <html:text property="link_youtube"/></td>
+          <input name="youtube" type="text" /></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
@@ -199,7 +200,7 @@
         <td colspan="5">&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="5"><span class="MyriadPro18Azul">Imagens  do Imóvel</span><span class="MyriadPro18"> Arquivo (Qtd minima 6, máx 15/máx 200kb)</span></td>
+        <td colspan="5"><span class="MyriadPro18Azul">Imagens  do ImÃ³vel</span><span class="MyriadPro18"> Arquivo (Qtd minima 6, mÃ¡x 15/mÃ¡x 200kb)</span></td>
       </tr>
       <tr>
         <td colspan="5"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -209,7 +210,9 @@
         <html:file property="arquivoFoto[2]" /><br/>
         <html:file property="arquivoFoto[3]" /><br/>
         <html:file property="arquivoFoto[4]" /><br/>
-        <html:file property="arquivoFoto[5]" /><br/></td>
+        <html:file property="arquivoFoto[5]" /><br/>
+        <html:file property="arquivoFoto[6]" /><br/>
+        </td>
             <td width="25%">&nbsp;</td>
             </tr>
           <tr>
@@ -234,17 +237,11 @@
         <td colspan="5">&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="5"><div style="float:right;"><img src="_img/btn_enviar_anuncio.jpg" width="211" height="40" /></div></td>
+        <td colspan="5"><div style="float:right;"><input name="submit" type="image" src="/buzkaza/_img/btn_enviar_anuncio.jpg"  /></div></td>
       </tr>
       </table></form>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p><br />
-</p>
-  <p>&nbsp; </p>
-  <p>&nbsp;</p>
+  
+
   </div>
 
 </div>
