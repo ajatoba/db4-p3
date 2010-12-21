@@ -178,18 +178,26 @@
           </tr>
           <tr>
             <td>
-  <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
-    <option>apartamento</option>
-    <option>casa</option>
-    <option>flat</option>
-  </select>
+            <div style="margin-right:13px;">
+				  <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+				    <option>apartamento</option>
+				    <option>casa</option>
+				    <option>flat</option>
+				  </select>
+  </div>
 </td>
-            <td><html:select property="quartos">
+            <td>
+            <div style="margin-right:13px;"><html:select property="quartos">
         		<html:option value="">&nbsp;</html:option> 
       			<html:option value="1">1 Quarto</html:option>
        			<html:option value="2">2 Quartos</html:option>
-      	</html:select></td>
-            <td><html:select property="metragem">
+      	</html:select>
+      	</div>
+      	
+      	</td>
+            <td>
+            <div style="margin-right:13px;">
+            	<html:select property="metragem">
 				<html:option value="">&nbsp;</html:option> 
       			<html:option value="20.0">20m</html:option>
        			<html:option value="30.0">30m</html:option>
@@ -197,7 +205,8 @@
                 <html:option value="30.0">50m</html:option>
                 <html:option value="30.0">60m</html:option>
                 <html:option value="30.0">70m</html:option>
-      	</html:select></td>
+      	</html:select>
+      	</div></td>
             <td><html:select property="capacidade">
         		<html:option value="">&nbsp;</html:option> 
       			<html:option value="1">1 Pessoa</html:option>
@@ -234,18 +243,21 @@
         <td colspan="5">&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="5"><span class="MyriadPro18Azul">Imagens  do Imóvel</span><span class="MyriadPro18"> Arquivo (Qtd minima 6, máx 15/máx 200kb)</span></td>
+        <td height="40" colspan="5"><img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul"> Imagens  do Imóvel</span></span><br />
+        <span class="MyriadPro14"> Arquivo (Qtd minima 6, máx 15/máx 200kb)</span></td>
+        
+        
       </tr>
       <tr>
         <td colspan="5"><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="25%">
-		        <html:file property="arquivoFoto[1]" styleId="file1"/><br/>
-		        <html:file property="arquivoFoto[2]" styleId="file2"/><br/>
-		        <html:file property="arquivoFoto[3]" styleId="file3"/><br/>
-		        <html:file property="arquivoFoto[4]" styleId="file4"/><br/>
-		        <html:file property="arquivoFoto[5]" styleId="file5"/><br/>
-		        <html:file property="arquivoFoto[6]" styleId="file6"/><br/>
+		        <div style="margin-top:8px;"><html:file property="arquivoFoto[1]" styleId="file1"/></div>
+		        <div style="margin-top:8px;"><html:file property="arquivoFoto[2]" styleId="file2"/></div>
+		        <div style="margin-top:8px;"><html:file property="arquivoFoto[3]" styleId="file3"/></div>
+		        <div style="margin-top:8px;"><html:file property="arquivoFoto[4]" styleId="file4"/></div>
+		        <div style="margin-top:8px;"><html:file property="arquivoFoto[5]" styleId="file5"/></div>
+		        <div style="margin-top:8px;"><html:file property="arquivoFoto[6]" styleId="file6"/></div>
         	</td>
             <td width="25%">&nbsp;</td>
             </tr>
