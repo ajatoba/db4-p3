@@ -20,7 +20,7 @@
 		$('#imovelForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
 	});
 </script>
-<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -110,8 +110,7 @@
           </tr>
           <tr>
             <td><html:text property="municipio"/></td>
-            <td><html:select property="imovelEntity.estado.codigo"> 
-        		<html:option value=""></html:option> 
+            <td><html:select property="imovelEntity.estado.codigo">
 							<html:option value="AC">Acre</html:option> 
                             <html:option value="AL">Alagoas</html:option> 
                             <html:option value="AP">Amap&aacute;</html:option> 
