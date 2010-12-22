@@ -42,11 +42,16 @@ public class UsuarioFilter implements Filter {
 		
 		Usuario usuario = req.getSession().getAttribute(Constants.USUARIO_SESSAO)!=null?(Usuario)req.getSession().getAttribute(Constants.USUARIO_SESSAO):null;
 		if (usuario == null){
-			//redireciona para tela de login			
-            request.getRequestDispatcher( "/WEB-INF/jsp/login_usuario.jsp" ).forward( request, resp );           
-		}		
-		
-		chain.doFilter(request, response);
+			
+			if (!response.isCommitted()){   
+				//redireciona para tela de login	
+				request.getRequestDispatcher( "/WEB-INF/jsp/login_usuario.jsp" ).forward( request, resp ); 
+			}
+			                      
+		}else{		
+			
+			chain.doFilter(request, response);
+		}
 	}
 
 	/**
