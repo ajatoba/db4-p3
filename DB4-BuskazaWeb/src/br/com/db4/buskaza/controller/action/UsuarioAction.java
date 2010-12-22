@@ -207,10 +207,16 @@ public class UsuarioAction extends DispatchAction {
 			UsuarioBeanLocal usuarioEjb = (UsuarioBeanLocal) ServiceLocator.getInstance().locateEJB(UsuarioBeanLocal.LOCAL);
 			Usuario usuario = usuarioEjb.autenticarUsuario(usuarioForm.getUsuarioEntity().getEmail(), usuarioForm.getUsuarioEntity().getSenha(),Constants.tipoPerfilUsuario);
 			
-			request.getSession().setAttribute(Constants.USUARIO_SESSAO, usuario);
-			
-			return mapping.findForward("");
-		
+			if(usuario != null && usuario.getCodigo() >0){			
+				request.getSession().setAttribute(Constants.USUARIO_SESSAO, usuario);			
+				//return mapping.findForward("");
+				return new ActionForward("/usuario/imovel.do?act=formIncluirImovel");
+			}else{
+				final ActionMessages actionErrors = new ActionMessages();
+			    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( "message.erro.login.invalido"));
+			    saveErrors( request, actionErrors );
+				return mapping.findForward(Constants.LOGIN_USUARIO);				
+			}
 		} catch ( final Exception e ) {
 			
 		    final ActionMessages actionErrors = new ActionMessages();

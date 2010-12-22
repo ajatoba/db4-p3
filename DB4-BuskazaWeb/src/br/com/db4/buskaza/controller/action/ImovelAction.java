@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -36,7 +37,7 @@ public class ImovelAction extends DispatchAction {
 
 	public ActionForward formIncluirImovel(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response)  {
 		
-		carregaListas(request);		
+		carregaListas(request);	
 		return mapping.findForward(Constants.FORWARD_ENTRADA);
 	}
 	
@@ -49,10 +50,11 @@ public class ImovelAction extends DispatchAction {
 	public ActionForward incluirImovel(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
 		
 		try {
+			Usuario usuario = (Usuario)request.getSession().getAttribute(Constants.USUARIO_SESSAO);
 			
 			ImovelForm imovelForm = (ImovelForm)form;			
 			
-			Imovel imovel = popularImovel(imovelForm);			
+			Imovel imovel = popularImovel(imovelForm, usuario);			
 			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
 			
 			imovelEjb.incluirImovel(imovel);
@@ -76,7 +78,7 @@ public class ImovelAction extends DispatchAction {
 				
 			ImovelForm imovelForm = (ImovelForm)form;			
 			
-			Imovel imovel = popularImovel(imovelForm);			
+			Imovel imovel = popularImovel(imovelForm,null);			
 			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
 			
 			imoveis = imovelEjb.buscarImovel(imovel, imovelForm.getPais());
@@ -118,7 +120,7 @@ public class ImovelAction extends DispatchAction {
 		
 	}
 	
-	private Imovel popularImovel(ImovelForm form) throws ValidacaoFormException, FileNotFoundException, IOException {
+	private Imovel popularImovel(ImovelForm form, Usuario usuario) throws ValidacaoFormException, FileNotFoundException, IOException {
 		
 		Imovel imovel = form.getImovelEntity();	
 		
@@ -254,11 +256,7 @@ public class ImovelAction extends DispatchAction {
 			imovel.setMapaGooglemaps(form.getMapaGoogleMaps());
 		
 		
-		Usuario proprietario = new Usuario();
-		//TODO tirar o usuário hardcode e adicionar usuario logado.
-		proprietario.setCodigo(1);
-		
-		imovel.setUsuarioProprietario(proprietario);
+		imovel.setUsuarioProprietario(usuario);
 		
 		Collection<Foto> fotosImovel = new ArrayList<Foto>();
 		Collection<FormFile> fotos = form.getFotos();
