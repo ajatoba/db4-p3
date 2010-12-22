@@ -34,15 +34,17 @@
 			<forward name="formulario" path="/WEB-INF/jsp/teaser/cadastro_teaser_in.jsp" />
 			<forward name="saida" path="/WEB-INF/jsp/teaser/cadastro_teaser_out.jsp" />
 			<forward name="confirma_usuario" path="/WEB-INF/jsp/teaser/confirma_usuario_out.jsp" />
+			<forward name="home_usuario_logado" path="/WEB-INF/jsp/usuario/index.jsp" />
+			<forward name="login_usuario" path="/WEB-INF/jsp/login_usuario.jsp" />
 		</action>		
 		
 		
-		<action path="/imovel"
+		<action path="/usuario/imovel"
 			type="br.com.db4.buskaza.controller.action.ImovelAction" parameter="act"
-			scope="request" name="imovelForm" validate="true" input="/WEB-INF/jsp/imovel/cadastro_imovel_in.jsp">
+			scope="request" name="imovelForm" validate="true" input="/WEB-INF/jsp/usuario/imovel/cadastro_imovel_in.jsp">
 
-			<forward name="formulario" path="/WEB-INF/jsp/imovel/cadastro_imovel_in.jsp" />
-			<forward name="saida" path="/WEB-INF/jsp/imovel/cadastro_imovel_out.jsp" />
+			<forward name="formulario" path="/WEB-INF/jsp/usuario/imovel/cadastro_imovel_in.jsp" />
+			<forward name="saida" path="/WEB-INF/jsp/usuario/imovel/cadastro_imovel_out.jsp" />
 			
 			<forward name="formulario_busca" path="/WEB-INF/jsp/imovel/busca_avancada_imovel_in.jsp" />
 			<forward name="resultado_busca" path="/WEB-INF/jsp/imovel/busca_avancada_imovel_out.jsp" />
