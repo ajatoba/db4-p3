@@ -28,5 +28,9 @@ public interface Constants {
 	
 	public static final String FORWARD_CONFIRMA_USUARIO = "confirma_usuario";
 	
+	public static final String HOME_USUARIO_LOGADO = "home_usuario_logado";
+	
+	public static final String LOGIN_USUARIO = "login_usuario";
+	
 
 }
