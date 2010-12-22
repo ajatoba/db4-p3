@@ -12,6 +12,35 @@
 
 <body>
 
+<!-- MENSAGEM DE ERRO -->
+    <font color="red">
+  
+		<logic:messagesPresent property="erro">
+			<html:messages property="erro" id="erro">
+				<div class="btn_erro"></div>
+        		<div class="msg_erro">
+        			<span class="MyriadErro">
+        				<bean:write name="erro"/>
+        			</span>
+        		</div>						
+			</html:messages>
+		</logic:messagesPresent>
+				
+		<logic:messagesNotPresent property="erro">
+			<logic:present name="erro">
+				<div class="btn_erro"></div>
+        		<div class="msg_erro">
+        			<span class="MyriadErro">
+        				<bean:write name="erro"/>
+        			</span>
+        		</div>	
+			</logic:present>
+				
+		</logic:messagesNotPresent>
+  	</font>
+    <!-- ****************** -->
+
+
 <html:form method="post" styleId="usuarioForm" action="/usuario?act=autenticarUsuario">
 
 <table width="50%" border="0" cellspacing="0" cellpadding="0">
