@@ -368,7 +368,7 @@
           <div class="alinha_table">
             <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
               <tr>
-                <td width="12%" rowspan="2" class="MyriadProSemiboldIt"><span id="titulo_azul">Crie aqui seu login senha</span></td>
+                <td rowspan="2" class="MyriadProSemiboldIt"><span id="titulo_azul">Crie aqui seu login senha</span></td>
                 <td width="25%" class="MyriadProRegular">Email (login)</td>
                 <td width="25%" class="MyriadProRegular">Confirmar Email (login)</td>
                 <td width="19%" class="MyriadProRegular">Senha</td>
@@ -391,17 +391,14 @@
             <td><div><html:checkbox title="Confirmação por email" property="usuarioEntity.recebeInfo" styleClass="MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Desejo receber informações  deste site no meu email</span></div></td>
           </tr>
           <tr>
-            <td><div><html:checkbox title="Condições" property="usuarioEntity.leuCondicoes" styleClass="number,MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Li e aceito os termos e condições deste site</span></div></td>
-          </tr>
-          
+            <td><div><html:checkbox title="Condições" property="usuarioEntity.leuCondicoes" styleClass="number,MyriadProRegular"/></div>
+            <div style=" float:left; width:500px; margin-top:7px; margin-left:3px; font-family: 'MyriadPro', sans-serif; color:#666666; font-size:14px; "><span class="MyriadPro14"><a class="thickbox" href="/buzkaza/thickbox/iframe_termo.html?height=400&width=600" style="font-family: 'MyriadPro', sans-serif; color:#666666; font-size:14px; " >Li e aceito os termos e condições deste site</a></span></div></td>
+          </tr>          
           <tr>
             <td><div id="texto_cinza"><a class="thickbox" href="/buzkaza/thickbox/janelas.html?height=400&width=600" >Veja aqui</a> o que você precisa para cadastrar seu imóvel</div></td>
-          </tr>
-          
+          </tr>          
         </table>
-      </div>
-      
-		
+      </div>		
 
       <div class="btn_cadastrar">        
         <div class="btn"><a href="#" border="0"><img src="/buzkaza/teaser/_img/btn_cadastrar_user.jpg.jpg" id="cadastrar_user" width="211" height="30" border="0"/></a></div>
