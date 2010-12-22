@@ -73,7 +73,7 @@
   <div id="formulario_cadastro_imovel">
   
   
-    <table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <table width="97%" border="0" align="center" cellpadding="0" cellspacing="2">
       <tr>
         <td colspan="2"><img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul"> Endereço</span></span><br /></td>
         <td width="17%">&nbsp;</td>
@@ -88,11 +88,11 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td class="MyriadPro14">Endereço</td>
-        <td class="MyriadPro14">Número</td>
-        <td class="MyriadPro14">Complemento</td>
-        <td class="MyriadPro14">Bairro </td>
-        <td class="MyriadPro14">CEP</td>
+        <td class="MyriadProRegular">Endereço</td>
+        <td class="MyriadProRegular">Número</td>
+        <td class="MyriadProRegular">Complemento</td>
+        <td class="MyriadProRegular">Bairro </td>
+        <td class="MyriadProRegular">CEP</td>
       </tr>
       <tr>
         <td><html:text property="logradouro" size="260"/></td>
@@ -110,8 +110,8 @@
       </tr>
       <tr>
         <td colspan="3">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr class="MyriadPro14">
+        <table width="100%" border="0" cellspacing="0" cellpadding="2">
+          <tr class="MyriadProRegular">
             <td>Cidade</td>
             <td>Estado</td>
             <td>País</td>
@@ -139,13 +139,13 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="5"><table width="70%" border="0" cellspacing="0" cellpadding="0">
+        <td colspan="5"><table width="70%" border="0" cellspacing="0" cellpadding="2">
           <tr>
             <td height="40" colspan="2"><img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul"> Características do Imóvel</span></span><br /></td>
             <td width="14%">&nbsp;</td>
             <td width="49%">&nbsp;</td>
           </tr>
-          <tr class="MyriadPro14">
+          <tr class="MyriadProRegular">
             <td width="20%">Perfil do Imóvel</td>
             <td width="17%">Quartos</td>
             <td>Metragem</td>
@@ -153,18 +153,24 @@
           </tr>
           <tr>
             <td>
-  <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
-    <option>apartamento</option>
-    <option>casa</option>
-    <option>flat</option>
-  </select>
+            <div style="margin-right:12px;">
+				  <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+				    <option>apartamento</option>
+				    <option>casa</option>
+				    <option>flat</option>
+				  </select>
+			</div>
 </td>
-            <td><html:select property="quartos">
+            <td>
+            <div style="margin-right:12px;">
+            <html:select property="quartos">
         		<html:option value="">&nbsp;</html:option> 
       			<html:option value="1">1 Quarto</html:option>
        			<html:option value="2">2 Quartos</html:option>
-      	</html:select></td>
-            <td><html:select property="metragem">
+      	</html:select></div></td>
+            <td>
+            <div style="margin-right:12px;">
+            	<html:select property="metragem">
 				<html:option value="">&nbsp;</html:option> 
       			<html:option value="20.0">20m</html:option>
        			<html:option value="30.0">30m</html:option>
@@ -172,12 +178,14 @@
                 <html:option value="30.0">50m</html:option>
                 <html:option value="30.0">60m</html:option>
                 <html:option value="30.0">70m</html:option>
-      	</html:select></td>
-            <td><html:select property="capacidade">
+      	</html:select>
+      	</div></td>
+            <td><div style="margin-right:12px;"><html:select property="capacidade">
         		<html:option value="">&nbsp;</html:option> 
       			<html:option value="1">1 Pessoa</html:option>
        			<html:option value="2">2 Pessoas</html:option>
-      	</html:select></td>
+      	</html:select>
+      	</div></td>
           </tr>
         </table></td>
         </tr>
@@ -189,9 +197,9 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td class="MyriadPro14">Planta do Imóvel</td>
+        <td class="MyriadProRegular">Planta do Imóvel</td>
         <td>&nbsp;</td>
-        <td class="MyriadPro14">Link do vídeo no You Tube</td>
+        <td class="MyriadProRegular">Link do vídeo no You Tube</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
@@ -209,18 +217,20 @@
         <td colspan="5">&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="5"><span class="MyriadPro18Azul">Imagens  do Imóvel</span><span class="MyriadPro18"> Arquivo (Qtd minima 6, máx 15/máx 200kb)</span></td>
+        <td  height="40" colspan="5">
+        <img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul"> Imagens  do Imóvel</span></span>
+        <br /><span class="MyriadProRegular"> Arquivo (Qtd minima 6, máx 15/máx 200kb)</span></td>
       </tr>
       <tr>
-        <td colspan="5"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <td colspan="5"><table width="100%" border="0" cellspacing="0" cellpadding="3">
           <tr>
             <td width="25%">
-		        <html:file property="arquivoFoto[1]" styleId="file1"/><br/>
-		        <html:file property="arquivoFoto[2]" styleId="file2"/><br/>
-		        <html:file property="arquivoFoto[3]" styleId="file3"/><br/>
-		        <html:file property="arquivoFoto[4]" styleId="file4"/><br/>
-		        <html:file property="arquivoFoto[5]" styleId="file5"/><br/>
-		        <html:file property="arquivoFoto[6]" styleId="file6"/><br/>
+		        <div style="margin-top:8px;"><html:file property="arquivoFoto[1]" styleId="file1"/></div>
+		        <div style="margin-top:8px;"><html:file property="arquivoFoto[2]" styleId="file2"/></div>
+		        <div style="margin-top:8px;"><html:file property="arquivoFoto[3]" styleId="file3"/></div>
+		        <div style="margin-top:8px;"><html:file property="arquivoFoto[4]" styleId="file4"/></div>
+		        <div style="margin-top:8px;"><html:file property="arquivoFoto[5]" styleId="file5"/></div>
+		        <div style="margin-top:8px;"><html:file property="arquivoFoto[6]" styleId="file6"/></div>
         	</td>
             <td width="25%">&nbsp;</td>
             </tr>
