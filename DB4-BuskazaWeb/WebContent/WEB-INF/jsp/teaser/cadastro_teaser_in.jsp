@@ -115,23 +115,43 @@
   
 		<logic:messagesPresent property="erro">
 			<html:messages property="erro" id="erro">
-				<div class="btn_erro"></div>
-        		<div class="msg_erro">
-        			<span class="MyriadErro">
-        				<bean:write name="erro"/>
-        			</span>
-        		</div>						
+				
+        			
+			<script type="text/javascript">            
+				$(document).ready( function() {            
+				
+					janelaAlert2( "<bean:write name="erro"/>" );
+					
+					function janelaAlert2(mensagem)
+					{
+						$.alerts.dialogClass = "style_1";
+						jAlert( mensagem , 'Erro', function() {
+							$.alerts.dialogClass = null; // reset to default
+						});
+					}
+				});
+            </script>
+                
+                			
 			</html:messages>
 		</logic:messagesPresent>
 				
 		<logic:messagesNotPresent property="erro">
 			<logic:present name="erro">
-				<div class="btn_erro"></div>
-        		<div class="msg_erro">
-        			<span class="MyriadErro">
-        				<bean:write name="erro"/>
-        			</span>
-        		</div>	
+				<script type="text/javascript">            
+				$(document).ready( function() {            
+				
+					janelaAlert2( "<bean:write name="erro"/>" );
+					
+					function janelaAlert2(mensagem)
+					{
+						$.alerts.dialogClass = "style_1";
+						jAlert( mensagem , 'Erro', function() {
+							$.alerts.dialogClass = null; // reset to default
+						});
+					}
+				});
+            </script>	
 			</logic:present>
 				
 		</logic:messagesNotPresent>
