@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
 	<script language="javascript">
 		$(function(){
-			$('#form').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
+			$('#usuarioForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
 		});
 	</script>
 <link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
@@ -68,15 +68,15 @@
     <td class="MyriadProRegular">Login (E-Mail)</td>
   </tr>
   <tr>  
-    <td width="90%"><label for="textfield"></label>
-    <html:text title="Email" size="35"  property="usuarioEntity.email" /></td>
+    <td width="90%">
+    <html:text title="Email" size="200"  property="usuarioEntity.email" /></td>
   </tr>
   <tr>
     <td class="MyriadProRegular">Senha</td>
   </tr>
   <tr>  
-    <td><label for="textfield2"></label>
-    <html:password title="Senha" size="35" property="usuarioEntity.senha" /></td>
+    <td>
+    <html:password title="Senha" size="200" property="usuarioEntity.senha" /></td>
   </tr>
   <tr>
     <td><input type="image" src="/buzkaza/teaser/_img/btn_entrar.png" name="button" id="button" value="Submit" /></td>
