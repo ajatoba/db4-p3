@@ -147,6 +147,8 @@
 
     
 	<html:form method="post" styleId="usuarioForm" action="/usuario?act=incluirUsuario">
+	<input type="hidden" name="usuarioEntity.recebeInfo" value="1"/>
+	
       <div>
         <table width="95%" border="0" cellpadding="0" cellspacing="0" align="center">
           <tr>
@@ -388,7 +390,7 @@
       <div class="planos_adesao">
         <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr>
-            <td><div><html:checkbox title="Confirmação por email" property="usuarioEntity.recebeInfo" styleClass="MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Desejo receber informações  deste site no meu email</span></div></td>
+            <td><div></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14"></span></div></td>
           </tr>
           <tr>
             <td><div><html:checkbox title="Condições" property="usuarioEntity.leuCondicoes" styleClass="number,MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Li e aceito os termos e condições deste site</span></div></td>
