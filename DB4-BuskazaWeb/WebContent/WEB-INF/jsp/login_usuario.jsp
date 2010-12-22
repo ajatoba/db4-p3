@@ -24,7 +24,17 @@
 
 <body>
 
+
+<div id="cadastro">
+<div id="top_cad">
+<a href="http://www.buzkaza.com.br/teaser/"><div id="link_back"></div></a>
+</div>
+<div id="meio_cad">
+<!--FORM-->
+<div id="msg_finaliza_cadastro">
+  
 <!-- MENSAGEM DE ERRO -->
+<div>
     <font color="red">
   
 		<logic:messagesPresent property="erro">
@@ -50,16 +60,10 @@
 				
 		</logic:messagesNotPresent>
   	</font>
-    <!-- ****************** -->
-<div id="cadastro">
-<div id="top_cad">
-<a href="http://www.buzkaza.com.br/teaser/"><div id="link_back"></div></a>
 </div>
-<div id="meio_cad">
-<!--FORM-->
-<div id="msg_finaliza_cadastro">
-  
-
+  	<br />
+    <!-- ****************** -->
+    
 <html:form method="post" styleId="usuarioForm" action="/usuario?act=autenticarUsuario">
 
 <table width="50%" border="0" cellspacing="2" cellpadding="2" align="center">
