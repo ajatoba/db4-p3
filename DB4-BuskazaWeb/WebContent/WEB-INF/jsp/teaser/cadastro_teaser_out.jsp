@@ -31,7 +31,7 @@
   		<span class="MyriadPro24">Seus dados foram cadastrados com sucesso!
   		<br><br>
   		
-  		Agora vc precisa validar seu email.<br>
+  		Agora você precisa validar seu email.<br>
   		Enviamos um link de validação para o seu email cadastrado
   		</span>
   </div>
