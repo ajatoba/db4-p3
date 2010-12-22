@@ -391,7 +391,7 @@
             <td><div><html:checkbox title="Confirmação por email" property="usuarioEntity.recebeInfo" styleClass="MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Desejo receber informações  deste site no meu email</span></div></td>
           </tr>
           <tr>
-            <td><div><html:checkbox title="Condições" property="usuarioEntity.leuCondicoes" styleClass="number,MyriadProRegular"/></div>
+            <td><div><html:checkbox title="Termos e Condições" property="usuarioEntity.leuCondicoes" styleClass="number,MyriadProRegular"/></div>
             <div style=" float:left; width:500px; margin-top:7px; margin-left:3px; font-family: 'MyriadPro', sans-serif; color:#666666; font-size:14px; "><span class="MyriadPro14"><a class="thickbox" href="/buzkaza/thickbox/iframe_termo.html?height=400&width=600" style="font-family: 'MyriadPro', sans-serif; color:#666666; font-size:14px; " >Li e aceito os termos e condições deste site</a></span></div></td>
           </tr>          
           <tr>
