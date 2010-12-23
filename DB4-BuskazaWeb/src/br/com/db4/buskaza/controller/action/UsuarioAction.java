@@ -3,6 +3,9 @@ package br.com.db4.buskaza.controller.action;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +24,7 @@ import br.com.db4.buskaza.controller.form.UsuarioForm;
 import br.com.db4.buskaza.controller.util.*;
 import br.com.db4.buskaza.model.banco.ejb.BancoBeanLocal;
 import br.com.db4.buskaza.model.entity.Perfil;
+import br.com.db4.buskaza.model.entity.Pessoa;
 import br.com.db4.buskaza.model.entity.Telefone;
 import br.com.db4.buskaza.model.entity.Usuario;
 import br.com.db4.buskaza.model.estado.ejb.EstadoBeanLocal;
@@ -45,7 +49,7 @@ public class UsuarioAction extends DispatchAction {
 			//perfil de usuario
 			Perfil p = new Perfil();
 			p.setCodigo(2);
-			Collection<Perfil> perfis = new ArrayList<Perfil>();
+			Set<Perfil> perfis = new HashSet<Perfil>();
 			perfis.add(p);			
 			usuario.setPerfis(perfis);
 			
@@ -168,14 +172,16 @@ public class UsuarioAction extends DispatchAction {
 		
 		Usuario usuario = form.getUsuarioEntity();	
 		
-		Collection<Telefone> telefones = new ArrayList<Telefone>();
+		Set<Telefone> telefones = new HashSet<Telefone>();
 		
 		Telefone telefoneFixo = new Telefone();
+		telefoneFixo.setPessoa(usuario);
 		telefoneFixo.setDdd(form.getDddFixo());
 		telefoneFixo.setNumero(form.getNumeroFixo());
 		telefoneFixo.setTipoTelefone('F');
 		
 		Telefone telefoneCell = new Telefone();
+		telefoneCell.setPessoa(usuario);
 		telefoneCell.setDdd(form.getDddCelular());
 		telefoneCell.setNumero(form.getNumeroCelular());
 		telefoneCell.setTipoTelefone('C');
@@ -232,10 +238,15 @@ public class UsuarioAction extends DispatchAction {
 			
 			UsuarioBeanLocal usuarioEjb = (UsuarioBeanLocal) ServiceLocator.getInstance().locateEJB(UsuarioBeanLocal.LOCAL);
 			Usuario usuario = usuarioEjb.autenticarUsuario(usuarioForm.getUsuarioEntity().getEmail(), usuarioForm.getUsuarioEntity().getSenha(), Constants.tipoPerfilAdministrador);
-			
-			request.getSession().setAttribute(Constants.ADMIN_SESSAO, usuario);
-			
-			return mapping.findForward("");
+			if(usuario != null && usuario.getCodigo() >0){	
+				request.getSession().setAttribute(Constants.ADMIN_SESSAO, usuario);				
+				return mapping.findForward(Constants.HOME_ADMIN);
+			}else{
+				final ActionMessages actionErrors = new ActionMessages();
+			    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( "message.erro.login.invalido"));
+			    saveErrors( request, actionErrors );
+				return mapping.findForward(Constants.LOGIN_ADMIN);
+			}
 		
 		} catch ( final Exception e ) {
 			
@@ -278,5 +289,29 @@ public class UsuarioAction extends DispatchAction {
 		    return formIncluirUsuario(mapping, form, request, response);		
 		}
 	
+	}
+	
+	public ActionForward listarTodosUsuarios(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response)  {
+		try{
+						
+			UsuarioBeanLocal usuarioEjb = (UsuarioBeanLocal) ServiceLocator.getInstance().locateEJB(UsuarioBeanLocal.LOCAL);
+			List<Pessoa> pessoas = usuarioEjb.listarTodosUsuarios();
+			
+			if(pessoas != null && pessoas.size() >0){			
+				request.getSession().setAttribute(Constants.LISTA_PESSOAS, pessoas);				
+			}else{
+				final ActionMessages actionErrors = new ActionMessages();
+			    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( "message.sem.pessoas"));
+			    saveErrors( request, actionErrors );								
+			}
+		} catch ( final Exception e ) {
+			
+		    final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    return formIncluirUsuario(mapping, form, request, response);		
+		}	
+		
+		return mapping.findForward(Constants.ADMIN_LISTAGEM_PESSOAS);
 	}
 }

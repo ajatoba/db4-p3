@@ -26,11 +26,14 @@ import br.com.db4.buskaza.controller.util.Constants;
 import br.com.db4.buskaza.model.entity.Equipamento;
 import br.com.db4.buskaza.model.entity.Foto;
 import br.com.db4.buskaza.model.entity.Imovel;
+import br.com.db4.buskaza.model.entity.Pais;
+import br.com.db4.buskaza.model.entity.TipoImovel;
 import br.com.db4.buskaza.model.entity.Usuario;
 import br.com.db4.buskaza.model.equipamento.ejb.EquipamentoBeanLocal;
 import br.com.db4.buskaza.model.estado.ejb.EstadoBeanLocal;
 import br.com.db4.buskaza.model.imovel.ejb.ImovelBeanLocal;
 import br.com.db4.buskaza.model.pais.ejb.PaisBeanLocal;
+import br.com.db4.buskaza.model.tipoImovel.ejb.TipoImovelBeanLocal;
 import br.com.db4.buskaza.model.util.ServiceLocator;
 
 public class ImovelAction extends DispatchAction {
@@ -109,10 +112,13 @@ public class ImovelAction extends DispatchAction {
 			EquipamentoBeanLocal equipamentoEjb = (EquipamentoBeanLocal) ServiceLocator.getInstance().locateEJB(EquipamentoBeanLocal.LOCAL);
 			EstadoBeanLocal estadoEjb = (EstadoBeanLocal) ServiceLocator.getInstance().locateEJB(EstadoBeanLocal.LOCAL);
 			PaisBeanLocal paisEjb = (PaisBeanLocal) ServiceLocator.getInstance().locateEJB(PaisBeanLocal.LOCAL);		
+			TipoImovelBeanLocal tipoImovelEjb = (TipoImovelBeanLocal) ServiceLocator.getInstance().locateEJB(TipoImovelBeanLocal.LOCAL);
+			
 			
 			request.setAttribute("equipamentos", equipamentoEjb.listarEquipamentos());
 			request.setAttribute("estados", estadoEjb.listarEstados());			
 			request.setAttribute("paises", paisEjb.listarPaises());	
+			request.setAttribute("tiposImovel", tipoImovelEjb.listarTiposImovel());
 		
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -255,7 +261,24 @@ public class ImovelAction extends DispatchAction {
 		if(form.getMapaGoogleMaps() != null)
 			imovel.setMapaGooglemaps(form.getMapaGoogleMaps());
 		
+		if(form.getTipoImovel() != null){
+			TipoImovel ti = new TipoImovel();
+			ti.setCodigo(form.getTipoImovel());
+			imovel.setTipoImovel(ti);
+		}
 		
+		if(form.getPais() != null){
+			Pais p = new Pais();
+			p.setCodigo(form.getPais());
+			imovel.setPais(p);
+		}
+		
+		if(form.getCep() != null)
+			imovel.setCep(form.getCep());
+		
+		if (form.getLinkYouTube() != null)
+			imovel.setLinkYouTube(form.getLinkYouTube());
+			
 		imovel.setUsuarioProprietario(usuario);
 		
 		Collection<Foto> fotosImovel = new ArrayList<Foto>();
