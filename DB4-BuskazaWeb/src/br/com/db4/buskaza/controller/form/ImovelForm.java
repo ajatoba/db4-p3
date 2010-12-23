@@ -111,8 +111,37 @@ public class ImovelForm extends ActionForm {
 	private String numero;
 	
 	private String mapaGoogleMaps;
-
 	
+	private String cep;
+	
+	private Integer tipoImovel;
+	
+	private String linkYouTube;
+	
+	public String getLinkYouTube() {
+		return linkYouTube;
+	}
+
+	public void setLinkYouTube(String linkYouTube) {
+		this.linkYouTube = linkYouTube;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public Integer getTipoImovel() {
+		return tipoImovel;
+	}
+
+	public void setTipoImovel(Integer tipoImovel) {
+		this.tipoImovel = tipoImovel;
+	}
+
 	public Integer getCheckInEntradaHora() {
 		return checkInEntradaHora;
 	}
