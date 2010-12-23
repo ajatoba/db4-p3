@@ -43,10 +43,10 @@ public class AdminFilter implements Filter {
 		if (usuario == null){
 			//redireciona para tela de login			
             request.getRequestDispatcher( "/WEB-INF/jsp/login_admin.jsp" ).forward( request, resp );           
-		}		
-
-		// pass the request along the filter chain
-		chain.doFilter(request, response);
+		}else{		
+			
+			chain.doFilter(request, response);
+		}
 	}
 
 	/**
