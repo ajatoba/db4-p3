@@ -36,9 +36,10 @@
 			<forward name="confirma_usuario" path="/WEB-INF/jsp/teaser/confirma_usuario_out.jsp" />
 			<forward name="home_usuario_logado" path="/WEB-INF/jsp/usuario/index.jsp" />
 			<forward name="login_usuario" path="/WEB-INF/jsp/login_usuario.jsp" />
+			<forward name="login_admin" path="/WEB-INF/jsp/login_admin.jsp" />
+			<forward name="home_admin" path="/WEB-INF/jsp/admin/index.jsp" />			
 		</action>		
-		
-		
+				
 		<action path="/usuario/imovel"
 			type="br.com.db4.buskaza.controller.action.ImovelAction" parameter="act"
 			scope="request" name="imovelForm" validate="true" input="/WEB-INF/jsp/usuario/imovel/cadastro_imovel_in.jsp">
@@ -51,6 +52,11 @@
 			
 		</action>
 		
+		<action path="/admin/usuario"
+			type="br.com.db4.buskaza.controller.action.UsuarioAction" parameter="act"
+			scope="request" name="usuarioForm" validate="true">		
+			<forward name="admin_listagem_pessoas" path="/WEB-INF/jsp/admin/listar_pessoas_out.jsp" />			
+		</action>	
 
 	</action-mappings>
 
