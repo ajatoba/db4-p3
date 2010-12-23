@@ -65,12 +65,12 @@
 <html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=incluirImovel" enctype="multipart/form-data">
 
 
-<div id="cont_cadastro" style="height:auto">
+<div id="cont_cadastro" style="height:auto;">
 <!--
 <div id="indice_cadastro"><img src="/buzkaza/_img/indice_cadastro_imovel_02.jpg" width="971" height="57" /></div>
    -->
  
-  <div id="formulario_cadastro_imovel">
+  <div id="formulario_cadastro_imovel" style="margin-top:10px;">
   
   
     <table width="97%" border="0" align="center" cellpadding="0" cellspacing="2">
@@ -119,7 +119,34 @@
           <tr>
             <td><html:text property="municipio" size="160"/></td>
             <td><html:select property="imovelEntity.estado.codigo">
-            	<html:options collection="estados" property="codigo" labelProperty="nome"/>
+            
+            		<html:option value="AC">Acre</html:option> 
+                    <html:option value="AL">Alagoas</html:option> 
+                    <html:option value="AP">Amap&aacute;</html:option> 
+                    <html:option value="AM">Amazonas</html:option> 
+                    <html:option value="BA">Bahia</html:option> 
+                    <html:option value="CE">Cear&aacute;</html:option> 
+                    <html:option value="DF">Distrito Federal</html:option> 
+                    <html:option value="ES">Espir&iacute;to Santo</html:option> 
+                    <html:option value="GO">Goi&aacute;s</html:option> 
+                    <html:option value="MA">Maranh&atilde;o</html:option> 
+                    <html:option value="MT">Mato Grosso</html:option> 
+                    <html:option value="MS">Mato Grosso do Sul</html:option> 
+                    <html:option value="MG">Minas Gerais</html:option> 
+                    <html:option value="PA">Par&aacute;</html:option> 
+                    <html:option value="PB">Par&aacute;ba</html:option> 
+                    <html:option value="PR">Paran&aacute;</html:option> 
+                    <html:option value="PE">Pernambuco</html:option> 
+                    <html:option value="PI">Piau&iacute;</html:option> 
+                    <html:option value="RJ">Rio de Janeiro</html:option> 
+                    <html:option value="RN">Rio Grande do Norte</html:option> 
+                    <html:option value="RS">Rio Grande do Sul</html:option> 
+                    <html:option value="RO">Rond&ocirc;nia</html:option> 
+                    <html:option value="RR">Roraima</html:option> 
+                    <html:option value="SC">Santa Catarina</html:option> 
+                    <html:option value="SP">S&atilde;o Paulo</html:option> 
+                    <html:option value="SE">Sergipe</html:option> 
+                    <html:option value="TO">Tocantins</html:option> 
 							
         	</html:select></td>
             <td><html:select property="pais">  
@@ -267,24 +294,21 @@
         <br /><span class="MyriadProRegular"> Arquivo (Qtd minima 6, máx 15/máx 200kb)</span></td>
       </tr>
       <tr>
-        <td colspan="5">
-        
+        <td colspan="5">        
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td><div style="margin-right:12px;"><html:file property="arquivoFoto[1]" styleId="file1"/></div></td>
-                <td><div style="margin-right:12px;"><html:file property="arquivoFoto[3]" styleId="file3"/></div></td>
-                <td><div style="margin-right:12px;"><html:file property="arquivoFoto[5]" styleId="file5"/></div></td>
+                <td><div style="margin-right:12px;"><html:file property="arquivoFoto[1]" styleId="file1" size="23" style="width:300px;"/></div></td>
+                <td><div style="margin-right:12px;"><html:file property="arquivoFoto[3]" styleId="file3" size="23" style="width:300px;"/></div></td>
+                <td><html:file property="arquivoFoto[5]" styleId="file5" size="23" style="width:300px;"/></td>
               </tr>
               <tr>
-                <td><div style="margin-top:8px;"><html:file property="arquivoFoto[2]" styleId="file2"/></div></td>
-                <td><div style="margin-top:8px;"><html:file property="arquivoFoto[4]" styleId="file4"/></div></td>
-                <td><div style="margin-top:8px;"><html:file property="arquivoFoto[6]" styleId="file6"/></div></td>
+                <td><div style="margin-top:8px;"><html:file property="arquivoFoto[2]" styleId="file2" size="23" style="width:300px;"/></div></td>
+                <td><div style="margin-top:8px;"><html:file property="arquivoFoto[4]" styleId="file4" size="23" style="width:300px;"/></div></td>
+                <td><div style="margin-top:8px;"><html:file property="arquivoFoto[6]" styleId="file6" size="23" style="width:300px;"/></div></td>
               </tr>
             </table>
-		        
-		     </td>
+		</td>
       </tr>
-      
       <tr>
         <td colspan="5">&nbsp;</td>
       </tr>
