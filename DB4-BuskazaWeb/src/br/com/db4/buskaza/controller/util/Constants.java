@@ -32,5 +32,13 @@ public interface Constants {
 	
 	public static final String LOGIN_USUARIO = "login_usuario";
 	
+	public static final String LOGIN_ADMIN = "login_admin";
+	
+	public static final String HOME_ADMIN = "home_admin";
+	
+	public static final String LISTA_PESSOAS = "pessoas";
+	
+	public static final String ADMIN_LISTAGEM_PESSOAS = "admin_listagem_pessoas";
+	
 
 }
