@@ -119,6 +119,7 @@
           <tr>
             <td><html:text property="municipio" size="160"/></td>
             <td><html:select property="imovelEntity.estado.codigo">
+            <html:option value="">&nbsp;</html:option> 
             		<html:option value="AC">Acre</html:option> 
                     <html:option value="AL">Alagoas</html:option> 
                     <html:option value="AP">Amap&aacute;</html:option> 
