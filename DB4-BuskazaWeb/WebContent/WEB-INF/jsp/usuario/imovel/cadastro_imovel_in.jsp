@@ -65,7 +65,7 @@
 <html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=incluirImovel" enctype="multipart/form-data">
 
 
-<div id="cont_cadastro" style="height:auto; ">
+<div id="cont_cadastro" style="height:auto;">
 <!--
 <div id="indice_cadastro"><img src="/buzkaza/_img/indice_cadastro_imovel_02.jpg" width="971" height="57" /></div>
    -->
