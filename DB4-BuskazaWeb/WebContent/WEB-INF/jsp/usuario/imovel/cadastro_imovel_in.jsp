@@ -276,7 +276,7 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="2"><html:file property="planta" /></td>
+        <td colspan="2"><html:file property="planta" size="23" style="width:300px; color:#666666;" /></td>
         <td colspan="2"><html:text property="linkYouTube" size="245" /></td>
         <td>&nbsp;</td>
       </tr>
@@ -297,14 +297,14 @@
         <td colspan="5">        
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td><div style="margin-right:12px;"><html:file property="arquivoFoto[1]" styleId="file1" size="23" style="width:300px;"/></div></td>
-                <td><div style="margin-right:12px;"><html:file property="arquivoFoto[3]" styleId="file3" size="23" style="width:300px;"/></div></td>
+                <td><div style="margin-right:12px;"><html:file property="arquivoFoto[1]" styleId="file1" size="23" style="width:300px; color:#666666;"/></div></td>
+                <td><div style="margin-right:12px;"><html:file property="arquivoFoto[3]" styleId="file3" size="23" style="width:300px; color:#666666;"/></div></td>
                 <td><html:file property="arquivoFoto[5]" styleId="file5" size="23" style="width:300px;"/></td>
               </tr>
               <tr>
-                <td><div style="margin-top:8px;"><html:file property="arquivoFoto[2]" styleId="file2" size="23" style="width:300px;"/></div></td>
-                <td><div style="margin-top:8px;"><html:file property="arquivoFoto[4]" styleId="file4" size="23" style="width:300px;"/></div></td>
-                <td><div style="margin-top:8px;"><html:file property="arquivoFoto[6]" styleId="file6" size="23" style="width:300px;"/></div></td>
+                <td><div style="margin-top:8px;"><html:file property="arquivoFoto[2]" styleId="file2" size="23" style="width:300px; color:#666666;"/></div></td>
+                <td><div style="margin-top:8px;"><html:file property="arquivoFoto[4]" styleId="file4" size="23" style="width:300px; color:#666666;"/></div></td>
+                <td><div style="margin-top:8px;"><html:file property="arquivoFoto[6]" styleId="file6" size="23" style="width:300px; color:#666666;"/></div></td>
               </tr>
             </table>
 		</td>
