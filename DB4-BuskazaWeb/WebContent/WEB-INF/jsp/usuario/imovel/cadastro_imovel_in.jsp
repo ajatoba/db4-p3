@@ -15,6 +15,12 @@
 
 	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>	
 	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
+	
+	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/script/thickbox.css" />
+	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/_css/estilo_iframe.css" />
+	<script type="text/javascript" src="/buzkaza/thickbox/script/thickbox.js" ></script>
+	<script type="text/javascript" src="/buzkaza/thickbox/script/global.js" ></script>
+	
 	<script language="javascript">
 		$(function(){
 			$('#imovelForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
@@ -399,7 +405,9 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="2"><html:file property="planta" size="23" style="width:300px; color:#666666;"/></td>
+        <td colspan="2"><div style="float:left"><html:file property="planta" size="23" style="width:300px; color:#666666;"/></div>
+        			<div style="float:left; margin-left:15px"> <a class="thickbox" href="/buzkaza/thickbox/imagem_planta.html?height=400&width=600" ><img src="/buzkaza/thickbox/_img/interrogacao.png" widht="22" height="21" border="0" style="margin-top:2px;" /></a></div>
+        </td>
         <td colspan="2"><html:text property="linkYouTube" size="245" /></td>
         <td>&nbsp;</td>
       </tr>
