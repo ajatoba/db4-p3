@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -37,9 +38,11 @@ public class Telefone implements Serializable {
 
 	private Integer ramal;
 	
-	@ManyToOne
+	
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_pessoa")  
 	private Pessoa pessoa;
+	
 	
 	//{F fixo, C celular}
 	private char tipoTelefone;
@@ -95,6 +98,7 @@ public class Telefone implements Serializable {
 		this.tipoTelefone = tipoTelefone;
 	}
 
+	
 	public Pessoa getPessoa() {
 		return pessoa;
 	}

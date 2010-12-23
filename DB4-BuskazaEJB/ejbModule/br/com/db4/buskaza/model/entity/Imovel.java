@@ -66,6 +66,10 @@ public class Imovel implements Serializable{
 	@JoinColumn(name = "id_estado")
 	private Estado estado;
 	
+	@OneToOne
+	@JoinColumn(name = "id_pais")
+	private Pais pais;
+	
 	private String municipio;
 	
 	private String complemento;
@@ -133,7 +137,46 @@ public class Imovel implements Serializable{
 	@JoinColumn(name="id_usuario_proprietario")
 	private Usuario usuarioProprietario;
 	
+	private String cep;
 	
+	@OneToOne
+	@JoinColumn(name = "id_tipo_imovel")
+	private TipoImovel tipoImovel;
+		
+	private String linkYouTube;
+	
+	public Pais getPais() {
+		return pais;
+	}
+
+	public void setPais(Pais pais) {
+		this.pais = pais;
+	}
+
+	public String getLinkYouTube() {
+		return linkYouTube;
+	}
+
+	public void setLinkYouTube(String linkYouTube) {
+		this.linkYouTube = linkYouTube;
+	}
+
+	public TipoImovel getTipoImovel() {
+		return tipoImovel;
+	}
+
+	public void setTipoImovel(TipoImovel tipoImovel) {
+		this.tipoImovel = tipoImovel;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
 	public double getEnergia() {
 		return energia;
 	}

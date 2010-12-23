@@ -3,15 +3,18 @@ package br.com.db4.buskaza.model.entity;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -47,8 +50,9 @@ public class Pessoa implements Serializable {
 	@JoinColumn(name = "id_banco")  	
 	protected Banco banco;
 
-	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-	protected Collection<Telefone> telefones;
+	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_pessoa")
+	protected Set<Telefone> telefones;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_endereco")
@@ -108,11 +112,11 @@ public class Pessoa implements Serializable {
 		this.banco = banco;
 	}
 
-	public Collection<Telefone> getTelefones() {
+	public Set<Telefone> getTelefones() {
 		return telefones;
 	}
 
-	public void setTelefones(Collection<Telefone> telefones) {
+	public void setTelefones(Set<Telefone> telefones) {
 		this.telefones = telefones;
 	}
 

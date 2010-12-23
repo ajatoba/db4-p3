@@ -2,16 +2,21 @@ package br.com.db4.buskaza.model.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.IndexColumn;
 import org.hibernate.validator.NotNull;
 
 /**
@@ -37,19 +42,32 @@ public class Usuario extends Pessoa implements Serializable {
 	private String senha;
 	
 	@ManyToMany(fetch = FetchType.LAZY)	
-	@JoinTable(name ="tb_usuario_perfil")    
-	Collection<Perfil> perfis;
+	@JoinTable(name ="tb_usuario_perfil") 
+	Set<Perfil> perfis;
 
 	protected boolean recebeInfo;
 	
 	protected boolean leuCondicoes;
-	
-	@NotNull
+		
 	protected String nomeContato;
 	
 	@NotNull
 	protected boolean confirmado;
 	
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_usuario_proprietario")
+	protected Set<Imovel> imoveis;
+	
+	
+	public Set<Imovel> getImoveis() {
+		return imoveis;
+	}
+
+	public void setImoveis(Set<Imovel> imoveis) {
+		this.imoveis = imoveis;
+	}
+
 	public boolean isConfimado() {
 		return confirmado;
 	}
@@ -90,11 +108,11 @@ public class Usuario extends Pessoa implements Serializable {
 		this.senha = senha;
 	}
 
-	public Collection<Perfil> getPerfis() {
+	public Set<Perfil> getPerfis() {
 		return perfis;
 	}
 
-	public void setPerfis(Collection<Perfil> perfis) {
+	public void setPerfis(Set<Perfil> perfis) {
 		this.perfis = perfis;
 	}
 
