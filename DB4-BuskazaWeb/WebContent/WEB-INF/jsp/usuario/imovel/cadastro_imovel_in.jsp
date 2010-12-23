@@ -65,7 +65,7 @@
 <html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=incluirImovel" enctype="multipart/form-data">
 
 
-<div id="cont_cadastro" style="height:auto;">
+<div id="cont_cadastro" style="height:auto; ">
 <!--
 <div id="indice_cadastro"><img src="/buzkaza/_img/indice_cadastro_imovel_02.jpg" width="971" height="57" /></div>
    -->
@@ -119,7 +119,6 @@
           <tr>
             <td><html:text property="municipio" size="160"/></td>
             <td><html:select property="imovelEntity.estado.codigo">
-            
             		<html:option value="AC">Acre</html:option> 
                     <html:option value="AL">Alagoas</html:option> 
                     <html:option value="AP">Amap&aacute;</html:option> 
@@ -146,7 +145,7 @@
                     <html:option value="SC">Santa Catarina</html:option> 
                     <html:option value="SP">S&atilde;o Paulo</html:option> 
                     <html:option value="SE">Sergipe</html:option> 
-                    <html:option value="TO">Tocantins</html:option> 
+                    <html:option value="TO">Tocantins</html:option>
 							
         	</html:select></td>
             <td><html:select property="pais">  
@@ -190,9 +189,8 @@
             <td>
             <div style="margin-right:12px;">
             <html:select property="quartos">
-        		<html:option value="">&nbsp;</html:option>  			
-       			
-       			<html:option value="1">1 Quarto</html:option>
+        		<html:option value="">&nbsp;</html:option> 
+      			<html:option value="1">1 Quarto</html:option>
 				<html:option value="2">2 Quartos</html:option>
 				<html:option value="3">3 Quartos</html:option>
 				<html:option value="4">4 Quartos</html:option>
@@ -216,22 +214,147 @@
 				<html:option value="20">20 Quartos</html:option>
 				<html:option value="21">21 Quartos</html:option>
 				<html:option value="22">22 Quartos</html:option>
-       			
       	</html:select></div></td>
             <td>
             <div style="margin-right:12px;">
             	<html:select property="metragem">
 				<html:option value="">&nbsp;</html:option> 
-      			 
- 
-<html:option value="20.0">20 m</html:option><html:option value="25.0">25 m</html:option><html:option value="30.0">30 m</html:option><html:option value="35.0">35 m</html:option><html:option value="40.0">40 m</html:option><html:option value="45.0">45 m</html:option><html:option value="50.0">50 m</html:option><html:option value="55.0">55 m</html:option><html:option value="60.0">60 m</html:option><html:option value="65.0">65 m</html:option><html:option value="70.0">70 m</html:option><html:option value="75.0">75 m</html:option><html:option value="80.0">80 m</html:option><html:option value="85.0">85 m</html:option><html:option value="90.0">90 m</html:option><html:option value="95.0">95 m</html:option><html:option value="100.0">100 m</html:option><html:option value="105.0">105 m</html:option><html:option value="110.0">110 m</html:option><html:option value="115.0">115 m</html:option><html:option value="120.0">120 m</html:option><html:option value="125.0">125 m</html:option><html:option value="130.0">130 m</html:option><html:option value="135.0">135 m</html:option><html:option value="140.0">140 m</html:option><html:option value="145.0">145 m</html:option><html:option value="150.0">150 m</html:option><html:option value="155.0">155 m</html:option><html:option value="160.0">160 m</html:option><html:option value="165.0">165 m</html:option><html:option value="170.0">170 m</html:option><html:option value="175.0">175 m</html:option><html:option value="180.0">180 m</html:option><html:option value="185.0">185 m</html:option><html:option value="190.0">190 m</html:option><html:option value="195.0">195 m</html:option><html:option value="200.0">200 m</html:option><html:option value="205.0">205 m</html:option><html:option value="210.0">210 m</html:option><html:option value="215.0">215 m</html:option><html:option value="220.0">220 m</html:option><html:option value="225.0">225 m</html:option><html:option value="230.0">230 m</html:option><html:option value="235.0">235 m</html:option><html:option value="240.0">240 m</html:option><html:option value="245.0">245 m</html:option><html:option value="250.0">250 m</html:option><html:option value="255.0">255 m</html:option><html:option value="260.0">260 m</html:option><html:option value="265.0">265 m</html:option><html:option value="270.0">270 m</html:option><html:option value="275.0">275 m</html:option><html:option value="280.0">280 m</html:option><html:option value="285.0">285 m</html:option><html:option value="290.0">290 m</html:option><html:option value="295.0">295 m</html:option><html:option value="300.0">300 m</html:option><html:option value="305.0">305 m</html:option><html:option value="310.0">310 m</html:option><html:option value="315.0">315 m</html:option><html:option value="320.0">320 m</html:option><html:option value="325.0">325 m</html:option><html:option value="330.0">330 m</html:option><html:option value="335.0">335 m</html:option><html:option value="340.0">340 m</html:option><html:option value="345.0">345 m</html:option><html:option value="350.0">350 m</html:option><html:option value="355.0">355 m</html:option><html:option value="360.0">360 m</html:option><html:option value="365.0">365 m</html:option><html:option value="370.0">370 m</html:option><html:option value="375.0">375 m</html:option><html:option value="380.0">380 m</html:option><html:option value="385.0">385 m</html:option><html:option value="390.0">390 m</html:option><html:option value="395.0">395 m</html:option><html:option value="400.0">400 m</html:option><html:option value="405.0">405 m</html:option><html:option value="410.0">410 m</html:option><html:option value="415.0">415 m</html:option><html:option value="420.0">420 m</html:option><html:option value="425.0">425 m</html:option><html:option value="430.0">430 m</html:option><html:option value="435.0">435 m</html:option><html:option value="440.0">440 m</html:option><html:option value="445.0">445 m</html:option><html:option value="450.0">450 m</html:option><html:option value="455.0">455 m</html:option><html:option value="460.0">460 m</html:option><html:option value="465.0">465 m</html:option><html:option value="470.0">470 m</html:option><html:option value="475.0">475 m</html:option><html:option value="480.0">480 m</html:option><html:option value="485.0">485 m</html:option><html:option value="490.0">490 m</html:option><html:option value="495.0">495 m</html:option><html:option value="500.0">500 m</html:option><html:option value="505.0">505 m</html:option><html:option value="510.0">510 m</html:option><html:option value="515.0">515 m</html:option><html:option value="520.0">520 m</html:option><html:option value="525.0">525 m</html:option><html:option value="530.0">530 m</html:option><html:option value="535.0">535 m</html:option><html:option value="540.0">540 m</html:option><html:option value="545.0">545 m</html:option><html:option value="550.0">550 m</html:option><html:option value="555.0">555 m</html:option><html:option value="560.0">560 m</html:option><html:option value="565.0">565 m</html:option><html:option value="570.0">570 m</html:option><html:option value="575.0">575 m</html:option><html:option value="580.0">580 m</html:option><html:option value="585.0">585 m</html:option><html:option value="590.0">590 m</html:option><html:option value="595.0">595 m</html:option><html:option value="600.0">600 m</html:option>
+      			<html:option value="20.0">20m</html:option>
+                <html:option value="25.0">25m</html:option>
+                <html:option value="30.0">30m</html:option>
+                <html:option value="35.0">35m</html:option>
+                <html:option value="40.0">40m</html:option>
+                <html:option value="45.0">45m</html:option>
+                <html:option value="50.0">50m</html:option>
+                <html:option value="55.0">55m</html:option>
+                
+                <html:option value="60.0">60m</html:option>
+                <html:option value="65.0">65m</html:option>
+                <html:option value="70.0">70m</html:option>
+                <html:option value="75.0">75m</html:option>
+                <html:option value="80.0">80m</html:option>
+                <html:option value="85.0">85m</html:option>
+                <html:option value="90.0">90m</html:option>
+                <html:option value="95.0">95m</html:option>
+                <html:option value="100.0">100m</html:option>
+                
+                <html:option value="105.0">105m</html:option>
+                <html:option value="110.0">110m</html:option>
+                <html:option value="115.0">115m</html:option>
+                <html:option value="120.0">120m</html:option>
+                <html:option value="125.0">125m</html:option>
+                <html:option value="130.0">130m</html:option>
+                <html:option value="135.0">135m</html:option>
+                <html:option value="140.0">140m</html:option>
+                <html:option value="145.0">145m</html:option>
+                
+                <html:option value="150.0">150m</html:option>
+                <html:option value="155.0">155m</html:option>
+                <html:option value="160.0">160m</html:option>
+                <html:option value="165.0">165m</html:option>
+                <html:option value="170.0">170m</html:option>
+                <html:option value="175.0">175m</html:option>
+                <html:option value="180.0">180m</html:option>
+                <html:option value="185.0">185m</html:option>
+                <html:option value="190.0">190m</html:option>
+                
+                <html:option value="195.0">195m</html:option>
+                <html:option value="200.0">200m</html:option>
+                <html:option value="205.0">205m</html:option>
+                <html:option value="210.0">210m</html:option>
+                <html:option value="215.0">215m</html:option>
+                <html:option value="220.0">220m</html:option>
+                <html:option value="225.0">225m</html:option>
+                <html:option value="230.0">230m</html:option>
+                <html:option value="235.0">235m</html:option>
+                
+                <html:option value="240.0">240m</html:option>
+                <html:option value="245.0">245m</html:option>
+                <html:option value="250.0">250m</html:option>
+                <html:option value="255.0">255m</html:option>
+                <html:option value="260.0">260m</html:option>
+                <html:option value="265.0">265m</html:option>
+                <html:option value="270.0">270m</html:option>
+                <html:option value="275.0">275m</html:option>
+                <html:option value="280.0">280m</html:option>
+                
+                <html:option value="285.0">285m</html:option>
+                <html:option value="290.0">290m</html:option>
+                <html:option value="295.0">295m</html:option>
+                <html:option value="300.0">300m</html:option>
+                <html:option value="305.0">305m</html:option>
+                <html:option value="310.0">310m</html:option>
+                <html:option value="315.0">315m</html:option>
+                <html:option value="320.0">320m</html:option>
+                <html:option value="325.0">325m</html:option>
+                
+                <html:option value="330.0">330m</html:option>
+                <html:option value="335.0">335m</html:option>
+                <html:option value="340.0">340m</html:option>
+                <html:option value="345.0">345m</html:option>
+                <html:option value="350.0">350m</html:option>
+                <html:option value="355.0">355m</html:option>
+                <html:option value="360.0">360m</html:option>
+                <html:option value="365.0">365m</html:option>
+                <html:option value="370.0">370m</html:option>
+                
+                <html:option value="375.0">375m</html:option>
+                <html:option value="380.0">380m</html:option>
+                <html:option value="385.0">385m</html:option>
+                <html:option value="390.0">390m</html:option>
+                <html:option value="395.0">395m</html:option>
+                <html:option value="400.0">400m</html:option>
+                <html:option value="405.0">405m</html:option>
+                <html:option value="410.0">410m</html:option>
+                <html:option value="415.0">415m</html:option>
+                
+                <html:option value="420.0">420m</html:option>
+                <html:option value="425.0">425m</html:option>
+                <html:option value="430.0">430m</html:option>
+                <html:option value="435.0">435m</html:option>
+                <html:option value="440.0">440m</html:option>
+                <html:option value="445.0">445m</html:option>
+                <html:option value="450.0">450m</html:option>
+                <html:option value="455.0">455m</html:option>
+                <html:option value="460.0">460m</html:option>
+                
+                <html:option value="465.0">465m</html:option>
+                <html:option value="470.0">470m</html:option>
+                <html:option value="475.0">475m</html:option>
+                <html:option value="480.0">480m</html:option>
+                <html:option value="485.0">485m</html:option>
+                <html:option value="490.0">490m</html:option>
+                <html:option value="495.0">495m</html:option>
+                <html:option value="500.0">500m</html:option>
+                <html:option value="505.0">505m</html:option>
+                
+                <html:option value="510.0">510m</html:option>
+                <html:option value="515.0">515m</html:option>
+                <html:option value="520.0">520m</html:option>
+                <html:option value="525.0">525m</html:option>
+                <html:option value="530.0">530m</html:option>
+                <html:option value="535.0">535m</html:option>
+                <html:option value="540.0">540m</html:option>
+                <html:option value="545.0">545m</html:option>
+                <html:option value="550.0">550m</html:option>
+                
+                <html:option value="555.0">555m</html:option>
+                <html:option value="560.0">560m</html:option>
+                <html:option value="565.0">565m</html:option>
+                <html:option value="570.0">570m</html:option>
+                <html:option value="575.0">575m</html:option>
+                <html:option value="580.0">580m</html:option>
+                <html:option value="585.0">585m</html:option>
+                <html:option value="590.0">590m</html:option>
+                <html:option value="595.0">595m</html:option>
+                
+                <html:option value="600.0">600m</html:option>
 
       	</html:select>
       	</div></td>
             <td><div style="margin-right:12px;"><html:select property="capacidade">
-        		<html:option value="">&nbsp;</html:option>
-        		       			
-       			<html:option value="1">1 Pessoa</html:option>
+        		<html:option value="">&nbsp;</html:option> 
+      			<html:option value="1">1 Pessoa</html:option>
 				<html:option value="2">2 Pessoas</html:option>
 				<html:option value="3">3 Pessoas</html:option>
 				<html:option value="4">4 Pessoas</html:option>
@@ -255,7 +378,6 @@
 				<html:option value="20">20 Pessoas</html:option>
 				<html:option value="21">21 Pessoas</html:option>
 				<html:option value="22">22 Pessoas</html:option>
-       			
       	</html:select>
       	</div></td>
           </tr>
@@ -276,7 +398,7 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="2"><html:file property="planta" size="23" style="width:300px; color:#666666;" /></td>
+        <td colspan="2"><html:file property="planta" /></td>
         <td colspan="2"><html:text property="linkYouTube" size="245" /></td>
         <td>&nbsp;</td>
       </tr>
@@ -286,20 +408,21 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="5">&nbsp;</td>
+        <td colspan="5">&nbsp;<br /></td>
       </tr>
       <tr>
         <td  height="40" colspan="5">
         <img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul"> Imagens  do Imóvel</span></span>
-        <br /><span class="MyriadProRegular"> Arquivo (Qtd minima 6, máx 15/máx 200kb)</span></td>
+        <br /><span class="MyriadProRegular"> Arquivo (Qtd máx 6/máx 200kb)</span></td>
       </tr>
       <tr>
-        <td colspan="5">        
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <td colspan="5">
+        
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td><div style="margin-right:12px;"><html:file property="arquivoFoto[1]" styleId="file1" size="23" style="width:300px; color:#666666;"/></div></td>
                 <td><div style="margin-right:12px;"><html:file property="arquivoFoto[3]" styleId="file3" size="23" style="width:300px; color:#666666;"/></div></td>
-                <td><html:file property="arquivoFoto[5]" styleId="file5" size="23" style="width:300px;"/></td>
+                <td><html:file property="arquivoFoto[5]" styleId="file5" size="23" style="width:300px; color:#666666;"/></td>
               </tr>
               <tr>
                 <td><div style="margin-top:8px;"><html:file property="arquivoFoto[2]" styleId="file2" size="23" style="width:300px; color:#666666;"/></div></td>
@@ -307,7 +430,9 @@
                 <td><div style="margin-top:8px;"><html:file property="arquivoFoto[6]" styleId="file6" size="23" style="width:300px; color:#666666;"/></div></td>
               </tr>
             </table>
-		</td>
+        
+        
+        </td>
       </tr>
       <tr>
         <td colspan="5">&nbsp;</td>
