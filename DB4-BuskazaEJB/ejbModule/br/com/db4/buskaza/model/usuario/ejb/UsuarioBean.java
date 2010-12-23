@@ -18,6 +18,7 @@ import org.hibernate.ejb.EntityManagerImpl;
 import org.hibernate.sql.JoinFragment;
 import org.jboss.ejb3.annotation.LocalBinding;
 
+import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.Pessoa;
 import br.com.db4.buskaza.model.entity.Usuario;
 
@@ -100,10 +101,14 @@ public class UsuarioBean implements UsuarioBeanLocal {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
-		
 	}
 
+	public List<Pessoa> listarTodosUsuarios(){
+		
+		Query query = em.createQuery("select x from Pessoa x");
+		
+		List<Pessoa> lista = query.getResultList();
+		
+		return lista;
+	}
 }

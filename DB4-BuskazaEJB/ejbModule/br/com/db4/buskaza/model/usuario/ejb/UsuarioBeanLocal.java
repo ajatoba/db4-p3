@@ -1,7 +1,10 @@
 package br.com.db4.buskaza.model.usuario.ejb;
 
+import java.util.List;
+
 import javax.ejb.Local;
 
+import br.com.db4.buskaza.model.entity.Pessoa;
 import br.com.db4.buskaza.model.entity.Usuario;
 
 @Local
@@ -18,6 +21,8 @@ public interface UsuarioBeanLocal {
 	public Usuario autenticarUsuario(String login, String senha,Integer tipoPerfil);
 	
 	public void confirmaUsuario(String email);
+	
+	public List<Pessoa> listarTodosUsuarios();
 	
 	
 
