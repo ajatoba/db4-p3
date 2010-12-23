@@ -99,7 +99,7 @@
         <td><html:text property="numero" size="88"/></td>
         <td><html:text property="complemento" size="138"/></td>
         <td><html:text property="bairro" size="138"/></td>
-        <td><input name="cep" type="text" size="138" /></td>
+        <td><html:text property="cep" size="138"/></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -154,11 +154,10 @@
           <tr>
             <td>
             <div style="margin-right:12px;">
-				  <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
-				    <option>apartamento</option>
-				    <option>casa</option>
-				    <option>flat</option>
-				  </select>
+				  <html:select property="tipoImovel">  
+        			<html:option value=""></html:option> 
+					<html:options collection="tiposImovel" property="codigo" labelProperty="nome"/>
+				</html:select>
 			</div>
 </td>
             <td>
@@ -205,7 +204,7 @@
       </tr>
       <tr>
         <td colspan="2"><html:file property="planta" /></td>
-        <td colspan="2"><input name="youtube" type="text" size="245" /></td>
+        <td colspan="2"><html:text property="linkYouTube" size="245" /></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
