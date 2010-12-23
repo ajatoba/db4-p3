@@ -149,7 +149,7 @@
 							
         	</html:select></td>
             <td><html:select property="pais">  
-        		<html:option value=""></html:option> 
+        		<html:option value="">&nbsp;</html:option> 
 				<html:options collection="paises" property="codigo" labelProperty="nome"/>
 			</html:select></td>
           </tr>
@@ -181,7 +181,7 @@
             <td>
             <div style="margin-right:12px;">
 				  <html:select property="tipoImovel">  
-        			<html:option value=""></html:option> 
+        			<html:option value="">&nbsp;</html:option> 
 					<html:options collection="tiposImovel" property="codigo" labelProperty="nome"/>
 				</html:select>
 			</div>
@@ -398,7 +398,7 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="2"><html:file property="planta" /></td>
+        <td colspan="2"><html:file property="planta" size="23" style="width:300px; color:#666666;"/></td>
         <td colspan="2"><html:text property="linkYouTube" size="245" /></td>
         <td>&nbsp;</td>
       </tr>
