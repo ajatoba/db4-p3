@@ -55,7 +55,10 @@ public class ImageHelper
     	
     	try {
     		Foto foto = new Foto();
-        	String path = System.getProperty("path_arquivos");   
+        	String path = System.getProperty("path_arquivos");
+    		
+        	if(path == null || path.equals("")) throw new IOException ("Caminho dos Arquivos Não Configurado");
+            
         	String nomeOriginal = formFile.getFileName();
         	String extencao = nomeOriginal.split("\\.")[1];
         	
@@ -101,8 +104,11 @@ public class ImageHelper
     	
     	try {
     		Planta planta = new Planta();
-        	String path = System.getProperty("path_arquivos");   
-        	String nomeOriginal = formFile.getFileName();
+        	String path = System.getProperty("path_arquivos");
+    		
+    		if(path == null || path.equals("")) throw new IOException ("Caminho dos Arquivos Não Configurado");
+    		
+    		String nomeOriginal = formFile.getFileName();
         	String extencao = nomeOriginal.split("\\.")[1];
         	
         	String nomeNovo = String.valueOf(System.currentTimeMillis());
