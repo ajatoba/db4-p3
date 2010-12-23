@@ -299,7 +299,7 @@
 </div>
 </html:form>
     
-    <p>&nbsp;</p>
+    <br />
   </div>
   
  <div id="bottom_cad"></div>
