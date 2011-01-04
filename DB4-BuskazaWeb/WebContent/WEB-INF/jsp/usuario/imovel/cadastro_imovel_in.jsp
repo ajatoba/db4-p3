@@ -215,8 +215,7 @@
             	<html:options collection="estados" property="codigo" labelProperty="nome"/>
 							
         	</html:select></td>
-            <td><html:select property="pais" styleId="pais">  
-        		<html:option value="">&nbsp;</html:option> 
+            <td><html:select property="pais" styleId="pais">
 				<html:options collection="paises" property="codigo" labelProperty="nome"/>
 			</html:select></td>
           </tr>
@@ -247,8 +246,7 @@
           <tr>
             <td>
             <div style="margin-right:12px;">
-				  <html:select property="tipoImovel" styleId="tipoImovel">  
-        			<html:option value="">&nbsp;</html:option> 
+				  <html:select property="tipoImovel" styleId="tipoImovel">
 					<html:options collection="tiposImovel" property="codigo" labelProperty="nome"/>
 				</html:select>
 			</div>
@@ -256,7 +254,6 @@
             <td>
             <div style="margin-right:12px;">
             <html:select property="quartos" styleId="quartos">
-        		<html:option value="">&nbsp;</html:option> 
       			<html:option value="1">1 Quarto</html:option>
 				<html:option value="2">2 Quartos</html:option>
 				<html:option value="3">3 Quartos</html:option>
@@ -285,7 +282,6 @@
             <td>
             <div style="margin-right:12px;">
             	<html:select property="metragem" styleId="metragem">
-				<html:option value="">&nbsp;</html:option> 
       			<html:option value="20.0">20m</html:option>
                 <html:option value="25.0">25m</html:option>
                 <html:option value="30.0">30m</html:option>
@@ -420,7 +416,6 @@
       	</html:select>
       	</div></td>
             <td><div style="margin-right:12px;"><html:select property="capacidade" styleId="capacidade">
-        		<html:option value="">&nbsp;</html:option> 
       			<html:option value="1">1 Pessoa</html:option>
 				<html:option value="2">2 Pessoas</html:option>
 				<html:option value="3">3 Pessoas</html:option>
