@@ -21,10 +21,97 @@
 	<script type="text/javascript" src="/buzkaza/thickbox/script/thickbox.js" ></script>
 	<script type="text/javascript" src="/buzkaza/thickbox/script/global.js" ></script>
 	
-	<script language="javascript">
+	
+	<link href="/buzkaza/_css/jquery.alerts.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
+	<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js" ></script>
+	
+	
+	<script language="javascript">	
+		var mensagemAlert="";
+	
 		$(function(){
 			$('#imovelForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
 		});
+
+
+		 $(document).ready( function() {
+		        
+				
+				$("#cadastrar_user").click( function() {
+
+					validar();
+										
+					if( mensagemAlert != "" ){
+						janelaAlert( mensagemAlert );
+						mensagemAlert = "";
+					}else{
+						$("#imovelForm").submit();
+					}
+					
+				});
+				
+	            function janelaAlert(mensagem)
+	            {
+	                $.alerts.dialogClass = "style_1";
+	                jAlert( mensagem , 'Erro', function() {
+	                    $.alerts.dialogClass = null; // reset to default
+	                });
+	            }
+	        });
+
+
+
+	        function validar()
+	        {
+	        	
+	        	file1 = $("#file1").val();
+	        	file2 = $("#file2").val();
+	        	file3 = $("#file3").val();
+	        	file4 = $("#file4").val();
+	        	file5 = $("#file5").val();
+	        	file6 = $("#file6").val();
+
+
+
+	        	logradouro 	= $("#logradouro").val();
+	        	numero		= $("#numero").val();
+	        	complemento = $("#complemento").val();
+	        	bairro		= $("#bairro").val();
+	        	cidade		= $("#cidade").val();
+	        	estado		= $("#estado").val();
+	        	pais		= $("#pais").val();
+	        	tipoImovel 	= $("#tipoImovel").val();
+	        	quartos		= $("#quartos").val();
+	        	metragem 	= $("#metragem").val();
+	        	capacidade	= $("#capacidade").val();
+	        	planta		= $("#planta").val();
+
+	        	msg	  = "";
+	        	
+	        	if(logradouro	=="") msg += "Endereço \n";		        
+	        	if(numero		=="") msg += "Número \n";		        
+	        	if(complemento	=="") msg += "Complemento \n";
+	        	if(bairro		=="") msg += "Bairro \n";
+	        	if(cidade		=="") msg += "Cidade \n";
+	        	if(estado		=="") msg += "Estado \n";
+	        	if(pais			=="") msg += "País \n";
+	        	if(tipoImovel 	=="") msg += "Tipo de Imóvel \n";
+	        	if(quartos 		=="") msg += "Quartos \n";
+	        	if(metragem		=="") msg += "Metragem \n";
+	        	if(capacidade	=="") msg += "Capacidade \n";
+	        	if(planta		=="") msg += "Planta do Imóvel \n";
+
+				
+	        	if(file1 == "" && file2 == "" && file3 == ""  && file4 == ""  && file5 == "" && file6 == ""  )
+	        	{
+	        		msg += "Devem ser enviadas 6(seis) imagens do imóvel";
+		        }
+
+				if(	msg != "" )
+	        		mensagemAlert = "Apresentaram problema de validação. Verifique o(s) campo(s):\n\n " + msg;
+	        	
+		    }
 	</script>
 	
 	<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
@@ -101,10 +188,10 @@
         <td class="MyriadProRegular">CEP</td>
       </tr>
       <tr>
-        <td><html:text property="logradouro" size="260"/></td>
-        <td><html:text property="numero" size="88"/></td>
-        <td><html:text property="complemento" size="138"/></td>
-        <td><html:text property="bairro" size="138"/></td>
+        <td><html:text property="logradouro" styleId="logradouro" size="260"/></td>
+        <td><html:text property="numero" styleId="numero" size="88"/></td>
+        <td><html:text property="complemento" styleId="complemento" size="138"/></td>
+        <td><html:text property="bairro" styleId="bairro" size="138"/></td>
         <td><html:text property="cep" size="138"/></td>
       </tr>
       <tr>
@@ -123,12 +210,12 @@
             <td>País</td>
           </tr>
           <tr>
-            <td><html:text property="municipio" size="160"/></td>
-            <td><html:select property="imovelEntity.estado.codigo">
+            <td><html:text property="municipio" styleId="cidade" size="160"/></td>
+            <td><html:select property="imovelEntity.estado.codigo" styleId="estado">
             	<html:options collection="estados" property="codigo" labelProperty="nome"/>
 							
         	</html:select></td>
-            <td><html:select property="pais">  
+            <td><html:select property="pais" styleId="pais">  
         		<html:option value="">&nbsp;</html:option> 
 				<html:options collection="paises" property="codigo" labelProperty="nome"/>
 			</html:select></td>
@@ -160,7 +247,7 @@
           <tr>
             <td>
             <div style="margin-right:12px;">
-				  <html:select property="tipoImovel">  
+				  <html:select property="tipoImovel" styleId="tipoImovel">  
         			<html:option value="">&nbsp;</html:option> 
 					<html:options collection="tiposImovel" property="codigo" labelProperty="nome"/>
 				</html:select>
@@ -168,7 +255,7 @@
 </td>
             <td>
             <div style="margin-right:12px;">
-            <html:select property="quartos">
+            <html:select property="quartos" styleId="quartos">
         		<html:option value="">&nbsp;</html:option> 
       			<html:option value="1">1 Quarto</html:option>
 				<html:option value="2">2 Quartos</html:option>
@@ -197,7 +284,7 @@
       	</html:select></div></td>
             <td>
             <div style="margin-right:12px;">
-            	<html:select property="metragem">
+            	<html:select property="metragem" styleId="metragem">
 				<html:option value="">&nbsp;</html:option> 
       			<html:option value="20.0">20m</html:option>
                 <html:option value="25.0">25m</html:option>
@@ -332,7 +419,7 @@
 
       	</html:select>
       	</div></td>
-            <td><div style="margin-right:12px;"><html:select property="capacidade">
+            <td><div style="margin-right:12px;"><html:select property="capacidade" styleId="capacidade">
         		<html:option value="">&nbsp;</html:option> 
       			<html:option value="1">1 Pessoa</html:option>
 				<html:option value="2">2 Pessoas</html:option>
@@ -378,7 +465,7 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="2"><div style="float:left"><html:file property="planta" size="23" style="width:300px; color:#666666;"/></div>
+        <td colspan="2"><div style="float:left"><html:file property="planta" styleId="planta" size="23" style="width:300px; color:#666666;"/></div>
         			<div style="float:left; margin-left:15px"> <a class="thickbox" href="/buzkaza/thickbox/imagem_planta.html?height=400&width=600" ><img src="/buzkaza/thickbox/_img/interrogacao.png" widht="22" height="21" border="0" style="margin-top:2px;" /></a></div>
         </td>
         <td colspan="2"><html:text property="linkYouTube" size="245" /></td>
@@ -420,7 +507,7 @@
         <td colspan="5">&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="5"><div style="float:right;"><input name="submit" type="image" src="/buzkaza/_img/btn_enviar_anuncio.jpg"  /></div></td>
+        <td colspan="5"><div style="float:right;"><a href="#" border="0"><img  src="/buzkaza/_img/btn_enviar_anuncio.jpg"   id="cadastrar_user" border="0"  /></a></div></td>
       </tr>
       </table>
   
