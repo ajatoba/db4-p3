@@ -47,8 +47,7 @@
 						mensagemAlert = "";
 					}else{
 						$("#imovelForm").submit();
-					}
-					
+					}					
 				});
 				
 	            function janelaAlert(mensagem)
