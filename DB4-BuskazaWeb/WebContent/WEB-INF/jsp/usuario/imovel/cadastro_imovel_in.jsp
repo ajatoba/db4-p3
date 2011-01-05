@@ -460,7 +460,6 @@
       </tr>
       <tr>
         <td colspan="2"><div style="float:left"><html:file property="planta" styleId="planta" size="23" style="width:300px; color:#666666;"/></div>
-        			
         </td>
         <td colspan="2"><html:text property="linkYouTube" size="245" /></td>
         <td>&nbsp;</td>
