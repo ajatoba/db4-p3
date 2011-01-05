@@ -476,7 +476,7 @@
       <tr>
         <td  height="40" colspan="5">
         <img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul"> Imagens  do Imóvel</span></span>
-        <br /><span class="MyriadProRegular"> Arquivo (Qtd min 6)</span></td>
+        <br /><span class="MyriadProRegular"> Arquivo (Qtd min 6/máx 200kb)</span></td>
       </tr>
       <tr>
         <td colspan="5">
