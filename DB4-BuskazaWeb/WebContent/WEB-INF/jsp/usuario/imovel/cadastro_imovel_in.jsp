@@ -453,7 +453,7 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td class="MyriadProRegular">Planta do Imóvel &nbsp;&nbsp;<a class="thickbox" href="/buzkaza/thickbox/imagem_planta.html?height=400&width=600" style="text-decoration:underline; font-family: 'MyriadPro', sans-serif; color:#666666; font-size:11px;">Veja exemplos</a></div></td>
+        <td class="MyriadProRegular">Planta do Imóvel &nbsp;&nbsp;<a class="thickbox" href="/buzkaza/thickbox/imagem_planta.html?height=400&width=600" style="text-decoration:underline; font-family: 'MyriadPro', sans-serif; color:#666666; font-size:11px;">Veja exemplos</a></td>
         <td>&nbsp;</td>
         <td class="MyriadProRegular">Link do vídeo no You Tube</td>
         <td>&nbsp;</td>
