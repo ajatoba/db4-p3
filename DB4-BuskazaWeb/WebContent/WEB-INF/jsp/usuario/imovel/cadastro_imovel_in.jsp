@@ -103,7 +103,7 @@
 	        	if(planta		=="") msg += "Planta do Imóvel \n";
 
 				
-	        	if(file1 == "" && file2 == "" && file3 == ""  && file4 == ""  && file5 == "" && file6 == ""  )
+	        	if(file1 == "" || file2 == "" || file3 == ""  || file4 == ""  || file5 == "" || file6 == ""  )
 	        	{
 	        		msg += "Devem ser enviadas 6(seis) imagens do imóvel";
 		        }
@@ -423,9 +423,9 @@
 				<html:option value="5">5 Pessoas</html:option>
 				<html:option value="6">6 Pessoas</html:option>
 				<html:option value="7">7 Pessoas</html:option>
-				<html:option value="8">8 Pessoas</html:option>				
+				<html:option value="8">8 Pessoas</html:option>	
 				<html:option value="9">9 Pessoas</html:option>
-				
+					
 				<html:option value="10">10 Pessoas</html:option>
 				<html:option value="11">11 Pessoas</html:option>
 				<html:option value="12">12 Pessoas</html:option>
@@ -433,10 +433,10 @@
 				<html:option value="14">14 Pessoas</html:option>
 				<html:option value="15">15 Pessoas</html:option>
 				<html:option value="16">16 Pessoas</html:option>
-				<html:option value="17">17 Pessoas</html:option>				
+				<html:option value="17">17 Pessoas</html:option>
 				<html:option value="18">18 Pessoas</html:option>
 				<html:option value="19">19 Pessoas</html:option>
-				
+								
 				<html:option value="20">20 Pessoas</html:option>
 				<html:option value="21">21 Pessoas</html:option>
 				<html:option value="22">22 Pessoas</html:option>
@@ -453,7 +453,7 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td class="MyriadProRegular">Planta do Imóvel</td>
+        <td class="MyriadProRegular">Planta do Imóvel &nbsp;&nbsp;<a class="thickbox" href="/buzkaza/thickbox/imagem_planta.html?height=400&width=600" style="text-decoration:underline; font-family: 'MyriadPro', sans-serif; color:#666666; font-size:11px;">Veja exemplos</a></div></td>
         <td>&nbsp;</td>
         <td class="MyriadProRegular">Link do vídeo no You Tube</td>
         <td>&nbsp;</td>
@@ -461,7 +461,7 @@
       </tr>
       <tr>
         <td colspan="2"><div style="float:left"><html:file property="planta" styleId="planta" size="23" style="width:300px; color:#666666;"/></div>
-        			<div style="float:left; margin-left:15px"> <a class="thickbox" href="/buzkaza/thickbox/imagem_planta.html?height=400&width=600" ><img src="/buzkaza/thickbox/_img/interrogacao.png" widht="22" height="21" border="0" style="margin-top:2px;" /></a></div>
+        			
         </td>
         <td colspan="2"><html:text property="linkYouTube" size="245" /></td>
         <td>&nbsp;</td>
@@ -477,12 +477,11 @@
       <tr>
         <td  height="40" colspan="5">
         <img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul"> Imagens  do Imóvel</span></span>
-        <br /><span class="MyriadProRegular"> Arquivo (Qtd máx 6/máx 200kb)</span></td>
+        <br /><span class="MyriadProRegular"> Arquivo (Qtd min 6)</span></td>
       </tr>
       <tr>
         <td colspan="5">
-        
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td><div style="margin-right:12px;"><html:file property="arquivoFoto[1]" styleId="file1" size="23" style="width:300px; color:#666666;"/></div></td>
                 <td><div style="margin-right:12px;"><html:file property="arquivoFoto[3]" styleId="file3" size="23" style="width:300px; color:#666666;"/></div></td>
@@ -494,8 +493,6 @@
                 <td><div style="margin-top:8px;"><html:file property="arquivoFoto[6]" styleId="file6" size="23" style="width:300px; color:#666666;"/></div></td>
               </tr>
             </table>
-        
-        
         </td>
       </tr>
       <tr>
