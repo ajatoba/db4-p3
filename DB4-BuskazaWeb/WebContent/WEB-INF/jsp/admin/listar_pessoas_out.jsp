@@ -84,6 +84,18 @@
 						<bean:write name="im" property="quartos"/> quarto(s) em <bean:write name="im" property="bairro"/>, <bean:write name="im" property="estado.nome"/>, <bean:write name="im" property="pais.nome"/>
 					</td>
 				</tr>
+				<tr>
+					<td></td>
+					<td colspan="3">
+						<logic:present name="im" property="planta" >
+							Planta:<br/>
+							<img src="/buzkaza/imagens_usuarios/<bean:write name="im" property="planta.caminho"/>"/>
+						</logic:present>
+						<logic:notPresent name="im" property="planta" >
+							Planta não cadastrada
+						</logic:notPresent>												
+					</td>
+				</tr>
 				<logic:notEmpty name="im" property="fotos">
 				<tr>
 					<td></td>
@@ -94,7 +106,7 @@
 						</logic:iterate>						
 					</td>
 				</tr>
-				</logic:notEmpty>
+				</logic:notEmpty>				
 			</logic:iterate>
 		</logic:notEmpty>
 	</logic:iterate>
