@@ -20,6 +20,10 @@
 		<class>br.com.db4.buskaza.model.entity.Equipamento</class>
 		<class>br.com.db4.buskaza.model.entity.Foto</class>
 		<class>br.com.db4.buskaza.model.entity.Planta</class>
+		<class>br.com.db4.buskaza.model.entity.TipoImovel</class>
+		<class>br.com.db4.buskaza.model.entity.Anuncio</class>
+		<class>br.com.db4.buskaza.model.entity.TipoAnuncio</class>
+		<class>br.com.db4.buskaza.model.entity.Reserva</class>
 	
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
