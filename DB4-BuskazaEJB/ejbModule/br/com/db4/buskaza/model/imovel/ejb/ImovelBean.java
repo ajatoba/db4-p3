@@ -115,4 +115,30 @@ public class ImovelBean implements ImovelBeanLocal {
         return c.list(); 
     } 
 	
+	public List<Imovel> listarImoveis(Integer usuarioProprietario){
+		Session session;  
+		if (em.getDelegate() instanceof EntityManagerImpl) {  
+		    EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
+		    session = entityManagerImpl.getSession();  
+		} else {  
+		    session = (Session) em.getDelegate();  
+		}
+		
+		Criteria c = session.createCriteria(Imovel.class); 
+		c.setCacheable(true);
+		c.setCacheMode(CacheMode.NORMAL);	
+		
+        if (usuarioProprietario != null && usuarioProprietario > 0) {        
+        	c.add(Restrictions.eq("usuarioProprietario.codigo",usuarioProprietario)); 
+        } 
+        
+        c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
+        return c.list(); 
+	}
+	
+	
+	public Imovel getImovel(Integer codigoImovel){
+		return em.find(Imovel.class, codigoImovel);
+	}
+	
 }
