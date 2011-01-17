@@ -24,6 +24,11 @@ import org.hibernate.validator.NotNull;
 
 public class TipoImovel implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	@Column(name = "id_tipo_imovel")
