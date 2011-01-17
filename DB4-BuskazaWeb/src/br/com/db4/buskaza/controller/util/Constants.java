@@ -26,7 +26,17 @@ public interface Constants {
 	
 	public static final String FORWARD_SAIDA_BUSCA_AVANCADA_IMOVEIS = "resultado_busca";
 	
+	public static final String FORWARD_SAIDA_IMOVEIS_PROPRIETARIO = "listar_imoveis_proprietario";
+	
+	public static final String FORWARD_SAIDA_RESERVA_PROPRIETARIO = "listar_reserva_usuario";
+	
+	public static final String FORWARD_SAIDA_IMOVEIS_PROPRIETARIO_VAZIO = "listar_imoveis_proprietario_vazio";
+	
+	public static final String FORWARD_SAIDA_ANUNCIOS_PROPRIETARIO = "listar_anuncios_proprietario";
+	
 	public static final String FORWARD_CONFIRMA_USUARIO = "confirma_usuario";
+	
+	public static final String FORWARD_ENTRADA_COMPLEMENTO_IMOVEL = "form_imovel_compl_in";
 	
 	public static final String HOME_USUARIO_LOGADO = "home_usuario_logado";
 	

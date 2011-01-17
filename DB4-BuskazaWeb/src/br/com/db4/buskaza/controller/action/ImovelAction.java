@@ -298,4 +298,52 @@ public class ImovelAction extends DispatchAction {
 		}
 		return imovel;
 	}
+	
+	public ActionForward listarImoveis(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
+		
+		List<Imovel> imoveis = null;
+		
+		try {				
+			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);			
+			
+			Usuario usuario = (Usuario)request.getSession().getAttribute(Constants.USUARIO_SESSAO);
+			imoveis = imovelEjb.listarImoveis(usuario.getCodigo());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    return formBuscarImovel(mapping, form, request, response);
+		    
+		}
+		
+		request.setAttribute("imoveis", imoveis);		
+		
+		return mapping.findForward(Constants.FORWARD_SAIDA_IMOVEIS_PROPRIETARIO);
+	}
+	
+	public ActionForward formIncluirImovelComp(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response){
+		
+		String codigoImovel = request.getParameter("ci");
+		try {
+			if(codigoImovel!= null)
+			{
+				
+				ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
+				Imovel imovel = imovelEjb.getImovel(Integer.valueOf(codigoImovel));
+				
+				request.setAttribute("imovel", imovel);
+			}
+			
+			return mapping.findForward(Constants.FORWARD_ENTRADA_COMPLEMENTO_IMOVEL);
+		} catch (Exception e) {
+			e.printStackTrace();
+			final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    return null;
+		}
+		
+	}
 }

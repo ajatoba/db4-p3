@@ -9,8 +9,11 @@
 		<form-bean name="usuarioForm"
 			type="br.com.db4.buskaza.controller.form.UsuarioForm"></form-bean>		
 		<form-bean name="imovelForm"
-			type="br.com.db4.buskaza.controller.form.ImovelForm"></form-bean>		
-		
+			type="br.com.db4.buskaza.controller.form.ImovelForm"></form-bean>	
+		<form-bean name="anuncioForm"
+			type="br.com.db4.buskaza.controller.form.AnuncioForm"></form-bean>		
+		<form-bean name="reservaForm"
+			type="br.com.db4.buskaza.controller.form.ReservaForm"></form-bean>
 	</form-beans>
 
 	<global-exceptions>
@@ -40,6 +43,8 @@
 			<forward name="home_admin" path="/WEB-INF/jsp/admin/index.jsp" />			
 		</action>		
 				
+				
+				
 		<action path="/usuario/imovel"
 			type="br.com.db4.buskaza.controller.action.ImovelAction" parameter="act"
 			scope="request" name="imovelForm" validate="true" input="/WEB-INF/jsp/usuario/imovel/cadastro_imovel_in.jsp">
@@ -49,7 +54,25 @@
 			
 			<forward name="formulario_busca" path="/WEB-INF/jsp/imovel/busca_avancada_imovel_in.jsp" />
 			<forward name="resultado_busca" path="/WEB-INF/jsp/imovel/busca_avancada_imovel_out.jsp" />
+			<forward name="listar_imoveis_proprietario" path="/WEB-INF/jsp/usuario/imovel/cadastro_imovel_list.jsp" />	
+			<forward name="form_imovel_compl_in" path="/WEB-INF/jsp/usuario/imovel/cadastro_imovel_comp_in.jsp" />
+					
 			
+		</action>
+		
+		<action path="/usuario/anuncio"
+			type="br.com.db4.buskaza.controller.action.AnuncioAction" parameter="act"
+			scope="request" name="anuncioForm">
+					
+			<forward name="listar_imoveis_proprietario_vazio" path="/WEB-INF/jsp/usuario/anuncio/lista_anuncio_vazio_out.jsp" />
+			<forward name="listar_imoveis_proprietario" path="/WEB-INF/jsp/usuario/anuncio/lista_anuncio_out.jsp" />					
+		</action>
+		
+		<action path="/usuario/reserva"
+			type="br.com.db4.buskaza.controller.action.ReservaAction" parameter="act"
+			scope="request" name="reservaForm">
+
+			<forward name="listar_reserva_usuario" path="/WEB-INF/jsp/usuario/reserva/lista_reservas_out.jsp" />					
 		</action>
 		
 		<action path="/admin/usuario"
