@@ -132,6 +132,8 @@ public class Imovel implements Serializable{
 	
 	private double tarifaEspecialValor; 
 	
+	private Integer status = 0;// 0 - Em avaliação /  1 - Aprovado para anuncios sem complemento /2 - Aprovado para anuncios com complemento 3 - Pendente 
+	
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name="id_usuario_proprietario")
@@ -507,11 +509,23 @@ public class Imovel implements Serializable{
 
 	public void setMapaGooglemaps(String mapaGooglemaps) {
 		this.mapaGooglemaps = mapaGooglemaps;
+	}
+
+	public String getOutraTaxaExtra() {
+		return outraTaxaExtra;
+	}
+
+	public void setOutraTaxaExtra(String outraTaxaExtra) {
+		this.outraTaxaExtra = outraTaxaExtra;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}	
-	
-	
-	
-	
-	
+		
 	
 }
