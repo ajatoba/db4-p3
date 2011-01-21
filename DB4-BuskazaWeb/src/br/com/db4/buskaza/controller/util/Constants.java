@@ -7,6 +7,8 @@ public interface Constants {
 	public static final String MENSAGEM_ERRO_INESPERADO = "message.erro";
 
 	public static final String FORWARD_SAIDA = "saida";
+	
+	public static final String FORWARD_ANUNCIO_IN = "formulario_anuncio";
 
 	public static final String FORWARD_ENTRADA = "formulario";
 	

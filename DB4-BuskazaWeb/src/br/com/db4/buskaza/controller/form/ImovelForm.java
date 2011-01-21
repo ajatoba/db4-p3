@@ -36,7 +36,7 @@ public class ImovelForm extends ActionForm {
 	
 	private Integer camas;
 	
-	private Integer idiomas;
+	private int[] idiomas;
 	
 	private boolean transportePublico;
 	
@@ -92,6 +92,12 @@ public class ImovelForm extends ActionForm {
 	
 	private String telefone;
 	
+	private String telefone2;
+	
+	private String email;
+	
+	private String email2;
+	
 	private String recepcionista;
 	
 	private double tarifaDiaria; 
@@ -117,6 +123,16 @@ public class ImovelForm extends ActionForm {
 	private Integer tipoImovel;
 	
 	private String linkYouTube;
+	
+	private String ddd;
+	
+	private String ddd2;
+	
+	private String 	valorCheckoutDepois;
+	
+	private String 	valorCheckinAntes;
+
+	
 	
 	public String getLinkYouTube() {
 		return linkYouTube;
@@ -477,11 +493,11 @@ public class ImovelForm extends ActionForm {
 		this.camas = camas;
 	}
 
-	public Integer getIdiomas() {
+	public int[] getIdiomas() {
 		return idiomas;
 	}
 
-	public void setIdiomas(Integer idiomas) {
+	public void setIdiomas(int[] idiomas) {
 		this.idiomas = idiomas;
 	}
 
@@ -582,8 +598,63 @@ public class ImovelForm extends ActionForm {
 	
 		this.indexFotos = 0;
 		this.fotos = new ArrayList<FormFile>();
-	}	
-	
+	}
+
+	public String getTelefone2() {
+		return telefone2;
+	}
+
+	public void setTelefone2(String telefone2) {
+		this.telefone2 = telefone2;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getEmail2() {
+		return email2;
+	}
+
+	public void setEmail2(String email2) {
+		this.email2 = email2;
+	}
+
+	public String getDdd() {
+		return ddd;
+	}
+
+	public void setDdd(String ddd) {
+		this.ddd = ddd;
+	}
+
+	public String getDdd2() {
+		return ddd2;
+	}
+
+	public void setDdd2(String ddd2) {
+		this.ddd2 = ddd2;
+	}
+
+	public String getValorCheckoutDepois() {
+		return valorCheckoutDepois;
+	}
+
+	public void setValorCheckoutDepois(String valorCheckoutDepois) {
+		this.valorCheckoutDepois = valorCheckoutDepois;
+	}
+
+	public String getValorCheckinAntes() {
+		return valorCheckinAntes;
+	}
+
+	public void setValorCheckinAntes(String valorCheckinAntes) {
+		this.valorCheckinAntes = valorCheckinAntes;
+	}
 	
 	
 }

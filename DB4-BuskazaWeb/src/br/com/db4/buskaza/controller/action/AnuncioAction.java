@@ -2,6 +2,7 @@ package br.com.db4.buskaza.controller.action;
 
 import java.util.List;
 
+import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +16,9 @@ import org.apache.struts.actions.DispatchAction;
 import br.com.db4.buskaza.controller.util.Constants;
 import br.com.db4.buskaza.model.anuncio.ejb.AnuncioBeanLocal;
 import br.com.db4.buskaza.model.entity.Anuncio;
+import br.com.db4.buskaza.model.entity.TipoAnuncio;
 import br.com.db4.buskaza.model.entity.Usuario;
+import br.com.db4.buskaza.model.tipoanuncio.ejb.TipoAnuncioBeanLocal;
 import br.com.db4.buskaza.model.util.ServiceLocator;
 
 public class AnuncioAction extends DispatchAction {
@@ -46,5 +49,22 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 		
 		return mapping.findForward(Constants.FORWARD_SAIDA_IMOVEIS_PROPRIETARIO);
 	}
+public ActionForward formCadastroAnuncio(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
+	try {
+		carregaListas(request);
+		
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+	
+	return mapping.findForward(Constants.FORWARD_ANUNCIO_IN);
+}
+
+private void carregaListas(HttpServletRequest request) throws NamingException{
+	
+	TipoAnuncioBeanLocal tipoAnuncioEJB = (TipoAnuncioBeanLocal) ServiceLocator.getInstance().locateEJB(TipoAnuncioBeanLocal.LOCAL);
+	request.setAttribute("tiposAnuncio", tipoAnuncioEJB);
+}
+
 
 }
