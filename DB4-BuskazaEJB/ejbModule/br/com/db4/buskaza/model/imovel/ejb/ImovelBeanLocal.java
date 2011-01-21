@@ -13,6 +13,8 @@ public interface ImovelBeanLocal {
 	
 	public Integer incluirImovel(Imovel imovel);
 	
+	public Integer alterarImovel(Imovel imovel);
+	
 	public void altualiza(Imovel imovel);
 	
 	public List<Imovel> buscarImovel(Imovel imovel, Integer codigoPais);

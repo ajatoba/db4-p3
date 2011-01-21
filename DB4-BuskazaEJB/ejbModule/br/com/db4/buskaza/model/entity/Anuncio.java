@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -46,11 +45,6 @@ public class Anuncio implements Serializable {
 	@JoinColumn(name="id_imovel")
 	private Imovel imovel;
 	
-	@NotNull
-	private Date periodoInicial;
-	
-	@NotNull
-	private Date periodoFinal;
 	
 	@NotNull	
 	private Date dataAnuncio;
@@ -62,9 +56,15 @@ public class Anuncio implements Serializable {
 	@JoinColumn(name = "id_anuncio")
 	private Collection<Reserva> reservas;
 	
-	@OneToOne
-	@JoinColumn(name = "id_tipo_anuncio")
-	private TipoAnuncio tipoAnuncio;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_anuncio")
+	private Collection<PeriodoAnuncio> periodos;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_anuncio")
+	private Collection<ValorTipoAnuncio> valoresPorTipo;
+	
+	
 
 	public Integer getCodigo() {
 		return codigo;
@@ -82,21 +82,7 @@ public class Anuncio implements Serializable {
 		this.imovel = imovel;
 	}
 
-	public Date getPeriodoInicial() {
-		return periodoInicial;
-	}
-
-	public void setPeriodoInicial(Date periodoInicial) {
-		this.periodoInicial = periodoInicial;
-	}
-
-	public Date getPeriodoFinal() {
-		return periodoFinal;
-	}
-
-	public void setPeriodoFinal(Date periodoFinal) {
-		this.periodoFinal = periodoFinal;
-	}
+	
 
 	public Date getDataAnuncio() {
 		return dataAnuncio;
@@ -106,14 +92,7 @@ public class Anuncio implements Serializable {
 		this.dataAnuncio = dataAnuncio;
 	}
 
-
-	public TipoAnuncio getTipoAnuncio() {
-		return tipoAnuncio;
-	}
-
-	public void setTipoAnuncio(TipoAnuncio tipoAnuncio) {
-		this.tipoAnuncio = tipoAnuncio;
-	}
+	
 
 	public Integer getStatus() {
 		return status;
@@ -129,7 +108,24 @@ public class Anuncio implements Serializable {
 
 	public void setReservas(Collection<Reserva> reservas) {
 		this.reservas = reservas;
+	}
+
+	public Collection<PeriodoAnuncio> getPeriodos() {
+		return periodos;
+	}
+
+	public void setPeriodos(Collection<PeriodoAnuncio> periodos) {
+		this.periodos = periodos;
+	}
+
+	public Collection<ValorTipoAnuncio> getValoresPorTipo() {
+		return valoresPorTipo;
+	}
+
+	public void setValoresPorTipo(Collection<ValorTipoAnuncio> valoresPorTipo) {
+		this.valoresPorTipo = valoresPorTipo;
 	}	
+	
 	
 	
 

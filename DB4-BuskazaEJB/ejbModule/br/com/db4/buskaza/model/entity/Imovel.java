@@ -47,9 +47,7 @@ public class Imovel implements Serializable{
 	
 	private int quartos;
 	
-	private int camas;
-	
-	private int idiomas;
+	private int camas;	
 	
 	private boolean transportePublico;
 	
@@ -118,6 +116,8 @@ public class Imovel implements Serializable{
 	
 	private String telefone;
 	
+	private String telefone2;
+	
 	private String recepcionista;
 	
 	private double tarifaDiaria; 
@@ -131,6 +131,10 @@ public class Imovel implements Serializable{
 	private String tarifaEspecialDescricao;
 	
 	private double tarifaEspecialValor; 
+	
+	private Double 	valorCheckoutDepois;
+	
+	private Double 	valorCheckinAntes;
 	
 	private Integer status = 0;// 0 - Em avaliação /  1 - Aprovado para anuncios sem complemento /2 - Aprovado para anuncios com complemento 3 - Pendente 
 	
@@ -146,6 +150,10 @@ public class Imovel implements Serializable{
 	private TipoImovel tipoImovel;
 		
 	private String linkYouTube;
+	
+	@ManyToMany(fetch = FetchType.LAZY)	
+	@JoinTable(name ="tb_imovel_idioma")    
+	private Collection<Idioma> idiomas;
 	
 	public Pais getPais() {
 		return pais;
@@ -419,13 +427,6 @@ public class Imovel implements Serializable{
 		this.camas = camas;
 	}
 
-	public int getIdiomas() {
-		return idiomas;
-	}
-
-	public void setIdiomas(int idiomas) {
-		this.idiomas = idiomas;
-	}
 
 	public boolean isTransportePublico() {
 		return transportePublico;
@@ -525,7 +526,42 @@ public class Imovel implements Serializable{
 
 	public void setStatus(Integer status) {
 		this.status = status;
-	}	
-		
+	}
+
+	public Collection<Idioma> getIdiomas() {
+		return idiomas;
+	}
+
+	public void setIdiomas(Collection<Idioma> idiomas) {
+		this.idiomas = idiomas;
+	}
+
+	public String getTelefone2() {
+		return telefone2;
+	}
+
+	public void setTelefone2(String telefone2) {
+		this.telefone2 = telefone2;
+	}
+
+	public Double getValorCheckoutDepois() {
+		return valorCheckoutDepois;
+	}
+
+	public void setValorCheckoutDepois(Double valorCheckoutDepois) {
+		this.valorCheckoutDepois = valorCheckoutDepois;
+	}
+
+	public Double getValorCheckinAntes() {
+		return valorCheckinAntes;
+	}
+
+	public void setValorCheckinAntes(Double valorCheckinAntes) {
+		this.valorCheckinAntes = valorCheckinAntes;
+	}
+
+
+	
+	
 	
 }

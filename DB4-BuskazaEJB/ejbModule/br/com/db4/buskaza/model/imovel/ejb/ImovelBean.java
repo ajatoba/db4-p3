@@ -141,4 +141,14 @@ public class ImovelBean implements ImovelBeanLocal {
 		return em.find(Imovel.class, codigoImovel);
 	}
 	
+	public Integer alterarImovel(Imovel imovel){		
+		if(!em.contains(imovel))
+        {
+			imovel = em.merge(imovel);
+        }
+		
+		return imovel.getCodigo();
+	}
+	
+	
 }
