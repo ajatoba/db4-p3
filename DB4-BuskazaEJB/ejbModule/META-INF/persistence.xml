@@ -24,6 +24,9 @@
 		<class>br.com.db4.buskaza.model.entity.Anuncio</class>
 		<class>br.com.db4.buskaza.model.entity.TipoAnuncio</class>
 		<class>br.com.db4.buskaza.model.entity.Reserva</class>
+		<class>br.com.db4.buskaza.model.entity.Idioma</class>
+		<class>br.com.db4.buskaza.model.entity.ValorTipoAnuncio</class>
+		<class>br.com.db4.buskaza.model.entity.PeriodoAnuncio</class>
 	
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
