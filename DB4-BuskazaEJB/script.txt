@@ -1,0 +1,72 @@
+INSERT INTO tb_banco (NOME) VALUES('Itau');
+INSERT INTO tb_banco (NOME) VALUES('Bradesco');
+INSERT INTO tb_banco (NOME) VALUES('Santander');
+INSERT INTO tb_banco (NOME) VALUES('Banco do Brasil');
+INSERT INTO tb_banco (NOME) VALUES('Caixa');
+
+
+INSERT INTO tb_pais (NOME) VALUES('Brasil');
+INSERT INTO tb_pais (NOME) VALUES('Itália');
+INSERT INTO tb_pais (NOME) VALUES('Portugal');
+INSERT INTO tb_pais (NOME) VALUES('Franca');
+INSERT INTO tb_pais (NOME) VALUES('Japao');
+INSERT INTO tb_pais (NOME) VALUES('Chile');
+INSERT INTO tb_pais (NOME) VALUES('Estados Unidos');
+INSERT INTO tb_pais (NOME) VALUES('Canadá');
+INSERT INTO tb_pais (NOME) VALUES('Espanha');
+INSERT INTO tb_pais (NOME) VALUES('Inglaterra');
+
+
+INSERT INTO tb_estado (ID_ESTADO, NOME, ID_PAIS) VALUES('RJ','Rio de Janeiro',1);
+INSERT INTO tb_estado (ID_ESTADO, NOME, ID_PAIS) VALUES('MG','Minas Gerais',1);
+INSERT INTO tb_estado (ID_ESTADO, NOME, ID_PAIS) VALUES('SP','São Paulo',1);
+INSERT INTO tb_estado (ID_ESTADO, NOME, ID_PAIS) VALUES('AM','Amazonas',1);
+INSERT INTO tb_estado (ID_ESTADO, NOME, ID_PAIS) VALUES('PR','Parana',1);
+INSERT INTO tb_estado (ID_ESTADO, NOME, ID_PAIS) VALUES('BA','Bahia',1);
+INSERT INTO tb_estado (ID_ESTADO, NOME, ID_PAIS) VALUES('TO','Tocantins',1);
+INSERT INTO tb_estado (ID_ESTADO, NOME, ID_PAIS) VALUES('ES','espitito Santo',1);
+
+insert into tb_equipamento (nome) values ('TV LCD');
+insert into tb_equipamento (nome) values ('Sofá-cama');
+
+INSERT INTO tb_perfil (NOME) VALUES('Administrador');
+INSERT INTO tb_perfil (NOME) VALUES('Usuario');
+
+
+insert into tb_equipamento (nome) values ('Aquecedor');
+insert into tb_equipamento (nome) values ('Ar');
+insert into tb_equipamento (nome) values ('Cachorro');
+insert into tb_equipamento (nome) values ('Piscina');
+insert into tb_equipamento (nome) values ('Internet');
+insert into tb_equipamento (nome) values ('Estacionamento');
+
+insert into tb_equipamento (nome) values ('Berço');
+insert into tb_equipamento (nome) values ('Fogão');
+insert into tb_equipamento (nome) values ('Maq.Lavar');
+insert into tb_equipamento (nome) values ('Mesa de Jantar');
+
+insert into tb_tipo_imovel(nome) values ('Apartamento');
+insert into tb_tipo_imovel(nome) values ('Studio');
+insert into tb_tipo_imovel(nome) values ('Loft');
+insert into tb_tipo_imovel(nome) values ('Casa Urbana');
+insert into tb_tipo_imovel(nome) values ('Casa de Veraneio');
+insert into tb_tipo_imovel(nome) values ('Casa de Serra');
+insert into tb_tipo_imovel(nome) values ('Sítio');
+insert into tb_tipo_imovel(nome) values ('Fazenda');
+insert into tb_tipo_imovel(nome) values ('Casa');
+insert into tb_tipo_imovel(nome) values ('Apartamento');
+insert into tb_tipo_imovel(nome) values ('Flat');
+
+
+insert into tb_idioma(nome) values ('Português');
+insert into tb_idioma(nome) values ('Inglês');
+
+
+insert into tb_tipo_anuncio(nome) values ('Reservados');
+insert into tb_tipo_anuncio(nome) values ('Baixa Temporadas');
+insert into tb_tipo_anuncio(nome) values ('Data Especials');
+insert into tb_tipo_anuncio(nome) values ('Bloqueados');
+insert into tb_tipo_anuncio(nome) values ('Média Temporadas');	 	 
+insert into tb_tipo_anuncio(nome) values ('Pacote Fechados');
+insert into tb_tipo_anuncio(nome) values ('Alta Temporadas');	 	 
+
