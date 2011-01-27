@@ -181,9 +181,10 @@
               		<tr>
                 		<td>
               			<html:select property="usuarioEntity.modalidade" title="Modalidade" styleId="tipo_usuario" styleClass="MyriadProRegular,string" onchange="seleciona_tipo_usuario()">
-      						<html:option value="F"><bean:message key="label.cadastro.campo.pessoafisica"/></html:option>
-       						<html:option value="J"><bean:message key="label.cadastro.campo.pessoajuridica"/></html:option>
-      		  			</html:select>
+<html:option value="F">Pessoa Física</html:option>
+<html:option value="J">Pessoa Jurídica</html:option>
+</html:select>
+
       		  		</td>
         		</tr>
         		</table>
