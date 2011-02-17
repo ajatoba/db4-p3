@@ -331,30 +331,7 @@ $('#sep_top_reserva').corner('rounded 7px');
       </tr>
     </table></td>
   </tr>
-  <tr>
-    <td>Listagem dos itens adicionados acima</td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0">
-      <tr>
-        <td>Transporte Público</td>
-        <td>Nome/Número</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td><select name="select7" id="select6">
-        </select></td>
-        <td><input type="text" name="textfield3" id="textfield3" /></td>
-        <td><input type="submit" name="button2" id="button2" value="Submit" /></td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td>Listagem dos itens adicionados acima</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
+  
   <tr>
     <td>Idiomas Falados</td>
   </tr>
@@ -376,50 +353,6 @@ $('#sep_top_reserva').corner('rounded 7px');
 
 </div>
 <div class="right_formulario">
-<table width="100%" border="0">
-  <tr>
-    <td><img src="_img/bullet_laranja.jpg" alt="" width="19" height="15" />Equipamentos Permissões e Facilidades</td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0">
-      <tr>
-        <td>Nome </td>
-        <td>Qtd</td>
-        <td>Valor</td>
-      </tr>
-      <tr>
-        <td><select name="select9" id="select8">
-        </select></td>
-        <td><select name="select10" id="select9">
-        </select></td>
-        <td><input type="text" name="textfield4" id="textfield4" />
-          <input type="submit" name="button4" id="button4" value="Submit" /></td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td>Listagem dos itens adicionados acima</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td><img src="/buzkaza/_img/bullet_laranja.jpg" alt="" width="19" height="15" />Equipamentos Permissões e Facilidades</td>
-  </tr>
-  <tr>
-    <td>Arquivo (Qtd Min 5, máx 15 / Peso máx 200Kb)</td>
-  </tr>
-  <tr>
-    <td><label for="fileField"></label>
-      <input type="file" name="fileField" id="fileField" /></td>
-  </tr>
-  <tr>
-    <td>Listagem dos itens adicionados acima</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
 
 </div>
 

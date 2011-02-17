@@ -156,7 +156,6 @@
 
 <html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=incluirImovel" enctype="multipart/form-data">
 
-
 <div id="cont_cadastro" style="height:auto;">
 <!--
 <div id="indice_cadastro"><img src="/buzkaza/_img/indice_cadastro_imovel_02.jpg" width="971" height="57" /></div>
@@ -217,6 +216,7 @@
             <td><html:select property="pais" styleId="pais">
 				<html:options collection="paises" property="codigo" labelProperty="nome"/>
 			</html:select></td>
+			
           </tr>
         </table></td>
         <td>&nbsp;</td>
@@ -459,7 +459,10 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="2"><div style="float:left"><html:file property="planta" styleId="planta" size="23" style="width:300px; color:#666666;"/></div>
+        <td colspan="2">
+        <div style="float:left">
+        <html:file property="planta" styleId="planta" size="23" style="width:300px; color:#666666;"/>
+        </div>
         </td>
         <td colspan="2"><html:text property="linkYouTube" size="245" /></td>
         <td>&nbsp;</td>

@@ -44,18 +44,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 <div id="meio_reserva">
 <div class="top_reserva">
 <div class="txt_meus_anuncios"><span class="MyriadPro24">Meus Imóveis</span></div>
-<div class="combo_anuncios"><span class="MyriadPro14" style="float:left; margin-top:10px; margin-right:3px;">Filtrar:</span>
-	    <form id="form"><select name="select2" >
-				<option value="opt1">Listar todas as reservas</option>
-				<option value="opt2">Option 2</option>
-				<option value="opt3">Option 3</option>
-				<option value="opt4">Option 4</option>
-				<option value="opt5">Option 5</option>
-				<option value="opt6">Option 6</option>
-				<option value="opt7">Option 7</option>
-				<option value="opt8">Option 8</option>
-			</select></form> &nbsp;&nbsp;<img src="/buzkaza/_img/btn_criar_anuncio.jpg" width="151" height="31" /></div>
-</div>
+
 </div>
 <div id="sep_top_reserva"></div>
 
@@ -75,9 +64,8 @@ $('#sep_top_reserva').corner('rounded 7px');
 			<div class="bairro_reserva">${ims.bairro} -${ims.estado.codigo} </div>	
 			<span class="MyriadPro14Verde">
 				<logic:equal name="ims" property="status" value="0">Em análise</logic:equal>
-				<logic:equal name="ims" property="status" value="1">Aprovado  <a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}">[[Anunciar]]</a></logic:equal>
-				<logic:equal name="ims" property="status" value="2">Aprovado  <a href="/DB4-BuskazaWebusuario/anuncio.do?act=formIncluirAnuncio&ci=${ims.codigo}">[[Anunciar]] </a></logic:equal>
-				<logic:equal name="ims" property="status" value="3">Pendente  <a href="/DB4-BuskazaWebusuario/imovel.do?act=formAlterarImovel&ci=${ims.codigo}"> [[Alterar]]</a></logic:equal>
+				<logic:equal name="ims" property="status" value="1"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}">Aprovado. Complete o cadastro</a></logic:equal>
+				<logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}">Anunciar </a></logic:equal>				
 			</span>	
 		
 		</div>
