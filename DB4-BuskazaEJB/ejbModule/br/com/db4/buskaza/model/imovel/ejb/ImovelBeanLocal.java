@@ -22,4 +22,6 @@ public interface ImovelBeanLocal {
 	public List<Imovel> listarImoveis(Integer usuarioProprietario);
 	
 	public Imovel getImovel(Integer codigoImovel);
+	
+	public List<Imovel> listarImoveisPorStatus(int Status);
 }

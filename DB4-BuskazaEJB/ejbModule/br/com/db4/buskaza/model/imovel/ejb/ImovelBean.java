@@ -35,7 +35,9 @@ public class ImovelBean implements ImovelBeanLocal {
 		em.persist(imovel);
 		if(!em.contains(imovel))
         {
+			System.out.println("ejb - VOU ALTERAR");
 			imovel = em.merge(imovel);
+			System.out.println("ejB - ALTERAR");
         }
 		
 		return imovel.getCodigo();
@@ -130,6 +132,27 @@ public class ImovelBean implements ImovelBeanLocal {
 		
         if (usuarioProprietario != null && usuarioProprietario > 0) {        
         	c.add(Restrictions.eq("usuarioProprietario.codigo",usuarioProprietario)); 
+        } 
+        
+        c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
+        return c.list(); 
+	}
+	
+	public List<Imovel> listarImoveisPorStatus(int status){
+		Session session;  
+		if (em.getDelegate() instanceof EntityManagerImpl) {  
+		    EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
+		    session = entityManagerImpl.getSession();  
+		} else {  
+		    session = (Session) em.getDelegate();  
+		}
+		
+		Criteria c = session.createCriteria(Imovel.class); 
+		c.setCacheable(true);
+		c.setCacheMode(CacheMode.NORMAL);	
+		
+        if (status > 0) {        
+        	c.add(Restrictions.eq("status",status)); 
         } 
         
         c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
