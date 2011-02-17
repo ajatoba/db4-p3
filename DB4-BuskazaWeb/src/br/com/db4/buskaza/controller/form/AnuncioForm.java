@@ -3,6 +3,10 @@ package br.com.db4.buskaza.controller.form;
 import org.apache.struts.action.ActionForm;
 
 import br.com.db4.buskaza.model.entity.Anuncio;
+import br.com.db4.buskaza.model.entity.Endereco;
+import br.com.db4.buskaza.model.entity.Estado;
+import br.com.db4.buskaza.model.entity.TipoAnuncio;
+import br.com.db4.buskaza.model.entity.Usuario;
 
 
 public class AnuncioForm extends ActionForm {
@@ -14,9 +18,20 @@ public class AnuncioForm extends ActionForm {
 
 	protected Anuncio anuncioEntity;
 	
-	private String periodoInicial;
+	private int diaDataInicial;
+	private int mesDataInicial;
+	private int anoDataInicial;
 	
-	private String periodoFinal;
+	private int diaDataFinal;
+	private int mesDataFinal;
+	private int anoDataFinal;
+	
+	private double tarifaDiaria; 	
+	private double tarifaSemanal;	
+	private double tarifaQuinzenal;	
+	private double tarifaMensal;
+	
+	private int tipoAnuncio;
 	
 	
 	public Anuncio getAnuncioEntity() {
@@ -28,31 +43,121 @@ public class AnuncioForm extends ActionForm {
 		this.anuncioEntity = anuncioEntity;
 	}
 
-	
-	
-	public String getPeriodoInicial() {
-		return periodoInicial;
+
+	public int getDiaDataInicial() {
+		return diaDataInicial;
 	}
 
 
-	public void setPeriodoInicial(String periodoInicial) {
-		this.periodoInicial = periodoInicial;
+	public void setDiaDataInicial(int diaDataInicial) {
+		this.diaDataInicial = diaDataInicial;
 	}
 
 
-	public String getPeriodoFinal() {
-		return periodoFinal;
+	public int getMesDataInicial() {
+		return mesDataInicial;
 	}
 
 
-	public void setPeriodoFinal(String periodoFinal) {
-		this.periodoFinal = periodoFinal;
+	public void setMesDataInicial(int mesDataInicial) {
+		this.mesDataInicial = mesDataInicial;
 	}
 
 
-	public AnuncioForm(){
+	public int getAnoDataInicial() {
+		return anoDataInicial;
+	}
+
+
+	public void setAnoDataInicial(int anoDataInicial) {
+		this.anoDataInicial = anoDataInicial;
+	}
+
+
+	public int getDiaDataFinal() {
+		return diaDataFinal;
+	}
+
+
+	public void setDiaDataFinal(int diaDataFinal) {
+		this.diaDataFinal = diaDataFinal;
+	}
+
+
+	public int getMesDataFinal() {
+		return mesDataFinal;
+	}
+
+
+	public void setMesDataFinal(int mesDataFinal) {
+		this.mesDataFinal = mesDataFinal;
+	}
+
+
+	public int getAnoDataFinal() {
+		return anoDataFinal;
+	}
+
+
+	public void setAnoDataFinal(int anoDataFinal) {
+		this.anoDataFinal = anoDataFinal;
+	}
+
+
+	public int getTipoAnuncio() {
+		return tipoAnuncio;
+	}
+
+
+	public void setTipoAnuncio(int tipoAnuncio) {
+		this.tipoAnuncio = tipoAnuncio;
+	}
+
+	public AnuncioForm() {
 		anuncioEntity = new Anuncio();		
-	}		
+		anuncioEntity.setTipoAnuncio(new TipoAnuncio());
+	}
+
+
+	public double getTarifaDiaria() {
+		return tarifaDiaria;
+	}
+
+
+	public void setTarifaDiaria(double tarifaDiaria) {
+		this.tarifaDiaria = tarifaDiaria;
+	}
+
+
+	public double getTarifaSemanal() {
+		return tarifaSemanal;
+	}
+
+
+	public void setTarifaSemanal(double tarifaSemanal) {
+		this.tarifaSemanal = tarifaSemanal;
+	}
+
+
+	public double getTarifaQuinzenal() {
+		return tarifaQuinzenal;
+	}
+
+
+	public void setTarifaQuinzenal(double tarifaQuinzenal) {
+		this.tarifaQuinzenal = tarifaQuinzenal;
+	}
+
+
+	public double getTarifaMensal() {
+		return tarifaMensal;
+	}
+
+
+	public void setTarifaMensal(double tarifaMensal) {
+		this.tarifaMensal = tarifaMensal;
+	}
+	
 	
 }
 

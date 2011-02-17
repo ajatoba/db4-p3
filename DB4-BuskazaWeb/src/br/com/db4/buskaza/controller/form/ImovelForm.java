@@ -492,15 +492,17 @@ public class ImovelForm extends ActionForm {
 	public void setCamas(Integer camas) {
 		this.camas = camas;
 	}
-
+	
 	public int[] getIdiomas() {
 		return idiomas;
 	}
 
+	
 	public void setIdiomas(int[] idiomas) {
 		this.idiomas = idiomas;
 	}
-
+	
+	
 	public boolean isTransportePublico() {
 		return transportePublico;
 	}
