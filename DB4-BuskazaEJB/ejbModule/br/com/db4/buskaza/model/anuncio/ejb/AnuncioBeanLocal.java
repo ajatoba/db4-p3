@@ -13,5 +13,9 @@ public interface AnuncioBeanLocal {
 	
 	public List<Anuncio> listarAnuncios(Integer usuarioProprietario);
 	
+	public List<Anuncio> listarAnunciosImovel(Integer codigoImovel, int mes, int ano);
+	
+	public Integer incluirAnuncio(Anuncio anuncio);
+	
 	public Anuncio getAnuncio(Integer codigoAnuncio);
 }

@@ -1,5 +1,6 @@
 package br.com.db4.buskaza.model.anuncio.ejb;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -63,6 +64,42 @@ public class AnuncioBean implements AnuncioBeanLocal {
         return c.list(); 
 	}
 	
+	public List<Anuncio> listarAnunciosImovel(Integer codigoImovel, int mes, int ano){
+		Session session;  
+		if (em.getDelegate() instanceof EntityManagerImpl) {  
+		    EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
+		    session = entityManagerImpl.getSession();  
+		} else {  
+		    session = (Session) em.getDelegate();  
+		}
+		
+		Criteria c = session.createCriteria(Anuncio.class); 
+		c.setCacheable(true);
+		c.setCacheMode(CacheMode.NORMAL);	
+		
+        if (codigoImovel!= null && codigoImovel > 0) {        
+        	c.add(Restrictions.eq("imovel.codigo",codigoImovel)); 
+        } 
+        
+        if (mes > 0 && ano >0) {        
+        	c.add(Restrictions.between("dataInicial", new Date(ano-1900,mes-1,1), new Date(ano-1900,mes-1,31))); 
+        	c.add(Restrictions.between("dataFinal", new Date(ano-1900,mes-1,1), new Date(ano-1900,mes-1,31)));
+        } 
+        
+        c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
+        return c.list(); 
+	}
+	
+	public Integer incluirAnuncio(Anuncio anuncio) {
+		em.persist(anuncio);
+		if(!em.contains(anuncio))
+        {
+			anuncio = em.merge(anuncio);
+        }
+		
+		return anuncio.getCodigo();
+
+	}
 	
 	public Anuncio getAnuncio(Integer codigoAnuncio){
 		return em.find(Anuncio.class, codigoAnuncio);
