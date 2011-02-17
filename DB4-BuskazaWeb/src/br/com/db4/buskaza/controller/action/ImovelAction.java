@@ -44,6 +44,31 @@ public class ImovelAction extends DispatchAction {
 		return mapping.findForward(Constants.FORWARD_ENTRADA);
 	}
 	
+	public ActionForward formAprovarImovel(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response)  {
+		
+		String codigoImovel = request.getParameter("ci");
+		try {
+			if(codigoImovel!= null)
+			{
+				ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
+				Imovel imovel = imovelEjb.getImovel(Integer.valueOf(codigoImovel));
+				ImovelForm imovelForm = (ImovelForm)form;	
+				
+				imovelForm.setImovelEntity(imovel);
+				
+				request.setAttribute("imovel", imovel);
+			}
+			
+			return mapping.findForward(Constants.ADMIN_FORM_APROVAR_IMOVEL);
+		} catch (Exception e) {
+			e.printStackTrace();
+			final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    return null;
+		}
+	}
+	
 	public ActionForward formBuscarImovel(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response)  {
 		
 		carregaListas(request);		
@@ -132,6 +157,12 @@ public class ImovelAction extends DispatchAction {
 		
 		Imovel imovel = form.getImovelEntity();	
 		
+		if(imovel == null){
+			System.out.println("IMOVEL ENTITY NULO");
+		}else{
+			System.out.println("BAIRRO:"+imovel.getBairro());
+		}
+		
 		Date checkInEntrada=null, checkInSaida=null, checkOutEntrada=null,checkOutSaida=null,lateCheckOut=null;
 		Collection<Equipamento> equipamentos = null;
 		Equipamento equipamento = null;
@@ -210,8 +241,10 @@ public class ImovelAction extends DispatchAction {
 		if(form.getInternet()> 0 )
 			imovel.setInternet(form.getInternet());
 		
-		if(form.getLinkGoogleMaps()!= null )
+		if(form.getLinkGoogleMaps()!= null ){
 			imovel.setLinkGoogleMaps(form.getLinkGoogleMaps());
+			imovel.setMapaGooglemaps(form.getLinkGoogleMaps());
+		}
 		
 		if(form.getLogradouro()!= null )
 			imovel.setLogradouro(form.getLogradouro());
@@ -281,8 +314,9 @@ public class ImovelAction extends DispatchAction {
 		
 		if (form.getLinkYouTube() != null)
 			imovel.setLinkYouTube(form.getLinkYouTube());
-			
-		imovel.setUsuarioProprietario(usuario);
+		
+		if (usuario !=null)
+			imovel.setUsuarioProprietario(usuario);
 		
 		Collection<Foto> fotosImovel = new ArrayList<Foto>();
 		Collection<FormFile> fotos = form.getFotos();
@@ -342,6 +376,31 @@ public class ImovelAction extends DispatchAction {
 		return mapping.findForward(Constants.FORWARD_SAIDA_IMOVEIS_PROPRIETARIO);
 	}
 	
+	public ActionForward listarImoveisPorStatus(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
+		
+		List<Imovel> imoveis = null;
+		int status = 0;
+		
+		status = Integer.parseInt(request.getParameter("statusImovel"));
+		try {				
+			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);			
+			
+			imoveis = imovelEjb.listarImoveisPorStatus(status);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    return formBuscarImovel(mapping, form, request, response);
+		    
+		}
+		
+		request.setAttribute("imoveis", imoveis);		
+		
+		return mapping.findForward(Constants.ADMIN_LISTAGEM_IMOVEIS);
+	}
+	
 	public ActionForward formIncluirImovelComp(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response){
 		
 		String codigoImovel = request.getParameter("ci");
@@ -379,7 +438,7 @@ public class ImovelAction extends DispatchAction {
 			
 			Imovel imovel = popularDadosComplementoImovel(imovelForm, usuario);			
 			
-			
+			imovel.setStatus(2);//2 - Completo
 			imovelEjb.alterarImovel(imovel);
 			
 		} catch (Exception e) {
@@ -389,8 +448,31 @@ public class ImovelAction extends DispatchAction {
 		    saveErrors( request, actionErrors );
 		    return formIncluirImovel(mapping, form, request, response);
 		}
-				
-		return mapping.findForward(Constants.FORWARD_ANUNCIO_IN);
+		
+		//return new ActionForward("/usuario/imovel.do?action=listarImoveis");
+		return mapping.findForward(Constants.FORWARD_SAIDA_IMOVEIS_PROPRIETARIO);
+	}
+	
+	public ActionForward aprovarImovel(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response){
+		try {
+			ImovelForm imovelForm = (ImovelForm)form;		
+			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
+			imovelForm.setImovelEntity(imovelEjb.getImovel(imovelForm.getImovelEntity().getCodigo()));
+			
+			Imovel imovel = popularImovel(imovelForm, null);			
+			
+			imovel.setStatus(1);//1 - APROVADO PELO ADMIN
+			imovelEjb.alterarImovel(imovel);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    
+		}
+		
+		return mapping.findForward(Constants.ADMIN_IMOVEL_OUT);
 	}
 
 	private Imovel popularDadosComplementoImovel(ImovelForm form,
