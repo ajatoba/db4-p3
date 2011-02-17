@@ -26,10 +26,8 @@
 
 
 <div id="cadastro">
-<div id="top_cad">
-<a href="http://www.buzkaza.com.br/teaser/"><div id="link_back"></div></a>
-</div>
-<div id="meio_cad">
+
+<div id="meio_login">
 <!--FORM-->
 <div id="msg_finaliza_cadastro">
   
@@ -66,9 +64,13 @@
     
 <html:form method="post" styleId="usuarioForm" action="/usuario?act=autenticarUsuario">
 
-<table width="50%" border="0" cellspacing="2" cellpadding="2" align="center">
+<table width="478" border="0" cellspacing="2" cellpadding="2" align="center">
 	
   <tr>
+  	<td rowspan="5" valign="top">
+    <div class="logo_login"></div>
+    <a href="http://www.buzkaza.com.br/teaser/cadastro.html" border="0"><div class="cad_login"></div></a>
+    </td>
     <td class="MyriadProRegular">Login (E-Mail)</td>
   </tr>
   <tr>  
@@ -92,7 +94,6 @@
 </div>
 <!--FORM-->
 </div>
-<div id="bottom_cad"></div>
 </div>
 </body>
 </html>
