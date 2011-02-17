@@ -1,38 +1,47 @@
+<%@page import="java.util.*"%>
+<%@page import="br.com.db4.buskaza.controller.util.*"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld"  prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
 
-	<link rel="stylesheet" href="/buzkaza/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
-<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
-	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
-	<script language="javascript">
-		$(function(){
+<script language="javascript">
+	$(function(){
 			$('#form').jqTransform({imgPath:'jqtransformplugin/img/'});
-		});
-	</script>
-    <script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
-<script>
-$(function(){
-$('#sep_top_reserva').corner('rounded 7px');
-
-	$("#busca_home").corner("bottom 7px");
-	$("#mapa_").corner("bottom 7px");
 	});
+	
+	$(function(){
+	$('#sep_top_reserva').corner('rounded 7px');
+	
+		$("#busca_home").corner("bottom 7px");
+		$("#mapa_").corner("bottom 7px");
+		});
 </script>
 
-<link rel="stylesheet" type="text/css" media="screen" href="/buzkaza/_css/tabs.css"   />
-
+<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
+<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
+<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
 <script type="text/javascript" src="/buzkaza/_js/jquery-1.4.js"></script>
 <script type="text/javascript" src="/buzkaza/_js/tabs.js"></script>
 <script type="text/javascript" src="/buzkaza/_js/function.js"></script>
-<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
+<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js" ></script>
+
+<link rel="stylesheet" type="text/css" href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/jquery.alerts.css"  />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/tabs.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/cadastro.css"  />
+<link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
+	
 </head>
 
 <body>
@@ -45,694 +54,100 @@ $('#sep_top_reserva').corner('rounded 7px');
 <div id="cont_reserva">
 <div id="meio_reserva">
 <div class="top_reserva">
-<div class="txt_meus_anuncios"><span class="MyriadPro24">Meus Anúncios</span></div>
-<div class="combo_anuncios"><span class="MyriadPro14" style="float:left; margin-top:10px; margin-right:3px;">Filtrar:</span>
-	    <form id="form"><select name="select2" >
-				<option value="opt1">Listar todas as reservas</option>
-				<option value="opt2">Option 2</option>
-				<option value="opt3">Option 3</option>
-				<option value="opt4">Option 4</option>
-				<option value="opt5">Option 5</option>
-				<option value="opt6">Option 6</option>
-				<option value="opt7">Option 7</option>
-				<option value="opt8">Option 8</option>
-			</select></form> &nbsp;&nbsp;<img src="/buzkaza/_img/btn_criar_anuncio.jpg" width="151" height="31" /></div>
+	<div class="txt_meus_anuncios">
+		<span class="MyriadPro24">Anunciar Imóvel</span>
+	</div>
 </div>
+
 </div>
 <div id="sep_top_reserva"></div>
 <div id="listagem_reservas">
 <div class="topo_edicao">
 <div class="mapa_planta"><img src="/buzkaza/_img/adm_meusanuncios_editar_05.png" width="195" height="145" /></div>
-<div class="endereco_bairro"><table width="100%" border="0">
+
+<table width="40%" border="0"> 
   <tr>
-    <td width="35%">Copacabana</td>
-    <td width="65%" rowspan="3">Distância do centro 10Km<br />
-      Mapa Google Maps<br />
-      Vídeo You Tube</td>
-  </tr>
-  <tr>
-    <td>Rua Siqueira Campos</td>
-    </tr>
-  <tr>
-    <td>8,2 Nota  102 Comentários Id12345</td>
-    </tr>
-</table>
-</div>
-<div class="menu_edicao">
-<div class="menu_01_cinza"></div>
-<div class="menu_02_cinza"></div>
-<div class="menu_03"></div>
-</div>
-<div id="formulario_edicao">
-<div class="left_formulario_">
-<table width="100%" border="0">
-  <tr>
-    <td colspan="3"><img src="/buzkaza/_img/bullet_laranja.jpg" width="19" height="15" />Disponibilidades</td>
-    </tr>
-  <tr>
-    <td><table width="100%" border="0">
-      <tr>
-        <td colspan="7">Janeiro</td>
-        </tr>
-      <tr>
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
-        <td>06</td>
-        <td>07</td>
-      </tr>
-      <tr>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-      </tr>
-      <tr>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-      </tr>
-      <tr>
-        <td>29</td>
-        <td>30</td>
-        <td>31</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
-    <td><table width="100%" border="0">
-      <tr>
-        <td colspan="7">Fevereiro</td>
-      </tr>
-      <tr>
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
-        <td>06</td>
-        <td>07</td>
-      </tr>
-      <tr>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-      </tr>
-      <tr>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-      </tr>
-      <tr>
-        <td>29</td>
-        <td>30</td>
-        <td>31</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
-    <td><table width="100%" border="0">
-      <tr>
-        <td colspan="7">Março</td>
-      </tr>
-      <tr>
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
-        <td>06</td>
-        <td>07</td>
-      </tr>
-      <tr>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-      </tr>
-      <tr>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-      </tr>
-      <tr>
-        <td>29</td>
-        <td>30</td>
-        <td>31</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0">
-      <tr>
-        <td colspan="7">Abril</td>
-      </tr>
-      <tr>
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
-        <td>06</td>
-        <td>07</td>
-      </tr>
-      <tr>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-      </tr>
-      <tr>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-      </tr>
-      <tr>
-        <td>29</td>
-        <td>30</td>
-        <td>31</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
-    <td><table width="100%" border="0">
-      <tr>
-        <td colspan="7">Maio</td>
-      </tr>
-      <tr>
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
-        <td>06</td>
-        <td>07</td>
-      </tr>
-      <tr>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-      </tr>
-      <tr>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-      </tr>
-      <tr>
-        <td>29</td>
-        <td>30</td>
-        <td>31</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
-    <td><table width="100%" border="0">
-      <tr>
-        <td colspan="7">Junho</td>
-      </tr>
-      <tr>
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
-        <td>06</td>
-        <td>07</td>
-      </tr>
-      <tr>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-      </tr>
-      <tr>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-      </tr>
-      <tr>
-        <td>29</td>
-        <td>30</td>
-        <td>31</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0">
-      <tr>
-        <td colspan="7">Julho</td>
-      </tr>
-      <tr>
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
-        <td>06</td>
-        <td>07</td>
-      </tr>
-      <tr>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-      </tr>
-      <tr>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-      </tr>
-      <tr>
-        <td>29</td>
-        <td>30</td>
-        <td>31</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
-    <td><table width="100%" border="0">
-      <tr>
-        <td colspan="7">Agosto</td>
-      </tr>
-      <tr>
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
-        <td>06</td>
-        <td>07</td>
-      </tr>
-      <tr>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-      </tr>
-      <tr>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-      </tr>
-      <tr>
-        <td>29</td>
-        <td>30</td>
-        <td>31</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
-    <td><table width="100%" border="0">
-      <tr>
-        <td colspan="7">Setembro</td>
-      </tr>
-      <tr>
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
-        <td>06</td>
-        <td>07</td>
-      </tr>
-      <tr>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-      </tr>
-      <tr>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-      </tr>
-      <tr>
-        <td>29</td>
-        <td>30</td>
-        <td>31</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0">
-      <tr>
-        <td colspan="7">Outubro</td>
-      </tr>
-      <tr>
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
-        <td>06</td>
-        <td>07</td>
-      </tr>
-      <tr>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-      </tr>
-      <tr>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-      </tr>
-      <tr>
-        <td>29</td>
-        <td>30</td>
-        <td>31</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
-    <td><table width="100%" border="0">
-      <tr>
-        <td colspan="7">Novembro</td>
-      </tr>
-      <tr>
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
-        <td>06</td>
-        <td>07</td>
-      </tr>
-      <tr>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-      </tr>
-      <tr>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-      </tr>
-      <tr>
-        <td>29</td>
-        <td>30</td>
-        <td>31</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
-    <td><table width="100%" border="0">
-      <tr>
-        <td colspan="7">Dezembro</td>
-      </tr>
-      <tr>
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
-        <td>06</td>
-        <td>07</td>
-      </tr>
-      <tr>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-      </tr>
-      <tr>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-      </tr>
-      <tr>
-        <td>29</td>
-        <td>30</td>
-        <td>31</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
+    <td width="20%">
+    	${imovel.bairro}<br>
+    	${imovel.logradouro}
+    </td>
+    <td width="20%">
+      Distância do centro ${imovel.distanciaCentro}<br />
+      Mapa Google Maps:${imovel.mapaGooglemaps}<br />
+      Vídeo You Tube:${imovel.linkYouTube}
+    </td>
   </tr>
 </table>
 
+<!-- MENSAGEM DE ERRO -->
+    <font color="red">
+  
+		<logic:messagesPresent property="erro">
+			<html:messages property="erro" id="erro">
+				<bean:write name="erro"/>    			
+			</html:messages>
+		</logic:messagesPresent>
+				
+		<logic:messagesNotPresent property="erro">
+			<logic:present name="erro">
+				<bean:write name="erro"/>
+			</logic:present>				
+		</logic:messagesNotPresent>
+  	</font>
+    <!-- ****************** -->
+
+
+
+<div id="formulario_edicao">
+<div class="left_formulario_">
+
 </div>
 <div class="right_formulario_">
+
 <table width="100%" border="0">
+  
   <tr>
-    <td><label for="select"></label>
-      <select name="select" id="select">
-      </select></td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0">
-      <tr>
-        <td>De</td>
-        <td>Até</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td><label for="textfield"></label>
-          <input type="text" name="textfield" id="textfield" /></td>
-        <td><input type="text" name="textfield2" id="textfield2" /></td>
-        <td><input type="submit" name="button" id="button" value="Submit" /></td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td>Datas Disponíveis</td>
-  </tr>
-  <tr>
-    <td>Listagem das datas adicionadas assim</td>
-  </tr>
-  <tr>
-    <td>Legenda</td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0">
+  	<td width="50%">
+  	<html:form method="post" action="/usuario/anuncio?act=formCadastroAnuncio">
+  	<input type="hidden" name="ci" value="${imovel.codigo}">
+  	<select name="mes">                        
+        <option value="01">Janeiro</option>
+        <option value="02">Fevereiro</option>
+        <option value="03">Março</option>
+        <option value="04">Abril</option>
+        <option value="05">Maio</option>
+        <option value="06">Junho</option>
+        <option value="07">Julho</option>
+        <option value="08">Agosto</option>
+    	<option value="09">Setembro</option>
+        <option value="10">Outubro</option>
+        <option value="11">Novembro</option>
+        <option value="12">Dezembro</option>                  
+	</select> 
+  	<select name="ano">                        
+        <option value="2011">2011</option>
+        <option value="2012">2012</option>
+        <option value="2013">2013</option>
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+	</select>
+  	<input type="submit" value="Trocar Período">
+  	</html:form>
+  	<%
+  	Map<String,Calendario> calendarioAnuncio = (Map) request.getAttribute("calendarioAnuncio");
+	
+  	Iterator it = calendarioAnuncio.entrySet().iterator();
+    while (it.hasNext()) {
+        Map.Entry mapa = (Map.Entry)it.next();
+        Calendario anuncio = (Calendario) mapa.getValue();
+        out.println("Dia:"+ mapa.getKey()+ " Tipo anuncio:"+ anuncio.getTipoAnuncio() + "<BR/>") ;
+        
+    }
+  	
+  	%>
+  	
+  	<!-- LEGENDA -->
+  	<table border="0">
       <tr>
         <td width="5%" bgcolor="#E3E3E3">&nbsp;</td>
         <td width="27%">Reservado</td>
@@ -757,9 +172,143 @@ $('#sep_top_reserva').corner('rounded 7px');
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
-    </table></td>
+    </table>
+  	<!-- ******* -->
+  	
+  	</td>
+    <td valign="top">
+    	<html:form method="post" action="/usuario/anuncio?act=incluirAnuncio">
+    	<input type="hidden" name="ci" value="${imovel.codigo}">
+	    <label for="select">Status</label>
+		<html:select property="tipoAnuncio" styleId="tipoAnuncio">
+			<html:options collection="tiposAnuncio" property="codigo" labelProperty="nome"/>
+		</html:select>
+		<BR>					
+		De:<BR>
+		<html:select property="diaDataInicial" title="dia" styleId="diaDataInicial" styleClass="MyriadProRegular,string">                        
+			<html:option value="01">01</html:option>
+            <html:option value="02">02</html:option>
+            <html:option value="03">03</html:option>
+            <html:option value="04">04</html:option>
+            <html:option value="05">05</html:option>
+            <html:option value="06">06</html:option>
+            <html:option value="07">07</html:option>
+            <html:option value="08">08</html:option>
+            <html:option value="09">09</html:option>                            
+            <html:option value="10">10</html:option>
+            <html:option value="11">11</html:option>
+            <html:option value="12">12</html:option>
+            <html:option value="13">13</html:option>
+			<html:option value="14">14</html:option>
+            <html:option value="15">15</html:option>
+            <html:option value="16">16</html:option>
+            <html:option value="17">17</html:option>
+            <html:option value="18">18</html:option>
+            <html:option value="19">19</html:option>                            
+            <html:option value="20">20</html:option>
+            <html:option value="21">21</html:option>
+            <html:option value="22">22</html:option>
+            <html:option value="23">23</html:option>
+            <html:option value="24">24</html:option>
+            <html:option value="25">25</html:option>
+            <html:option value="26">26</html:option>
+            <html:option value="27">27</html:option>
+            <html:option value="28">28</html:option>
+            <html:option value="29">29</html:option>                            
+            <html:option value="30">30</html:option>
+            <html:option value="31">31</html:option>                            
+		</html:select>
+        <html:select property="mesDataInicial" title="mesDataInicial" styleId="mesDataInicial" styleClass="MyriadProRegular,string">                        
+            <html:option value="1">Janeiro</html:option>
+            <html:option value="2">Fevereiro</html:option>
+            <html:option value="3">Março</html:option>
+            <html:option value="4">Abril</html:option>
+            <html:option value="5">Maio</html:option>
+            <html:option value="6">Junho</html:option>
+            <html:option value="7">Julho</html:option>
+            <html:option value="8">Agosto</html:option>
+            <html:option value="9">Setembro</html:option>
+            <html:option value="10">Outubro</html:option>
+			<html:option value="11">Novembro</html:option>
+			<html:option value="12">Dezembro</html:option>                  
+		</html:select>
+      	
+      	<html:select property="anoDataInicial" title="Ano" styleId="anoDataInicial" styleClass="MyriadProRegular,string">
+        	<html:option value="2011">2011</html:option>
+	        <html:option value="2012">2012</html:option>
+	        <html:option value="2013">2013</html:option>
+	        <html:option value="2014">2014</html:option>
+	        <html:option value="2015">2015</html:option> 
+        </html:select>
+		<BR>
+		Até:<BR>
+		<html:select property="diaDataFinal" title="dia" styleId="diaDataFinal" styleClass="MyriadProRegular,string">                        
+			<html:option value="01">01</html:option>
+            <html:option value="02">02</html:option>
+            <html:option value="03">03</html:option>
+            <html:option value="04">04</html:option>
+            <html:option value="05">05</html:option>
+            <html:option value="06">06</html:option>
+            <html:option value="07">07</html:option>
+            <html:option value="08">08</html:option>
+            <html:option value="09">09</html:option>                            
+            <html:option value="10">10</html:option>
+            <html:option value="11">11</html:option>
+            <html:option value="12">12</html:option>
+            <html:option value="13">13</html:option>
+			<html:option value="14">14</html:option>
+            <html:option value="15">15</html:option>
+            <html:option value="16">16</html:option>
+            <html:option value="17">17</html:option>
+            <html:option value="18">18</html:option>
+            <html:option value="19">19</html:option>                            
+            <html:option value="20">20</html:option>
+            <html:option value="21">21</html:option>
+            <html:option value="22">22</html:option>
+            <html:option value="23">23</html:option>
+            <html:option value="24">24</html:option>
+            <html:option value="25">25</html:option>
+            <html:option value="26">26</html:option>
+            <html:option value="27">27</html:option>
+            <html:option value="28">28</html:option>
+            <html:option value="29">29</html:option>                            
+            <html:option value="30">30</html:option>
+            <html:option value="31">31</html:option>                            
+		</html:select>
+        <html:select property="mesDataFinal" title="mesDataInicial" styleId="mesDataFinal" styleClass="MyriadProRegular,string">                        
+            <html:option value="1">Janeiro</html:option>
+            <html:option value="2">Fevereiro</html:option>
+            <html:option value="3">Março</html:option>
+            <html:option value="4">Abril</html:option>
+            <html:option value="5">Maio</html:option>
+            <html:option value="6">Junho</html:option>
+            <html:option value="7">Julho</html:option>
+            <html:option value="8">Agosto</html:option>
+            <html:option value="9">Setembro</html:option>
+            <html:option value="10">Outubro</html:option>
+			<html:option value="11">Novembro</html:option>
+			<html:option value="12">Dezembro</html:option>                  
+		</html:select>
+      	
+      	<html:select property="anoDataFinal" title="Ano" styleId="anoDataFinal" styleClass="MyriadProRegular,string">
+        	<html:option value="2011">2011</html:option>
+	        <html:option value="2012">2012</html:option>
+	        <html:option value="2013">2013</html:option>
+	        <html:option value="2014">2014</html:option>
+	        <html:option value="2015">2015</html:option>
+        </html:select><br><br>
+      	Tarifa Diária: <html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>
+      	Tarifa Semanal: <html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>
+      	Tarifa Mensal: <html:text property="tarifaMensal" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>
+      	Tarifa Quinzenal: <html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>
+      	<br>
+      	<input type="submit" name="gravar" id="button5" value="Gravar" />
+      	
+	    </html:form>
+    </td>
   </tr>
 </table>
+
 
 </div>
 </div>
@@ -767,142 +316,6 @@ $('#sep_top_reserva').corner('rounded 7px');
 
 </div>
 <div class="bottom_formulario">
-<table width="100%" border="0">
-  <tr>
-    <td><img src="/buzkaza/_img/bullet_laranja.jpg" alt="" width="19" height="15" />Tarifas</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td colspan="4">Os preços semanais e mensais devem ser introduzidos com os preços unitários pelo dia.</td>
-    </tr>
-  <tr>
-    <td>Baixa Temporada</td>
-    <td>Média Temporada</td>
-    <td>Alta Temporada</td>
-    <td>Datas Especiais</td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0">
-      <tr>
-        <td>Diária</td>
-        <td>Quinzenal</td>
-      </tr>
-      <tr>
-        <td><label for="textfield3"></label>
-          <input name="textfield3" type="text" id="textfield3" size="10" /></td>
-        <td><label for="textfield3"></label>
-          <input name="textfield4" type="text" id="textfield4" size="10" /></td>
-      </tr>
-      <tr>
-        <td>Semanal </td>
-        <td>Mensal</td>
-      </tr>
-      <tr>
-        <td><label for="textfield3"></label>
-          <input name="textfield5" type="text" id="textfield5" size="10" /></td>
-        <td><label for="textfield3"></label>
-          <input name="textfield6" type="text" id="textfield6" size="10" /></td>
-      </tr>
-    </table></td>
-    <td><table width="100%" border="0">
-      <tr>
-        <td>Diária</td>
-        <td>Quinzenal</td>
-      </tr>
-      <tr>
-        <td><label for="textfield3"></label>
-          <input name="textfield12" type="text" id="textfield9" size="10" /></td>
-        <td><label for="textfield3"></label>
-          <input name="textfield7" type="text" id="textfield10" size="10" /></td>
-      </tr>
-      <tr>
-        <td>Semanal </td>
-        <td>Mensal</td>
-      </tr>
-      <tr>
-        <td><label for="textfield3"></label>
-          <input name="textfield10" type="text" id="textfield7" size="10" /></td>
-        <td><label for="textfield3"></label>
-          <input name="textfield11" type="text" id="textfield8" size="10" /></td>
-      </tr>
-    </table></td>
-    <td><table width="100%" border="0">
-      <tr>
-        <td>Diária</td>
-        <td>Quinzenal</td>
-      </tr>
-      <tr>
-        <td><label for="textfield3"></label>
-          <input name="textfield13" type="text" id="textfield11" size="10" /></td>
-        <td><label for="textfield3"></label>
-          <input name="textfield14" type="text" id="textfield12" size="10" /></td>
-      </tr>
-      <tr>
-        <td>Semanal </td>
-        <td>Mensal</td>
-      </tr>
-      <tr>
-        <td><label for="textfield3"></label>
-          <input name="textfield15" type="text" id="textfield13" size="10" /></td>
-        <td><label for="textfield3"></label>
-          <input name="textfield8" type="text" id="textfield14" size="10" /></td>
-      </tr>
-    </table></td>
-    <td><table width="100%" border="0">
-      <tr>
-        <td>Diária</td>
-        <td>Quinzenal</td>
-      </tr>
-      <tr>
-        <td><label for="textfield3"></label>
-          <input name="textfield16" type="text" id="textfield15" size="10" /></td>
-        <td><label for="textfield3"></label>
-          <input name="textfield17" type="text" id="textfield16" size="10" /></td>
-      </tr>
-      <tr>
-        <td>Semanal </td>
-        <td>Mensal</td>
-      </tr>
-      <tr>
-        <td><label for="textfield3"></label>
-          <input name="textfield18" type="text" id="textfield17" size="10" /></td>
-        <td><label for="textfield3"></label>
-          <input name="textfield9" type="text" id="textfield18" size="10" /></td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td colspan="4">&nbsp;</td>
-  </tr>
-  <tr>
-    <td colspan="4"><img src="/buzkaza/_img/bullet_laranja.jpg" alt="" width="19" height="15" />Pacotes Fechados</td>
-  </tr>
-  <tr>
-    <td colspan="4"><table width="100%" border="0">
-      <tr>
-        <td>De</td>
-        <td>até</td>
-        <td>&nbsp;</td>
-        <td>Valor</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td><input name="textfield19" type="text" id="textfield19" size="10" /></td>
-        <td><input name="textfield20" type="text" id="textfield20" size="10" /></td>
-        <td><select name="select3" id="select2">
-        </select></td>
-        <td><input name="textfield22" type="text" id="textfield22" size="10" /></td>
-        <td><input type="submit" name="button2" id="button2" value="Submit" /></td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td colspan="4">Pacotes<br />
-      Listagem dos Pacotes</td>
-  </tr>
-  </table>
 
 
 </div>
