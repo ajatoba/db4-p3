@@ -83,7 +83,15 @@
 			type="br.com.db4.buskaza.controller.action.UsuarioAction" parameter="act"
 			scope="request" name="usuarioForm" validate="true">		
 			<forward name="admin_listagem_pessoas" path="/WEB-INF/jsp/admin/listar_pessoas_out.jsp" />			
-		</action>	
+		</action>
+		
+		<action path="/admin/imovel"
+			type="br.com.db4.buskaza.controller.action.ImovelAction" parameter="act"
+			scope="request" name="imovelForm" validate="true">		
+			<forward name="admin_listagem_imoveis" path="/WEB-INF/jsp/admin/imovel/listar_imoveis_out.jsp" />
+			<forward name="admin_form_aprovar_imovel" path="/WEB-INF/jsp/admin/imovel/aprovar_imovel_in.jsp" />
+			<forward name="admin_imovel_out" path="/WEB-INF/jsp/admin/imovel/admin_imovel_out.jsp" />						
+		</action>
 
 	</action-mappings>
 
