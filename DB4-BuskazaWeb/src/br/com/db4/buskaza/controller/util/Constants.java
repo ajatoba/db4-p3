@@ -3,6 +3,8 @@ package br.com.db4.buskaza.controller.util;
 public interface Constants {
 
 	public static final String ERRO_PARAMETER = "erro";
+	
+	public static final String SUCESSO_PARAMETER = "sucesso";
 
 	public static final String MENSAGEM_ERRO_INESPERADO = "message.erro";
 
@@ -51,6 +53,14 @@ public interface Constants {
 	public static final String LISTA_PESSOAS = "pessoas";
 	
 	public static final String ADMIN_LISTAGEM_PESSOAS = "admin_listagem_pessoas";
+	
+	public static final String ADMIN_LISTAGEM_IMOVEIS = "admin_listagem_imoveis";
+	
+	public static final String ADMIN_FORM_APROVAR_IMOVEL = "admin_form_aprovar_imovel";
+	
+	public static final String ADMIN_IMOVEL_OUT = "admin_imovel_out";
+	
+	public static final String FORWARD_SAIDA_ANUNCIO = "saida";
 	
 
 }
