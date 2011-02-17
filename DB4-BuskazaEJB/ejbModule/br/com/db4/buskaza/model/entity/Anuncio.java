@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -52,19 +53,23 @@ public class Anuncio implements Serializable {
 	@NotNull
 	private Integer status = 0; //1 - Ativo / 0 - Inativo / 2 - Cancelada / 3 - Concluida
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_anuncio")
-	private Collection<Reserva> reservas;
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name = "id_tipo_anuncio")
+	private TipoAnuncio tipoAnuncio;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_anuncio")
-	private Collection<PeriodoAnuncio> periodos;
+	@NotNull
+	private Date dataInicial;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_anuncio")
-	private Collection<ValorTipoAnuncio> valoresPorTipo;
+	@NotNull
+	private Date dataFinal;
 	
+	private double tarifaDiaria; 
 	
+	private double tarifaSemanal;
+	
+	private double tarifaQuinzenal;
+	
+	private double tarifaMensal;
 
 	public Integer getCodigo() {
 		return codigo;
@@ -82,8 +87,6 @@ public class Anuncio implements Serializable {
 		this.imovel = imovel;
 	}
 
-	
-
 	public Date getDataAnuncio() {
 		return dataAnuncio;
 	}
@@ -91,8 +94,6 @@ public class Anuncio implements Serializable {
 	public void setDataAnuncio(Date dataAnuncio) {
 		this.dataAnuncio = dataAnuncio;
 	}
-
-	
 
 	public Integer getStatus() {
 		return status;
@@ -102,30 +103,61 @@ public class Anuncio implements Serializable {
 		this.status = status;
 	}
 
-	public Collection<Reserva> getReservas() {
-		return reservas;
+	public TipoAnuncio getTipoAnuncio() {
+		return tipoAnuncio;
 	}
 
-	public void setReservas(Collection<Reserva> reservas) {
-		this.reservas = reservas;
+	public void setTipoAnuncio(TipoAnuncio tipoAnuncio) {
+		this.tipoAnuncio = tipoAnuncio;
 	}
 
-	public Collection<PeriodoAnuncio> getPeriodos() {
-		return periodos;
+	public Date getDataInicial() {
+		return dataInicial;
 	}
 
-	public void setPeriodos(Collection<PeriodoAnuncio> periodos) {
-		this.periodos = periodos;
+	public void setDataInicial(Date dataInicial) {
+		this.dataInicial = dataInicial;
 	}
 
-	public Collection<ValorTipoAnuncio> getValoresPorTipo() {
-		return valoresPorTipo;
+	public Date getDataFinal() {
+		return dataFinal;
 	}
 
-	public void setValoresPorTipo(Collection<ValorTipoAnuncio> valoresPorTipo) {
-		this.valoresPorTipo = valoresPorTipo;
-	}	
-	
+	public void setDataFinal(Date dataFinal) {
+		this.dataFinal = dataFinal;
+	}
+
+	public double getTarifaDiaria() {
+		return tarifaDiaria;
+	}
+
+	public void setTarifaDiaria(double tarifaDiaria) {
+		this.tarifaDiaria = tarifaDiaria;
+	}
+
+	public double getTarifaSemanal() {
+		return tarifaSemanal;
+	}
+
+	public void setTarifaSemanal(double tarifaSemanal) {
+		this.tarifaSemanal = tarifaSemanal;
+	}
+
+	public double getTarifaQuinzenal() {
+		return tarifaQuinzenal;
+	}
+
+	public void setTarifaQuinzenal(double tarifaQuinzenal) {
+		this.tarifaQuinzenal = tarifaQuinzenal;
+	}
+
+	public double getTarifaMensal() {
+		return tarifaMensal;
+	}
+
+	public void setTarifaMensal(double tarifaMensal) {
+		this.tarifaMensal = tarifaMensal;
+	} 
 	
 	
 

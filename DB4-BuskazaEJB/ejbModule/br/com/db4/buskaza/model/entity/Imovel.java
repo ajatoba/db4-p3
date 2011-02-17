@@ -3,6 +3,7 @@ package br.com.db4.buskaza.model.entity;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -38,6 +39,10 @@ public class Imovel implements Serializable{
 	@OneToMany(cascade = { CascadeType.PERSIST }, fetch=FetchType.EAGER)	
 	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
 	private Collection<Foto> fotos;
+	
+	@OneToMany(cascade = { CascadeType.PERSIST }, fetch=FetchType.EAGER)	
+	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
+	private Set<Anuncio> anuncios;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_planta")
@@ -151,9 +156,11 @@ public class Imovel implements Serializable{
 		
 	private String linkYouTube;
 	
+	
 	@ManyToMany(fetch = FetchType.LAZY)	
 	@JoinTable(name ="tb_imovel_idioma")    
 	private Collection<Idioma> idiomas;
+	
 	
 	public Pais getPais() {
 		return pais;
@@ -528,6 +535,7 @@ public class Imovel implements Serializable{
 		this.status = status;
 	}
 
+
 	public Collection<Idioma> getIdiomas() {
 		return idiomas;
 	}
@@ -535,7 +543,8 @@ public class Imovel implements Serializable{
 	public void setIdiomas(Collection<Idioma> idiomas) {
 		this.idiomas = idiomas;
 	}
-
+	
+	
 	public String getTelefone2() {
 		return telefone2;
 	}
@@ -558,6 +567,14 @@ public class Imovel implements Serializable{
 
 	public void setValorCheckinAntes(Double valorCheckinAntes) {
 		this.valorCheckinAntes = valorCheckinAntes;
+	}
+
+	public Set<Anuncio> getAnuncios() {
+		return anuncios;
+	}
+
+	public void setAnuncios(Set<Anuncio> anuncios) {
+		this.anuncios = anuncios;
 	}
 
 
