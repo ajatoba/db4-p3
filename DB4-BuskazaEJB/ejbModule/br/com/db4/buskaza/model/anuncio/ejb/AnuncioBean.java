@@ -101,6 +101,12 @@ public class AnuncioBean implements AnuncioBeanLocal {
 
 	}
 	
+	public void excluirAnuncio(Anuncio anuncio) {
+		
+		Anuncio anuncioR = getAnuncio(anuncio.getCodigo());
+		em.remove(anuncioR);
+	}
+	
 	public Anuncio getAnuncio(Integer codigoAnuncio){
 		return em.find(Anuncio.class, codigoAnuncio);
 	}

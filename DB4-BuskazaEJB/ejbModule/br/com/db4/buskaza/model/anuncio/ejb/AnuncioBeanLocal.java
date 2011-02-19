@@ -18,4 +18,7 @@ public interface AnuncioBeanLocal {
 	public Integer incluirAnuncio(Anuncio anuncio);
 	
 	public Anuncio getAnuncio(Integer codigoAnuncio);
+	
+	public void excluirAnuncio(Anuncio anuncio);
+
 }
