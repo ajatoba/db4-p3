@@ -35,9 +35,8 @@ public class ImovelBean implements ImovelBeanLocal {
 		em.persist(imovel);
 		if(!em.contains(imovel))
         {
-			System.out.println("ejb - VOU ALTERAR");
 			imovel = em.merge(imovel);
-			System.out.println("ejB - ALTERAR");
+			
         }
 		
 		return imovel.getCodigo();
@@ -107,11 +106,7 @@ public class ImovelBean implements ImovelBeanLocal {
         if (imovel.getMetragem() > 0 ) {        
         	c.add(Restrictions.eq("metragem", imovel.getMetragem())); 
         }
-        
-        	
-        if (imovel.getTarifaMensal() > 0 ) {        
-        	c.add(Restrictions.eq("tarifaMensal", imovel.getTarifaMensal())); 
-        } 
+       	
         	
         c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
         return c.list(); 
@@ -134,6 +129,8 @@ public class ImovelBean implements ImovelBeanLocal {
         	c.add(Restrictions.eq("usuarioProprietario.codigo",usuarioProprietario)); 
         } 
         
+    	c.add(Restrictions.gt("status", -1)); //-1 são os excluídos, que não devem ser mostrados nunca mais
+        
         c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
         return c.list(); 
 	}
@@ -153,7 +150,9 @@ public class ImovelBean implements ImovelBeanLocal {
 		
         if (status > 0) {        
         	c.add(Restrictions.eq("status",status)); 
-        } 
+        } else{
+        	c.add(Restrictions.gt("status", -1)); //-1 são os excluídos, que não devem ser mostrados nunca mais
+        }
         
         c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
         return c.list(); 
