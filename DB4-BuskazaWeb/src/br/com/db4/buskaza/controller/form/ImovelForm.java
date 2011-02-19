@@ -1,11 +1,13 @@
 package br.com.db4.buskaza.controller.form;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.upload.FormFile;
 
+import br.com.db4.buskaza.model.entity.Anuncio;
 import br.com.db4.buskaza.model.entity.Estado;
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.util.LoggerUtil;
@@ -122,6 +124,66 @@ public class ImovelForm extends ActionForm {
 	private String ddd;
 	
 	private String ddd2;
+		
+	//Campos para buscar imóveis pela data de anúncio
+	
+	private int diaDataInicialAnuncio;
+	private int mesDataInicialAnuncio;
+	private int anoDataInicialAnuncio;
+	
+	private int diaDataFinalAnuncio;
+	private int mesDataFinalAnuncio;
+	private int anoDataFinalAnuncio;
+	
+	public int getDiaDataInicialAnuncio() {
+		return diaDataInicialAnuncio;
+	}
+
+	public void setDiaDataInicialAnuncio(int diaDataInicialAnuncio) {
+		this.diaDataInicialAnuncio = diaDataInicialAnuncio;
+	}
+
+	public int getMesDataInicialAnuncio() {
+		return mesDataInicialAnuncio;
+	}
+
+	public void setMesDataInicialAnuncio(int mesDataInicialAnuncio) {
+		this.mesDataInicialAnuncio = mesDataInicialAnuncio;
+	}
+
+	public int getAnoDataInicialAnuncio() {
+		return anoDataInicialAnuncio;
+	}
+
+	public void setAnoDataInicialAnuncio(int anoDataInicialAnuncio) {
+		this.anoDataInicialAnuncio = anoDataInicialAnuncio;
+	}
+
+	public int getDiaDataFinalAnuncio() {
+		return diaDataFinalAnuncio;
+	}
+
+	public void setDiaDataFinalAnuncio(int diaDataFinalAnuncio) {
+		this.diaDataFinalAnuncio = diaDataFinalAnuncio;
+	}
+
+	public int getMesDataFinalAnuncio() {
+		return mesDataFinalAnuncio;
+	}
+
+	public void setMesDataFinalAnuncio(int mesDataFinalAnuncio) {
+		this.mesDataFinalAnuncio = mesDataFinalAnuncio;
+	}
+
+	public int getAnoDataFinalAnuncio() {
+		return anoDataFinalAnuncio;
+	}
+
+	public void setAnoDataFinalAnuncio(int anoDataFinalAnuncio) {
+		this.anoDataFinalAnuncio = anoDataFinalAnuncio;
+	}
+	
+	//************************************
 	
 	public String getLinkYouTube() {
 		return linkYouTube;

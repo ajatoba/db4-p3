@@ -24,6 +24,7 @@ import br.com.db4.buskaza.controller.form.ImovelForm;
 import br.com.db4.buskaza.controller.helper.ImageHelper;
 import br.com.db4.buskaza.controller.util.Constants;
 import br.com.db4.buskaza.controller.util.SendMail;
+import br.com.db4.buskaza.model.entity.Anuncio;
 import br.com.db4.buskaza.model.entity.Equipamento;
 import br.com.db4.buskaza.model.entity.Foto;
 import br.com.db4.buskaza.model.entity.Imovel;
@@ -113,7 +114,18 @@ public class ImovelAction extends DispatchAction {
 			Imovel imovel = popularImovel(imovelForm,null);			
 			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
 			
-			imoveis = imovelEjb.buscarImovel(imovel, imovelForm.getPais());
+			//Buscando pela disponibilidade do anúncio
+			
+			Date dataInicio = new Date(imovelForm.getAnoDataInicialAnuncio()-1900, imovelForm.getMesDataInicialAnuncio()-1, imovelForm.getDiaDataInicialAnuncio());
+			Date dataFim 	= new Date(imovelForm.getAnoDataFinalAnuncio()-1900, imovelForm.getMesDataFinalAnuncio()-1, imovelForm.getDiaDataFinalAnuncio());
+			
+			Anuncio anuncio = new Anuncio();
+			anuncio.setDataInicial(dataInicio);
+			anuncio.setDataFinal(dataFim);
+			
+			//********************************************
+			
+			imoveis = imovelEjb.buscarImovel(imovel, imovelForm.getPais(), anuncio);
 			
 			carregaListas(request);
 			

@@ -43,7 +43,14 @@
 			<forward name="home_admin" path="/WEB-INF/jsp/admin/index.jsp" />			
 		</action>		
 				
-				
+		
+		<action path="/imovel"
+			type="br.com.db4.buskaza.controller.action.ImovelAction" parameter="act"
+			scope="request" name="imovelForm" validate="true">
+			<forward name="formulario_busca" path="/WEB-INF/jsp/imovel/busca_avancada_imovel_in.jsp" />
+			<forward name="resultado_busca" path="/WEB-INF/jsp/imovel/busca_avancada_imovel_out.jsp" />
+		</action>
+			
 				
 		<action path="/usuario/imovel"
 			type="br.com.db4.buskaza.controller.action.ImovelAction" parameter="act"

@@ -37,7 +37,7 @@
 <!--BUSCA-->
 <div id="cont_busca">
 <div id="form_busca">
-<div class="titulo_busca"><span class="MyriadPro24">Busca Avançada</span></div>
+<div class="titulo_busca"><span class="MyriadPro24">Buscar Anúncio</span></div>
 <div class="sep_busca">
 
 <!-- MENSAGEM DE ERRO -->
@@ -69,103 +69,10 @@
     <!-- ****************** -->
 
 </div>
+<!-- INCLUDE DO FORM DE BUSCA -->
+<%@include file="_form_busca_avancada.jsp" %>
+<!-- ************************ -->
 
-<html:form method="post" styleId="imovelBuscaForm" action="/imovel.do?act=buscarImovel">
-
-<div class="form_01">
-<table width="90%" border="0" cellspacing="0" cellpadding="0">
-  
-  <tr class="MyriadProRegular">
-    <td colspan="3">Estado</td>
-    <td>País</td>
-  </tr>
-  <tr>
-    <td height="50" colspan="3">
-    		<html:select property="imovelEntity.estado.codigo" styleClass="MyriadProRegular"> 
-    			<html:option value=""></html:option> 
-				<html:options collection="estados" property="codigo" labelProperty="nome" />
-        	</html:select>
-	</td>
-    <td height="50">
-    		<html:select property="pais" styleClass="MyriadProRegular">  
-    		<html:option value=""></html:option>
-				<html:options collection="paises" property="codigo" labelProperty="nome"/>
-			</html:select>
-    </td>
-  </tr>
-  <tr>
-    <td class="MyriadProRegular">Capacidade</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td><select name="select7" class="MyriadProRegular">
-      <option value="opt1" class="MyriadProRegular">01</option>
-      <option value="" class="MyriadProRegular">02</option>
-      <option value="" class="MyriadProRegular">03</option>
-      <option value="" class="MyriadProRegular">04</option>
-      <option value="" class="MyriadProRegular">05</option>
-      <option value="" class="MyriadProRegular">06</option>
-      <option value="" class="MyriadProRegular">07</option>
-      <option value="" class="MyriadProRegular">08</option>
-      <option value="" class="MyriadProRegular">09</option>
-      <option value="" class="MyriadProRegular">10</option>
-      <option value="" class="MyriadProRegular">11</option>
-      <option value="" class="MyriadProRegular">12</option>
-      <option value="" class="MyriadProRegular">13</option>
-      <option value="" class="MyriadProRegular">14</option>
-      <option value="" class="MyriadProRegular">15</option>
-      <option value="" class="MyriadProRegular">16</option>
-      <option value="" class="MyriadProRegular">17</option>
-      <option value="" class="MyriadProRegular">18</option>
-      <option value="" class="MyriadProRegular">19</option>
-      <option value="" class="MyriadProRegular">20</option>
-      <option value="" class="MyriadProRegular">21</option>
-      <option value="" class="MyriadProRegular">22</option>
-      <option value="" class="MyriadProRegular">23</option>
-      <option value="" class="MyriadProRegular">24</option>
-      <option value="" class="MyriadProRegular">25</option>
-      <option value="" class="MyriadProRegular">26</option>
-      <option value="" class="MyriadProRegular">27</option>
-      <option value="" class="MyriadProRegular">28</option>
-      <option value="" class="MyriadProRegular">29</option>
-      <option value="" class="MyriadProRegular">30</option>
-      <option value="" class="MyriadProRegular">31</option>
-    </select></td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-
-</div>
-<div class="form_02">
-<table width="90%" border="0" align="center" cellpadding="0" cellspacing="4">
-  <tr>
-    <td colspan="3" class="MyriadProSemiboldIt"><img src="/buzkaza/_img/bullet_cadastro.jpg" width="22" height="13" />Equipamentos no ImÃ³vel</td>
-    </tr>
-  <tr>
-    <td width="33%" class="MyriadProRegular">
-    
-    <logic:present name="equipamentos"> 
-	<logic:notEmpty name="equipamentos">
-          	<logic:iterate name="equipamentos" id="equipamento">
-				  <tr>
-					  <td>
-						  <html:multibox property="equipamentos" styleClass="MyriadProRegular">
-						  	<bean:write name="equipamento" property="codigo"/>  
-						  </html:multibox> 
-						  <bean:write name="equipamento" property="nome"/>
-					  </td>
-				  </tr>         
-	         </logic:iterate>
-    </logic:notEmpty>
-    </logic:present>
-	
-	</td>
-  </tr>
-</table>
-
-</div>
-<div class="btn_busca"><a href="#" onclick="submitForm();" border="0"><img src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" /></a></div>
-</html:form>
 </div>
 </div>
 <!--FIM BUSCA-->
