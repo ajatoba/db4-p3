@@ -22,7 +22,7 @@ public interface UsuarioBeanLocal {
 	
 	public void confirmaUsuario(String email);
 	
-	public List<Pessoa> listarTodosUsuarios();
+	public List<Usuario> listarTodosUsuarios(String ordenacao);
 	
 	
 

@@ -103,11 +103,13 @@ public class UsuarioBean implements UsuarioBeanLocal {
 		
 	}
 
-	public List<Pessoa> listarTodosUsuarios(){
+	public List<Usuario> listarTodosUsuarios(String ordenacao){
 		
-		Query query = em.createQuery("select x from Pessoa x");
+		if(ordenacao == null) ordenacao = "";
 		
-		List<Pessoa> lista = query.getResultList();
+		Query query = em.createQuery("select x from Usuario x order by dataCadastro " + ordenacao);
+		
+		List<Usuario> lista = query.getResultList();
 		
 		return lista;
 	}
