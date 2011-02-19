@@ -146,7 +146,7 @@
   	</tr>
   		
   	<%
-  	//ALGORITMO DE CONTRUÇÃO DO CALENDÁRIO - CUIDADO AO MEXER!!!
+  	//ALGORITMO DE CONSTRUÇÃO DO CALENDÁRIO - CUIDADO AO MEXER!!!
   	Map<String,Calendario> calendarioAnuncio = (Map) request.getAttribute("calendarioAnuncio");
 	
   	Iterator it = calendarioAnuncio.entrySet().iterator();
