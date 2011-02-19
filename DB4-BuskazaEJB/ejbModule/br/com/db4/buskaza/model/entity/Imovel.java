@@ -40,7 +40,7 @@ public class Imovel implements Serializable{
 	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
 	private Collection<Foto> fotos;
 	
-	@OneToMany(cascade = { CascadeType.PERSIST }, fetch=FetchType.EAGER)	
+	@OneToMany(fetch=FetchType.EAGER)	
 	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
 	private Set<Anuncio> anuncios;
 	
@@ -61,9 +61,6 @@ public class Imovel implements Serializable{
 	private double distanciaCentro;
 	
 	private String linkGoogleMaps;
-	
-	@Lob 
-	private String mapaGooglemaps;
 	
 	@OneToOne
 	@JoinColumn(name = "id_estado")
@@ -124,23 +121,7 @@ public class Imovel implements Serializable{
 	private String telefone2;
 	
 	private String recepcionista;
-	
-	private double tarifaDiaria; 
-	
-	private double tarifaSemanal;
-	
-	private double tarifaQuinzenal;
-	
-	private double tarifaMensal;
-	
-	private String tarifaEspecialDescricao;
-	
-	private double tarifaEspecialValor; 
-	
-	private Double 	valorCheckoutDepois;
-	
-	private Double 	valorCheckinAntes;
-	
+		
 	private Integer status = 0;// 0 - Em avaliação /  1 - Aprovado para anuncios sem complemento /2 - Aprovado para anuncios com complemento 3 - Pendente 
 	
 	@NotNull
@@ -161,6 +142,8 @@ public class Imovel implements Serializable{
 	@JoinTable(name ="tb_imovel_idioma")    
 	private Collection<Idioma> idiomas;
 	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataCadastro;
 	
 	public Pais getPais() {
 		return pais;
@@ -305,55 +288,7 @@ public class Imovel implements Serializable{
 	public void setRecepcionista(String recepcionista) {
 		this.recepcionista = recepcionista;
 	}
-
-	public double getTarifaDiaria() {
-		return tarifaDiaria;
-	}
-
-	public void setTarifaDiaria(double tarifaDiaria) {
-		this.tarifaDiaria = tarifaDiaria;
-	}
-
-	public double getTarifaSemanal() {
-		return tarifaSemanal;
-	}
-
-	public void setTarifaSemanal(double tarifaSemanal) {
-		this.tarifaSemanal = tarifaSemanal;
-	}
-
-	public double getTarifaQuinzenal() {
-		return tarifaQuinzenal;
-	}
-
-	public void setTarifaQuinzenal(double tarifaQuinzenal) {
-		this.tarifaQuinzenal = tarifaQuinzenal;
-	}
-
-	public double getTarifaMensal() {
-		return tarifaMensal;
-	}
-
-	public void setTarifaMensal(double tarifaMensal) {
-		this.tarifaMensal = tarifaMensal;
-	}
-
-	public String getTarifaEspecialDescricao() {
-		return tarifaEspecialDescricao;
-	}
-
-	public void setTarifaEspecialDescricao(String tarifaEspecialDescricao) {
-		this.tarifaEspecialDescricao = tarifaEspecialDescricao;
-	}
-
-	public double getTarifaEspecialValor() {
-		return tarifaEspecialValor;
-	}
-
-	public void setTarifaEspecialValor(double tarifaEspecialValor) {
-		this.tarifaEspecialValor = tarifaEspecialValor;
-	}
-
+	
 	public Estado getEstado() {
 		return estado;
 	}
@@ -511,14 +446,6 @@ public class Imovel implements Serializable{
 		this.numero = numero;
 	}
 
-	public String getMapaGooglemaps() {
-		return mapaGooglemaps;
-	}
-
-	public void setMapaGooglemaps(String mapaGooglemaps) {
-		this.mapaGooglemaps = mapaGooglemaps;
-	}
-
 	public String getOutraTaxaExtra() {
 		return outraTaxaExtra;
 	}
@@ -553,22 +480,6 @@ public class Imovel implements Serializable{
 		this.telefone2 = telefone2;
 	}
 
-	public Double getValorCheckoutDepois() {
-		return valorCheckoutDepois;
-	}
-
-	public void setValorCheckoutDepois(Double valorCheckoutDepois) {
-		this.valorCheckoutDepois = valorCheckoutDepois;
-	}
-
-	public Double getValorCheckinAntes() {
-		return valorCheckinAntes;
-	}
-
-	public void setValorCheckinAntes(Double valorCheckinAntes) {
-		this.valorCheckinAntes = valorCheckinAntes;
-	}
-
 	public Set<Anuncio> getAnuncios() {
 		return anuncios;
 	}
@@ -577,6 +488,15 @@ public class Imovel implements Serializable{
 		this.anuncios = anuncios;
 	}
 
+	public Date getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(Date dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+
+	
 
 	
 	

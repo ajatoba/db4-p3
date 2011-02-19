@@ -70,6 +70,11 @@ public class Anuncio implements Serializable {
 	private double tarifaQuinzenal;
 	
 	private double tarifaMensal;
+	
+	private double tarifaPacoteFechado;
+	
+	@NotNull	
+	private boolean permitirEntrada;
 
 	public Integer getCodigo() {
 		return codigo;
@@ -157,8 +162,23 @@ public class Anuncio implements Serializable {
 
 	public void setTarifaMensal(double tarifaMensal) {
 		this.tarifaMensal = tarifaMensal;
+	}
+
+	public double getTarifaPacoteFechado() {
+		return tarifaPacoteFechado;
+	}
+
+	public void setTarifaPacoteFechado(double tarifaPacoteFechado) {
+		this.tarifaPacoteFechado = tarifaPacoteFechado;
+	}
+
+	public boolean isPermitirEntrada() {
+		return permitirEntrada;
+	}
+
+	public void setPermitirEntrada(boolean permitirEntrada) {
+		this.permitirEntrada = permitirEntrada;
 	} 
 	
 	
-
 }
