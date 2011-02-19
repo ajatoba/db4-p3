@@ -19,6 +19,7 @@ import org.hibernate.ejb.EntityManagerImpl;
 import org.hibernate.sql.JoinFragment;
 import org.jboss.ejb3.annotation.LocalBinding;
 
+import br.com.db4.buskaza.model.entity.Anuncio;
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.util.UtilsCollections;
 
@@ -48,7 +49,7 @@ public class ImovelBean implements ImovelBeanLocal {
 		
 	}
 
-	public List<Imovel> buscarImovel(Imovel imovel, Integer codigoPais) { 
+	public List<Imovel> buscarImovel(Imovel imovel, Integer codigoPais, Anuncio anuncio) { 
 		Session session;  
 		if (em.getDelegate() instanceof EntityManagerImpl) {  
 		    EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
@@ -69,6 +70,12 @@ public class ImovelBean implements ImovelBeanLocal {
         	Criteria joinEquipamento = c.createCriteria("equipamentos", JoinFragment.INNER_JOIN);	
         	joinEquipamento.add (Restrictions.in("codigo", UtilsCollections.listarPropriedadeInteger(imovel.getEquipamentos(),"codigo"))); 
         } 
+        
+        if (anuncio != null) { 
+        	Criteria joinPeriodoAnuncio = c.createCriteria("anuncios", JoinFragment.INNER_JOIN);	
+        	joinPeriodoAnuncio.add (Restrictions.between("dataInicial", anuncio.getDataInicial(), anuncio.getDataFinal()  )); 
+        	joinPeriodoAnuncio.add (Restrictions.lt("dataFinal", anuncio.getDataFinal()));
+        }
         
         
         if (imovel.getCapacidade() != 0) { 

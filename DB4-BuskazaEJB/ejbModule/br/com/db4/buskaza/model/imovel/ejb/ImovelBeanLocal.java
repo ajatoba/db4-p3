@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+import br.com.db4.buskaza.model.entity.Anuncio;
 import br.com.db4.buskaza.model.entity.Imovel;
 
 @Local
@@ -17,7 +18,7 @@ public interface ImovelBeanLocal {
 	
 	public void altualiza(Imovel imovel);
 	
-	public List<Imovel> buscarImovel(Imovel imovel, Integer codigoPais);
+	public List<Imovel> buscarImovel(Imovel imovel, Integer codigoPais, Anuncio anuncio);
 	
 	public List<Imovel> listarImoveis(Integer usuarioProprietario);
 	
