@@ -2,6 +2,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld"  prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
+<%@ taglib uri="/WEB-INF/tld/pager-taglib.tld" prefix="pg" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -64,10 +65,14 @@
   	<br />
     <!-- ****************** -->
     
-
+<div class="MyriadProRegular">
 <logic:present name="imoveis">
+
+<pg:pager url="imovel.do" maxIndexPages="10" maxPageItems="5">
+
+
 <logic:iterate id="imovel"  name="imoveis">
-	
+	<pg:item>
 	<bean:write name="imovel" property="bairro"/><br>
 	<bean:write name="imovel" property="municipio"/><br>
 	<bean:write name="imovel" property="logradouro"/><br>
@@ -77,10 +82,31 @@
 	<a href="imovel.do?act=formAprovarImovel&ci=<bean:write name='imovel' property='codigo'/>">Validar Imóvel</a><br>
 	<br>
 	<hr/>
-
+	</pg:item>
 </logic:iterate>
+<%
+String parametros =	"act=listarImoveisPorStatus&statusImovel=" + request.getParameter("statusImovel");
+%>
+
+<center>
+	<pg:index>
+		<pg:prev>
+		<a href="<%=pageUrl%>&<%=parametros%>">[Anterior]</a>  
+		</pg:prev>
+		
+		<pg:pages>
+			<a href="<%=pageUrl%>&<%=parametros%>"><%=pageNumber %></a>
+		</pg:pages>
+		
+		<pg:next>
+			<a href="<%=pageUrl %>&&<%=parametros%>">[Próxima]</a>
+		</pg:next>
+	</pg:index>
+</center>
+</pg:pager>
+
 </logic:present>
- 
+</div> 
 
 </div>
 <!--FORM-->

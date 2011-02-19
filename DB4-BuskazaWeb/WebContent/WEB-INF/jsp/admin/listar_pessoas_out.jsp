@@ -2,6 +2,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld"  prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
+<%@ taglib uri="/WEB-INF/tld/pager-taglib.tld" prefix="pg" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -67,11 +68,28 @@ function mostrarImagem(imagem){
   </div>
 
 <!--FORM-->
-
+<table width="70%" align="center">
+<tr><td>
+<div class="MyriadProRegular">
+<b><center>
+Classificar: 
+<a href="usuario.do?act=listarTodosUsuarios&ordenacao=asc">[Mais Recente >> Mais Antigo]</a>
+<a href="usuario.do?act=listarTodosUsuarios&ordenacao=desc">[Mais Antigo >> Mais Recente]</a>
+ <br>
+ </b>
+ </center>
 <logic:present name="pessoas">
+
+<!-- PAGINAÇÃO -->
+
+<pg:pager url="usuario.do" maxIndexPages="5" maxPageItems="5">
+
+<!-- ********* -->
+
 	<logic:iterate id="pessoa"  name="pessoas">
+	<pg:item>
 	<fieldset>
-	<legend>Usuário</legend>
+	<legend>Usuário Cadastrado em <bean:write name="pessoa" property="dataCadastro" format="dd/MM/yyyy"/> </legend>
 	Nome:<bean:write name="pessoa" property="nome"/><br>
 	E-mail:<bean:write name="pessoa" property="email"/><br>
 	<logic:notEmpty name="pessoa" property="telefones">
@@ -86,6 +104,7 @@ function mostrarImagem(imagem){
 		<fieldset>
 			<legend>Imóveis</legend>
 			<logic:iterate id="im" name="pessoa" property="imoveis">
+				Cadastrado em <bean:write name="im" property="dataCadastro" format="dd/MM/yyyy"/><br>
 				<bean:write name="im" property="quartos"/> quarto(s) em <bean:write name="im" property="bairro"/>, <bean:write name="im" property="estado.nome"/>, <bean:write name="im" property="pais.nome"/><br/>
 				<logic:present name="im" property="planta" >
 					<a href="#" onClick="javascript:mostrarImagem('/buzkaza/imagens_usuarios/<bean:write name="im" property="planta.caminho"/>');">Ver Planta</a><br/>
@@ -108,9 +127,37 @@ function mostrarImagem(imagem){
 		</logic:empty>
 		</fieldset>
 	<br>
+	
+	</pg:item>
 	</logic:iterate>
-</logic:present>
 
+<%
+String parametros =	"act=listarTodosUsuarios&ordenacao=" + request.getParameter("ordenacao");
+%>
+	
+<center>
+	<pg:index>
+		<pg:prev>
+		<a href="<%=pageUrl%>&<%=parametros %>">[Anterior]</a>  
+		</pg:prev>
+		
+		<pg:pages>
+			<a href="<%=pageUrl %>&<%=parametros %>"><%= pageNumber %></a>
+		</pg:pages>
+		
+		<pg:next>
+			<a href="<%=pageUrl%>&<%=parametros %>">[Próxima]</a>
+		</pg:next>
+	</pg:index>
+</center>
+</pg:pager>
+
+</logic:present>
+	
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div id="bottom_cad">
 </div>

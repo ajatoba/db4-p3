@@ -22,6 +22,6 @@ public class Calendario{
 	}
 	public void setDiaSemana(int diaSemana) {
 		this.diaSemana = diaSemana;
-	}		
+	}	
 	
 }

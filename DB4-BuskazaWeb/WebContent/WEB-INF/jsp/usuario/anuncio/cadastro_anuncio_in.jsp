@@ -73,7 +73,7 @@
     </td>
     <td width="20%">
       Distância do centro ${imovel.distanciaCentro}<br />
-      Mapa Google Maps:${imovel.mapaGooglemaps}<br />
+      Mapa Google Maps:${imovel.linkGoogleMaps}<br />
       Vídeo You Tube:${imovel.linkYouTube}
     </td>
   </tr>
@@ -133,19 +133,71 @@
 	</select>
   	<input type="submit" value="Trocar Período">
   	</html:form>
+  	<br>
+  	<table border="1">
+  	<tr>
+  		<td>Dom</td>
+  		<td>Seg</td>
+  		<td>Ter</td>
+  		<td>Qua</td>
+  		<td>Qui</td>
+  		<td>Sex</td>
+  		<td>Sab</td>
+  	</tr>
+  		
   	<%
+  	//ALGORITMO DE CONTRUÇÃO DO CALENDÁRIO - CUIDADO AO MEXER!!!
   	Map<String,Calendario> calendarioAnuncio = (Map) request.getAttribute("calendarioAnuncio");
 	
   	Iterator it = calendarioAnuncio.entrySet().iterator();
-    while (it.hasNext()) {
-        Map.Entry mapa = (Map.Entry)it.next();
+  	
+  	boolean populado = false;
+  	
+  	int index = 0;
+  	
+  	while (it.hasNext()) {
+  		index = index+1;
+  		Map.Entry mapa = (Map.Entry)it.next();
         Calendario anuncio = (Calendario) mapa.getValue();
-        out.println("Dia:"+ mapa.getKey()+ " Tipo anuncio:"+ anuncio.getTipoAnuncio() + "<BR/>") ;
+        
+        if(!populado){
+	        for(int x=0; x<anuncio.getDiaSemana();x++){
+	        	index = index+1;
+	        	out.println("<td>&nbsp;</td>");
+	        	populado = true;
+	        }
+        }
+        
+        //COLORINDO O CALENDARIO
+        String color = "";
+        
+        switch (anuncio.getTipoAnuncio()) {
+        case 0: color="white";
+        	break;
+        case 1: color="#2980C5";
+        	break;
+        case 2: color="#FF6D00";
+        	break;
+        case 3: color="#8DBF22";
+        	break;
+        case 4: color="#FFC600";
+        	break;
+        case 5: color="#D300FF";
+        	break;
+        case 6: color="#00D8FF";
+        	break;
+        }
+        //**********************
+        
+        out.println("<td bgcolor='"+ color +"'>"+ mapa.getKey() +"</td>");
+        
+        if((index % 7) == 0) out.println("</tr>");
         
     }
-  	
+  	//******************************************
   	%>
-  	
+  	</table>
+  	<br>
   	<!-- LEGENDA -->
   	<table border="0">
       <tr>
@@ -301,12 +353,68 @@
       	Tarifa Semanal: <html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>
       	Tarifa Mensal: <html:text property="tarifaMensal" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>
       	Tarifa Quinzenal: <html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>
+		Pacote Fechado: <html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>      	
       	<br>
+      	
+      	<html:checkbox property="permitirEntrada"/> Permitir 10% de entrada
+      	<br><br>
+      	
       	<input type="submit" name="gravar" id="button5" value="Gravar" />
       	
 	    </html:form>
+	    
+	    <BR><BR>
+	    
+	    <logic:notEmpty name="imovel" property="anuncios">
+	    <TABLE>
+	    	<logic:iterate id="an" name="imovel" property="anuncios">
+	    	<tr>
+			  	<td>
+			  		<!-- SETANDO A COR -->
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="0">
+			  			<font color="WHITE">
+			  		</logic:equal>
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="1">
+			  			<font color="#2980C5">
+			  		</logic:equal>			  		
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="2">
+			  			<font color="#FF6D00">
+			  		</logic:equal>
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="3">
+			  			<font color="#8DBF22">
+			  		</logic:equal>
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="4">
+			  			<font color="#FFC600">
+			  		</logic:equal>
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="5">
+			  			<font color="#D300FF">
+			  		</logic:equal>
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="6">
+			  			<font color="#00D8FF">
+			  		</logic:equal>
+		
+			  		<!-- ************* -->
+			  		<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>
+			  		</font>
+			  	</td>
+			  	<td>
+			  		<html:form method="post" action="/usuario/anuncio?act=excluirAnuncio">
+			  			<input type="hidden" name="idAnuncio" value="${an.codigo}"/>
+			  			<input type="hidden" name="ci" value="${imovel.codigo}"/>
+			  			<html:submit>Exlcuir</html:submit>
+			  		</html:form>	  	
+			  		
+			  	</td>
+			  	</tr>
+		  	</logic:iterate>
+	    </TABLE>
+	    </logic:notEmpty>
+	    <logic:empty name="imovel" property="anuncios">
+	    	Ainda não há disponibilidade cadastrada para esse imóvel
+	    </logic:empty>
     </td>
   </tr>
+  
 </table>
 
 

@@ -16,6 +16,15 @@ public class ImovelForm extends ActionForm {
 	/**
 	 * 
 	 */
+	
+	public ImovelForm(){
+		imovelEntity = new Imovel();
+		imovelEntity.setEstado(new Estado());
+	
+		this.indexFotos = 0;
+		this.fotos = new ArrayList<FormFile>();
+	}
+	
 	private static final long serialVersionUID = 1L;
 
 	protected Imovel imovelEntity;
@@ -99,24 +108,10 @@ public class ImovelForm extends ActionForm {
 	private String email2;
 	
 	private String recepcionista;
-	
-	private double tarifaDiaria; 
-	
-	private double tarifaSemanal;
-	
-	private double tarifaQuinzenal;
-	
-	private double tarifaMensal;
-	
-	private String tarifaEspecialDescricao;
-	
-	private double tarifaEspecialValor; 	
-
+		
 	private String bairro;
 	
 	private String numero;
-	
-	private String mapaGoogleMaps;
 	
 	private String cep;
 	
@@ -127,12 +122,6 @@ public class ImovelForm extends ActionForm {
 	private String ddd;
 	
 	private String ddd2;
-	
-	private String 	valorCheckoutDepois;
-	
-	private String 	valorCheckinAntes;
-
-	
 	
 	public String getLinkYouTube() {
 		return linkYouTube;
@@ -349,55 +338,7 @@ public class ImovelForm extends ActionForm {
 	public void setRecepcionista(String recepcionista) {
 		this.recepcionista = recepcionista;
 	}
-
-	public double getTarifaDiaria() {
-		return tarifaDiaria;
-	}
-
-	public void setTarifaDiaria(double tarifaDiaria) {
-		this.tarifaDiaria = tarifaDiaria;
-	}
-
-	public double getTarifaSemanal() {
-		return tarifaSemanal;
-	}
-
-	public void setTarifaSemanal(double tarifaSemanal) {
-		this.tarifaSemanal = tarifaSemanal;
-	}
-
-	public double getTarifaQuinzenal() {
-		return tarifaQuinzenal;
-	}
-
-	public void setTarifaQuinzenal(double tarifaQuinzenal) {
-		this.tarifaQuinzenal = tarifaQuinzenal;
-	}
-
-	public double getTarifaMensal() {
-		return tarifaMensal;
-	}
-
-	public void setTarifaMensal(double tarifaMensal) {
-		this.tarifaMensal = tarifaMensal;
-	}
-
-	public String getTarifaEspecialDescricao() {
-		return tarifaEspecialDescricao;
-	}
-
-	public void setTarifaEspecialDescricao(String tarifaEspecialDescricao) {
-		this.tarifaEspecialDescricao = tarifaEspecialDescricao;
-	}
-
-	public double getTarifaEspecialValor() {
-		return tarifaEspecialValor;
-	}
-
-	public void setTarifaEspecialValor(double tarifaEspecialValor) {
-		this.tarifaEspecialValor = tarifaEspecialValor;
-	}
-
+	
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
 	}
@@ -584,24 +525,6 @@ public class ImovelForm extends ActionForm {
 		this.numero = numero;
 	}
 	
-	
-
-	public String getMapaGoogleMaps() {
-		return mapaGoogleMaps;
-	}
-
-	public void setMapaGoogleMaps(String mapaGoogleMaps) {
-		this.mapaGoogleMaps = mapaGoogleMaps;
-	}
-
-	public ImovelForm(){
-		imovelEntity = new Imovel();
-		imovelEntity.setEstado(new Estado());
-	
-		this.indexFotos = 0;
-		this.fotos = new ArrayList<FormFile>();
-	}
-
 	public String getTelefone2() {
 		return telefone2;
 	}
@@ -642,22 +565,6 @@ public class ImovelForm extends ActionForm {
 		this.ddd2 = ddd2;
 	}
 
-	public String getValorCheckoutDepois() {
-		return valorCheckoutDepois;
-	}
-
-	public void setValorCheckoutDepois(String valorCheckoutDepois) {
-		this.valorCheckoutDepois = valorCheckoutDepois;
-	}
-
-	public String getValorCheckinAntes() {
-		return valorCheckinAntes;
-	}
-
-	public void setValorCheckinAntes(String valorCheckinAntes) {
-		this.valorCheckinAntes = valorCheckinAntes;
-	}
-	
 	
 }
 

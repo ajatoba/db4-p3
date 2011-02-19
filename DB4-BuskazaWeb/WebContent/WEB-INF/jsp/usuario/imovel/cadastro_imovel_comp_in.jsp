@@ -39,39 +39,33 @@ $('#sep_top_reserva').corner('rounded 7px');
 <div id="cont_reserva">
 <div id="meio_reserva">
 <div class="top_reserva">
-<div class="txt_meus_anuncios"><span class="MyriadPro24">Meus Anúncios</span></div>
-<div class="combo_anuncios"><span class="MyriadPro14" style="float:left; margin-top:10px; margin-right:3px;">Filtrar:</span>
-	    <form id="form"><select name="select2" >
-				<option value="opt1">Listar todas as reservas</option>
-				<option value="opt2">Option 2</option>
-				<option value="opt3">Option 3</option>
-				<option value="opt4">Option 4</option>
-				<option value="opt5">Option 5</option>
-				<option value="opt6">Option 6</option>
-				<option value="opt7">Option 7</option>
-				<option value="opt8">Option 8</option>
-			</select></form> &nbsp;&nbsp;<img src="/buskaza/_img/btn_criar_anuncio.jpg" width="151" height="31" /></div>
+<div class="txt_meus_anuncios"><span class="MyriadPro24">Anunciar Imóvel</span></div>
 </div>
 </div>
 <div id="sep_top_reserva"></div>
 <div id="listagem_reservas">
 <div class="topo_edicao">
-<div class="mapa_planta"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="140" height="104" /></div>
-<div class="endereco_bairro"><table width="100%" border="0">
+<div class="mapa_planta"></div>
+<div class="endereco_bairro">
+<table border="0">
   <tr>
-    <td width="35%"><bean:write name="imovel" property="bairro"/></td>
-    <td width="65%" rowspan="3">Distância do centro 10Km<br />
-      Mapa Google Maps<br />
-      Vídeo You Tube</td>
+  	<td width="30%">
+  		<img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="140" height="104" />
+  	</td>
+    <td width="30%">
+    	<bean:write name="imovel" property="bairro"/><br>
+    	<bean:write name="imovel" property="logradouro"/>
+    </td>
+    <td>
+      Distância do centro 10Km<br/>
+      Mapa Google Maps:<bean:write name="imovel" property="linkGoogleMaps"/><br/>
+      Vídeo You Tube:<bean:write name="imovel" property="linkYouTube"/>
+    </td>
   </tr>
-  <tr>
-    <td><bean:write name="imovel" property="logradouro"/></td>
-    </tr>
-  <tr>
-    <td>8,2 Nota  102 Comentários Id12345</td>
-    </tr>
 </table>
+
 </div>
+
 <div class="menu_edicao">
 <div class="menu_01"></div>
 <div class="menu_02"></div>
@@ -283,8 +277,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 				<html:option value="6">6 Pessoas</html:option>
 				<html:option value="7">7 Pessoas</html:option>
 				<html:option value="8">8 Pessoas</html:option>	
-				<html:option value="9">9 Pessoas</html:option>
-					
+				<html:option value="9">9 Pessoas</html:option>					
 				<html:option value="10">10 Pessoas</html:option>
 				<html:option value="11">11 Pessoas</html:option>
 				<html:option value="12">12 Pessoas</html:option>
@@ -294,8 +287,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 				<html:option value="16">16 Pessoas</html:option>
 				<html:option value="17">17 Pessoas</html:option>
 				<html:option value="18">18 Pessoas</html:option>
-				<html:option value="19">19 Pessoas</html:option>
-								
+				<html:option value="19">19 Pessoas</html:option>								
 				<html:option value="20">20 Pessoas</html:option>
 				<html:option value="21">21 Pessoas</html:option>
 				<html:option value="22">22 Pessoas</html:option>
@@ -342,13 +334,6 @@ $('#sep_top_reserva').corner('rounded 7px');
      </html:select>
      </td>
   </tr>
-  
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
 </table>
 
 </div>
@@ -361,32 +346,31 @@ $('#sep_top_reserva').corner('rounded 7px');
   <tr>
     <td>Dados de Check-In Check-Out</td>
   </tr>
+  
   <tr>
-    <td>*Todas as taxas extras, incluindo taxa de checkin e checkout fora de horário, deverão ser pagas em dinheiro ao próprio proprietário. Apenas iremos informar os valores.</td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0">
-      <tr>
-        <td>Nome de quem fará o Check in</td>
-        <td>Telefone</td>
-        <td>Telefone Aleternativo</td>
-        <td>Email</td>
-        <td>Email Alternativo</td>
-      </tr>
-      <tr>    
-        <td><html:text property="nomeCheckIn" /></td>
-        <td><html:text property="ddd" size="5" maxlength="3"/>
-         <html:text property="telefone"  size="8" maxlength="8"/></td>
-        <td><html:text property="ddd2"  size="5" maxlength="3"/>
-         <html:text property="telefone2" size="8" maxlength="8"/></td>
-        <td><html:text property="email" /></td>
-        <td><html:text property="email2" /></td>
-      </tr>
-    </table></td>
+    <td>
+	    <table width="100%" border="0">
+	      <tr>
+	        <td>Nome de quem fará o Check in</td>
+	        <td>Telefone</td>
+	        <td>Telefone Aleternativo</td>
+	        <td>Email</td>
+	        <td>Email Alternativo</td>
+	      </tr>
+	      <tr>    
+	        <td><html:text property="nomeCheckIn" /></td>
+	        <td><html:text property="ddd" size="5" maxlength="3"/><html:text property="telefone"  size="8" maxlength="8"/></td>
+	        <td><html:text property="ddd2"  size="5" maxlength="3"/><html:text property="telefone2" size="8" maxlength="8"/></td>
+	        <td><html:text property="email" /></td>
+	        <td><html:text property="email2" /></td>
+	      </tr>
+	    </table>
+    </td>
   </tr>
   <tr>
   
-    <td><table width="100%" border="0">
+    <td>
+    <table width="100%" border="0">
       <tr>
         <td width="50%">Horário Check in</td>
         <td width="50%">Horário Check out</td>
@@ -399,41 +383,25 @@ $('#sep_top_reserva').corner('rounded 7px');
           Até 
          <html:text property="checkInSaidaHora" size="2" maxlength="2" />
           :
-          <html:text property="checkInSaidaMinuto" size="2" maxlength="2" /></td>
+          <html:text property="checkInSaidaMinuto" size="2" maxlength="2" />
+        </td>
         <td>De
           <html:text property="checkOutEntradaHora" size="2" maxlength="2" />
-:
-<html:text property="checkOutEntradaMinuto" size="2" maxlength="2" />
-Até
-<html:text property="checkOutSaidaHora" size="2" maxlength="2" />
-:
-<html:text property="checkOutSaidaMinuto" size="2" maxlength="2" /></td>
+		  :
+		  <html:text property="checkOutEntradaMinuto" size="2" maxlength="2" />
+		  Até
+		  <html:text property="checkOutSaidaHora" size="2" maxlength="2" />
+		  :
+		  <html:text property="checkOutSaidaMinuto" size="2" maxlength="2" />
+		 </td>
         </tr>
-      <tr>
-        <td>Taxa para check in antes do horário</td>
-        <td>Taxa para check in antes do horário</td>
-      </tr>
-      <tr>
-        <td>
-          Valor : 
-          <html:text property="valorCheckinAntes" size="10" maxlength="10" /></td>
-        <td>
-Valor :
- <html:text property="valorCheckoutDepois" size="10" maxlength="10" /></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td><p>Se vc selecionar sim e não descrever um valor, o sistema entende que será uma nova diária de baixa temporada.</p>
-          <p>&nbsp;</p></td>
-      </tr>
-    </table></td>
+    </table>
+    </td>
   </tr>
   <tr>
     <td><input type="submit" name="gravar" id="button5" value="Gravar" /></td>
   </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
+  
 </table>
 </html:form>
 </div>

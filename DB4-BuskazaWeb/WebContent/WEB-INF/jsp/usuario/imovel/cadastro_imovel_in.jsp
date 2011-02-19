@@ -151,7 +151,6 @@
 		</logic:messagesNotPresent>
   	</font>
     <!-- ****************** -->
-<jsp:include page="../menu.jsp"/>
 <!--CADASTRO-->
 
 <html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=incluirImovel" enctype="multipart/form-data">

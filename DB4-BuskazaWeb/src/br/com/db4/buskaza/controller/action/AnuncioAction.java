@@ -71,6 +71,7 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 			
 			String codigoImovel=request.getParameter("ci"), ano=request.getParameter("ano"), mes=request.getParameter("mes");
 			int imovelId=0, anoCalendario=0, mesCalendario=0;
+			
 			if (codigoImovel != null && !codigoImovel.equals("")) {
 				imovelId = Integer.parseInt(codigoImovel);
 			}
@@ -141,13 +142,69 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 		
 	}
 	
+	public ActionForward excluirAnuncio(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
+		
+		String codigoAnuncio = request.getParameter("idAnuncio");
+		String codigoImovel = request.getParameter("ci");
+				
+		try {
+			
+			request.setAttribute("ci", codigoImovel);
+			
+			Anuncio anuncio = new Anuncio();
+			AnuncioBeanLocal anuncioEjb = (AnuncioBeanLocal) ServiceLocator.getInstance().locateEJB(AnuncioBeanLocal.LOCAL);
+			
+			anuncio.setCodigo(Integer.parseInt(codigoAnuncio));
+			anuncioEjb.excluirAnuncio(anuncio);				
+			
+		} catch (Exception e ) {
+			e.printStackTrace();
+		    final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    
+		    return formCadastroAnuncio(mapping, form, request, response);	
+		}
+		
+		
+		return formCadastroAnuncio(mapping, form, request, response);
+		
+	}
+	
 	private void carregaListas(HttpServletRequest request) throws NamingException{
 		
 		TipoAnuncioBeanLocal tipoAnuncioEJB = (TipoAnuncioBeanLocal) ServiceLocator.getInstance().locateEJB(TipoAnuncioBeanLocal.LOCAL);
 		request.setAttribute("tiposAnuncio", tipoAnuncioEJB.listarTiposAnuncio());
 		
 		
-	}	
+	}
+	
+	public ActionForward listarAnunciosImovel(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
+		
+		List<Anuncio> anuncios = null;
+		
+		int codigoImovel = Integer.parseInt(request.getParameter("ci"));
+		
+		
+		try {					
+			AnuncioBeanLocal anuncioEjb = (AnuncioBeanLocal) ServiceLocator.getInstance().locateEJB(AnuncioBeanLocal.LOCAL);			
+			
+			anuncios = anuncioEjb.listarAnunciosImovel(codigoImovel, -1, -1);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    return null;
+		    
+		}
+		
+		request.setAttribute("anuncios", anuncios);		
+				
+		return mapping.findForward(Constants.LISTAGEM_ANUNCIOS_IMOVEL);
+	}
+
 
 	private Anuncio popularAnuncio(AnuncioForm form) throws ValidacaoFormException {
 		
@@ -170,7 +227,11 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 		anuncio.setTarifaDiaria(form.getTarifaDiaria());	
 		anuncio.setTarifaSemanal(form.getTarifaSemanal());	
 		anuncio.setTarifaMensal(form.getTarifaMensal());	
-		anuncio.setTarifaQuinzenal(form.getTarifaQuinzenal());	
+		anuncio.setTarifaQuinzenal(form.getTarifaQuinzenal());
+		anuncio.setTarifaPacoteFechado(form.getTarifaPacoteFechado());
+		
+		if(form.isPermitirEntrada())
+			anuncio.setPermitirEntrada(form.isPermitirEntrada());
 
 				
 		return anuncio;

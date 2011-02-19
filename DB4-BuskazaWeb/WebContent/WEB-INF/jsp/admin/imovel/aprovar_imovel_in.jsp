@@ -69,7 +69,7 @@ function mostrarImagem(imagem){
   	<br />
     <!-- ****************** -->
     
-
+<div class="MyriadProRegular">
 <logic:present name="imovel">
 	
 	<html:form method="post" styleId="imovelForm" action="/admin/imovel.do?act=aprovarImovel" enctype="multipart/form-data">
@@ -88,7 +88,7 @@ function mostrarImagem(imagem){
 	<br>
 	
 	<fieldset>
-	<legend>Dados para Aprovação</legend>
+	<legend>Dados para Aprovação</legend>	
 	Planta:<br/>
 	&nbsp;&nbsp;&nbsp;Ver Planta: <a href="#" onClick="javascript:mostrarImagem('/buzkaza/imagens_usuarios/${imovel.planta.caminho }');">Ver Planta</a><br/>
 	&nbsp;&nbsp;&nbsp;Alterar:<html:file property="planta" styleId="planta" size="20" /><br/>
@@ -102,7 +102,7 @@ function mostrarImagem(imagem){
 	</html:form>
 	
 </logic:present>
- 
+</div> 
 
 </div>
 <!--FORM-->

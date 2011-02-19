@@ -62,5 +62,7 @@ public interface Constants {
 	
 	public static final String FORWARD_SAIDA_ANUNCIO = "saida";
 	
+	public static final String LISTAGEM_ANUNCIOS_IMOVEL = "listagem_anuncios";
+	
 
 }

@@ -50,6 +50,7 @@
     <servlet-name>action</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
   <filter>
     <display-name>UsuarioFilter</display-name>
     <filter-name>UsuarioFilter</filter-name>
@@ -68,4 +69,5 @@
     <filter-name>AdminFilter</filter-name>
     <url-pattern>/admin/*</url-pattern>
   </filter-mapping>
+
 </web-app>

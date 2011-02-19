@@ -39,16 +39,17 @@ $('#sep_top_reserva').corner('rounded 7px');
 <div id="meio_header"><img src="/buzkaza/images/top_02.jpg" width="991" height="86" /></div>
 <div id="bottom_header"><img src="/buzkaza/images/top_03.jpg" width="991" height="77" /></div>
 <!--CADASTRO-->
-<jsp:include page="../menu.jsp"/>
 <div id="cont_reserva">
 <div id="meio_reserva">
 <div class="top_reserva">
-<div class="txt_meus_anuncios"><span class="MyriadPro24">Meus Imóveis</span></div>
+<div class="txt_meus_anuncios"><span class="MyriadPro24">Meus Anúncios</span></div>
 
 </div>
 <div id="sep_top_reserva"></div>
 
 <div id="listagem_reservas">
+
+<span class="MyriadProRegular"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel">Cadastrar novo Imóvel</a></span>
 
 <div id="separator_listagem"></div>
 <logic:present name="imoveis">
@@ -58,14 +59,29 @@ $('#sep_top_reserva').corner('rounded 7px');
 		<div id="listagem_reservas">
 		<!--BOX COM A RESERVA-->
 		<div id="box_listagem">
-		<div class="foto_reserva"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="primeirafoto"/>" width="140" height="104" /></div>
+		<div class="foto_reserva">
+		<img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="primeirafoto"/>" width="140" height="104" /><br>
+		<br>
+		Código:<bean:write name="ims" property="codigo"/>		
+		<br>
+		<html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=excluirImovel" enctype="multipart/form-data">
+			<html:hidden property="imovelEntity.codigo" value="${ims.codigo}" />
+		<html:submit>Excluir Imóvel	</html:submit>
+		</html:form>
+				
+		</div>
 		<div class="detalhe_reserva">
 			<div class="bairro_reserva">${ims.logradouro}</div>	
 			<div class="bairro_reserva">${ims.bairro} -${ims.estado.codigo} </div>	
 			<span class="MyriadPro14Verde">
 				<logic:equal name="ims" property="status" value="0">Em análise</logic:equal>
 				<logic:equal name="ims" property="status" value="1"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}">Aprovado. Complete o cadastro</a></logic:equal>
-				<logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}">Anunciar </a></logic:equal>				
+				<logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}">Cadastrar Disponibilidade </a></logic:equal>
+				
+				<br><br>
+				<logic:notEmpty name="ims" property="anuncios">
+				<a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=listarAnunciosImovel&ci=${ims.codigo}">Ver Disponibilidade</a>
+				</logic:notEmpty>				
 			</span>	
 		
 		</div>

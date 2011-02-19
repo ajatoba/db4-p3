@@ -29,7 +29,10 @@ public class AnuncioForm extends ActionForm {
 	private double tarifaDiaria; 	
 	private double tarifaSemanal;	
 	private double tarifaQuinzenal;	
-	private double tarifaMensal;
+	private double tarifaMensal;	
+	private double tarifaPacoteFechado;
+	
+	private boolean permitirEntrada;
 	
 	private int tipoAnuncio;
 	
@@ -157,7 +160,26 @@ public class AnuncioForm extends ActionForm {
 	public void setTarifaMensal(double tarifaMensal) {
 		this.tarifaMensal = tarifaMensal;
 	}
-	
+
+
+	public double getTarifaPacoteFechado() {
+		return tarifaPacoteFechado;
+	}
+
+
+	public void setTarifaPacoteFechado(double tarifaPacoteFechado) {
+		this.tarifaPacoteFechado = tarifaPacoteFechado;
+	}
+
+
+	public boolean isPermitirEntrada() {
+		return permitirEntrada;
+	}
+
+
+	public void setPermitirEntrada(boolean permitirEntrada) {
+		this.permitirEntrada = permitirEntrada;
+	}
 	
 }
 

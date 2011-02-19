@@ -17,11 +17,13 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.upload.FormFile;
+import org.apache.struts.util.MessageResources;
 
 import br.com.db4.buskaza.controller.exception.ValidacaoFormException;
 import br.com.db4.buskaza.controller.form.ImovelForm;
 import br.com.db4.buskaza.controller.helper.ImageHelper;
 import br.com.db4.buskaza.controller.util.Constants;
+import br.com.db4.buskaza.controller.util.SendMail;
 import br.com.db4.buskaza.model.entity.Equipamento;
 import br.com.db4.buskaza.model.entity.Foto;
 import br.com.db4.buskaza.model.entity.Imovel;
@@ -82,7 +84,9 @@ public class ImovelAction extends DispatchAction {
 			
 			ImovelForm imovelForm = (ImovelForm)form;			
 			
-			Imovel imovel = popularImovel(imovelForm, usuario);			
+			Imovel imovel = popularImovel(imovelForm, usuario);		
+			
+			imovel.setDataCadastro(new Date());
 			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
 			
 			imovelEjb.incluirImovel(imovel);
@@ -243,7 +247,6 @@ public class ImovelAction extends DispatchAction {
 		
 		if(form.getLinkGoogleMaps()!= null ){
 			imovel.setLinkGoogleMaps(form.getLinkGoogleMaps());
-			imovel.setMapaGooglemaps(form.getLinkGoogleMaps());
 		}
 		
 		if(form.getLogradouro()!= null )
@@ -267,24 +270,6 @@ public class ImovelAction extends DispatchAction {
 		if(form.getRecepcionista()!= null )
 			imovel.setRecepcionista(form.getRecepcionista());
 		
-		if(form.getTarifaDiaria() > 0 )
-			imovel.setTarifaDiaria(form.getTarifaDiaria());
-		
-		if(form.getTarifaEspecialDescricao()!= null )
-			imovel.setTarifaEspecialDescricao(form.getTarifaEspecialDescricao());
-		
-		if(form.getTarifaEspecialValor()> 0 )
-			imovel.setTarifaEspecialValor(form.getTarifaEspecialValor());
-		
-		if(form.getTarifaMensal() > 0 )
-			imovel.setTarifaMensal(form.getTarifaMensal());
-		
-		if(form.getTarifaQuinzenal() > 0 )
-			imovel.setTarifaQuinzenal(form.getTarifaQuinzenal());
-		
-		if(form.getTarifaSemanal() > 0 )
-			imovel.setTarifaSemanal(form.getTarifaSemanal());
-		
 		if(form.getTelefone()!= null )
 			imovel.setTelefone(form.getTelefone());
 		
@@ -294,8 +279,6 @@ public class ImovelAction extends DispatchAction {
 		if(form.isTransportePublico() )
 			imovel.setTransportePublico(form.isTransportePublico());
 		
-		if(form.getMapaGoogleMaps() != null)
-			imovel.setMapaGooglemaps(form.getMapaGoogleMaps());
 		
 		if(form.getTipoImovel() != null){
 			TipoImovel ti = new TipoImovel();
@@ -334,21 +317,7 @@ public class ImovelAction extends DispatchAction {
 			imovel.setPlanta(ImageHelper.gerarPlanta(form.getPlanta()));
 		}
 		
-		if(form.getValorCheckinAntes() != null){
-			try {
-				imovel.setValorCheckinAntes(Double.valueOf(form.getValorCheckinAntes()));
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-		}
 		
-		if(form.getValorCheckoutDepois() != null){
-			try {
-				imovel.setValorCheckoutDepois(Double.valueOf(form.getValorCheckoutDepois()));
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-		}
 		return imovel;
 	}
 	
@@ -449,8 +418,8 @@ public class ImovelAction extends DispatchAction {
 		    return formIncluirImovel(mapping, form, request, response);
 		}
 		
-		//return new ActionForward("/usuario/imovel.do?action=listarImoveis");
-		return mapping.findForward(Constants.FORWARD_SAIDA_IMOVEIS_PROPRIETARIO);
+		return new ActionForward("/usuario/imovel.do?act=listarImoveis");
+		//return mapping.findForward(Constants.FORWARD_SAIDA_IMOVEIS_PROPRIETARIO);
 	}
 	
 	public ActionForward aprovarImovel(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response){
@@ -464,6 +433,26 @@ public class ImovelAction extends DispatchAction {
 			imovel.setStatus(1);//1 - APROVADO PELO ADMIN
 			imovelEjb.alterarImovel(imovel);
 			
+			//ENVIANDO COMUNICADO DE APROVAÇÃO AO PROPRIETÁRIO
+			MessageResources messageResources = getResources(request, "app");
+			
+			String assunto="",mensagem="",remetente="",destinatario="";			
+			
+			mensagem  		= messageResources.getMessage("aprovacao.mensagem");
+			mensagem 		= mensagem.replaceAll("<USUARIO>", imovel.getUsuarioProprietario().getNome());
+			mensagem 		= mensagem.replaceAll("<CODIGO_IMOVEL>", String.valueOf(imovel.getCodigo()));
+			   
+			assunto 		= messageResources.getMessage("aprovacao.assunto");			
+			remetente 		= messageResources.getMessage("mail.from");
+			destinatario 	= imovel.getUsuarioProprietario().getEmail();			
+			   
+			SendMail sm = new SendMail();
+
+			sm.sendMail(remetente,destinatario,assunto,mensagem); 
+
+			
+			//************************************************
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			final ActionMessages actionErrors = new ActionMessages();
@@ -474,7 +463,32 @@ public class ImovelAction extends DispatchAction {
 		
 		return mapping.findForward(Constants.ADMIN_IMOVEL_OUT);
 	}
+	
+	public ActionForward excluirImovel(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response){
+		//NA VERDADE, NÃO EXCLUI. SOMENTE SETA O STATUS PRA -1
+		
+		try {
+			ImovelForm imovelForm = (ImovelForm)form;		
+			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
+			imovelForm.setImovelEntity(imovelEjb.getImovel(imovelForm.getImovelEntity().getCodigo()));
+			
+			Imovel imovel = popularImovel(imovelForm, null);			
+			
+			imovel.setStatus(-1);//-1 - EXCLUIR
+			imovelEjb.alterarImovel(imovel);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    
+		}
+		
+		return new ActionForward("/usuario/imovel.do?act=listarImoveis");
+	}
 
+	
 	private Imovel popularDadosComplementoImovel(ImovelForm form,
 			Usuario usuario) {
 		
@@ -544,21 +558,6 @@ public class ImovelAction extends DispatchAction {
 			imovel.setTipoImovel(ti);
 		}		
 		
-		if(form.getValorCheckinAntes() != null){
-			try {
-				imovel.setValorCheckinAntes(Double.valueOf(form.getValorCheckinAntes()));
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-		}
-		
-		if(form.getValorCheckoutDepois() != null){
-			try {
-				imovel.setValorCheckoutDepois(Double.valueOf(form.getValorCheckoutDepois()));
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-		}
 		return imovel;
 
 	}

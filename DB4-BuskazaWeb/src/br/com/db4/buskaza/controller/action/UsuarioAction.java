@@ -3,6 +3,7 @@ package br.com.db4.buskaza.controller.action;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -54,9 +55,10 @@ public class UsuarioAction extends DispatchAction {
 			usuario.setPerfis(perfis);
 			
 			//AO ACABAR DE SE CADASTRAR, O USUÁRIO AINDA ESTÁ INATIVO, AGUARDANDO CONFIRMAÇÃO POR E-MAIL
-			usuario.setConfimado(false);
+			usuario.setConfirmado(false);
 			//**************************
 			
+			usuario.setDataCadastro(new Date());
 			
 			if (locadorForm.getSenhaConfirma() == null || (!locadorForm.getSenhaConfirma().equalsIgnoreCase(usuario.getSenha()))) {
 				throw new ValidacaoFormException("message.erro.validacao.senha");
@@ -216,7 +218,7 @@ public class UsuarioAction extends DispatchAction {
 			if(usuario != null && usuario.getCodigo() >0){			
 				request.getSession().setAttribute(Constants.USUARIO_SESSAO, usuario);			
 				//return mapping.findForward("");
-				return new ActionForward("/usuario/imovel.do?act=formIncluirImovel");
+				return new ActionForward("/usuario/imovel.do?act=listarImoveis");
 			}else{
 				final ActionMessages actionErrors = new ActionMessages();
 			    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( "message.erro.login.invalido"));
@@ -293,9 +295,11 @@ public class UsuarioAction extends DispatchAction {
 	
 	public ActionForward listarTodosUsuarios(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response)  {
 		try{
-						
+			
+			String ordenacao = request.getParameter("ordenacao");
+			
 			UsuarioBeanLocal usuarioEjb = (UsuarioBeanLocal) ServiceLocator.getInstance().locateEJB(UsuarioBeanLocal.LOCAL);
-			List<Pessoa> pessoas = usuarioEjb.listarTodosUsuarios();
+			List<Usuario> pessoas = usuarioEjb.listarTodosUsuarios(ordenacao);
 			
 			if(pessoas != null && pessoas.size() >0){			
 				request.getSession().setAttribute(Constants.LISTA_PESSOAS, pessoas);				

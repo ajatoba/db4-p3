@@ -67,9 +67,9 @@
 			scope="request" name="anuncioForm">
 					
 			<forward name="listar_imoveis_proprietario_vazio" path="/WEB-INF/jsp/usuario/anuncio/lista_anuncio_vazio_out.jsp" />
-			<forward name="listar_imoveis_proprietario" path="/WEB-INF/jsp/usuario/anuncio/lista_anuncio_out.jsp" />
+			<forward name="listagem_anuncios" path="/WEB-INF/jsp/usuario/anuncio/lista_anuncio_out.jsp" />
 			
-			<forward name="formulario_anuncio" path="/WEB-INF/jsp/usuario/anuncio/cadastro_anuncio_in.jsp" />					
+			<forward name="formulario_anuncio" path="/WEB-INF/jsp/usuario/anuncio/cadastro_anuncio_in.jsp" />			
 		</action>
 		
 		<action path="/usuario/reserva"
