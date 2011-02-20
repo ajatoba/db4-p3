@@ -14,31 +14,109 @@ public class ReservaForm extends ActionForm {
 
 	protected Reserva reservaEntity;
 	
-	private String periodoInicial;
+	private int diaPeriodoInicial;
+	private int mesPeriodoInicial;
+	private int anoPeriodoInicial;
 	
-	private String periodoFinal;
+	private int diaPeriodoFinal;
+	private int mesPeriodoFinal;
+	private int anoPeriodoFinal;
 	
+	private int codigoImovel;
 	
-	public String getPeriodoInicial() {
-		return periodoInicial;
+	private double valor;
+	
+	private int status;
+	
+	public int getStatus() {
+		return status;
 	}
 
 
-	public void setPeriodoInicial(String periodoInicial) {
-		this.periodoInicial = periodoInicial;
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 
-	public String getPeriodoFinal() {
-		return periodoFinal;
+	public int getCodigoImovel() {
+		return codigoImovel;
 	}
 
 
-	public void setPeriodoFinal(String periodoFinal) {
-		this.periodoFinal = periodoFinal;
+	public void setCodigoImovel(int codigoImovel) {
+		this.codigoImovel = codigoImovel;
 	}
 
-	
+
+	public int getDiaPeriodoInicial() {
+		return diaPeriodoInicial;
+	}
+
+
+	public void setDiaPeriodoInicial(int diaPeriodoInicial) {
+		this.diaPeriodoInicial = diaPeriodoInicial;
+	}
+
+
+	public int getMesPeriodoInicial() {
+		return mesPeriodoInicial;
+	}
+
+
+	public void setMesPeriodoInicial(int mesPeriodoInicial) {
+		this.mesPeriodoInicial = mesPeriodoInicial;
+	}
+
+
+	public int getAnoPeriodoInicial() {
+		return anoPeriodoInicial;
+	}
+
+
+	public void setAnoPeriodoInicial(int anoPeriodoInicial) {
+		this.anoPeriodoInicial = anoPeriodoInicial;
+	}
+
+
+	public int getDiaPeriodoFinal() {
+		return diaPeriodoFinal;
+	}
+
+
+	public void setDiaPeriodoFinal(int diaPeriodoFinal) {
+		this.diaPeriodoFinal = diaPeriodoFinal;
+	}
+
+
+	public int getMesPeriodoFinal() {
+		return mesPeriodoFinal;
+	}
+
+
+	public void setMesPeriodoFinal(int mesPeriodoFinal) {
+		this.mesPeriodoFinal = mesPeriodoFinal;
+	}
+
+
+	public int getAnoPeriodoFinal() {
+		return anoPeriodoFinal;
+	}
+
+
+	public void setAnoPeriodoFinal(int anoPeriodoFinal) {
+		this.anoPeriodoFinal = anoPeriodoFinal;
+	}
+
+
+	public double getValor() {
+		return valor;
+	}
+
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
 
 	public Reserva getReservaEntity() {
 		return reservaEntity;

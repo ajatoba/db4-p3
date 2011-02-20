@@ -48,8 +48,7 @@ public class UsuarioFilter implements Filter {
 				request.getRequestDispatcher( "/WEB-INF/jsp/login_usuario.jsp" ).forward( request, resp ); 
 			}
 			                      
-		}else{		
-			
+		}else{			
 			chain.doFilter(request, response);
 		}
 	}

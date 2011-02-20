@@ -64,5 +64,20 @@ public interface Constants {
 	
 	public static final String LISTAGEM_ANUNCIOS_IMOVEL = "listagem_anuncios";
 	
+	public static final String FORWARD_SAIDA_INCLUIR_RESERVA = "form_incluir_reserva";
+	
+	public static final String RESERVA_CONFIRMADA = "confirmar_reserva_out";
+
+	public static final String FORWARD_SAIDA_RESERVAS_IMOVEL = "reservas_imovel_out";
+	
+	public static final String RESERVA_APROVADA = "aprovar_reserva_out";
+	
+	public static final String FORM_PAGAR_RESERVA = "form_pagar_reserva_in";
+	
+	public static final String PAGAR_RESERVA_ERRO = "pagar_reserva_erro";
+	
+	public static final String OBJETO_PAGAR_RESERVA = "reservaPagar";
+
+	
 
 }

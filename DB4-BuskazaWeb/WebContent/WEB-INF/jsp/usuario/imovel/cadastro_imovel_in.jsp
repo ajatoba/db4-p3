@@ -153,6 +153,8 @@
     <!-- ****************** -->
 <!--CADASTRO-->
 
+<jsp:include page="../menu.jsp"/>
+
 <html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=incluirImovel" enctype="multipart/form-data">
 
 <div id="cont_cadastro" style="height:auto;">

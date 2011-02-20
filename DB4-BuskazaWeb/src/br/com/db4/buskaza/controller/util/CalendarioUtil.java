@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -114,4 +115,44 @@ public class CalendarioUtil {
 		
 	}
 	
+	public static List<String> getDiasPeriodoMes(Date dataInicial,Date dataFinal){
+		int intervalo = 0;  
+		int i = 0;  
+		   
+		Calendar periodo1 = Calendar.getInstance();  
+		periodo1.set(dataInicial.getYear()+1900,dataInicial.getMonth(),dataInicial.getDate()-1);   
+		   
+		Calendar periodo2 = Calendar.getInstance();  
+		periodo2.set(dataFinal.getYear()+1900,dataFinal.getMonth(),dataFinal.getDate()-1);   
+		  
+		intervalo = (periodo2.get(periodo2.DAY_OF_YEAR) - periodo1.get(periodo1.DAY_OF_YEAR)) + 1;  
+		
+		List<String> lista = new ArrayList<String>();
+		String data = "";
+		for (;i<intervalo;i++) {  
+			periodo1.add(periodo1.DATE,1);
+			data = periodo1.get(periodo1.DATE) + "/" + (periodo1.get(periodo1.MONTH) + 1) + "/" + periodo1.get(periodo1.YEAR);
+			
+			lista.add(data);
+		}  
+		    
+		return lista;
+		
+	}
+	
+	public static void main(String[] args){
+		
+		Date dataInicial2 = new Date(2011-1900,2-1,27);
+		Date dataFinal2 = new Date(2011-1900,3-1,2);
+		
+		List<String> diasPeriodo = getDiasPeriodoMes(dataInicial2, dataFinal2);
+		
+		/*
+		Iterator<String> it = diasPeriodo.iterator();
+		
+		while (it.hasNext()) {
+			String string = (String) it.next();
+			System.out.println(string);;
+		}*/
+	}
 }

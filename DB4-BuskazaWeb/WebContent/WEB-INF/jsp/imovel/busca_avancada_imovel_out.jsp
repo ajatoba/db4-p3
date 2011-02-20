@@ -79,38 +79,50 @@ function submitForm(){
 	<td>
 
 
-<logic:present name="imoveis">
+<logic:present name="imoveisValor">
 	<td>
-		<logic:iterate id="ims"  name="imoveis">
+		<logic:iterate id="ims"  name="imoveisValor">
 		
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MyriadProRegular">
 		  <tr>
-		    <td valign="center" align="center"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="primeirafoto"/>" width="140" height="104" />
+		    <td valign="center" align="center"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="key.primeirafoto"/>" width="140" height="104" />
 		    </td>
 		    <td>
 		    	<fieldset>
 		    	<legend>Dados do Anúncio</legend>    	
-		    	<bean:write name="ims" property="logradouro"/>,<bean:write name="ims" property="numero"/> , 
-		    	<bean:write name="ims" property="bairro"/>, <bean:write name="ims" property="complemento"/>, 
-		    	<bean:write name="ims" property="municipio"/> - <bean:write name="ims" property="estado.codigo"/>
+		    	<bean:write name="ims" property="key.logradouro"/>,<bean:write name="ims" property="key.numero"/> , 
+		    	<bean:write name="ims" property="key.bairro"/>, <bean:write name="ims" property="key.complemento"/>, 
+		    	<bean:write name="ims" property="key.municipio"/> - <bean:write name="ims" property="key.estado.codigo"/>
 		    	<br>		
-				Capacidade :  <bean:write name="ims" property="capacidade"/><br />
-		        Quartos :  <bean:write name="ims" property="quartos"/><br />
-		        Metragem :  <bean:write name="ims" property="metragem"/><br />
-		        Proprietário: <bean:write name="ims" property="usuarioProprietario.nome"/><br />
+				Capacidade :  <bean:write name="ims" property="key.capacidade"/><br />
+		        Quartos :  <bean:write name="ims" property="key.quartos"/><br />
+		        Metragem :  <bean:write name="ims" property="key.metragem"/><br />
+		        Proprietário: <bean:write name="ims" property="key.usuarioProprietario.nome"/><br />
 		        </fieldset>
 		        
 		        <fieldset>
 		        <legend>Preço pelo período selecionado</legend>
-		        Total (10 dias) : R$ 500,00<br>
-		        Reserva : R$ 250
+		        Total por <bean:write name="qtdDias"/> dia(s): R$ <bean:write name="ims" property="value"/><br>
+		        Reserva : 
 		        </fieldset>
 		        
-		    	<br>
-		    	<img src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" />
+		    	<br>		    	
+		    	<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
+		    	<html:hidden property="codigoImovel" value="${ims.key.codigo}"/> 
+		    	<html:hidden property="valor" value="${ims.value}"/>
+		    	<html:hidden property="diaPeriodoInicial" value="${periodoBuscado.periodoInicial.date}"/>	
+		    	<html:hidden property="mesPeriodoInicial" value="${(periodoBuscado.periodoInicial.month)+1}"/>
+		    	<html:hidden property="anoPeriodoInicial" value="${(periodoBuscado.periodoInicial.year)+1900}"/>
+		    	<html:hidden property="diaPeriodoFinal" value="${periodoBuscado.periodoFinal.date}"/>	
+		    	<html:hidden property="mesPeriodoFinal" value="${(periodoBuscado.periodoFinal.month)+1}"/>
+		    	<html:hidden property="anoPeriodoFinal" value="${(periodoBuscado.periodoFinal.year)+1900}"/>
+		    		
+		    		
+		    		<html:submit>Reservar</html:submit>
+		    		<!-- img src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" border="0"/-->
+		    	</html:form>
 		    </td>    
-		  </tr>
-		
+		  </tr>		
 		
 		</table>
 		

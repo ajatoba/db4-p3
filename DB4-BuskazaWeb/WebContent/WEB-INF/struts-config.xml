@@ -82,8 +82,15 @@
 		<action path="/usuario/reserva"
 			type="br.com.db4.buskaza.controller.action.ReservaAction" parameter="act"
 			scope="request" name="reservaForm">
-
-			<forward name="listar_reserva_usuario" path="/WEB-INF/jsp/usuario/reserva/lista_reservas_out.jsp" />					
+			
+			<forward name="form_incluir_reserva" path="/WEB-INF/jsp/usuario/reserva/incluir_reserva_in.jsp" />
+			<forward name="listar_reserva_usuario" path="/WEB-INF/jsp/usuario/reserva/lista_reservas_out.jsp" />
+			<forward name="confirmar_reserva_out" path="/WEB-INF/jsp/usuario/reserva/confirmar_reserva_out.jsp" />
+			<forward name="reservas_imovel_out" path="/WEB-INF/jsp/usuario/reserva/listar_reservas_imovel_out.jsp" />
+			<forward name="aprovar_reserva_out" path="/WEB-INF/jsp/usuario/reserva/aprovar_reserva_out.jsp" />
+			<forward name="form_pagar_reserva_in" path="/WEB-INF/jsp/usuario/reserva/form_pagar_reserva_in.jsp" />
+			<forward name="pagar_reserva_erro" path="/WEB-INF/jsp/usuario/reserva/pagar_reserva_erro.jsp" />
+								
 		</action>
 		
 		<action path="/admin/usuario"

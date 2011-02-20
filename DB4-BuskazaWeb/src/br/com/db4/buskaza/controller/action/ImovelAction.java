@@ -5,7 +5,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,13 +25,16 @@ import org.apache.struts.util.MessageResources;
 import br.com.db4.buskaza.controller.exception.ValidacaoFormException;
 import br.com.db4.buskaza.controller.form.ImovelForm;
 import br.com.db4.buskaza.controller.helper.ImageHelper;
+import br.com.db4.buskaza.controller.util.CalendarioUtil;
 import br.com.db4.buskaza.controller.util.Constants;
+import br.com.db4.buskaza.controller.util.ReservaUtil;
 import br.com.db4.buskaza.controller.util.SendMail;
 import br.com.db4.buskaza.model.entity.Anuncio;
 import br.com.db4.buskaza.model.entity.Equipamento;
 import br.com.db4.buskaza.model.entity.Foto;
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.Pais;
+import br.com.db4.buskaza.model.entity.Reserva;
 import br.com.db4.buskaza.model.entity.TipoImovel;
 import br.com.db4.buskaza.model.entity.Usuario;
 import br.com.db4.buskaza.model.equipamento.ejb.EquipamentoBeanLocal;
@@ -107,6 +113,10 @@ public class ImovelAction extends DispatchAction {
 		
 		List<Imovel> imoveis = null;
 		
+		Map<Imovel, Double> imoveisValor = null;
+		
+		int qtdDias = 0;
+		Reserva reserva = null;
 		try {
 				
 			ImovelForm imovelForm = (ImovelForm)form;			
@@ -124,9 +134,26 @@ public class ImovelAction extends DispatchAction {
 			anuncio.setDataFinal(dataFim);
 			
 			//********************************************
+			reserva = new Reserva();
+			reserva.setPeriodoInicial(dataInicio);
+			reserva.setPeriodoFinal(dataFim);
 			
 			imoveis = imovelEjb.buscarImovel(imovel, imovelForm.getPais(), anuncio);
 			
+			Iterator<Imovel> it = imoveis.iterator();
+	        
+			imoveisValor = new LinkedHashMap<Imovel, Double>();
+			
+			qtdDias = (CalendarioUtil.getInstance().getDiasPeriodoMes(dataInicio, dataFim)).size();
+			
+	        while (it.hasNext()) {
+				Imovel imovelPreco = (Imovel) it.next();
+				
+				imoveisValor.put(imovelPreco, new Double(ReservaUtil.getInstance().calculaPrecoReserva(imovelPreco.getAnuncios(), reserva)));
+				
+				//System.out.println("PREÇO DO ANÚNCIO:" + ReservaUtil.getInstance().calculaPrecoReserva(imovelPreco.getAnuncios(), reserva) );			
+			}
+	        
 			carregaListas(request);
 			
 		} catch (Exception e) {
@@ -138,7 +165,11 @@ public class ImovelAction extends DispatchAction {
 		    
 		}
 		
-		request.setAttribute("imoveis", imoveis);
+		request.setAttribute("periodoBuscado", reserva);
+		request.setAttribute("qtdDias", qtdDias);
+		request.setAttribute("imoveisValor", imoveisValor);
+		
+		//request.setAttribute("imoveis", imoveis);
 		request.setAttribute("resultado", (imoveis == null)?0:imoveis.size());
 		
 		return mapping.findForward(Constants.FORWARD_SAIDA_BUSCA_AVANCADA_IMOVEIS);
