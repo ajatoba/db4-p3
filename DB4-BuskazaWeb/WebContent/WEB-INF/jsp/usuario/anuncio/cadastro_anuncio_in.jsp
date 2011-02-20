@@ -51,6 +51,8 @@
 <div id="meio_header"><img src="/buzkaza/images/top_02.jpg" width="991" height="86" /></div>
 <div id="bottom_header"><img src="/buzkaza/images/top_03.jpg" width="991" height="77" /></div>
 <!--CADASTRO-->
+<jsp:include page="../menu.jsp"/>
+
 <div id="cont_reserva">
 <div id="meio_reserva">
 <div class="top_reserva">
