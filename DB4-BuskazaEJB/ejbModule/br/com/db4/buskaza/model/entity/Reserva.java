@@ -38,11 +38,6 @@ public class Reserva implements Serializable {
 	private Integer codigo;
 	
 	@NotNull
-	@ManyToOne
-	@JoinColumn(name="id_anuncio")
-	private Anuncio anuncio;
-	
-	@NotNull
 	private Date periodoInicial;
 	
 	@NotNull
@@ -58,6 +53,30 @@ public class Reserva implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "id_locatario")
 	private Usuario locatario;
+	
+	@OneToOne
+	@JoinColumn(name = "id_imovel")	
+	private Imovel imovel;
+
+	private double valor;
+	
+	
+	
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
+	public Imovel getImovel() {
+		return imovel;
+	}
+
+	public void setImovel(Imovel imovel) {
+		this.imovel = imovel;
+	}
 
 	public Integer getCodigo() {
 		return codigo;
@@ -65,15 +84,6 @@ public class Reserva implements Serializable {
 
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
-	}
-
-
-	public Anuncio getAnuncio() {
-		return anuncio;
-	}
-
-	public void setAnuncio(Anuncio anuncio) {
-		this.anuncio = anuncio;
 	}
 
 	public Date getPeriodoInicial() {

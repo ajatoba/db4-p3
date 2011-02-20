@@ -1,5 +1,6 @@
 package br.com.db4.buskaza.model.imovel.ejb;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -21,8 +22,7 @@ import org.jboss.ejb3.annotation.LocalBinding;
 
 import br.com.db4.buskaza.model.entity.Anuncio;
 import br.com.db4.buskaza.model.entity.Imovel;
-import br.com.db4.buskaza.model.util.UtilsCollections;
-
+import br.com.db4.buskaza.model.util.*;
 
 @Stateless
 @LocalBinding(jndiBinding = ImovelBeanLocal.LOCAL)
@@ -44,7 +44,7 @@ public class ImovelBean implements ImovelBeanLocal {
 
 	}
 	
-	public void altualiza(Imovel imovel) {		
+	public void atualiza(Imovel imovel) {		
 			em.merge(imovel);
 		
 	}
@@ -60,7 +60,9 @@ public class ImovelBean implements ImovelBeanLocal {
 		
 		Criteria c = session.createCriteria(Imovel.class); 
 		c.setCacheable(true);
-		c.setCacheMode(CacheMode.NORMAL);	
+		c.setCacheMode(CacheMode.NORMAL);
+		
+		c.add(Restrictions.gt("status", -1));
 		
         if (imovel.getEstado() != null && imovel.getEstado().getCodigo()!= null && imovel.getEstado().getCodigo().length() > 0) {        
         	c.add(Restrictions.eq("estado.codigo", imovel.getEstado().getCodigo())); 
@@ -74,7 +76,7 @@ public class ImovelBean implements ImovelBeanLocal {
         if (anuncio != null) { 
         	Criteria joinPeriodoAnuncio = c.createCriteria("anuncios", JoinFragment.INNER_JOIN);	
         	joinPeriodoAnuncio.add (Restrictions.between("dataInicial", anuncio.getDataInicial(), anuncio.getDataFinal()  )); 
-        	joinPeriodoAnuncio.add (Restrictions.lt("dataFinal", anuncio.getDataFinal()));
+        	joinPeriodoAnuncio.add (Restrictions.between("dataFinal", anuncio.getDataInicial(), anuncio.getDataFinal()));
         }
         
         
@@ -113,9 +115,9 @@ public class ImovelBean implements ImovelBeanLocal {
         if (imovel.getMetragem() > 0 ) {        
         	c.add(Restrictions.eq("metragem", imovel.getMetragem())); 
         }
-       	
-        	
+
         c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
+               
         return c.list(); 
     } 
 	

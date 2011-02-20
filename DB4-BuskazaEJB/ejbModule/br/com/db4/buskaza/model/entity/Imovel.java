@@ -44,6 +44,10 @@ public class Imovel implements Serializable{
 	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
 	private Set<Anuncio> anuncios;
 	
+	@OneToMany(fetch=FetchType.EAGER)	
+	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
+	private Set<Reserva> reservas;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_planta")
 	private Planta planta;
@@ -494,6 +498,14 @@ public class Imovel implements Serializable{
 
 	public void setDataCadastro(Date dataCadastro) {
 		this.dataCadastro = dataCadastro;
+	}
+
+	public Set<Reserva> getReservas() {
+		return reservas;
+	}
+
+	public void setReservas(Set<Reserva> reservas) {
+		this.reservas = reservas;
 	}
 
 	

@@ -16,7 +16,7 @@ public interface ImovelBeanLocal {
 	
 	public Integer alterarImovel(Imovel imovel);
 	
-	public void altualiza(Imovel imovel);
+	public void atualiza(Imovel imovel);
 	
 	public List<Imovel> buscarImovel(Imovel imovel, Integer codigoPais, Anuncio anuncio);
 	
