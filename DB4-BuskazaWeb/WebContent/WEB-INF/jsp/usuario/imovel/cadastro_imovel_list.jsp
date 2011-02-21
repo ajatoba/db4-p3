@@ -53,47 +53,43 @@ $('#sep_top_reserva').corner('rounded 7px');
 
 <div id="listagem_reservas">
 
-<div id="separator_listagem"></div>
+
 <logic:present name="imoveis">
+<logic:iterate id="ims"  name="imoveis">
+<!--BOX COM A RESERVA-->
+
+<div id="box_listagem">
+<div class="foto_reserva"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="primeirafoto"/>" width="140" height="104" /></div>
+<div class="detalhe_reserva">
+  <div class="bairro_reserva"><span class="cor_bairro">${ims.bairro} -${ims.estado.codigo}</span><br>
+    ${ims.logradouro}</div>
+  <div class="nota_reserva">Nota 8&nbsp;&nbsp; 102 Comentários</div>
+  <div class="total_reserva"> Este imóvel </div>
+  <div class="visualizar_reserva">
+    <logic:equal name="ims" property="status" value="0">Em análise &nbsp;&nbsp;</logic:equal>    
+    <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}" class="link_azul">Disponibilidade/Preços</a> &nbsp;&nbsp; </logic:equal>    
+    <logic:notEmpty name="ims" property="anuncios"> <a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=listarAnunciosImovel&ci=${ims.codigo}" class="link_azul">Ver Disponibilidade</a> &nbsp;&nbsp; </logic:notEmpty>
+    <logic:equal name="ims" property="status" value="1"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}" class="link_azul">Editar Anúncio</a> &nbsp;&nbsp; </logic:equal>
+  </div>
+</div>
+<div id="separator_listagem"></div>
+Código:
+<bean:write name="ims" property="codigo"/><br>
+<html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=excluirImovel" enctype="multipart/form-data">
+  <html:hidden property="imovelEntity.codigo" value="${ims.codigo}" />
+  <html:submit>Excluir Imóvel </html:submit>
+</html:form>
 <table border="0" class="MyriadPro18Verde" align="center" width="100%">
-	<logic:iterate id="ims"  name="imoveis">		
-		<tr>
-		<td align="center" valign="center">			
-			<img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="primeirafoto"/>" width="140" height="104" /><br>
-			<br>
-			Código:<bean:write name="ims" property="codigo"/>		
-			<br>
-			<html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=excluirImovel" enctype="multipart/form-data">
-				<html:hidden property="imovelEntity.codigo" value="${ims.codigo}" />
-			<html:submit>Excluir Imóvel	</html:submit>
-			</html:form>
-		</td>		
-		<td>
-			${ims.logradouro}	
-			${ims.bairro} -${ims.estado.codigo}	
-		</td>
-		<td align="center" valign="center">
-			<logic:equal name="ims" property="status" value="0">Em análise</logic:equal>
-			<logic:equal name="ims" property="status" value="1"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}">Aprovado. Complete o cadastro</a></logic:equal>
-			<logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}">Cadastrar Disponibilidade </a></logic:equal>
-				
-			<br><br>
-			<logic:notEmpty name="ims" property="anuncios">
-			<a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=listarAnunciosImovel&ci=${ims.codigo}">Ver Disponibilidade</a>
-			</logic:notEmpty>				
-		</td>
-		<td align="center" valign="center">
-		<logic:notEmpty name="ims" property="reservas">
-			<fieldset>
-			<a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=0');">
-			Você tem solicitações de Reserva
-			</a>
-			</fieldset>
-		</logic:notEmpty>		
-		</td>
-		</tr>
-	</logic:iterate>
-	</table>
+  <tr>
+    <td align="center" valign="center"><logic:notEmpty name="ims" property="reservas">
+        <fieldset>
+          <a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=0');"> Você tem solicitações de Reserva </a>
+        </fieldset>
+      </logic:notEmpty></td>
+  </tr>
+    </logic:iterate>
+  
+</table>
 </logic:present>
 </div>
 <!--FIM CADASTRO-->
