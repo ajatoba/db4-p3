@@ -46,7 +46,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 <div id="listagem_reservas">
 <div class="topo_edicao">
 <div class="mapa_planta"></div>
-<div class="endereco_bairro">
+<div class="MyriadProRegular">
 <table border="0">
   <tr>
   	<td width="30%">
@@ -58,8 +58,8 @@ $('#sep_top_reserva').corner('rounded 7px');
     </td>
     <td>
       Distância do centro 10Km<br/>
-      Mapa Google Maps:<bean:write name="imovel" property="linkGoogleMaps"/><br/>
-      Vídeo You Tube:<bean:write name="imovel" property="linkYouTube"/>
+      Mapa Google Maps:${imovel.linkGoogleMaps}<br/>
+      Vídeo You Tube:${imovel.linkYouTube}
     </td>
   </tr>
 </table>
@@ -75,27 +75,27 @@ $('#sep_top_reserva').corner('rounded 7px');
 <div class="left_formulario">
 <html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=alterarImovel" enctype="multipart/form-data">
 <html:hidden property="imovelEntity.codigo" />
-<table width="100%" border="0">
+
+<table border="0" class="MyriadProRegular">
   <tr>
-    <td><img src="/buskaza/_img/bullet_laranja.jpg" width="19" height="15" /> Características do Imóvel</td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <td width="50%">
+    
+    <img src="/buskaza/_img/bullet_laranja.jpg" width="19" height="15" />
+    <b>Características do Imóvel</b><br>
+    <table border="0" cellpadding="0" cellspacing="0">
       <tr>
-        <td>Perfil do Imóvel</td>
+        <td >Perfil do Imóvel</td>
         <td>Quartos</td>
+        <td>&nbsp;</td>
       </tr>
       <tr>
-          <td>
-            <div style="margin-right:12px;">
-				  <html:select property="tipoImovel" styleId="tipoImovel">
-					<html:options collection="tiposImovel" property="codigo" labelProperty="nome"/>
-				</html:select>
-			</div>
-</td>
-            <td>
-            <div style="margin-right:12px;">
-            <html:select property="quartos" styleId="quartos">
+        <td>
+        	<html:select property="tipoImovel" styleId="tipoImovel">
+				<html:options collection="tiposImovel" property="codigo" labelProperty="nome"/>
+			</html:select>			
+		</td>
+        <td>
+        	<html:select property="quartos" styleId="quartos">
       			<html:option value="1">1 Quarto</html:option>
 				<html:option value="2">2 Quartos</html:option>
 				<html:option value="3">3 Quartos</html:option>
@@ -104,8 +104,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 				<html:option value="6">6 Quartos</html:option>
 				<html:option value="7">7 Quartos</html:option>
 				<html:option value="8">8 Quartos</html:option>				
-				<html:option value="9">9 Quartos</html:option>
-				
+				<html:option value="9">9 Quartos</html:option>				
 				<html:option value="10">10 Quartos</html:option>
 				<html:option value="11">11 Quartos</html:option>
 				<html:option value="12">12 Quartos</html:option>
@@ -115,26 +114,21 @@ $('#sep_top_reserva').corner('rounded 7px');
 				<html:option value="16">16 Quartos</html:option>
 				<html:option value="17">17 Quartos</html:option>				
 				<html:option value="18">18 Quartos</html:option>
-				<html:option value="19">19 Quartos</html:option>
-				
+				<html:option value="19">19 Quartos</html:option>				
 				<html:option value="20">20 Quartos</html:option>
 				<html:option value="21">21 Quartos</html:option>
 				<html:option value="22">22 Quartos</html:option>
-      	</html:select></div></td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0">
-      <tr>
-        <td>MEtragem</td>
-        <td>Capacidade</td>
-        <td>Distância do Centro</td>
+      	</html:select>
+      </td>      
       </tr>
       <tr>
-        <td>
-            <div style="margin-right:12px;">
-            	<html:select property="metragem" styleId="metragem">
+        <td>Metragem:</td>
+        <td>Capacidade:</td>
+        <td>Distância do Centro:</td>
+      </tr>
+      <tr>
+        <td>           
+            <html:select property="metragem" styleId="metragem">
       			<html:option value="20.0">20m</html:option>
                 <html:option value="25.0">25m</html:option>
                 <html:option value="30.0">30m</html:option>
@@ -266,9 +260,10 @@ $('#sep_top_reserva').corner('rounded 7px');
                 
                 <html:option value="600.0">600m</html:option>
 
-      	</html:select>
-      	</div></td>
-            <td><div style="margin-right:12px;"><html:select property="capacidade" styleId="capacidade">
+      		</html:select>
+      		</td>
+            <td>
+            <html:select property="capacidade" styleId="capacidade">
       			<html:option value="1">1 Pessoa</html:option>
 				<html:option value="2">2 Pessoas</html:option>
 				<html:option value="3">3 Pessoas</html:option>
@@ -291,91 +286,89 @@ $('#sep_top_reserva').corner('rounded 7px');
 				<html:option value="20">20 Pessoas</html:option>
 				<html:option value="21">21 Pessoas</html:option>
 				<html:option value="22">22 Pessoas</html:option>
-      	</html:select>
-      	</div></td>
-        <td><label for="textfield"></label>         
-          <html:text property="distanciaCentro" />
-          
-          </td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td><table width="100%" border="0">
-      <tr>
-        <td>Camas</td>        
-      </tr>
-      <tr>
-        <td><html:select property="camas">
-        <html:option value="1">1</html:option>
-        <html:option value="2">2</html:option>
-        <html:option value="3">3</html:option>
-        <html:option value="4">4</html:option>
-        <html:option value="5">5</html:option>
-        <html:option value="6">6</html:option>
-        <html:option value="7">7</html:option>
-        <html:option value="8">8</html:option>
-        <html:option value="9">9</html:option>
-        <html:option value="10">10</html:option>
-            
-        </html:select>
+      		</html:select>
+      	</td>
+        <td>
+        	<html:text property="distanciaCentro" />          
         </td>
       </tr>
-    </table></td>
-  </tr>
-  
-  <tr>
-    <td>Idiomas Falados</td>
-  </tr>
-  <tr>
-    <td>
-     <html:select property="idiomas" multiple="true">
-     	<html:options collection="idiomas" property="codigo" labelProperty="nome"/>     
-     </html:select>
-     </td>
-  </tr>
-</table>
-
-</div>
-<div class="right_formulario">
-
-</div>
-
-<div class="bottom_formulario">
-<table width="100%" border="0">
-  <tr>
-    <td>Dados de Check-In Check-Out</td>
-  </tr>
-  
-  <tr>
-    <td>
-	    <table width="100%" border="0">
-	      <tr>
-	        <td>Nome de quem fará o Check in</td>
-	        <td>Telefone</td>
-	        <td>Telefone Aleternativo</td>
-	        <td>Email</td>
-	        <td>Email Alternativo</td>
-	      </tr>
-	      <tr>    
-	        <td><html:text property="nomeCheckIn" /></td>
-	        <td><html:text property="ddd" size="5" maxlength="3"/><html:text property="telefone"  size="8" maxlength="8"/></td>
-	        <td><html:text property="ddd2"  size="5" maxlength="3"/><html:text property="telefone2" size="8" maxlength="8"/></td>
-	        <td><html:text property="email" /></td>
-	        <td><html:text property="email2" /></td>
-	      </tr>
-	    </table>
+      <tr>
+      	<td>Camas:</td>
+      	<td>Idiomas Falados:</td>
+      	<td>&nbsp;</td>
+      </tr>
+      <tr>
+      	<td>
+      	<html:select property="camas">
+	        <html:option value="1">1</html:option>
+	        <html:option value="2">2</html:option>
+	        <html:option value="3">3</html:option>
+	        <html:option value="4">4</html:option>
+	        <html:option value="5">5</html:option>
+	        <html:option value="6">6</html:option>
+	        <html:option value="7">7</html:option>
+	        <html:option value="8">8</html:option>
+	        <html:option value="9">9</html:option>
+	        <html:option value="10">10</html:option>            
+        </html:select>
+        </td>
+      	<td>
+		<html:select property="idiomas" multiple="true">
+     		<html:options collection="idiomas" property="codigo" labelProperty="nome"/>     
+     	</html:select>
+		</td>
+      	<td>&nbsp;</td>
+      </tr>
+      <tr>
+      	<td>Ônibus:</td>
+      	<td>Metrô:</td>
+      	<td>Trem:</td>
+      </tr>
+      <tr>
+      	<td><html:checkbox property="onibus"/></td>
+        <td><html:checkbox property="metro"/></td>
+        <td><html:checkbox property="trem"/></td>
+      </tr>
+    </table>    
     </td>
-  </tr>
-  <tr>
-  
-    <td>
-    <table width="100%" border="0">
-      <tr>
-        <td width="50%">Horário Check in</td>
-        <td width="50%">Horário Check out</td>
-        </tr>
-      <tr>
+    <td> 
+    Equipamentos do Imóvel<br>
+    <html:select property="equipamentos" multiple="true">
+     	<html:options collection="equipamentos" property="codigo" labelProperty="nome"/>     
+     </html:select>
+     
+     <br><br>
+     Imagens do Imóvel<br>
+     <html:file property="arquivoFoto[1]" styleId="file1" /><br>
+     <html:file property="arquivoFoto[2]" styleId="file2" /><br>
+     <html:file property="arquivoFoto[3]" styleId="file2" /><br>     
+    </td>
+  	</tr>
+  	<tr>
+  		<td colspan="3">
+  		<b>Dados de Check-In Check-Out</b><br>
+  		<table border="0">
+			<tr>    
+				<td>Nome de quem fará o Check in</td>
+				<td>Telefone</td>
+				<td>Telefone Aleternativo</td>
+				<td>Email</td>
+				<td>Email Alternativo</td>
+			</tr>
+			<tr>    
+				<td><html:text property="nomeCheckIn" /></td>
+			    <td><html:text property="ddd" size="5" maxlength="3"/><html:text property="telefone"  size="8" maxlength="8"/></td>
+				<td><html:text property="ddd2"  size="5" maxlength="3"/><html:text property="telefone2" size="8" maxlength="8"/></td>
+				<td><html:text property="email" /></td>
+			    <td><html:text property="email2" /></td>
+			</tr>
+			<tr>
+				<td>Horário Check in</td>
+        		<td>Horário Check out</td>
+        		<td>&nbsp;</td>
+        		<td>&nbsp;</td>
+			</tr>
+			<tr>
         <td>De 
           <html:text property="checkInEntradaHora" size="2" maxlength="2" />
           :
@@ -394,16 +387,20 @@ $('#sep_top_reserva').corner('rounded 7px');
 		  :
 		  <html:text property="checkOutSaidaMinuto" size="2" maxlength="2" />
 		 </td>
+		 <td>&nbsp;</td>
+         <td>&nbsp;</td>
         </tr>
-    </table>
-    </td>
-  </tr>
-  <tr>
-    <td><input type="submit" name="gravar" id="button5" value="Gravar" /></td>
-  </tr>
-  
-</table>
+		</table>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td colspan="3">
+  		<html:submit>Salvar</html:submit>
+  		</td>
+  	</tr>
+  </table>
 </html:form>
+
 </div>
 </div>
 </div>

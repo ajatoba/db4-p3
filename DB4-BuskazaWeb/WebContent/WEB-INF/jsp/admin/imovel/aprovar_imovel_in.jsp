@@ -92,8 +92,8 @@ function mostrarImagem(imagem){
 	Planta:<br/>
 	&nbsp;&nbsp;&nbsp;Ver Planta: <a href="#" onClick="javascript:mostrarImagem('/buzkaza/imagens_usuarios/${imovel.planta.caminho }');">Ver Planta</a><br/>
 	&nbsp;&nbsp;&nbsp;Alterar:<html:file property="planta" styleId="planta" size="20" /><br/>
-	Mapa Google Maps:<html:text property="linkGoogleMaps" size="50" value="${imovel.linkGoogleMaps}"/><br/>
-	Link YouTube: <html:text property="linkYouTube" size="50" value="${imovel.linkYouTube}"/><br/>	
+	Mapa Google Maps:<html:textarea property="linkGoogleMaps" rows="5" cols="30" value="${imovel.linkGoogleMaps}"/><br/>
+	Link YouTube: <html:textarea property="linkYouTube" rows="5" cols="30"  value="${imovel.linkYouTube}"/><br/>	
 	</fieldset>
 
 	<br>

@@ -146,6 +146,8 @@ public class ImovelAction extends DispatchAction {
 			
 			qtdDias = (CalendarioUtil.getInstance().getDiasPeriodoMes(dataInicio, dataFim)).size();
 			
+			
+			
 	        while (it.hasNext()) {
 				Imovel imovelPreco = (Imovel) it.next();
 				
@@ -170,7 +172,7 @@ public class ImovelAction extends DispatchAction {
 		request.setAttribute("imoveisValor", imoveisValor);
 		
 		//request.setAttribute("imoveis", imoveis);
-		request.setAttribute("resultado", (imoveis == null)?0:imoveis.size());
+		request.setAttribute("resultado", (imoveisValor == null)?0:imoveisValor.size());
 		
 		return mapping.findForward(Constants.FORWARD_SAIDA_BUSCA_AVANCADA_IMOVEIS);
 	}
@@ -562,6 +564,10 @@ public class ImovelAction extends DispatchAction {
 		imovel.setCheckOutEntrada(checkOutEntrada);
 		imovel.setCheckOutSaida(checkOutSaida);
 		imovel.setLateCheckOut(lateCheckOut);
+		
+		imovel.setOnibus(form.isMetro());
+		imovel.setTrem(form.isTrem());
+		imovel.setMetro(form.isMetro());
 		
 		
 		if (form.getCamas() != null )

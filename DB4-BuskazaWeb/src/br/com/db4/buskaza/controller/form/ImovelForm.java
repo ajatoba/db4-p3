@@ -135,6 +135,35 @@ public class ImovelForm extends ActionForm {
 	private int mesDataFinalAnuncio;
 	private int anoDataFinalAnuncio;
 	
+	private boolean metro;	
+	private boolean onibus;	
+	private boolean trem;
+	
+		
+	public boolean isMetro() {
+		return metro;
+	}
+
+	public void setMetro(boolean metro) {
+		this.metro = metro;
+	}
+
+	public boolean isOnibus() {
+		return onibus;
+	}
+
+	public void setOnibus(boolean onibus) {
+		this.onibus = onibus;
+	}
+
+	public boolean isTrem() {
+		return trem;
+	}
+
+	public void setTrem(boolean trem) {
+		this.trem = trem;
+	}
+
 	public int getDiaDataInicialAnuncio() {
 		return diaDataInicialAnuncio;
 	}
@@ -627,6 +656,7 @@ public class ImovelForm extends ActionForm {
 		this.ddd2 = ddd2;
 	}
 
+	
 	
 }
 

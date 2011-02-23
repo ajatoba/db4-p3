@@ -457,7 +457,7 @@
         <td>&nbsp;</td>
         <td class="MyriadProRegular">Link do vídeo no You Tube</td>
         <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td class="MyriadProRegular">Link do Google Maps</td>
       </tr>
       <tr>
         <td colspan="2">
@@ -465,8 +465,9 @@
         <html:file property="planta" styleId="planta" size="23" style="width:300px; color:#666666;"/>
         </div>
         </td>
-        <td colspan="2"><html:text property="linkYouTube" size="245" /></td>
+        <td><html:textarea property="linkYouTube" rows="5" cols="30" /></td>
         <td>&nbsp;</td>
+        <td><html:textarea property="linkGoogleMaps" rows="5" cols="30" /></td>
       </tr>
       <tr>
         <td colspan="2">&nbsp;</td>

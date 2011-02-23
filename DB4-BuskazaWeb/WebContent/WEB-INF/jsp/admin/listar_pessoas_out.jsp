@@ -132,7 +132,9 @@ Classificar:
 	</logic:iterate>
 
 <%
-String parametros =	"act=listarTodosUsuarios&ordenacao=" + request.getParameter("ordenacao");
+String ordenacao = request.getParameter("ordenacao");
+if(ordenacao==null || ordenacao.equals("")) ordenacao="desc";
+String parametros =	"act=listarTodosUsuarios&ordenacao=" + ordenacao;
 %>
 	
 <center>

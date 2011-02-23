@@ -10,6 +10,7 @@ import java.util.Set;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -111,16 +112,35 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 	public ActionForward incluirAnuncio(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
 		
 		String codigoImovel = request.getParameter("ci");
+		
+		Usuario usuario = (Usuario)request.getSession().getAttribute(Constants.USUARIO_SESSAO);
 				
 		try {
 			AnuncioForm anuncioForm = (AnuncioForm) form;
 			
 			Anuncio anuncio = popularAnuncio(anuncioForm);	
 			
-			Imovel imovel = new Imovel();
-			imovel.setCodigo(Integer.parseInt(codigoImovel));
+			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
+			
+			Imovel imovel = imovelEjb.getImovel(Integer.parseInt(codigoImovel));
 			
 			anuncio.setImovel(imovel);
+			
+			if(!anuncio.isPermitirEntrada()){
+				usuario.setAgencia(request.getParameter("agencia"));
+				usuario.setContaCorrente(request.getParameter("conta"));
+				usuario.setCodigoBanco(request.getParameter("codigoBanco"));
+				usuario.setNomeTitularConta(request.getParameter("nomeTitularConta"));
+				usuario.setCpfTitularConta(request.getParameter("cpfTitularConta"));
+				
+				UsuarioBeanLocal usuarioEjb = (UsuarioBeanLocal) ServiceLocator.getInstance().locateEJB(UsuarioBeanLocal.LOCAL);
+				usuarioEjb.incluirUsuario(usuario);
+			}else{
+				imovel.setPermiteOpcaoPagamento(true);
+				
+				imovelEjb.alterarImovel(imovel);
+				
+			}
 			
 			AnuncioBeanLocal anuncioEjb = (AnuncioBeanLocal) ServiceLocator.getInstance().locateEJB(AnuncioBeanLocal.LOCAL);
 			

@@ -69,7 +69,11 @@
 		<table cellspacing="10" >
 		<tr>
 			<td>
-			Valor:<bean:write name="reservaPagar" property="valor" format="00.00"/><br>
+			Valor:
+			<logic:equal name="reservaPagar" property="imovel.permiteOpcaoPagamento" value="true"> 
+			10%
+			</logic:equal>
+			<bean:write name="reservaPagar" property="valor" format="00.00"/><br>
 			de <bean:write name="reservaPagar" property="periodoInicial" format="dd/MM/yyyy"/>
 			a  <bean:write name="reservaPagar" property="periodoFinal" format="dd/MM/yyyy"/>
 			<br>

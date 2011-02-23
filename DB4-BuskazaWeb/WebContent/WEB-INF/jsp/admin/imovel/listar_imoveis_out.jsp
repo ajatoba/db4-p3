@@ -79,7 +79,9 @@
 	<bean:write name="imovel" property="metragem"/> m<sup>2</sup><br>
 	<bean:write name="imovel" property="quartos"/> quarto(s)<br>
 	Proprietário: <b><bean:write name="imovel" property="usuarioProprietario.nome"/></b><br>
+	<logic:equal name="imovel" property="status" value="0">
 	<a href="imovel.do?act=formAprovarImovel&ci=<bean:write name='imovel' property='codigo'/>">Validar Imóvel</a><br>
+	</logic:equal>
 	<br>
 	<hr/>
 	</pg:item>

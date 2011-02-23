@@ -358,7 +358,50 @@
 		Pacote Fechado: <html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>      	
       	<br>
       	
-      	<html:checkbox property="permitirEntrada"/> Permitir 10% de entrada
+      	<table cellspacing="10">
+      		<tr>
+      			<td colspan="2">
+      			Tipos de Pagamento
+      			</td>
+      		</tr>
+      		<tr>
+	      		<td valign="top">
+	      			Opção 1:<br>
+	      			Pagamento de Sinal para confirmação de reserva<br>
+	      			<html:radio property="permitirEntrada" value="true"/> 
+	      		</td>
+	      		<td valign="top">
+	      			Opção 2:<br>
+	      			<html:radio property="permitirEntrada" value="false"/> 
+	      			Pagamento Integral da Estadia. Só para proprietários brasileiros<br>
+	      			<table>
+	      			<tr>
+	      				<td>Titular:</td>
+	      				<td><input type="text" name="nomeTitularConta" value="${usuario.nomeTitularConta}"></td>
+	      			</tr>
+	      			<tr>
+	      				<td>CPF:</td>
+	      				<td><input type="text" name="cpfTitularConta" value="${usuario.cpfTitularConta}"></td>
+	      			</tr>
+	      			<tr>
+	      				<td>Banco:</td>
+	      				<td><input type="text" name="codigoBanco" value="${usuario.codigoBanco}"></td>
+	      			</tr>
+	      			<tr>
+	      				<td>Agência:</td>
+	      				<td><input type="text" name="agencia" value="${usuario.agencia}"></td>
+	      			</tr>
+	      			<tr>
+	      				<td>Conta:</td>
+	      				<td><input type="text" name="conta" value="${usuario.contaCorrente}"></td>
+	      			</tr>
+	      			</table>
+	      			
+	      		</td>
+      		</tr>
+      	</table>
+      	
+      	
       	<br><br>
       	
       	<input type="submit" name="gravar" id="button5" value="Gravar" />
@@ -425,140 +468,8 @@
 </div>
 
 </div>
-<div class="bottom_formulario">
-
-
-</div>
+<div class="bottom_formulario"></div>
 <div class="linha_cinza"></div>
-<div class="opcoes_pg">
-<div class="left_opcoes">
-<table width="100%" border="0">
-  <tr>
-    <td>Política de Recebimento</td>
-  </tr>
-  <tr>
-    <td>Lorem ipsum</td>
-  </tr>
-  <tr>
-    <td>Moeda</td>
-  </tr>
-  <tr>
-    <td><label for="select3"></label>
-      <select name="select4" id="select3">
-        <option>Real</option>
-        <option>Dólar</option>
-        <option>Euro</option>
-      </select></td>
-  </tr>
-</table>
 
-</div>
-<div class="right_opcoes">
-  <div id="tabs">                
-                <div id="container_abas">
-                        <ul id="nav">	
-                            <li id="aba_1"><a href="#quemsomos" class="corrente" onclick="trocaImagem('opcao_01')"><img src="/buzkaza/_img/opcao_01_azul.png" id="opcao_01"width="157" height="49" alt="" border="0"/></a></li>  
-                            <li><a href="#formacao" onclick="trocaImagem('opcao_02')"><img src="/buzkaza/_img/opcao_02.png" id="opcao_02"width="157" height="49" alt="" border="0"/></a></li> 
-                                                    
-                        </ul>
-                    
-                  <div id="aba1" class="aba">
-                    <table width="100%" border="0">
-                      <tr>
-                        <td>Pagamento de sinal para confirmação de reserva, com saldo direto no check in.<br />
-                          Sinal de 10% (Deduzida do total da estadia+taxas extras) + encargos do cartão ou boleto referente o sinal de 10%, retidos pelo Buzkaza como taxa de transação.</td>
-                      </tr>
-                      <tr>
-                        <td>Forma de Pagamento</td>
-                      </tr>
-                      <tr>
-                        <td><input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Dinheiro&nbsp;&nbsp;
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Visa&nbsp;&nbsp;
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Mastercard&nbsp;
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Dinners&nbsp;&nbsp;
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          Bradesco&nbsp;&nbsp;
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Itaú&nbsp;&nbsp;
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Unibanco
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Banco do Brasil </td>
-                      </tr>
-                      <tr>
-                        <td><input type="radio" name="radio" id="radio2" value="radio" />
-                          <label for="radio2"></label>
-                          Aura
-                          <input type="radio" name="radio" id="radio3" value="radio" />
-                          Hipercard
-                          <input type="radio" name="radio" id="radio4" value="radio" />
-                          <label for="radio4"></label>
-                          Amex </td>
-                      </tr>
-                    </table>
-                    <br />
-
-                    
-                  </div>
-                    
-                  <div id="aba2" class="aba">
-                    <table width="100%" border="0">
-                      <tr>
-                        <td colspan="3">Pagamento integral da estadia (só para proprietários Brasileiros).</td>
-                      </tr>
-                      <tr>
-                        <td>Titular</td>
-                        <td>&nbsp;</td>
-                        <td>CPF/CNPJ</td>
-                      </tr>
-                      <tr>
-                        <td colspan="2"><label for="textfield"></label>
-                          <input type="text" name="textfield" id="textfield" /></td>
-                        <td><input type="text" name="textfield3" id="textfield3" /></td>
-                      </tr>
-                      <tr>
-                        <td>Numero do Banco</td>
-                        <td>Agência</td>
-                        <td>Conta Corrente</td>
-                      </tr>
-                      <tr>
-                        <td><input type="text" name="textfield2" id="textfield2" /></td>
-                        <td><input type="text" name="textfield4" id="textfield4" /></td>
-                        <td><input type="text" name="textfield5" id="textfield5" /></td>
-                      </tr>
-                    </table>
-                    <br /><br />
-                                    
-                  
-                  </div>
-                            
-                  
-                                           
-                </div>
-        </div><!-- id="tabs" -->
-
-</div>
-<input type="submit" name="button3" id="button3" value="Submit" />
-</div>
-
-</div>
-<!--FIM CADASTRO-->
-<div id="linha_meio"></div>
-<div id="boxes"><img src="/buzkaza/images/formulario_proprietario(zig.jpg" width="991" height="283" /></div>
-<div id="linha_cinza"></div>
-<div id="bottom"><img src="/buzkaza/images/formulario_proprietario(zig.gif" width="991" height="253" /></div>
-
-</div>
 </body>
 </html>
