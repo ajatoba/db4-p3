@@ -75,11 +75,10 @@ public class ImovelBean implements ImovelBeanLocal {
         
         if (anuncio != null) { 
         	Criteria joinPeriodoAnuncio = c.createCriteria("anuncios", JoinFragment.INNER_JOIN);	
-        	joinPeriodoAnuncio.add (Restrictions.between("dataInicial", anuncio.getDataInicial(), anuncio.getDataFinal()  )); 
-        	joinPeriodoAnuncio.add (Restrictions.between("dataFinal", anuncio.getDataInicial(), anuncio.getDataFinal()));
+        	joinPeriodoAnuncio.add (Restrictions.between("dataInicial", anuncio.getDataInicial(),anuncio.getDataInicial()));        	
         }
         
-        
+            
         if (imovel.getCapacidade() != 0) { 
         	c.add(Restrictions.between("capacidade", new Integer(0), imovel.getCapacidade())); 
         } 
@@ -157,12 +156,13 @@ public class ImovelBean implements ImovelBeanLocal {
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);	
 		
-        if (status > 0) {        
-        	c.add(Restrictions.eq("status",status)); 
-        } else{
-        	c.add(Restrictions.gt("status", -1)); //-1 são os excluídos, que não devem ser mostrados nunca mais
-        }
-        
+		 //-1 são os excluídos, que não devem ser mostrados nunca mais
+		
+		if(status > - 1)
+			c.add(Restrictions.eq("status",status)); 
+		else
+			c.add(Restrictions.gt("status", -1));
+			
         c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
         return c.list(); 
 	}

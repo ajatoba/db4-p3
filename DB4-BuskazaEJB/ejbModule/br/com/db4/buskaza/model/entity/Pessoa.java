@@ -39,7 +39,13 @@ public class Pessoa implements Serializable {
 
 	protected String agencia;
 
-	protected String contaCorrente;	
+	protected String contaCorrente;
+	
+	protected String codigoBanco;
+	
+	protected String cpfTitularConta;
+	
+	protected String nomeTitularConta;
 	
 	protected String nacionalidade;
 
@@ -150,6 +156,32 @@ public class Pessoa implements Serializable {
 
 	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
+	}
+
+	public String getCodigoBanco() {
+		return codigoBanco;
+	}
+
+	public void setCodigoBanco(String codigoBanco) {
+		this.codigoBanco = codigoBanco;
+	}
+
+	public String getCpfTitularConta() {
+		return cpfTitularConta;
+	}
+
+	public void setCpfTitularConta(String cpfTitularConta) {
+		this.cpfTitularConta = cpfTitularConta;
+	}
+
+	public String getNomeTitularConta() {
+		return nomeTitularConta;
+	}
+
+	public void setNomeTitularConta(String nomeTitularConta) {
+		this.nomeTitularConta = nomeTitularConta;
 	}	
+	
+	
 
 }

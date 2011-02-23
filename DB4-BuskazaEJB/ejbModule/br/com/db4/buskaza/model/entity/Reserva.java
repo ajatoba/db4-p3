@@ -60,8 +60,16 @@ public class Reserva implements Serializable {
 
 	private double valor;
 	
-	
-	
+	private boolean permiteOpcaoPagamento;
+		
+	public boolean isPermiteOpcaoPagamento() {
+		return permiteOpcaoPagamento;
+	}
+
+	public void setPermiteOpcaoPagamento(boolean permiteOpcaoPagamento) {
+		this.permiteOpcaoPagamento = permiteOpcaoPagamento;
+	}
+
 	public double getValor() {
 		return valor;
 	}

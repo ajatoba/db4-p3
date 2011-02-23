@@ -64,6 +64,7 @@ public class Imovel implements Serializable{
 	
 	private double distanciaCentro;
 	
+	@Lob
 	private String linkGoogleMaps;
 	
 	@OneToOne
@@ -138,7 +139,8 @@ public class Imovel implements Serializable{
 	@OneToOne
 	@JoinColumn(name = "id_tipo_imovel")
 	private TipoImovel tipoImovel;
-		
+	
+	@Lob
 	private String linkYouTube;
 	
 	
@@ -149,6 +151,48 @@ public class Imovel implements Serializable{
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataCadastro;
 	
+	private boolean metro;
+	
+	private boolean onibus;
+	
+	private boolean trem;
+	
+	private boolean permiteOpcaoPagamento;
+	
+	
+	
+	public boolean isPermiteOpcaoPagamento() {
+		return permiteOpcaoPagamento;
+	}
+
+	public void setPermiteOpcaoPagamento(boolean permiteOpcaoPagamento) {
+		this.permiteOpcaoPagamento = permiteOpcaoPagamento;
+	}
+
+	public boolean isMetro() {
+		return metro;
+	}
+
+	public void setMetro(boolean metro) {
+		this.metro = metro;
+	}
+
+	public boolean isOnibus() {
+		return onibus;
+	}
+
+	public void setOnibus(boolean onibus) {
+		this.onibus = onibus;
+	}
+
+	public boolean isTrem() {
+		return trem;
+	}
+
+	public void setTrem(boolean trem) {
+		this.trem = trem;
+	}
+
 	public Pais getPais() {
 		return pais;
 	}
