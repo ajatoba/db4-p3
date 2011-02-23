@@ -36,14 +36,16 @@
 	$(function(){
 			$('form').jqTransform({imgPath:'jqtransformplugin/img/'});
 	});
-	/*
-	$(function(){
-	$('#sep_top_reserva').corner('rounded 7px');
 	
-		$("#busca_home").corner("bottom 7px");
-		$("#mapa_").corner("bottom 7px");
-		});
+	$(function(){
+		/*
+			$('#sep_top_reserva').corner('rounded 7px');
+		
+			$("#busca_home").corner("bottom 7px");
+			$("#mapa_").corner("bottom 7px");
 		*/
+		});
+		
 </script>
 </head>
 
@@ -113,7 +115,7 @@
   
   <tr>
   	<td width="50%">
-  	<html:form method="post" action="/usuario/anuncio?act=formCadastroAnuncio">
+  	<html:form method="post" styleId="anuncioForm" action="/usuario/anuncio?act=formCadastroAnuncio">
   	<input type="hidden" name="ci" value="${imovel.codigo}">
   	<select name="mes">                        
         <option value="01">Janeiro</option>
@@ -409,7 +411,7 @@
       	<!-- 
       	<input type="submit" name="gravar" id="button5" value="Gravar" />
       	-->
-      	<input type="button" name="gravar" id="button5" value="Gravar" onclick="validaForm()" />
+      	<a href="#" onclick="validaForm()" />Gravar</a>
       	
       	
 	    </html:form>
