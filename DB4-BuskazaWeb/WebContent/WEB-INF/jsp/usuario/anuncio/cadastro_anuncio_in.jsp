@@ -14,18 +14,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 
-<script language="javascript">
-	$(function(){
-			$('#form').jqTransform({imgPath:'jqtransformplugin/img/'});
-	});
-	
-	$(function(){
-	$('#sep_top_reserva').corner('rounded 7px');
-	
-		$("#busca_home").corner("bottom 7px");
-		$("#mapa_").corner("bottom 7px");
-		});
-</script>
+
 
 <script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 <script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
@@ -42,6 +31,20 @@
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/cadastro.css"  />
 <link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
 	
+	
+	<script language="javascript">
+	$(function(){
+			$('form').jqTransform({imgPath:'jqtransformplugin/img/'});
+	});
+	/*
+	$(function(){
+	$('#sep_top_reserva').corner('rounded 7px');
+	
+		$("#busca_home").corner("bottom 7px");
+		$("#mapa_").corner("bottom 7px");
+		});
+		*/
+</script>
 </head>
 
 <body>
@@ -151,8 +154,7 @@
   	//ALGORITMO DE CONSTRUÇÃO DO CALENDÁRIO - CUIDADO AO MEXER!!!
   	Map<String,Calendario> calendarioAnuncio = (Map) request.getAttribute("calendarioAnuncio");
 	
-  	Iterator it = calendarioAnuncio.entrySet().iterator();
-  	
+  	Iterator it = calendarioAnuncio.entrySet().iterator();  	
   	boolean populado = false;
   	
   	int index = 0;
@@ -351,11 +353,11 @@
 	        <html:option value="2014">2014</html:option>
 	        <html:option value="2015">2015</html:option>
         </html:select><br><br>
-      	Tarifa Diária: <html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>
-      	Tarifa Semanal: <html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>
-      	Tarifa Mensal: <html:text property="tarifaMensal" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>
-      	Tarifa Quinzenal: <html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>
-		Pacote Fechado: <html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" maxlength="10" size="10"/><br/>      	
+      	Tarifa Diária: <html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" styleId="tarifaDiaria" maxlength="10" size="10"/><br/>
+      	Tarifa Semanal: <html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" styleId="tarifaSemanal" maxlength="10" size="10"/><br/>
+      	Tarifa Mensal: <html:text property="tarifaMensal" styleClass="number,MyriadProRegular" styleId="tarifaMensal" maxlength="10" size="10"/><br/>
+      	Tarifa Quinzenal: <html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="10"/><br/>
+		Pacote Fechado: <html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="10"/><br/>      	
       	<br>
       	
       	<table cellspacing="10">
@@ -404,7 +406,11 @@
       	
       	<br><br>
       	
+      	<!-- 
       	<input type="submit" name="gravar" id="button5" value="Gravar" />
+      	-->
+      	<input type="button" name="gravar" id="button5" value="Gravar" onclick="validaForm()" />
+      	
       	
 	    </html:form>
 	    
