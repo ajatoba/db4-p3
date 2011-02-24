@@ -55,7 +55,7 @@ public class ReservaUtil {
 				while (itReservas.hasNext()) {
 					String diaReserva = itReservas.next();
 					if(diaAnuncio.equals(diaReserva)){
-						//System.out.println("DIA:" + diaReserva + "-" + anuncio.getCodigo());
+						System.out.println("DIA:" + diaReserva + "-" + anuncio.getCodigo());
 						diaValor.put(diaReserva, anuncio);
 						
 						break;
@@ -76,13 +76,25 @@ public class ReservaUtil {
 	        	precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaDiaria();
 	        
 	        if (qtdDias >= 7 && qtdDias < 15)
-	        	precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaSemanal();
+	        	if(((Anuncio)mapa.getValue()).getTarifaSemanal() > 0){
+	        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaSemanal();
+	        	}else{
+	        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaDiaria();
+	        	}
 	        
 	        if (qtdDias >= 15 && qtdDias < 30)
-	        	precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaQuinzenal();
+	        	if(((Anuncio)mapa.getValue()).getTarifaQuinzenal() > 0){
+	        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaQuinzenal();
+	        	}else{
+	        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaDiaria();
+	        	}
 	        
 	        if (qtdDias >= 30)
-	        	precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaMensal();
+	        	if(((Anuncio)mapa.getValue()).getTarifaMensal() > 0){
+	        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaMensal();
+	        	}else{
+	        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaDiaria();
+	        	}
 	        
 	    }
 

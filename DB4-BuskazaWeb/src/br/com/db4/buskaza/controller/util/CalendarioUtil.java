@@ -120,10 +120,10 @@ public class CalendarioUtil {
 		int i = 0;  
 		   
 		Calendar periodo1 = Calendar.getInstance();  
-		periodo1.set(dataInicial.getYear()+1900,dataInicial.getMonth(),dataInicial.getDate()-1);   
+		periodo1.set(dataInicial.getYear()+1900,dataInicial.getMonth()+1,dataInicial.getDate()-1);   
 		   
 		Calendar periodo2 = Calendar.getInstance();  
-		periodo2.set(dataFinal.getYear()+1900,dataFinal.getMonth(),dataFinal.getDate()-1);   
+		periodo2.set(dataFinal.getYear()+1900,dataFinal.getMonth()+1,dataFinal.getDate()-1);   
 		  
 		intervalo = (periodo2.get(periodo2.DAY_OF_YEAR) - periodo1.get(periodo1.DAY_OF_YEAR)) + 1;  
 		
@@ -142,8 +142,8 @@ public class CalendarioUtil {
 	
 	public static void main(String[] args){
 		
-		Date dataInicial2 = new Date(2011-1900,2-1,27);
-		Date dataFinal2 = new Date(2011-1900,3-1,2);
+		Date dataInicial2 = new Date(2011-1900,3-1,01);
+		Date dataFinal2 = new Date(2011-1900,3-1,07);
 		
 		List<String> diasPeriodo = getDiasPeriodoMes(dataInicial2, dataFinal2);
 		
