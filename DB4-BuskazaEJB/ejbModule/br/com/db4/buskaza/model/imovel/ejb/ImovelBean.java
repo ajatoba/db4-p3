@@ -75,7 +75,9 @@ public class ImovelBean implements ImovelBeanLocal {
         
         if (anuncio != null) { 
         	Criteria joinPeriodoAnuncio = c.createCriteria("anuncios", JoinFragment.INNER_JOIN);	
-        	joinPeriodoAnuncio.add (Restrictions.between("dataInicial", anuncio.getDataInicial(),anuncio.getDataInicial()));        	
+        	
+        	joinPeriodoAnuncio.add (Restrictions.le("dataInicial" ,anuncio.getDataInicial()));
+        	joinPeriodoAnuncio.add (Restrictions.ge("dataFinal" ,anuncio.getDataFinal()));
         }
         
             
