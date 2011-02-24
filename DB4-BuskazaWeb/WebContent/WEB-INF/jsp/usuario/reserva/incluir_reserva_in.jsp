@@ -235,6 +235,7 @@
   	
   	</td>
     <td valign="top">
+     <html:form action="/usuario/reserva.do?act=incluirReserva" method="POST" >
 	    <table>
 	    <tr>
 		    <td>
@@ -245,12 +246,34 @@
 		    De <bean:write name="reserva" property="periodoInicial" format="dd/MM/yyyy"/>
 		    a <bean:write name="reserva" property="periodoFinal" format="dd/MM/yyyy"/><br>
 		    R$ <bean:write name="reserva" property="valor" format="00.00"/><br>
+		    <br><br>
+		   
+		    
+		    <logic:equal name="reserva" property="imovel.permiteOpcaoPagamento" value="true">
+		    
+		    <fieldset>
+		    <legend>Opções de Pagamento</legend>
+		    <table cellspacing="10">
+		    <tr>
+		    	<td>
+		    	<html:radio property="valor" value="${(reserva.valor*10/100)}">Opção 1: </html:radio><br>
+		    	Valor: R$ ${(reserva.valor*10/100)}
+		    	</td>
+		    	<td>
+		    	<html:radio property="valor" value="${reserva.valor}">Opção 2: </html:radio><br>
+		    	<bean:write name="reserva" property="valor" format="00.00"/>
+		    	</td>
+		    </tr>
+		    </table>
+		    
+		    
+		    </fieldset>
+		    </logic:equal>
 		    </b>
 		    </div>
 		    
-		    <html:form action="/usuario/reserva.do?act=incluirReserva" method="POST" >
+		    
 				<html:hidden property="codigoImovel" value="${reserva.imovel.codigo}"/> 
-				<html:hidden property="valor" value="${reserva.valor}"/>
 				<html:hidden property="diaPeriodoInicial" value="${reserva.periodoInicial.date}"/>	
 				<html:hidden property="mesPeriodoInicial" value="${(reserva.periodoInicial.month)+1}"/>
 				<html:hidden property="anoPeriodoInicial" value="${(reserva.periodoInicial.year)+1900}"/>
@@ -260,7 +283,7 @@
 				<br>
 				<html:submit>Confirmar</html:submit>
 				<!-- img src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" border="0"/-->
-			</html:form>
+			
 		    <br><br>
 		    </td>
 	    </tr>
@@ -270,6 +293,7 @@
 	    	</td>
 	    </tr>
 	    </table>
+	    </html:form>
     </td>
   </tr>
   
