@@ -269,6 +269,10 @@
 		    
 		    </fieldset>
 		    </logic:equal>
+		    <logic:notEqual name="reserva" property="imovel.permiteOpcaoPagamento" value="true">
+		    <html:hidden property="valor" value="${reserva.valor}"/>
+		    <br>
+		    </logic:notEqual>
 		    </b>
 		    </div>
 		    
