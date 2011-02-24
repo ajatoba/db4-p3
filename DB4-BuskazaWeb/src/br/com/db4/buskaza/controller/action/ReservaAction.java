@@ -197,6 +197,8 @@ public ActionForward formReservas(ActionMapping mapping, ActionForm form, HttpSe
 		try {
 			reserva = (Reserva)session.getAttribute("reserva");
 			
+			reserva.setValor(Double.parseDouble(request.getParameter("valor")));
+			
 			ReservaBeanLocal reservaEjb = (ReservaBeanLocal) ServiceLocator.getInstance().locateEJB(ReservaBeanLocal.LOCAL);
 			codigoReserva = reservaEjb.incluirReserva(reserva);
 			
