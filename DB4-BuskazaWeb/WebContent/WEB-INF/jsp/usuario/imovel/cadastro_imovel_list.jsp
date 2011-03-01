@@ -107,7 +107,7 @@ $(function(){
   <div class="bairro_reserva">${ims.bairro} -${ims.estado.codigo}<br>
     <span class="nome_rua">${ims.logradouro}</span></div>
   <div class="nota_reserva">Nota 8&nbsp;&nbsp; 102 Comentários</div>
-  <div class="total_reserva">  id: <bean:write name="ims" property="codigo"/> </div>
+  <div class="total_reserva">  id------: <bean:write name="ims" property="codigo"/> </div>
   <div class="visualizar_reserva">
     <logic:equal name="ims" property="status" value="0">Em análise &nbsp;&nbsp;</logic:equal>    
     <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}" class="link_azul">Disponibilidade/Preços</a> &nbsp;&nbsp; </logic:equal>    
