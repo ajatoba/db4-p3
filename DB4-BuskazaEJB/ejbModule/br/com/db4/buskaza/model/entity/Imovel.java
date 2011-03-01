@@ -85,9 +85,9 @@ public class Imovel implements Serializable{
 	
 	private String logradouro;
 	
-	@ManyToMany(fetch = FetchType.LAZY)	
+	@ManyToMany(fetch = FetchType.EAGER)	
 	@JoinTable(name ="tb_imovel_equipamento")    
-	private Collection<Equipamento> equipamentos;
+	private Set<Equipamento> equipamentos;
 	
 	private double energia;
 	
@@ -450,11 +450,11 @@ public class Imovel implements Serializable{
 		this.linkGoogleMaps = linkGoogleMaps;
 	}
 
-	public Collection<Equipamento> getEquipamentos() {
+	public Set<Equipamento> getEquipamentos() {
 		return equipamentos;
 	}
 
-	public void setEquipamentos(Collection<Equipamento> equipamentos) {
+	public void setEquipamentos(Set<Equipamento> equipamentos) {
 		this.equipamentos = equipamentos;
 	}
 
