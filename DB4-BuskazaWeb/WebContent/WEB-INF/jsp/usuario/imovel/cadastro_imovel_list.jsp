@@ -153,7 +153,6 @@ $(function(){
 </logic:present>
 </div>
 
-
 </div></div>
 
 </div>
