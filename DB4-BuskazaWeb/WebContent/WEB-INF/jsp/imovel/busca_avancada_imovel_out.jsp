@@ -103,7 +103,7 @@ function submitForm(){
 		        <fieldset>
 		        <legend>Preço pelo período selecionado</legend>
 		        Total por <bean:write name="qtdDias"/> dia(s): R$ <bean:write name="ims" property="value"/><br>
-		        Reserva : 
+		        <a href="/DB4-BuskazaWeb/imovel.do?act=detalheImovel&ci=${ims.key.codigo}">[ Ver detalhes do Imóvel ]</a> 
 		        </fieldset>
 		        
 		    	<br>		    	

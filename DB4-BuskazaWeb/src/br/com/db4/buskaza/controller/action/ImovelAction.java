@@ -5,10 +5,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -213,13 +215,13 @@ public class ImovelAction extends DispatchAction {
 		}
 		
 		Date checkInEntrada=null, checkInSaida=null, checkOutEntrada=null,checkOutSaida=null,lateCheckOut=null;
-		Collection<Equipamento> equipamentos = null;
+		Set<Equipamento> equipamentos = null;
 		Equipamento equipamento = null;
 		
 		Integer[] equipamentosBoxes = form.getEquipamentos();
 		
 		if(equipamentosBoxes != null && equipamentosBoxes.length >0){
-			equipamentos = new ArrayList<Equipamento>();
+			equipamentos = new HashSet<Equipamento>();
 			for (int x=0; x < equipamentosBoxes.length; x++){
 				
 				equipamento = new Equipamento();
@@ -609,5 +611,31 @@ public class ImovelAction extends DispatchAction {
 		
 		return imovel;
 
+	}
+	
+	public ActionForward detalheImovel(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response){
+		
+		String codigoImovel = request.getParameter("ci");
+		try {
+			if(codigoImovel!= null)
+			{
+				carregaListas(request);	
+				ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
+				
+				Imovel imovel = imovelEjb.getImovel(Integer.valueOf(codigoImovel));
+				
+				request.setAttribute("imovel", imovel);
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			final ActionMessages actionErrors = new ActionMessages();
+		    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+		    saveErrors( request, actionErrors );
+		    
+		}
+		
+		return mapping.findForward(Constants.DETALHE_IMOVEL);
 	}
 }

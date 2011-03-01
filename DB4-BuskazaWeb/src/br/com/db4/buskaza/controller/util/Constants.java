@@ -77,6 +77,8 @@ public interface Constants {
 	public static final String PAGAR_RESERVA_ERRO = "pagar_reserva_erro";
 	
 	public static final String OBJETO_PAGAR_RESERVA = "reservaPagar";
+	
+	public static final String DETALHE_IMOVEL = "detalhe_imovel_out";
 
 	
 
