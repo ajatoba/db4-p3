@@ -110,9 +110,9 @@ function submitForm(){
 
 
 <div id="left_busca_avancada">
-			<!-- INCLUDE DO FORM DE BUSCA -->
-			<%@include file="_form_busca_avancada_resultado.jsp" %>
-			<!-- ************************ -->
+		<!-- INCLUDE DO FORM DE BUSCA -->
+		<%@include file="_form_busca_avancada_resultado.jsp" %>
+		<!-- ************************ -->
 </div>
 	
 
