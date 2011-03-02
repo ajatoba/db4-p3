@@ -135,6 +135,24 @@
 				<html:option value="11">Novembro</html:option>
 				<html:option value="12">Dezembro</html:option>                  
 			</html:select>
+			
+			<html:select property="anoDataInicialAnuncio" title="Ano" styleId="anoDataInicialAnuncio" styleClass="MyriadProRegular">
+	        	<html:option value="2011">2011</html:option>
+		        <html:option value="2012">2012</html:option>
+		        <html:option value="2013">2013</html:option>
+		        <html:option value="2014">2014</html:option>
+		        <html:option value="2015">2015</html:option> 
+	        </html:select>
+	        
+	        <div class="sepd">
+	      	<html:select property="anoDataFinalAnuncio" title="Ano" styleId="anoDataInicialAnuncio" styleClass="MyriadProRegular">
+	        	<html:option value="2011">2011</html:option>
+		        <html:option value="2012">2012</html:option>
+		        <html:option value="2013">2013</html:option>
+		        <html:option value="2014">2014</html:option>
+		        <html:option value="2015">2015</html:option> 
+	        </html:select>
+	     </div>
       	</div>
               </span></td>
           </tr>
