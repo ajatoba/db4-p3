@@ -8,10 +8,15 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Minhas Reservas</title>
+	<title>Buzkaza - Minhas Reservas</title>
 	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
-	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+
+	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
+	
 	<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
 	
 	<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
@@ -19,11 +24,39 @@
 </head>
 
 <body>
-<div id="linha_topo"></div>
-<div id="site">
-<div id="top_header"><img src="/buzkaza/images/top_01.jpg" width="991" height="31" /></div>
-<div id="meio_header"><img src="/buzkaza/images/top_02.jpg" width="991" height="86" /></div>
-<div id="bottom_header"><img src="/buzkaza/images/top_03.jpg" width="991" height="77" /></div>
+
+
+
+<div id="conteudo"> 
+  <!--TOPO-->
+  <div id="top">
+    <div class="topo_menu">
+      <div class="txt_01">Você está: Pág. Inicial</div>
+      <div class="txt_02">Quem Somos</div>
+      <div class="txt_03">Mapa do Site</div>
+      <div class="txt_04">Contato</div>
+      <div class="txt_05">Ajuda</div>
+      <div class="txt_06">Redes Sociais</div>
+      <div class="twitter"></div>
+      <div class="facebook"></div>
+    </div>
+    <div class="tracejado_top"></div>
+    <div class="linha_logo">
+      <div class="logo"></div>
+      <div class="options"></div>
+    </div>
+    <div class="bottom_menu">
+      <a href="/DB4-BuskazaWeb/imovel.do?act=formBuscarImovel"><div class="btn_alugar">alugar imóvel</div></a>
+      <a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel"><div class="btn_anunciar">anunciar imóvel</div></a>
+      <a href="http://www.buzkaza.com.br/blog/" target="_black"><div class="btn_blog">blogs</div></a>
+      <div class="btn_login">Efetuar login</div>
+      <a href="/DB4-BuskazaWeb/usuario.do?act=formIncluirUsuario"><div class="btn_cadastre_se"></div></a>
+    </div>
+  </div>
+</div>
+
+
+
 <!--CADASTRO-->
 
 <jsp:include page="../menu.jsp"/>
@@ -80,10 +113,8 @@
 </logic:notPresent>
 
 <!--FIM CADASTRO-->
-<div id="linha_meio"></div>
-<div id="boxes"><img src="/buzkaza/images/formulario_proprietario(zig.jpg" width="991" height="283" /></div>
-<div id="linha_cinza"></div>
-<div id="bottom"></div>
+
+<jsp:include page="../rodape.jsp"/>
 
 </div>
 </body>
