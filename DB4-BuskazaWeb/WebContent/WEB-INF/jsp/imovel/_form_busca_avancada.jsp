@@ -21,7 +21,7 @@
 				<html:options collection="paises" property="codigo" labelProperty="nome"/>
 			</html:select>      
       </td>
-      <td width="33%" height="30"><html:text property="municipio" styleClass="MyriadProRegular"/></td>
+      <td width="33%" height="30"><html:text property="municipio" styleClass="MyriadProRegular" size="4" /></td>
     </tr>
     <tr>
       <td width="33%" height="30">Capacidade</td>
