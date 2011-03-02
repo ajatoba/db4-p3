@@ -113,7 +113,7 @@ function submitForm(){
 		<!-- INCLUDE DO FORM DE BUSCA -->
 		<%@include file="_form_busca_avancada_resultado.jsp" %>
 		<!-- ************************ -->
-</div>
+
 	
 
 
@@ -141,39 +141,55 @@ function submitForm(){
 		    <td valign="center" align="center"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="key.primeirafoto"/>" width="140" height="104" />
 		    </td>
 		    <td>
-		    	<fieldset>
-		    	<legend>Dados do Anúncio</legend>    	
-		    	<bean:write name="ims" property="key.logradouro"/>,<bean:write name="ims" property="key.numero"/> , 
-		    	<bean:write name="ims" property="key.bairro"/>, <bean:write name="ims" property="key.complemento"/>, 
-		    	<bean:write name="ims" property="key.municipio"/> - <bean:write name="ims" property="key.estado.codigo"/>
-		    	<br>		
-				Capacidade :  <bean:write name="ims" property="key.capacidade"/><br />
-		        Quartos :  <bean:write name="ims" property="key.quartos"/><br />
-		        Metragem :  <bean:write name="ims" property="key.metragem"/><br />
-		        Proprietário: <bean:write name="ims" property="key.usuarioProprietario.nome"/><br />
-		        </fieldset>
-		        
-		        <fieldset>
-		        <legend>Preço pelo período selecionado</legend>
-		        Total por <bean:write name="qtdDias"/> dia(s): R$ <bean:write name="ims" property="value"/><br>
+		    	
+		    	
+		    	<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="left" valign="top"><span class="tit_azul2"><bean:write name="ims" property="key.logradouro"/>,</span><br />
+                    <span class="txt_form"><bean:write name="ims" property="key.numero"/> , 
+		    				<bean:write name="ims" property="key.bairro"/>, <bean:write name="ims" property="key.complemento"/>, 
+		    				<bean:write name="ims" property="key.municipio"/> - <bean:write name="ims" property="key.estado.codigo"/>
+		    	
+		    	</span><br />
+                    <br />
+                    
+					<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
+					<html:hidden property="codigoImovel" value="${ims.key.codigo}"/> 
+					<html:hidden property="valor" value="${ims.value}"/>
+					<html:hidden property="diaPeriodoInicial" value="${periodoBuscado.periodoInicial.date}"/>	
+					<html:hidden property="mesPeriodoInicial" value="${(periodoBuscado.periodoInicial.month)+1}"/>
+					<html:hidden property="anoPeriodoInicial" value="${(periodoBuscado.periodoInicial.year)+1900}"/>
+					<html:hidden property="diaPeriodoFinal" value="${periodoBuscado.periodoFinal.date}"/>	
+					<html:hidden property="mesPeriodoFinal" value="${(periodoBuscado.periodoFinal.month)+1}"/>
+					<html:hidden property="anoPeriodoFinal" value="${(periodoBuscado.periodoFinal.year)+1900}"/>
+					
+					<input type="image" src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" />
+					
+					
+					<!-- <html:submit>Reservar</html:submit>
+						  img src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" border="0"/-->
+					</html:form>
+		    	
+                    <br /></td>
+                    
+                  <td align="left" valign="top">
+                  <span class="txt_form">Capacidade : <bean:write name="ims" property="key.capacidade"/><br />
+                    Quartos : <bean:write name="ims" property="key.quartos"/><br />
+                    Metragem : <bean:write name="ims" property="key.metragem"/><br />
+                    Proprietário: <bean:write name="ims" property="key.usuarioProprietario.nome"/></span><br /></td>
+                  <td valign="top" class="txt_form">Diária : 
+                  Total por <bean:write name="qtdDias"/> dia(s): R$ <bean:write name="ims" property="value"/><br>
 		        <a href="/DB4-BuskazaWeb/imovel.do?act=detalheImovel&ci=${ims.key.codigo}">[ Ver detalhes do Imóvel ]</a> 
-		        </fieldset>
-		        
+		        </td>
+                </tr>
+              </table>
+              
+              
 		    	<br>		    	
-		    	<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
-		    	<html:hidden property="codigoImovel" value="${ims.key.codigo}"/> 
-		    	<html:hidden property="valor" value="${ims.value}"/>
-		    	<html:hidden property="diaPeriodoInicial" value="${periodoBuscado.periodoInicial.date}"/>	
-		    	<html:hidden property="mesPeriodoInicial" value="${(periodoBuscado.periodoInicial.month)+1}"/>
-		    	<html:hidden property="anoPeriodoInicial" value="${(periodoBuscado.periodoInicial.year)+1900}"/>
-		    	<html:hidden property="diaPeriodoFinal" value="${periodoBuscado.periodoFinal.date}"/>	
-		    	<html:hidden property="mesPeriodoFinal" value="${(periodoBuscado.periodoFinal.month)+1}"/>
-		    	<html:hidden property="anoPeriodoFinal" value="${(periodoBuscado.periodoFinal.year)+1900}"/>
+		    	
 		    		
 		    		
-		    		<html:submit>Reservar</html:submit>
-		    		<!-- img src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" border="0"/-->
-		    	</html:form>
+		    		
 		    </td>    
 		  </tr>		
 		
