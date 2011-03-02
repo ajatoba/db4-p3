@@ -1,3 +1,4 @@
+----------------------
 
 <html:form method="post" styleId="imovelBuscaForm" action="/imovel.do?act=buscarImovel">
 
@@ -46,6 +47,7 @@
                 <html:option value="2">2 Quartos</html:option>
                 <html:option value="3">3 Quartos</html:option>
                 <html:option value="4">4 Quartos</html:option>
+                <html:option value="5">5 Quartos</html:option>
             </html:select>      
       </td>
       <td width="33%" height="30">
