@@ -142,7 +142,7 @@ $(function(){
 
 </div>
 
-
+<jsp:include page="../rodape.jsp"/>
 
 
 </body>
