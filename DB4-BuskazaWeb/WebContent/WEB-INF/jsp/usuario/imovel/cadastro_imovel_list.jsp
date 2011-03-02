@@ -70,7 +70,7 @@ $(function(){
       <div class="options"></div>
     </div>
     <div class="bottom_menu">
-      <div class="btn_alugar">alugar imóvel</div>
+      <a href="/DB4-BuskazaWeb/imovel.do?act=formBuscarImovel"><div class="btn_alugar">alugar imóvel</div></a>
       <a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel"><div class="btn_anunciar">anunciar imóvel</div></a>
       <a href="http://www.buzkaza.com.br/blog/" target="_black"><div class="btn_blog">blogs</div></a>
       <div class="btn_login">Efetuar login</div>
@@ -109,7 +109,7 @@ $(function(){
   <div class="visualizar_reserva">
     <logic:equal name="ims" property="status" value="0">Em análise &nbsp;&nbsp;</logic:equal>    
     <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}" class="link_azul">Disponibilidade/Preços</a> &nbsp;&nbsp; </logic:equal>    
-    <logic:notEmpty name="ims" property="anuncios"> <a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=listarAnunciosImovel&ci=${ims.codigo}" class="link_azul">Ver Disponibilidade</a> &nbsp;&nbsp; </logic:notEmpty>
+    <logic:notEmpty name="ims" property="anuncios"><!-- <a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=listarAnunciosImovel&ci=${ims.codigo}" class="link_azul">Ver Disponibilidade</a> &nbsp;&nbsp; --> </logic:notEmpty>
     <logic:equal name="ims" property="status" value="1"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}" class="link_azul">Editar Anúncio</a> &nbsp;&nbsp; </logic:equal>
   	<a href="javascript:excluirAnuncio()" class="link_azul">Excluir Anúncio</a>
   	 <!-- 
