@@ -4,7 +4,7 @@
 <div class="MyriadProRegular">
 
   <div class="form_01">
-  <table width="450" border="0" align="center" cellpadding="0" cellspacing="2" class="txt_form">
+  <table width="490" border="0" align="center" cellpadding="0" cellspacing="2" class="txt_form">
     <tr>
       <td width="33%" height="30">Estado</td>
       <td width="33%" height="30">País</td>
@@ -21,7 +21,7 @@
 				<html:options collection="paises" property="codigo" labelProperty="nome"/>
 			</html:select>      
       </td>
-      <td width="33%" height="30"><html:text property="municipio" styleClass="MyriadProRegular" size="4" /></td>
+      <td width="33%" height="30"><html:text property="municipio" styleClass="MyriadProRegular" size="18" /></td>
     </tr>
     <tr>
       <td width="33%" height="30">Capacidade</td>
@@ -34,6 +34,9 @@
                 <html:option value=""></html:option> 
                 <html:option value="1">1 Pessoa</html:option>
                 <html:option value="2">2 Pessoas</html:option>
+                <html:option value="3">3 Pessoas</html:option>
+                <html:option value="4">4 Pessoas</html:option>
+                <html:option value="5">5 Pessoas</html:option>
             </html:select>
       </td>
       <td width="33%" height="30">
@@ -41,6 +44,9 @@
                 <html:option value=""></html:option> 
                 <html:option value="1">1 Quarto</html:option>
                 <html:option value="2">2 Quartos</html:option>
+                <html:option value="3">3 Quartos</html:option>
+                <html:option value="4">4 Quartos</html:option>
+                <html:option value="5">5 Quartos</html:option>
             </html:select>      
       </td>
       <td width="33%" height="30">
@@ -186,7 +192,7 @@
 <div class="form_02">
 <table width="90%" border="0" align="center" cellpadding="0" cellspacing="4">
   <tr>
-    <td colspan="3" class="txt_caracteristica"><img src="_img/bullet.jpg" width="21" height="16" />Características do Imóvel</td>
+    <td colspan="3" class="txt_caracteristica"><img src="/buzkaza/_img/bullet.jpg" width="21" height="16" />Características do Imóvel</td>
     </tr>
   
     
@@ -194,9 +200,9 @@
         <logic:iterate name="equipamentos" id="equipamento">
 			<tr>
 				<td colspan="3" class="MyriadProRegular"><span class="txt_form">
-			    		<html:multibox property="equipamentos" styleClass="MyriadProRegular">
+			    		<html:multibox property="equipamentos" styleClass="MyriadProRegular"> 
 				<bean:write name="equipamento" property="codigo"/>  
-				</html:multibox> 
+				</html:multibox> &nbsp;
 				<bean:write name="equipamento" property="nome"/></span></td>
 			</tr>       
 	    </logic:iterate>
