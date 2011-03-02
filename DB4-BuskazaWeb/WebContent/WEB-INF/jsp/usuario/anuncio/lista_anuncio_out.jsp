@@ -87,7 +87,7 @@ $(function(){
 				<!--BOX COM A RESERVA-->
 				<div id="listagem_reservas">
 				<!--BOX COM A RESERVA-->
-					 de <bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>	
+					<bean:write name="an" property="tipoAnuncio.nome" /> de <bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>	
 				<div id="separator_listagem"></div>
 			</logic:iterate>
 		</logic:present>
