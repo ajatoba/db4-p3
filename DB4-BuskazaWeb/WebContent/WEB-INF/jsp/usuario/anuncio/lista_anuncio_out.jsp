@@ -41,11 +41,35 @@ $(function(){
 
 <body>
 
-<div id="linha_topo"></div>
-<div id="site">
-<div id="top_header"><img src="/buzkaza/images/top_01.jpg" width="991" height="31" /></div>
-<div id="meio_header"><img src="/buzkaza/images/top_02.jpg" width="991" height="86" /></div>
-<div id="bottom_header"><img src="/buzkaza/images/top_03.jpg" width="991" height="77" /></div>
+<div id="conteudo"> 
+  <!--TOPO-->
+  <div id="top">
+    <div class="topo_menu">
+      <div class="txt_01">Você está: Pág. Inicial</div>
+      <div class="txt_02">Quem Somos</div>
+      <div class="txt_03">Mapa do Site</div>
+      <div class="txt_04">Contato</div>
+      <div class="txt_05">Ajuda</div>
+      <div class="txt_06">Redes Sociais</div>
+      <div class="twitter"></div>
+      <div class="facebook"></div>
+    </div>
+    <div class="tracejado_top"></div>
+    <div class="linha_logo">
+      <div class="logo"></div>
+      <div class="options"></div>
+    </div>
+    <div class="bottom_menu">
+      <div class="btn_alugar">alugar imóvel</div>
+      <a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel"><div class="btn_anunciar">anunciar imóvel</div></a>
+      <a href="http://www.buzkaza.com.br/blog/" target="_black"><div class="btn_blog">blogs</div></a>
+      <div class="btn_login">Efetuar login</div>
+      <a href="/DB4-BuskazaWeb/usuario.do?act=formIncluirUsuario"><div class="btn_cadastre_se"></div></a>
+    </div>
+  </div>
+</div>
+
+
 <!--CADASTRO-->
 <jsp:include page="../menu.jsp"/>
 <div id="cont_reserva">
@@ -63,7 +87,7 @@ $(function(){
 				<!--BOX COM A RESERVA-->
 				<div id="listagem_reservas">
 				<!--BOX COM A RESERVA-->
-					<bean:write name="an" property="tipoAnuncio.nome" /> de <bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>	
+					 de <bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>	
 				<div id="separator_listagem"></div>
 			</logic:iterate>
 		</logic:present>
