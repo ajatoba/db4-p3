@@ -105,6 +105,18 @@ function submitForm(){
     <!-- ****************** -->
  </div>
 
+
+<div id="cont_result_busca">
+
+
+<div id="left_busca_avancada">
+			<!-- INCLUDE DO FORM DE BUSCA -->
+			<%@include file="_form_busca_avancada_resultado.jsp" %>
+			<!-- ************************ -->
+</div>
+	
+
+
 <div id="right_busca_avancada">
 <div id="conteudo_result_busca">
 
@@ -117,11 +129,7 @@ function submitForm(){
 
 <table border="0" width="80%" >
 <tr>
-	<td width="20%" valign="top" >
-	<!-- INCLUDE DO FORM DE BUSCA -->
-	<%@include file="_form_busca_avancada_resultado.jsp" %>
-	<!-- ************************ -->
-	<td>
+	
 
 
 <logic:present name="imoveisValor">
@@ -177,6 +185,8 @@ function submitForm(){
 
 </tr>
 </table>
+
+</div>
 
 </div>
 
