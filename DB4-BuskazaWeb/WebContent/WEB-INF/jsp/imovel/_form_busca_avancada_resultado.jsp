@@ -33,7 +33,7 @@
           </tr>
           <tr>
             <td colspan="2"><span class="txt_form">
-              <html:text property="municipio" styleClass="MyriadProRegular" size="180" />
+              <html:text property="municipio" styleClass="MyriadProRegular" size="160" />
               </span></td>
           </tr>
           <tr>
@@ -267,7 +267,7 @@
             <td colspan="2" class="busca_avancada"></td>
           </tr>
           <tr>
-            <td colspan="2"><img src="_img/btn_buscar_avancada.jpg" width="205" height="30" /></td>
+            <td colspan="2"><a href="#" onclick="submitForm();" border="0"><img src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></a></td>
           </tr>
         </table>
 </div>
