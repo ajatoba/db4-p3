@@ -10,29 +10,29 @@
 <title>Buzkaza</title>
 
 	
-	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
-	<link href="/buzkaza/_css/busca.css" rel="stylesheet" type="text/css" />
-	
-	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
-	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/_css/busca.css" rel="stylesheet" type="text/css" />
 
-	<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
-	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
-	
-	<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
-	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
-	
-	<script language="javascript">
-		$(function(){
-			$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
-		});
+<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
 
-		function submitForm(){
-			var form = 	document.imovelBuscaForm;
-			document.forms[0].submit();			
-		}
-	</script>
+<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
+<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
+
+<script language="javascript">
+	$(function(){
+		$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
+	});
+
+	function submitForm(){
+		var form = 	document.imovelBuscaForm;
+		document.forms[0].submit();			
+	}
+</script>
 
 </head>
 
