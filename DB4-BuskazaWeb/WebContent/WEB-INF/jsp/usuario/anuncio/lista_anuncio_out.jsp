@@ -49,27 +49,25 @@ $(function(){
 <!--CADASTRO-->
 <jsp:include page="../menu.jsp"/>
 <div id="cont_reserva">
-<div id="meio_reserva">
-<div class="top_reserva">
-<div class="txt_meus_anuncios"><span class="MyriadPro24">Disponibilidade</span></div>
-
-</div>
-<div id="sep_top_reserva"></div>
-
-<div id="listagem_reservas">
-
-<div id="separator_listagem"></div>
-<logic:present name="anuncios">
-	<logic:iterate id="an"  name="anuncios">
-
-		<!--BOX COM A RESERVA-->
-		<div id="listagem_reservas">
-		<!--BOX COM A RESERVA-->
-			<bean:write name="an" property="tipoAnuncio.nome" /> de <bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>	
-		<div id="separator_listagem"></div>
-	</logic:iterate>
-</logic:present>
-</div>
+	<div id="meio_reserva">
+		<div class="top_reserva">
+			<div class="txt_meus_anuncios"><span class="MyriadPro24">Disponibilidade</span></div>		
+		</div>
+	<div id="sep_top_reserva"></div>
+	
+	<div id="listagem_reservas">
+	
+	<div id="separator_listagem"></div>
+		<logic:present name="anuncios">
+			<logic:iterate id="an"  name="anuncios">		
+				<!--BOX COM A RESERVA-->
+				<div id="listagem_reservas">
+				<!--BOX COM A RESERVA-->
+					<bean:write name="an" property="tipoAnuncio.nome" /> de <bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>	
+				<div id="separator_listagem"></div>
+			</logic:iterate>
+		</logic:present>
+	</div>
 <!--FIM CADASTRO-->
 
 </div>
