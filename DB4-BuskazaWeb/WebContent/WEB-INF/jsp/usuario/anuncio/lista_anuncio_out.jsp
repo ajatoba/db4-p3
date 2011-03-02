@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Buzkaza</title>
 <link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
 
 	<link rel="stylesheet" href="/buzkaza/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
@@ -22,10 +22,12 @@
     <script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
 <script>
 $(function(){
-$('#sep_top_reserva').corner('rounded 7px');
+	/*
+	$('#sep_top_reserva').corner('rounded 7px');
 
 	$("#busca_home").corner("bottom 7px");
 	$("#mapa_").corner("bottom 7px");
+	*/
 	});
 </script>
 <link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
@@ -63,22 +65,15 @@ $('#sep_top_reserva').corner('rounded 7px');
 </logic:present>
 </div>
 <!--FIM CADASTRO-->
-<div id="linha_meio"></div>
-<div id="boxes"><img src="/buzkaza/images/formulario_proprietario(zig.jpg" width="991" height="283" /></div>
-<div id="linha_cinza"></div>
-<div id="bottom"><img src="/buzkaza/images/formulario_proprietario(zig.gif" width="991" height="253" /></div>
 
 </div>
 
 
 
 </div>
-<!--FIM CADASTRO-->
-<div id="linha_meio"></div>
-<div id="boxes"><img src="/buzkaza/images/formulario_proprietario(zig.jpg" width="991" height="283" /></div>
-<div id="linha_cinza"></div>
-<div id="bottom"><img src="/buzkaza/images/formulario_proprietario(zig.gif" width="991" height="253" /></div>
 
-</div>
+<jsp:include page="../rodape.jsp"/>
+
+
 </body>
 </html>
