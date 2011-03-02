@@ -60,7 +60,7 @@ $(function(){
       <div class="options"></div>
     </div>
     <div class="bottom_menu">
-      <div class="btn_alugar">alugar imóvel</div>
+      <a href="/DB4-BuskazaWeb/imovel.do?act=formBuscarImovel"><div class="btn_alugar">alugar imóvel</div></a>
       <a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel"><div class="btn_anunciar">anunciar imóvel</div></a>
       <a href="http://www.buzkaza.com.br/blog/" target="_black"><div class="btn_blog">blogs</div></a>
       <div class="btn_login">Efetuar login</div>
@@ -71,7 +71,7 @@ $(function(){
 
 
 <!--CADASTRO-->
-<jsp:include page="../menu.jsp"/>
+
 <div id="cont_reserva">
 	<div id="meio_reserva">
 		<div class="top_reserva">
