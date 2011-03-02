@@ -21,7 +21,7 @@
 				<html:options collection="paises" property="codigo" labelProperty="nome"/>
 			</html:select>      
       </td>
-      <td width="33%" height="30"><html:text property="municipio" styleClass="MyriadProRegular" size="18" /></td>
+      <td width="33%" height="30"><html:text property="municipio" styleClass="MyriadProRegular" size="180" /></td>
     </tr>
     <tr>
       <td width="33%" height="30">Capacidade</td>
@@ -34,9 +34,6 @@
                 <html:option value=""></html:option> 
                 <html:option value="1">1 Pessoa</html:option>
                 <html:option value="2">2 Pessoas</html:option>
-                <html:option value="3">3 Pessoas</html:option>
-                <html:option value="4">4 Pessoas</html:option>
-                <html:option value="5">5 Pessoas</html:option>
             </html:select>
       </td>
       <td width="33%" height="30">
@@ -44,9 +41,6 @@
                 <html:option value=""></html:option> 
                 <html:option value="1">1 Quarto</html:option>
                 <html:option value="2">2 Quartos</html:option>
-                <html:option value="3">3 Quartos</html:option>
-                <html:option value="4">4 Quartos</html:option>
-                <html:option value="5">5 Quartos</html:option>
             </html:select>      
       </td>
       <td width="33%" height="30">
@@ -199,11 +193,19 @@
     <logic:notEmpty name="equipamentos">	
         <logic:iterate name="equipamentos" id="equipamento">
 			<tr>
-				<td colspan="3" class="MyriadProRegular"><span class="txt_form">
-			    		<html:multibox property="equipamentos" styleClass="MyriadProRegular"> 
-				<bean:write name="equipamento" property="codigo"/>  
-				</html:multibox> &nbsp;
-				<bean:write name="equipamento" property="nome"/></span></td>
+				<td colspan="3" class="MyriadProRegular">
+						<span class="txt_form">
+								<div class="equip_top1">
+									
+								    <html:multibox property="equipamentos" styleClass="MyriadProRegular"> 
+									<bean:write name="equipamento" property="codigo"/>  
+									</html:multibox>
+								</div>
+								<div class="equip_top2">
+									<bean:write name="equipamento" property="nome"/>
+								</div>
+						</span>
+			</td>
 			</tr>       
 	    </logic:iterate>
     </logic:notEmpty>    
