@@ -100,10 +100,14 @@
   	</font>
     <!-- ****************** -->
 
-</div>
+
 <!-- INCLUDE DO FORM DE BUSCA -->
 <%@include file="_form_busca_avancada.jsp" %>
 <!-- ************************ -->
+
+
+</div>
+
 
 </div>
 </div>
