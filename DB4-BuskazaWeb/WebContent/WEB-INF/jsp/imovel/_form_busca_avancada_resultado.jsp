@@ -1,7 +1,8 @@
 
+
 <html:form method="post" styleId="imovelBuscaForm" action="/imovel.do?act=buscarImovel">
 
-<table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
+		<table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr>
             <td height="40" colspan="2" valign="bottom" class="tit_azul2">Redefinir Busca</td>
           </tr>
@@ -117,8 +118,7 @@
             <html:option value="29">29</html:option>                            
             <html:option value="30">30</html:option>
             <html:option value="31">31</html:option>                            
-		</html:select>
-        
+		</html:select>        
         
         <div class="sepd">
 			<html:select property="mesDataInicialAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
