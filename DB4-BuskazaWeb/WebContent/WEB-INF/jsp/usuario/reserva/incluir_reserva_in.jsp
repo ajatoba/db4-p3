@@ -16,13 +16,14 @@
 
 <link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
 
-<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
-<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/size_campos.css"/>
 
-<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
+<script type="text/javascript" src="/buzkaza/_js/jquery-1.4.js"></script>
 <script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 <script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
-<script type="text/javascript" src="/buzkaza/_js/jquery-1.4.js"></script>
+
 <script type="text/javascript" src="/buzkaza/_js/tabs.js"></script>
 <script type="text/javascript" src="/buzkaza/_js/function.js"></script>
 <script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
@@ -37,8 +38,23 @@
 
 <script language="javascript">
 	$(function(){
-			$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
+			
 	});	
+
+
+$(document).ready(function()
+{
+
+	$('iframe').load(function()
+			{
+				this.style.width = 350 + 'px';
+				this.style.height = 350 + 'px';
+			}
+		);
+	
+	$('#anuncioForm').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
+}
+);
 </script>
 	
 </head>
@@ -106,22 +122,23 @@
 <div class="mapa_planta"><img src="/buzkaza/_img/adm_meusanuncios_editar_05.png" width="195" height="145" /></div>
 
 <div class="MyriadProRegular">
-<fieldset>
-<legend>Dados do Imóvel</legend>
+
 <table width="40%" border="0" > 
   <tr>
     <td width="20%">
-    	${reserva.imovel.bairro}<br>
-    	${reserva.imovel.logradouro}
+    	<span class="nome_rua">${reserva.imovel.bairro}<br>
+    	${reserva.imovel.logradouro}</span>
     </td>
     <td width="20%">
-      Distância do centro ${reserva.imovel.distanciaCentro}<br />
-      Mapa Google Maps:${reserva.imovel.linkGoogleMaps}<br />
-      Vídeo You Tube:${reserva.imovel.linkYouTube}
+	    <span class="nome_rua">
+	      Distância do centro ${reserva.imovel.distanciaCentro}<br />
+	      Mapa Google Maps:${reserva.imovel.linkGoogleMaps}<br />
+	      Vídeo You Tube:${reserva.imovel.linkYouTube}</span>
     </td>
   </tr>
 </table>
-</fieldset>
+
+
 </div>
 
 <div id="formulario_edicao">
@@ -160,7 +177,8 @@
   	<input type="submit" value="Trocar Período">
   	</html:form>
   	<br>
-  	<table border="1">
+  	
+  	<table border="0" cellspacing="3">
   	<tr>
   		<td>Dom</td>
   		<td>Seg</td>
@@ -216,7 +234,7 @@
         }
         //**********************
         
-        out.println("<td bgcolor='"+ color +"'>"+ mapa.getKey() +"</td>");
+        out.println("<td width='10%' class='txt_caracteristicas'>"+ mapa.getKey() +"</td>");
         
         if((index % 7) == 0) out.println("</tr>");
         
@@ -227,32 +245,34 @@
   	</table>
   	<br>
   	<!-- LEGENDA -->
-  	<table border="0">
-      <tr>
-        <td width="5%" bgcolor="#E3E3E3">&nbsp;</td>
-        <td width="27%">Reservado</td>
-        <td width="6%" bgcolor="#8DBF22">&nbsp;</td>
-        <td width="28%">Baixa Temporada</td>
-        <td width="6%" bgcolor="#D300FF">&nbsp;</td>
-        <td width="28%">Data Especial</td>
-      </tr>
-      <tr>
-        <td bgcolor="#2980C5">&nbsp;</td>
-        <td>Bloqueado</td>
-        <td bgcolor="#FFC600">&nbsp;</td>
-        <td>Média Temporada</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td bgcolor="#00D8FF">&nbsp;</td>
-        <td>Pacote Fechado</td>
-        <td bgcolor="#FF6D00">&nbsp;</td>
-        <td>Alta Temporada</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table>
+  	
+		 <table width="100%" border="0">
+	    <tr>
+	      <td width="5%" bgcolor="#E3E3E3">&nbsp;</td>
+	      <td width="27%" class="txt_caracteristicas">Reservado</td>
+	      <td width="6%" bgcolor="#8DBF22">&nbsp;</td>
+	      <td width="28%" class="txt_caracteristicas">Baixa Temporada</td>
+	      <td width="6%" bgcolor="#D300FF">&nbsp;</td>
+	      <td width="28%" class="txt_caracteristicas">Data Especial</td>
+	    </tr>
+	    <tr>
+	      <td bgcolor="#2980C5">&nbsp;</td>
+	      <td class="txt_caracteristicas">Bloqueado</td>
+	      <td bgcolor="#FFC600">&nbsp;</td>
+	      <td class="txt_caracteristicas">Média Temporada</td>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td bgcolor="#00D8FF">&nbsp;</td>
+	      <td class="txt_caracteristicas">Pacote Fechado</td>
+	      <td bgcolor="#FF6D00">&nbsp;</td>
+	      <td class="txt_caracteristicas">Alta Temporada</td>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	  </table>
+
   	<!-- ******* -->
   	
   	</td>
@@ -361,19 +381,19 @@
   <div id="tabs">                
                 <div id="container_abas">
                         <ul id="nav">	
-                            <li id="aba_1"><a href="#quemsomos" class="corrente" onclick="trocaImagem('opcao_01')"><img src="/buzkaza/_img/opcao_01_azul.png" id="opcao_01"width="157" height="49" alt="" border="0"/>ABA1</a></li>  
-                            <li><a href="#formacao" onclick="trocaImagem('opcao_02')"><img src="/buzkaza/_img/opcao_02.png" id="opcao_02"width="157" height="49" alt="" border="0"/>ABA2</a></li> 
+                            <li id="aba_1"><a href="#quemsomos" class="corrente" onclick="trocaImagem('opcao_01')"><img src="/buzkaza/_img/opcao_01_azul.jpg" id="opcao_01"width="157" height="49" alt="" border="0"/></a></li>  
+                            <li><a href="#formacao" onclick="trocaImagem('opcao_02')"><img src="/buzkaza/_img/opcao_02.jpg" id="opcao_02"width="157" height="49" alt="" border="0"/></a></li> 
                                                     
                         </ul>
                     
                   <div id="aba1" class="aba">
                     <table width="100%" border="0">
                       <tr>
-                        <td>Pagamento de sinal para confirmação de reserva, com saldo direto no check in.<br />
-                          Sinal de 10% (Deduzida do total da estadia+taxas extras) + encargos do cartão ou boleto referente o sinal de 10%, retidos pelo Buzkaza como taxa de transação.</td>
+                        <td><span class="txt_caracteristicas">Pagamento de sinal para confirmação de reserva, com saldo direto no check in.<br />
+                    Sinal de 10% (Deduzida do total da estadia+taxas extras) + encargos do cartão ou boleto referente o sinal de 10%, retidos pelo Buzkaza como taxa de transação.</span></td>
                       </tr>
                       <tr>
-                        <td>Forma de Pagamento</td>
+                        <td><span class="txt_caracteristicas">Forma de Pagamento</span></td>
                       </tr>
                       <tr>
                         <td><input type="radio" name="radio" id="radio" value="radio" />
@@ -419,7 +439,11 @@
                   <div id="aba2" class="aba">
                     <table width="100%" border="0">
                       <tr>
-                        <td colspan="3">Pagamento integral da estadia (só para proprietários Brasileiros).</td>
+                        <td colspan="3">Pagamento integral da estadia (só para proprietários Brasileiros).
+                        
+                        
+                        
+                        </td>
                       </tr>
                       <tr>
                         <td>Titular</td>
@@ -427,19 +451,19 @@
                         <td>CPF/CNPJ</td>
                       </tr>
                       <tr>
-                        <td colspan="2"><label for="textfield"></label>
-                          <input type="text" name="textfield" id="textfield" /></td>
-                        <td><input type="text" name="textfield3" id="textfield3" /></td>
+                        <td colspan="2">
+                          <input type="text" name="textfield" id="textfield" size="70"/></td>
+                        <td><input type="text" name="textfield3" id="textfield3" size="70"/></td>
                       </tr>
                       <tr>
-                        <td>Numero do Banco</td>
+                        <td>Número do Banco</td>
                         <td>Agência</td>
                         <td>Conta Corrente</td>
                       </tr>
                       <tr>
-                        <td><input type="text" name="textfield2" id="textfield2" /></td>
-                        <td><input type="text" name="textfield4" id="textfield4" /></td>
-                        <td><input type="text" name="textfield5" id="textfield5" /></td>
+                        <td><input type="text" name="textfield2" id="textfield2" size="70"/></td>
+                        <td><input type="text" name="textfield4" id="textfield4" size="70" /></td>
+                        <td><input type="text" name="textfield5" id="textfield5" size="70"/></td>
                       </tr>
                     </table>
                     <br /><br />
