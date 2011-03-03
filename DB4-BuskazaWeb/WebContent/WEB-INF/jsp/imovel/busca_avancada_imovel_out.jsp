@@ -127,7 +127,7 @@ function submitForm(){
 
 <div id="sep_top_ba"></div>
 
-<table border="0" width="80%" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
 	
 
@@ -135,6 +135,8 @@ function submitForm(){
 <logic:present name="imoveisValor">
 	<td>
 		<logic:iterate id="ims"  name="imoveisValor">
+		
+		<div id="cont_ba">
 		
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MyriadProRegular">
 		  <tr>
@@ -145,11 +147,17 @@ function submitForm(){
 		    	
 		    	<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td align="left" valign="top"><span class="tit_azul2"><bean:write name="ims" property="key.logradouro"/>,</span><br />
-                    <span class="txt_form"><bean:write name="ims" property="key.numero"/> , 
+                  <td align="left" valign="top"><span class="tit_azul2">
+	                  <!-- <bean:write name="ims" property="key.logradouro"/> -->
+	                  <bean:write name="ims" property="key.bairro"/>,</span><br />
+	                  
+                    <span class="txt_form">
+                    <bean:write name="ims" property="key.logradouro"/> 
+                    <!-- 
+                    <bean:write name="ims" property="key.numero"/> , 
 		    				<bean:write name="ims" property="key.bairro"/>, <bean:write name="ims" property="key.complemento"/>, 
 		    				<bean:write name="ims" property="key.municipio"/> - <bean:write name="ims" property="key.estado.codigo"/>
-		    	
+		    		 -->
 		    	</span><br />
                     <br />
                     
@@ -177,7 +185,7 @@ function submitForm(){
                     Quartos : <bean:write name="ims" property="key.quartos"/><br />
                     Metragem : <bean:write name="ims" property="key.metragem"/><br />
                     Proprietário: <bean:write name="ims" property="key.usuarioProprietario.nome"/></span><br /></td>
-                  <td valign="top" class="txt_form">Diária : 
+                  <td valign="top" class="txt_form">
                   Total por <bean:write name="qtdDias"/> dia(s): R$ <bean:write name="ims" property="value"/><br>
 		        <a href="/DB4-BuskazaWeb/imovel.do?act=detalheImovel&ci=${ims.key.codigo}">[ Ver detalhes do Imóvel ]</a> 
 		        </td>
@@ -194,6 +202,8 @@ function submitForm(){
 		  </tr>		
 		
 		</table>
+		
+		</div>
 		
 		</logic:iterate>
 	</td>
