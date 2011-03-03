@@ -121,25 +121,31 @@ $(document).ready(function()
 <div class="topo_edicao">
 <div class="mapa_planta"><img src="/buzkaza/_img/adm_meusanuncios_editar_05.png" width="195" height="145" /></div>
 
-<div class="MyriadProRegular">
-
-<table width="40%" border="0" > 
-  <tr>
-    <td width="20%">
-    	<span class="nome_rua">${reserva.imovel.bairro}<br>
-    	${reserva.imovel.logradouro}</span>
-    </td>
-    <td width="20%">
-	    <span class="nome_rua">
-	      Distância do centro ${reserva.imovel.distanciaCentro}<br />
-	      Mapa Google Maps:${reserva.imovel.linkGoogleMaps}<br />
-	      Vídeo You Tube:${reserva.imovel.linkYouTube}</span>
-    </td>
-  </tr>
-</table>
 
 
+<div class="endereco_bairro">
+		<table width="100%" border="0" > 
+		  <tr valign="top">
+		    <td width="35%" valign="top">
+		    	<span class="nome_rua">${reserva.imovel.bairro}<br>
+		    	${reserva.imovel.logradouro}</span>
+		    </td>
+		    <td width="65%" valign="top">
+			    <span class="nome_rua">
+			      Distância do centro ${reserva.imovel.distanciaCentro}<br />
+			      Mapa Google Maps:${reserva.imovel.linkGoogleMaps}<br />
+			      Vídeo You Tube:${reserva.imovel.linkYouTube}</span>
+		    </td>
+		  </tr>
+		</table>
 </div>
+
+<div class="menu_edicao">
+	<div class="menu_01_cinza"></div>
+	<div class="menu_02_cinza"></div>
+	<div class="menu_03"></div>
+</div>
+      
 
 <div id="formulario_edicao">
 <div class="left_formulario_">
@@ -180,13 +186,13 @@ $(document).ready(function()
   	
   	<table border="0" cellspacing="3">
   	<tr>
-  		<td>Dom</td>
-  		<td>Seg</td>
-  		<td>Ter</td>
-  		<td>Qua</td>
-  		<td>Qui</td>
-  		<td>Sex</td>
-  		<td>Sab</td>
+  		<td width='10%' class='txt_caracteristicas'>Dom</td>
+  		<td width='10%' class='txt_caracteristicas'>Seg</td>
+  		<td width='10%' class='txt_caracteristicas'>Ter</td>
+  		<td width='10%' class='txt_caracteristicas'>Qua</td>
+  		<td width='10%' class='txt_caracteristicas'>Qui</td>
+  		<td width='10%' class='txt_caracteristicas'>Sex</td>
+  		<td width='10%' class='txt_caracteristicas'>Sab</td>
   	</tr>
   	
   	<logic:present name="calendarioAnuncio">	
@@ -234,7 +240,7 @@ $(document).ready(function()
         }
         //**********************
         
-        out.println("<td width='10%' class='txt_caracteristicas'>"+ mapa.getKey() +"</td>");
+        out.println("<td class='txt_caracteristicas'>"+ mapa.getKey() +"</td>");
         
         if((index % 7) == 0) out.println("</tr>");
         
