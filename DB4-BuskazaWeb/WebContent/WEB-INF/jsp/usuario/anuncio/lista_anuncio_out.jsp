@@ -102,6 +102,5 @@ $(function(){
 
 <jsp:include page="../rodape.jsp"/>
 
-
 </body>
 </html>
