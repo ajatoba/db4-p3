@@ -106,16 +106,12 @@ $(function(){
   <div class="nota_reserva"><span class="id_imoves">id: <bean:write name="ims" property="codigo"/></span></div>
   <div class="visualizar_reserva">
     <logic:equal name="ims" property="status" value="0">Em análise &nbsp;&nbsp;</logic:equal>    
-    <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}" class="link_azul">Disponibilidade/Preços</a> &nbsp;&nbsp;     
-    <a href="/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservas" class="link_azul"> Minhas Reservas</a>&nbsp;&nbsp; 
+    <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}" class="link_azul">Disponibilidade/Preços</a> &nbsp;&nbsp; <a href="/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservas" class="link_azul"> Minhas Reservas</a>&nbsp;&nbsp; 
     </logic:equal>    
-    <logic:notEmpty name="ims" property="anuncios"><!-- <a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=listarAnunciosImovel&ci=${ims.codigo}" class="link_azul">Ver Disponibilidade</a> &nbsp;&nbsp; --> </logic:notEmpty>
+    <logic:notEmpty name="ims" property="anuncios"><!-- <a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=listarAnunciosImovel&ci=${ims.codigo}" class="link_azul">Ver Disponibilidade</a>--> </logic:notEmpty>
     <logic:equal name="ims" property="status" value="1"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}" class="link_azul">Editar Anúncio</a> &nbsp;&nbsp; </logic:equal>
   	<a href="javascript:excluirAnuncio()" class="link_azul">Excluir Anúncio</a>
-  	 <!-- 
-  <html:submit> Excluir Imóvel </html:submit>
-  -->
-  
+  	 <!-- <html:submit> Excluir Imóvel </html:submit> -->  
   </div>
   
 </div>
@@ -129,7 +125,6 @@ $(function(){
 
 <br>
 </html:form>
-
 	 </logic:iterate>  
 </logic:present>
 </div>
