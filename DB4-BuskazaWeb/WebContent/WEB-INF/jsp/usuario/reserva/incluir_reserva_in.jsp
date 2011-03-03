@@ -74,7 +74,7 @@
 </div>
 
 <!--CADASTRO-->
-<div id="cont_reserva">
+<div id="cont_reserva2">
 
 <!-- MENSAGEM DE ERRO -->
     <font color="red">
@@ -83,8 +83,7 @@
 			<html:messages property="erro" id="erro">
 				<bean:write name="erro"/>    			
 			</html:messages>
-		</logic:messagesPresent>
-				
+		</logic:messagesPresent>				
 		<logic:messagesNotPresent property="erro">
 			<logic:present name="erro">
 				<bean:write name="erro"/>
