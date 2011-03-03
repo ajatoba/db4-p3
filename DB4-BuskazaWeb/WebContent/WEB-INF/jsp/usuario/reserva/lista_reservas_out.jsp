@@ -59,54 +59,56 @@
 
 <!--CADASTRO-->
 
-<jsp:include page="../menu.jsp"/>
 
 <div id="cont_reserva">
 <div id="meio_reserva">
 <div class="top_reserva">
-<div class="txt_minha_reserva">
-
-<span class="MyriadPro24">Minhas Reservas</span></div>
-
-</div>
+	<div class="txt_minha_reserva"><span class="MyriadPro24">Minhas Reservas</span></div></div>
 </div>
 <div id="sep_top_reserva"></div>
 
 <logic:present name="reservas">
 
-	<!--BOX COM A RESERVA-->
-	<table align="center" border="0" width="70%" class="MyriadProRegular" cellspacing="10">
-	<logic:iterate id="res" name="reservas">
-	
-	<tr>
-		<td align="center" valign="center" width="20%">		
-			<img src="/buzkaza/imagens_usuarios/<bean:write name="res" property="imovel.primeirafoto"/>" width="140" height="104" />
-		</td>
-		<td>
-			<b><bean:write name="res" property="imovel.logradouro"/></b>
-			<br><br>
-			de  <bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/>
-			ate <bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/><br>		
-			R$ <bean:write name="res" property="valor" format="00.00"/><br><br>		
-			
+
+<logic:iterate id="res" name="reservas">
+<!--BOX COM A RESERVA-->
+<div id="box_listagem">
+<div class="foto_reserva"><img src="/buzkaza/imagens_usuarios/<bean:write name="res" property="imovel.primeirafoto"/>" width="140" height="104" /></div>
+<div class="detalhe_reserva">
+<div class="bairro_reserva">Copacabana</div>
+<div class="data_reserva_de">de<br /><bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/></div>
+<div class="data_reserva_ate">ate<br /><bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/></div>
+<div class="nota_reserva">
+Valor de 12 dia(s)&nbsp;
+R$ <bean:write name="res" property="valor" format="00.00"/>
+</div>
+<div class="total_reserva">
+
+</div>
+<div class="visualizar_reserva">dasdas</div>
+</div>
+<div class="status_reserva">
+
+
 			<logic:equal name="res" property="status" value="0">Em análise</logic:equal>
-			<logic:equal name="res" property="status" value="1">
-				Aprovada<br>
-				<a href="/DB4-BuskazaWeb/usuario/reserva.do?act=formPagarReserva&cr=${res.codigo}">Efetuar pagamento</a>
+			<logic:equal name="res" property="status" value="1">Aprovada<br /><a href="/DB4-BuskazaWeb/usuario/reserva.do?act=formPagarReserva&cr=${res.codigo}">Efetuar pagamento</a>
 			</logic:equal>
 			<logic:equal name="res" property="status" value="2">Negada</logic:equal>
 			<logic:equal name="res" property="status" value="3">Paga</logic:equal>
-			
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-		<hr/>
-		</td>
-	</tr>		
-	</logic:iterate>
-	</table>
+
+
+</div>
+
+</div>
+<div id="separator_listagem"></div>
+
+
+<!--BOX COM A RESERVA-->
+</logic:iterate>
 </logic:present>
+
+
+	
 
 <logic:notPresent name="reservas">
 	Não há reservas
