@@ -77,8 +77,7 @@ function submitForm(){
 <!--BUSCA-->
 
 <!-- MENSAGEM DE ERRO -->
-    <font color="red">
-  
+    <font color="red">  
 		<logic:messagesPresent property="erro">
 			<html:messages property="erro" id="erro">
 				<div class="btn_erro"></div>
@@ -110,12 +109,9 @@ function submitForm(){
 
 
 <div id="left_busca_avancada">
-		<!-- INCLUDE DO FORM DE BUSCA -->
-		<%@include file="_form_busca_avancada_resultado.jsp" %>
-		<!-- ************************ -->
-
-	
-
+	<!-- INCLUDE DO FORM DE BUSCA -->
+	<%@include file="_form_busca_avancada_resultado.jsp" %>
+	<!-- ************************ -->
 
 <div id="right_busca_avancada">
 <div id="conteudo_result_busca">
@@ -129,8 +125,6 @@ function submitForm(){
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
-	
-
 
 <logic:present name="imoveisValor">
 	<td>
@@ -140,14 +134,14 @@ function submitForm(){
 		
 		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MyriadProRegular">
 		  <tr>
-		    <td valign="center" align="center"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="key.primeirafoto"/>" width="140" height="104" />
+		    <td valign="center" align="center" width="140"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="key.primeirafoto"/>" width="140" height="104" />
 		    </td>
-		    <td>
+		    <td width="536">
 		    	
 		    	
 		    	<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td align="left" valign="top"><span class="tit_azul2">
+                  <td width="40%" align="left" valign="top"><span class="tit_azul2">
 	                  <!-- <bean:write name="ims" property="key.logradouro"/> -->
 	                  <bean:write name="ims" property="key.bairro"/>,</span><br />
 	                  
@@ -173,30 +167,25 @@ function submitForm(){
 					
 					<input type="image" src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" />
 					
-					
-					<!-- <html:submit>Reservar</html:submit>
-						  img src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" border="0"/-->
 					</html:form>
 		    	
                     <br /></td>
                     
-                  <td align="left" valign="top">
+                  <td width="40%" align="left" valign="top">
                   <span class="txt_form">Capacidade : <bean:write name="ims" property="key.capacidade"/><br />
                     Quartos : <bean:write name="ims" property="key.quartos"/><br />
                     Metragem : <bean:write name="ims" property="key.metragem"/><br />
                     Proprietário: <bean:write name="ims" property="key.usuarioProprietario.nome"/></span><br /></td>
-                  <td valign="top" class="txt_form">
+                  <td width="20%"  valign="top" class="txt_form">
                   Total por <bean:write name="qtdDias"/> dia(s): R$ <bean:write name="ims" property="value"/><br>
-		        <a href="/DB4-BuskazaWeb/imovel.do?act=detalheImovel&ci=${ims.key.codigo}">[ Ver detalhes do Imóvel ]</a> 
+		        <a href="/DB4-BuskazaWeb/imovel.do?act=detalheImovel&ci=${ims.key.codigo}" class="link_ver_detalhe">[ Ver detalhes ]</a> 
 		        </td>
                 </tr>
               </table>
               
               
-		    	<br>		    	
+		    	<br />		    	
 		    	
-		    		
-		    		
 		    		
 		    </td>    
 		  </tr>		
@@ -213,9 +202,7 @@ function submitForm(){
 </table>
 
 </div>
-
 </div>
-
 </div>
 
 <!--FIM BUSCA-->
