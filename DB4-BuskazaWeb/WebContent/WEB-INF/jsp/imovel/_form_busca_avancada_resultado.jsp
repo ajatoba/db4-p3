@@ -33,8 +33,7 @@
             <td colspan="2"><span class="txt_form">Município</span></td>
           </tr>
           <tr>
-            <td colspan="2"><span class="txt_form">
-              <html:text property="municipio" styleClass="MyriadProRegular" size="160" />
+            <td colspan="2"><span class="txt_form"><html:text property="municipio" styleClass="MyriadProRegular" size="160" />
               </span></td>
           </tr>
           <tr>
