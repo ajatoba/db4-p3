@@ -1,11 +1,7 @@
-
-
+<!-- _form_busca_avancada_resultado -->
 <html:form method="post" styleId="imovelBuscaForm" action="/imovel.do?act=buscarImovel">
-
 <html:hidden property="anoDataFinalAnuncio" styleId="anoDataInicialAnuncio" />
 <html:hidden property="anoDataInicialAnuncio" styleId="anoDataInicialAnuncio"/>
-
-
 		<table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr>
             <td height="40" colspan="2" valign="bottom" class="tit_azul2">Redefinir Busca</td>
@@ -45,7 +41,7 @@
           </tr>
           <tr>
             <td height="26" colspan="2"><span class="txt_form">
-              <html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular">                        
+            <html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular">                        
 			<html:option value="01">01</html:option>
             <html:option value="02">02</html:option>
             <html:option value="03">03</html:option>
@@ -151,16 +147,11 @@
 				<html:option value="11">Novembro</html:option>
 				<html:option value="12">Dezembro</html:option>                  
 			</html:select>
-      	</div>
-      	
-      	
-        
-        
-              </span></td>
+      	</div></span></td>
           </tr>
           <tr>
             <td width="50%" height="26"><span class="txt_form">Capacidade</span></td>
-            <td width="50%" height="26"><span class="txt_form">Quartos</span></td>
+            <td width="50%" height="26"><div class="sepd"><span class="txt_form">Quartos</span></div></td>
           </tr>
           <tr>
             <td height="26"><span class="txt_form">
@@ -174,8 +165,7 @@
 				<html:option value="6">6 Pessoas</html:option>
 				<html:option value="7">7 Pessoas</html:option>
 				<html:option value="8">8 Pessoas</html:option>	
-				<html:option value="9">9 Pessoas</html:option>
-					
+				<html:option value="9">9 Pessoas</html:option>					
 				<html:option value="10">10 Pessoas</html:option>
 				<html:option value="11">11 Pessoas</html:option>
 				<html:option value="12">12 Pessoas</html:option>
@@ -185,14 +175,14 @@
 				<html:option value="16">16 Pessoas</html:option>
 				<html:option value="17">17 Pessoas</html:option>
 				<html:option value="18">18 Pessoas</html:option>
-				<html:option value="19">19 Pessoas</html:option>
-								
+				<html:option value="19">19 Pessoas</html:option>								
 				<html:option value="20">20 Pessoas</html:option>
 				<html:option value="21">21 Pessoas</html:option>
 				<html:option value="22">22 Pessoas</html:option>
             </html:select>
               </span></td>
-            <td height="26"><span class="txt_form">
+            <td height="26">
+            <div class="sepd"><span class="txt_form">
 					<html:select property="quartos" styleClass="MyriadProRegular">
                         <html:option value="">-</html:option> 
                         <html:option value="1">1 Quarto</html:option>
@@ -202,9 +192,8 @@
 						<html:option value="5">5 Quartos</html:option>
 						<html:option value="6">6 Quartos</html:option>
 						<html:option value="7">7 Quartos</html:option>
-						<html:option value="8">8 Quartos</html:option>				
-						<html:option value="9">9 Quartos</html:option>
-						
+						<html:option value="8">8 Quartos</html:option>		
+						<html:option value="9">9 Quartos</html:option>						
 						<html:option value="10">10 Quartos</html:option>
 						<html:option value="11">11 Quartos</html:option>
 						<html:option value="12">12 Quartos</html:option>
@@ -214,13 +203,12 @@
 						<html:option value="16">16 Quartos</html:option>
 						<html:option value="17">17 Quartos</html:option>				
 						<html:option value="18">18 Quartos</html:option>
-						<html:option value="19">19 Quartos</html:option>
-						
+						<html:option value="19">19 Quartos</html:option>						
 						<html:option value="20">20 Quartos</html:option>
 						<html:option value="21">21 Quartos</html:option>
 						<html:option value="22">22 Quartos</html:option>
                     </html:select>
-              </span></td>
+              </span></div></td>
           </tr>
           <tr>
             <td height="26" colspan="2"><span class="txt_form">Área (m2)</span></td>
@@ -364,29 +352,28 @@
           </tr>
           
           
-          <logic:notEmpty name="equipamentos">	
-          <tr>
-            <td height="26" colspan="2"><span class="txt_form">Equipamentos no imóvel</span></td>
-          </tr>
-          
-        <logic:iterate name="equipamentos" id="equipamento">
-			<tr>
-				<td colspan="2" class="MyriadProRegular">
-						<span class="txt_form">
-								<div class="equip_top1">
-									
-								    <html:multibox property="equipamentos" styleClass="MyriadProRegular"> 
-									<bean:write name="equipamento" property="codigo"/>  
-									</html:multibox>
-								</div>
-								<div class="equip_top3">
-									<bean:write name="equipamento" property="nome"/>
-								</div>
-						</span>
-				</td>
-			</tr>       
-	    </logic:iterate>
-    </logic:notEmpty>
+    	<logic:notEmpty name="equipamentos">	
+	          <tr>
+	            <td height="26" colspan="2"><span class="txt_form">Equipamentos no imóvel</span></td>
+	          </tr>          
+		        <logic:iterate name="equipamentos" id="equipamento">
+				<tr>
+					<td colspan="2" class="MyriadProRegular">
+							<span class="txt_form">
+									<div class="equip_top1">
+										
+									    <html:multibox property="equipamentos" styleClass="MyriadProRegular"> 
+										<bean:write name="equipamento" property="codigo"/>  
+										</html:multibox>
+									</div>
+									<div class="equip_top3">
+										<bean:write name="equipamento" property="nome"/>
+									</div>
+							</span>
+					</td>
+				</tr>       
+			    </logic:iterate>
+    	</logic:notEmpty>
     
           <tr>
             <td colspan="2" class="busca_avancada"></td>
