@@ -2,7 +2,11 @@
 
 <html:form method="post" styleId="imovelBuscaForm" action="/imovel.do?act=buscarImovel">
 
-		<table width="80%" border="0" align="center" cellpadding="0" cellspacing="1">
+<html:hidden property="anoDataFinalAnuncio" styleId="anoDataInicialAnuncio" />
+<html:hidden property="anoDataInicialAnuncio" styleId="anoDataInicialAnuncio"/>
+
+
+		<table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr>
             <td height="40" colspan="2" valign="bottom" class="tit_azul2">Redefinir Busca</td>
           </tr>
@@ -10,7 +14,7 @@
             <td colspan="2">&nbsp;</td>
           </tr>
           <tr>
-            <td colspan="2"><span class="txt_form">Estado</span></td>
+            <td colspan="2" height="26"><span class="txt_form">Estado</span></td>
           </tr>
           <tr>
             <td colspan="2"><span class="txt_form">
@@ -20,7 +24,7 @@
               </span></td>
           </tr>
           <tr>
-            <td colspan="2"><span class="txt_form">País</span></td>
+            <td colspan="2" height="26"><span class="txt_form">País</span></td>
           </tr>
           <tr>
             <td colspan="2"><span class="txt_form">
@@ -30,17 +34,17 @@
               </span></td>
           </tr>
           <tr>
-            <td colspan="2"><span class="txt_form">Município</span></td>
+            <td colspan="2" height="26"><span class="txt_form">Município</span></td>
           </tr>
           <tr>
             <td colspan="2"><span class="txt_form"><html:text property="municipio" styleClass="MyriadProRegular" size="160" />
               </span></td>
           </tr>
           <tr>
-            <td height="30" colspan="2"><span class="txt_form">Chegada</span></td>
+            <td height="26" colspan="2"><span class="txt_form">Chegada</span></td>
           </tr>
           <tr>
-            <td height="30" colspan="2"><span class="txt_form">
+            <td height="26" colspan="2"><span class="txt_form">
               <html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular">                        
 			<html:option value="01">01</html:option>
             <html:option value="02">02</html:option>
@@ -91,26 +95,14 @@
 				<html:option value="12">Dezembro</html:option>                  
 			</html:select>
 		</div>
-		<div class="sepd">
-			<html:select property="anoDataInicialAnuncio" title="Ano" styleId="anoDataInicialAnuncio" styleClass="MyriadProRegular">
-	        	<html:option value="2011">2011</html:option>
-		        <html:option value="2012">2012</html:option>
-		        <html:option value="2013">2013</html:option>
-		        <html:option value="2014">2014</html:option>
-		        <html:option value="2015">2015</html:option> 
-	        </html:select>
-	        
-	     
-	     
-	     
-      	</div>
+		
               </span></td>
           </tr>
           <tr>
-            <td height="30" colspan="2"><span class="txt_form">Partida</span></td>
+            <td height="26" colspan="2"><span class="txt_form">Partida</span></td>
           </tr>
           <tr>
-            <td height="30" colspan="2"><span class="txt_form">
+            <td height="26" colspan="2"><span class="txt_form">
               <html:select property="diaDataFinalAnuncio" title="dia" styleId="diaDataFinalAnuncio" styleClass="MyriadProRegular">                        
 			<html:option value="01">01</html:option>
             <html:option value="02">02</html:option>
@@ -161,25 +153,17 @@
 			</html:select>
       	</div>
       	
-      	<div class="sepd">
-	      	<html:select property="anoDataFinalAnuncio" title="Ano" styleId="anoDataInicialAnuncio" styleClass="MyriadProRegular">
-	        	<html:option value="2011">2011</html:option>
-		        <html:option value="2012">2012</html:option>
-		        <html:option value="2013">2013</html:option>
-		        <html:option value="2014">2014</html:option>
-		        <html:option value="2015">2015</html:option> 
-	        </html:select>
-	     </div>
+      	
         
         
               </span></td>
           </tr>
           <tr>
-            <td width="50%" height="30"><span class="txt_form">Capacidade</span></td>
-            <td width="50%" height="30"><span class="txt_form">Quartos</span></td>
+            <td width="50%" height="26"><span class="txt_form">Capacidade</span></td>
+            <td width="50%" height="26"><span class="txt_form">Quartos</span></td>
           </tr>
           <tr>
-            <td height="30"><span class="txt_form">
+            <td height="26"><span class="txt_form">
               <html:select property="capacidade" styleClass="MyriadProRegular">
                 <html:option value="">-</html:option> 
                 <html:option value="1">1 Pessoa</html:option>
@@ -208,7 +192,7 @@
 				<html:option value="22">22 Pessoas</html:option>
             </html:select>
               </span></td>
-            <td height="30"><span class="txt_form">
+            <td height="26"><span class="txt_form">
 					<html:select property="quartos" styleClass="MyriadProRegular">
                         <html:option value="">-</html:option> 
                         <html:option value="1">1 Quarto</html:option>
@@ -239,10 +223,10 @@
               </span></td>
           </tr>
           <tr>
-            <td height="30" colspan="2"><span class="txt_form">Área (m2)</span></td>
+            <td height="26" colspan="2"><span class="txt_form">Área (m2)</span></td>
           </tr>
           <tr>
-            <td height="30" colspan="2"><span class="txt_form">
+            <td height="26" colspan="2"><span class="txt_form">
 					<html:select property="metragem" styleClass="MyriadProRegular">    	
                         <html:option value="">-</html:option> 
                         <html:option value="20.0">20m</html:option>
@@ -382,7 +366,7 @@
           
           <logic:notEmpty name="equipamentos">	
           <tr>
-            <td height="30" colspan="2"><span class="txt_form">Equipamentos no imóvel</span></td>
+            <td height="26" colspan="2"><span class="txt_form">Equipamentos no imóvel</span></td>
           </tr>
           
         <logic:iterate name="equipamentos" id="equipamento">
