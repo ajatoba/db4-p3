@@ -73,7 +73,7 @@
             <html:option value="29">29</html:option>                            
             <html:option value="30">30</html:option>
             <html:option value="31">31</html:option>                            
-		</html:select>        
+		</html:select>
         
         <div class="sepd">
 			<html:select property="mesDataInicialAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
@@ -90,8 +90,7 @@
 				<html:option value="11">Novembro</html:option>
 				<html:option value="12">Dezembro</html:option>                  
 			</html:select>
-		</div>
-		
+		</div>		
               </span></td>
           </tr>
           <tr>
@@ -99,7 +98,7 @@
           </tr>
           <tr>
             <td height="26" colspan="2"><span class="txt_form">
-              <html:select property="diaDataFinalAnuncio" title="dia" styleId="diaDataFinalAnuncio" styleClass="MyriadProRegular">                        
+            <html:select property="diaDataFinalAnuncio" title="dia" styleId="diaDataFinalAnuncio" styleClass="MyriadProRegular">                        
 			<html:option value="01">01</html:option>
             <html:option value="02">02</html:option>
             <html:option value="03">03</html:option>
@@ -179,8 +178,7 @@
 				<html:option value="20">20 Pessoas</html:option>
 				<html:option value="21">21 Pessoas</html:option>
 				<html:option value="22">22 Pessoas</html:option>
-            </html:select>
-              </span></td>
+            </html:select></span></td>
             <td height="26">
             <div class="sepd"><span class="txt_form">
 					<html:select property="quartos" styleClass="MyriadProRegular">
@@ -349,8 +347,7 @@
 		                <html:option value="600.0">600m</html:option>
                     </html:select>
               </span></td>
-          </tr>
-          
+          </tr>          
           
     	<logic:notEmpty name="equipamentos">	
 	          <tr>
@@ -360,8 +357,7 @@
 				<tr>
 					<td colspan="2" class="MyriadProRegular">
 							<span class="txt_form">
-									<div class="equip_top1">
-										
+									<div class="equip_top1">										
 									    <html:multibox property="equipamentos" styleClass="MyriadProRegular"> 
 										<bean:write name="equipamento" property="codigo"/>  
 										</html:multibox>
@@ -373,8 +369,7 @@
 					</td>
 				</tr>       
 			    </logic:iterate>
-    	</logic:notEmpty>
-    
+    	</logic:notEmpty>    
           <tr>
             <td colspan="2" class="busca_avancada"></td>
           </tr>
