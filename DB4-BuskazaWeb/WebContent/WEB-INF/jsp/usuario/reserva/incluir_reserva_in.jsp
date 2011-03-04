@@ -20,27 +20,34 @@
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css" />
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/size_campos.css"/>
 
-<script type="text/javascript" src="/buzkaza/_js/jquery-1.4.js"></script>
+
+
+
+<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 <script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
+<link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
+
 <script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
 
 <script type="text/javascript" src="/buzkaza/_js/tabs.js"></script>
 <script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+<!-- 
+
+<script type="text/javascript" src="/buzkaza/_js/jquery-1.4.js"></script>
 <script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
 <script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js" ></script>
 
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/jquery.alerts.css"  />
+
+ -->
 <link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 <link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
 
-<link rel="stylesheet" type="text/css" href="/buzkaza/_css/jquery.alerts.css"  />
+
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/tabs.css" media="screen"/>
-<link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
+
 
 <script language="javascript">
-	$(function(){
-			
-	});	
-
 
 $(document).ready(function()
 {
@@ -52,13 +59,11 @@ $(document).ready(function()
 			}
 		);
 	
-	$('#anuncioForm').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
+	$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
 }
 );
 </script>
-	
 </head>
-
 <body>
 
 <div id="conteudo"> 
@@ -93,8 +98,7 @@ $(document).ready(function()
 <div id="cont_reserva2">
 
 <!-- MENSAGEM DE ERRO -->
-    <font color="red">
-  
+    <font color="red">  
 		<logic:messagesPresent property="erro">
 			<html:messages property="erro" id="erro">
 				<bean:write name="erro"/>    			
@@ -240,7 +244,7 @@ $(document).ready(function()
         }
         //**********************
         
-        out.println("<td class='txt_caracteristicas'>"+ mapa.getKey() +"</td>");
+        out.println("<td bgcolor='"+ color +"' class='txt_caracteristicas'>"+ mapa.getKey() +"</td>");
         
         if((index % 7) == 0) out.println("</tr>");
         
@@ -312,8 +316,7 @@ $(document).ready(function()
 		    	<bean:write name="reserva" property="valor" format="00.00"/>
 		    	</td>
 		    </tr>
-		    </table>
-		    
+		    </table>		    
 		    
 		    </fieldset>
 		    </logic:equal>
@@ -359,26 +362,29 @@ $(document).ready(function()
 
 
 </div>
+
+
+
 <div class="linha_cinza"></div>
 <div class="opcoes_pg">
 <div class="left_opcoes">
 <table width="100%" border="0">
   <tr>
-    <td>Política de Recebimento</td>
+    <td class="txt_caracteristicas">Política de Recebimento</td>
   </tr>
   <tr>
-    <td>Lorem ipsum</td>
+    <td class="txt_caracteristicas">Lorem ipsum</td>
   </tr>
   <tr>
-    <td>Moeda</td>
+    <td class="txt_caracteristicas">Moeda</td>
   </tr>
   <tr>
-    <td><label for="select3"></label>
-      <select name="select4" id="select3">
-        <option>Real</option>
-        <option>Dólar</option>
-        <option>Euro</option>
-      </select></td>
+    <td class="txt_caracteristicas">
+	      <select name="select4" id="select3">
+	        <option>Real</option>
+	        <option>Dólar</option>
+	        <option>Euro</option>
+	      </select></td>
   </tr>
 </table>
 
@@ -402,7 +408,7 @@ $(document).ready(function()
                         <td><span class="txt_caracteristicas">Forma de Pagamento</span></td>
                       </tr>
                       <tr>
-                        <td><input type="radio" name="radio" id="radio" value="radio" />
+                        <td class="txt_caracteristicas"><input type="radio" name="radio" id="radio" value="radio" />
                           <label for="radio"></label>
                           Dinheiro&nbsp;&nbsp;
                           <input type="radio" name="radio" id="radio" value="radio" />
@@ -427,7 +433,7 @@ $(document).ready(function()
                           Banco do Brasil </td>
                       </tr>
                       <tr>
-                        <td><input type="radio" name="radio" id="radio2" value="radio" />
+                        <td class="txt_caracteristicas"><input type="radio" name="radio" id="radio2" value="radio" />
                           <label for="radio2"></label>
                           Aura
                           <input type="radio" name="radio" id="radio3" value="radio" />
@@ -445,31 +451,31 @@ $(document).ready(function()
                   <div id="aba2" class="aba">
                     <table width="100%" border="0">
                       <tr>
-                        <td colspan="3">Pagamento integral da estadia (só para proprietários Brasileiros).
+                        <td colspan="3" class="txt_caracteristicas">Pagamento integral da estadia (só para proprietários Brasileiros).
                         
                         
                         
                         </td>
                       </tr>
                       <tr>
-                        <td>Titular</td>
+                        <td class="txt_caracteristicas">Titular</td>
                         <td>&nbsp;</td>
-                        <td>CPF/CNPJ</td>
+                        <td class="txt_caracteristicas">CPF/CNPJ</td>
                       </tr>
                       <tr>
                         <td colspan="2">
-                          <input type="text" name="textfield" id="textfield" size="70"/></td>
-                        <td><input type="text" name="textfield3" id="textfield3" size="70"/></td>
+                          <input type="text" name="textfield" id="textfield" size="70" style="width: 80px;"/></td>
+                        <td><input type="text" name="textfield3" id="textfield3" size="70" style="width: 80px;"/></td>
                       </tr>
                       <tr>
-                        <td>Número do Banco</td>
-                        <td>Agência</td>
-                        <td>Conta Corrente</td>
+                        <td class="txt_caracteristicas">Número do Banco</td>
+                        <td class="txt_caracteristicas">Agência</td>
+                        <td class="txt_caracteristicas">Conta Corrente</td>
                       </tr>
                       <tr>
-                        <td><input type="text" name="textfield2" id="textfield2" size="70"/></td>
-                        <td><input type="text" name="textfield4" id="textfield4" size="70" /></td>
-                        <td><input type="text" name="textfield5" id="textfield5" size="70"/></td>
+                        <td><input type="text" name="textfield2" id="textfield2" size="70" style="width: 80px;"/></td>
+                        <td><input type="text" name="textfield4" id="textfield4" size="70" style="width: 80px;" /></td>
+                        <td><input type="text" name="textfield5" id="textfield5" size="70" style="width: 80px;"/></td>
                       </tr>
                     </table>
                     <br /><br />
@@ -485,6 +491,7 @@ $(document).ready(function()
 </div>
 <input type="submit" name="button3" id="button3" value="Submit" />
 </div>
+
 
 </div>
 <!--FIM CADASTRO-->
