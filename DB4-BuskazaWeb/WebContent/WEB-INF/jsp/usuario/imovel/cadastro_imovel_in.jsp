@@ -8,13 +8,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza</title>
 
-	<link href="/buzkaza/teaser/_css/estilo.css" rel="stylesheet" type="text/css" />
+	<!-- <link href="/buzkaza/teaser/_css/estilo.css" rel="stylesheet" type="text/css" /> -->
 	<link href="/buzkaza/_css/cadastro_imovel.css" rel="stylesheet" type="text/css" />
+	
+	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
 
-	<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
+	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+
+	<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
 
 	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>	
-	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
+	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/script/thickbox.css" />
 	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/_css/estilo_iframe.css" />
@@ -22,9 +29,10 @@
 	<script type="text/javascript" src="/buzkaza/thickbox/script/global.js" ></script>
 	
 	
-	<link href="/buzkaza/_css/jquery.alerts.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
-	<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js" ></script>
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/jquery.alerts.css"/>
+	<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js"></script>
+	<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js"></script>
+	
 	
 	
 	<script language="javascript">	
@@ -35,8 +43,7 @@
 		});
 
 
-		 $(document).ready( function() {
-		        
+		 $(document).ready( function() {		        
 				
 				$("#cadastrar_user").click( function() {
 
@@ -62,16 +69,13 @@
 
 
 	        function validar()
-	        {
-	        	
+	        {	        	
 	        	file1 = $("#file1").val();
 	        	file2 = $("#file2").val();
 	        	file3 = $("#file3").val();
 	        	file4 = $("#file4").val();
 	        	file5 = $("#file5").val();
 	        	file6 = $("#file6").val();
-
-
 
 	        	logradouro 	= $("#logradouro").val();
 	        	numero		= $("#numero").val();
@@ -100,7 +104,6 @@
 	        	if(metragem		=="") msg += "Metragem \n";
 	        	if(capacidade	=="") msg += "Capacidade \n";
 	        	if(planta		=="") msg += "Planta do Imóvel \n";
-
 				
 	        	if(file1 == "" || file2 == "" || file3 == ""  || file4 == ""  || file5 == "" || file6 == ""  )
 	        	{
@@ -109,45 +112,66 @@
 
 				if(	msg != "" )
 	        		mensagemAlert = "Apresentaram problema de validação. Verifique o(s) campo(s):\n\n " + msg;
-	        	
 		    }
 	</script>
 	
-	<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
 
-<div id="cadastro">
-<div id="top_cad">
-<a href="http://www.buzkaza.com.br/teaser/"><div id="link_back"></div></a>
+<div id="conteudo"> 
+  <!--TOPO-->
+  <div id="top">
+    <div class="topo_menu">
+      <div class="txt_01">Você está: Pág. Inicial</div>
+      <div class="txt_02">Quem Somos</div>
+      <div class="txt_03">Mapa do Site</div>
+      <div class="txt_04">Contato</div>
+      <div class="txt_05">Ajuda</div>
+      <div class="txt_06">Redes Sociais</div>
+      <div class="twitter"></div>
+      <div class="facebook"></div>
+    </div>
+    <div class="tracejado_top"></div>
+    <div class="linha_logo">
+      <div class="logo"></div>
+      <div class="options"></div>
+    </div>
+    <div class="bottom_menu">
+      <a href="/DB4-BuskazaWeb/imovel.do?act=formBuscarImovel"><div class="btn_alugar">alugar imóvel</div></a>
+      <a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel"><div class="btn_anunciar">anunciar imóvel</div></a>
+      <a href="http://www.buzkaza.com.br/blog/" target="_black"><div class="btn_blog">blogs</div></a>
+      <div class="btn_login">Efetuar login</div>
+      <a href="/DB4-BuskazaWeb/usuario.do?act=formIncluirUsuario"><div class="btn_cadastre_se"></div></a>
+    </div>
+  </div>
 </div>
-<div id="meio_cad">
+
+
+
+<div id="cont_reserva">
 
 <!-- MENSAGEM DE ERRO -->
-    <font color="red">
-  
+    <font color="red">  
 		<logic:messagesPresent property="erro">
 			<html:messages property="erro" id="erro">
-				<div class="btn_erro"></div>
-        		<div class="msg_erro">
-        			<span class="MyriadErro">
-        				<bean:write name="erro"/>
-        			</span>
-        		</div>						
+					<div class="btn_erro"></div>
+	        		<div class="msg_erro">
+	        			<span class="MyriadErro">
+	        				<bean:write name="erro"/>
+	        			</span>
+	        		</div>						
 			</html:messages>
 		</logic:messagesPresent>
-				
+						
 		<logic:messagesNotPresent property="erro">
 			<logic:present name="erro">
-				<div class="btn_erro"></div>
-        		<div class="msg_erro">
-        			<span class="MyriadErro">
-        				<bean:write name="erro"/>
-        			</span>
-        		</div>	
-			</logic:present>
-				
+					<div class="btn_erro"></div>
+	        		<div class="msg_erro">
+	        			<span class="MyriadErro">
+	        				<bean:write name="erro"/>
+	        			</span>
+	        		</div>	
+			</logic:present>				
 		</logic:messagesNotPresent>
   	</font>
     <!-- ****************** -->
@@ -250,7 +274,7 @@
 					<html:options collection="tiposImovel" property="codigo" labelProperty="nome"/>
 				</html:select>
 			</div>
-</td>
+		</td>
             <td>
             <div style="margin-right:12px;">
             <html:select property="quartos" styleId="quartos">
@@ -279,8 +303,7 @@
 				<html:option value="21">21 Quartos</html:option>
 				<html:option value="22">22 Quartos</html:option>
       	</html:select></div></td>
-            <td>
-            <div style="margin-right:12px;">
+            <td><div style="margin-right:12px;">
             	<html:select property="metragem" styleId="metragem">
       			<html:option value="20.0">20m</html:option>
                 <html:option value="25.0">25m</html:option>
@@ -412,7 +435,6 @@
                 <html:option value="595.0">595m</html:option>
                 
                 <html:option value="600.0">600m</html:option>
-
       	</html:select>
       	</div></td>
             <td><div style="margin-right:12px;"><html:select property="capacidade" styleId="capacidade">
@@ -449,15 +471,19 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td colspan="2">&nbsp;</td>
       </tr>
       <tr>
         <td class="MyriadProRegular">Planta do Imóvel &nbsp;&nbsp;<a class="thickbox" href="/buzkaza/thickbox/imagem_planta.html?height=400&width=600" style="text-decoration:underline; font-family: 'MyriadPro', sans-serif; color:#666666; font-size:11px;">Veja exemplos</a></td>
         <td>&nbsp;</td>
-        <td class="MyriadProRegular">Link do vídeo no You Tube</td>
-        <td>&nbsp;</td>
-        <td class="MyriadProRegular">Link do Google Maps</td>
+        <td colspan="3" class="MyriadProRegular">        
+        			<table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td><div style="margin-right:12px;">Link do vídeo no You Tube</div></td>
+                        <td>Link do Google Maps</td>
+                      </tr>
+                    </table>        
+        </td>
       </tr>
       <tr>
         <td colspan="2">
@@ -465,14 +491,17 @@
         <html:file property="planta" styleId="planta" size="23" style="width:300px; color:#666666;"/>
         </div>
         </td>
-        <td><html:textarea property="linkYouTube" rows="5" cols="30" /></td>
-        <td>&nbsp;</td>
-        <td><html:textarea property="linkGoogleMaps" rows="5" cols="30" /></td>
+        <td colspan="3">
+       				<table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td><div style="margin-right:12px;"><html:text property="linkYouTube" styleId="linkYouTube" size="245"/></div></td>
+                        <td><html:text property="linkGoogleMaps" styleId="linkGoogleMaps" size="245"/></td>
+                      </tr>
+                    </table>       
+       </td>
       </tr>
       <tr>
-        <td colspan="2">&nbsp;</td>
-        <td colspan="2">&nbsp;</td>
-        <td>&nbsp;</td>
+        <td colspan="5">&nbsp;<br /></td>
       </tr>
       <tr>
         <td colspan="5">&nbsp;<br /></td>
@@ -505,22 +534,16 @@
         <td colspan="5"><div style="float:right;"><a href="#" border="0"><img  src="/buzkaza/_img/btn_enviar_anuncio.jpg"   id="cadastrar_user" border="0"  /></a></div></td>
       </tr>
       </table>
-  
-
   </div>
-
 </div>
-</html:form>
-    
+</html:form>    
     <br />
   </div>
-  
- <div id="bottom_cad"></div>
-  
-</div>
+
+
 <!--FORM-->
 
+<jsp:include page="../rodape.jsp"/>
 
 </body>
 </html>
-
