@@ -101,8 +101,7 @@
 <div class="mapa_planta"><img src="/buzkaza/_img/adm_meusanuncios_editar_05.png" width="195" height="145" /></div>
 
 <!-- MENSAGEM DE ERRO -->
-    <font color="red">
-  
+    <font color="red">  
 		<logic:messagesPresent property="erro">
 			<html:messages property="erro" id="erro">
 				<bean:write name="erro"/>    			
