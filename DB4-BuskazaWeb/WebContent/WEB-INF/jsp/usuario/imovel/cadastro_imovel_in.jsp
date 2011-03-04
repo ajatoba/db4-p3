@@ -31,9 +31,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/jquery.alerts.css"/>
 	<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js"></script>
-	<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js"></script>
-	
-	
+	<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js"></script>	
 	
 	<script language="javascript">	
 		var mensagemAlert="";
@@ -41,7 +39,6 @@
 		$(function(){
 			$('#imovelForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
 		});
-
 
 		 $(document).ready( function() {		        
 				
@@ -269,11 +266,11 @@
           </tr>
           <tr>
             <td>
-            <div style="margin-right:12px;">
-				  <html:select property="tipoImovel" styleId="tipoImovel">
-					<html:options collection="tiposImovel" property="codigo" labelProperty="nome"/>
-				</html:select>
-			</div>
+	            <div style="margin-right:12px;">
+					  <html:select property="tipoImovel" styleId="tipoImovel">
+						<html:options collection="tiposImovel" property="codigo" labelProperty="nome"/>
+					</html:select>
+				</div>
 		</td>
             <td>
             <div style="margin-right:12px;">
@@ -479,8 +476,8 @@
         <td colspan="3" class="MyriadProRegular">        
         			<table border="0" cellspacing="0" cellpadding="0">
                       <tr>
-                        <td><div style="margin-right:12px;">Link do vídeo no You Tube</div></td>
-                        <td>Link do Google Maps</td>
+                        <td width="257">Link do vídeo no You Tube</td>
+                        <td><div style="margin-left:12px;">Link do Google Maps</td>
                       </tr>
                     </table>        
         </td>
@@ -494,7 +491,7 @@
         <td colspan="3">
        				<table border="0" cellspacing="0" cellpadding="0">
                       <tr>
-                        <td><div style="margin-right:12px;"><html:text property="linkYouTube" styleId="linkYouTube" size="245"/></div></td>
+                        <td width="257"><div style="margin-right:12px;"><html:text property="linkYouTube" styleId="linkYouTube" size="245"/></div></td>
                         <td><html:text property="linkGoogleMaps" styleId="linkGoogleMaps" size="245"/></td>
                       </tr>
                     </table>       
@@ -536,9 +533,8 @@
       </table>
   </div>
 </div>
-</html:form>    
-    <br />
-  </div>
+</html:form><br />
+</div>
 
 
 <!--FORM-->
