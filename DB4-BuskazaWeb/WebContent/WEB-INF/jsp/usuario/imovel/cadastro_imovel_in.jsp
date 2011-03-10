@@ -25,9 +25,7 @@
 	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
 
-	<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
-	
-	
+	<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />	
 	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/jquery.alerts.css"/>
 	<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js"></script>
@@ -122,8 +120,6 @@
 
 <!-- topo com linha azul -->
 <jsp:include page="../topo.jsp"/>
-
-
 
 <div id="cont_reserva">
 
@@ -507,7 +503,7 @@
         <td colspan="5">&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="5"><div style="float:right;"><a href="#" border="0"><img  src="/buzkaza/_img/btn_enviar_anuncio.jpg"   id="cadastrar_user" border="0"  /></a></div></td>
+        <td colspan="5"><div style="float:right;"><a href="#" border="0"><img  src="/buzkaza/_img/btn_enviar_anuncio.jpg"   id="cadastrar_user" border="0"  /></a><br /><br /></div></td>
       </tr>
       </table>
   </div>
