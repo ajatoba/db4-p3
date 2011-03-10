@@ -43,13 +43,11 @@
 
 <body>
 
-
-
 <!-- topo com linha azul -->
+
+
+
 <jsp:include page="../usuario/topo.jsp"/>
-
-
-
 <!--BUSCA-->
 <div id="cont_busca">
 <div id="form_busca">
@@ -57,8 +55,6 @@
 
 <div class="selecione_busca">Selecione abaixo as informações para efetuar sua busca</div>
 <div class="sep_busca"></div>
-
-
 
 
 <!-- MENSAGEM DE ERRO -->
@@ -94,17 +90,12 @@
 <%@include file="_form_busca_avancada.jsp" %>
 <!-- ************************ -->
 
-
-
-
 </div>
 </div>
 <!--FIM BUSCA-->
 
 
 <jsp:include page="../usuario/rodape.jsp"/>
-
-
 
 </body>
 </html>
