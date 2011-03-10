@@ -36,11 +36,11 @@ $(function(){
 		window.open(url,"mywindow","menubar=0,resizable=0,width=600,height=600,scrollbars=1,location=0");
 	}
 
-	function excluirAnuncio()
+	function excluirAnuncio( form )
 	{
 		if (confirm("Deseja excluir o anúncio?"))
 		{
-			alert("adicionar a função para excluir");
+			document.getElementById(form).submit();
 		}	
 	}
 		
@@ -73,7 +73,7 @@ $(function(){
 <logic:iterate id="ims"  name="imoveis">
 		<!--BOX COM A RESERVA-->
 		
-		<html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=excluirImovel" enctype="multipart/form-data">
+		<html:form method="post" styleId="imovelForm${ims.codigo}" action="/usuario/imovel.do?act=excluirImovel" enctype="multipart/form-data">
 		<html:hidden property="imovelEntity.codigo" value="${ims.codigo}"/>
 		
 		<div id="box_listagem">
@@ -88,7 +88,7 @@ $(function(){
 		    </logic:equal>    
 		    <logic:notEmpty name="ims" property="anuncios"><!-- <a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=listarAnunciosImovel&ci=${ims.codigo}" class="link_azul">Ver Disponibilidade</a>--> </logic:notEmpty>
 		    <logic:equal name="ims" property="status" value="1"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}" class="link_azul">Editar Anúncio</a> &nbsp;&nbsp; </logic:equal>
-		  	<a href="javascript:excluirAnuncio()" class="link_azul">Excluir Anúncio</a>
+		  	<a href="javascript:excluirAnuncio('imovelForm${ims.codigo}')" class="link_azul">Excluir Anúncio</a>
 		  	 <!-- <html:submit> Excluir Imóvel </html:submit> -->  
 		  </div>
 		  
