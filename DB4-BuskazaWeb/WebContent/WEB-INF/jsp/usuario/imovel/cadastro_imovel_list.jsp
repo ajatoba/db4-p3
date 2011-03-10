@@ -22,6 +22,11 @@
 <script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 <script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 <script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
+
+
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
+<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+
 <script>
 $(function(){
 	/*
@@ -49,33 +54,11 @@ $(function(){
 </head>
 
 <body>
-<div id="conteudo"> 
-  <!--TOPO-->
-  <div id="top">
-    <div class="topo_menu">
-      <div class="txt_01">Você está: Pág. Inicial</div>
-      <div class="txt_02">Quem Somos</div>
-      <div class="txt_03">Mapa do Site</div>
-      <div class="txt_04">Contato</div>
-      <div class="txt_05">Ajuda</div>
-      <div class="txt_06">Redes Sociais</div>
-      <div class="twitter"></div>
-      <div class="facebook"></div>
-    </div>
-    <div class="tracejado_top"></div>
-    <div class="linha_logo">
-      <div class="logo"></div>
-      <div class="options"></div>
-    </div>
-    <div class="bottom_menu">
-      <a href="/DB4-BuskazaWeb/imovel.do?act=formBuscarImovel"><div class="btn_alugar">alugar imóvel</div></a>
-      <a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel"><div class="btn_anunciar">anunciar imóvel</div></a>
-      <a href="http://www.buzkaza.com.br/blog/" target="_black"><div class="btn_blog">blogs</div></a>
-      <div class="btn_login">Efetuar login</div>
-      <a href="/DB4-BuskazaWeb/usuario.do?act=formIncluirUsuario"><div class="btn_cadastre_se"></div></a>
-    </div>
-  </div>
-</div>
+
+
+<!--topo com linha azul -->
+<jsp:include page="../topo.jsp"/>
+
 
 <div id="site">
 <!--CADASTRO-->
@@ -106,7 +89,7 @@ $(function(){
   <div class="nota_reserva"><span class="id_imoves">id: <bean:write name="ims" property="codigo"/></span></div>
   <div class="visualizar_reserva">
     <logic:equal name="ims" property="status" value="0">Em análise &nbsp;&nbsp;</logic:equal>    
-    <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}" class="link_azul">Disponibilidade/Preços</a> &nbsp;&nbsp; <a href="/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservas" class="link_azul"> Minhas Reservas</a>&nbsp;&nbsp; 
+    <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}" class="link_azul">Disponibilidade/Preços</a> &nbsp;&nbsp; 
     </logic:equal>    
     <logic:notEmpty name="ims" property="anuncios"><!-- <a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=listarAnunciosImovel&ci=${ims.codigo}" class="link_azul">Ver Disponibilidade</a>--> </logic:notEmpty>
     <logic:equal name="ims" property="status" value="1"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}" class="link_azul">Editar Anúncio</a> &nbsp;&nbsp; </logic:equal>
