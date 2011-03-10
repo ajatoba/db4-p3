@@ -508,7 +508,9 @@
       </table>
   </div>
 </div>
-</html:form><br />
+</html:form>
+
+<br />
 </div>
 
 <!--FORM-->
