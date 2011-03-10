@@ -9,7 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza</title>
 
-	
 <link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
 <link href="/buzkaza/_css/busca.css" rel="stylesheet" type="text/css" />
 
@@ -36,9 +35,7 @@
 		document.forms[0].submit();			
 	}
 </script>
-	
 </head>
-
 <body>
 
 
@@ -46,7 +43,6 @@
 
 <!-- topo com linha azul -->
 <jsp:include page="../usuario/topo.jsp"/>
-
 
 <!--BUSCA-->
 
