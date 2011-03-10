@@ -8,7 +8,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza</title>
 
-	<!-- <link href="/buzkaza/teaser/_css/estilo.css" rel="stylesheet" type="text/css" /> -->
+	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>	
+	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
+	
+	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/script/thickbox.css" />
+	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/_css/estilo_iframe.css" />
+	<script type="text/javascript" src="/buzkaza/thickbox/script/thickbox.js" ></script>
+	<script type="text/javascript" src="/buzkaza/thickbox/script/global.js" ></script>
+	
 	<link href="/buzkaza/_css/cadastro_imovel.css" rel="stylesheet" type="text/css" />
 	
 	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
@@ -19,14 +26,7 @@
 	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
 
 	<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
-
-	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>	
-	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 	
-	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/script/thickbox.css" />
-	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/_css/estilo_iframe.css" />
-	<script type="text/javascript" src="/buzkaza/thickbox/script/thickbox.js" ></script>
-	<script type="text/javascript" src="/buzkaza/thickbox/script/global.js" ></script>
 	
 	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/jquery.alerts.css"/>
@@ -120,7 +120,7 @@
 </head>
 <body>
 
-<!--topo com linha azul -->
+<!-- topo com linha azul -->
 <jsp:include page="../topo.jsp"/>
 
 
@@ -154,7 +154,6 @@
     <!-- ****************** -->
 <!--CADASTRO-->
 
-<jsp:include page="../menu.jsp"/>
 
 <html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=incluirImovel" enctype="multipart/form-data">
 
@@ -516,9 +515,7 @@
 </html:form><br />
 </div>
 
-
 <!--FORM-->
-
 <jsp:include page="../rodape.jsp"/>
 
 </body>
