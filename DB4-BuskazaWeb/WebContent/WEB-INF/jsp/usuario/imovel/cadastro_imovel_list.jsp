@@ -9,9 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza</title>
-<!-- 
-<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
- -->
+
 <link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
 <link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
 
@@ -29,12 +27,9 @@
 
 <script>
 $(function(){
-	/*
+	
 	$('#sep_top_reserva').corner('rounded 7px');
-
-	$("#busca_home").corner("bottom 7px");
-	$("#mapa_").corner("bottom 7px");
-	*/
+	
 	});
 
 	function openWindow(url){
@@ -56,7 +51,7 @@ $(function(){
 <body>
 
 
-<!--topo com linha azul -->
+<!-- topo com linha azul -->
 <jsp:include page="../topo.jsp"/>
 
 
@@ -76,38 +71,41 @@ $(function(){
 
 <logic:present name="imoveis">
 <logic:iterate id="ims"  name="imoveis">
-<!--BOX COM A RESERVA-->
+		<!--BOX COM A RESERVA-->
+		
+		<html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=excluirImovel" enctype="multipart/form-data">
+		<html:hidden property="imovelEntity.codigo" value="${ims.codigo}"/>
+		
+		<div id="box_listagem">
+		<div class="foto_reserva"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="primeirafoto"/>" width="132" height="99" /></div>
+		<div class="detalhe_reserva">
+		  <div class="bairro_reserva">${ims.bairro} -${ims.estado.codigo}<br>
+		    <span class="nome_rua">${ims.logradouro}</span></div>
+		  <div class="nota_reserva"><span class="id_imoves">id: <bean:write name="ims" property="codigo"/></span></div>
+		  <div class="visualizar_reserva">
+		    <logic:equal name="ims" property="status" value="0">Em análise &nbsp;&nbsp;</logic:equal>    
+		    <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}" class="link_azul">Disponibilidade/Preços</a> &nbsp;&nbsp; 
+		    </logic:equal>    
+		    <logic:notEmpty name="ims" property="anuncios"><!-- <a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=listarAnunciosImovel&ci=${ims.codigo}" class="link_azul">Ver Disponibilidade</a>--> </logic:notEmpty>
+		    <logic:equal name="ims" property="status" value="1"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}" class="link_azul">Editar Anúncio</a> &nbsp;&nbsp; </logic:equal>
+		  	<a href="javascript:excluirAnuncio()" class="link_azul">Excluir Anúncio</a>
+		  	 <!-- <html:submit> Excluir Imóvel </html:submit> -->  
+		  </div>
+		  
+		</div>
+		
+			<logic:notEmpty name="ims" property="reservas">
+					<div class="status_anuncio">
+							<div class="verde_anuncio"><a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=0');" style="color:#90b821;">Você tem 2 pedidos de reserva</a></div>
+					</div>
+			</logic:notEmpty>
+			
+		</div>      
+		<div id="separator_listagem"></div>
+		
+		<br>
+		</html:form>
 
-<html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=excluirImovel" enctype="multipart/form-data">
-<html:hidden property="imovelEntity.codigo" value="${ims.codigo}"/>
-
-<div id="box_listagem">
-<div class="foto_reserva"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="primeirafoto"/>" width="132" height="99" /></div>
-<div class="detalhe_reserva">
-  <div class="bairro_reserva">${ims.bairro} -${ims.estado.codigo}<br>
-    <span class="nome_rua">${ims.logradouro}</span></div>
-  <div class="nota_reserva"><span class="id_imoves">id: <bean:write name="ims" property="codigo"/></span></div>
-  <div class="visualizar_reserva">
-    <logic:equal name="ims" property="status" value="0">Em análise &nbsp;&nbsp;</logic:equal>    
-    <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}" class="link_azul">Disponibilidade/Preços</a> &nbsp;&nbsp; 
-    </logic:equal>    
-    <logic:notEmpty name="ims" property="anuncios"><!-- <a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=listarAnunciosImovel&ci=${ims.codigo}" class="link_azul">Ver Disponibilidade</a>--> </logic:notEmpty>
-    <logic:equal name="ims" property="status" value="1"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}" class="link_azul">Editar Anúncio</a> &nbsp;&nbsp; </logic:equal>
-  	<a href="javascript:excluirAnuncio()" class="link_azul">Excluir Anúncio</a>
-  	 <!-- <html:submit> Excluir Imóvel </html:submit> -->  
-  </div>
-  
-</div>
-	<logic:notEmpty name="ims" property="reservas">
-			<div class="status_anuncio">
-					<div class="verde_anuncio"><a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=0');" style="color:#90b821;">Você tem 2 pedidos de reserva</a></div>
-			</div>
-	</logic:notEmpty>
-</div>      
-<div id="separator_listagem"></div>
-
-<br>
-</html:form>
 	 </logic:iterate>  
 </logic:present>
 </div>
@@ -115,7 +113,6 @@ $(function(){
 </div></div>
 
 <!--fimconteudo-->
-
 </div>
 
 <jsp:include page="../rodape.jsp"/>
