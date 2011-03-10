@@ -35,16 +35,32 @@
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/tabs.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
 	
+	<link href="/buzkaza/_css/detalhe_imovel.css" rel="stylesheet" type="text/css" />
+	
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
+	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
 	
 	<script language="javascript">
-	$(function(){
-			$('form').jqTransform({imgPath:'jqtransformplugin/img/'});
-	});
+
+
+	$(document).ready(function()
+	{
+		$('iframe').load(function()
+				{
+					this.style.width = 341 + 'px';
+					this.style.height = 271 + 'px';
+				}
+			);
+		
+		$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
+	}
+	);
+
 	
 	$(function(){
-		/*
-			$('#sep_top_reserva').corner('rounded 7px');
 		
+			$('#sep_top_reserva').corner('rounded 7px');
+			/*
 			$("#busca_home").corner("bottom 7px");
 			$("#mapa_").corner("bottom 7px");
 		*/
@@ -55,33 +71,7 @@
 
 <body>
 
-<div id="conteudo"> 
-  <!--TOPO-->
-  <div id="top">
-    <div class="topo_menu">
-      <div class="txt_01">Você está: Pág. Inicial</div>
-      <div class="txt_02">Quem Somos</div>
-      <div class="txt_03">Mapa do Site</div>
-      <div class="txt_04">Contato</div>
-      <div class="txt_05">Ajuda</div>
-      <div class="txt_06">Redes Sociais</div>
-      <div class="twitter"></div>
-      <div class="facebook"></div>
-    </div>
-    <div class="tracejado_top"></div>
-    <div class="linha_logo">
-      <div class="logo"></div>
-      <div class="options"></div>
-    </div>
-    <div class="bottom_menu">
-      <a href="/DB4-BuskazaWeb/imovel.do?act=formBuscarImovel"><div class="btn_alugar">alugar imóvel</div></a>
-      <a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel"><div class="btn_anunciar">anunciar imóvel</div></a>
-      <a href="http://www.buzkaza.com.br/blog/" target="_black"><div class="btn_blog">blogs</div></a>
-      <div class="btn_login">Efetuar login</div>
-      <a href="/DB4-BuskazaWeb/usuario.do?act=formIncluirUsuario"><div class="btn_cadastre_se"></div></a>
-    </div>
-  </div>
-</div>
+<jsp:include page="../usuario/topo.jsp"/>
 
 
 <!--CADASTRO-->
@@ -98,7 +88,11 @@
 <div id="sep_top_reserva"></div>
 <div id="listagem_reservas">
 <div class="topo_edicao">
+
+<!--  
 <div class="mapa_planta"><img src="/buzkaza/_img/adm_meusanuncios_editar_05.png" width="195" height="145" /></div>
+
+-->
 
 <!-- MENSAGEM DE ERRO -->
     <font color="red">  
@@ -117,47 +111,56 @@
     <!-- ****************** -->
 
 
-<table width="70%" border="1"> 
-  <tr>
-  	<td width="35%">
-  	<img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="140" height="104" />
-  	<br/>
-  	<logic:notEmpty name="imovel" property="fotos">
-  		<logic:iterate name="imovel" property="fotos" id="fotoImovel">
-  			<img src="/buzkaza/imagens_usuarios/<bean:write name="fotoImovel" property="caminhoThumbnail"/>" />
-  		
+  	
+  	<!--left-->
+	<div class="left_detalhe">
+	<div class="foto_big"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="341" height="271" />
+		<logic:notEmpty name="imovel" property="fotos">
+  			<logic:iterate name="imovel" property="fotos" id="fotoImovel">
+  			<img src="/buzkaza/imagens_usuarios/<bean:write name="fotoImovel" property="caminhoThumbnail"/>" />  		
   		</logic:iterate>
   	</logic:notEmpty>
-  	</td>
-    <td width="35%">
-    	Bairro:<bean:write name="imovel" property="bairro"/><br>
-    	Logradouro:<bean:write name="imovel" property="logradouro"/><br/>  
-		Distancia do Centro:<bean:write name="imovel" property="distanciaCentro"/><br />
-		Tipo:${imovel.tipoImovel.nome}<br />
-		Quartos:${imovel.quartos}<br />
-		Metragem:${imovel.metragem}m<sup>2</sup><br />
-		Capacidade:${imovel.capacidade} pessoas<br />
-		Camas:${imovel.camas}<br />
-		Video:<bean:write name="imovel" property="linkYouTube"/><br />
-    </td>
-  </tr>
-  <tr>
-  	<td>
-  	<img src="/buzkaza/imagens_usuarios/${imovel.planta.caminho}" width="140" height="104" /><br/>
-  	${imovel.linkGoogleMaps }  	
-  	</td>
-  	<td>
+	
+	</div>
+	
+	<div class="thumbs_fotos">dsa</div>
+	
+	<div class="chamada_planta">Planta</div>
+	
+	<div class="planta_big"><img src="/buzkaza/imagens_usuarios/${imovel.planta.caminho}"  width="341" height="271" /></div>
+	
+	<div class="chamada_mapa">Mapa</div>
+	
+	<div class="mapa_big">${imovel.linkGoogleMaps }</div>
+	
+	</div>
+	<!--left-->
+  	
+   	<!--right-->
+	<div class="right_detalhe">
+    	<span class="txt_cinza_detalhes">
+    	
+    	<span class="tit_azul_detalhes"><bean:write name="imovel" property="bairro"/>, <bean:write name="imovel" property="logradouro"/></span><br />
+    	<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/></span><br /><br />
+    	 
+		<span class="txt_azul_peq_detalhes">Distancia do Centro</span>&nbsp; : <bean:write name="imovel" property="distanciaCentro"/><br />
+		<span class="txt_azul_peq_detalhes">Tipo</span>&nbsp; : ${imovel.tipoImovel.nome}<br />
+		<span class="txt_azul_peq_detalhes">Quartos</span>&nbsp;: ${imovel.quartos}<br />
+		<span class="txt_azul_peq_detalhes">Metragem</span>&nbsp; : ${imovel.metragem}m<sup>2</sup><br />
+		<span class="txt_azul_peq_detalhes">Capacidade</span>&nbsp; : ${imovel.capacidade} pessoas<br />
+		<span class="txt_azul_peq_detalhes">Camas</span>&nbsp; : ${imovel.camas}<br />
+		<span class="txt_azul_peq_detalhes">Video</span>&nbsp;: <bean:write name="imovel" property="linkYouTube"/>
+		</span>
+	</div>
+    
+    
   	EQUIPAMENTOS<br/>
   	<logic:notEmpty name="imovel" property="equipamentos">
   		<logic:iterate name="imovel" id="equipamentos" id="equipamento">
   			<bean:write name="equipamento" property="descricao"/>" />  		
   		</logic:iterate>
   	</logic:notEmpty>
-  	</td>
-  </tr>
- 
-</table>
-
+  	
 
 
 
