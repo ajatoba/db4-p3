@@ -193,6 +193,7 @@
 						<html:option value="8">8 Quartos</html:option>		
 						<html:option value="9">9 Quartos</html:option>						
 						<html:option value="10">10 Quartos</html:option>
+						<!-- 
 						<html:option value="11">11 Quartos</html:option>
 						<html:option value="12">12 Quartos</html:option>
 						<html:option value="13">13 Quartos</html:option>
@@ -204,7 +205,7 @@
 						<html:option value="19">19 Quartos</html:option>						
 						<html:option value="20">20 Quartos</html:option>
 						<html:option value="21">21 Quartos</html:option>
-						<html:option value="22">22 Quartos</html:option>
+						<html:option value="22">22 Quartos</html:option> -->
                     </html:select>
               </span></div></td>
           </tr>
