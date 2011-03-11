@@ -15,7 +15,7 @@
     </div>
     <div class="tracejado_top"></div>
     <div class="linha_logo">
-      <div class="logo"></div>
+      <a href="/index.html" style="cursor:pointer;"><div class="logo"></div></a>
       <div class="options"></div>
     </div>
     <div class="bottom_menu">
