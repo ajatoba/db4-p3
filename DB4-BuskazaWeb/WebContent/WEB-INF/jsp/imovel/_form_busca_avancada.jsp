@@ -365,7 +365,7 @@
 <div class="form_02">
 <table width="90%" border="0" align="center" cellpadding="0" cellspacing="1">
   <tr>
-    <td colspan="3" class="txt_caracteristica"><img src="/buzkaza/_img/bullet.jpg" width="21" height="16" />Características do Imóvel</td>
+    <td colspan="3" class="txt_caracteristica"><img src="/buzkaza/_img/bullet.jpg" width="21" height="16" />Equipamentos</td>
     </tr>
   
     
