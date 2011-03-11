@@ -16,10 +16,13 @@
 				<html:options collection="estados" property="codigo" labelProperty="nome" />
         	</html:select>
       </td>
-      <td width="33%" height="30">      
-      		<html:select property="pais" styleClass="MyriadProRegular">    		
-				<html:options collection="paises" property="codigo" labelProperty="nome"/>
-			</html:select>      
+      <td width="33%" height="30"> 
+      <html:select property="pais" styleClass="MyriadProRegular">
+      	<!--  <html:options collection="paises" property="codigo" labelProperty="nome"/> -->        
+      	<html:option value="1">Brasil</html:option>
+      
+      </html:select>
+
       </td>
       <td width="33%" height="30"><html:text property="municipio" styleClass="MyriadProRegular" size="180" /></td>
     </tr>
@@ -69,9 +72,9 @@
 				<html:option value="6">6 Quartos</html:option>
 				<html:option value="7">7 Quartos</html:option>
 				<html:option value="8">8 Quartos</html:option>				
-				<html:option value="9">9 Quartos</html:option>
-				
+				<html:option value="9">9 Quartos</html:option>				
 				<html:option value="10">10 Quartos</html:option>
+				<!-- 
 				<html:option value="11">11 Quartos</html:option>
 				<html:option value="12">12 Quartos</html:option>
 				<html:option value="13">13 Quartos</html:option>
@@ -84,7 +87,7 @@
 				
 				<html:option value="20">20 Quartos</html:option>
 				<html:option value="21">21 Quartos</html:option>
-				<html:option value="22">22 Quartos</html:option>
+				<html:option value="22">22 Quartos</html:option> -->
             </html:select>      
       </td>
       <td width="33%" height="30">
@@ -222,12 +225,13 @@
                 <html:option value="600.0">600m</html:option>
             </html:select>      
       </td>
-    </tr>
+    </tr><!-- 
     <tr>
       <td width="33%" height="30">Disponibilidade</td>
       <td width="33%" height="30">&nbsp;</td>
       <td width="33%" height="30">&nbsp;</td>
     </tr>
+     -->
     <tr>
       <td colspan="3"><table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
