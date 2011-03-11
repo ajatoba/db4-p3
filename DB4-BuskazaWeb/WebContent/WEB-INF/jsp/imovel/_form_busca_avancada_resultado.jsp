@@ -155,7 +155,7 @@
           <tr>
             <td height="26"><span class="txt_form">
               <html:select property="capacidade" styleClass="MyriadProRegular">
-                <html:option value="">-</html:option> 
+                <html:option value="">Todos</html:option> 
                 <html:option value="1">1 Pessoa</html:option>
 				<html:option value="2">2 Pessoas</html:option>
 				<html:option value="3">3 Pessoas</html:option>
@@ -182,7 +182,7 @@
             <td height="26">
             <div class="sepd"><span class="txt_form">
 					<html:select property="quartos" styleClass="MyriadProRegular">
-                        <html:option value="">-</html:option> 
+                        <html:option value="">Todos</html:option> 
                         <html:option value="1">1 Quarto</html:option>
 						<html:option value="2">2 Quartos</html:option>
 						<html:option value="3">3 Quartos</html:option>
@@ -214,7 +214,7 @@
           <tr>
             <td height="26" colspan="2"><span class="txt_form">
 					<html:select property="metragem" styleClass="MyriadProRegular">    	
-                        <html:option value="">-</html:option> 
+                        <html:option value="">Todos</html:option> 
                         <html:option value="20.0">20m</html:option>
 		                <html:option value="25.0">25m</html:option>
 		                <html:option value="30.0">30m</html:option>
