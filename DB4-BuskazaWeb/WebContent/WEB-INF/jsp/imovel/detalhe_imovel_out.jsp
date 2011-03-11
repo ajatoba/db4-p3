@@ -14,26 +14,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza - Detalhe do Imóvel</title>
 
-<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
-
-<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
-<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
-
-<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
-<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
-<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
-<script type="text/javascript" src="/buzkaza/_js/jquery-1.4.js"></script>
-<script type="text/javascript" src="/buzkaza/_js/tabs.js"></script>
-<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
-<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
-<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js" ></script>
-
-<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
-<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
-
-<link rel="stylesheet" type="text/css" href="/buzkaza/_css/jquery.alerts.css"  />
-<link rel="stylesheet" type="text/css" href="/buzkaza/_css/tabs.css" media="screen"/>
-<link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
+	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
+	
+	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
+	
+	<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
+	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
+	<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
+	<script type="text/javascript" src="/buzkaza/_js/jquery-1.4.js"></script>
+	<script type="text/javascript" src="/buzkaza/_js/tabs.js"></script>
+	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+	<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
+	<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js" ></script>
+	
+	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+	
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/jquery.alerts.css"  />
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/tabs.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
 	
 	<link href="/buzkaza/_css/detalhe_imovel.css" rel="stylesheet" type="text/css" />
 	
@@ -41,7 +41,6 @@
 	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
 	
 	<script language="javascript">
-
 
 	$(document).ready(function()
 	{
@@ -60,10 +59,7 @@
 	$(function(){
 		
 			$('#sep_top_reserva').corner('rounded 7px');
-			/*
-			$("#busca_home").corner("bottom 7px");
-			$("#mapa_").corner("bottom 7px");
-		*/
+			
 		});
 		
 </script>
@@ -77,22 +73,6 @@
 <!--CADASTRO-->
 
 <div id="cont_reserva">
-<div id="meio_reserva">
-<div class="top_reserva">
-	<div class="txt_meus_anuncios">
-		<span class="MyriadPro24">Detalhe do Imóvel</span>
-	</div>
-</div>
-
-</div>
-<div id="sep_top_reserva"></div>
-<div id="listagem_reservas">
-<div class="topo_edicao">
-
-<!--  
-<div class="mapa_planta"><img src="/buzkaza/_img/adm_meusanuncios_editar_05.png" width="195" height="145" /></div>
-
--->
 
 <!-- MENSAGEM DE ERRO -->
     <font color="red">  
@@ -111,19 +91,23 @@
     <!-- ****************** -->
 
 
+	<div class="barra_top">
+	<div class="aba_detalhes"><span class="txt_cinza_detalhes">Detalhes</span></div>
+	<div class="aba_comments"></div>
+	</div>
   	
   	<!--left-->
 	<div class="left_detalhe">
-	<div class="foto_big"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="341" height="271" />
-		<logic:notEmpty name="imovel" property="fotos">
-  			<logic:iterate name="imovel" property="fotos" id="fotoImovel">
-  			<img src="/buzkaza/imagens_usuarios/<bean:write name="fotoImovel" property="caminhoThumbnail"/>" />  		
-  		</logic:iterate>
-  	</logic:notEmpty>
-	
+			<div class="foto_big"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="341" height="271" />
 	</div>
 	
-	<div class="thumbs_fotos">dsa</div>
+	<div class="thumbs_fotos">
+		<logic:notEmpty name="imovel" property="fotos">
+  			<logic:iterate name="imovel" property="fotos" id="fotoImovel">
+  				<img src="/buzkaza/imagens_usuarios/<bean:write name="fotoImovel" property="caminhoThumbnail"/>" />  		
+  			</logic:iterate>
+  		</logic:notEmpty>
+  	</div>
 	
 	<div class="chamada_planta">Planta</div>
 	
@@ -151,27 +135,17 @@
 		<span class="txt_azul_peq_detalhes">Camas</span>&nbsp; : ${imovel.camas}<br />
 		<span class="txt_azul_peq_detalhes">Video</span>&nbsp;: <bean:write name="imovel" property="linkYouTube"/>
 		</span>
-	</div>
-    
-    
-  	EQUIPAMENTOS<br/>
-  	<logic:notEmpty name="imovel" property="equipamentos">
-  		<logic:iterate name="imovel" id="equipamentos" id="equipamento">
-  			<bean:write name="equipamento" property="descricao"/>" />  		
-  		</logic:iterate>
-  	</logic:notEmpty>
+		
+		
+	  	<logic:notEmpty name="imovel" property="equipamentos">
+	  		<span class="tit_azul_detalhes">Equipamentos</span><br/>
+	  		<logic:iterate name="imovel" id="equipamentos" id="equipamento">
+	  			<bean:write name="equipamento" property="descricao"/>" />  		
+	  		</logic:iterate>
+	  	</logic:notEmpty>
   	
+	</div>
 
-
-
-<div id="formulario_edicao">
-<div class="left_formulario_">
-
-</div>
-<div class="right_formulario_">
-
-</div>
-</div>
 </div>
 
 </div>
