@@ -8,7 +8,6 @@
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -56,10 +55,8 @@
 	);
 
 	
-	$(function(){
-		
-			$('#sep_top_reserva').corner('rounded 7px');
-			
+	$(function(){		
+			$('#sep_top_reserva').corner('rounded 7px');			
 		});
 		
 </script>
@@ -69,19 +66,17 @@
 
 <jsp:include page="../usuario/topo.jsp"/>
 
-
 <!--CADASTRO-->
 
 <div id="cont_reserva">
 
-<!-- MENSAGEM DE ERRO -->
+	<!-- MENSAGEM DE ERRO -->
     <font color="red">  
 		<logic:messagesPresent property="erro">
 			<html:messages property="erro" id="erro">
 				<bean:write name="erro"/>    			
 			</html:messages>
-		</logic:messagesPresent>
-				
+		</logic:messagesPresent>				
 		<logic:messagesNotPresent property="erro">
 			<logic:present name="erro">
 				<bean:write name="erro"/>
@@ -135,16 +130,13 @@
 		<span class="txt_azul_peq_detalhes">Capacidade</span>&nbsp; : ${imovel.capacidade} pessoas<br />
 		<span class="txt_azul_peq_detalhes">Camas</span>&nbsp; : ${imovel.camas}<br />
 		<span class="txt_azul_peq_detalhes">Video</span>&nbsp;: <bean:write name="imovel" property="linkYouTube"/>
-		</span>
-		
-		
+		</span>		
 	  	<logic:notEmpty name="imovel" property="equipamentos">
 	  		<span class="tit_azul_detalhes">Equipamentos</span><br/>
 	  		<logic:iterate name="imovel" id="equipamentos" id="equipamento">
 	  			<bean:write name="equipamento" property="descricao"/>" />  		
 	  		</logic:iterate>
-	  	</logic:notEmpty>
-  	
+	  	</logic:notEmpty>  	
 	</div>
 
 </div>
