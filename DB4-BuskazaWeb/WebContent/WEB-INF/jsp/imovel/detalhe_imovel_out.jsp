@@ -124,9 +124,10 @@
 	<div class="right_detalhe">
     	<span class="txt_cinza_detalhes">
     	
-    	<span class="tit_azul_detalhes"><bean:write name="imovel" property="bairro"/>, <bean:write name="imovel" property="logradouro"/></span><br />
+    	<span class="tit_azul_detalhes"><bean:write name="imovel" property="bairro"/>, ${imovel.estado.codigo}</span><br />
     	<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/></span><br /><br />
     	 
+    	<span class="txt_azul_peq_detalhes">ID</span>&nbsp; : <bean:write name="imovel" property="codigo"/><br />
 		<span class="txt_azul_peq_detalhes">Distancia do Centro</span>&nbsp; : <bean:write name="imovel" property="distanciaCentro"/><br />
 		<span class="txt_azul_peq_detalhes">Tipo</span>&nbsp; : ${imovel.tipoImovel.nome}<br />
 		<span class="txt_azul_peq_detalhes">Quartos</span>&nbsp;: ${imovel.quartos}<br />
@@ -151,7 +152,6 @@
 </div>
 <div class="bottom_formulario"></div>
 <div class="linha_cinza"></div>
-
 
 <jsp:include page="../usuario/rodape.jsp"/>
 
