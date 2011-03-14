@@ -10,31 +10,29 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Buzkaza - Pagar Reserva</title>
 	
-
+	
+	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
+	
 	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
 	
-	
-	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
 
 	<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
-	<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
-	
+	<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>	
 	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
 	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
 
 <script>
-$(function(){
+	$(function(){
 	
 	$('#sep_top_reserva').corner('rounded 7px');
 	
-	});
-		
+	});			
 </script>
 </head>
 
@@ -68,13 +66,13 @@ $(function(){
 				<td>
 				<bean:write name="reservaPagar" property="imovel.logradouro"/>-
 				<bean:write name="reservaPagar" property="imovel.bairro"/>, 
-				<bean:write name="reservaPagar" property="imovel.municipio"/>
-				<br>
-				a <bean:write name="reservaPagar" property="imovel.distanciaCentro" format="00.00"/>km do Centro<br>
-				<bean:write name="reservaPagar" property="imovel.metragem" format="00"/>m<sup>2</sup>, com capacidade para <bean:write name="reservaPagar" property="imovel.capacidade"/> pessoa(s)<br>
-				Link no Google Maps:<bean:write name="reservaPagar" property="imovel.linkGoogleMaps"/><br>
-				Link no YouTube:<bean:write name="reservaPagar" property="imovel.linkYouTube"/><br>
-				<br>
+				<bean:write name="reservaPagar" property="imovel.municipio"/> - <bean:write name="reservaPagar" property="imovel.estado.codigo"/>
+				<br />
+				a <bean:write name="reservaPagar" property="imovel.distanciaCentro" format="00.00"/>km do Centro<br />
+				<bean:write name="reservaPagar" property="imovel.metragem" format="00"/>m<sup>2</sup>, com capacidade para <bean:write name="reservaPagar" property="imovel.capacidade"/> pessoa(s)<br />
+				Link no Google Maps:<bean:write name="reservaPagar" property="imovel.linkGoogleMaps"/><br />
+				Link no YouTube:<bean:write name="reservaPagar" property="imovel.linkYouTube"/><br />
+				<br />
 				</td>
 			</tr>
 			
@@ -104,31 +102,31 @@ $(function(){
 		<table cellpadding="10" cellspacing="10">
 		<tr>
 			<td>
-			<FORM action="https://www.paypal.com/cgi-bin/webscr" method="post">
-				<input type="hidden" name="cmd" value="_cart">
-				<input type="hidden" name="business" value="silvio@buzkaza.com.br">
-				<input type="hidden" name="currency_code" value="BRL">
-				<input type="hidden" name="amount" value="<bean:write name="reservaPagar" property="valor" format="##.##"/>">
-				<input type="hidden" name="item_name" value="Aluguel do Imóvel de Código:${reservaPagar.imovel.codigo}">
-				<input type="hidden" name="item_number" value="${reservaPagar.codigo}">
-				<input type="hidden" name="shopping_url" value="http://www.buzkaza.com.br">				
-				<input type="hidden" name="add" value="1">				
-				<input type="image" src="http://www.paypal.com/en_US/i/btn/sc-but-01.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-			</form>
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<input type="hidden" name="cmd" value="_cart">
+					<input type="hidden" name="business" value="silvio@buzkaza.com.br">
+					<input type="hidden" name="currency_code" value="BRL">
+					<input type="hidden" name="amount" value="<bean:write name="reservaPagar" property="valor" format="##.##"/>">
+					<input type="hidden" name="item_name" value="Aluguel do Imóvel de Código:${reservaPagar.imovel.codigo}">
+					<input type="hidden" name="item_number" value="${reservaPagar.codigo}">
+					<input type="hidden" name="shopping_url" value="http://www.buzkaza.com.br">				
+					<input type="hidden" name="add" value="1">				
+					<input type="image" src="http://www.paypal.com/en_US/i/btn/sc-but-01.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+				</form>
 			</td>
 			<td>
-			<form action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip" id="moip">
-				<input type="hidden" name="id_carteira" value="buzkaza">			
-				<input type="hidden" name="valor" value="<bean:write name="reservaPagar" property="valor" format="#"/>00">
-				<input type="hidden" name="nome" value="${reservaPagar.locatario.nome}">
-				<input type="hidden" name="pagador_nome" value="${reservaPagar.locatario.nome}">
-				<input type="hidden" name="pagador_email" value="${reservaPagar.locatario.email}">
-				<input type="hidden" name="id_transacao" value="${reservaPagar.codigo}">
-				<input type="hidden" name="descricao" value="Aluguel do Imóvel de Código:${reservaPagar.imovel.codigo}">
-				<input type="hidden" name="url_retorno" value="http://www.buzkaza.com.br">
-				<a href="#" onclick="javascript:document.moip.submit();" border="0"><img src="http://www.moip.com.br/img/novas/moip.gif" border="0" width="70" height="35"/></a>
-				
-			</form>
+				<form action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip" id="moip">
+					<input type="hidden" name="id_carteira" value="buzkaza">			
+					<input type="hidden" name="valor" value="<bean:write name="reservaPagar" property="valor" format="#"/>00">
+					<input type="hidden" name="nome" value="${reservaPagar.locatario.nome}">
+					<input type="hidden" name="pagador_nome" value="${reservaPagar.locatario.nome}">
+					<input type="hidden" name="pagador_email" value="${reservaPagar.locatario.email}">
+					<input type="hidden" name="id_transacao" value="${reservaPagar.codigo}">
+					<input type="hidden" name="descricao" value="Aluguel do Imóvel de Código:${reservaPagar.imovel.codigo}">
+					<input type="hidden" name="url_retorno" value="http://www.buzkaza.com.br">
+					<a href="#" onclick="javascript:document.moip.submit();" border="0"><img src="http://www.moip.com.br/img/novas/moip.gif" border="0" width="70" height="35"/></a>
+					
+				</form>
 			</td>
 		</tr>
 		</table>
