@@ -8,25 +8,41 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Pagar Reserva</title>
-	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
-	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
-	<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
+	<title>Buzkaza - Pagar Reserva</title>
 	
+
+	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
+	
+	
+	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+
 	<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 	<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
+	
+	
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
+	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+
+<script>
+$(function(){
+	
+	$('#sep_top_reserva').corner('rounded 7px');
+	
+	});
+		
+</script>
 </head>
 
 <body>
-<div id="linha_topo"></div>
-<div id="site">
-<div id="top_header"><img src="/buzkaza/images/top_01.jpg" width="991" height="31" /></div>
-<div id="meio_header"><img src="/buzkaza/images/top_02.jpg" width="991" height="86" /></div>
-<div id="bottom_header"><img src="/buzkaza/images/top_03.jpg" width="991" height="77" /></div>
-<!--CADASTRO-->
 
-<jsp:include page="../menu.jsp"/>
+<!-- topo com linha azul -->
+<jsp:include page="../topo.jsp"/>
+
 
 <div id="cont_reserva">
 
@@ -103,7 +119,7 @@
 			<td>
 			<form action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip" id="moip">
 				<input type="hidden" name="id_carteira" value="buzkaza">			
-				<input type="hidden" name="valor" value="<bean:write name="reservaPagar" property="valor" format="#"/>">
+				<input type="hidden" name="valor" value="<bean:write name="reservaPagar" property="valor" format="#"/>00">
 				<input type="hidden" name="nome" value="${reservaPagar.locatario.nome}">
 				<input type="hidden" name="pagador_nome" value="${reservaPagar.locatario.nome}">
 				<input type="hidden" name="pagador_email" value="${reservaPagar.locatario.email}">
@@ -124,12 +140,14 @@
 		Não é possível pagar essa reserva.
 	</logic:notPresent>
 
-<!--FIM CADASTRO-->
 
-	<div id="linha_meio"></div>
-	<div id="boxes"><img src="/buzkaza/images/formulario_proprietario(zig.jpg" width="991" height="283" /></div>
-	<div id="linha_cinza"></div>
-	<div id="bottom"></div>
+<br /><br /><br /><br />
+
+
+<!--FIM CADASTRO-->
+</div></div></div>
+
+	<jsp:include page="../rodape.jsp"/>
 
 </div>
 </body>
