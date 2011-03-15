@@ -130,13 +130,15 @@
 		<span class="txt_azul_peq_detalhes">Capacidade</span>&nbsp; : ${imovel.capacidade} pessoas<br />
 		<span class="txt_azul_peq_detalhes">Camas</span>&nbsp; : ${imovel.camas}<br />
 		<span class="txt_azul_peq_detalhes">Video</span>&nbsp;: <bean:write name="imovel" property="linkYouTube"/>
-		</span>		
+		</span>
+		
 	  	<logic:notEmpty name="imovel" property="equipamentos">
 	  		<span class="tit_azul_detalhes">Equipamentos</span><br/>
 	  		<logic:iterate name="imovel" id="equipamentos" id="equipamento">
 	  			<bean:write name="equipamento" property="descricao"/>" />  		
 	  		</logic:iterate>
-	  	</logic:notEmpty>  	
+	  	</logic:notEmpty>
+	  	  	
 	</div>
 
 </div>
