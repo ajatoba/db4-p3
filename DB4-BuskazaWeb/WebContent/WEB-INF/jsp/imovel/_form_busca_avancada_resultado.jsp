@@ -14,15 +14,16 @@
           </tr>
           <tr>
             <td colspan="2"><span class="txt_form">   			 
-				<html:select property="imovelEntity.estado.codigo" styleClass="MyriadProRegular"> 
-					<html:option value="AC">Acre</html:option> 
-					<html:option value="AL">Alagoas</html:option> 
-					<html:option value="AP">Amap&aacute;</html:option> 
-					<html:option value="AM">Amazonas</html:option> 
-					<html:option value="BA">Bahia</html:option> 
-					<html:option value="CE">Cear&aacute;</html:option> 
-					<html:option value="DF">Distrito Federal</html:option> 
-					<html:option value="ES">Espir&iacute;to Santo</html:option> 
+				<html:select property="imovelEntity.estado.codigo" styleClass="MyriadProRegular">
+					<html:option value="">Todos</html:option> 
+					<html:option value="AC">Acre</html:option>
+					<html:option value="AL">Alagoas</html:option>
+					<html:option value="AP">Amap&aacute;</html:option>
+					<html:option value="AM">Amazonas</html:option>
+					<html:option value="BA">Bahia</html:option>
+					<html:option value="CE">Cear&aacute;</html:option>
+					<html:option value="DF">Distrito Federal</html:option>
+					<html:option value="ES">Espir&iacute;to Santo</html:option>
 					<html:option value="GO">Goi&aacute;s</html:option> 
 					<html:option value="MA">Maranh&atilde;o</html:option> 
 					<html:option value="MT">Mato Grosso</html:option> 
@@ -56,7 +57,7 @@
               </span></td>
           </tr>
           <tr>
-            <td colspan="2" height="26"><span class="txt_form">Município</span></td>
+            <td colspan="2" height="26"><span class="txt_form">Cidade</span></td>
           </tr>
           <tr>
             <td colspan="2"><span class="txt_form"><html:text property="municipio" styleClass="MyriadProRegular" size="160" />
