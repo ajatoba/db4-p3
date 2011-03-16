@@ -170,7 +170,7 @@
               </tr>
 			</table>
 	
-	<!--
+	
 			<table border="0" cellspacing="3">
 		  	<tr>
 		  		<td width='10%' class='txt_caracteristicas'>Dom</td>
@@ -181,7 +181,7 @@
 		  		<td width='10%' class='txt_caracteristicas'>Sex</td>
 		  		<td width='10%' class='txt_caracteristicas'>Sab</td>
 		  	</tr>
-		  		 
+		  		
 		  	<%
 		  	//ALGORITMO DE CONSTRUÇÃO DO CALENDÁRIO - CUIDADO AO MEXER!!!
 		  	Map<String,Calendario> calendarioAnuncio = (Map) request.getAttribute("calendarioAnuncio");
@@ -232,10 +232,9 @@
 		    }
 		  	//******************************************
 		  	%>
-		  	
 		  	</table>
 
-		-->
+
 
 	</div><!-- class="left_formulario_"  -->
 <div class="right_formulario_">
@@ -456,8 +455,8 @@
 	                      <td>&nbsp;</td>
 	                      <td>&nbsp;</td>
 	                    </tr>
-	                  </table>
-				  <!-- ******* -->
+	                  	</table>
+					<!-- ******* -->
 					  	
       		</td>
          </tr>
@@ -472,7 +471,7 @@
       	</div>
       	
       	</div>
-      	
+      		
 
 		<div class="linha_cinza"></div>
   		<div class="opcoes_pg">
