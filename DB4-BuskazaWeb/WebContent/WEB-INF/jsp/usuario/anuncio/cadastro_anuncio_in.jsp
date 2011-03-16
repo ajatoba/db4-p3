@@ -93,8 +93,7 @@
 			</div>
 
 			<!-- MENSAGEM DE ERRO -->
-			    <font color="red">
-			  
+			    <font color="red">			  
 					<logic:messagesPresent property="erro">
 						<html:messages property="erro" id="erro">
 							<bean:write name="erro"/>    			
@@ -107,10 +106,8 @@
 						</logic:present>				
 					</logic:messagesNotPresent>
 			  	</font>
-			    <!-- ****************** -->
-
-
-
+			<!-- ****************** -->
+			
 	<div class="menu_edicao">
 		<div class="menu_01_cinza"></div>
 		<div class="menu_02_cinza"></div>
@@ -257,7 +254,7 @@
                     <td width="26%">&nbsp;</td>
                   </tr>
                   <tr>
-                    <td width="50%"><label for="textfield"><span class="txt_caracteristicas">                        
+                    <td width="50%"><span class="txt_caracteristicas">                        
 
 						<html:select property="diaDataInicial" title="dia" styleId="diaDataInicial" styleClass="MyriadProRegular,string">                        
 							<html:option value="01">01</html:option>
@@ -294,35 +291,32 @@
 						</html:select>
 						
 						<div class="sepd">
-
-				        <html:select property="mesDataInicial" title="mesDataInicial" styleId="mesDataInicial" styleClass="MyriadProRegular,string">                        
-				            <html:option value="1">Janeiro</html:option>
-				            <html:option value="2">Fevereiro</html:option>
-				            <html:option value="3">Março</html:option>
-				            <html:option value="4">Abril</html:option>
-				            <html:option value="5">Maio</html:option>
-				            <html:option value="6">Junho</html:option>
-				            <html:option value="7">Julho</html:option>
-				            <html:option value="8">Agosto</html:option>
-				            <html:option value="9">Setembro</html:option>
-				            <html:option value="10">Outubro</html:option>
-							<html:option value="11">Novembro</html:option>
-							<html:option value="12">Dezembro</html:option>                  
-						</html:select>
-						
+					        <html:select property="mesDataInicial" title="mesDataInicial" styleId="mesDataInicial" styleClass="MyriadProRegular,string">                        
+					            <html:option value="1">Janeiro</html:option>
+					            <html:option value="2">Fevereiro</html:option>
+					            <html:option value="3">Março</html:option>
+					            <html:option value="4">Abril</html:option>
+					            <html:option value="5">Maio</html:option>
+					            <html:option value="6">Junho</html:option>
+					            <html:option value="7">Julho</html:option>
+					            <html:option value="8">Agosto</html:option>
+					            <html:option value="9">Setembro</html:option>
+					            <html:option value="10">Outubro</html:option>
+								<html:option value="11">Novembro</html:option>
+								<html:option value="12">Dezembro</html:option>                  
+							</html:select>						
 				      	</div>
-				      	<div class="sepd">
-				      	
-				      	<html:select property="anoDataInicial" title="Ano" styleId="anoDataInicial" styleClass="MyriadProRegular,string">
-				        	<html:option value="2011">2011</html:option>
-					        <html:option value="2012">2012</html:option>
-					        <html:option value="2013">2013</html:option>
-					        <html:option value="2014">2014</html:option>
-					        <html:option value="2015">2015</html:option> 
-				        </html:select>
+				      	<div class="sepd">				      	
+					      	<html:select property="anoDataInicial" title="Ano" styleId="anoDataInicial" styleClass="MyriadProRegular,string">
+					        	<html:option value="2011">2011</html:option>
+						        <html:option value="2012">2012</html:option>
+						        <html:option value="2013">2013</html:option>
+						        <html:option value="2014">2014</html:option>
+						        <html:option value="2015">2015</html:option> 
+					        </html:select>
 				        </div>
 				        
-                        </span></label></td>
+                        </span></td>
                     <td colspan="2"><span class="txt_caracteristicas">
                       
 						<html:select property="diaDataFinal" title="dia" styleId="diaDataFinal" styleClass="MyriadProRegular,string">                        
@@ -373,9 +367,8 @@
 					            <html:option value="10">Outubro</html:option>
 								<html:option value="11">Novembro</html:option>
 								<html:option value="12">Dezembro</html:option>                  
-							</html:select>				      	
-				      	</div>
-				      	
+							</html:select>
+				      	</div>				      	
 				      	<div class="sepd">				      	
 					      	<html:select property="anoDataFinal" title="Ano" styleId="anoDataFinal" styleClass="MyriadProRegular,string">
 					        	<html:option value="2011">2011</html:option>
@@ -449,12 +442,12 @@
          </tr>
        </table>
        
-      	<input type="submit" name="gravar" id="button5" value="Gravar" />
+       
+      	<input type="submit" name="gravar" value="Gravar" />
+      	
       	
       	<a href="#" onclick="validaForm()" />Gravar</a>
-      	
-      	
-      	
+      	</html:form>
       	</div>
       	
       	</div>
@@ -541,14 +534,8 @@
 		      		</div>
       		
         </div>
-      	
-      	</html:form>
-	    
-	    
-	    <BR><BR>
-	
-	
-	
+      		    
+	    <br /><br />
 	    
 	    <logic:notEmpty name="imovel" property="anuncios">
 	    <table>
@@ -556,27 +543,13 @@
 	    	<tr>
 			  	<td>
 			  		<!-- SETANDO A COR -->
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="0">
-			  			<font color="WHITE">
-			  		</logic:equal>
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="1">
-			  			<font color="#2980C5">
-			  		</logic:equal>			  		
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="2">
-			  			<font color="#FF6D00">
-			  		</logic:equal>
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="3">
-			  			<font color="#8DBF22">
-			  		</logic:equal>
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="4">
-			  			<font color="#FFC600">
-			  		</logic:equal>
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="5">
-			  			<font color="#D300FF">
-			  		</logic:equal>
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="6">
-			  			<font color="#00D8FF">
-			  		</logic:equal>
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="0"><font color="WHITE"></logic:equal>
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="1"><font color="#2980C5"></logic:equal>			  		
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="2"><font color="#FF6D00"></logic:equal>
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="3"><font color="#8DBF22"></logic:equal>
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="4"><font color="#FFC600"></logic:equal>
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="5"><font color="#D300FF"></logic:equal>
+			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="6"><font color="#00D8FF"></logic:equal>
 		
 			  		<!-- ************* -->
 			  		<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>
@@ -600,9 +573,6 @@
     </td>
   </tr>  
 </table>
-
-
-
 
 </div>
 
