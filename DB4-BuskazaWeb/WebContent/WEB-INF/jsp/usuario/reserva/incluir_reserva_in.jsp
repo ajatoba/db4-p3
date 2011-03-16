@@ -101,7 +101,7 @@ $(document).ready(function()
 <div id="sep_top_reserva"></div>
 <div id="listagem_reservas">
 <div class="topo_edicao">
-	<div class="mapa_planta"><img src="/buzkaza/imagens_usuarios/${imovel.primeirafoto}" width="140" height="104" /></div>
+	<div class="mapa_planta"><img src="/buzkaza/imagens_usuarios/${reserva.imovel.primeirafoto}" width="140" height="104" /></div>
 
 
 
@@ -116,7 +116,9 @@ $(document).ready(function()
 			    <span class="nome_rua">
 			      Distância do centro ${reserva.imovel.distanciaCentro}<br />
 			      Mapa Google Maps:${reserva.imovel.linkGoogleMaps}<br />
-			      Vídeo You Tube:${reserva.imovel.linkYouTube}</span>
+			      Vídeo You Tube:${reserva.imovel.linkYouTube}<br />
+			      ID:${imovel.codigo}</span>
+			      
 		    </td>
 		  </tr>
 		</table>
@@ -140,29 +142,39 @@ $(document).ready(function()
   <tr>
   	<td width="50%">
   	<html:form method="post" action="/usuario/anuncio?act=formCadastroAnuncio">
-  	<input type="hidden" name="ci" value="${imovel.codigo}">
-  	<select name="mes">                        
-        <option value="01">Janeiro</option>
-        <option value="02">Fevereiro</option>
-        <option value="03">Março</option>
-        <option value="04">Abril</option>
-        <option value="05">Maio</option>
-        <option value="06">Junho</option>
-        <option value="07">Julho</option>
-        <option value="08">Agosto</option>
-    	<option value="09">Setembro</option>
-        <option value="10">Outubro</option>
-        <option value="11">Novembro</option>
-        <option value="12">Dezembro</option>                  
-	</select> 
-  	<select name="ano">                        
-        <option value="2011">2011</option>
-        <option value="2012">2012</option>
-        <option value="2013">2013</option>
-        <option value="2014">2014</option>
-        <option value="2015">2015</option>
-	</select>
-  	<input type="submit" value="Trocar Período">
+  	<input type="hidden" name="ci" value="${reserva.imovel.codigo}">
+		  	
+		  	<table border="0" cellspacing="3">
+              <tr>
+                <td>
+               		<select name="mes">                        
+				        <option value="01">Janeiro</option>
+				        <option value="02">Fevereiro</option>
+				        <option value="03">Março</option>
+				        <option value="04">Abril</option>
+				        <option value="05">Maio</option>
+				        <option value="06">Junho</option>
+				        <option value="07">Julho</option>
+				        <option value="08">Agosto</option>
+				    	<option value="09">Setembro</option>
+				        <option value="10">Outubro</option>
+				        <option value="11">Novembro</option>
+				        <option value="12">Dezembro</option>                  
+					</select> 
+                </td>
+                <td>
+               		<select name="ano">                        
+				        <option value="2011">2011</option>
+				        <option value="2012">2012</option>
+				        <option value="2013">2013</option>
+				        <option value="2014">2014</option>
+				        <option value="2015">2015</option>
+					</select>			                
+                </td>
+                <td>	<input type="submit" value="Trocar Período"> </td>
+                </tr>
+            </table>
+            
   	</html:form>
   	<br>
   	
@@ -336,10 +348,8 @@ $(document).ready(function()
 </div>
 
 </div>
-<div class="bottom_formulario">
 
-
-</div>
+<div class="bottom_formulario"></div>
 
 
 
