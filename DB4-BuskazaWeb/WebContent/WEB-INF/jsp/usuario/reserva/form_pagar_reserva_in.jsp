@@ -71,6 +71,7 @@
 				a <bean:write name="reservaPagar" property="imovel.distanciaCentro" format="00.00"/>km do Centro<br />
 				<bean:write name="reservaPagar" property="imovel.metragem" format="00"/>m<sup>2</sup>, com capacidade para <bean:write name="reservaPagar" property="imovel.capacidade"/> pessoa(s)<br />
 				Link no Google Maps:<bean:write name="reservaPagar" property="imovel.linkGoogleMaps"/><br />
+				
 				Link no YouTube:<bean:write name="reservaPagar" property="imovel.linkYouTube"/><br />
 				<br />
 				</td>
