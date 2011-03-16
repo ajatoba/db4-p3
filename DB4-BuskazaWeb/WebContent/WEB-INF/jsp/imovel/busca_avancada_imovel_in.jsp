@@ -51,10 +51,10 @@
 <!--BUSCA-->
 <div id="cont_busca">
 <div id="form_busca">
-<div class="titulo_busca"><span class="MyriadPro24">Buscar Anúncio</span></div>
+<div class="titulo_busca"><span class="MyriadPro24">Buscar An&uacute;ncio</span></div>
 
-<div class="selecione_busca">Selecione abaixo as informações para efetuar sua busca</div>
-<div class="sep_busca"></div>
+<div class="selecione_busca">Selecione abaixo as informaes para efetuar sua busca</div>
+
 
 
 <!-- MENSAGEM DE ERRO -->
