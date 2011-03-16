@@ -101,7 +101,7 @@ $(document).ready(function()
 <div id="sep_top_reserva"></div>
 <div id="listagem_reservas">
 <div class="topo_edicao">
-<div class="mapa_planta"><img src="/buzkaza/_img/adm_meusanuncios_editar_05.png" width="195" height="145" /></div>
+	<div class="mapa_planta"><img src="/buzkaza/imagens_usuarios/${imovel.primeirafoto}" width="140" height="104" /></div>
 
 
 
@@ -386,29 +386,16 @@ $(document).ready(function()
                         <td><span class="txt_caracteristicas">Forma de Pagamento</span></td>
                       </tr>
                       <tr>
-                        <td class="txt_caracteristicas"><input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Dinheiro&nbsp;&nbsp;
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Visa&nbsp;&nbsp;
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Mastercard&nbsp;
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Dinners&nbsp;&nbsp;
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          Bradesco&nbsp;&nbsp;
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Itaú&nbsp;&nbsp;
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Unibanco
-                          <input type="radio" name="radio" id="radio" value="radio" />
-                          <label for="radio"></label>
-                          Banco do Brasil </td>
+                        <td class="txt_caracteristicas">
+					                    <input type="radio" name="radio" id="radio" value="radio" /> Dinheiro&nbsp;&nbsp;
+					                    <div class="sepd"> <input type="radio" name="radio" id="radio" value="radio" /> Visa&nbsp;&nbsp;</div>
+					                    <div class="sepd"> <input type="radio" name="radio" id="radio" value="radio" /> Mastercard&nbsp;</div>
+					                    <div class="sepd"> <input type="radio" name="radio" id="radio" value="radio" /> Dinners&nbsp;&nbsp;</div>
+					                    <div class="sepd"> <input type="radio" name="radio" id="radio" value="radio" /> Bradesco&nbsp;&nbsp;</div>
+					                    <div class="sepd"> <input type="radio" name="radio" id="radio" value="radio" /> Itaú&nbsp;&nbsp;</div>
+					                    <div class="sepd"> <input type="radio" name="radio" id="radio" value="radio" /> Unibanco</div>
+					                    <div class="sepd"> <input type="radio" name="radio" id="radio" value="radio" /> Banco do Brasil</div>
+					    </td>
                       </tr>
                       <tr>
                         <td class="txt_caracteristicas"><input type="radio" name="radio" id="radio2" value="radio" />
@@ -427,38 +414,30 @@ $(document).ready(function()
                   </div>
                     
                   <div id="aba2" class="aba">
-                    <table width="100%" border="0">
-                      <tr>
-                        <td colspan="3" class="txt_caracteristicas">Pagamento integral da estadia (só para proprietários Brasileiros).
-                        
-                        
-                        
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="txt_caracteristicas">Titular</td>
-                        <td>&nbsp;</td>
-                        <td class="txt_caracteristicas">CPF/CNPJ</td>
-                      </tr>
-                      <tr>
-                        <td colspan="2">
-                          <input type="text" name="textfield" id="textfield" size="70" style="width: 80px;"/></td>
-                        <td><input type="text" name="textfield3" id="textfield3" size="70" style="width: 80px;"/></td>
-                      </tr>
-                      <tr>
-                        <td class="txt_caracteristicas">Número do Banco</td>
-                        <td class="txt_caracteristicas">Agência</td>
-                        <td class="txt_caracteristicas">Conta Corrente</td>
-                      </tr>
-                      <tr>
-                        <td><input type="text" name="textfield2" id="textfield2" size="70" style="width: 80px;"/></td>
-                        <td><input type="text" name="textfield4" id="textfield4" size="70" style="width: 80px;" /></td>
-                        <td><input type="text" name="textfield5" id="textfield5" size="70" style="width: 80px;"/></td>
-                      </tr>
-                    </table>
-                    <br /><br />
-                                    
-                  
+	                    <table width="100%" border="0">
+		                <tr>
+		                  <td colspan="3"><html:radio property="permitirEntrada" value="false"/> <span class="txt_tit_box_facil_alugar2">Pagamento integral da estadia (só para proprietários Brasileiros).</span></td>
+		                </tr>
+		                <tr>
+		                  <td width="160"><span class="txt_caracteristicas">Titular</span></td>
+		                  <td width="234">&nbsp;</td>
+		                  <td width="342"><span class="txt_caracteristicas">CPF/CNPJ</span></td>
+		                </tr>
+		                <tr>
+		                  <td colspan="2"><span class="txt_caracteristicas"><input type="text" name="nomeTitularConta" value="${usuario.nomeTitularConta}" size="300" style="width:300px;" /></span></td>
+		                  <td><span class="txt_caracteristicas"><input type="text" name="cpfTitularConta" value="${usuario.cpfTitularConta}" size="150" style="width:150px;" /></span></td>
+		                </tr>
+		                <tr>
+		                  <td><span class="txt_caracteristicas">Número do Banco</span></td>
+		                  <td><span class="txt_caracteristicas">Agência</span></td>
+		                  <td><span class="txt_caracteristicas">Conta Corrente</span></td>
+		                </tr>
+		                <tr>
+		                  <td><span class="txt_caracteristicas"><input type="text" name="codigoBanco" value="${usuario.codigoBanco}" size="70" style="width:70px;"/></span></td>
+		                  <td><span class="txt_caracteristicas"><input type="text" name="agencia" value="${usuario.agencia}" size="70" style="width:70px;"/></td>
+		                  <td><span class="txt_caracteristicas"><input type="text" name="conta" value="${usuario.contaCorrente}" size="70" style="width:70px;"/></span></td>
+		                </tr>
+		              </table>
                   </div>
                             
                   
