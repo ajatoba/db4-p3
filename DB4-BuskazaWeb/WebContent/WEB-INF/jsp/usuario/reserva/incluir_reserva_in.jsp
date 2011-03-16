@@ -56,8 +56,8 @@ $(document).ready(function()
 
 	$('iframe').load(function()
 			{
-				this.style.width = 350 + 'px';
-				this.style.height = 350 + 'px';
+				this.style.width = 341 + 'px';
+				this.style.height = 271 + 'px';
 			}
 		);
 	
@@ -114,11 +114,10 @@ $(document).ready(function()
 		    </td>
 		    <td width="65%" valign="top">
 			    <span class="nome_rua">
-			      Distância do centro ${reserva.imovel.distanciaCentro}<br />
-			      Mapa Google Maps:${reserva.imovel.linkGoogleMaps}<br />
-			      Vídeo You Tube:${reserva.imovel.linkYouTube}<br />
-			      ID:${imovel.codigo}</span>
-			      
+			      Distância do centro: ${reserva.imovel.distanciaCentro}<br />
+			      Mapa Google Maps: ${reserva.imovel.linkGoogleMaps}<br />
+			      Vídeo You Tube: ${reserva.imovel.linkYouTube}<br />
+			      ID: ${reserva.imovel.codigo}</span>			      
 		    </td>
 		  </tr>
 		</table>
@@ -134,14 +133,9 @@ $(document).ready(function()
 <div id="formulario_edicao">
 <div class="left_formulario_">
 
-</div>
-<div class="right_formulario_">
 
-<table width="100%" border="0">
-  
-  <tr>
-  	<td width="50%">
-  	<html:form method="post" action="/usuario/anuncio?act=formCadastroAnuncio">
+
+	<html:form method="post" action="/usuario/anuncio?act=formCadastroAnuncio">
   	<input type="hidden" name="ci" value="${reserva.imovel.codigo}">
 		  	
 		  	<table border="0" cellspacing="3">
@@ -176,108 +170,139 @@ $(document).ready(function()
             </table>
             
   	</html:form>
-  	<br>
   	
-  	<table border="0" cellspacing="3">
-  	<tr>
-  		<td width='10%' class='txt_caracteristicas'>Dom</td>
-  		<td width='10%' class='txt_caracteristicas'>Seg</td>
-  		<td width='10%' class='txt_caracteristicas'>Ter</td>
-  		<td width='10%' class='txt_caracteristicas'>Qua</td>
-  		<td width='10%' class='txt_caracteristicas'>Qui</td>
-  		<td width='10%' class='txt_caracteristicas'>Sex</td>
-  		<td width='10%' class='txt_caracteristicas'>Sab</td>
-  	</tr>
   	
-  	<logic:present name="calendarioAnuncio">	
-  	<%
-  	//ALGORITMO DE CONSTRUÇÃO DO CALENDÁRIO - CUIDADO AO MEXER!!!
-  	Map<String,Calendario> calendarioAnuncio = (Map) request.getAttribute("calendarioAnuncio");
-	
-  	Iterator it = calendarioAnuncio.entrySet().iterator();
   	
-  	boolean populado = false;
   	
-  	int index = 0;
   	
-  	while (it.hasNext()) {
-  		index = index+1;
-  		Map.Entry mapa = (Map.Entry)it.next();
-        Calendario anuncio = (Calendario) mapa.getValue();
-        
-        if(!populado){
-	        for(int x=0; x<anuncio.getDiaSemana();x++){
-	        	index = index+1;
-	        	out.println("<td>&nbsp;</td>");
-	        	populado = true;
-	        }
-        }
-        
-        //COLORINDO O CALENDARIO
-        String color = "";
-        
-        switch (anuncio.getTipoAnuncio()) {
-        case 0: color="white";
-        	break;
-        case 1: color="#2980C5";
-        	break;
-        case 2: color="#FF6D00";
-        	break;
-        case 3: color="#8DBF22";
-        	break;
-        case 4: color="#FFC600";
-        	break;
-        case 5: color="#D300FF";
-        	break;
-        case 6: color="#00D8FF";
-        	break;
-        }
-        //**********************
-        
-        out.println("<td bgcolor='"+ color +"' class='txt_caracteristicas'>"+ mapa.getKey() +"</td>");
-        
-        if((index % 7) == 0) out.println("</tr>");
-        
-    }
-  	//******************************************
-  	%>
-  	</logic:present>
-  	</table>
-  	<br>
-  	<!-- LEGENDA -->
+		  	<table border="0" cellspacing="3">
+		  	<tr>
+		  		<td width='10%' class='txt_caracteristicas'>Dom</td>
+		  		<td width='10%' class='txt_caracteristicas'>Seg</td>
+		  		<td width='10%' class='txt_caracteristicas'>Ter</td>
+		  		<td width='10%' class='txt_caracteristicas'>Qua</td>
+		  		<td width='10%' class='txt_caracteristicas'>Qui</td>
+		  		<td width='10%' class='txt_caracteristicas'>Sex</td>
+		  		<td width='10%' class='txt_caracteristicas'>Sab</td>
+		  	</tr>
+		  	
+		  	<logic:present name="calendarioAnuncio">	
+		  	<%
+		  	//ALGORITMO DE CONSTRUÇÃO DO CALENDÁRIO - CUIDADO AO MEXER!!!
+		  	Map<String,Calendario> calendarioAnuncio = (Map) request.getAttribute("calendarioAnuncio");
+			
+		  	Iterator it = calendarioAnuncio.entrySet().iterator();
+		  	
+		  	boolean populado = false;
+		  	
+		  	int index = 0;
+		  	
+		  	while (it.hasNext()) {
+		  		index = index+1;
+		  		Map.Entry mapa = (Map.Entry)it.next();
+		        Calendario anuncio = (Calendario) mapa.getValue();
+		        
+		        if(!populado){
+			        for(int x=0; x<anuncio.getDiaSemana();x++){
+			        	index = index+1;
+			        	out.println("<td>&nbsp;</td>");
+			        	populado = true;
+			        }
+		        }
+		        
+		        //COLORINDO O CALENDARIO
+		        String color = "";
+		        
+		        switch (anuncio.getTipoAnuncio()) {
+		        case 0: color="white";
+		        	break;
+		        case 1: color="#2980C5";
+		        	break;
+		        case 2: color="#FF6D00";
+		        	break;
+		        case 3: color="#8DBF22";
+		        	break;
+		        case 4: color="#FFC600";
+		        	break;
+		        case 5: color="#D300FF";
+		        	break;
+		        case 6: color="#00D8FF";
+		        	break;
+		        }
+		        //**********************
+		        
+		        out.println("<td bgcolor='"+ color +"' class='txt_caracteristicas'>"+ mapa.getKey() +"</td>");
+		        
+		        if((index % 7) == 0) out.println("</tr>");
+		        
+		    }
+		  	//******************************************
+		  	%>
+		  	</logic:present>
+		  	</table>
   	
-		 <table width="100%" border="0">
-	    <tr>
-	      <td width="5%" bgcolor="#E3E3E3">&nbsp;</td>
-	      <td width="27%" class="txt_caracteristicas">Reservado</td>
-	      <td width="6%" bgcolor="#8DBF22">&nbsp;</td>
-	      <td width="28%" class="txt_caracteristicas">Baixa Temporada</td>
-	      <td width="6%" bgcolor="#D300FF">&nbsp;</td>
-	      <td width="28%" class="txt_caracteristicas">Data Especial</td>
-	    </tr>
-	    <tr>
-	      <td bgcolor="#2980C5">&nbsp;</td>
-	      <td class="txt_caracteristicas">Bloqueado</td>
-	      <td bgcolor="#FFC600">&nbsp;</td>
-	      <td class="txt_caracteristicas">Média Temporada</td>
-	      <td>&nbsp;</td>
-	      <td>&nbsp;</td>
-	    </tr>
-	    <tr>
-	      <td bgcolor="#00D8FF">&nbsp;</td>
-	      <td class="txt_caracteristicas">Pacote Fechado</td>
-	      <td bgcolor="#FF6D00">&nbsp;</td>
-	      <td class="txt_caracteristicas">Alta Temporada</td>
-	      <td>&nbsp;</td>
-	      <td>&nbsp;</td>
-	    </tr>
-	  </table>
+  	
+  	
+  	
+  	
+  	
 
-  	<!-- ******* -->
+
+
+
+</div>
+<div class="right_formulario_">
+
+<table width="100%" border="0">  
+  <tr>
+  	<td width="50%">
+  	
+  	<br>
+  	
+  	
+  	<br>
+  					<!-- LEGENDA -->
+					  	<table width="100%" border="0">
+	                    <tr>
+	                      <td width="5%" bgcolor="#E3E3E3">&nbsp;</td>
+	                      <td width="27%" class="txt_caracteristicas">Reservado</td>
+	                      <td width="6%" bgcolor="#8DBF22">&nbsp;</td>
+	                      <td width="28%" class="txt_caracteristicas">Baixa Temporada</td>
+	                      <td width="6%" bgcolor="#D300FF">&nbsp;</td>
+	                      <td width="28%" class="txt_caracteristicas">Data Especial</td>
+	                    </tr>
+	                    <tr>
+	                      <td bgcolor="#2980C5">&nbsp;</td>
+	                      <td class="txt_caracteristicas">Bloqueado</td>
+	                      <td bgcolor="#FFC600">&nbsp;</td>
+	                      <td class="txt_caracteristicas">Média Temporada</td>
+	                      <td>&nbsp;</td>
+	                      <td>&nbsp;</td>
+	                    </tr>
+	                    <tr>
+	                      <td bgcolor="#00D8FF">&nbsp;</td>
+	                      <td class="txt_caracteristicas">Pacote Fechado</td>
+	                      <td bgcolor="#FF6D00">&nbsp;</td>
+	                      <td class="txt_caracteristicas">Alta Temporada</td>
+	                      <td>&nbsp;</td>
+	                      <td>&nbsp;</td>
+	                    </tr>
+	                  	</table>
+					<!-- ******* -->
   	
   	</td>
     <td valign="top">
-     <html:form action="/usuario/reserva.do?act=incluirReserva" method="POST" >
+     
+    </td>
+  </tr>
+  
+</table>
+
+
+
+
+
+		<html:form action="/usuario/reserva.do?act=incluirReserva" method="POST" >
 	    <table>
 	    <tr>
 		    <td>
@@ -293,8 +318,14 @@ $(document).ready(function()
 		    
 		    <logic:equal name="reserva" property="imovel.permiteOpcaoPagamento" value="true">
 		    
-		    <fieldset>
-		    <legend>Opções de Pagamento</legend>
+		    Opções de Pagamento
+		    
+		    
+		    
+		    
+		    
+		    
+		    
 		    <table cellspacing="10">
 		    <tr>
 		    	<td>
@@ -306,9 +337,8 @@ $(document).ready(function()
 		    	<bean:write name="reserva" property="valor" format="00.00"/>
 		    	</td>
 		    </tr>
-		    </table>		    
-		    
-		    </fieldset>
+		    </table>
+
 		    </logic:equal>
 		    <logic:notEqual name="reserva" property="imovel.permiteOpcaoPagamento" value="true">
 		    <html:hidden property="valor" value="${reserva.valor}"/>
@@ -337,10 +367,9 @@ $(document).ready(function()
 	    </tr>
 	    </table>
 	    </html:form>
-    </td>
-  </tr>
-  
-</table>
+
+
+
 
 
 </div>
@@ -378,19 +407,18 @@ $(document).ready(function()
 
 </div>
 <div class="right_opcoes">
-  <div id="tabs">                
+  		<div id="tabs">                
                 <div id="container_abas">
-                        <ul id="nav">	
-                            <li id="aba_1"><a href="#quemsomos" class="corrente" onclick="trocaImagem('opcao_01')"><img src="/buzkaza/_img/opcao_01_azul.jpg" id="opcao_01"width="157" height="49" alt="" border="0"/></a></li>  
-                            <li><a href="#formacao" onclick="trocaImagem('opcao_02')"><img src="/buzkaza/_img/opcao_02.jpg" id="opcao_02"width="157" height="49" alt="" border="0"/></a></li> 
-                                                    
-                        </ul>
+                    <ul id="nav">	
+                        <li id="aba_1"><a href="javascript:void(0);" class="corrente" onclick="trocaImagem('opcao_01')"><img src="/buzkaza/_img/opcao_01_azul.jpg" id="opcao_01"width="157" height="49" alt="" border="0"/></a></li>  
+                        <li><a href="javascript:void(0);" onclick="trocaImagem('opcao_02')"><img src="/buzkaza/_img/opcao_02.jpg" id="opcao_02"width="157" height="49" alt="" border="0"/></a></li>                                                    
+                    </ul>
                     
                   <div id="aba1" class="aba">
                     <table width="100%" border="0">
                       <tr>
-                        <td><span class="txt_caracteristicas">Pagamento de sinal para confirmação de reserva, com saldo direto no check in.<br />
-                    Sinal de 10% (Deduzida do total da estadia+taxas extras) + encargos do cartão ou boleto referente o sinal de 10%, retidos pelo Buzkaza como taxa de transação.</span></td>
+                        <td class="txt_caracteristicas">Pagamento de sinal para confirmação de reserva, com saldo direto no check in.<br />
+                    Sinal de 10% (Deduzida do total da estadia+taxas extras) + encargos do cartão ou boleto referente o sinal de 10%, retidos pelo Buzkaza como taxa de transação.</td>
                       </tr>
                       <tr>
                         <td><span class="txt_caracteristicas">Forma de Pagamento</span></td>
@@ -408,14 +436,11 @@ $(document).ready(function()
 					    </td>
                       </tr>
                       <tr>
-                        <td class="txt_caracteristicas"><input type="radio" name="radio" id="radio2" value="radio" />
-                          <label for="radio2"></label>
-                          Aura
-                          <input type="radio" name="radio" id="radio3" value="radio" />
-                          Hipercard
-                          <input type="radio" name="radio" id="radio4" value="radio" />
-                          <label for="radio4"></label>
-                          Amex </td>
+                        <td class="txt_caracteristicas">
+                        	<input type="radio" name="radio" id="radio2" value="radio" /> <label for="radio2"></label> Aura
+                          	<input type="radio" name="radio" id="radio3" value="radio" /> Hipercard
+                          	<input type="radio" name="radio" id="radio4" value="radio" /> <label for="radio4"></label> Amex 
+                        </td>
                       </tr>
                     </table>
                     <br />
