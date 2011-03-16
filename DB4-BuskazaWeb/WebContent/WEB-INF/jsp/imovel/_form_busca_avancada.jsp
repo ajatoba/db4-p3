@@ -14,37 +14,42 @@
       	<html:text property="municipio" style="width:210px"  styleClass="MyriadProRegular" size="210" />
         	
       </td>
-      <td height="30" colspan="2">
-					<html:select property="imovelEntity.estado.codigo" style="width:210px" size="210" styleClass="MyriadProRegular"> 
-						<!--  <html:option value="">Selecione</html:option> -->
-						<html:option value="AC">Acre</html:option> 
-						<html:option value="AL">Alagoas</html:option> 
-						<html:option value="AP">Amap&aacute;</html:option> 
-						<html:option value="AM">Amazonas</html:option> 
-						<html:option value="BA">Bahia</html:option> 
-						<html:option value="CE">Cear&aacute;</html:option> 
-						<html:option value="DF">Distrito Federal</html:option> 
-						<html:option value="ES">Espir&iacute;to Santo</html:option> 
-						<html:option value="GO">Goi&aacute;s</html:option> 
-						<html:option value="MA">Maranh&atilde;o</html:option> 
-						<html:option value="MT">Mato Grosso</html:option> 
-						<html:option value="MS">Mato Grosso do Sul</html:option> 
-						<html:option value="MG">Minas Gerais</html:option> 
-						<html:option value="PA">Par&aacute;</html:option> 
-						<html:option value="PB">Par&aacute;ba</html:option> 
-						<html:option value="PR">Paran&aacute;</html:option> 
-						<html:option value="PE">Pernambuco</html:option> 
-						<html:option value="PI">Piau&iacute;</html:option> 
-						<html:option value="RJ">Rio de Janeiro</html:option> 
-						<html:option value="RN">Rio Grande do Norte</html:option> 
-						<html:option value="RS">Rio Grande do Sul</html:option> 
-						<html:option value="RO">Rond&ocirc;nia</html:option> 
-						<html:option value="RR">Roraima</html:option> 
-						<html:option value="SC">Santa Catarina</html:option> 
-						<html:option value="SP">S&atilde;o Paulo</html:option> 
-						<html:option value="SE">Sergipe</html:option> 
-						<html:option value="TO">Tocantins</html:option>
-					</html:select>     
+      <td height="30" colspan="2">   
+         <!-- 
+      		<html:select property="imovelEntity.estado.codigo" styleClass="MyriadProRegular">    			 
+				<html:options collection="estados" property="codigo" labelProperty="nome" />
+        	</html:select>
+        -->       	
+<html:select property="imovelEntity.estado.codigo" style="width:210px" styleClass="MyriadProRegular"> 
+	<html:option value="">Todos</html:option> 
+	<html:option value="AC">Acre</html:option> 
+	<html:option value="AL">Alagoas</html:option> 
+	<html:option value="AP">Amap&aacute;</html:option> 
+	<html:option value="AM">Amazonas</html:option> 
+	<html:option value="BA">Bahia</html:option> 
+	<html:option value="CE">Cear&aacute;</html:option> 
+	<html:option value="DF">Distrito Federal</html:option> 
+	<html:option value="ES">Espir&iacute;to Santo</html:option> 
+	<html:option value="GO">Goi&aacute;s</html:option> 
+	<html:option value="MA">Maranh&atilde;o</html:option> 
+	<html:option value="MT">Mato Grosso</html:option> 
+	<html:option value="MS">Mato Grosso do Sul</html:option> 
+	<html:option value="MG">Minas Gerais</html:option> 
+	<html:option value="PA">Par&aacute;</html:option> 
+	<html:option value="PB">Par&aacute;ba</html:option> 
+	<html:option value="PR">Paran&aacute;</html:option> 
+	<html:option value="PE">Pernambuco</html:option> 
+	<html:option value="PI">Piau&iacute;</html:option> 
+	<html:option value="RJ">Rio de Janeiro</html:option> 
+	<html:option value="RN">Rio Grande do Norte</html:option> 
+	<html:option value="RS">Rio Grande do Sul</html:option> 
+	<html:option value="RO">Rond&ocirc;nia</html:option> 
+	<html:option value="RR">Roraima</html:option> 
+	<html:option value="SC">Santa Catarina</html:option> 
+	<html:option value="SP">S&atilde;o Paulo</html:option> 
+	<html:option value="SE">Sergipe</html:option> 
+	<html:option value="TO">Tocantins</html:option>
+</html:select>     
            </td>
       </tr>
       <tr >
@@ -239,8 +244,6 @@
 </table>
 </td>
       </tr>
-    
-    
     <tr>
       <td colspan="3"><table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
@@ -378,8 +381,8 @@
 <div class="form_02">
 <table width="90%" border="0" align="center" cellpadding="0" cellspacing="1">
   <tr>
-    	<td colspan="3" class="txt_caracteristica"><img src="/buzkaza/_img/bullet.jpg" width="21" height="16" />Equipamentos</td>
-  </tr>
+    <td colspan="3" class="txt_caracteristica"><img src="/buzkaza/_img/bullet.jpg" width="21" height="16" />Equipamentos</td>
+    </tr>
 	    <logic:notEmpty name="equipamentos">	
 	        <logic:iterate name="equipamentos" id="equipamento">
 				<tr>
@@ -394,7 +397,7 @@
 										<bean:write name="equipamento" property="nome"/>
 									</div>
 							</span>
-					</td>
+				</td>
 				</tr>       
 		    </logic:iterate>
 	    </logic:notEmpty>    
