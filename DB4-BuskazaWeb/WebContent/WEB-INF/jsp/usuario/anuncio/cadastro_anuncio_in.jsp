@@ -170,7 +170,7 @@
               </tr>
 			</table>
 	
-	
+	<!--
 			<table border="0" cellspacing="3">
 		  	<tr>
 		  		<td width='10%' class='txt_caracteristicas'>Dom</td>
@@ -181,7 +181,7 @@
 		  		<td width='10%' class='txt_caracteristicas'>Sex</td>
 		  		<td width='10%' class='txt_caracteristicas'>Sab</td>
 		  	</tr>
-		  		
+		  		 
 		  	<%
 		  	//ALGORITMO DE CONSTRUÇÃO DO CALENDÁRIO - CUIDADO AO MEXER!!!
 		  	Map<String,Calendario> calendarioAnuncio = (Map) request.getAttribute("calendarioAnuncio");
@@ -232,9 +232,10 @@
 		    }
 		  	//******************************************
 		  	%>
+		  	
 		  	</table>
 
-
+		-->
 
 	</div><!-- class="left_formulario_"  -->
 <div class="right_formulario_">
@@ -429,52 +430,48 @@
          </tr>
          <tr>
            <td>
-				      	<!-- LEGENDA -->
+			      	<!-- LEGENDA -->
 					  	<table width="100%" border="0">
-                    <tr>
-                      <td width="5%" bgcolor="#E3E3E3">&nbsp;</td>
-                      <td width="27%" class="txt_caracteristicas">Reservado</td>
-                      <td width="6%" bgcolor="#8DBF22">&nbsp;</td>
-                      <td width="28%" class="txt_caracteristicas">Baixa Temporada</td>
-                      <td width="6%" bgcolor="#D300FF">&nbsp;</td>
-                      <td width="28%" class="txt_caracteristicas">Data Especial</td>
-                    </tr>
-                    <tr>
-                      <td bgcolor="#2980C5">&nbsp;</td>
-                      <td class="txt_caracteristicas">Bloqueado</td>
-                      <td bgcolor="#FFC600">&nbsp;</td>
-                      <td class="txt_caracteristicas">Média Temporada</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                      <td bgcolor="#00D8FF">&nbsp;</td>
-                      <td class="txt_caracteristicas">Pacote Fechado</td>
-                      <td bgcolor="#FF6D00">&nbsp;</td>
-                      <td class="txt_caracteristicas">Alta Temporada</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                    </tr>
-                  </table>
-					  	<!-- ******* -->
+	                    <tr>
+	                      <td width="5%" bgcolor="#E3E3E3">&nbsp;</td>
+	                      <td width="27%" class="txt_caracteristicas">Reservado</td>
+	                      <td width="6%" bgcolor="#8DBF22">&nbsp;</td>
+	                      <td width="28%" class="txt_caracteristicas">Baixa Temporada</td>
+	                      <td width="6%" bgcolor="#D300FF">&nbsp;</td>
+	                      <td width="28%" class="txt_caracteristicas">Data Especial</td>
+	                    </tr>
+	                    <tr>
+	                      <td bgcolor="#2980C5">&nbsp;</td>
+	                      <td class="txt_caracteristicas">Bloqueado</td>
+	                      <td bgcolor="#FFC600">&nbsp;</td>
+	                      <td class="txt_caracteristicas">Média Temporada</td>
+	                      <td>&nbsp;</td>
+	                      <td>&nbsp;</td>
+	                    </tr>
+	                    <tr>
+	                      <td bgcolor="#00D8FF">&nbsp;</td>
+	                      <td class="txt_caracteristicas">Pacote Fechado</td>
+	                      <td bgcolor="#FF6D00">&nbsp;</td>
+	                      <td class="txt_caracteristicas">Alta Temporada</td>
+	                      <td>&nbsp;</td>
+	                      <td>&nbsp;</td>
+	                    </tr>
+	                  </table>
+				  <!-- ******* -->
 					  	
       		</td>
          </tr>
        </table>
        
-       
- 	
-      	
-      	<!-- 
       	<input type="submit" name="gravar" id="button5" value="Gravar" />
-      	-->
+      	
       	<a href="#" onclick="validaForm()" />Gravar</a>
-      	</div>
+      	
+      	</html:form>
       	
       	</div>
       	
-      	
-      
+      	</div>
       	
 
 		<div class="linha_cinza"></div>
@@ -530,7 +527,7 @@
 						      			
 						      			<table width="100%" border="0">
 						                <tr>
-						                  <td colspan="3"><html:radio property="permitirEntrada" value="false"/> <span style="font-family:Arial, Helvetica, sans-serif; font-size:15px; color:#505050; font-weight:bold;">Pagamento integral da estadia (só para proprietários Brasileiros).</span></td>
+						                  <td colspan="3"><html:radio property="permitirEntrada" value="false"/> <span class="txt_tit_box_facil_alugar2">Pagamento integral da estadia (só para proprietários Brasileiros).</span></td>
 						                </tr>
 						                <tr>
 						                  <td width="160"><span class="txt_caracteristicas">Titular</span></td>
@@ -560,7 +557,7 @@
         </div>
       	
       	
-	    </html:form>
+	    
 	    
 	    <BR><BR>
 	
