@@ -112,13 +112,10 @@
 
 
 	<div class="menu_edicao">
-        <div class="menu_01_cinza"></div>
-        <div class="menu_02_cinza"></div>
-        <div class="menu_03"></div>
-      </div>
-
-
-
+		<div class="menu_01_cinza"></div>
+		<div class="menu_02_cinza"></div>
+		<div class="menu_03"></div>
+	</div>
 
 <div id="formulario_edicao">
 	<div class="left_formulario_">
@@ -151,15 +148,13 @@
 									</select> 
 			                </td>
 			                <td>
-			                
 			                		<select name="ano">                        
 								        <option value="2011">2011</option>
 								        <option value="2012">2012</option>
 								        <option value="2013">2013</option>
 								        <option value="2014">2014</option>
 								        <option value="2015">2015</option>
-									</select>
-			                
+									</select>			                
 			                </td>
 			                <td>	<input type="submit" value="Trocar Período"> </td>
 			                </tr>
@@ -180,8 +175,7 @@
 		  		<td width='10%' class='txt_caracteristicas'>Qui</td>
 		  		<td width='10%' class='txt_caracteristicas'>Sex</td>
 		  		<td width='10%' class='txt_caracteristicas'>Sab</td>
-		  	</tr>
-		  		
+		  	</tr>		  		
 		  	<%
 		  	//ALGORITMO DE CONSTRUÇÃO DO CALENDÁRIO - CUIDADO AO MEXER!!!
 		  	Map<String,Calendario> calendarioAnuncio = (Map) request.getAttribute("calendarioAnuncio");
@@ -233,8 +227,6 @@
 		  	//******************************************
 		  	%>
 		  	</table>
-
-
 
 	</div><!-- class="left_formulario_"  -->
 <div class="right_formulario_">
@@ -367,8 +359,7 @@
 				            <html:option value="31">31</html:option>                            
 						</html:select>
 						
-						<div class="sepd">
-						
+						<div class="sepd">						
 					        <html:select property="mesDataFinal" title="mesDataInicial" styleId="mesDataFinal" styleClass="MyriadProRegular,string">                        
 					            <html:option value="1">Janeiro</html:option>
 					            <html:option value="2">Fevereiro</html:option>
@@ -382,11 +373,10 @@
 					            <html:option value="10">Outubro</html:option>
 								<html:option value="11">Novembro</html:option>
 								<html:option value="12">Dezembro</html:option>                  
-							</html:select>
-				      	
+							</html:select>				      	
 				      	</div>
-				      	<div class="sepd">				      	
 				      	
+				      	<div class="sepd">				      	
 					      	<html:select property="anoDataFinal" title="Ano" styleId="anoDataFinal" styleClass="MyriadProRegular,string">
 					        	<html:option value="2011">2011</html:option>
 						        <html:option value="2012">2012</html:option>
@@ -398,12 +388,9 @@
                       </span></td>
                   </tr>
                 </table>
-
-
         </td>
       </tr>
-      </table>
-      
+      </table>      
       
       <table width="100%" border="0">
 	     <tr>
@@ -420,7 +407,7 @@
 	       <td class="txt_caracteristicas"><html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="70"/></td>
 	       <td class="txt_caracteristicas"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70"/></td>
 	     </tr>
-       </table> 
+       </table>
         
       	
       	<table width="100%" border="0">
@@ -466,7 +453,7 @@
       	
       	<a href="#" onclick="validaForm()" />Gravar</a>
       	
-      	</html:form>
+      	
       	
       	</div>
       	
@@ -555,7 +542,7 @@
       		
         </div>
       	
-      	
+      	</html:form>
 	    
 	    
 	    <BR><BR>
