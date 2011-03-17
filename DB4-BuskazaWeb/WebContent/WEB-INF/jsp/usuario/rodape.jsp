@@ -62,11 +62,7 @@
     </div>
     <div class="tracejado_down"></div>
     <div class="direitos">- Todos os direitos reservados</div>
-    <div class="afiliado"><a href="javascript:void(0)" class="link_cinza">&#8226; Seja um afiliado</a></div>
-    <div class="publicidade"><a href="javascript:void(0)" class="link_cinza">&#8226; Publicidade</a></div>
-    <div class="imprensa"><a href="javascript:void(0)" class="link_cinza">&#8226; Imprensa</a></div>
-    <div class="privacidade"><a href="javascript:void(0)" class="link_cinza">&#8226; Privacidade</a></div>
-    <div class="termos"><a href="javascript:void(0)" class="link_cinza">&#8226; Termos e Condições</a></div>
+    
     
     
 <div class="privacidade">&nbsp;</div>
