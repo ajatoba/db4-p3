@@ -68,7 +68,6 @@ $(document).ready(function()
 </head>
 <body>
 
-
 <!-- topo com linha azul -->
 <jsp:include page="../topo.jsp"/>
 
@@ -133,8 +132,6 @@ $(document).ready(function()
 <div id="formulario_edicao">
 <div class="left_formulario_">
 
-
-
 	<html:form method="post" action="/usuario/anuncio?act=formCadastroAnuncio">
   	<input type="hidden" name="ci" value="${reserva.imovel.codigo}">
 		  	
@@ -170,10 +167,6 @@ $(document).ready(function()
             </table>
             
   	</html:form>
-  	
-  	
-  	
-  	
   	
 		  	<table border="0" cellspacing="3">
 		  	<tr>
@@ -240,14 +233,6 @@ $(document).ready(function()
 		  	%>
 		  	</logic:present>
 		  	</table>
-  	
-  	
-  	
-  	
-  	
-  	
-
-
 
 
 </div>
@@ -319,12 +304,6 @@ $(document).ready(function()
 		    <logic:equal name="reserva" property="imovel.permiteOpcaoPagamento" value="true">
 		    
 		    Opções de Pagamento
-		    
-		    
-		    
-		    
-		    
-		    
 		    
 		    <table cellspacing="10">
 		    <tr>
