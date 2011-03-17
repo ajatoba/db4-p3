@@ -7,8 +7,8 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -52,14 +52,13 @@
 		});
 		
 </script>
+	
 </head>
 
 <body>
 
 <!-- topo com linha azul -->
 <jsp:include page="../topo.jsp"/>
-
-
 
 <div id="cont_reserva">
 	<div id="meio_reserva">
@@ -76,20 +75,20 @@
 			<div class="mapa_planta"><img src="/buzkaza/imagens_usuarios/${imovel.primeirafoto}" width="140" height="104" /></div>
 
 			<div class="endereco_bairro">
-					<table width="100%" border="0">
-					  <tr>
-					    <td width="35%" valign="top"><span class="nome_rua">${imovel.bairro}</span></td>
-					    <td width="65%" rowspan="3"><span class="nome_rua">Distância do centro ${imovel.distanciaCentro}<br />
-					      Mapa Google Maps:${imovel.linkGoogleMaps}<br />
-					      Vídeo You Tube:${imovel.linkYouTube}</span></td>
-					  </tr>
-					  <tr>
-					    <td><span class="nome_rua">${imovel.logradouro}</span></td>
-					  </tr>
-					  <tr>
-					    <td><span class="nome_rua">ID:${imovel.codigo}</span></td>
-					  </tr>
-					</table>
+				<table width="100%" border="0">
+				  <tr>
+				    <td width="35%" valign="top"><span class="nome_rua">${imovel.bairro}</span></td>
+				    <td width="65%" rowspan="3"><span class="nome_rua">Distância do centro ${imovel.distanciaCentro}<br />
+				      Mapa Google Maps:${imovel.linkGoogleMaps}<br />
+				      Vídeo You Tube:${imovel.linkYouTube}</span></td>
+				  </tr>
+				  <tr>
+				    <td><span class="nome_rua">${imovel.logradouro}</span></td>
+				  </tr>
+				  <tr>
+				    <td><span class="nome_rua">ID:${imovel.codigo}</span></td>
+				  </tr>
+				</table>
 			</div>
 
 			<!-- MENSAGEM DE ERRO -->
@@ -105,16 +104,17 @@
 							<bean:write name="erro"/>
 						</logic:present>				
 					</logic:messagesNotPresent>
+
 			  	</font>
 			<!-- ****************** -->
-			
+
 	<div class="menu_edicao">
 		<div class="menu_01_cinza"></div>
 		<div class="menu_02_cinza"></div>
 		<div class="menu_03"></div>
 	</div>
 
-<div id="formulario_edicao">
+	<div id="formulario_edicao">
 	<div class="left_formulario_">
 			<table width="100%" border="0">
               <tr>
@@ -129,29 +129,29 @@
 	                	<table border="0" cellspacing="3">
 			              <tr>
 			                <td>
-			                		<select name="mes">                        
-								        <option value="01">Janeiro</option>
-								        <option value="02">Fevereiro</option>
-								        <option value="03">Março</option>
-								        <option value="04">Abril</option>
-								        <option value="05">Maio</option>
-								        <option value="06">Junho</option>
-								        <option value="07">Julho</option>
-								        <option value="08">Agosto</option>
-								    	<option value="09">Setembro</option>
-								        <option value="10">Outubro</option>
-								        <option value="11">Novembro</option>
-								        <option value="12">Dezembro</option>                  
-									</select> 
+		                		<select name="mes">                        
+							        <option value="01">Janeiro</option>
+							        <option value="02">Fevereiro</option>
+							        <option value="03">Março</option>
+							        <option value="04">Abril</option>
+							        <option value="05">Maio</option>
+							        <option value="06">Junho</option>
+							        <option value="07">Julho</option>
+							        <option value="08">Agosto</option>
+							    	<option value="09">Setembro</option>
+							        <option value="10">Outubro</option>
+							        <option value="11">Novembro</option>
+							        <option value="12">Dezembro</option>                  
+								</select> 
 			                </td>
 			                <td>
-			                		<select name="ano">                        
-								        <option value="2011">2011</option>
-								        <option value="2012">2012</option>
-								        <option value="2013">2013</option>
-								        <option value="2014">2014</option>
-								        <option value="2015">2015</option>
-									</select>			                
+		                		<select name="ano">                        
+							        <option value="2011">2011</option>
+							        <option value="2012">2012</option>
+							        <option value="2013">2013</option>
+							        <option value="2014">2014</option>
+							        <option value="2015">2015</option>
+								</select>			                
 			                </td>
 			                <td>	<input type="submit" value="Trocar Período"> </td>
 			                </tr>
@@ -161,8 +161,8 @@
 				</td>
               </tr>
 			</table>
-	
-	
+  	
+
 			<table border="0" cellspacing="3">
 		  	<tr>
 		  		<td width='10%' class='txt_caracteristicas'>Dom</td>
@@ -218,22 +218,18 @@
 		        
 		        out.println("<td bgcolor='"+ color +"' class='txt_caracteristicas'>"+ mapa.getKey() +"</td>");
 		        
-		        if((index % 7) == 0) out.println("</tr>");
-		        
+		        if((index % 7) == 0) out.println("</tr>");		        
 		    }
 		  	//******************************************
 		  	%>
 		  	</table>
-
-	</div><!-- class="left_formulario_"  -->
-	
+</div>
 <div class="right_formulario_">
 
-
-	<html:form method="post" action="/usuario/anuncio?act=incluirAnuncio">
-	<input type="hidden" name="ci" value="${imovel.codigo}">
-	
-	<table width="100%" border="0">	  
+    	<html:form method="post" action="/usuario/anuncio?act=incluirAnuncio">
+    	<input type="hidden" name="ci" value="${imovel.codigo}">
+	    
+		<table width="100%" border="0">	  
 		<tr>
 			<td><span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Tarifas</span></td>
 		</tr>	  
@@ -384,9 +380,11 @@
                 </table>
         </td>
       </tr>
-      </table>      
-      
-      <table width="100%" border="0">
+      </table> 
+
+
+
+      	<table width="100%" border="0">
 	     <tr>
 	       <td class="txt_caracteristicas">Tarifa Diária</td>
 	       <td class="txt_caracteristicas">Tarifa Semanal</td>
@@ -438,25 +436,20 @@
 	                    </tr>
 	                  	</table>
 					<!-- ******* -->
+					<br /><br />
+					<br /><br />
 					  	
       		</td>
          </tr>
        </table>
        
        
-      	<input type="submit" name="gravar" value="Gravar" />
+       </div>
+</div>
+       
       	
-      	
-      	<a href="#" onclick="validaForm()" />Gravar</a>
-      	</html:form>
-      	</div>
-      	
-      	</div>
-      		
-
-		<div class="linha_cinza"></div>
-  		<div class="opcoes_pg">
-      	
+      	<div class="linha_cinza"></div>
+  		<div class="opcoes_pg">      	
 		      	<div id="tabs">                
 		            <div id="container_abas">
 		               <ul id="nav">	
@@ -465,9 +458,8 @@
 		                                           
 		               </ul>
 		               
-		               <div id="aba1" class="aba">		      			
-			      			
-					      		<table width="100%" border="0">
+		               <div id="aba1" class="aba">
+							<table width="100%" border="0">
 				                <tr>
 				                  <td><span class="txt_caracteristicas"> <html:radio property="permitirEntrada" value="true"/> Pagamento de sinal para confirmação de reserva, com saldo direto no check in.<br />
 				                    Sinal de 10% (Deduzida do total da estadia+taxas extras) + encargos do cartão ou boleto referente o sinal de 10%, retidos pelo Buzkaza como taxa de transação.</span></td>
@@ -502,8 +494,7 @@
 		               <div id="aba2" class="aba">
 					      	<table cellspacing="10" border="0">
 					      		<tr>
-						      		<td valign="top">
-						      								      			
+						      		<td valign="top">		      			
 						      			
 						      			<table width="100%" border="0">
 						                <tr>
@@ -533,51 +524,57 @@
 					      		</tr>
 					      	</table>
 		      		</div>
-      		
         </div>
-      		    
-	    <br /><br />
+      	
+      	
+      	<br /><br />
+      	
+      	<input type="submit" name="gravar" id="button5" value="Gravar" />
+      	
+	    </html:form>
 	    
-	    <logic:notEmpty name="imovel" property="anuncios">
-	    <table>
-	    	<logic:iterate id="an" name="imovel" property="anuncios">
-	    	<tr>
-			  	<td>
-			  		<!-- SETANDO A COR -->
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="0"><font color="WHITE"></logic:equal>
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="1"><font color="#2980C5"></logic:equal>			  		
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="2"><font color="#FF6D00"></logic:equal>
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="3"><font color="#8DBF22"></logic:equal>
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="4"><font color="#FFC600"></logic:equal>
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="5"><font color="#D300FF"></logic:equal>
-			  		<logic:equal name="an" property="tipoAnuncio.codigo" value="6"><font color="#00D8FF"></logic:equal>
-		
-			  		<!-- ************* -->
-			  		<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>
-			  		</font>
-			  	</td>
-			  	<td>
-			  		<html:form method="post" action="/usuario/anuncio?act=excluirAnuncio">
-			  			<input type="hidden" name="idAnuncio" value="${an.codigo}"/>
-			  			<input type="hidden" name="ci" value="${imovel.codigo}"/>
-			  			<html:submit>Excluir</html:submit>
-			  		</html:form>	  	
-			  		
-			  	</td>
-			  	</tr>
-		  	</logic:iterate>
-	    </TABLE>
-	    </logic:notEmpty>
-	    <logic:empty name="imovel" property="anuncios">
-	    	Ainda não há disponibilidade cadastrada para esse imóvel
-	    </logic:empty>
-    </td>
-  </tr>  
-</table>
+	    <br /><br />	    
+	    
+			    <logic:notEmpty name="imovel" property="anuncios">
+			    <table>
+			    	<logic:iterate id="an" name="imovel" property="anuncios">
+			    	<tr>
+					  	<td>
+					  		<!-- SETANDO A COR -->
+					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="0"><font color="WHITE"></logic:equal>
+					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="1"><font color="#2980C5"></logic:equal>			  		
+					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="2"><font color="#FF6D00"></logic:equal>
+					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="3"><font color="#8DBF22"></logic:equal>
+					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="4"><font color="#FFC600"></logic:equal>
+					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="5"><font color="#D300FF"></logic:equal>
+					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="6"><font color="#00D8FF"></logic:equal>
+				
+					  		<!-- ************* -->
+					  		<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>
+					  		</font>
+					  	</td>
+					  	<td>
+					  		<html:form method="post" action="/usuario/anuncio?act=excluirAnuncio">
+					  			<input type="hidden" name="idAnuncio" value="${an.codigo}"/>
+					  			<input type="hidden" name="ci" value="${imovel.codigo}"/>
+					  			<html:submit>Excluir</html:submit>
+					  		</html:form>	  	
+					  		
+					  	</td>
+					  	</tr>
+				  	</logic:iterate>
+			    </table>
+			    </logic:notEmpty>
+			    <logic:empty name="imovel" property="anuncios">
+			    	Ainda não há disponibilidade cadastrada para esse imóvel
+			    </logic:empty>
 
+</div>
+</div>
 </div>
 
 </div>
+
 
 
 <div class="bottom_formulario"></div>
