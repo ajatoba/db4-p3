@@ -580,7 +580,6 @@
 <div class="linha_cinza"></div>
 </div></div>
 
-<jsp:include page="../rodape.jsp"/>
 
 </body>
 </html>
