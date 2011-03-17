@@ -56,6 +56,8 @@
 
 <body>
 
+<!-- topo com linha azul -->
+<jsp:include page="../topo.jsp"/>
 
 
 
@@ -224,6 +226,7 @@
 		  	</table>
 
 	</div><!-- class="left_formulario_"  -->
+	
 <div class="right_formulario_">
 
 
@@ -399,6 +402,7 @@
 	       <td class="txt_caracteristicas"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70"/></td>
 	     </tr>
        </table>
+        
       	
       	<table width="100%" border="0">
          <tr>
@@ -580,6 +584,7 @@
 <div class="linha_cinza"></div>
 </div></div>
 
+<jsp:include page="../rodape.jsp"/>
 
 </body>
 </html>
