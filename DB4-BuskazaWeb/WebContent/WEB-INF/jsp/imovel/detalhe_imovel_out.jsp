@@ -18,10 +18,9 @@
 	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
 	
-	<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
+	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>	
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 	<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
-	<script type="text/javascript" src="/buzkaza/_js/jquery-1.4.js"></script>
 	<script type="text/javascript" src="/buzkaza/_js/tabs.js"></script>
 	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
 	<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
