@@ -60,7 +60,7 @@
 
   	<td rowspan="5" valign="top">
     <div class="logo_login"></div>
-    <a href="http://www.buzkaza.com.br/" border="0"><div class="cad_login"></div></a>
+    <a href="/DB4-BuskazaWeb/usuario.do?act=formIncluirUsuario" border="0"><div class="cad_login"></div></a>
     </td>
     <td class="MyriadProRegular">Login (E-Mail)</td>
   </tr>
