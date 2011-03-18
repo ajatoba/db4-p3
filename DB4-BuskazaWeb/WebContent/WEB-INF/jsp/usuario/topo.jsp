@@ -1,4 +1,11 @@
 
+<!--  lightbox do rodapé -->
+<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/script/thickbox.css" />
+
+<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/_css/estilo_iframe.css" />
+<script type="text/javascript" src="/buzkaza/thickbox/script/thickbox.js" ></script>
+<script type="text/javascript" src="/buzkaza/thickbox/script/global.js" ></script>
+
 
 <div id="conteudo"> 
   <!--TOPO-->
