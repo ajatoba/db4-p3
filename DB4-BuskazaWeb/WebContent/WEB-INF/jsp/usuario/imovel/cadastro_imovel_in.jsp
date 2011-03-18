@@ -10,12 +10,7 @@
 
 	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>	
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
-	<!-- 
-	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/script/thickbox.css" />
-	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/_css/estilo_iframe.css" />
-	<script type="text/javascript" src="/buzkaza/thickbox/script/thickbox.js" ></script>
-	<script type="text/javascript" src="/buzkaza/thickbox/script/global.js" ></script>
-	-->
+	
 	<link href="/buzkaza/_css/cadastro_imovel.css" rel="stylesheet" type="text/css" />
 	
 	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
@@ -154,9 +149,6 @@
 <html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=incluirImovel" enctype="multipart/form-data">
 
 <div id="cont_cadastro" style="height:auto;">
-<!--
-<div id="indice_cadastro"><img src="/buzkaza/_img/indice_cadastro_imovel_02.jpg" width="971" height="57" /></div>
-   -->
  
   <div id="formulario_cadastro_imovel" style="margin-top:10px;">
   
@@ -261,6 +253,7 @@
 				<html:option value="9">9 Quartos</html:option>
 				
 				<html:option value="10">10 Quartos</html:option>
+				<!--
 				<html:option value="11">11 Quartos</html:option>
 				<html:option value="12">12 Quartos</html:option>
 				<html:option value="13">13 Quartos</html:option>
@@ -273,8 +266,9 @@
 				
 				<html:option value="20">20 Quartos</html:option>
 				<html:option value="21">21 Quartos</html:option>
-				<html:option value="22">22 Quartos</html:option>
-      	</html:select></div></td>
+				<html:option value="22">22 Quartos</html:option> 
+				 -->      	
+				 </html:select></div></td>
             <td><div style="margin-right:12px;">
             	<html:select property="metragem" styleId="metragem">
       			<html:option value="20.0">20m</html:option>
@@ -418,8 +412,7 @@
 				<html:option value="6">6 Pessoas</html:option>
 				<html:option value="7">7 Pessoas</html:option>
 				<html:option value="8">8 Pessoas</html:option>	
-				<html:option value="9">9 Pessoas</html:option>
-					
+				<html:option value="9">9 Pessoas</html:option>					
 				<html:option value="10">10 Pessoas</html:option>
 				<html:option value="11">11 Pessoas</html:option>
 				<html:option value="12">12 Pessoas</html:option>
@@ -429,8 +422,7 @@
 				<html:option value="16">16 Pessoas</html:option>
 				<html:option value="17">17 Pessoas</html:option>
 				<html:option value="18">18 Pessoas</html:option>
-				<html:option value="19">19 Pessoas</html:option>
-								
+				<html:option value="19">19 Pessoas</html:option>								
 				<html:option value="20">20 Pessoas</html:option>
 				<html:option value="21">21 Pessoas</html:option>
 				<html:option value="22">22 Pessoas</html:option>
