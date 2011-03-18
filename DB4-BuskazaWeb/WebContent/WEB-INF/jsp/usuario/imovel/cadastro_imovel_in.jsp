@@ -10,12 +10,12 @@
 
 	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>	
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
-	
+	<!-- 
 	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/script/thickbox.css" />
 	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/_css/estilo_iframe.css" />
 	<script type="text/javascript" src="/buzkaza/thickbox/script/thickbox.js" ></script>
 	<script type="text/javascript" src="/buzkaza/thickbox/script/global.js" ></script>
-	
+	-->
 	<link href="/buzkaza/_css/cadastro_imovel.css" rel="stylesheet" type="text/css" />
 	
 	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
@@ -31,7 +31,7 @@
 	<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js"></script>
 	<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js"></script>
 	
-	
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/botao_anexo.css" />
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
 	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
 
