@@ -108,17 +108,14 @@ $(document).ready(function()
 			    <td width="65%" valign="top">
 				    <span class="txt_cinza_detalhes">
 				      Distância do centro: ${reserva.imovel.distanciaCentro}<br />
-				      <a href="${reserva.imovel.linkGoogleMaps}">Mapa(Google Maps)</a><br />
-				      <a href="${reserva.imovel.linkYouTube}">Vídeo(YouTube)</a><br />
+				      <a href="${reserva.imovel.linkGoogleMaps}" class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
+				      <a href="${reserva.imovel.linkYouTube}" class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
 				      </span>			      
 			    </td>
 			  </tr>
 			</table>
 	</div>
 </div>
-
-
-
 
 <div id="sep_top_reserva"></div>
 
@@ -143,15 +140,15 @@ $(document).ready(function()
     		<div class="box_data_reserva">
                     <ul class="data_reserva_ul">
                         <li class="data_texto1">Chegada</li>
-                        <li class="data_texto2">20</li>
-                        <li class="data_texto3">03/2011</li>
+                        <li class="data_texto2"><bean:write name="reserva" property="periodoInicial" format="dd"/></li>
+                        <li class="data_texto3"><bean:write name="reserva" property="periodoInicial" format="MM"/>/<bean:write name="reserva" property="periodoInicial" format="MM"/></li>
                     </ul>
             </div>
             <div class="box_data_reserva">
             		<ul class="data_reserva_ul">
                         <li class="data_texto1">Partida</li>
-                        <li class="data_texto2"><bean:write name="reserva" property="periodoInicial" format="dd"/></li>
-                        <li class="data_texto3"><bean:write name="reserva" property="periodoInicial" format="MM"/>/<bean:write name="reserva" property="periodoInicial" format="MM"/></li>
+                        <li class="data_texto2"><bean:write name="reserva" property="periodoFinal" format="dd"/></li>
+                        <li class="data_texto3"><bean:write name="reserva" property="periodoFinal" format="MM"/>/<bean:write name="reserva" property="periodoInicial" format="MM"/></li>
                     </ul>
             </div>
             <div class="box_data_reserva">
