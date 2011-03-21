@@ -19,7 +19,7 @@
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css" />
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/size_campos.css"/>
-
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/detalhe_imovel.css"/>
 
 
 
@@ -31,15 +31,8 @@
 
 <script type="text/javascript" src="/buzkaza/_js/tabs.js"></script>
 <script type="text/javascript" src="/buzkaza/_js/function.js"></script>
-<!-- 
 
-<script type="text/javascript" src="/buzkaza/_js/jquery-1.4.js"></script>
-<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
-<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js" ></script>
 
-<link rel="stylesheet" type="text/css" href="/buzkaza/_css/jquery.alerts.css"  />
-
- -->
 <link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 <link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
 
@@ -53,14 +46,14 @@
 
 $(document).ready(function()
 {
-
+/*
 	$('iframe').load(function()
 			{
 				this.style.width = 341 + 'px';
 				this.style.height = 271 + 'px';
 			}
 		);
-	
+	*/
 	$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
 }
 );
@@ -72,7 +65,7 @@ $(document).ready(function()
 <jsp:include page="../topo.jsp"/>
 
 <!--CADASTRO-->
-<div id="cont_reserva">
+<div id="cont_reserva2">
 
 <!-- MENSAGEM DE ERRO -->
     <font color="red">
@@ -93,38 +86,36 @@ $(document).ready(function()
 
 <div id="meio_reserva">
 <div class="top_reserva">
-	<div class="txt_meus_anuncios">
-		<span class="MyriadPro24">Solicitação de Reserva</span>
-	</div>
+	<div class="txt_meus_anuncios">Solicitação de Reserva</div>
 </div>
 
 </div>
-<div id="sep_top_reserva"></div>
+<div id="sep_top_reserva_fina"></div>
 <div id="listagem_reservas">
 
 <div class="topo_edicao">
-	<div class="mapa_planta"><img src="/buzkaza/imagens_usuarios/${reserva.imovel.primeirafoto}" width="140" height="104" /></div>
+	<div class="mapa_planta_reserva"><img src="/buzkaza/imagens_usuarios/${reserva.imovel.primeirafoto}" width="140" height="104" /></div>
 
 
-
-<div class="endereco_bairro">
-		<table width="100%" border="0" > 
-		  <tr valign="top">
-		    <td width="35%" valign="top">
-		    	<span class="tit_azul_detalhes">${reserva.imovel.bairro} </span><br />
-    			<span class="txt_cinza_detalhes">${reserva.imovel.logradouro}</span><br /><br />
-		    </td>
-		    <td width="65%" valign="top">
-			    <span class="txt_cinza_detalhes">
-			      Distância do centro: ${reserva.imovel.distanciaCentro}<br />
-			      Mapa Google Maps: ${reserva.imovel.linkGoogleMaps}<br />
-			      Vídeo You Tube: ${reserva.imovel.linkYouTube}<br />
-			      ID: ${reserva.imovel.codigo}</span>			      
-		    </td>
-		  </tr>
-		</table>
+	<div class="endereco_bairro">
+			<table width="100%" border="0" > 
+			  <tr valign="top">
+			    <td width="35%" valign="top">
+			    	<span class="tit_azul_detalhes">${reserva.imovel.bairro}, ${reserva.imovel.estado.codigo} </span><br />
+	    			<span class="txt_cinza_detalhes">${reserva.imovel.logradouro}<br />
+	    			id: ${reserva.imovel.codigo}</span>
+			    </td>
+			    <td width="65%" valign="top">
+				    <span class="txt_cinza_detalhes">
+				      Distância do centro: ${reserva.imovel.distanciaCentro}<br />
+				      <a href="${reserva.imovel.linkGoogleMaps}">Mapa(Google Maps)</a><br />
+				      <a href="${reserva.imovel.linkYouTube}">Vídeo(YouTube)</a><br />
+				      </span>			      
+			    </td>
+			  </tr>
+			</table>
+	</div>
 </div>
-
 
 
 
@@ -173,89 +164,70 @@ $(document).ready(function()
     </div>
 </div>
 
+<div class="pagamento_info">
+
+<span class="titulo_azul">Pagamento</span><br /><br />
+
+<strong>Sinal(10%)</strong><br />
+O pagamento pagamento pagamento pagamento pagamento pagamento<br /><br />
 
 
 
+<strong>Saldo no check in</strong><br />
 
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 
+<br /><br />
 
-<div id="formulario_edicao">
-<div class="left_formulario_">
 
 
 </div>
-<div class="right_formulario_">
 
-		
-  	
-     <html:form action="/usuario/reserva.do?act=incluirReserva" method="POST" >
-	    <table>
-	    <tr>
-		    <td>
-		    <div ><span class="tit_box_facil_alugar">Confirma sua reserva?</span></div>
-		    <br>    
-		    
-		    <div class="txt_caracteristicas">
-		    
-		    De <bean:write name="reserva" property="periodoInicial" format="dd/MM/yyyy"/>
-		    a <bean:write name="reserva" property="periodoFinal" format="dd/MM/yyyy"/><br />
-		    R$ <bean:write name="reserva" property="valor" format="00.00"/><br />
-		    <br />
-		   
-		    
-		    <logic:equal name="reserva" property="imovel.permiteOpcaoPagamento" value="true">
-		    
-		    Opções de Pagamento
-		    <table cellspacing="5">
-		    <tr>
-		    	<td>
-			    	<html:radio property="valor" value="${(reserva.valor*10/100)}">Opção 1: </html:radio><br>
-			    	Valor: R$ ${(reserva.valor*10/100)}
-		    	</td>
-		    	<td>
-			    	<html:radio property="valor" value="${reserva.valor}">Opção 2: </html:radio><br>
-			    	<bean:write name="reserva" property="valor" format="00.00"/>
-		    	</td>
-		    </tr>
-		    </table>
-		    
 
-		    </logic:equal>
-				    <logic:notEqual name="reserva" property="imovel.permiteOpcaoPagamento" value="true">
-				    <html:hidden property="valor" value="${reserva.valor}"/>
-		    <br />
-		    
-		    
-		    </logic:notEqual>
-		    
-		    </div>
-		    
-				<html:hidden property="codigoImovel" value="${reserva.imovel.codigo}"/> 
-				<html:hidden property="diaPeriodoInicial" value="${reserva.periodoInicial.date}"/>	
-				<html:hidden property="mesPeriodoInicial" value="${(reserva.periodoInicial.month)+1}"/>
-				<html:hidden property="anoPeriodoInicial" value="${(reserva.periodoInicial.year)+1900}"/>
-				<html:hidden property="diaPeriodoFinal" value="${reserva.periodoFinal.date}"/>	
-				<html:hidden property="mesPeriodoFinal" value="${(reserva.periodoFinal.month)+1}"/>
-				<html:hidden property="anoPeriodoFinal" value="${(reserva.periodoFinal.year)+1900}"/>
-				<br>
-				<html:submit>Confirmar</html:submit>
-				<!-- img src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" border="0"/-->
-			
-		    <br><br>
-		    </td>
-	    </tr>
+<div id="sep_top_reserva"></div>
+
+
+<html:form action="/usuario/reserva.do?act=incluirReserva" method="POST" >
 	    
-	    </table>
-	    </html:form>
-    </td>
-  </tr>
-  
-</table>
+<logic:equal name="reserva" property="imovel.permiteOpcaoPagamento" value="true">
+	<!-- 
+	  	<html:radio property="valor" value="${(reserva.valor*10/100)}">Opção 1: </html:radio><br>
+	   	Valor: R$ ${(reserva.valor*10/100)}
+	   	
+	   	<html:radio property="valor" value="${reserva.valor}">Opção 2: </html:radio><br>
+	   	<bean:write name="reserva" property="valor" format="00.00"/>
+	-->	
+	<html:hidden property="valor" value="${(reserva.valor*10/100)}" />
+</logic:equal>
+<logic:notEqual name="reserva" property="imovel.permiteOpcaoPagamento" value="true">
+	<html:hidden property="valor" value="${reserva.valor}"/>
+</logic:notEqual>
+		    
+
+		    
+<html:hidden property="codigoImovel" value="${reserva.imovel.codigo}"/> 
+<html:hidden property="diaPeriodoInicial" value="${reserva.periodoInicial.date}"/>	
+<html:hidden property="mesPeriodoInicial" value="${(reserva.periodoInicial.month)+1}"/>
+<html:hidden property="anoPeriodoInicial" value="${(reserva.periodoInicial.year)+1900}"/>
+<html:hidden property="diaPeriodoFinal" value="${reserva.periodoFinal.date}"/>	
+<html:hidden property="mesPeriodoFinal" value="${(reserva.periodoFinal.month)+1}"/>
+<html:hidden property="anoPeriodoFinal" value="${(reserva.periodoFinal.year)+1900}"/>
+
+	    
+<div class="form_efeutar_pagamento">
+	<input value="Confirmar" type="image" src="/buzkaza/_img/btn_efetuar_pagamento.jpg" class="btn_efetuar_pagamento" />
+</div>
+
+</html:form>
 
 
 </div>
-</div>
-</div>
 
 </div>
 
@@ -265,6 +237,9 @@ $(document).ready(function()
 </div>
 
 </div>
+
+
+<br /><br />
 
 <jsp:include page="../rodape.jsp"/>
 
