@@ -39,7 +39,7 @@
   </div>
   <div class="box_bnn">
     <div class="bnn_01"><img src="/buzkaza/_img/bnn_01.jpg" width="433" height="136" /></div>
-    <div class="bnn_02"><img src="/buzkaza/_img/bnn_02.jpg" width="433" height="136" /></div>
+    <div class="bnn_02"><a href="http://www.buzkaza.com.br/blog"><img src="/buzkaza/_img/bnn_02.jpg" border="0" width="433" height="136" /></a></div>
   </div>
 </div>
 <!--BOX BOTTOM-->
@@ -73,14 +73,30 @@
                     		<div class="logo_tweeter"></div>
                             
                     		<div id="twitter_buzkaza">
-                                	<script type="text/javascript" language="javascript"  src="http://twitter.com/statuses/user_timeline/buzkaza.json?callback=twitterCallback&amp;count=2&amp;named_obj"></script>
-                                	<script type="text/javascript" language="javascript" src="/buzkaza/_js/function_twitter.js"></script>
+                                	<script type="text/javascript" language="javascript" src="http://twitter.com/statuses/user_timeline/buzkaza.json?callback=twitterCallback&amp;count=2&amp;named_obj"></script>
+                                	<script type="text/javascript" language="javascript" charset="utf-8" src="/buzkaza/_js/function_twitter.js"></script>
                             </div>
+                            
+                            <div class="twitter_siga"><a href="http://twitter.com/buzkaza" target="_blank">siga @buzkaza &nbsp;&nbsp;&nbsp;&nbsp;</a></div>
                     </div>
                     
                     <div class="box_facebook">                    
-                    	<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FBuzkaza-em-casa-onde-estiver%2F170687929624966&amp;width=237&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=false&amp;height=263" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:237px; height:262px;" allowTransparency="true"></iframe>
-                    </div>
+						<script type="text/javascript" language="javascript">
+						<!--
+							/* escreve no ie no tamanho certo*/
+							navegador = navigator.userAgent;
+							
+							if( navegador.indexOf("MSIE 8") > 0 ||
+								navegador.indexOf("MSIE 9") > 0 )
+							{
+								document.write('<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FBuzkaza-em-casa-onde-estiver%2F170687929624966&amp;width=237&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=false&amp;height=263" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:237px; height:265px;" allowTransparency="true"></iframe>');
+							}else
+							{
+								document.write('<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FBuzkaza-em-casa-onde-estiver%2F170687929624966&amp;width=237&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=false&amp;height=261" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:237px; height:265px;" allowTransparency="true"></iframe>');
+							}
+						-->
+						</script>
+					</div>
             </div>
     </div>
 </div>
