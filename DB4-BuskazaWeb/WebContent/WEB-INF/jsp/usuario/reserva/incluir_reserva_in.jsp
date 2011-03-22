@@ -108,8 +108,8 @@ $(document).ready(function()
 			    <td width="65%" valign="top">
 				    <span class="txt_cinza_detalhes">
 				      Distância do centro: ${reserva.imovel.distanciaCentro}<br />
-				      <a href="${reserva.imovel.linkGoogleMaps}" class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
-				      <a href="${reserva.imovel.linkYouTube}" class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
+				      <a href='${reserva.imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
+				      <a href='${reserva.imovel.linkYouTube}' class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
 				      </span>			      
 			    </td>
 			  </tr>
