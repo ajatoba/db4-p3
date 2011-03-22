@@ -39,7 +39,7 @@
   </div>
   <div class="box_bnn">
     <div class="bnn_01"><img src="/buzkaza/_img/bnn_01.jpg" width="433" height="136" /></div>
-    <div class="bnn_02"><a href="http://www.buzkaza.com.br/blog"><img src="/buzkaza/_img/bnn_02.jpg" border="0" width="433" height="136" /></a></div>
+    <div class="bnn_02"><a href="http://www.buzkaza.com.br/blog" target="_blank"><img src="/buzkaza/_img/bnn_02.jpg" border="0" width="433" height="136" /></a></div>
   </div>
 </div>
 <!--BOX BOTTOM-->
