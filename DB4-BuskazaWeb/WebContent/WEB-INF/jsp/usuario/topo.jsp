@@ -17,8 +17,8 @@
       <div class="txt_04">Contato</div>
       <div class="txt_05">Ajuda</div>
       <div class="txt_06">Redes Sociais</div>
-      <div class="twitter"></div>
-      <div class="facebook"></div>
+      <a href="http://twitter.com/buzkaza" target="_blank"><div class="twitter"></div></a>
+	  <a href="http://www.facebook.com/pages/Buzkaza-em-casa-onde-estiver/170687929624966" target="_blank"><div class="facebook"></div></a>
     </div>
     <div class="tracejado_top"></div>
     <div class="linha_logo">
