@@ -73,8 +73,9 @@ public class ReservaBean implements ReservaBeanLocal {
         	
         } 
         
-        c.add(Restrictions.eq("status", status));
-        
+        if(status > 0){
+        	c.add(Restrictions.eq("status", status));
+        }
         c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
         return c.list(); 
 	}
