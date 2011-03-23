@@ -126,6 +126,7 @@
                     <br />
                     
 					<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
+					<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
 					<html:hidden property="codigoImovel" value="${ims.key.codigo}"/> 
 					<html:hidden property="valor" value="${ims.value}"/>
 					<html:hidden property="diaPeriodoInicial" value="${periodoBuscado.periodoInicial.date}"/>	
@@ -145,7 +146,15 @@
                   <span class="txt_form">Capacidade : <bean:write name="ims" property="key.capacidade"/><br />
                     Quartos : <bean:write name="ims" property="key.quartos"/><br />
                     Metragem : <bean:write name="ims" property="key.metragem"/><br />
-                    Proprietário: <bean:write name="ims" property="key.usuarioProprietario.nome"/></span><br /></td>
+                    Proprietário: <bean:write name="ims" property="key.usuarioProprietario.nome"/></span><br />
+                    <logic:notEmpty name="ims" property="key.equipamentos">	
+				       <logic:iterate name="ims" property="key.equipamentos" id="equipamento">
+				       		<bean:write name="equipamento" property="nome"/>
+				       </logic:iterate>
+			    	</logic:notEmpty>  
+                     
+		                    
+                    </td>
                   <td width="20%"  valign="top" class="txt_form">
                   Total por <bean:write name="qtdDias"/> dia(s): R$ <bean:write name="ims" property="value"/><br>
 		        <a href="/DB4-BuskazaWeb/imovel.do?act=detalheImovel&ci=${ims.key.codigo}" class="link_ver_detalhe">[ Ver detalhes ]</a> 

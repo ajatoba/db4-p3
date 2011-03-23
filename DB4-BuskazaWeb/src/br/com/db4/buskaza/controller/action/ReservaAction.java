@@ -35,13 +35,25 @@ public class ReservaAction extends DispatchAction {
 
 public ActionForward formReservas(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
 		try{		
+			
+				System.out.println("CHEGUEI NO FORM DE RESERVAS");
+				
 				HttpSession session = request.getSession();
 				
 				Usuario locatario = (Usuario)request.getSession().getAttribute(Constants.USUARIO_SESSAO);
 				
-				ReservaForm rform = (ReservaForm) form; 
-			
-				Reserva reserva = popularReserva(rform);
+				ReservaForm rform = null; 
+				
+				Reserva reserva = null;
+				
+				if (session.getAttribute("reserva") != null) {
+					reserva = (Reserva)session.getAttribute("reserva") ;
+					session.removeAttribute("requestReserva");
+				}else{
+				
+					rform = (ReservaForm) form;			
+					reserva = popularReserva(rform);				
+				}
 				
 				reserva.setLocatario(locatario);
 				
@@ -202,6 +214,8 @@ public ActionForward formReservas(ActionMapping mapping, ActionForm form, HttpSe
 			ReservaBeanLocal reservaEjb = (ReservaBeanLocal) ServiceLocator.getInstance().locateEJB(ReservaBeanLocal.LOCAL);
 			codigoReserva = reservaEjb.incluirReserva(reserva);
 			
+			session.setAttribute(Constants.OBJETO_PAGAR_RESERVA, reserva);
+			
 			//ENVIANDO EMAIL AO PROPRIETÁRIO			
 			MessageResources messageResources = getResources(request, "app");
 			
@@ -248,7 +262,8 @@ public ActionForward formReservas(ActionMapping mapping, ActionForm form, HttpSe
 		    return formReservas(mapping, form, request, response);
 		}
 		
-		return mapping.findForward(Constants.RESERVA_CONFIRMADA);
+		//return mapping.findForward(Constants.RESERVA_CONFIRMADA);
+		return mapping.findForward(Constants.FORM_PAGAR_RESERVA);
 	}
 	
 	public ActionForward aprovarReserva(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
@@ -301,33 +316,28 @@ public ActionForward formReservas(ActionMapping mapping, ActionForm form, HttpSe
 		return mapping.findForward(Constants.RESERVA_APROVADA);
 	}
 
+	/*
+	 * MÉTODO DESATIVADO PELA DB4 CONFORME SOLICITAÇÃO DE 23/03/2011
+	 */
+	
+	/*
 	public ActionForward formPagarReserva(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
 		try{
 			
 			HttpSession session = request.getSession();
 			
-			Integer codigoReserva = Integer.parseInt(request.getParameter("cr"));
-			
 			Reserva reserva = null;
 			
-			ReservaBeanLocal reservaEjb = (ReservaBeanLocal) ServiceLocator.getInstance().locateEJB(ReservaBeanLocal.LOCAL);
-			reserva = reservaEjb.getReserva(codigoReserva);
+			reserva = (Reserva)session.getAttribute("reserva");
 			
-			if(reserva != null){
-				if(reserva.getStatus() == 1){
-					//SÓ É POSSÍVEL PAGAR RESERVA COM STATUS "APROVADA", OU SEJA, 1
+			if(reserva == null){
+				Integer codigoReserva = Integer.parseInt(request.getParameter("cr"));			
 				
-					session.setAttribute(Constants.OBJETO_PAGAR_RESERVA, reserva);
-					
-				}else {
-					request.setAttribute("erroReserva", "Você deve pagar apenas reservas aprovadas.<br>Essa reserva não foi aprovada pelo proprietário.");
-					return mapping.findForward(Constants.PAGAR_RESERVA_ERRO);
-				}
-			}else {
-				request.setAttribute("erroReserva", "Ocorreu um erro inesperado");
-				return mapping.findForward(Constants.PAGAR_RESERVA_ERRO);
+				ReservaBeanLocal reservaEjb = (ReservaBeanLocal) ServiceLocator.getInstance().locateEJB(ReservaBeanLocal.LOCAL);
+				reserva = reservaEjb.getReserva(codigoReserva);
+			}else{
+				session.setAttribute(Constants.OBJETO_PAGAR_RESERVA, reserva);					
 			}
-			
 			return mapping.findForward(Constants.FORM_PAGAR_RESERVA);
 				
 		} catch (Exception e) {
@@ -339,7 +349,5 @@ public ActionForward formReservas(ActionMapping mapping, ActionForm form, HttpSe
 		    return mapping.findForward(Constants.PAGAR_RESERVA_ERRO);
 		}
 	}
-	
-
-	
+	*/
 }

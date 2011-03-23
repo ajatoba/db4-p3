@@ -129,23 +129,27 @@
 	                	<table border="0" cellspacing="3">
 			              <tr>
 			                <td>
-		                		<select name="mes">                        
-							        <option value="01">Janeiro</option>
-							        <option value="02">Fevereiro</option>
-							        <option value="03">Março</option>
-							        <option value="04">Abril</option>
-							        <option value="05">Maio</option>
-							        <option value="06">Junho</option>
-							        <option value="07">Julho</option>
-							        <option value="08">Agosto</option>
-							    	<option value="09">Setembro</option>
-							        <option value="10">Outubro</option>
-							        <option value="11">Novembro</option>
-							        <option value="12">Dezembro</option>                  
+		                		<select name="mes">
+		                		    <option value="01" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("01")) out.println("selected");%>>Janeiro</option>
+							        <option value="02" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("02")) out.println("selected");%>>Fevereiro</option>
+							        <option value="03" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("03")) out.println("selected");%>>Março</option>
+							        <option value="04" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("04")) out.println("selected");%>>Abril</option>
+							        <option value="05" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("05")) out.println("selected");%>>Maio</option>
+							        <option value="06" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("06")) out.println("selected");%>>Junho</option>
+							        <option value="07" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("07")) out.println("selected");%>>Julho</option>
+							        <option value="08" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("08")) out.println("selected");%>>Agosto</option>
+							    	<option value="09" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("09")) out.println("selected");%>>Setembro</option>
+							        <option value="10" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("10")) out.println("selected");%>>Outubro</option>
+							        <option value="11" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("11")) out.println("selected");%>>Novembro</option>
+							        <option value="12" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("12")) out.println("selected");%>>Dezembro</option>                  
 								</select> 
 			                </td>
 			                <td>
-		                		<select name="ano">                        
+		                		<select name="ano">
+		                			<%if(request.getParameter("ano")!= null) {
+		                				%>
+		                				<option value="<%=request.getParameter("ano") %>"><%=request.getParameter("ano") %></option>
+		                			<%}%>	                        
 							        <option value="2011">2011</option>
 							        <option value="2012">2012</option>
 							        <option value="2013">2013</option>
@@ -253,7 +257,7 @@
                   <tr>
                     <td width="50%"><span class="txt_caracteristicas">                        
 
-						<html:select property="diaDataInicial" title="dia" styleId="diaDataInicial" styleClass="MyriadProRegular,string">                        
+						<html:select property="diaDataInicial" title="dia" styleId="diaDataInicial" styleClass="MyriadProRegular,string">
 							<html:option value="01">01</html:option>
 				            <html:option value="02">02</html:option>
 				            <html:option value="03">03</html:option>
@@ -551,6 +555,7 @@
 				
 					  		<!-- ************* -->
 					  		<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>
+					  		<bean:write name="an" property="tarifaDiaria"/>
 					  		</font>
 					  	</td>
 					  	<td>

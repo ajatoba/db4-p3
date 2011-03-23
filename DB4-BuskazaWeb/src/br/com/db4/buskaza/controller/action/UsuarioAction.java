@@ -215,9 +215,16 @@ public class UsuarioAction extends DispatchAction {
 			UsuarioBeanLocal usuarioEjb = (UsuarioBeanLocal) ServiceLocator.getInstance().locateEJB(UsuarioBeanLocal.LOCAL);
 			Usuario usuario = usuarioEjb.autenticarUsuario(usuarioForm.getUsuarioEntity().getEmail(), usuarioForm.getUsuarioEntity().getSenha(),Constants.tipoPerfilUsuario);
 			
+			
+			
 			if(usuario != null && usuario.getCodigo() >0){			
 				request.getSession().setAttribute(Constants.USUARIO_SESSAO, usuario);			
 				//return mapping.findForward("");
+				
+				if (request.getSession().getAttribute("reserva") != null) {
+					return new ActionForward("/usuario/reserva.do?act=formReservas");
+				}
+				
 				return new ActionForward("/usuario/imovel.do?act=listarImoveis");
 			}else{
 				final ActionMessages actionErrors = new ActionMessages();
@@ -281,7 +288,7 @@ public class UsuarioAction extends DispatchAction {
 			
 			request.getSession().removeAttribute(Constants.USUARIO_SESSAO);	
 			
-			return mapping.findForward("");
+			return mapping.findForward(Constants.LOGIN_USUARIO);
 		
 		} catch ( final Exception e ) {
 			

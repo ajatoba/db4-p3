@@ -96,7 +96,20 @@ $(function(){
 		
 			<logic:notEmpty name="ims" property="reservas">
 					<div class="status_anuncio">
-							<div class="verde_anuncio"><a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=0');" style="color:#90b821;">Você tem 2 pedidos de reserva</a></div>
+							<div class="verde_anuncio">
+								<a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=0');" style="color:#90b821;">
+									Aguardando Confirmação
+								</a>
+								<br>
+								<a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=1');" style="color:#90b821;">
+									Resevas Finalizadas
+								</a>
+								<br>
+								<a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=-1');" style="color:#90b821;">
+									Todas as Reservas
+								</a>
+							
+							</div>
 					</div>
 			</logic:notEmpty>
 			

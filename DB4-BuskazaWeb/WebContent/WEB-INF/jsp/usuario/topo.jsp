@@ -1,6 +1,7 @@
 
 <!--  lightbox do rodapé -->
-<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/script/thickbox.css" />
+
+<%@page import="br.com.db4.buskaza.model.entity.Usuario"%><link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/script/thickbox.css" />
 
 <link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/_css/estilo_iframe.css" />
 <script type="text/javascript" src="/buzkaza/thickbox/script/thickbox.js" ></script>
@@ -30,7 +31,12 @@
       <a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel"><div class="btn_anunciar">anunciar imóvel</div></a>
       <a href="http://www.buzkaza.com.br/blog/" target="_black"><div class="btn_blog">blogs</div></a>
       
-      <div class="btn_logado">Olá, Fernando</div>
+      <div class="btn_logado">
+      <%if (session.getAttribute("usuario") != null) {%>
+      Olá,       
+      <%=((Usuario)session.getAttribute("usuario")).getNome() %>
+      <%} %>
+      </div>
       
 		<div class="btn_funcoes_login">
 		
@@ -46,7 +52,7 @@
 		                    <li id="menu_sepb">&nbsp;</li>
 		                    <li id="menu3"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=listarImoveis">Meus Anúncios</a></li>
 		                    <li id="menu_sepb">&nbsp;</li>
-		                    <li id="menu3"><a href="#" id="ativo">Logout</a></li>
+		                    <li id="menu3"><a href="/DB4-BuskazaWeb/usuario.do?act=logofUsuario" id="ativo">Logout</a></li>
 		                </ul>
 		              <div id="menu_sepb_baixo">&nbsp;</div>
 		              <script type="text/javascript">  horizontal(); </script> 
