@@ -383,24 +383,27 @@
   <tr>
     <td colspan="3" class="txt_caracteristica"><img src="/buzkaza/_img/bullet.jpg" width="21" height="16" />Equipamentos</td>
     </tr>
-	    <logic:notEmpty name="equipamentos">	
-	        <logic:iterate name="equipamentos" id="equipamento">
-				<tr>
-					<td colspan="3" class="MyriadProRegular">
-							<span class="txt_form">
-									<div class="equip_top1">									
-									    <html:multibox property="equipamentos" styleClass="MyriadProRegular"> 
-											<bean:write name="equipamento" property="codigo"/>  
-										</html:multibox>
-									</div>
-									<div class="equip_top2">
-										<bean:write name="equipamento" property="nome"/>
-									</div>
-							</span>
-				</td>
-				</tr>       
-		    </logic:iterate>
-	    </logic:notEmpty>    
+    <tr>
+		<td colspan="3" class="MyriadProRegular">
+		    <logic:notEmpty name="equipamentos">	
+		        <logic:iterate name="equipamentos" id="equipamento">
+							
+							<div id="sep_form_busca" class="txt_form">
+								
+										<div class="equip_top1">									
+										    <html:multibox property="equipamentos" styleClass="MyriadProRegular"> 
+												<bean:write name="equipamento" property="codigo"/>  
+											</html:multibox>
+										</div>
+										<div class="equip_top2">
+											<bean:write name="equipamento" property="nome"/>
+										</div>
+					      </div>
+			    </logic:iterate>
+		    </logic:notEmpty> 
+	    
+		</td>
+	</tr>    
 </table>
 
 </div>
