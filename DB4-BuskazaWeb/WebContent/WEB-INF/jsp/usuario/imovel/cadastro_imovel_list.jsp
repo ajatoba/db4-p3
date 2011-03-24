@@ -50,14 +50,12 @@ $(function(){
 
 <body>
 
-
 <!-- topo com linha azul -->
 <jsp:include page="../topo.jsp"/>
 
 
 <div id="site">
 <!--CADASTRO-->
-
 
 <div id="cont_reserva">
 <div id="meio_reserva">
@@ -84,7 +82,14 @@ $(function(){
 		  <div class="nota_reserva"><span class="id_imoves">id: <bean:write name="ims" property="codigo"/></span></div>
 		  <div class="visualizar_reserva">
 		    <logic:equal name="ims" property="status" value="0">Em análise &nbsp;&nbsp;</logic:equal>    
-		    <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}" class="link_azul">Disponibilidade/Preços</a> &nbsp;&nbsp; 
+		    <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}" class="link_azul">Editar Anúncio</a> &nbsp;&nbsp;
+	    			<a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}" class="link_azul">Disponibilidade/Preços</a> &nbsp;&nbsp;		    	
+		    	
+		    	<logic:notEmpty name="ims" property="reservas">
+    					<a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=-1');" class="link_azul">Histórico de Reservas</a> &nbsp;&nbsp;
+		    	</logic:notEmpty>
+		    	
+		    	
 		    </logic:equal>    
 		    <logic:notEmpty name="ims" property="anuncios"><!-- <a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=listarAnunciosImovel&ci=${ims.codigo}" class="link_azul">Ver Disponibilidade</a>--> </logic:notEmpty>
 		    <logic:equal name="ims" property="status" value="1"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}" class="link_azul">Editar Anúncio</a> &nbsp;&nbsp; </logic:equal>
@@ -103,12 +108,7 @@ $(function(){
 								<br>
 								<a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=1');" style="color:#90b821;">
 									Resevas Finalizadas
-								</a>
-								<br>
-								<a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=-1');" style="color:#90b821;">
-									Todas as Reservas
-								</a>
-							
+								</a>							
 							</div>
 					</div>
 			</logic:notEmpty>
@@ -118,8 +118,7 @@ $(function(){
 		
 		<br>
 		</html:form>
-
-	 </logic:iterate>  
+	 </logic:iterate>
 </logic:present>
 </div>
 
@@ -129,6 +128,5 @@ $(function(){
 </div>
 
 <jsp:include page="../rodape.jsp"/>
-
 </body>
 </html>
