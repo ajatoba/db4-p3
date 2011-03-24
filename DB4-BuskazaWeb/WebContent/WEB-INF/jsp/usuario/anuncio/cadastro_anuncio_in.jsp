@@ -555,7 +555,11 @@
 				
 					  		<!-- ************* -->
 					  		<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>
-					  		<bean:write name="an" property="tarifaDiaria"/>
+					  		| <bean:write name="an" property="tarifaDiaria"/>
+					  		| <bean:write name="an" property="tarifaSemanal"/>
+					  		| <bean:write name="an" property="tarifaMensal"/>
+					  		| <bean:write name="an" property="tarifaQuinzenal"/>
+					  		| <bean:write name="an" property="tarifaPacoteFechado"/>
 					  		</font>
 					  	</td>
 					  	<td>
