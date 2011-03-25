@@ -109,7 +109,7 @@
 		    <td width="536">
 		    	
 		    	
-		    	<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+		    	<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="sep_table_busca">
                 <tr>
                   <td width="40%" align="left" valign="top"><span class="tit_azul2">
 	                  <!-- <bean:write name="ims" property="key.logradouro"/> -->
