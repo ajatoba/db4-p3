@@ -164,7 +164,6 @@ $('#sep_top_reserva').corner('rounded 7px');
 								      <tr class="txt_caracteristicas">
 								        <td>Metragem</td>
 								        <td>Capacidade</td>
-								        <td>Distância do Centro</td>
 								      </tr>
 								      <tr>
 								        <td>
@@ -329,9 +328,6 @@ $('#sep_top_reserva').corner('rounded 7px');
 												<html:option value="21">21 Pessoas</html:option>
 												<html:option value="22">22 Pessoas</html:option>
 								      		</html:select>
-								        </td>
-								        <td>
-								        	<html:text property="distanciaCentro" size="100" style="width:110px;" />  
 								        </td>
 								      </tr>
 								    </table>        
