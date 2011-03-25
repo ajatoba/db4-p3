@@ -21,8 +21,6 @@
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/size_campos.css"/>
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/detalhe_imovel.css"/>
 
-
-
 <script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 <script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 <link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
@@ -30,8 +28,6 @@
 <script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
 
 <script type="text/javascript" src="/buzkaza/_js/tabs.js"></script>
-<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
-
 
 <link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 <link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
@@ -41,19 +37,12 @@
 
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
 <script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+<script type="text/javascript" src="/buzkaza/_js/function_calcular_data.js"></script>
 
 <script language="javascript">
 
 $(document).ready(function()
 {
-/*
-	$('iframe').load(function()
-			{
-				this.style.width = 341 + 'px';
-				this.style.height = 271 + 'px';
-			}
-		);
-	*/
 	$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
 }
 );
@@ -68,19 +57,18 @@ $(document).ready(function()
 <div id="cont_reserva2">
 
 <!-- MENSAGEM DE ERRO -->
-    <font color="red">
-  
-		<logic:messagesPresent property="erro">
-			<html:messages property="erro" id="erro">
-				<bean:write name="erro"/>    			
-			</html:messages>
-		</logic:messagesPresent>
-				
-		<logic:messagesNotPresent property="erro">
-			<logic:present name="erro">
-				<bean:write name="erro"/>
-			</logic:present>				
-		</logic:messagesNotPresent>
+    <font color="red">  
+			<logic:messagesPresent property="erro">
+				<html:messages property="erro" id="erro">
+					<bean:write name="erro"/>    			
+				</html:messages>
+			</logic:messagesPresent>
+					
+			<logic:messagesNotPresent property="erro">
+				<logic:present name="erro">
+					<bean:write name="erro"/>
+				</logic:present>				
+			</logic:messagesNotPresent>
   	</font>
     <!-- ****************** -->
 
@@ -95,7 +83,6 @@ $(document).ready(function()
 
 <div class="topo_edicao">
 	<div class="mapa_planta_reserva"><img src="/buzkaza/imagens_usuarios/${reserva.imovel.primeirafoto}" width="140" height="104" /></div>
-
 
 	<div class="endereco_bairro">
 			<table width="100%" border="0" > 
@@ -141,21 +128,27 @@ $(document).ready(function()
                     <ul class="data_reserva_ul">
                         <li class="data_texto1">Chegada</li>
                         <li class="data_texto2"><bean:write name="reserva" property="periodoInicial" format="dd"/></li>
-                        <li class="data_texto3"><bean:write name="reserva" property="periodoInicial" format="MM"/>/<bean:write name="reserva" property="periodoInicial" format="MM"/></li>
+                        <li class="data_texto3"><bean:write name="reserva" property="periodoInicial" format="MM"/>/<bean:write name="reserva" property="periodoInicial" format="yyyy"/></li>
                     </ul>
             </div>
             <div class="box_data_reserva">
             		<ul class="data_reserva_ul">
                         <li class="data_texto1">Partida</li>
                         <li class="data_texto2"><bean:write name="reserva" property="periodoFinal" format="dd"/></li>
-                        <li class="data_texto3"><bean:write name="reserva" property="periodoFinal" format="MM"/>/<bean:write name="reserva" property="periodoInicial" format="MM"/></li>
+                        <li class="data_texto3"><bean:write name="reserva" property="periodoFinal" format="MM"/>/<bean:write name="reserva" property="periodoFinal" format="yyyy"/></li>
                     </ul>
             </div>
             <div class="box_data_reserva">
             		<ul class="data_reserva_ul">
                         <li class="data_texto1">Total</li>
-                        <li class="data_texto2"><bean:write name="reserva" property="periodoFinal" format="dd"/></li>
-                        <li class="data_texto3"><bean:write name="reserva" property="periodoFinal" format="MM"/>/<bean:write name="reserva" property="periodoFinal" format="yyyy"/></li>
+                        <li class="data_texto2" id="data_total"></li>
+                        <li class="data_texto3">
+                        <script language="javascript">
+                        <!--
+                        		calcularData( '<bean:write name="reserva" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="reserva" property="periodoFinal" format="dd/MM/yyyy"/>');
+                     	-->
+                     	</script>
+                     	</li>
                     </ul>
             </div>
     </div>
