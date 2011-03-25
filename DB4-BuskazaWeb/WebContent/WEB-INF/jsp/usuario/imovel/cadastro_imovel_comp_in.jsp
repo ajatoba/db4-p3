@@ -11,7 +11,8 @@
 <title>Buzkaza - Editar Imóvel</title>
 
 
-<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/cadastro.css"/>
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/busca.css"/>
 
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css" />
@@ -402,20 +403,40 @@ $('#sep_top_reserva').corner('rounded 7px');
 					  <tr>
 					    <td><table width="100%" border="0">
 					      <tr class="txt_caracteristicas">
-					        <td>Nome </td>
+					        <td> </td>
+					        <!--
 					        <td>Qtd</td>
 					        <td>Valor</td>
+					        --->
 					      </tr>
 					      <tr>
-					        <td>        
+					        <td>
+					        <!--         
 					            <html:select property="equipamentos">
 					                <html:options collection="equipamentos" property="codigo" labelProperty="nome"/>     
-					            </html:select>
+					            </html:select>-->
+					            
+					            <logic:iterate name="equipamentos" id="equipamento">
+							            <div id="sep_form_busca" class="txt_form">
+							            
+							            	<div class="equip_top1">									
+												    <html:multibox property="equipamentos" styleClass="MyriadProRegular"> 
+														<bean:write name="equipamento" property="codigo"/>  
+													</html:multibox>
+												</div>
+												<div class="equip_top2">
+													<bean:write name="equipamento" property="nome"/>
+												</div>
+							            </div>
+					            </logic:iterate>
+					            
 					        </td>
-					        <td><input type="text" name="qntEquipamento" id="qntEquipamento"  size="60" style="width:70px;"/></td>
-					        <td>
-					        	<div class="sepd"><input type="text" name="valorEquipamento" id="valorEquipamento" size="60" style="width:70px;" /></div>
-					          	<div class="sepd"><input type="submit" name="button4" id="button4" value="Enviar" /></div></td>
+					        <!-- 
+						        <td><input type="text" name="qntEquipamento" id="qntEquipamento"  size="60" style="width:70px;"/></td>
+						        <td>
+						        	<div class="sepd"><input type="text" name="valorEquipamento" id="valorEquipamento" size="60" style="width:70px;" /></div>
+						          	<div class="sepd"><input type="submit" name="button4" id="button4" value="Enviar" /></div></td>
+					        -->
 					      </tr>
 					    </table></td>
 					  </tr>
