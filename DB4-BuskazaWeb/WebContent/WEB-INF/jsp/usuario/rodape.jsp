@@ -86,6 +86,11 @@
 							/* escreve no ie no tamanho certo*/
 							navegador = navigator.userAgent;
 							
+							if(navegador.indexOf("Firefox") > 0)
+							{
+								document.write('<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FBuzkaza-em-casa-onde-estiver%2F170687929624966&amp;width=237&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=false&amp;height=263" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:237px; height:265px;" allowTransparency="true"></iframe>');
+								
+							}else							
 							if( navegador.indexOf("MSIE 8") > 0 ||
 								navegador.indexOf("MSIE 9") > 0 )
 							{
