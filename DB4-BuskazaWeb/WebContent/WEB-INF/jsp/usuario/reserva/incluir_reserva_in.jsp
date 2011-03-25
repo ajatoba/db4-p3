@@ -21,19 +21,19 @@
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/size_campos.css"/>
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/detalhe_imovel.css"/>
 
+<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/tabs.css" media="screen"/>
+
+
 <script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 <script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 <link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
 
 <script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
-
 <script type="text/javascript" src="/buzkaza/_js/tabs.js"></script>
 
-<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
-<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
 
-
-<link rel="stylesheet" type="text/css" href="/buzkaza/_css/tabs.css" media="screen"/>
 
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
 <script type="text/javascript" src="/buzkaza/_js/function.js"></script>
@@ -56,7 +56,7 @@ $(document).ready(function()
 <!--CADASTRO-->
 <div id="cont_reserva2">
 
-<!-- MENSAGEM DE ERRO -->
+	<!-- MENSAGEM DE ERRO -->
     <font color="red">  
 			<logic:messagesPresent property="erro">
 				<html:messages property="erro" id="erro">
@@ -88,22 +88,20 @@ $(document).ready(function()
 			<table width="100%" border="0" > 
 			  <tr valign="top">
 			    <td width="35%" valign="top">
-			    	<span class="tit_azul_detalhes">${reserva.imovel.bairro}, ${reserva.imovel.estado.codigo} </span><br />
-	    			<span class="txt_cinza_detalhes">${reserva.imovel.logradouro}<br />
-	    			id: ${reserva.imovel.codigo}</span>
+			    	<span class="tit_azul_detalhes">${reserva.imovel.bairro}, ${reserva.imovel.estado.codigo}</span><br />
+	    			<span class="txt_cinza_detalhes">${reserva.imovel.logradouro}<br />id: ${reserva.imovel.codigo}</span>
 			    </td>
 			    <td width="65%" valign="top">
 				    <span class="txt_cinza_detalhes">
-				      Distância do centro: ${reserva.imovel.distanciaCentro}<br />
-				      <a href='${reserva.imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
-				      <a href='${reserva.imovel.linkYouTube}' class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
-				      </span>			      
+				      	Distância do centro: ${reserva.imovel.distanciaCentro}<br />
+					    <a href='${reserva.imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
+					    <a href='${reserva.imovel.linkYouTube}' class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
+				   </span>			      
 			    </td>
 			  </tr>
 			</table>
 	</div>
 </div>
-
 <div id="sep_top_reserva"></div>
 
 <div class="meio_calculo_reserva">
@@ -172,6 +170,11 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
 
 <br /><br />
 
@@ -216,11 +219,9 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 
 </html:form>
 
-
 </div>
 
 </div>
-
 
 
 
