@@ -488,7 +488,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 						<td class="txt_caracteristicas"><div class="seps">Nome de quem fará o Check in</div></td>
 						<td class="txt_caracteristicas"><div class="sepd">Telefone</td>
 						<td class="txt_caracteristicas"><div class="sepd">&nbsp;</div>
-														<div class="sepd">Telefone Aleternativo</div></td>
+						<div class="sepd">Telefone Aleternativo</div></td>
 						<td class="txt_caracteristicas"><div class="sepd">Email</div></td>
 						<td class="txt_caracteristicas"><div class="sepd">Email Alternativo</div></td>
 					</tr>
@@ -501,8 +501,8 @@ $('#sep_top_reserva').corner('rounded 7px');
 							<div class="sepd"><html:text property="ddd2" maxlength="3" size="30" style="width:40px;"/></div>
 							<div class="sepd"><html:text property="telefone2" maxlength="8" size="100" style="width:110px;"/></div></td>
 							
-						<td><div class="sepd"><html:text property="email"  size="100" style="width:110px;"/></div></td>
-					    <td><div class="sepd"><html:text property="email2"  size="100" style="width:110px;"/></div></td>
+						<td><div class="sepd"><html:text property="email"  size="170" style="width:180px;"/></div></td>
+					    <td><div class="sepd"><html:text property="email2"  size="170" style="width:180px;"/></div></td>
 					</tr>					
 				</table>
 		</td>
@@ -512,7 +512,7 @@ $('#sep_top_reserva').corner('rounded 7px');
       		<td>Horário Check out</td>
 	</tr>			
 	<tr class="txt_caracteristicas">
-        <td class="txt_caracteristicas" colspan="2">
+        <td class="txt_caracteristicas">
         	<div class="sept">De</div>
         	<div class="sepd"><html:text property="checkInEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
           	<div class="sept"> :</div>
