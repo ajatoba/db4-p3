@@ -166,12 +166,36 @@ public class ImovelBean implements ImovelBeanLocal {
 			c.add(Restrictions.gt("status", -1));
 			
         c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
-        return c.list(); 
+        
+        
+        return c.list();
 	}
 	
 	
 	public Imovel getImovel(Integer codigoImovel){
-		return em.find(Imovel.class, codigoImovel);
+		Session session;  
+		if (em.getDelegate() instanceof EntityManagerImpl) {  
+		    EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
+		    session = entityManagerImpl.getSession();  
+		} else {  
+		    session = (Session) em.getDelegate();  
+		}
+		
+		Criteria c = session.createCriteria(Imovel.class); 
+		c.setCacheable(true);
+		c.setCacheMode(CacheMode.NORMAL);	
+		
+		Criteria joinFoto = c.createCriteria("fotos", JoinFragment.INNER_JOIN);
+		
+		c.add(Restrictions.eq("codigo",codigoImovel)); 
+		
+		c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
+		
+		List<Imovel> result = c.list();
+        
+        return result.get(0);
+        
+		
 	}
 	
 	public Integer alterarImovel(Imovel imovel){		
