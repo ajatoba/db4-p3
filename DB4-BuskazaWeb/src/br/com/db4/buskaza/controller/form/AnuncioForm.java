@@ -5,6 +5,7 @@ import org.apache.struts.action.ActionForm;
 import br.com.db4.buskaza.model.entity.Anuncio;
 import br.com.db4.buskaza.model.entity.Endereco;
 import br.com.db4.buskaza.model.entity.Estado;
+import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.TipoAnuncio;
 import br.com.db4.buskaza.model.entity.Usuario;
 
@@ -36,6 +37,15 @@ public class AnuncioForm extends ActionForm {
 	
 	private int tipoAnuncio;
 	
+	protected Integer[] tiposPagamento;
+	
+	public Integer[] getTiposPagamento() {
+		return tiposPagamento;
+	}
+
+	public void setTiposPagamento(Integer[] tiposPagamento) {
+		this.tiposPagamento = tiposPagamento;
+	}
 	
 	public Anuncio getAnuncioEntity() {
 		return anuncioEntity;
@@ -118,7 +128,9 @@ public class AnuncioForm extends ActionForm {
 
 	public AnuncioForm() {
 		anuncioEntity = new Anuncio();		
-		anuncioEntity.setTipoAnuncio(new TipoAnuncio());
+		anuncioEntity.setTipoAnuncio(new TipoAnuncio());				
+		anuncioEntity.setImovel(new Imovel());
+		
 	}
 
 

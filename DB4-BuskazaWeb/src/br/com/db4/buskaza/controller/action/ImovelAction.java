@@ -45,6 +45,7 @@ import br.com.db4.buskaza.model.idioma.ejb.IdiomaBeanLocal;
 import br.com.db4.buskaza.model.imovel.ejb.ImovelBeanLocal;
 import br.com.db4.buskaza.model.pais.ejb.PaisBeanLocal;
 import br.com.db4.buskaza.model.tipoImovel.ejb.TipoImovelBeanLocal;
+import br.com.db4.buskaza.model.tipoPagamento.ejb.TipoPagamentoBeanLocal;
 import br.com.db4.buskaza.model.util.ServiceLocator;
 
 public class ImovelAction extends DispatchAction {
@@ -190,6 +191,7 @@ public class ImovelAction extends DispatchAction {
 			PaisBeanLocal paisEjb = (PaisBeanLocal) ServiceLocator.getInstance().locateEJB(PaisBeanLocal.LOCAL);		
 			TipoImovelBeanLocal tipoImovelEjb = (TipoImovelBeanLocal) ServiceLocator.getInstance().locateEJB(TipoImovelBeanLocal.LOCAL);
 			IdiomaBeanLocal idiomaEjb = (IdiomaBeanLocal) ServiceLocator.getInstance().locateEJB(IdiomaBeanLocal.LOCAL);
+			TipoPagamentoBeanLocal tipoPagamentoEjb = (TipoPagamentoBeanLocal) ServiceLocator.getInstance().locateEJB(TipoPagamentoBeanLocal.LOCAL);
 			
 			
 			request.setAttribute("equipamentos", equipamentoEjb.listarEquipamentos());
@@ -197,6 +199,7 @@ public class ImovelAction extends DispatchAction {
 			request.setAttribute("paises", paisEjb.listarPaises());	
 			request.setAttribute("tiposImovel", tipoImovelEjb.listarTiposImovel());
 			request.setAttribute("idiomas", idiomaEjb.listarIdiomas());
+			request.setAttribute("tiposPagamento", tipoPagamentoEjb.listarTiposPagamento());
 		
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -41,6 +41,8 @@ public class ImovelForm extends ActionForm {
 	
 	protected Integer[] equipamentos;
 	
+	protected Integer[] tiposPagamento;
+	
 	protected Integer capacidade;
 	
 	private Integer quartos;
@@ -656,6 +658,15 @@ public class ImovelForm extends ActionForm {
 		this.ddd2 = ddd2;
 	}
 
+	public Integer[] getTiposPagamento() {
+		return tiposPagamento;
+	}
+
+	public void setTiposPagamento(Integer[] tiposPagamento) {
+		this.tiposPagamento = tiposPagamento;
+	}
+
+	
 	
 	
 }

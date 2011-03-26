@@ -28,11 +28,14 @@ import br.com.db4.buskaza.controller.util.CalendarioUtil;
 import br.com.db4.buskaza.controller.util.Constants;
 import br.com.db4.buskaza.model.anuncio.ejb.AnuncioBeanLocal;
 import br.com.db4.buskaza.model.entity.Anuncio;
+import br.com.db4.buskaza.model.entity.Equipamento;
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.Telefone;
 import br.com.db4.buskaza.model.entity.TipoAnuncio;
+import br.com.db4.buskaza.model.entity.TipoPagamento;
 import br.com.db4.buskaza.model.entity.Usuario;
 import br.com.db4.buskaza.model.imovel.ejb.ImovelBeanLocal;
+import br.com.db4.buskaza.model.tipoPagamento.ejb.TipoPagamentoBeanLocal;
 import br.com.db4.buskaza.model.tipoanuncio.ejb.TipoAnuncioBeanLocal;
 import br.com.db4.buskaza.model.usuario.ejb.UsuarioBeanLocal;
 import br.com.db4.buskaza.model.util.ServiceLocator;
@@ -116,6 +119,7 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 		Usuario usuario = (Usuario)request.getSession().getAttribute(Constants.USUARIO_SESSAO);
 				
 		try {
+			
 			AnuncioForm anuncioForm = (AnuncioForm) form;
 			
 			Anuncio anuncio = popularAnuncio(anuncioForm);	
@@ -132,11 +136,31 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 				usuario.setCodigoBanco(request.getParameter("codigoBanco"));
 				usuario.setNomeTitularConta(request.getParameter("nomeTitularConta"));
 				usuario.setCpfTitularConta(request.getParameter("cpfTitularConta"));
-				
+								
 				UsuarioBeanLocal usuarioEjb = (UsuarioBeanLocal) ServiceLocator.getInstance().locateEJB(UsuarioBeanLocal.LOCAL);
 				usuarioEjb.incluirUsuario(usuario);
 			}else{
+				
 				imovel.setPermiteOpcaoPagamento(true);
+				
+				Set<TipoPagamento> tiposPagamento = null;
+				TipoPagamento tipo = null;
+				
+				
+				String[] tiposPagamentoBoxes = request.getParameterValues("tiposPagamento");//anuncioForm.getTiposPagamento();
+				
+				if(tiposPagamentoBoxes != null && tiposPagamentoBoxes.length >0){
+					tiposPagamento = new HashSet<TipoPagamento>();
+					for (int x=0; x < tiposPagamentoBoxes.length; x++){
+						
+						tipo = new TipoPagamento();
+						tipo.setCodigo(Integer.parseInt(tiposPagamentoBoxes[x]));//(tiposPagamentoBoxes[0].intValue());
+												
+						tiposPagamento.add(tipo);
+					}			
+				}
+				
+				imovel.setTiposPagamento(tiposPagamento);
 				
 				imovelEjb.alterarImovel(imovel);
 				
@@ -196,6 +220,9 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 		TipoAnuncioBeanLocal tipoAnuncioEJB = (TipoAnuncioBeanLocal) ServiceLocator.getInstance().locateEJB(TipoAnuncioBeanLocal.LOCAL);
 		request.setAttribute("tiposAnuncio", tipoAnuncioEJB.listarTiposAnuncio());
 		
+		TipoPagamentoBeanLocal tipoPagamentoEjb = (TipoPagamentoBeanLocal) ServiceLocator.getInstance().locateEJB(TipoPagamentoBeanLocal.LOCAL);
+		request.setAttribute("tiposPagamento", tipoPagamentoEjb.listarTiposPagamento());
+
 		
 	}
 	
