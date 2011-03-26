@@ -89,6 +89,10 @@ public class Imovel implements Serializable{
 	@JoinTable(name ="tb_imovel_equipamento")    
 	private Set<Equipamento> equipamentos;
 	
+	@ManyToMany(fetch = FetchType.EAGER)	
+	@JoinTable(name ="tb_imovel_tipo_pagamento")    
+	private Set<TipoPagamento> tiposPagamento;
+	
 	private double energia;
 	
 	private double internet;
@@ -456,6 +460,14 @@ public class Imovel implements Serializable{
 
 	public void setEquipamentos(Set<Equipamento> equipamentos) {
 		this.equipamentos = equipamentos;
+	}
+	
+	public Set<TipoPagamento> getTiposPagamento() {
+		return tiposPagamento;
+	}
+
+	public void setTiposPagamento(Set<TipoPagamento> tiposPagamento) {
+		this.tiposPagamento = tiposPagamento;
 	}
 
 	public Usuario getUsuarioProprietario() {
