@@ -86,7 +86,7 @@
 				    <td><span class="nome_rua">${imovel.logradouro}</span></td>
 				  </tr>
 				  <tr>
-				    <td><span class="nome_rua">ID:${imovel.codigo}</span></td>
+				    <td><span class="nome_rua">ID:${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span></td>
 				  </tr>
 				</table>
 			</div>
@@ -181,11 +181,15 @@
 		  	//ALGORITMO DE CONSTRUÇÃO DO CALENDÁRIO - CUIDADO AO MEXER!!!
 		  	Map<String,Calendario> calendarioAnuncio = (Map) request.getAttribute("calendarioAnuncio");
 			
-		  	Iterator it = calendarioAnuncio.entrySet().iterator();  	
+		  	Iterator it = null;
+		  	if(calendarioAnuncio != null && calendarioAnuncio.size() > 0){
+		  		it = calendarioAnuncio.entrySet().iterator();
+		  	}
+		  	
 		  	boolean populado = false;
 		  	
 		  	int index = 0;
-		  	
+		  	if(it != null){
 		  	while (it.hasNext()) {
 		  		index = index+1;
 		  		Map.Entry mapa = (Map.Entry)it.next();
@@ -224,6 +228,7 @@
 		        
 		        if((index % 7) == 0) out.println("</tr>");		        
 		    }
+		  	}
 		  	//******************************************
 		  	%>
 		  	</table>
@@ -465,69 +470,41 @@
 		               <div id="aba1" class="aba">
 							<table width="100%" border="0">
 				                <tr>
-				                  <td><span class="txt_caracteristicas"> <html:radio property="permitirEntrada" value="true"/> Pagamento de sinal para confirmação de reserva, com saldo direto no check in.<br />
+				                  <td><span class="txt_caracteristicas"> <html:hidden property="permitirEntrada" value="true"/> Pagamento de sinal para confirmação de reserva, com saldo direto no check in.<br />
 				                    Sinal de 10% (Deduzida do total da estadia+taxas extras) + encargos do cartão ou boleto referente o sinal de 10%, retidos pelo Buzkaza como taxa de transação.</span></td>
 				                </tr>
 				                <tr>
 				                  <td><span class="txt_caracteristicas">Forma de Pagamento</span></td>
 				                </tr>
 				                <tr>
-				                <td><span class="txt_caracteristicas">
-					                    <input type="radio" name="radio" id="radio" value="radio" /> Dinheiro&nbsp;&nbsp;
-					                    <input type="radio" name="radio" id="radio" value="radio" /> Visa&nbsp;&nbsp;
-					                    <input type="radio" name="radio" id="radio" value="radio" /> Mastercard&nbsp;
-					                    <input type="radio" name="radio" id="radio" value="radio" /> Dinners&nbsp;&nbsp;
-					                    <input type="radio" name="radio" id="radio" value="radio" /> Bradesco&nbsp;&nbsp;
-					                    <input type="radio" name="radio" id="radio" value="radio" /> Itaú&nbsp;&nbsp;
-					                    <input type="radio" name="radio" id="radio" value="radio" /> Unibanco
-					                    <input type="radio" name="radio" id="radio" value="radio" /> Banco do Brasil </span>
-				                	</td>
-				                </tr>
-				                <tr>
 				                	<td><span class="txt_caracteristicas">
-					                    <input type="radio" name="radio" id="radio2" value="radio" /> Aura
-					                    <input type="radio" name="radio" id="radio3" value="radio" /> Hipercard
-					                    <input type="radio" name="radio" id="radio4" value="radio" /> Amex </span>
+				                		<logic:present name="tiposPagamento">
+				                		<logic:notEmpty name="tiposPagamento">	
+				                		<table>
+					                    
+					                    <logic:iterate name="tiposPagamento" id="tipoPagamento">
+							            	<tr>
+							            		<td>
+								            	 
+								            	 <input type="checkbox" name="tiposPagamento" value="<bean:write name="tipoPagamento" property="codigo"/>"><bean:write name="tipoPagamento" property="nome"/>
+								            	 
+								            	 
+												
+												</td>
+											</tr>										
+					            		</logic:iterate>
+					            		</table>
+					            		</logic:notEmpty>
+					            		</logic:present>
 				                	</td>
 				                </tr>
+				                
 				              </table>
 				              <br />
 		               
 		               </div>
 		               
-		               <div id="aba2" class="aba">
-					      	<table cellspacing="10" border="0">
-					      		<tr>
-						      		<td valign="top">		      			
-						      			
-						      			<table width="100%" border="0">
-						                <tr>
-						                  <td colspan="3"><html:radio property="permitirEntrada" value="false"/> <span class="txt_tit_box_facil_alugar2">Pagamento integral da estadia (só para proprietários Brasileiros).</span></td>
-						                </tr>
-						                <tr>
-						                  <td width="160"><span class="txt_caracteristicas">Titular</span></td>
-						                  <td width="234">&nbsp;</td>
-						                  <td width="342"><span class="txt_caracteristicas">CPF/CNPJ</span></td>
-						                </tr>
-						                <tr>
-						                  <td colspan="2"><span class="txt_caracteristicas"><input type="text" name="nomeTitularConta" value="${usuario.nomeTitularConta}" size="300" style="width:300px;" /></span></td>
-						                  <td><span class="txt_caracteristicas"><input type="text" name="cpfTitularConta" value="${usuario.cpfTitularConta}" size="150" style="width:150px;" /></span></td>
-						                </tr>
-						                <tr>
-						                  <td><span class="txt_caracteristicas">Número do Banco</span></td>
-						                  <td><span class="txt_caracteristicas">Agência</span></td>
-						                  <td><span class="txt_caracteristicas">Conta Corrente</span></td>
-						                </tr>
-						                <tr>
-						                  <td><span class="txt_caracteristicas"><input type="text" name="codigoBanco" value="${usuario.codigoBanco}" size="70" style="width:70px;"/></span></td>
-						                  <td><span class="txt_caracteristicas"><input type="text" name="agencia" value="${usuario.agencia}" size="70" style="width:70px;"/></td>
-						                  <td><span class="txt_caracteristicas"><input type="text" name="conta" value="${usuario.contaCorrente}" size="70" style="width:70px;"/></span></td>
-						                </tr>
-						              </table>
-						      		</td>
-					      		</tr>
-					      	</table>
-		      		</div>
+		               
         </div>
       	
       	

@@ -157,6 +157,7 @@
                     </td>
                   <td width="20%"  valign="top" class="txt_form">
                   Total por <bean:write name="qtdDias"/> dia(s): R$ <bean:write name="ims" property="value"/><br>
+                  Valor médio da diária: ${ims.value/qtdDias}<br>
 		        <a href="/DB4-BuskazaWeb/imovel.do?act=detalheImovel&ci=${ims.key.codigo}" class="link_ver_detalhe">[ Ver detalhes ]</a> 
 		        </td>
                 </tr>

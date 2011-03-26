@@ -97,10 +97,11 @@
 	
 	<div class="thumbs_fotos">
 		<logic:notEmpty name="imovel" property="fotos">
-  			<logic:iterate name="imovel" property="fotos" id="fotoImovel">
-  				<img src="/buzkaza/imagens_usuarios/<bean:write name="fotoImovel" property="caminhoThumbnail"/>" />  		
-  			</logic:iterate>
-  		</logic:notEmpty>
+						Fotos<br/>
+						<logic:iterate id="ft" name="imovel" property="fotos">							
+							<img src="/buzkaza/imagens_usuarios/<bean:write name="ft" property="caminhoThumbnail"/>"/>
+						</logic:iterate>												
+				</logic:notEmpty>
   	</div>
 	
 	<div class="chamada_planta">Planta</div>
@@ -121,14 +122,19 @@
     	<span class="tit_azul_detalhes"><bean:write name="imovel" property="bairro"/>, ${imovel.estado.codigo}</span><br />
     	<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/></span><br /><br />
     	 
-    	<span class="txt_azul_peq_detalhes">ID</span>&nbsp; : <bean:write name="imovel" property="codigo"/><br />
+    	<span class="txt_azul_peq_detalhes">ID</span>&nbsp; : <bean:write name="imovel" property="usuarioProprietario.codigo"/>-<bean:write name="imovel" property="codigo"/><br />
 		<span class="txt_azul_peq_detalhes">Distancia do Centro</span>&nbsp; : <bean:write name="imovel" property="distanciaCentro"/><br />
 		<span class="txt_azul_peq_detalhes">Tipo</span>&nbsp; : ${imovel.tipoImovel.nome}<br />
 		<span class="txt_azul_peq_detalhes">Quartos</span>&nbsp;: ${imovel.quartos}<br />
 		<span class="txt_azul_peq_detalhes">Metragem</span>&nbsp; : ${imovel.metragem}m<sup>2</sup><br />
 		<span class="txt_azul_peq_detalhes">Capacidade</span>&nbsp; : ${imovel.capacidade} pessoas<br />
 		<span class="txt_azul_peq_detalhes">Camas</span>&nbsp; : ${imovel.camas}<br />
-		<span class="txt_azul_peq_detalhes">Video</span>&nbsp;: <bean:write name="imovel" property="linkYouTube"/>
+		<span class="txt_azul_peq_detalhes">Video</span>&nbsp;: <bean:write name="imovel" property="linkYouTube"/><br />
+		<span class="txt_azul_peq_detalhes">Horário CheckIn Entrada:</span>&nbsp;: <bean:write name="imovel" property="checkInEntrada" format="HH:mm"/><br />		
+		<span class="txt_azul_peq_detalhes">Horário CheckIn Saída:</span>&nbsp;: <bean:write name="imovel" property="checkInSaida" format="HH:mm"/><br />
+		<span class="txt_azul_peq_detalhes">Horário CheckOut Entrada:</span>&nbsp;: <bean:write name="imovel" property="checkOutEntrada" format="HH:mm"/><br />
+		<span class="txt_azul_peq_detalhes">Horário CheckOut Saída:</span>&nbsp;: <bean:write name="imovel" property="checkOutSaida" format="HH:mm"/><br />
+		
 		</span>
 		
 	  	<logic:notEmpty name="imovel" property="equipamentos">
