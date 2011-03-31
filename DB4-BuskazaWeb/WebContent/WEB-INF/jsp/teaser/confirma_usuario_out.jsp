@@ -23,10 +23,18 @@
 			$('#form').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
 		});
 	</script>
-<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/_css/busca.css" rel="stylesheet" type="text/css" />	
 	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
+	
+	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+	
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
+	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+
+
 </head>
 
 <body>
