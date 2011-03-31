@@ -2,44 +2,62 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-<link href="/buzkaza/teaser/_css/estilo.css" rel="stylesheet" type="text/css" />
+<title>Buzkaza</title>
 
-<link href="/buzkaza/teaser/_css/fontes.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
-<script type="text/javascript" src="/buzkaza/teaser/requiered/jquery.js" ></script>
-	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
-	<script language="javascript">
-		$(function(){
-			$('#form').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
-		});
-	</script>
-<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/cadastro.css"/>
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/busca.css"/>	
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css"/>
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css"/>
+		
+<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>
+<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
+<script language="javascript">
+	$(function(){
+		$('#form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
+	});
+</script>
+	
+<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+	
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
+<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+
 </head>
 
 <body>
 
-<div id="cadastro">
-<div id="top_cad">
-<a href="index.html"><div id="link_back"></div></a>
-</div>
+
+<jsp:include page="../usuario/topo.jsp"/>
+
+
+<div id="cont_reserva">
+
+
 <div id="meio_cad">
 <!--FORM-->
 <div id="msg_finaliza_cadastro">
   <div class="ok"></div>
   <div class="msg_confirmado">
-  		<span class="MyriadPro24">Seus dados foram cadastrados com sucesso!
+  		<span class="MyriadPro18">Seus dados foram cadastrados com sucesso!
   		<br><br>
   		
   		Agora você precisa validar seu email.<br>
   		Enviamos um link de validação para o seu email cadastrado
   		</span>
+  		
+  		<br><br>
+  		<br><br>
   </div>
 
 </div>
 <!--FORM-->
 </div>
-<div id="bottom_cad"></div>
+
 </div>
+</div>
+
+
+<jsp:include page="../usuario/rodape.jsp"/>
 </body>
 </html>
