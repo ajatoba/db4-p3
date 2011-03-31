@@ -355,7 +355,7 @@
 	    
 		<table width="100%" border="0">	  
 		<tr>
-			<td><span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Tarifas</span></td>
+			<td><span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Cadastrar Datas/Tarifas</span></td>
 		</tr>	  
 		
       </table> 
