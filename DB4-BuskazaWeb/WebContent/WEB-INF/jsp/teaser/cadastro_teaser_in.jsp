@@ -8,26 +8,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza</title>
-
+	<!-- 
 	<link href="/buzkaza/teaser/_css/estilo.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/teaser/_css/fontes.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all" />
+ 	-->	
+	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/_css/busca.css" rel="stylesheet" type="text/css" />	
+	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
+	
+	
+	<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
 	
 	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>
-	
-	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js" ></script>
+	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 	
 	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_mascara.js" ></script>
 	<script type="text/javascript" src="/buzkaza/includes/scripts/jquery.maskedinput-1.2.2.min.js" ></script>
 	<script type="text/javascript" src="/buzkaza/includes/scripts/funcoes_js_validacoes.js" ></script>
 	
-	
+	<!-- 
 	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/script/thickbox.css" />
 	<link rel="stylesheet" type="text/css" href="/buzkaza/thickbox/_css/estilo_iframe.css" />
 	<script type="text/javascript" src="/buzkaza/thickbox/script/thickbox.js" ></script>
 	<script type="text/javascript" src="/buzkaza/thickbox/script/global.js" ></script>
 	
-	
+	-->
 	
 	<link href="/buzkaza/_css/jquery.alerts.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
@@ -99,16 +105,21 @@
 	</script>
 	
 	
-	<link href="/buzkaza/teaser/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+	
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
+	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+	
 </head>
 
 <body>
 
-<div id="cadastro">
-<div id="top_cad">
-<a href="http://www.buzkaza.com.br/teaser/"><div id="link_back"></div></a>
-</div>
-<div id="meio_cad">
+
+<jsp:include page="../usuario/topo.jsp"/>
+
+
+<div id="cont_reserva">
 
 <!-- MENSAGEM DE ERRO -->
     <font color="red">
@@ -159,7 +170,7 @@
     <!-- ****************** -->
 <!--FORM-->
 <div id="cont_cadastro">
-  <div id="indice_cadastro"></div>
+  
   <div id="formulario_cadastro">
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul">Informações do proprietário</span></span><br />
       <br />
@@ -409,7 +420,7 @@
       <div class="planos_adesao">
         <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr>
-            <td><div><html:checkbox title="Confirmação por email" property="usuarioEntity.recebeInfo" styleClass="MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px;"><span class="MyriadPro14">Desejo receber informações  deste site no meu email</span></div></td>
+            <td><div><html:checkbox title="Confirmação por email" property="usuarioEntity.recebeInfo" styleClass="MyriadProRegular"/></div><div style=" float:left; width:500px; margin-top:7px; margin-left:3px; font-family: 'MyriadPro', sans-serif; color:#666666; font-size:14px;"><span class="MyriadPro14">Desejo receber informações  deste site no meu email</span></div></td>
           </tr>
           <tr>
             <td><div><html:checkbox title="Termos e Condições" property="usuarioEntity.leuCondicoes" styleClass="number,MyriadProRegular"/></div>
@@ -425,14 +436,14 @@
         <div class="btn"><a href="#" border="0"><img src="/buzkaza/teaser/_img/btn_cadastrar_user.jpg.jpg" id="cadastrar_user" width="211" height="30" border="0"/></a></div>
       </div>
     </html:form>
-    
-    <p>&nbsp; </p>
-    <p>&nbsp;</p>
   </div>
 </div>
 <!--FORM-->
 </div>
-<div id="bottom_cad"></div>
 </div>
+<!--FIM BUSCA-->
+</div></div>
+
+<jsp:include page="../usuario/rodape.jsp"/>
 </body>
 </html>
