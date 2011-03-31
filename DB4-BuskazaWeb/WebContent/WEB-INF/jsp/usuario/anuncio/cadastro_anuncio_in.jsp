@@ -282,60 +282,63 @@
 <div class="right_formulario_">
 
 
-<table border="0" cellspacing="1" cellpadding="0" width="545">
-  <tr class="tabela_preco">
-    <td class="preco_data">De</td>
-    <td class="preco_data">Até</td>
-    <td class="preco_valor">Diária</td>
-    <td class="preco_valor">Semana</td>
-    <td class="preco_valor">Quizenal</td>
-    <td class="preco_valor">Mensal</td>
-    <td class="preco_valor_pacote">Pacote Fechado</td>
-    <td class="preco_valor_nada">&nbsp;</td> 
-  </tr>
+<div class="box_precos">
 
-   <logic:notEmpty name="imovel" property="anuncios">
-   
-   	<logic:iterate id="an" name="imovel" property="anuncios">
-   	<tr>
-	    <td colspan="7" class="tabela_preco_data_info">
-	  		<!-- SETANDO A COR -->
-	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="0"><font color="WHITE"></logic:equal>
-	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="1"><font color="#2980C5"></logic:equal>			  		
-	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="2"><font color="#FF6D00"></logic:equal>
-	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="3"><font color="#8DBF22"></logic:equal>
-	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="4"><font color="#FFC600"></logic:equal>
-	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="5"><font color="#D300FF"></logic:equal>
-	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="6"><font color="#00D8FF"></logic:equal>
-
-	    			<div class="preco_data2"><bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/></div>
-	                <div class="preco_data2"><bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/></div>
-	                <div class="preco_valor2"><bean:write name="an" property="tarifaDiaria"/></div>
-	                <div class="preco_valor3"><bean:write name="an" property="tarifaSemanal"/></div>
-	                <div class="preco_valor3"><bean:write name="an" property="tarifaQuinzenal"/></div>
-	                <div class="preco_valor3"><bean:write name="an" property="tarifaMensal"/></div>
-	                <div class="preco_valor_pacote2"><bean:write name="an" property="tarifaPacoteFechado"/></div>	    
-
-	  		</font>	  		
-	  	</td>
-	  	<td width="22" align="right">
-	  			<html:form method="post" action="/usuario/anuncio?act=excluirAnuncio">
-	  			<input type="hidden" name="idAnuncio" value="${an.codigo}"/>
-	  			<input type="hidden" name="ci" value="${imovel.codigo}"/>
-	  	
-			  	<input type="image" src="/buzkaza/_img/botao_excluir_disp.jpg" width="15" height="24" />
-			  	</html:form>
-	  	</td>
-	  	    
+	<table border="0" cellspacing="1" cellpadding="0" width="545">
+	  <tr class="tabela_preco">
+	    <td class="preco_data">De</td>
+	    <td class="preco_data">Até</td>
+	    <td class="preco_valor">Diária</td>
+	    <td class="preco_valor">Semana</td>
+	    <td class="preco_valor">Quizenal</td>
+	    <td class="preco_valor">Mensal</td>
+	    <td class="preco_valor_pacote">Pacote Fechado</td>
+	    <td class="preco_valor_nada">&nbsp;</td> 
 	  </tr>
-  	</logic:iterate>
-   </table>
-   </logic:notEmpty>
-   <logic:empty name="imovel" property="anuncios">
-   	Ainda não há disponibilidade cadastrada para esse imóvel
-   </logic:empty>
-
-</table>
+	
+	   <logic:notEmpty name="imovel" property="anuncios">
+	   
+	   	<logic:iterate id="an" name="imovel" property="anuncios">
+	   	<tr>
+		    <td colspan="7" class="tabela_preco_data_info">
+		  		<!-- SETANDO A COR -->
+		  		<logic:equal name="an" property="tipoAnuncio.codigo" value="0"><font color="WHITE"></logic:equal>
+		  		<logic:equal name="an" property="tipoAnuncio.codigo" value="1"><font color="#2980C5"></logic:equal>			  		
+		  		<logic:equal name="an" property="tipoAnuncio.codigo" value="2"><font color="#FF6D00"></logic:equal>
+		  		<logic:equal name="an" property="tipoAnuncio.codigo" value="3"><font color="#8DBF22"></logic:equal>
+		  		<logic:equal name="an" property="tipoAnuncio.codigo" value="4"><font color="#FFC600"></logic:equal>
+		  		<logic:equal name="an" property="tipoAnuncio.codigo" value="5"><font color="#D300FF"></logic:equal>
+		  		<logic:equal name="an" property="tipoAnuncio.codigo" value="6"><font color="#00D8FF"></logic:equal>
+	
+		    			<div class="preco_data2"><bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/></div>
+		                <div class="preco_data2"><bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/></div>
+		                <div class="preco_valor2"><bean:write name="an" property="tarifaDiaria"/></div>
+		                <div class="preco_valor3"><bean:write name="an" property="tarifaSemanal"/></div>
+		                <div class="preco_valor3"><bean:write name="an" property="tarifaQuinzenal"/></div>
+		                <div class="preco_valor3"><bean:write name="an" property="tarifaMensal"/></div>
+		                <div class="preco_valor_pacote2"><bean:write name="an" property="tarifaPacoteFechado"/></div>	    
+	
+		  		</font>	  		
+		  	</td>
+		  	<td width="22" align="right">
+		  			<html:form method="post" action="/usuario/anuncio?act=excluirAnuncio">
+		  			<input type="hidden" name="idAnuncio" value="${an.codigo}"/>
+		  			<input type="hidden" name="ci" value="${imovel.codigo}"/>
+		  	
+				  	<input type="image" src="/buzkaza/_img/botao_excluir_disp.jpg" width="15" height="24" />
+				  	</html:form>
+		  	</td>
+		  	    
+		  </tr>
+	  	</logic:iterate>
+	   </table>
+	   </logic:notEmpty>
+	   <logic:empty name="imovel" property="anuncios">
+	   	Ainda não há disponibilidade cadastrada para esse imóvel
+	   </logic:empty>
+	
+	</table>
+</div>
 
        </div>
 </div>
@@ -533,7 +536,7 @@
 
 	<span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Opções de pagamento</span>
   	
-							<table width="100%" border="0">
+							<table border="0" class="box_opcao_pag_info">
 				                <tr>
 				                  <td><span class="txt_caracteristicas"> <html:hidden property="permitirEntrada" value="true"/> Pagamento de sinal para confirmação de reserva, com saldo direto no check in.<br />
 				                    Sinal de 10% (Deduzida do total da estadia+taxas extras) + encargos do cartão ou boleto referente o sinal de 10%, retidos pelo Buzkaza como taxa de transação.</span></td>
