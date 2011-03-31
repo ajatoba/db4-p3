@@ -226,7 +226,7 @@
 		        }
 		        //**********************
 		        
-		        out.println("<td bgcolor='"+ color +"' class='txt_caracteristicas'>"+ mapa.getKey() +"</td>");
+		        out.println("<td bgcolor='"+ color +"' class='td_caracteristicas'>"+ mapa.getKey() +"</td>");
 		        
 		        if((index % 7) == 0) out.println("</tr>");		        
 		    }
@@ -337,12 +337,13 @@
 
 </table>
 
+       </div>
+</div>
 
 
 
 
-
-
+<div id="formulario_edicao">
 
     	<html:form method="post" action="/usuario/anuncio?act=incluirAnuncio">
     	<input type="hidden" name="ci" value="${imovel.codigo}">
@@ -519,17 +520,16 @@
 	     </tr>
        </table>
         
+ </div>       
         
-        
-       </div>
-</div>
+
        
       	
 
 
 <div id="formulario_edicao">
 
-	<span class="txt_caracteristicas"><img src="_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Opções</span>
+	<span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Opções</span>
   	
 							<table width="100%" border="0">
 				                <tr>
