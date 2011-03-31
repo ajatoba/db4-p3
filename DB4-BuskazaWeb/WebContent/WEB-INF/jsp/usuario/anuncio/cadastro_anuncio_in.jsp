@@ -354,18 +354,35 @@
 		<tr>
 			<td><span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Tarifas</span></td>
 		</tr>	  
-		<tr>  	
-			<td valign="top" class="txt_caracteristicas">
-				<label for="select">Status</label>
-				<html:select property="tipoAnuncio" styleId="tipoAnuncio">
-				<html:options collection="tiposAnuncio" property="codigo" labelProperty="nome"/>
-				</html:select>
-			</td>
-		</tr>
-        <tr>
-        	<td>	
 		
-				<table width="100%" border="0">
+      </table> 
+
+
+
+      	<table border="0">
+	     <tr>
+	       <td class="txt_caracteristicas">Diária</td>
+	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Semanal</div></td>
+	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Mensal</div></td>
+	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Quinzenal</div></td>
+	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Pacote</div></td>
+	     </tr>
+	     <tr>
+	       <td class="txt_caracteristicas"><html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" styleId="tarifaDiaria" maxlength="10" size="70"/></td>
+	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" styleId="tarifaSemanal" maxlength="10" size="70"/></div></td>
+	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaMensal" styleClass="number,MyriadProRegular" styleId="tarifaMensal" maxlength="10" size="70"/></div></td>
+	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="70"/></div></td>
+	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70"/></div></td>
+	       <td class="txt_caracteristicas">
+	       		<div class="sepd"><html:select property="tipoAnuncio" styleId="tipoAnuncio">
+					<html:options collection="tiposAnuncio" property="codigo" labelProperty="nome"/>
+				</html:select></div></td>
+	     </tr>
+       </table>
+       
+       
+       
+       <table width="100%" border="0">
                   <tr>
                     <td width="50%" class="txt_caracteristicas">De</td>
                     <td width="30%" class="txt_caracteristicas">Até</td>
@@ -499,28 +516,11 @@
                       </span></td>
                   </tr>
                 </table>
-        </td>
-      </tr>
-      </table> 
-
-
-
-      	<table width="100%" border="0">
-	     <tr>
-	       <td class="txt_caracteristicas">Tarifa Diária</td>
-	       <td class="txt_caracteristicas">Tarifa Semanal</td>
-	       <td class="txt_caracteristicas">Tarifa Mensal</td>
-	       <td class="txt_caracteristicas">Tarifa Quinzenal</td>
-	       <td class="txt_caracteristicas">Pacote Fechado</td>
-	     </tr>
-	     <tr>
-	       <td class="txt_caracteristicas"><html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" styleId="tarifaDiaria" maxlength="10" size="70"/></td>
-	       <td class="txt_caracteristicas"><html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" styleId="tarifaSemanal" maxlength="10" size="70"/></td>
-	       <td class="txt_caracteristicas"><html:text property="tarifaMensal" styleClass="number,MyriadProRegular" styleId="tarifaMensal" maxlength="10" size="70"/></td>
-	       <td class="txt_caracteristicas"><html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="70"/></td>
-	       <td class="txt_caracteristicas"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70"/></td>
-	     </tr>
-       </table>
+       
+       
+       
+       
+       
         
  </div>       
         
@@ -531,7 +531,7 @@
 
 <div id="formulario_edicao2">
 
-	<span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Opções</span>
+	<span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Opções de pagamento</span>
   	
 							<table width="100%" border="0">
 				                <tr>
