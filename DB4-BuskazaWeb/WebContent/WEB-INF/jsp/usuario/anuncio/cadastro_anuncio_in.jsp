@@ -385,49 +385,49 @@
        
        
        
-       <table width="100%" border="0">
+       <table  border="0">
                   <tr>
-                    <td width="50%" class="txt_caracteristicas">De</td>
-                    <td width="30%" class="txt_caracteristicas">Até</td>
-                    <td width="26%">&nbsp;</td>
+                    <td class="txt_caracteristicas">De</td>
+                    <td class="txt_caracteristicas">Até</td>
+                    <td>&nbsp;</td>
                   </tr>
                   <tr>
-                    <td width="50%"><span class="txt_caracteristicas">                        
-
-						<html:select property="diaDataInicial" title="dia" styleId="diaDataInicial" styleClass="MyriadProRegular,string">
-							<html:option value="01">01</html:option>
-				            <html:option value="02">02</html:option>
-				            <html:option value="03">03</html:option>
-				            <html:option value="04">04</html:option>
-				            <html:option value="05">05</html:option>
-				            <html:option value="06">06</html:option>
-				            <html:option value="07">07</html:option>
-				            <html:option value="08">08</html:option>
-				            <html:option value="09">09</html:option>                            
-				            <html:option value="10">10</html:option>
-				            <html:option value="11">11</html:option>
-				            <html:option value="12">12</html:option>
-				            <html:option value="13">13</html:option>
-							<html:option value="14">14</html:option>
-				            <html:option value="15">15</html:option>
-				            <html:option value="16">16</html:option>
-				            <html:option value="17">17</html:option>
-				            <html:option value="18">18</html:option>
-				            <html:option value="19">19</html:option>                            
-				            <html:option value="20">20</html:option>
-				            <html:option value="21">21</html:option>
-				            <html:option value="22">22</html:option>
-				            <html:option value="23">23</html:option>
-				            <html:option value="24">24</html:option>
-				            <html:option value="25">25</html:option>
-				            <html:option value="26">26</html:option>
-				            <html:option value="27">27</html:option>
-				            <html:option value="28">28</html:option>
-				            <html:option value="29">29</html:option>                            
-				            <html:option value="30">30</html:option>
-				            <html:option value="31">31</html:option>                            
-						</html:select>
-						
+                    <td><span class="txt_caracteristicas">                        
+						<div>
+							<html:select property="diaDataInicial" title="dia" styleId="diaDataInicial" styleClass="MyriadProRegular,string">
+								<html:option value="01">01</html:option>
+					            <html:option value="02">02</html:option>
+					            <html:option value="03">03</html:option>
+					            <html:option value="04">04</html:option>
+					            <html:option value="05">05</html:option>
+					            <html:option value="06">06</html:option>
+					            <html:option value="07">07</html:option>
+					            <html:option value="08">08</html:option>
+					            <html:option value="09">09</html:option>                            
+					            <html:option value="10">10</html:option>
+					            <html:option value="11">11</html:option>
+					            <html:option value="12">12</html:option>
+					            <html:option value="13">13</html:option>
+								<html:option value="14">14</html:option>
+					            <html:option value="15">15</html:option>
+					            <html:option value="16">16</html:option>
+					            <html:option value="17">17</html:option>
+					            <html:option value="18">18</html:option>
+					            <html:option value="19">19</html:option>                            
+					            <html:option value="20">20</html:option>
+					            <html:option value="21">21</html:option>
+					            <html:option value="22">22</html:option>
+					            <html:option value="23">23</html:option>
+					            <html:option value="24">24</html:option>
+					            <html:option value="25">25</html:option>
+					            <html:option value="26">26</html:option>
+					            <html:option value="27">27</html:option>
+					            <html:option value="28">28</html:option>
+					            <html:option value="29">29</html:option>                            
+					            <html:option value="30">30</html:option>
+					            <html:option value="31">31</html:option>                            
+							</html:select>
+						</div>
 						<div class="sepd">
 					        <html:select property="mesDataInicial" title="mesDataInicial" styleId="mesDataInicial" styleClass="MyriadProRegular,string">                        
 					            <html:option value="1">Janeiro</html:option>
@@ -455,8 +455,8 @@
 				        </div>
 				        
                         </span></td>
-                    <td colspan="2"><span class="txt_caracteristicas">
-                      
+                    <td><span class="txt_caracteristicas">
+                      <div>
 						<html:select property="diaDataFinal" title="dia" styleId="diaDataFinal" styleClass="MyriadProRegular,string">                        
 							<html:option value="01">01</html:option>
 				            <html:option value="02">02</html:option>
@@ -490,7 +490,7 @@
 				            <html:option value="30">30</html:option>
 				            <html:option value="31">31</html:option>                            
 						</html:select>
-						
+						</div>
 						<div class="sepd">						
 					        <html:select property="mesDataFinal" title="mesDataInicial" styleId="mesDataFinal" styleClass="MyriadProRegular,string">                        
 					            <html:option value="1">Janeiro</html:option>
@@ -517,6 +517,8 @@
 					        </html:select>
 						</div>
                       </span></td>
+                      <td><input type="submit" name="gravar" id="button5" value="Gravar" /></td>
+                      
                   </tr>
                 </table>
        
@@ -563,9 +565,6 @@
 				                </tr>				                
 				              </table>
       	<br /><br />
-      	
-      	<input type="submit" name="gravar" id="button5" value="Gravar" />
-      	
 	    
 </div>	    
 </html:form>	    
