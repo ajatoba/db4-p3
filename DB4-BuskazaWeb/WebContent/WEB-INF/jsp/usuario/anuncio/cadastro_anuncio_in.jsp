@@ -388,7 +388,7 @@
        <table  border="0">
                   <tr>
                     <td class="txt_caracteristicas">De</td>
-                    <td class="txt_caracteristicas">Até</td>
+                    <td class="txt_caracteristicas"><div style="float:left; margin-left:25px;">Até</div></td>
                     <td>&nbsp;</td>
                   </tr>
                   <tr>
@@ -517,7 +517,7 @@
 					        </html:select>
 						</div>
                       </span></td>
-                      <td><input type="submit" name="gravar" id="button5" value="Gravar" /></td>
+                      <td><div class="sepd"><input type="submit" name="gravar" id="button5" value="Gravar" /></div></td>
                       
                   </tr>
                 </table>
