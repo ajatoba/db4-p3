@@ -323,7 +323,7 @@
 	  			<input type="hidden" name="idAnuncio" value="${an.codigo}"/>
 	  			<input type="hidden" name="ci" value="${imovel.codigo}"/>
 	  	
-			  	<input type="image" src="/buzkaza_img/botao_excluir_disp.jpg" width="15" height="24" />
+			  	<input type="image" src="/buzkaza/_img/botao_excluir_disp.jpg" width="15" height="24" />
 			  	</html:form>
 	  	</td>
 	  	    
@@ -339,41 +339,6 @@
 
 
 
-
-
-<table border="0" cellspacing="1" cellpadding="0" width="525">
-  <tr class="tabela_preco">
-    <td class="preco_data">De</td>
-    <td class="preco_data">Até</td>
-    <td class="preco_valor">Diária</td>
-    <td class="preco_valor">Semana</td>
-    <td class="preco_valor">Quizenal</td>
-    <td class="preco_valor">Mensal</td>
-    <td class="preco_valor_pacote">Pacote Fechado</td>
-  </tr>  
-  <tr>
-    <td colspan="7" class="tabela_preco_data_info">    
-    			<div class="preco_data2">11</div>
-                <div class="preco_data2">11</div>
-                <div class="preco_valor2">11</div>
-                <div class="preco_valor3">11</div>
-                <div class="preco_valor3">11</div>
-                <div class="preco_valor3">11</div>
-                <div class="preco_valor_pacote2">11</div>
-    </td>    
-  </tr>
-  <tr>
-    <td colspan="7" class="tabela_preco_data_info">    
-    			<div class="preco_data2">11</div>
-                <div class="preco_data2">11</div>
-                <div class="preco_valor2">11</div>
-                <div class="preco_valor3">11</div>
-                <div class="preco_valor3">11</div>
-                <div class="preco_valor3">11</div>
-                <div class="preco_valor_pacote2">11</div>
-    </td>    
-  </tr>
-</table>
 
 
 
@@ -560,17 +525,12 @@
 </div>
        
       	
-      	<div class="linha_cinza"></div>
-  		<div class="opcoes_pg">      	
-		      	<div id="tabs">                
-		            <div id="container_abas">
-		               <ul id="nav">	
-		                   <li id="aba_1"><a href="#quemsomos" class="corrente" onclick="trocaImagem('opcao_01')"><img src="/buzkaza/_img/opcao_01_azul.jpg" id="opcao_01"width="157" height="49" alt="" border="0"/></a></li>  
-		                   <li><a href="#formacao" onclick="trocaImagem('opcao_02')"><img src="/buzkaza/_img/opcao_02.jpg" id="opcao_02"width="157" height="49" alt="" border="0"/></a></li> 
-		                                           
-		               </ul>
-		               
-		               <div id="aba1" class="aba">
+
+
+<div id="formulario_edicao">
+
+	<span class="txt_caracteristicas"><img src="_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Opções</span>
+  	
 							<table width="100%" border="0">
 				                <tr>
 				                  <td><span class="txt_caracteristicas"> <html:hidden property="permitirEntrada" value="true"/> Pagamento de sinal para confirmação de reserva, com saldo direto no check in.<br />
@@ -603,12 +563,10 @@
 				                </tr>
 				                
 				              </table>
-				              <br />
-		               
-		               </div>
+				     
 		               
 		               
-        </div>
+        
       	
       	
       	<br /><br />
@@ -616,8 +574,7 @@
       	<input type="submit" name="gravar" id="button5" value="Gravar" />
       	
 	    </html:form>
-	    
-	    <br /><br />	    
+</div>	    
 	    
 
 
