@@ -118,7 +118,7 @@
 	<div class="left_formulario_">
 			<table width="100%" border="0">
               <tr>
-                <td colspan="3"><span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Disponibilidades</span></td>
+                <td colspan="3"><span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Datas e Tarifas cadastradas</span></td>
               </tr>
               <tr>
                 <td colspan="3">
@@ -126,10 +126,10 @@
                 	<html:form method="post" styleId="anuncioForm" action="/usuario/anuncio?act=formCadastroAnuncio">
 				  	<input type="hidden" name="ci" value="${imovel.codigo}">
 				  	
-	                	<table border="0" cellspacing="3">
+	                	<table border="0" cellspacing="0" cellpadding="0">
 			              <tr>
 			                <td>
-		                		<select name="mes">
+		                		<select name="mes" style="width:130px">
 		                		    <option value="01" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("01")) out.println("selected");%>>Janeiro</option>
 							        <option value="02" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("02")) out.println("selected");%>>Fevereiro</option>
 							        <option value="03" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("03")) out.println("selected");%>>Março</option>
@@ -144,6 +144,7 @@
 							        <option value="12" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("12")) out.println("selected");%>>Dezembro</option>                  
 								</select> 
 			                </td>
+			                <td width="10">&nbsp;</td>
 			                <td>
 		                		<select name="ano">
 		                			<%if(request.getParameter("ano")!= null) {
@@ -157,7 +158,8 @@
 							        <option value="2015">2015</option>
 								</select>			                
 			                </td>
-			                <td>	<input type="submit" value="Trocar Período"> </td>
+			                <td width="10">&nbsp;</td>
+			                <td><input type="submit" value="Trocar Período"></td>
 			                </tr>
 			            </table>
 				  	
@@ -167,15 +169,15 @@
 			</table>
   	
 
-			<table border="0" cellspacing="3">
-		  	<tr>
-		  		<td width='10%' class='txt_caracteristicas'>Dom</td>
-		  		<td width='10%' class='txt_caracteristicas'>Seg</td>
-		  		<td width='10%' class='txt_caracteristicas'>Ter</td>
-		  		<td width='10%' class='txt_caracteristicas'>Qua</td>
-		  		<td width='10%' class='txt_caracteristicas'>Qui</td>
-		  		<td width='10%' class='txt_caracteristicas'>Sex</td>
-		  		<td width='10%' class='txt_caracteristicas'>Sab</td>
+			<table width="342" border="0" cellspacing="1">
+		  	<tr class="tabela_caracteristicas">
+		  		<td width='10%'>Dom</td>
+		  		<td width='10%'>Seg</td>
+		  		<td width='10%'>Ter</td>
+		  		<td width='10%'>Qua</td>
+		  		<td width='10%'>Qui</td>
+		  		<td width='10%'>Sex</td>
+		  		<td width='10%'>Sáb</td>
 		  	</tr>		  		
 		  	<%
 		  	//ALGORITMO DE CONSTRUÇÃO DO CALENDÁRIO - CUIDADO AO MEXER!!!
@@ -198,7 +200,7 @@
 		        if(!populado){
 			        for(int x=0; x<anuncio.getDiaSemana();x++){
 			        	index = index+1;
-			        	out.println("<td>&nbsp;</td>");
+			        	out.println("<td bgcolor='#d8d8d8'>&nbsp;</td>");
 			        	populado = true;
 			        }
 		        }
@@ -207,7 +209,7 @@
 		        String color = "";
 		        
 		        switch (anuncio.getTipoAnuncio()) {
-		        case 0: color="white";
+		        case 0: color="#d8d8d8";
 		        	break;
 		        case 1: color="#2980C5";
 		        	break;
@@ -232,8 +234,150 @@
 		  	//******************************************
 		  	%>
 		  	</table>
+		  	
+		  	
+		  	            
+		<table width="100%" border="0" cellspacing="0" class="box_legenda_info">
+		 <tr>
+		   <td class="txt_legenda" height="25" valign="top">Legenda:</td>
+		 </tr>
+		 <tr>
+		   <td>
+		            <!-- LEGENDA -->
+		                <table width="100%" border="0" cellspacing="1" cellpadding="0">
+		                <tr>
+		                  <td width="5%"><div class="box_legenda_cor cor_reservado"></div></td>
+		                  <td width="28%" class="txt_legenda">Reservado</td>
+		                  <td width="5%"><div class="box_legenda_cor cor_baixa_temporada"></div></td>
+		                  <td width="29%" class="txt_legenda">Baixa Temporada</td>
+		                  <td width="5%"><div class="box_legenda_cor cor_data_especial"></div></td>
+		                  <td width="28%" class="txt_legenda">Data Especial</td>
+		                </tr>
+		                <tr>
+		                  <td><div class="box_legenda_cor cor_bloqueado"></div></td>
+		                  <td class="txt_legenda">Bloqueado</td>
+		                  <td><div class="box_legenda_cor cor_media_temporada"></div></td>
+		                  <td class="txt_legenda">Média Temporada</td>
+		                  <td>&nbsp;</td>
+		                  <td>&nbsp;</td>
+		                </tr>
+		                <tr>
+		                  <td><div class="box_legenda_cor cor_pacote_fechado"></div></td>
+		                  <td class="txt_legenda">Pacote Fechado</td>
+		                  <td><div class="box_legenda_cor cor_alta_temporada"></div></td>
+		                  <td class="txt_legenda">Alta Temporada</td>
+		                  <td>&nbsp;</td>
+		                  <td>&nbsp;</td>
+		                </tr>
+		                </table>
+		            <!-- ******* -->
+		    </td>
+		 </tr>
+		</table>        
+		  	
+		  	
+		  	
+		  	
 </div>
 <div class="right_formulario_">
+
+
+<table border="0" cellspacing="1" cellpadding="0" width="545">
+  <tr class="tabela_preco">
+    <td class="preco_data">De</td>
+    <td class="preco_data">Até</td>
+    <td class="preco_valor">Diária</td>
+    <td class="preco_valor">Semana</td>
+    <td class="preco_valor">Quizenal</td>
+    <td class="preco_valor">Mensal</td>
+    <td class="preco_valor_pacote">Pacote Fechado</td>
+    <td class="preco_valor_nada">&nbsp;</td> 
+  </tr>
+
+   <logic:notEmpty name="imovel" property="anuncios">
+   
+   	<logic:iterate id="an" name="imovel" property="anuncios">
+   	<tr>
+	    <td colspan="7" class="tabela_preco_data_info">
+	  		<!-- SETANDO A COR -->
+	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="0"><font color="WHITE"></logic:equal>
+	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="1"><font color="#2980C5"></logic:equal>			  		
+	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="2"><font color="#FF6D00"></logic:equal>
+	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="3"><font color="#8DBF22"></logic:equal>
+	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="4"><font color="#FFC600"></logic:equal>
+	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="5"><font color="#D300FF"></logic:equal>
+	  		<logic:equal name="an" property="tipoAnuncio.codigo" value="6"><font color="#00D8FF"></logic:equal>
+
+	    			<div class="preco_data2"><bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/></div>
+	                <div class="preco_data2"><bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/></div>
+	                <div class="preco_valor2"><bean:write name="an" property="tarifaDiaria"/></div>
+	                <div class="preco_valor3"><bean:write name="an" property="tarifaSemanal"/></div>
+	                <div class="preco_valor3"><bean:write name="an" property="tarifaQuinzenal"/></div>
+	                <div class="preco_valor3"><bean:write name="an" property="tarifaMensal"/></div>
+	                <div class="preco_valor_pacote2"><bean:write name="an" property="tarifaPacoteFechado"/></div>	    
+
+	  		</font>	  		
+	  	</td>
+	  	<td width="22" align="right">
+	  			<html:form method="post" action="/usuario/anuncio?act=excluirAnuncio">
+	  			<input type="hidden" name="idAnuncio" value="${an.codigo}"/>
+	  			<input type="hidden" name="ci" value="${imovel.codigo}"/>
+	  	
+			  	<input type="image" src="/buzkaza_img/botao_excluir_disp.jpg" width="15" height="24" />
+			  	</html:form>
+	  	</td>
+	  	    
+	  </tr>
+  	</logic:iterate>
+   </table>
+   </logic:notEmpty>
+   <logic:empty name="imovel" property="anuncios">
+   	Ainda não há disponibilidade cadastrada para esse imóvel
+   </logic:empty>
+
+</table>
+
+
+
+
+
+<table border="0" cellspacing="1" cellpadding="0" width="525">
+  <tr class="tabela_preco">
+    <td class="preco_data">De</td>
+    <td class="preco_data">Até</td>
+    <td class="preco_valor">Diária</td>
+    <td class="preco_valor">Semana</td>
+    <td class="preco_valor">Quizenal</td>
+    <td class="preco_valor">Mensal</td>
+    <td class="preco_valor_pacote">Pacote Fechado</td>
+  </tr>  
+  <tr>
+    <td colspan="7" class="tabela_preco_data_info">    
+    			<div class="preco_data2">11</div>
+                <div class="preco_data2">11</div>
+                <div class="preco_valor2">11</div>
+                <div class="preco_valor3">11</div>
+                <div class="preco_valor3">11</div>
+                <div class="preco_valor3">11</div>
+                <div class="preco_valor_pacote2">11</div>
+    </td>    
+  </tr>
+  <tr>
+    <td colspan="7" class="tabela_preco_data_info">    
+    			<div class="preco_data2">11</div>
+                <div class="preco_data2">11</div>
+                <div class="preco_valor2">11</div>
+                <div class="preco_valor3">11</div>
+                <div class="preco_valor3">11</div>
+                <div class="preco_valor3">11</div>
+                <div class="preco_valor_pacote2">11</div>
+    </td>    
+  </tr>
+</table>
+
+
+
+
 
     	<html:form method="post" action="/usuario/anuncio?act=incluirAnuncio">
     	<input type="hidden" name="ci" value="${imovel.codigo}">
@@ -410,49 +554,8 @@
 	     </tr>
        </table>
         
-      	
-      	<table width="100%" border="0">
-         <tr>
-           <td class="tit_box_facil_alugar">Legenda</td>
-         </tr>
-         <tr>
-           <td>
-			      	<!-- LEGENDA -->
-					  	<table width="100%" border="0">
-	                    <tr>
-	                      <td width="5%" bgcolor="#E3E3E3">&nbsp;</td>
-	                      <td width="27%" class="txt_caracteristicas">Reservado</td>
-	                      <td width="6%" bgcolor="#8DBF22">&nbsp;</td>
-	                      <td width="28%" class="txt_caracteristicas">Baixa Temporada</td>
-	                      <td width="6%" bgcolor="#D300FF">&nbsp;</td>
-	                      <td width="28%" class="txt_caracteristicas">Data Especial</td>
-	                    </tr>
-	                    <tr>
-	                      <td bgcolor="#2980C5">&nbsp;</td>
-	                      <td class="txt_caracteristicas">Bloqueado</td>
-	                      <td bgcolor="#FFC600">&nbsp;</td>
-	                      <td class="txt_caracteristicas">Média Temporada</td>
-	                      <td>&nbsp;</td>
-	                      <td>&nbsp;</td>
-	                    </tr>
-	                    <tr>
-	                      <td bgcolor="#00D8FF">&nbsp;</td>
-	                      <td class="txt_caracteristicas">Pacote Fechado</td>
-	                      <td bgcolor="#FF6D00">&nbsp;</td>
-	                      <td class="txt_caracteristicas">Alta Temporada</td>
-	                      <td>&nbsp;</td>
-	                      <td>&nbsp;</td>
-	                    </tr>
-	                  	</table>
-					<!-- ******* -->
-					<br /><br />
-					<br /><br />
-					  	
-      		</td>
-         </tr>
-       </table>
-       
-       
+        
+        
        </div>
 </div>
        
@@ -516,44 +619,10 @@
 	    
 	    <br /><br />	    
 	    
-			    <logic:notEmpty name="imovel" property="anuncios">
-			    <table>
-			    	<logic:iterate id="an" name="imovel" property="anuncios">
-			    	<tr>
-					  	<td>
-					  		<!-- SETANDO A COR -->
-					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="0"><font color="WHITE"></logic:equal>
-					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="1"><font color="#2980C5"></logic:equal>			  		
-					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="2"><font color="#FF6D00"></logic:equal>
-					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="3"><font color="#8DBF22"></logic:equal>
-					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="4"><font color="#FFC600"></logic:equal>
-					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="5"><font color="#D300FF"></logic:equal>
-					  		<logic:equal name="an" property="tipoAnuncio.codigo" value="6"><font color="#00D8FF"></logic:equal>
-				
-					  		<!-- ************* -->
-					  		<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>
-					  		| <bean:write name="an" property="tarifaDiaria"/>
-					  		| <bean:write name="an" property="tarifaSemanal"/>
-					  		| <bean:write name="an" property="tarifaMensal"/>
-					  		| <bean:write name="an" property="tarifaQuinzenal"/>
-					  		| <bean:write name="an" property="tarifaPacoteFechado"/>
-					  		</font>
-					  	</td>
-					  	<td>
-					  		<html:form method="post" action="/usuario/anuncio?act=excluirAnuncio">
-					  			<input type="hidden" name="idAnuncio" value="${an.codigo}"/>
-					  			<input type="hidden" name="ci" value="${imovel.codigo}"/>
-					  			<html:submit>Excluir</html:submit>
-					  		</html:form>	  	
-					  		
-					  	</td>
-					  	</tr>
-				  	</logic:iterate>
-			    </table>
-			    </logic:notEmpty>
-			    <logic:empty name="imovel" property="anuncios">
-			    	Ainda não há disponibilidade cadastrada para esse imóvel
-			    </logic:empty>
+
+
+
+
 
 </div>
 </div>
