@@ -343,10 +343,12 @@
 
 
 
-<div id="formulario_edicao">
+<html:form method="post" action="/usuario/anuncio?act=incluirAnuncio">
+<input type="hidden" name="ci" value="${imovel.codigo}">
 
-    	<html:form method="post" action="/usuario/anuncio?act=incluirAnuncio">
-    	<input type="hidden" name="ci" value="${imovel.codigo}">
+<div id="formulario_edicao2">
+
+    	
 	    
 		<table width="100%" border="0">	  
 		<tr>
@@ -527,7 +529,7 @@
       	
 
 
-<div id="formulario_edicao">
+<div id="formulario_edicao2">
 
 	<span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Opções</span>
   	
@@ -547,35 +549,23 @@
 					                    
 					                    <logic:iterate name="tiposPagamento" id="tipoPagamento">
 							            	<tr>
-							            		<td>
-								            	 
-								            	 <input type="checkbox" name="tiposPagamento" value="<bean:write name="tipoPagamento" property="codigo"/>"><bean:write name="tipoPagamento" property="nome"/>
-								            	 
-								            	 
-												
-												</td>
+							            		<td><input type="checkbox" name="tiposPagamento" value="<bean:write name="tipoPagamento" property="codigo"/>"><div class="sepd"><bean:write name="tipoPagamento" property="nome"/></div>
+								            	</td>
 											</tr>										
 					            		</logic:iterate>
 					            		</table>
 					            		</logic:notEmpty>
 					            		</logic:present>
 				                	</td>
-				                </tr>
-				                
+				                </tr>				                
 				              </table>
-				     
-		               
-		               
-        
-      	
-      	
       	<br /><br />
       	
       	<input type="submit" name="gravar" id="button5" value="Gravar" />
       	
-	    </html:form>
-</div>	    
 	    
+</div>	    
+</html:form>	    
 
 
 
