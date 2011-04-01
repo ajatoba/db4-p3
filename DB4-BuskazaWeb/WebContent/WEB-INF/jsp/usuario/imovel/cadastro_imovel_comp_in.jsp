@@ -85,6 +85,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 	    			id: <bean:write name="imovel" property="codigo"/></span>
 			    </td>
 			    <td width="65%" valign="top">
+			    	<span class="tit_azul_detalhes">&nbsp;</span><br />
 				    <span class="txt_cinza_detalhes">
 				      Distância do centro: ${imovel.distanciaCentro}<br />
 				      <a href='${imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
