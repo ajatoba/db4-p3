@@ -90,7 +90,7 @@
 				  </tr>
 				</table>
 			</div>
-
+		</div>
 			<!-- MENSAGEM DE ERRO -->
 			    <font color="red">			  
 					<logic:messagesPresent property="erro">
@@ -114,12 +114,16 @@
 		<div class="menu_03"></div>
 	</div>
 
-	<div id="formulario_edicao">
+	<div id="formulario_edicao3">
 	<div class="left_formulario_">
 			<table width="100%" border="0">
               <tr>
-                <td colspan="3"><span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Datas e Tarifas cadastradas</span></td>
+                <td colspan="3" height="30" valign="top"><span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Datas e Tarifas cadastradas</span></td>
               </tr>
+              <tr valign="top">
+				<td colspan="3" height="27"><span class="txt_caracteristicas_desc">Visualiza suas datas e tarifas cadastradas</span></td>
+			  </tr>
+              
               <tr>
                 <td colspan="3">
                 	
@@ -169,7 +173,7 @@
 			</table>
   	
 
-			<table width="342" border="0" cellspacing="1">
+			<table width="342" border="0" cellspacing="1" class="tabela_lista_data">
 		  	<tr class="tabela_caracteristicas">
 		  		<td width='10%'>Dom</td>
 		  		<td width='10%'>Seg</td>
@@ -353,10 +357,13 @@
 
     	
 	    
-		<table width="100%" border="0">	  
-		<tr>
-			<td><span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Cadastrar Datas/Tarifas</span></td>
-		</tr>	  
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">	 	  
+		<tr valign="top">
+			<td height="30"><span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Cadastrar Datas/Tarifas</span></td>
+		</tr>
+		<tr valign="top">
+			<td height="27"><span class="txt_caracteristicas_desc">Os preços semanais e mensais devem ser introduzidos com os preços unitários pelo dia</span></td>
+		</tr>
 		
       </table> 
 
@@ -364,18 +371,18 @@
 
       	<table border="0">
 	     <tr>
-	       <td class="txt_caracteristicas">Diária</td>
+	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Diária</div></td>
 	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Semanal</div></td>
 	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Mensal</div></td>
 	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Quinzenal</div></td>
 	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Pacote</div></td>
 	     </tr>
 	     <tr>
-	       <td class="txt_caracteristicas"><html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" styleId="tarifaDiaria" maxlength="10" size="70"/></td>
-	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" styleId="tarifaSemanal" maxlength="10" size="70"/></div></td>
-	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaMensal" styleClass="number,MyriadProRegular" styleId="tarifaMensal" maxlength="10" size="70"/></div></td>
-	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="70"/></div></td>
-	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70"/></div></td>
+	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" styleId="tarifaDiaria" maxlength="10" size="70" style="width:80px;" /></div></td>
+	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" styleId="tarifaSemanal" maxlength="10" size="70" style="width:80px;" /></div></td>
+	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaMensal" styleClass="number,MyriadProRegular" styleId="tarifaMensal" maxlength="10" size="70" style="width:80px;" /></div></td>
+	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="70" style="width:80px;" /></div></td>
+	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70" style="width:80px;" /></div></td>
 	       <td class="txt_caracteristicas">
 	       		<div class="sepd"><html:select property="tipoAnuncio" styleId="tipoAnuncio">
 					<html:options collection="tiposAnuncio" property="codigo" labelProperty="nome"/>
@@ -387,13 +394,13 @@
        
        <table  border="0">
                   <tr>
-                    <td class="txt_caracteristicas">De</td>
-                    <td class="txt_caracteristicas"><div style="float:left; margin-left:25px;">Até</div></td>
+                    <td class="txt_caracteristicas">&nbsp;De</td>
+                    <td class="txt_caracteristicas"><div class="sepdform2">Até</div></td>
                     <td>&nbsp;</td>
                   </tr>
                   <tr>
                     <td><span class="txt_caracteristicas">                        
-						<div style="float:left">
+						<div class="seps">
 							<html:select property="diaDataInicial" title="dia" styleId="diaDataInicial" styleClass="MyriadProRegular,string">
 								<html:option value="01">01</html:option>
 					            <html:option value="02">02</html:option>
@@ -456,7 +463,7 @@
 				        
                         </span></td>
                     <td><span class="txt_caracteristicas">
-                      <div style="float:left; margin-left:25px;">
+                      <div class="sepdform">
 						<html:select property="diaDataFinal" title="dia" styleId="diaDataFinal" styleClass="MyriadProRegular,string">                        
 							<html:option value="01">01</html:option>
 				            <html:option value="02">02</html:option>
@@ -554,7 +561,7 @@
 					                    
 					                    <logic:iterate name="tiposPagamento" id="tipoPagamento">
 							            	<tr>
-							            		<td><input type="checkbox" name="tiposPagamento" value="<bean:write name="tipoPagamento" property="codigo"/>"><div class="sepd"><bean:write name="tipoPagamento" property="nome"/></div>
+							            		<td><input type="checkbox" name="tiposPagamento" value="<bean:write name="tipoPagamento" property="codigo"/>"><div class="sepf"><bean:write name="tipoPagamento" property="nome"/></div>
 								            	</td>
 											</tr>										
 					            		</logic:iterate>
