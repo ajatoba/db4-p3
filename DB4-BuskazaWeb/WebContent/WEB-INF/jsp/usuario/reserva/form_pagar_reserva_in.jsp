@@ -75,6 +75,56 @@
 				      	Distância do centro: ${reservaPagar.imovel.distanciaCentro}<br />
 					    <a href='${reservaPagar.imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
 					    <a href='${reservaPagar.imovel.linkYouTube}' class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
+					    
+					    
+						<logic:notEmpty name="imovel" property="linkGoogleMaps">
+								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
+						</logic:notEmpty>
+						<logic:empty name="imovel" property="linkGoogleMaps">
+								Sem mapa<br />
+						</logic:empty>
+						
+						<logic:notEmpty name="imovel" property="linkYouTube">
+								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
+						</logic:notEmpty>
+						<logic:empty name="imovel" property="linkYouTube">
+								Sem vídeo<br />
+						</logic:empty>
+					    
+					    
+					    <div id="thickbox_mapa" style="visibility:hidden; display:none;">            
+			            	<div class="topo">
+			                    <div id="titulo">Mapa</div>
+			                </div>
+							<div class="meio">            
+			            		<div class="divmapa">
+			            				${imovel.linkGoogleMaps}
+			                    </div>
+			                    <script language="javascript">
+									$(document).ready(function(){
+										$('.divmapa iframe').css({'width': '560px', 'height': '300px' });
+									});
+								</script>                
+			                </div>    
+			                <div class="baixo"></div>
+						</div>
+						
+						<div id="thickbox_youtube" style="visibility:hidden; display:none;">            
+			            	<div class="topo">
+			                    <div id="titulo">Vídeo</div>
+			                </div>
+							<div class="meio">            
+			            		<div class="divmapa">
+			            				${imovel.linkYouTube}
+			                    </div>
+			                                        
+			                </div>    
+			                <div class="baixo"></div>
+						</div>
+					    
+					    
+					    
+					    
 				   </span>			      
 			    </td>
 			  </tr>
@@ -160,7 +210,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 <div id="sep_top_reserva"></div>
 
 <div class="form_efeutar_pagamento">
-		
+		<span class="titulo_azul">Forma de Pagamento</span><br /><br />
 		<table cellpadding="10" cellspacing="10">
 		<tr>
 			<td>
