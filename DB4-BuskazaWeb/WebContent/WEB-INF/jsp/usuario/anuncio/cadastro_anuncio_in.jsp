@@ -102,7 +102,7 @@
 					                    </div>
 					                    <script language="javascript">
 											$(document).ready(function(){
-												$('.divmapa iframe').css({'width': '520px', 'height': '270px' });
+												$('.divmapa iframe').css({'width': '560px', 'height': '300px' });
 											});
 										</script>                
 					                </div>    
