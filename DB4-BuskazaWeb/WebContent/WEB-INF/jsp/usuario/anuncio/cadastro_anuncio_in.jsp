@@ -14,6 +14,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza</title>
 
+	<link href="/buzkaza/_css/detalhe_imovel.css" rel="stylesheet" type="text/css"/>
 	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
@@ -83,6 +84,7 @@
 			    			id: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span>
 					    </td>
 					    <td width="65%" valign="top">
+					    	<span class="tit_azul_detalhes">&nbsp;</span><br />
 						    <span class="txt_cinza_detalhes">
 						      Distância do centro: ${imovel.distanciaCentro}<br />
 						      <a href='${imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
