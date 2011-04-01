@@ -179,7 +179,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 			<td>
 				<form action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip" id="moip">
 					<input type="hidden" name="id_carteira" value="buzkaza">			
-					<input type="hidden" name="valor" value="<bean:write name="reservaPagar" property="valor" format="###"/>00">
+					<input type="hidden" name="valor" id="valor_reserva" value="<bean:write name="reservaPagar" property="valor" format="###"/>00">
 					<input type="hidden" name="nome" value="${reservaPagar.locatario.nome}">
 					<input type="hidden" name="pagador_nome" value="${reservaPagar.locatario.nome}">
 					<input type="hidden" name="pagador_email" value="${reservaPagar.locatario.email}">
@@ -189,6 +189,13 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 					<a href="#" onclick="javascript:document.moip.submit();" border="0"><img src="http://www.moip.com.br/img/novas/moip.gif" border="0" width="70" height="35"/></a>
 					
 				</form>
+				
+				<script language="javascript">
+                <!--
+                	calcularvalorMoip( '<bean:write name="reservaPagar" property="valor" format="#"/>', '<bean:write name="reservaPagar" property="valor" format="00.00"/>');
+                -->
+                </script>
+				
 			</td>
 		</tr>
 		</table>
