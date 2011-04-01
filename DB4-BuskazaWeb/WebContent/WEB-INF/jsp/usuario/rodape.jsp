@@ -9,15 +9,15 @@
       <div class="tit_facil_alugar">Veja como é fácil alugar no Buzkaza!</div>
       <div class="linha1_facil_alugar">
         <div class="boxes_facil_alugar_01">
-          <div class="tit_box_facil_alugar">Máxima variedade</div>
-          <div class="txt_box_facil_alugar">Encontre seu imóvel em amis de 100 destinos.</div>
+          <div class="tit_box_facil_alugar">Máxima Variedade</div>
+          <div class="txt_box_facil_alugar">Encontre seu imóvel em mais de 100 destinos.</div>
         </div>
         <div class="boxes_facil_alugar_01">
-          <div class="tit_box_facil_alugar">Um sistema de pagamento Seguro</div>
+          <div class="tit_box_facil_alugar">Um sistema de pagamento seguro</div>
           <div class="txt_box_facil_alugar">Moip e PayPal, aceitos no Brasil e no mundo.</div>
         </div>
         <div class="boxes_facil_alugar_02">
-          <div class="tit_box_facil_alugar">Escolha sem dúvidas</div>
+          <div class="tit_box_facil_alugar">Escolha sem dúvida</div>
           <div class="txt_box_facil_alugar">Analise a planta do imóvel, fotos e facilidades.</div>
         </div>
       </div>
@@ -32,7 +32,7 @@
         </div>
         <div class="boxes_facil_alugar_02">
           <div class="tit_box_facil_alugar">Participe!</div>
-          <div class="txt_box_facil_alugar">Conheça a opnião de quem já se hospedou e dê a sua!</div>
+          <div class="txt_box_facil_alugar">Conheça a opinião de quem já se hospedou e dê a sua!</div>
         </div>
       </div>
     </div>
@@ -52,10 +52,12 @@
                             
                     <div class="meio_bottom_info">
                             <div class="txt_bottom"> 
-                                <p class="buzkaza_onde"> Buzkaza - em casa, onde estiver. </p>
-                                <span class="buzkaza_onde2"> Lorem Ipsum is simply dummy text of the printing and typesetting 
-                                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an 
-                                unknown printer took a galley of type and scrambled it to make a type specimen book. </span>                            
+                                <p class="buzkaza_onde"> Buzkaza - em casa, onde estiver.</p>
+                                <span class="buzkaza_onde2"> O Buzkaza é uma empresa do grupo Original Services, que atua
+								na área de varejo e turismo, a mais de dez anos, com sede no
+								Rio de Janeiro/RJ - Brasil.<br />
+								Formada por uma equipe multidisciplinar, o Buzkaza e seus parceiros tem por objetivo, oferecer a seus 
+								usuários uma experiência completa nos serviços de reservas de imóveis no Brasil, Américas e Europa.</span>                            
                             </div>
                             
                             <div class="contato_atendimento">                     
