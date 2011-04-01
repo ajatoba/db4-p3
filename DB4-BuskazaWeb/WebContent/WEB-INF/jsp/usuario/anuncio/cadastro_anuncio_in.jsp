@@ -65,7 +65,7 @@
 	<div id="meio_reserva">
 		    <div class="top_reserva">
 		      	<div class="txt_meus_anuncios"><span class="MyriadPro24">Meus Anúncios</span></div>
-		      	<div class="combo_anuncios"> &nbsp;&nbsp;<img src="/buzkaza/_img/btn_criar_anuncio.jpg" width="151" height="31" style=" float:right;" /></div>
+		      	<div class="combo_anuncios"> &nbsp;&nbsp;<a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel"><img src="/buzkaza/_img/btn_criar_anuncio.jpg" width="151" height="31" style=" float:right;" /></a></div>
 		    </div>
 	</div>
 
@@ -79,8 +79,8 @@
 					<table width="100%" border="0" > 
 					  <tr valign="top">
 					    <td width="35%" valign="top">
-					    	<span class="tit_azul_detalhes"><bean:write name="imovel" property="bairro"/>, ${imovel.estado.codigo} </span><br />
-			    			<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/><br />
+					    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.estado.codigo} </span><br />
+			    			<span class="txt_cinza_detalhes">${imovel.logradouro}<br />
 			    			id: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span>
 					    </td>
 					    <td width="65%" valign="top">
@@ -141,24 +141,7 @@
 					  </tr>
 					</table>
 			</div>
-			<!-- 
-			<div class="endereco_bairro">
-				<table width="100%" border="0">
-				  <tr>
-				    <td width="35%" valign="top"><span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.estado.codigo}</span></td>
-				    <td width="65%" rowspan="3"><span class="nome_rua">Distância do centro ${imovel.distanciaCentro}<br />
-				      Mapa Google Maps:${imovel.linkGoogleMaps}<br />
-				      Vídeo You Tube:${imovel.linkYouTube}</span></td>
-				  </tr>
-				  <tr>
-				    <td><span class="nome_rua">${imovel.logradouro}</span></td>
-				  </tr>
-				  <tr>
-				    <td><span class="nome_rua">ID:${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span></td>
-				  </tr>
-				</table>
-			</div>
-			 -->
+			
 		</div>
 			<!-- MENSAGEM DE ERRO -->
 			    <font color="red">			  
