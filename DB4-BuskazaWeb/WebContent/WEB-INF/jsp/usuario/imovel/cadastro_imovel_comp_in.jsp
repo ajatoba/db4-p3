@@ -84,8 +84,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 	    			<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/><br />
 	    			id: <bean:write name="imovel" property="codigo"/></span>
 			    </td>
-			    <td width="65%" valign="top">
-			    	<span class="tit_azul_detalhes">&nbsp;</span><br />
+			    <td width="65%" valign="top">			    	
 				    <span class="txt_cinza_detalhes">
 				      Distância do centro: ${imovel.distanciaCentro}<br />
 				      <a href='${imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
@@ -324,7 +323,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 					      <tr>
 					        <td class="txt_caracteristicas">Camas</td>
 					        <td class="txt_caracteristicas">Qtd:</td>
-					        <td>&nbsp;</td>
+					        <td class="txt_caracteristicas">Idiomas Falados</td>
 					      </tr>
 					      <tr>
 					        <td>
@@ -349,7 +348,13 @@ $('#sep_top_reserva').corner('rounded 7px');
 						            </html:select>
 					            </div>
 					        </td>
-					        <td><div class="sepd"><html:submit>ENVIAR</html:submit></div></td>
+					        <td>
+					        		<html:select property="idiomas">
+							     		<html:options collection="idiomas" property="codigo" labelProperty="nome"/>     
+							     	</html:select>
+					        
+					        
+					        </td>
 					      </tr>
 					    </table>
 				    
@@ -358,16 +363,10 @@ $('#sep_top_reserva').corner('rounded 7px');
 				  </tr>
 			      
 			      <tr>
-				    <td class="txt_caracteristicas">Idiomas Falados</td>
+				    <td class="txt_caracteristicas"></td>
 				  </tr>
 				  <tr>
-				    <td>
-				    	<html:select property="idiomas">
-				     		<html:options collection="idiomas" property="codigo" labelProperty="nome"/>     
-				     	</html:select>
-				     	<div class="sepd">&nbsp;&nbsp;</div>
-				     	<div class="sepd">
-				      <html:submit>ENVIAR</html:submit></div></td>
+				    <td><html:submit>ENVIAR</html:submit></td>
 				  </tr> 
 			    </table>
 	
@@ -491,11 +490,11 @@ $('#sep_top_reserva').corner('rounded 7px');
 		</td>
 	</tr>
 	<tr class="txt_caracteristicas">
-			<td>Horário Check in</td>
-      		<td>Horário Check out</td>
+			<td width="30%">Horário Check in</td>
+      		<td width="70%">Horário Check out</td>
 	</tr>			
 	<tr class="txt_caracteristicas">
-        <td class="txt_caracteristicas">
+        <td width="30%" class="txt_caracteristicas">
         	<div class="sept">De</div>
         	<div class="sepd"><html:text property="checkInEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
           	<div class="sept"> :</div>
@@ -506,7 +505,7 @@ $('#sep_top_reserva').corner('rounded 7px');
           	<div class="sepd"><html:text property="checkInSaidaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
           	
         	</td>
-      		<td>
+      		<td width="70%">
         	
         	  <div class="sept">De</div>
 	          <div class="sepd"><html:text property="checkOutEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
