@@ -96,6 +96,62 @@ $(document).ready(function()
 				      	Distância do centro: ${reserva.imovel.distanciaCentro}<br />
 					    <a href='${reserva.imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
 					    <a href='${reserva.imovel.linkYouTube}' class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
+					    
+					    
+					    
+					    
+					    <logic:notEmpty name="reserva" property="imovel.linkGoogleMaps">
+								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
+						</logic:notEmpty>
+						<logic:empty name="reserva" property="imovel.linkGoogleMaps">
+								Sem mapa<br />
+						</logic:empty>
+						
+						<logic:notEmpty name="reserva" property="imovel.linkYouTube">
+								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
+						</logic:notEmpty>
+						<logic:empty name="reserva" property="imovel.linkYouTube">
+								Sem vídeo<br />
+						</logic:empty>
+					    
+					    
+					    <div id="thickbox_mapa" style="visibility:hidden; display:none;">            
+			            	<div class="topo">
+			                    <div id="titulo">Mapa</div>
+			                </div>
+							<div class="meio">            
+			            		<div class="divmapa">
+			            				${reserva.imovel.linkGoogleMaps}
+			                    </div>
+			                    <script language="javascript">
+									$(document).ready(function(){
+										$('.divmapa iframe').css({'width': '560px', 'height': '300px' });
+									});
+								</script>                
+			                </div>    
+			                <div class="baixo"></div>
+						</div>
+						
+						<div id="thickbox_youtube" style="visibility:hidden; display:none;">            
+			            	<div class="topo">
+			                    <div id="titulo">Vídeo</div>
+			                </div>
+							<div class="meio">            
+			            		<div class="divmapa">
+			            				${reserva.imovel.linkYouTube}
+			                    </div>
+			                                        
+			                </div>    
+			                <div class="baixo"></div>
+						</div>
+					    
+					    
+					    
+					    
+					    
+					    
+					    
+					    
 				   </span>			      
 			    </td>
 			  </tr>
