@@ -401,7 +401,7 @@
                   <tr>
                     <td><span class="txt_caracteristicas">                        
 						<div class="seps">
-							<html:select property="diaDataInicial" title="dia" styleId="diaDataInicial" styleClass="MyriadProRegular,string">
+							<html:select property="diaDataInicial" title="dia" styleId="diaDataInicial" styleClass="MyriadProRegular,string" style="width:55px">
 								<html:option value="01">01</html:option>
 					            <html:option value="02">02</html:option>
 					            <html:option value="03">03</html:option>
@@ -464,7 +464,7 @@
                         </span></td>
                     <td><span class="txt_caracteristicas">
                       <div class="sepdform">
-						<html:select property="diaDataFinal" title="dia" styleId="diaDataFinal" styleClass="MyriadProRegular,string">                        
+						<html:select property="diaDataFinal" title="dia" styleId="diaDataFinal" styleClass="MyriadProRegular,string" style="width:55px">                        
 							<html:option value="01">01</html:option>
 				            <html:option value="02">02</html:option>
 				            <html:option value="03">03</html:option>
