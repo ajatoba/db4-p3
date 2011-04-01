@@ -82,7 +82,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 			    <td width="35%" valign="top">
 			    	<span class="tit_azul_detalhes"><bean:write name="imovel" property="bairro"/>, ${imovel.estado.codigo} </span><br />
 	    			<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/><br />
-	    			id: <bean:write name="imovel" property="codigo"/></span>
+	    			id: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span>
 			    </td>
 			    <td width="65%" valign="top">			    	
 				    <span class="txt_cinza_detalhes">
@@ -90,10 +90,17 @@ $('#sep_top_reserva').corner('rounded 7px');
 				      
 				      <logic:notEmpty name="imovel" property="linkGoogleMaps">
 				      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
-				      </logic:notEmpty>	
+				      </logic:notEmpty>
+				      <logic:empty name="imovel" property="linkGoogleMaps">
+							 Sem mapa<br />
+					  </logic:empty>
+					  
 				      <logic:notEmpty name="imovel" property="linkYouTube">
 				      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
 				      </logic:notEmpty>
+				      <logic:empty name="imovel" property="linkYouTube">
+					   	Sem vídeo<br />
+					  </logic:empty>
 				      
 				      </span>
 				      
