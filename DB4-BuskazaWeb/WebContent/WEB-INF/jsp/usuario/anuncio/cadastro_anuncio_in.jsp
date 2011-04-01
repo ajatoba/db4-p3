@@ -87,8 +87,8 @@
 
 						    <span class="txt_cinza_detalhes">
 						      Distância do centro: ${imovel.distanciaCentro}<br />
-						      <a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
-						      <a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
+						      <a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
+						      <a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
 						      </span>		
 						      
 						      
