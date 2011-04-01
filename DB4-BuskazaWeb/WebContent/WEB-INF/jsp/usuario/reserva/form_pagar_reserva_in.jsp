@@ -73,21 +73,22 @@
 			    <td width="65%" valign="top">
 				    <span class="txt_cinza_detalhes">
 				      	Distância do centro: ${reservaPagar.imovel.distanciaCentro}<br />
+				      	<!-- 
 					    <a href='${reservaPagar.imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
 					    <a href='${reservaPagar.imovel.linkYouTube}' class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
+					     -->
 					    
-					    
-						<logic:notEmpty name="imovel" property="linkGoogleMaps">
+						<logic:notEmpty name="reservaPagar" property="imovel.linkGoogleMaps">
 								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
 						</logic:notEmpty>
-						<logic:empty name="imovel" property="linkGoogleMaps">
+						<logic:empty name="reservaPagar" property="imovel.linkGoogleMaps">
 								Sem mapa<br />
 						</logic:empty>
 						
-						<logic:notEmpty name="imovel" property="linkYouTube">
+						<logic:notEmpty name="reservaPagar" property="imovel.linkYouTube">
 								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
 						</logic:notEmpty>
-						<logic:empty name="imovel" property="linkYouTube">
+						<logic:empty name="reservaPagar" property="imovel.linkYouTube">
 								Sem vídeo<br />
 						</logic:empty>
 					    
