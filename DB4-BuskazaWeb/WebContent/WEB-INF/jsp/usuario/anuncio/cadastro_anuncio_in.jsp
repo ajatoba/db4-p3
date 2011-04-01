@@ -99,7 +99,12 @@
 									<div class="meio">            
 					            		<div class="divmapa">
 					            				${imovel.linkGoogleMaps}
-					                    </div>                    
+					                    </div>
+					                    <script language="javascript">
+											$(document).ready(function(){
+												$('.divmapa iframe').css({'width': '560px', 'height': '300px' });
+											});
+										</script>                
 					                </div>    
 					                <div class="baixo"></div>
 								</div>
@@ -111,7 +116,8 @@
 									<div class="meio">            
 					            		<div class="divmapa">
 					            				${imovel.linkYouTube}
-					                    </div>                    
+					                    </div>
+					                                        
 					                </div>    
 					                <div class="baixo"></div>
 								</div>
