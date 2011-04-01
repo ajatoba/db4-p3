@@ -99,7 +99,7 @@
 			                </div>
 							<div class="meio">            
 			            		<div class="divmapa">
-			            				${imovel.linkGoogleMaps}
+			            				${reservaPagar.imovel.linkGoogleMaps}
 			                    </div>
 			                    <script language="javascript">
 									$(document).ready(function(){
@@ -116,7 +116,7 @@
 			                </div>
 							<div class="meio">            
 			            		<div class="divmapa">
-			            				${imovel.linkYouTube}
+			            				${reservaPagar.imovel.linkYouTube}
 			                    </div>
 			                                        
 			                </div>    
