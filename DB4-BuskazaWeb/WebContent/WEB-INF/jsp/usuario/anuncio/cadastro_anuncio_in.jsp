@@ -65,7 +65,7 @@
 	<div id="meio_reserva">
 		    <div class="top_reserva">
 		      	<div class="txt_meus_anuncios"><span class="MyriadPro24">Meus Anúncios</span></div>
-		      	<div class="combo_anuncios"> &nbsp;&nbsp;<a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel"><img src="/buzkaza/_img/btn_criar_anuncio.jpg" width="151" height="31" style=" float:right;" /></a></div>
+		      	<div class="combo_anuncios"> &nbsp;&nbsp;<a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel"><img src="/buzkaza/_img/btn_criar_anuncio.jpg" width="151" height="31" style=" float:right;" border="0"/></a></div>
 		    </div>
 	</div>
 
