@@ -43,13 +43,7 @@
 
 	$(document).ready(function()
 	{
-		$('iframe').load(function()
-				{
-					this.style.width = 341 + 'px';
-					this.style.height = 271 + 'px';
-				}
-			);
-		
+				
 		$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
 	}
 	);
@@ -117,7 +111,7 @@
 				${imovel.linkGoogleMaps }
 			</logic:notEmpty>
 			<logic:empty name="imovel" property="linkYouTube">
-				Sem mapa
+				<div class="sem_mapa">Sem mapa</div>
 			</logic:empty>
 	</div>
 	
