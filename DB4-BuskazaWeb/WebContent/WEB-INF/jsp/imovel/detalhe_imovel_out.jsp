@@ -112,7 +112,14 @@
 	
 	<div class="chamada_mapa">Mapa</div>
 	
-	<div class="mapa_big">${imovel.linkGoogleMaps }</div>
+	<div class="mapa_big">	
+			<logic:notEmpty name="imovel" property="linkGoogleMaps">
+				${imovel.linkGoogleMaps }
+			</logic:notEmpty>
+			<logic:empty name="imovel" property="linkYouTube">
+				Sem mapa
+			</logic:empty>
+	</div>
 	
 	</div>
 	<!--left-->
@@ -124,18 +131,18 @@
     	<span class="tit_azul_detalhes"><bean:write name="imovel" property="bairro"/>, ${imovel.estado.codigo}</span><br />
     	<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/></span><br /><br />
     	 
-    	<span class="txt_azul_peq_detalhes">ID</span>&nbsp; : <bean:write name="imovel" property="usuarioProprietario.codigo"/>-<bean:write name="imovel" property="codigo"/><br />
-		<span class="txt_azul_peq_detalhes">Distancia do Centro</span>&nbsp; : <bean:write name="imovel" property="distanciaCentro"/><br />
-		<span class="txt_azul_peq_detalhes">Tipo</span>&nbsp; : ${imovel.tipoImovel.nome}<br />
+    	<span class="txt_azul_peq_detalhes">ID</span>&nbsp;: <bean:write name="imovel" property="usuarioProprietario.codigo"/>-<bean:write name="imovel" property="codigo"/><br />
+		<span class="txt_azul_peq_detalhes">Distância do Centro</span>&nbsp;: <bean:write name="imovel" property="distanciaCentro"/><br />
+		<span class="txt_azul_peq_detalhes">Tipo</span>&nbsp;: ${imovel.tipoImovel.nome}<br />
 		<span class="txt_azul_peq_detalhes">Quartos</span>&nbsp;: ${imovel.quartos}<br />
-		<span class="txt_azul_peq_detalhes">Metragem</span>&nbsp; : ${imovel.metragem}m<sup>2</sup><br />
-		<span class="txt_azul_peq_detalhes">Capacidade</span>&nbsp; : ${imovel.capacidade} pessoas<br />
-		<span class="txt_azul_peq_detalhes">Camas</span>&nbsp; : ${imovel.camas}<br />
-		<span class="txt_azul_peq_detalhes">Video</span>&nbsp;: <bean:write name="imovel" property="linkYouTube"/><br />
-		<span class="txt_azul_peq_detalhes">Horário CheckIn Entrada:</span>&nbsp;: <bean:write name="imovel" property="checkInEntrada" format="HH:mm"/><br />		
-		<span class="txt_azul_peq_detalhes">Horário CheckIn Saída:</span>&nbsp;: <bean:write name="imovel" property="checkInSaida" format="HH:mm"/><br />
-		<span class="txt_azul_peq_detalhes">Horário CheckOut Entrada:</span>&nbsp;: <bean:write name="imovel" property="checkOutEntrada" format="HH:mm"/><br />
-		<span class="txt_azul_peq_detalhes">Horário CheckOut Saída:</span>&nbsp;: <bean:write name="imovel" property="checkOutSaida" format="HH:mm"/><br />
+		<span class="txt_azul_peq_detalhes">Metragem</span>&nbsp;: ${imovel.metragem}m<sup>2</sup><br />
+		<span class="txt_azul_peq_detalhes">Capacidade</span>&nbsp;: ${imovel.capacidade} pessoas<br />
+		<span class="txt_azul_peq_detalhes">Camas</span>&nbsp;: ${imovel.camas}<br />
+		<span class="txt_azul_peq_detalhes">Vídeo</span>&nbsp;: <bean:write name="imovel" property="linkYouTube"/><br />
+		<span class="txt_azul_peq_detalhes">Horário CheckIn Entrada</span>&nbsp;: <bean:write name="imovel" property="checkInEntrada" format="HH:mm"/><br />		
+		<span class="txt_azul_peq_detalhes">Horário CheckIn Saída</span>&nbsp;: <bean:write name="imovel" property="checkInSaida" format="HH:mm"/><br />
+		<span class="txt_azul_peq_detalhes">Horário CheckOut Entrada</span>&nbsp;: <bean:write name="imovel" property="checkOutEntrada" format="HH:mm"/><br />
+		<span class="txt_azul_peq_detalhes">Horário CheckOut Saída</span>&nbsp;: <bean:write name="imovel" property="checkOutSaida" format="HH:mm"/><br />
 		
 		</span>
 		
