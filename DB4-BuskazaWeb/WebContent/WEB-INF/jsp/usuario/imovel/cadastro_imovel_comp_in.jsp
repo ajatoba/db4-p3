@@ -114,56 +114,14 @@ $('#sep_top_reserva').corner('rounded 7px');
 				  <tr>
 				    <td><img src="/buzkaza/_img/bullet.jpg" width="21" height="16" /> <span class="txt_caracteristica">Características do Imóvel</span></td>
 				  </tr>
-				  <tr>
-				    <td>
-					    <table width="100%" border="0" cellpadding="0" cellspacing="0">
-					      <tr>
-					        <td class="txt_caracteristicas">Perfil do Imóvel</td>
-					        <td class="txt_caracteristicas">Quartos</td>
-					      </tr>
-					      <tr>
-					        <td>
-					        	<html:select property="tipoImovel" styleId="tipoImovel">
-									<html:options collection="tiposImovel" property="codigo" labelProperty="nome"/>
-								</html:select>
-					        </td>
-					        <td><html:select property="quartos" styleId="quartos">
-					      			<html:option value="1">1 Quarto</html:option>
-									<html:option value="2">2 Quartos</html:option>
-									<html:option value="3">3 Quartos</html:option>
-									<html:option value="4">4 Quartos</html:option>
-									<html:option value="5">5 Quartos</html:option>
-									<html:option value="6">6 Quartos</html:option>
-									<html:option value="7">7 Quartos</html:option>
-									<html:option value="8">8 Quartos</html:option>				
-									<html:option value="9">9 Quartos</html:option>				
-									<html:option value="10">10 Quartos</html:option>
-									<html:option value="11">11 Quartos</html:option>
-									<html:option value="12">12 Quartos</html:option>
-									<html:option value="13">13 Quartos</html:option>
-									<html:option value="14">14 Quartos</html:option>
-									<html:option value="15">15 Quartos</html:option>
-									<html:option value="16">16 Quartos</html:option>
-									<html:option value="17">17 Quartos</html:option>				
-									<html:option value="18">18 Quartos</html:option>
-									<html:option value="19">19 Quartos</html:option>				
-									<html:option value="20">20 Quartos</html:option>
-									<html:option value="21">21 Quartos</html:option>
-									<html:option value="22">22 Quartos</html:option>
-					      	</html:select></td>
-					      </tr>
-					    </table>
-			    
-			      	</td>      
-			      </tr>
-			      
-			      
+				  
 			      <tr>
-				        <td>
+				     <td>
 									<table width="100%" border="0">
 								      <tr class="txt_caracteristicas">
 								        <td>Metragem</td>
 								        <td>Capacidade</td>
+								        <td>Quartos</td>
 								      </tr>
 								      <tr>
 								        <td>
@@ -329,6 +287,30 @@ $('#sep_top_reserva').corner('rounded 7px');
 												<html:option value="22">22 Pessoas</html:option>
 								      		</html:select>
 								        </td>
+								        <td><html:select property="quartos" styleId="quartos">
+								      			<html:option value="1">1 Quarto</html:option>
+												<html:option value="2">2 Quartos</html:option>
+												<html:option value="3">3 Quartos</html:option>
+												<html:option value="4">4 Quartos</html:option>
+												<html:option value="5">5 Quartos</html:option>
+												<html:option value="6">6 Quartos</html:option>
+												<html:option value="7">7 Quartos</html:option>
+												<html:option value="8">8 Quartos</html:option>				
+												<html:option value="9">9 Quartos</html:option>				
+												<html:option value="10">10 Quartos</html:option>
+												<html:option value="11">11 Quartos</html:option>
+												<html:option value="12">12 Quartos</html:option>
+												<html:option value="13">13 Quartos</html:option>
+												<html:option value="14">14 Quartos</html:option>
+												<html:option value="15">15 Quartos</html:option>
+												<html:option value="16">16 Quartos</html:option>
+												<html:option value="17">17 Quartos</html:option>				
+												<html:option value="18">18 Quartos</html:option>
+												<html:option value="19">19 Quartos</html:option>				
+												<html:option value="20">20 Quartos</html:option>
+												<html:option value="21">21 Quartos</html:option>
+												<html:option value="22">22 Quartos</html:option>
+								      	</html:select></td>
 								      </tr>
 								    </table>        
 			        </td>
@@ -477,8 +459,8 @@ $('#sep_top_reserva').corner('rounded 7px');
 	
 	<table width="100%" border="0">
   	<tr class="txt_caracteristicas">
-  		<td class="txt_caracteristica">Dados de Check-In Check-Out</td>
-  		<td class="txt_caracteristica"></td>
+  		<td width="30%" class="txt_caracteristica">Dados de Check-In Check-Out</td>
+  		<td width="70%" class="txt_caracteristica"></td>
   	</tr>
   	<tr class="txt_caracteristicas">
         <td class="txt_caracteristicas" colspan="2">	
