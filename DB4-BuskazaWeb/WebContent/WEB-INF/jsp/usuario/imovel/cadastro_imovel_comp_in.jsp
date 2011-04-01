@@ -87,9 +87,41 @@ $('#sep_top_reserva').corner('rounded 7px');
 			    <td width="65%" valign="top">			    	
 				    <span class="txt_cinza_detalhes">
 				      Distância do centro: ${imovel.distanciaCentro}<br />
-				      <a href='${imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
-				      <a href='${imovel.linkYouTube}' class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
-				      </span>			      
+				      <a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
+				      <a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
+				      </span>
+				      
+				      <div id="thickbox_mapa" style="visibility:hidden; display:none;">            
+		            	<div class="topo">
+		                    <div id="titulo">Mapa</div>
+		                </div>
+						<div class="meio">            
+		            		<div class="divmapa">
+		            				${imovel.linkGoogleMaps}
+		                    </div>
+		                    <script language="javascript">
+								$(document).ready(function(){
+									$('.divmapa iframe').css({'width': '560px', 'height': '300px' });
+								});
+							</script>                
+		                </div>    
+		                <div class="baixo"></div>
+					</div>
+					
+					<div id="thickbox_youtube" style="visibility:hidden; display:none;">            
+		            	<div class="topo">
+		                    <div id="titulo">Vídeo</div>
+		                </div>
+						<div class="meio">            
+		            		<div class="divmapa">
+		            				${imovel.linkYouTube}
+		                    </div>
+		                                        
+		                </div>    
+		                <div class="baixo"></div>
+					</div>
+				      
+				      			      
 			    </td>
 			  </tr>
 			</table>
