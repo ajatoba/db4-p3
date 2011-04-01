@@ -10,11 +10,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Buzkaza - Pagar Reserva</title>
 	
-	
-	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
-	
-	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
-	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/cadastro.css"/>
+
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css" />
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/size_campos.css"/>
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/detalhe_imovel.css"/>
 	
 	<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
@@ -26,6 +27,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
 	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+	<script type="text/javascript" src="/buzkaza/_js/function_calcular_data.js"></script>
 
 <script>
 	$(function(){
@@ -42,43 +44,45 @@
 <jsp:include page="../topo.jsp"/>
 
 
-<div id="cont_reserva">
+<div id="cont_reserva2">
 
-	<div id="meio_reserva">
-		<div class="top_reserva">
-			<div class="txt_minha_reserva">
-				<span class="MyriadPro24">Pagar Reserva</span>
-			</div>
-		</div>
-	</div>
+<div id="meio_reserva">
+<div class="top_reserva">
+	<div class="txt_meus_anuncios">Pagar Reserva</div>
+</div>
 
-	<div id="sep_top_reserva"></div>
+</div>
+<div id="sep_top_reserva_fina"></div>
+
+<div id="listagem_reservas">
+
 
 	<logic:present name="reservaPagar">
-		<div class="MyriadProRegular">
-		<fieldset>
-		<legend><b>Dados do Imóvel</b></legend>
-		<table cellspacing="10" align="left" >
-			<tr>
-				<td>
-					<img src="/buzkaza/imagens_usuarios/<bean:write name="reservaPagar" property="imovel.primeirafoto"/>" width="140" height="104" />					
-				</td>
-				<td>
-				<bean:write name="reservaPagar" property="imovel.logradouro"/>-
-				<bean:write name="reservaPagar" property="imovel.bairro"/>, 
-				<bean:write name="reservaPagar" property="imovel.municipio"/> - <bean:write name="reservaPagar" property="imovel.estado.codigo"/>
-				<br />
-				a <bean:write name="reservaPagar" property="imovel.distanciaCentro" format="00.00"/>km do Centro<br />
-				<bean:write name="reservaPagar" property="imovel.metragem" format="00"/>m<sup>2</sup>, com capacidade para <bean:write name="reservaPagar" property="imovel.capacidade"/> pessoa(s)<br />
-				Link no Google Maps:<bean:write name="reservaPagar" property="imovel.linkGoogleMaps"/><br />
-				
-				Link no YouTube:<bean:write name="reservaPagar" property="imovel.linkYouTube"/><br />
-				<br />
-				</td>
-			</tr>
-			
-		</table>
-		</fieldset>
+
+		
+<div class="topo_edicao">
+	<div class="mapa_planta_reserva"><img src="/buzkaza/imagens_usuarios/${reservaPagar.imovel.primeirafoto}" width="140" height="104" /></div>
+
+	<div class="endereco_bairro">
+			<table width="100%" border="0" > 
+			  <tr valign="top">
+			    <td width="35%" valign="top">
+			    	<span class="tit_azul_detalhes">${reservaPagar.imovel.bairro}, ${reservaPagar.imovel.estado.codigo}</span><br />
+	    			<span class="txt_cinza_detalhes">${reservaPagar.imovel.logradouro}<br />id: ${reservaPagar.imovel.codigo}</span>
+			    </td>
+			    <td width="65%" valign="top">
+				    <span class="txt_cinza_detalhes">
+				      	Distância do centro: ${reservaPagar.imovel.distanciaCentro}<br />
+					    <a href='${reservaPagar.imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
+					    <a href='${reservaPagar.imovel.linkYouTube}' class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
+				   </span>			      
+			    </td>
+			  </tr>
+			</table>
+	</div>
+</div>
+<div id="sep_top_reserva"></div>
+
 		<fieldset>
 		<legend><b>Dados da Reserva</b></legend>
 		<table cellspacing="10" >
@@ -118,7 +122,7 @@
 			<td>
 				<form action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip" id="moip">
 					<input type="hidden" name="id_carteira" value="buzkaza">			
-					<input type="hidden" name="valor" value="<bean:write name="reservaPagar" property="valor" format="#"/>00">
+					<input type="hidden" name="valor" value="<bean:write name="reservaPagar" property="valor" format="###"/>00">
 					<input type="hidden" name="nome" value="${reservaPagar.locatario.nome}">
 					<input type="hidden" name="pagador_nome" value="${reservaPagar.locatario.nome}">
 					<input type="hidden" name="pagador_email" value="${reservaPagar.locatario.email}">
