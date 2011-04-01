@@ -104,15 +104,13 @@
 	
 	<div class="planta_big"><img src="/buzkaza/imagens_usuarios/${imovel.planta.caminho}"  width="341" height="271" /></div>
 	
-	<div class="chamada_mapa">Mapa</div>
+	
 	
 	<div class="mapa_big">	
 			<logic:notEmpty name="imovel" property="linkGoogleMaps">
+			<div class="chamada_mapa">Mapa</div>
 				${imovel.linkGoogleMaps }
 			</logic:notEmpty>
-			<logic:empty name="imovel" property="linkYouTube">
-				<div class="sem_mapa">Sem mapa</div>
-			</logic:empty>
 	</div>
 	
 	</div>
