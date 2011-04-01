@@ -87,8 +87,14 @@
 
 						    <span class="txt_cinza_detalhes">
 						      Distância do centro: ${imovel.distanciaCentro}<br />
-						      <a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
-						      <a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
+						      
+						      <logic:notEmpty name="imovel" property="linkGoogleMaps">
+						      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
+						      </logic:notEmpty>	
+						      <logic:notEmpty name="imovel" property="linkYouTube">
+						      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
+						      </logic:notEmpty>	
+						      
 						      </span>		
 						      
 						      
@@ -455,7 +461,7 @@
                     <td>&nbsp;</td>
                   </tr>
                   <tr>
-                    <td><span class="txt_caracteristicas">                        
+                    <td><span class="txt_caracteristicas">
 						<div class="seps">
 							<html:select property="diaDataInicial" title="dia" styleId="diaDataInicial" styleClass="MyriadProRegular,string" style="width:55px">
 								<html:option value="01">01</html:option>
@@ -508,7 +514,7 @@
 							</html:select>						
 				      	</div>
 				      	<div class="sepd">				      	
-					      	<html:select property="anoDataInicial" title="Ano" styleId="anoDataInicial" styleClass="MyriadProRegular,string">
+					      	<html:select property="anoDataInicial" title="Ano" styleId="anoDataInicial" styleClass="MyriadProRegular,string" style="width:60px;">
 					        	<html:option value="2011">2011</html:option>
 						        <html:option value="2012">2012</html:option>
 						        <html:option value="2013">2013</html:option>
@@ -571,7 +577,7 @@
 							</html:select>
 				      	</div>				      	
 				      	<div class="sepd">				      	
-					      	<html:select property="anoDataFinal" title="Ano" styleId="anoDataFinal" styleClass="MyriadProRegular,string">
+					      	<html:select property="anoDataFinal" title="Ano" styleId="anoDataFinal" styleClass="MyriadProRegular,string" style="width:60px;">
 					        	<html:option value="2011">2011</html:option>
 						        <html:option value="2012">2012</html:option>
 						        <html:option value="2013">2013</html:option>
@@ -584,12 +590,6 @@
                       
                   </tr>
                 </table>
-       
-       
-       
-       
-       
-        
  </div>       
         
 
