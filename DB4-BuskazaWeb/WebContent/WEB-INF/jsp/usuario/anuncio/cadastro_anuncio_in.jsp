@@ -98,7 +98,7 @@
 						      <logic:notEmpty name="imovel" property="linkYouTube">
 						      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
 						      </logic:notEmpty>
-						      <logic:empty name="imovel" property="linkGoogleMaps">
+						      <logic:empty name="imovel" property="linkYouTube">
 							   	Sem vídeo<br />
 							  </logic:empty>
 						      
