@@ -75,9 +75,28 @@
 			<div class="mapa_planta"><img src="/buzkaza/imagens_usuarios/${imovel.primeirafoto}" width="140" height="104" /></div>
 
 			<div class="endereco_bairro">
+					<table width="100%" border="0" > 
+					  <tr valign="top">
+					    <td width="35%" valign="top">
+					    	<span class="tit_azul_detalhes"><bean:write name="imovel" property="bairro"/>, ${imovel.estado.codigo} </span><br />
+			    			<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/><br />
+			    			id: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span>
+					    </td>
+					    <td width="65%" valign="top">
+						    <span class="txt_cinza_detalhes">
+						      Distância do centro: ${imovel.distanciaCentro}<br />
+						      <a href='${imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
+						      <a href='${imovel.linkYouTube}' class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
+						      </span>			      
+					    </td>
+					  </tr>
+					</table>
+			</div>
+			<!-- 
+			<div class="endereco_bairro">
 				<table width="100%" border="0">
 				  <tr>
-				    <td width="35%" valign="top"><span class="nome_rua">${imovel.bairro}</span></td>
+				    <td width="35%" valign="top"><span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.estado.codigo}</span></td>
 				    <td width="65%" rowspan="3"><span class="nome_rua">Distância do centro ${imovel.distanciaCentro}<br />
 				      Mapa Google Maps:${imovel.linkGoogleMaps}<br />
 				      Vídeo You Tube:${imovel.linkYouTube}</span></td>
@@ -90,6 +109,7 @@
 				  </tr>
 				</table>
 			</div>
+			 -->
 		</div>
 			<!-- MENSAGEM DE ERRO -->
 			    <font color="red">			  
