@@ -83,27 +83,84 @@
 </div>
 <div id="sep_top_reserva"></div>
 
-		<fieldset>
-		<legend><b>Dados da Reserva</b></legend>
-		<table cellspacing="10" >
-		<tr>
-			<td>
-			Valor:
-			<logic:equal name="reservaPagar" property="imovel.permiteOpcaoPagamento" value="true"> 
-			10%
-			</logic:equal>
-			<bean:write name="reservaPagar" property="valor" format="00.00"/><br>
-			de <bean:write name="reservaPagar" property="periodoInicial" format="dd/MM/yyyy"/>
-			a  <bean:write name="reservaPagar" property="periodoFinal" format="dd/MM/yyyy"/>
-			<br>
-			</td>
-		</tr>
-		</table>
+<div class="meio_calculo_reserva">
+
+	<div class="calculo_reserva">
+            <div class="calculo_cinza">
+                    <div class="calculo_total_info">Total da Reserva:</div>
+                    <div class="calculo_total_valor">R$ ${reservaPagar.valor}</div>
+            </div>
+            <div class="calculo_amarelo">
+                    <div class="calculo_total_info">Sinal 10%:</div>
+                    <div class="calculo_total_valor">R$ ${(reservaPagar.valor*10/100)}</div>
+            </div>
+            <div class="calculo_cinza">
+                    <div class="calculo_total_info">Saldo no Check in:</div>
+                    <div class="calculo_total_valor">R$ <bean:write name="reservaPagar" property="valor" format="00.00"/></div>
+            </div>
+    </div>
+    
+    <div class="data_reserva_info">
+    		<div class="box_data_reserva">
+                    <ul class="data_reserva_ul">
+                        <li class="data_texto1">Chegada</li>
+                        <li class="data_texto2"><bean:write name="reservaPagar" property="periodoInicial" format="dd"/></li>
+                        <li class="data_texto3"><bean:write name="reservaPagar" property="periodoInicial" format="MM"/>/<bean:write name="reservaPagar" property="periodoInicial" format="yyyy"/></li>
+                    </ul>
+            </div>
+            <div class="box_data_reserva">
+            		<ul class="data_reserva_ul">
+                        <li class="data_texto1">Partida</li>
+                        <li class="data_texto2"><bean:write name="reservaPagar" property="periodoFinal" format="dd"/></li>
+                        <li class="data_texto3"><bean:write name="reservaPagar" property="periodoFinal" format="MM"/>/<bean:write name="reservaPagar" property="periodoFinal" format="yyyy"/></li>
+                    </ul>
+            </div>
+            <div class="box_data_reserva">
+            		<ul class="data_reserva_ul">
+                        <li class="data_texto1">Total</li>
+                        <li class="data_texto2" id="data_total"></li>
+                        <li class="data_texto3">
+                        <script language="javascript">
+                        <!--
+                        		calcularData( '<bean:write name="reservaPagar" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="reservaPagar" property="periodoFinal" format="dd/MM/yyyy"/>');
+                     	-->
+                     	</script>
+                     	</li>
+                    </ul>
+            </div>
+    </div>
+</div>
+<div class="pagamento_info">
+
+<span class="titulo_azul">Pagamento</span><br /><br />
+
+<strong>Sinal(10%)</strong><br />
+O pagamento pagamento pagamento pagamento pagamento pagamento<br /><br />
+
+
+
+<strong>Saldo no check in</strong><br />
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+
+<br /><br />
+
+</div>
+<div id="sep_top_reserva"></div>
+
+<div class="form_efeutar_pagamento">
 		
-		</fieldset>
-		
-		<fieldset>
-		<legend><b>Forma de Pagamento</b></legend>
 		<table cellpadding="10" cellspacing="10">
 		<tr>
 			<td>
@@ -135,7 +192,8 @@
 			</td>
 		</tr>
 		</table>
-		</fieldset>
+</div>		
+		
 	</div>
 	</logic:present>
 	
@@ -144,7 +202,7 @@
 	</logic:notPresent>
 
 
-<br /><br /><br /><br />
+<br /><br />
 
 
 <!--FIM CADASTRO-->
