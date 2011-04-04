@@ -78,10 +78,14 @@
 <div id="cont_result_busca">
 
 
-<div id="left_busca_avancada">
-	<!-- INCLUDE DO FORM DE BUSCA -->
+<!-- INCLUDE DO FORM DE BUSCA -->
 	<%@include file="_form_busca_avancada_resultado.jsp" %>
 	<!-- ************************ -->
+	
+	
+
+<div id="left_busca_avancada">
+	
 
 <div id="right_busca_avancada">
 <div id="conteudo_result_busca">
@@ -116,7 +120,7 @@
 	                  <bean:write name="ims" property="key.bairro"/>,</span><br />
 	                  
                     <span class="txt_form">
-                    <bean:write name="ims" property="key.logradouro"/> 
+                    <bean:write name="ims" property="key.logradouro"/>,<bean:write name="ims" property="key.complemento"/>
                     <!-- 
                     <bean:write name="ims" property="key.numero"/> , 
 		    				<bean:write name="ims" property="key.bairro"/>, <bean:write name="ims" property="key.complemento"/>, 
