@@ -2,246 +2,112 @@
 <html:form method="post" styleId="imovelBuscaForm" action="/imovel.do?act=buscarImovel">
 <html:hidden property="anoDataFinalAnuncio" styleId="anoDataInicialAnuncio" />
 <html:hidden property="anoDataInicialAnuncio" styleId="anoDataInicialAnuncio"/>
-		<table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
-          <tr>
-            <td height="40" colspan="2" valign="bottom" class="tit_azul2">Redefinir Busca</td>
-          </tr>
-          <tr>
-            <td colspan="2">&nbsp;</td>
-          </tr>
-          <tr>
-            <td colspan="2" height="26"><span class="txt_form">Estado</span></td>
-          </tr>
-          <tr>
-            <td colspan="2"><span class="txt_form">   			 
-				<html:select property="imovelEntity.estado.codigo" styleClass="MyriadProRegular">
-					<html:option value="">Todos</html:option> 
-					<html:option value="AC">Acre</html:option>
-					<html:option value="AL">Alagoas</html:option>
-					<html:option value="AP">Amap&aacute;</html:option>
-					<html:option value="AM">Amazonas</html:option>
-					<html:option value="BA">Bahia</html:option>
-					<html:option value="CE">Cear&aacute;</html:option>
-					<html:option value="DF">Distrito Federal</html:option>
-					<html:option value="ES">Espir&iacute;to Santo</html:option>
-					<html:option value="GO">Goi&aacute;s</html:option> 
-					<html:option value="MA">Maranh&atilde;o</html:option> 
-					<html:option value="MT">Mato Grosso</html:option> 
-					<html:option value="MS">Mato Grosso do Sul</html:option> 
-					<html:option value="MG">Minas Gerais</html:option> 
-					<html:option value="PA">Par&aacute;</html:option> 
-					<html:option value="PB">Par&aacute;ba</html:option> 
-					<html:option value="PR">Paran&aacute;</html:option> 
-					<html:option value="PE">Pernambuco</html:option> 
-					<html:option value="PI">Piau&iacute;</html:option> 
-					<html:option value="RJ">Rio de Janeiro</html:option> 
-					<html:option value="RN">Rio Grande do Norte</html:option> 
-					<html:option value="RS">Rio Grande do Sul</html:option> 
-					<html:option value="RO">Rond&ocirc;nia</html:option> 
-					<html:option value="RR">Roraima</html:option> 
-					<html:option value="SC">Santa Catarina</html:option> 
-					<html:option value="SP">S&atilde;o Paulo</html:option> 
-					<html:option value="SE">Sergipe</html:option> 
-					<html:option value="TO">Tocantins</html:option>
-				</html:select>
-              </span></td>
-          </tr>
-          <tr>
-            <td colspan="2" height="26"><span class="txt_form">País</span></td>
-          </tr>
-          <tr>
-            <td colspan="2"><span class="txt_form">
-              <html:select property="pais" styleClass="MyriadProRegular">    		
-				<html:options collection="paises" property="codigo" labelProperty="nome"/>
-			</html:select>
-              </span></td>
-          </tr>
-          <tr>
-            <td colspan="2" height="26"><span class="txt_form">Cidade</span></td>
-          </tr>
-          <tr>
-            <td colspan="2"><span class="txt_form"><html:text property="municipio" styleClass="MyriadProRegular" size="160" />
-              </span></td>
-          </tr>
-          <tr>
-            <td height="26" colspan="2"><span class="txt_form">Chegada</span></td>
-          </tr>
-          <tr>
-            <td height="26" colspan="2"><span class="txt_form">
-            <html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular">                        
-			<html:option value="01">01</html:option>
-            <html:option value="02">02</html:option>
-            <html:option value="03">03</html:option>
-            <html:option value="04">04</html:option>
-            <html:option value="05">05</html:option>
-            <html:option value="06">06</html:option>
-            <html:option value="07">07</html:option>
-            <html:option value="08">08</html:option>
-            <html:option value="09">09</html:option>                            
-            <html:option value="10">10</html:option>
-            <html:option value="11">11</html:option>
-            <html:option value="12">12</html:option>
-            <html:option value="13">13</html:option>
-			<html:option value="14">14</html:option>
-            <html:option value="15">15</html:option>
-            <html:option value="16">16</html:option>
-            <html:option value="17">17</html:option>
-            <html:option value="18">18</html:option>
-            <html:option value="19">19</html:option>                            
-            <html:option value="20">20</html:option>
-            <html:option value="21">21</html:option>
-            <html:option value="22">22</html:option>
-            <html:option value="23">23</html:option>
-            <html:option value="24">24</html:option>
-            <html:option value="25">25</html:option>
-            <html:option value="26">26</html:option>
-            <html:option value="27">27</html:option>
-            <html:option value="28">28</html:option>
-            <html:option value="29">29</html:option>                            
-            <html:option value="30">30</html:option>
-            <html:option value="31">31</html:option>                            
-		</html:select>
-        
-        <div class="sepd">
-			<html:select property="mesDataInicialAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
-	            <html:option value="1">Janeiro</html:option>
-	            <html:option value="2">Fevereiro</html:option>
-	            <html:option value="3">Março</html:option>
-	            <html:option value="4">Abril</html:option>
-	            <html:option value="5">Maio</html:option>
-	            <html:option value="6">Junho</html:option>
-	            <html:option value="7">Julho</html:option>
-	            <html:option value="8">Agosto</html:option>
-	            <html:option value="9">Setembro</html:option>
-	            <html:option value="10">Outubro</html:option>
-				<html:option value="11">Novembro</html:option>
-				<html:option value="12">Dezembro</html:option>                  
-			</html:select>
-		</div>		
-              </span></td>
-          </tr>
-          <tr>
-            <td height="26" colspan="2"><span class="txt_form">Partida</span></td>
-          </tr>
-          <tr>
-            <td height="26" colspan="2"><span class="txt_form">
-            <html:select property="diaDataFinalAnuncio" title="dia" styleId="diaDataFinalAnuncio" styleClass="MyriadProRegular">                        
-			<html:option value="01">01</html:option>
-            <html:option value="02">02</html:option>
-            <html:option value="03">03</html:option>
-            <html:option value="04">04</html:option>
-            <html:option value="05">05</html:option>
-            <html:option value="06">06</html:option>
-            <html:option value="07">07</html:option>
-            <html:option value="08">08</html:option>
-            <html:option value="09">09</html:option>                            
-            <html:option value="10">10</html:option>
-            <html:option value="11">11</html:option>
-            <html:option value="12">12</html:option>
-            <html:option value="13">13</html:option>
-			<html:option value="14">14</html:option>
-            <html:option value="15">15</html:option>
-            <html:option value="16">16</html:option>
-            <html:option value="17">17</html:option>
-            <html:option value="18">18</html:option>
-            <html:option value="19">19</html:option>                            
-            <html:option value="20">20</html:option>
-            <html:option value="21">21</html:option>
-            <html:option value="22">22</html:option>
-            <html:option value="23">23</html:option>
-            <html:option value="24">24</html:option>
-            <html:option value="25">25</html:option>
-            <html:option value="26">26</html:option>
-            <html:option value="27">27</html:option>
-            <html:option value="28">28</html:option>
-            <html:option value="29">29</html:option>                            
-            <html:option value="30">30</html:option>
-            <html:option value="31">31</html:option>                            
-		</html:select>
-		<div class="sepd">
-			<html:select property="mesDataFinalAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
-	            <html:option value="1">Janeiro</html:option>
-	            <html:option value="2">Fevereiro</html:option>
-	            <html:option value="3">Março</html:option>
-	            <html:option value="4">Abril</html:option>
-	            <html:option value="5">Maio</html:option>
-	            <html:option value="6">Junho</html:option>
-	            <html:option value="7">Julho</html:option>
-	            <html:option value="8">Agosto</html:option>
-	            <html:option value="9">Setembro</html:option>
-	            <html:option value="10">Outubro</html:option>
-				<html:option value="11">Novembro</html:option>
-				<html:option value="12">Dezembro</html:option>                  
-			</html:select>
-      	</div></span></td>
-          </tr>
-          <tr>
-            <td width="50%" height="26"><span class="txt_form">Capacidade</span></td>
-            <td width="50%" height="26"><div class="sepd"><span class="txt_form">Quartos</span></div></td>
-          </tr>
-          <tr>
-            <td height="26"><span class="txt_form">
-              <html:select property="capacidade" styleClass="MyriadProRegular">
+
+
+
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+    
+    			
+
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>Cidade</td>
+                <td><span class="txt_form">Estado</span></td>
+                <td><span class="txt_form">País</span></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td><span class="txt_form"><html:text property="municipio" styleClass="MyriadProRegular" size="160" /></span></td>
+                <td><span class="txt_form">   			 
+                            <html:select property="imovelEntity.estado.codigo" styleClass="MyriadProRegular">
+								<html:option value="">Todos</html:option> 
+								<html:option value="AC">Acre</html:option>
+								<html:option value="AL">Alagoas</html:option>
+								<html:option value="AP">Amap&aacute;</html:option>
+								<html:option value="AM">Amazonas</html:option>
+								<html:option value="BA">Bahia</html:option>
+								<html:option value="CE">Cear&aacute;</html:option>
+								<html:option value="DF">Distrito Federal</html:option>
+								<html:option value="ES">Espir&iacute;to Santo</html:option>
+								<html:option value="GO">Goi&aacute;s</html:option> 
+								<html:option value="MA">Maranh&atilde;o</html:option> 
+								<html:option value="MT">Mato Grosso</html:option> 
+								<html:option value="MS">Mato Grosso do Sul</html:option> 
+								<html:option value="MG">Minas Gerais</html:option> 
+								<html:option value="PA">Par&aacute;</html:option> 
+								<html:option value="PB">Par&aacute;ba</html:option> 
+								<html:option value="PR">Paran&aacute;</html:option> 
+								<html:option value="PE">Pernambuco</html:option> 
+								<html:option value="PI">Piau&iacute;</html:option> 
+								<html:option value="RJ">Rio de Janeiro</html:option> 
+								<html:option value="RN">Rio Grande do Norte</html:option> 
+								<html:option value="RS">Rio Grande do Sul</html:option> 
+								<html:option value="RO">Rond&ocirc;nia</html:option> 
+								<html:option value="RR">Roraima</html:option> 
+								<html:option value="SC">Santa Catarina</html:option> 
+								<html:option value="SP">S&atilde;o Paulo</html:option> 
+								<html:option value="SE">Sergipe</html:option> 
+								<html:option value="TO">Tocantins</html:option>
+							</html:select>
+            
+                          </span></td>
+                <td><span class="txt_form">
+                     <html:select property="pais" styleClass="MyriadProRegular">    		
+						<html:options collection="paises" property="codigo" labelProperty="nome"/>
+					</html:select>
+            
+                          </span></td>
+              </tr>
+            </table>
+    
+    
+    
+    
+    </td>
+  </tr>
+  <tr>
+    <td>
+    
+    <table border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><span class="txt_form">Quartos</span></td>
+        <td><span class="txt_form">Área (m2)</span></td>
+        <td><span class="txt_form">Capacidade</span></td>        
+      </tr>
+      <tr>
+        <td>
+      		<html:select property="quartos" styleClass="MyriadProRegular">
                 <html:option value="">Todos</html:option> 
-                <html:option value="1">1 Pessoa</html:option>
-				<html:option value="2">2 Pessoas</html:option>
-				<html:option value="3">3 Pessoas</html:option>
-				<html:option value="4">4 Pessoas</html:option>
-				<html:option value="5">5 Pessoas</html:option>
-				<html:option value="6">6 Pessoas</html:option>
-				<html:option value="7">7 Pessoas</html:option>
-				<html:option value="8">8 Pessoas</html:option>	
-				<html:option value="9">9 Pessoas</html:option>					
-				<html:option value="10">10 Pessoas</html:option>
-				<html:option value="11">11 Pessoas</html:option>
-				<html:option value="12">12 Pessoas</html:option>
-				<html:option value="13">13 Pessoas</html:option>
-				<html:option value="14">14 Pessoas</html:option>
-				<html:option value="15">15 Pessoas</html:option>
-				<html:option value="16">16 Pessoas</html:option>
-				<html:option value="17">17 Pessoas</html:option>
-				<html:option value="18">18 Pessoas</html:option>
-				<html:option value="19">19 Pessoas</html:option>								
-				<html:option value="20">20 Pessoas</html:option>
-				<html:option value="21">21 Pessoas</html:option>
-				<html:option value="22">22 Pessoas</html:option>
-            </html:select></span></td>
-            <td height="26">
-            <div class="sepd"><span class="txt_form">
-					<html:select property="quartos" styleClass="MyriadProRegular">
-                        <html:option value="">Todos</html:option> 
-                        <html:option value="1">1 Quarto</html:option>
-						<html:option value="2">2 Quartos</html:option>
-						<html:option value="3">3 Quartos</html:option>
-						<html:option value="4">4 Quartos</html:option>
-						<html:option value="5">5 Quartos</html:option>
-						<html:option value="6">6 Quartos</html:option>
-						<html:option value="7">7 Quartos</html:option>
-						<html:option value="8">8 Quartos</html:option>		
-						<html:option value="9">9 Quartos</html:option>						
-						<html:option value="10">10 Quartos</html:option>
-						<!-- 
-						<html:option value="11">11 Quartos</html:option>
-						<html:option value="12">12 Quartos</html:option>
-						<html:option value="13">13 Quartos</html:option>
-						<html:option value="14">14 Quartos</html:option>
-						<html:option value="15">15 Quartos</html:option>
-						<html:option value="16">16 Quartos</html:option>
-						<html:option value="17">17 Quartos</html:option>				
-						<html:option value="18">18 Quartos</html:option>
-						<html:option value="19">19 Quartos</html:option>						
-						<html:option value="20">20 Quartos</html:option>
-						<html:option value="21">21 Quartos</html:option>
-						<html:option value="22">22 Quartos</html:option> -->
-                    </html:select>
-              </span></div></td>
-          </tr>
-          <tr>
-            <td height="26" colspan="2"><span class="txt_form">Área (m2)</span></td>
-          </tr>
-          <tr>
-            <td height="26" colspan="2"><span class="txt_form">
-					<html:select property="metragem" styleClass="MyriadProRegular">    	
+                <html:option value="1">1 Quarto</html:option>
+				<html:option value="2">2 Quartos</html:option>
+				<html:option value="3">3 Quartos</html:option>
+				<html:option value="4">4 Quartos</html:option>
+				<html:option value="5">5 Quartos</html:option>
+				<html:option value="6">6 Quartos</html:option>
+				<html:option value="7">7 Quartos</html:option>
+				<html:option value="8">8 Quartos</html:option>		
+				<html:option value="9">9 Quartos</html:option>						
+				<html:option value="10">10 Quartos</html:option>
+				<!-- 
+				<html:option value="11">11 Quartos</html:option>
+				<html:option value="12">12 Quartos</html:option>
+				<html:option value="13">13 Quartos</html:option>
+				<html:option value="14">14 Quartos</html:option>
+				<html:option value="15">15 Quartos</html:option>
+				<html:option value="16">16 Quartos</html:option>
+				<html:option value="17">17 Quartos</html:option>				
+				<html:option value="18">18 Quartos</html:option>
+				<html:option value="19">19 Quartos</html:option>						
+				<html:option value="20">20 Quartos</html:option>
+				<html:option value="21">21 Quartos</html:option>
+				<html:option value="22">22 Quartos</html:option> -->
+           </html:select>        
+        </td>
+        <td>
+        		<html:select property="metragem" styleClass="MyriadProRegular">    	
                         <html:option value="">Todos</html:option> 
                         <html:option value="20.0">20m</html:option>
 		                <html:option value="25.0">25m</html:option>
@@ -374,36 +240,185 @@
 		                
 		                <html:option value="600.0">600m</html:option>
                     </html:select>
-              </span></td>
-          </tr>          
+        
+        </td>
+        <td>        
+        	<html:select property="capacidade" styleClass="MyriadProRegular">
+                <html:option value="">Todos</html:option> 
+                <html:option value="1">1 Pessoa</html:option>
+				<html:option value="2">2 Pessoas</html:option>
+				<html:option value="3">3 Pessoas</html:option>
+				<html:option value="4">4 Pessoas</html:option>
+				<html:option value="5">5 Pessoas</html:option>
+				<html:option value="6">6 Pessoas</html:option>
+				<html:option value="7">7 Pessoas</html:option>
+				<html:option value="8">8 Pessoas</html:option>	
+				<html:option value="9">9 Pessoas</html:option>					
+				<html:option value="10">10 Pessoas</html:option>
+				<html:option value="11">11 Pessoas</html:option>
+				<html:option value="12">12 Pessoas</html:option>
+				<html:option value="13">13 Pessoas</html:option>
+				<html:option value="14">14 Pessoas</html:option>
+				<html:option value="15">15 Pessoas</html:option>
+				<html:option value="16">16 Pessoas</html:option>
+				<html:option value="17">17 Pessoas</html:option>
+				<html:option value="18">18 Pessoas</html:option>
+				<html:option value="19">19 Pessoas</html:option>								
+				<html:option value="20">20 Pessoas</html:option>
+				<html:option value="21">21 Pessoas</html:option>
+				<html:option value="22">22 Pessoas</html:option>
+            </html:select>
+        
+        </td>
+        
+      </tr>
+    </table>
+    
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
           
-    	<logic:notEmpty name="equipamentos">	
-	          <tr>
-	            <td height="26" colspan="2"><span class="txt_form">Equipamentos no imóvel</span></td>
-	          </tr>          
-		        <logic:iterate name="equipamentos" id="equipamento">
-				<tr>
-					<td colspan="2" class="MyriadProRegular">
-							<span class="txt_form">
-									<div class="equip_top1">										
-									    <html:multibox property="equipamentos" styleClass="MyriadProRegular"> 
-										<bean:write name="equipamento" property="codigo"/>  
-										</html:multibox>
-									</div>
-									<div class="equip_top3">
-										<bean:write name="equipamento" property="nome"/>
-									</div>
-							</span>
-					</td>
-				</tr>       
-			    </logic:iterate>
-    	</logic:notEmpty>    
           <tr>
-            <td colspan="2" class="busca_avancada"></td>
+            <td height="26" colspan="2"><span class="txt_form">Chegada</span></td>
           </tr>
           <tr>
-            <td colspan="2"><a href="#" onclick="submitForm();" border="0"><img src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></a></td>
+            <td height="26" colspan="2"><span class="txt_form">
+            <html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular"style="width:57px;">                        
+			<html:option value="01">01</html:option>
+            <html:option value="02">02</html:option>
+            <html:option value="03">03</html:option>
+            <html:option value="04">04</html:option>
+            <html:option value="05">05</html:option>
+            <html:option value="06">06</html:option>
+            <html:option value="07">07</html:option>
+            <html:option value="08">08</html:option>
+            <html:option value="09">09</html:option>                            
+            <html:option value="10">10</html:option>
+            <html:option value="11">11</html:option>
+            <html:option value="12">12</html:option>
+            <html:option value="13">13</html:option>
+			<html:option value="14">14</html:option>
+            <html:option value="15">15</html:option>
+            <html:option value="16">16</html:option>
+            <html:option value="17">17</html:option>
+            <html:option value="18">18</html:option>
+            <html:option value="19">19</html:option>                            
+            <html:option value="20">20</html:option>
+            <html:option value="21">21</html:option>
+            <html:option value="22">22</html:option>
+            <html:option value="23">23</html:option>
+            <html:option value="24">24</html:option>
+            <html:option value="25">25</html:option>
+            <html:option value="26">26</html:option>
+            <html:option value="27">27</html:option>
+            <html:option value="28">28</html:option>
+            <html:option value="29">29</html:option>                            
+            <html:option value="30">30</html:option>
+            <html:option value="31">31</html:option>                            
+		</html:select>
+        
+        <div class="sepd">
+			<html:select property="mesDataInicialAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
+	            <html:option value="1">Janeiro</html:option>
+	            <html:option value="2">Fevereiro</html:option>
+	            <html:option value="3">Março</html:option>
+	            <html:option value="4">Abril</html:option>
+	            <html:option value="5">Maio</html:option>
+	            <html:option value="6">Junho</html:option>
+	            <html:option value="7">Julho</html:option>
+	            <html:option value="8">Agosto</html:option>
+	            <html:option value="9">Setembro</html:option>
+	            <html:option value="10">Outubro</html:option>
+				<html:option value="11">Novembro</html:option>
+				<html:option value="12">Dezembro</html:option>                  
+			</html:select>
+		</div>		
+              </span></td>
+          </tr>
+          <tr>
+            <td height="26" colspan="2"><span class="txt_form">Partida</span></td>
+          </tr>
+          <tr>
+            <td height="26" colspan="2"><span class="txt_form">
+            <html:select property="diaDataFinalAnuncio" title="dia" styleId="diaDataFinalAnuncio" styleClass="MyriadProRegular" style="width:57px;">                        
+			<html:option value="01">01</html:option>
+            <html:option value="02">02</html:option>
+            <html:option value="03">03</html:option>
+            <html:option value="04">04</html:option>
+            <html:option value="05">05</html:option>
+            <html:option value="06">06</html:option>
+            <html:option value="07">07</html:option>
+            <html:option value="08">08</html:option>
+            <html:option value="09">09</html:option>                            
+            <html:option value="10">10</html:option>
+            <html:option value="11">11</html:option>
+            <html:option value="12">12</html:option>
+            <html:option value="13">13</html:option>
+			<html:option value="14">14</html:option>
+            <html:option value="15">15</html:option>
+            <html:option value="16">16</html:option>
+            <html:option value="17">17</html:option>
+            <html:option value="18">18</html:option>
+            <html:option value="19">19</html:option>                            
+            <html:option value="20">20</html:option>
+            <html:option value="21">21</html:option>
+            <html:option value="22">22</html:option>
+            <html:option value="23">23</html:option>
+            <html:option value="24">24</html:option>
+            <html:option value="25">25</html:option>
+            <html:option value="26">26</html:option>
+            <html:option value="27">27</html:option>
+            <html:option value="28">28</html:option>
+            <html:option value="29">29</html:option>                            
+            <html:option value="30">30</html:option>
+            <html:option value="31">31</html:option>                            
+		</html:select>
+		<div class="sepd">
+			<html:select property="mesDataFinalAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
+	            <html:option value="1">Janeiro</html:option>
+	            <html:option value="2">Fevereiro</html:option>
+	            <html:option value="3">Março</html:option>
+	            <html:option value="4">Abril</html:option>
+	            <html:option value="5">Maio</html:option>
+	            <html:option value="6">Junho</html:option>
+	            <html:option value="7">Julho</html:option>
+	            <html:option value="8">Agosto</html:option>
+	            <html:option value="9">Setembro</html:option>
+	            <html:option value="10">Outubro</html:option>
+				<html:option value="11">Novembro</html:option>
+				<html:option value="12">Dezembro</html:option>                  
+			</html:select>
+      	</div></span></td>
+          </tr>
+          </table>
+          
+          
+          
+          <table>
+          <tr>
+            <td><a href="#" onclick="submitForm();" border="0"><img src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></a></td>
           </tr>
         </table>
-</div>
+        
+        
+
 </html:form>
