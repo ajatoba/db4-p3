@@ -78,10 +78,15 @@
 <div id="cont_result_busca">
 
 
+
+
+
+
 <!-- INCLUDE DO FORM DE BUSCA -->
 	<%@include file="_form_busca_avancada_resultado.jsp" %>
 	<!-- ************************ -->
 	
+	<div id="sep_top_reserva"></div>
 	
 
 <div id="left_busca_avancada">
