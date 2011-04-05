@@ -121,7 +121,7 @@
     	<span class="txt_cinza_detalhes">
     	
     	<span class="tit_azul_detalhes"><bean:write name="imovel" property="bairro"/>, ${imovel.estado.codigo}</span><br />
-    	<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/></span><br /><br />
+    	<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/>, <bean:write name="imovel" property="complemento"/></span><br /><br />
     	 
     	<span class="txt_azul_peq_detalhes">ID</span>&nbsp;: <bean:write name="imovel" property="usuarioProprietario.codigo"/>-<bean:write name="imovel" property="codigo"/><br />
 		<span class="txt_azul_peq_detalhes">Distância do Centro</span>&nbsp;: <bean:write name="imovel" property="distanciaCentro"/><br />
