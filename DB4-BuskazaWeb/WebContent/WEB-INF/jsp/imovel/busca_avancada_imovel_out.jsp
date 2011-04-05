@@ -86,7 +86,7 @@
 	<%@include file="_form_busca_avancada_resultado.jsp" %>
 	<!-- ************************ -->
 	
-	<div id="sep_top_reserva"></div>
+	<div id="sep_top_busca_fina"></div>
 	
 
 <div id="left_busca_avancada">
