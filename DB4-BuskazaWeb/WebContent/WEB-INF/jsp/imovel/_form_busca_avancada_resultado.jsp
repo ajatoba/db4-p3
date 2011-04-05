@@ -341,7 +341,7 @@
 		</html:select>
         
         <div class="sepd2">
-			<html:select property="mesDataInicialAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular" style="width:90px;">                        
+			<html:select property="mesDataInicialAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular" style="width:88px;">                        
 	            <html:option value="1">Janeiro</html:option>
 	            <html:option value="2">Fevereiro</html:option>
 	            <html:option value="3">Março</html:option>
@@ -398,7 +398,7 @@
 		</html:select>
 		
 		<div class="sepd2">
-			<html:select property="mesDataFinalAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular" style="width:90px;">                        
+			<html:select property="mesDataFinalAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular" style="width:88px;">                        
 	            <html:option value="1">Janeiro</html:option>
 	            <html:option value="2">Fevereiro</html:option>
 	            <html:option value="3">Março</html:option>
