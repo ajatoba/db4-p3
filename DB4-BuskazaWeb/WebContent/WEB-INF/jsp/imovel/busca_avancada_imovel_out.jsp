@@ -117,7 +117,7 @@
 		    <td width="536">
 		    	
 		    	
-		    	<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="sep_table_busca">
+		    	<table border="0" align="center" cellpadding="0" cellspacing="0" class="sep_table_busca">
                 <tr>
                   <td align="left" valign="top">
                    <div id="busca_endereco">
@@ -177,20 +177,19 @@
                   
                   <div class="box_busca_valor">
                   		<div class="box_busca_valor_total">
-                          	<div class="box_busca_valor_total">
 	                          <div class="bustotal">
 	                              Valor total<br />
-	                                <bean:write name="qtdDias"/> Dia(s)<br />
-	                                R$ <bean:write name="ims" property="value"/>                        
+	                                <span class="valor_cinza"><bean:write name="qtdDias"/> Dia(s):<br /></span>
+	                                <span class="valor_azul">R$ <bean:write name="ims" property="value"/></span>                        
 	                          </div>
 	                       </div>
 	                       <div class="box_busca_valor_media">
-                            <div class="busmedia">               
-                                Média da diária:<br />
-                                R$ ${ims.value/qtdDias}
-                         </div>
-                      </div>
-                  </div>
+	                            <div class="busmedia">               
+	                                Média da Diária:<br />
+	                                <span class="valor_cinza">R$ ${ims.value/qtdDias}</span>
+	                       		</div>
+	                      	</div>
+	                  </div>
 		        
 		        </td>
                 </tr>
