@@ -119,18 +119,18 @@
 		    	
 		    	<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="sep_table_busca">
                 <tr>
-                  <td width="40%" align="left" valign="top"><span class="tit_azul2">
-	                  <!-- <bean:write name="ims" property="key.logradouro"/> -->
-	                  <bean:write name="ims" property="key.bairro"/>,</span><br />
-	                  
-                    <span class="txt_form">
-                    <bean:write name="ims" property="key.logradouro"/>, <bean:write name="ims" property="key.complemento"/>
-                    <!-- 
-                    <bean:write name="ims" property="key.numero"/> , 
-		    				<bean:write name="ims" property="key.bairro"/>, <bean:write name="ims" property="key.complemento"/>, 
-		    				<bean:write name="ims" property="key.municipio"/> - <bean:write name="ims" property="key.estado.codigo"/>
-		    		 -->
-		    	</span><br />
+                  <td align="left" valign="top">
+                   <div id="busca_endereco">
+		                  <span class="tit_azul2"><bean:write name="ims" property="key.bairro"/>, <bean:write name="ims" property="key.estado.codigo"/></span><br />
+			                  
+		                    <span class="txt_form">
+		                    <bean:write name="ims" property="key.logradouro"/>, <bean:write name="ims" property="key.complemento"/>
+		                    <!-- 
+		                    <bean:write name="ims" property="key.numero"/> , 
+				    				<bean:write name="ims" property="key.bairro"/>, <bean:write name="ims" property="key.complemento"/>, 
+				    				<bean:write name="ims" property="key.municipio"/> - <bean:write name="ims" property="key.estado.codigo"/>
+				    		 -->
+				    	</span><br />
                     <br />
                     
 					<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
@@ -153,16 +153,17 @@
 					
 					</html:form>
 		    	
-                    <br /></td>
-                    
-                  <td width="40%" align="left" valign="top">
-                  <span class="txt_form">
+                   </div>
+                   </td>                    
+                 <td align="left" valign="top">
+                 
+                 	<div class="txt_form" id="busca_info">
                   
-                  	<span class="txt_form_titulo">${ims.key.tipoImovel.nome}</span><br />
-	                  <span class="txt_form_titulo">Quartos:</span> <bean:write name="ims" property="key.quartos"/><br />
-	                  <span class="txt_form_titulo">Metragem:</span> <bean:write name="ims" property="key.metragem"/><br />
-	                  <span class="txt_form_titulo">Capacidade:</span> <bean:write name="ims" property="key.capacidade"/><br />
-	                  <span class="txt_form_titulo">Proprietário:</span> <bean:write name="ims" property="key.usuarioProprietario.nome"/><br />
+							<span class="txt_form_titulo">${ims.key.tipoImovel.nome}</span><br />
+							<span class="txt_form_titulo">Quartos:</span> <bean:write name="ims" property="key.quartos"/><br />
+							<span class="txt_form_titulo">Metragem:</span> <bean:write name="ims" property="key.metragem"/><br />
+							<span class="txt_form_titulo">Capacidade:</span> <bean:write name="ims" property="key.capacidade"/><br />
+							<span class="txt_form_titulo">Proprietário:</span> <bean:write name="ims" property="key.usuarioProprietario.nome"/><br />
 	                    
 	                    <logic:notEmpty name="ims" property="key.equipamentos">	
 					       <logic:iterate name="ims" property="key.equipamentos" id="equipamento">
@@ -170,11 +171,26 @@
 					       </logic:iterate>
 				    	</logic:notEmpty>  
                      
-		            </span>        
-                    </td>
-                  <td width="20%"  valign="top" class="txt_form">
-                  Total por <bean:write name="qtdDias"/> dia(s): R$ <bean:write name="ims" property="value"/><br>
-                  Valor médio da diária: ${ims.value/qtdDias}<br>
+		            </div>        
+                   </td>
+                  <td  valign="top" class="txt_form">
+                  
+                  <div class="box_busca_valor">
+                  		<div class="box_busca_valor_total">
+                          	<div class="box_busca_valor_total">
+	                          <div class="bustotal">
+	                              Valor total<br />
+	                                <bean:write name="qtdDias"/> Dia(s)<br />
+	                                R$ <bean:write name="ims" property="value"/>                        
+	                          </div>
+	                       </div>
+	                       <div class="box_busca_valor_media">
+                            <div class="busmedia">               
+                                Média da diária:<br />
+                                R$ ${ims.value/qtdDias}
+                         </div>
+                      </div>
+                  </div>
 		        
 		        </td>
                 </tr>
