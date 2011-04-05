@@ -81,13 +81,13 @@
 
 
 
-
+<div class="form_busca_meio">
 <!-- INCLUDE DO FORM DE BUSCA -->
 	<%@include file="_form_busca_avancada_resultado.jsp" %>
 	<!-- ************************ -->
 	
 	<div id="sep_top_busca_fina"></div>
-	
+</div>	
 
 <div id="left_busca_avancada">
 	
