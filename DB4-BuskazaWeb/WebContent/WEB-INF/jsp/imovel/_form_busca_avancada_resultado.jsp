@@ -10,8 +10,6 @@
 	<table border="0" cellspacing="0" cellpadding="0">
 	  <tr>
 	    <td>
-    
-    			
 
            <table border="0" cellspacing="0" cellpadding="0">
               <tr>
@@ -22,7 +20,7 @@
                 
               </tr>
               <tr>
-                <td><span class="txt_form"><html:text property="municipio" styleClass="MyriadProRegular" size="160" /></span></td>
+                <td><span class="txt_form"><html:text property="municipio" styleClass="MyriadProRegular" size="195" style="width:205px;" /></span></td>
                 <td><span class="txt_form">   			 
                             <html:select property="imovelEntity.estado.codigo" styleClass="MyriadProRegular">
 								<html:option value="">Todos</html:option> 
@@ -57,9 +55,17 @@
             
                           </span></td>
                 <td><span class="txt_form">
-                     <html:select property="pais" styleClass="MyriadProRegular">    		
+                
+                	<html:select property="pais" styleClass="MyriadProRegular">
+							<html:option value="1">Brasil</html:option>
+					</html:select>
+					
+					<!-- 
+					<html:select property="pais" styleClass="MyriadProRegular">    		
 						<html:options collection="paises" property="codigo" labelProperty="nome"/>
 					</html:select>
+					
+					 -->
             
                           </span></td>
               </tr>
@@ -73,11 +79,11 @@
   <tr>
     <td>
     
-    <table border="0" cellspacing="0" cellpadding="0">
+   <table border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td><span class="txt_form">Quartos</span></td>
-        <td><span class="txt_form">Área (m2)</span></td>
-        <td><span class="txt_form">Capacidade</span></td>        
+        <td class="tb_4"><span class="txt_form">Quartos</span></td>
+        <td class="tb_5"><span class="txt_form">Área (m2)</span></td>
+        <td class="tb_6"><span class="txt_form">Capacidade</span></td>        
       </tr>
       <tr>
         <td>
@@ -290,13 +296,7 @@
 
 
 
-
-
-
-
-
-
-		<table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
+		<table border="0" align="center" cellpadding="0" cellspacing="0">
           
           <tr>
             <td height="26" colspan="2"><span class="txt_form">Chegada</span></td>
@@ -413,7 +413,7 @@
           </table>
           
  </div>         
- <div class="form_busca_3">  <a href="#" onclick="submitForm();" border="0"><img src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></a>< </div>       
+ <div class="form_busca_3"><a href="#" onclick="submitForm();" border="0"><img src="/buzkaza/_img/btn_buscar_imovel.jpg" width="205" height="30" border="0"/></a></div>       
 
 </div>
 
