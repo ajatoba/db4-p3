@@ -188,7 +188,7 @@
 	                                Média da Diária:<br />
 	                                <span class="valor_cinza">R$ ${ims.value/qtdDias}
 	                                
-	                                
+	                                -
 	                                <bean:write name="ims" property="value/qtdDias" format="00.00"/>
 	                                </span>
 	                       		</div>
