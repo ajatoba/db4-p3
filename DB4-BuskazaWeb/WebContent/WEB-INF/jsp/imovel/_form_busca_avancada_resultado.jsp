@@ -5,6 +5,9 @@
 
 <div class="form_busca_geral">
 
+<div class="titulo_busca_avancada">Redefinir Busca</div>
+
+
 	<div class="form_busca_1">
 
 	<table border="0" cellspacing="0" cellpadding="0">
@@ -14,9 +17,9 @@
            <table border="0" cellspacing="0" cellpadding="0">
               <tr>
 
-                <td class="tb_1"><span class="txt_form">Cidade</span></td>
-                <td class="tb_2"><span class="txt_form">Estado</span></td>
-                <td class="tb_3"><span class="txt_form">País</span></td>
+                <td class="tb_1"><span class="txt_form">&nbsp; Cidade</span></td>
+                <td class="tb_2"><span class="txt_form">&nbsp; Estado</span></td>
+                <td class="tb_3"><span class="txt_form">&nbsp; País</span></td>
                 
               </tr>
               <tr>
@@ -81,9 +84,9 @@
     
    <table border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td class="tb_4"><span class="txt_form">Quartos</span></td>
-        <td class="tb_5"><span class="txt_form">Área (m2)</span></td>
-        <td class="tb_6"><span class="txt_form">Capacidade</span></td>        
+        <td class="tb_4"><span class="txt_form">&nbsp; Quartos</span></td>
+        <td class="tb_5"><span class="txt_form">&nbsp; Área (m2)</span></td>
+        <td class="tb_6"><span class="txt_form">&nbsp; Capacidade</span></td>        
       </tr>
       <tr>
         <td>
@@ -299,7 +302,7 @@
 		<table border="0" align="center" cellpadding="0" cellspacing="0">
           
           <tr>
-            <td height="26" colspan="2"><span class="txt_form">Chegada</span></td>
+            <td height="26" colspan="2"><span class="txt_form">&nbsp; Chegada</span></td>
           </tr>
           <tr>
             <td height="26" colspan="2"><span class="txt_form">
@@ -356,7 +359,7 @@
               </span></td>
           </tr>
           <tr>
-            <td height="26" colspan="2"><span class="txt_form">Partida</span></td>
+            <td height="26" colspan="2"><span class="txt_form">&nbsp; Partida</span></td>
           </tr>
           <tr>
             <td height="26" colspan="2"><span class="txt_form">
