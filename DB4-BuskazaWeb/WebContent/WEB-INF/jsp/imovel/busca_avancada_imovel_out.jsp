@@ -186,11 +186,7 @@
 	                       <div class="box_busca_valor_media">
 	                            <div class="busmedia">               
 	                                Média da Diária:<br />
-	                                <span class="valor_cinza">R$ ${ims.value/qtdDias}
-	                                
-	                                -
-	                                <bean:write name="ims" property="value/qtdDias" format="00.00"/>
-	                                </span>
+	                                <span class="valor_cinza">R$ ${ims.value/qtdDias}</span>
 	                       		</div>
 	                      	</div>
 	                  </div>
