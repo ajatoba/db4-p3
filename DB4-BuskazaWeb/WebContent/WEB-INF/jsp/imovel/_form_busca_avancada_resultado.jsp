@@ -306,7 +306,7 @@
           </tr>
           <tr>
             <td height="26" colspan="2"><span class="txt_form">
-            <html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular"style="width:45px;">                        
+            <html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular"style="width:55px;">                        
 			<html:option value="01">01</html:option>
             <html:option value="02">02</html:option>
             <html:option value="03">03</html:option>
@@ -341,7 +341,7 @@
 		</html:select>
         
         <div class="sepd2">
-			<html:select property="mesDataInicialAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
+			<html:select property="mesDataInicialAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular" style="width:90px;">                        
 	            <html:option value="1">Janeiro</html:option>
 	            <html:option value="2">Fevereiro</html:option>
 	            <html:option value="3">Março</html:option>
@@ -363,7 +363,7 @@
           </tr>
           <tr>
             <td height="26" colspan="2"><span class="txt_form">
-            <html:select property="diaDataFinalAnuncio" title="dia" styleId="diaDataFinalAnuncio" styleClass="MyriadProRegular" style="width:45px;">                        
+            <html:select property="diaDataFinalAnuncio" title="dia" styleId="diaDataFinalAnuncio" styleClass="MyriadProRegular" style="width:55px;">                        
 			<html:option value="01">01</html:option>
             <html:option value="02">02</html:option>
             <html:option value="03">03</html:option>
@@ -398,7 +398,7 @@
 		</html:select>
 		
 		<div class="sepd2">
-			<html:select property="mesDataFinalAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
+			<html:select property="mesDataFinalAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular" style="width:90px;">                        
 	            <html:option value="1">Janeiro</html:option>
 	            <html:option value="2">Fevereiro</html:option>
 	            <html:option value="3">Março</html:option>
