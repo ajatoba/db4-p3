@@ -124,7 +124,7 @@
 	                  <bean:write name="ims" property="key.bairro"/>,</span><br />
 	                  
                     <span class="txt_form">
-                    <bean:write name="ims" property="key.logradouro"/>,<bean:write name="ims" property="key.complemento"/>
+                    <bean:write name="ims" property="key.logradouro"/>, <bean:write name="ims" property="key.complemento"/>
                     <!-- 
                     <bean:write name="ims" property="key.numero"/> , 
 		    				<bean:write name="ims" property="key.bairro"/>, <bean:write name="ims" property="key.complemento"/>, 
@@ -158,6 +158,8 @@
                   <td width="40%" align="left" valign="top">
                   <span class="txt_form">
                   
+                  ${ims.tipoImovel.nome}<br />
+                  	  <span class="txt_form_titulo">Quartos:</span> <bean:write name="ims" property="key.quartos"/><br />
 	                  <span class="txt_form_titulo">Quartos:</span> <bean:write name="ims" property="key.quartos"/><br />
 	                  <span class="txt_form_titulo">Metragem:</span> <bean:write name="ims" property="key.metragem"/><br />
 	                  <span class="txt_form_titulo">Capacidade:</span> <bean:write name="ims" property="key.capacidade"/><br />
