@@ -111,10 +111,9 @@
 		
 		<div id="cont_ba">
 		
-		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="MyriadProRegular">
+		<table border="0" cellspacing="0" cellpadding="0" class="MyriadProRegular">
 		  <tr>
-		    <td valign="center" align="center" width="140"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="key.primeirafoto"/>" width="140" height="104" />
-		    </td>
+		    <td valign="center" align="center" width="150"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="key.primeirafoto"/>" width="140" height="104" /></td>
 		    <td width="536">
 		    	
 		    	
@@ -157,17 +156,20 @@
                     <br /></td>
                     
                   <td width="40%" align="left" valign="top">
-                  <span class="txt_form">Capacidade : <bean:write name="ims" property="key.capacidade"/><br />
-                    Quartos : <bean:write name="ims" property="key.quartos"/><br />
-                    Metragem : <bean:write name="ims" property="key.metragem"/><br />
-                    Proprietário: <bean:write name="ims" property="key.usuarioProprietario.nome"/></span><br />
-                    <logic:notEmpty name="ims" property="key.equipamentos">	
-				       <logic:iterate name="ims" property="key.equipamentos" id="equipamento">
-				       		<bean:write name="equipamento" property="nome"/>
-				       </logic:iterate>
-			    	</logic:notEmpty>  
+                  <span class="txt_form">
+                  
+	                  <span class="txt_form_titulo">Quartos:</span> <bean:write name="ims" property="key.quartos"/><br />
+	                  <span class="txt_form_titulo">Metragem:</span> <bean:write name="ims" property="key.metragem"/><br />
+	                  <span class="txt_form_titulo">Capacidade:</span> <bean:write name="ims" property="key.capacidade"/><br />
+	                  <span class="txt_form_titulo">Proprietário:</span> <bean:write name="ims" property="key.usuarioProprietario.nome"/><br />
+	                    
+	                    <logic:notEmpty name="ims" property="key.equipamentos">	
+					       <logic:iterate name="ims" property="key.equipamentos" id="equipamento">
+					       		<bean:write name="equipamento" property="nome"/>
+					       </logic:iterate>
+				    	</logic:notEmpty>  
                      
-		                    
+		            </span>        
                     </td>
                   <td width="20%"  valign="top" class="txt_form">
                   Total por <bean:write name="qtdDias"/> dia(s): R$ <bean:write name="ims" property="value"/><br>
