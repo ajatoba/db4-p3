@@ -158,6 +158,7 @@
                   <td width="40%" align="left" valign="top">
                   <span class="txt_form">
                   
+                  	<span class="txt_form_titulo">${ims.key.tipoImovel.nome}</span><br />
 	                  <span class="txt_form_titulo">Quartos:</span> <bean:write name="ims" property="key.quartos"/><br />
 	                  <span class="txt_form_titulo">Metragem:</span> <bean:write name="ims" property="key.metragem"/><br />
 	                  <span class="txt_form_titulo">Capacidade:</span> <bean:write name="ims" property="key.capacidade"/><br />
