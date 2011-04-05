@@ -56,7 +56,7 @@
                           </span></td>
                 <td><span class="txt_form">
                 
-                	<html:select property="pais" styleClass="MyriadProRegular">
+                	<html:select property="pais" styleClass="MyriadProRegular" style="width:85px;">
 							<html:option value="1">Brasil</html:option>
 					</html:select>
 					
@@ -87,7 +87,7 @@
       </tr>
       <tr>
         <td>
-      		<html:select property="quartos" styleClass="MyriadProRegular">
+      		<html:select property="quartos" styleClass="MyriadProRegular" style="width:85px;">
                 <html:option value="">Todos</html:option> 
                 <html:option value="1">1 Quarto</html:option>
 				<html:option value="2">2 Quartos</html:option>
@@ -115,7 +115,7 @@
            </html:select>        
         </td>
         <td>
-        		<html:select property="metragem" styleClass="MyriadProRegular">    	
+        		<html:select property="metragem" styleClass="MyriadProRegular" style="width:85px;">    	
                         <html:option value="">Todos</html:option> 
                         <html:option value="20.0">20m</html:option>
 		                <html:option value="25.0">25m</html:option>
@@ -251,7 +251,7 @@
         
         </td>
         <td>        
-        	<html:select property="capacidade" styleClass="MyriadProRegular">
+        	<html:select property="capacidade" styleClass="MyriadProRegular" style="width:105px;">
                 <html:option value="">Todos</html:option> 
                 <html:option value="1">1 Pessoa</html:option>
 				<html:option value="2">2 Pessoas</html:option>
