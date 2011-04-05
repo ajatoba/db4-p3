@@ -140,9 +140,12 @@
 					<html:hidden property="mesPeriodoFinal" value="${(periodoBuscado.periodoFinal.month)+1}"/>
 					<html:hidden property="anoPeriodoFinal" value="${(periodoBuscado.periodoFinal.year)+1900}"/>
 					
-					<input type="image" src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" /><br/>
-					
-					<a href="/DB4-BuskazaWeb/imovel.do?act=detalheImovel&ci=${ims.key.codigo}" class="link_ver_detalhe"><img src="/buzkaza/_img/btn_detalhes.png" width="64" height="24" border="0"/></a> 
+					<div class="botao_reserva1">
+						<a href="/DB4-BuskazaWeb/imovel.do?act=detalheImovel&ci=${ims.key.codigo}" class="link_ver_detalhe"><img src="/buzkaza/_img/btn_detalhes.png" width="64" height="24" border="0"/></a> 
+					</div>
+					<div class="botao_reserva2">
+						<input type="image" src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" /><br/>
+					</div>
 					
 					</html:form>
 		    	
