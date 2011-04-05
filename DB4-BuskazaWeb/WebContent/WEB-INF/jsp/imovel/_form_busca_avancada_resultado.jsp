@@ -3,21 +3,23 @@
 <html:hidden property="anoDataFinalAnuncio" styleId="anoDataInicialAnuncio" />
 <html:hidden property="anoDataInicialAnuncio" styleId="anoDataInicialAnuncio"/>
 
+<div class="form_busca_geral">
 
+	<div class="form_busca_1">
 
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
+	<table border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+	    <td>
     
     			
 
-            <table border="0" cellspacing="0" cellpadding="0">
+           <table border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td>Cidade</td>
-                <td><span class="txt_form">Estado</span></td>
-                <td><span class="txt_form">País</span></td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+
+                <td class="tb_1"><span class="txt_form">Cidade</span></td>
+                <td class="tb_2"><span class="txt_form">Estado</span></td>
+                <td class="tb_3"><span class="txt_form">País</span></td>
+                
               </tr>
               <tr>
                 <td><span class="txt_form"><html:text property="municipio" styleClass="MyriadProRegular" size="160" /></span></td>
@@ -280,12 +282,11 @@
 
 
 
+</div>
 
 
 
-
-
-
+<div class="form_busca_2">
 
 
 
@@ -411,14 +412,9 @@
           </tr>
           </table>
           
-          
-          
-          <table>
-          <tr>
-            <td><a href="#" onclick="submitForm();" border="0"><img src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></a></td>
-          </tr>
-        </table>
-        
-        
+ </div>         
+ <div class="form_busca_3">  <a href="#" onclick="submitForm();" border="0"><img src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></a>< </div>       
+
+</div>
 
 </html:form>
