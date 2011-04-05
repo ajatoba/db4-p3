@@ -89,7 +89,7 @@
 	<div id="sep_top_busca_fina"></div>
 </div>	
 
-<div id="left_busca_avancada">
+
 	
 
 <div id="right_busca_avancada">
