@@ -214,6 +214,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 		<span class="titulo_azul">Forma de Pagamento</span><br /><br />
 		<table cellpadding="10" cellspacing="10">
 		<tr>
+			<!--
 			<td>
 				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 					<input type="hidden" name="cmd" value="_cart">
@@ -226,11 +227,11 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 					<input type="hidden" name="add" value="1">				
 					<input type="image" src="http://www.paypal.com/en_US/i/btn/sc-but-01.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
 				</form>
-			</td>
+			</td>-->
 			<td>
 				<form action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip" id="moip">
 					<input type="hidden" name="id_carteira" value="buzkaza">			
-					<input type="hidden" name="valor" id="valor_reserva" value="<bean:write name="reservaPagar" property="valor" format="###"/>00">
+					<input type="hidden" name="valor" id="valor_reserva" value="<bean:write name="reservaPagar" property="valor*10/100" format="###"/>00">
 					<input type="hidden" name="nome" value="${reservaPagar.locatario.nome}">
 					<input type="hidden" name="pagador_nome" value="${reservaPagar.locatario.nome}">
 					<input type="hidden" name="pagador_email" value="${reservaPagar.locatario.email}">
