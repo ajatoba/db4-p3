@@ -180,7 +180,7 @@
 	                          <div class="bustotal">
 	                              Valor total<br />
 	                                <span class="valor_cinza"><bean:write name="qtdDias"/> Dia(s):<br /></span>
-	                                <span class="valor_azul">R$ <bean:write name="ims" property="value"/></span>                        
+	                                <span class="valor_azul">R$  ${( ims.value + ( ims.value  *10/100))} <bean:write name="ims" property="value"/></span>                        
 	                          </div>
 	                       </div>
 	                       <div class="box_busca_valor_media">
