@@ -122,10 +122,6 @@
 			                </div>    
 			                <div class="baixo"></div>
 						</div>
-					    
-					    
-					    
-					    
 				   </span>			      
 			    </td>
 			  </tr>
