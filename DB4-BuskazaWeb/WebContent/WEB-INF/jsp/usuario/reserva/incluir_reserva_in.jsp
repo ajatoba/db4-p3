@@ -166,11 +166,15 @@ $(document).ready(function()
             </div>
             <div class="calculo_amarelo">
                     <div class="calculo_total_info">Sinal 10%:</div>
-                    <div class="calculo_total_valor">R$ ${(reserva.valor*10/100)}</div>
+                    <div class="calculo_total_valor">R$ ${(reserva.valor*10/100)}
+                    
+                    
+                    
+                    </div>
             </div>
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Saldo no Check in:</div>
-                    <div class="calculo_total_valor">R$ <bean:write name="reserva" property="valor" format="00.00"/></div>
+                    <div class="calculo_total_valor">R$ ${( reserva.valor + ( reserva.valor *10/100))}</div>
             </div>
     </div>
     
