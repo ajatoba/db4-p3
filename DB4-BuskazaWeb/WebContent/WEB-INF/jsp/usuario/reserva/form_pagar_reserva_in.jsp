@@ -139,7 +139,7 @@
 	<div class="calculo_reserva">
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Total da Reserva:</div>
-                    <div class="calculo_total_valor">R$ <bean:write name="reservaPagar" property="valor" format="##.##"/></div>
+                    <div class="calculo_total_valor">R$ <bean:write name="reservaPagar" property="valor" format="00.00"/></div>
             </div>
             <div class="calculo_amarelo">
                     <div class="calculo_total_info">Sinal 10%:</div>
