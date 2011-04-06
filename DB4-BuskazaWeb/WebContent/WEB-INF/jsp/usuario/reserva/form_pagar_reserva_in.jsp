@@ -147,7 +147,7 @@
             </div>
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Saldo no Check in:</div>
-                    <div class="calculo_total_valor">R$ <bean:write name="reservaPagar" property="valor" format="00.00"/></div>
+                    <div class="calculo_total_valor">R$ ${( reserva.valor + ( reserva.valor *10/100))}</div>
             </div>
     </div>
     
