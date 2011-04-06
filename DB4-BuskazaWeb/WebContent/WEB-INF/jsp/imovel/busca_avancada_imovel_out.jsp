@@ -186,7 +186,7 @@
 	                       <div class="box_busca_valor_media">
 	                            <div class="busmedia">               
 	                                Média da Diária:<br />
-	                                <span class="valor_cinza">R$ ${ims.value/qtdDias}</span>
+	                                <span class="valor_cinza">R$ ${( ims.value + ( ims.value  *10/100)) /qtdDias}</span>
 	                       		</div>
 	                      	</div>
 	                  </div>
