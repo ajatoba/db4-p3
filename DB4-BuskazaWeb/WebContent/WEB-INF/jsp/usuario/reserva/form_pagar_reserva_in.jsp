@@ -184,8 +184,6 @@
 <strong>Sinal(10%)</strong><br />
 O pagamento pagamento pagamento pagamento pagamento pagamento<br /><br />
 
-
-
 <strong>Saldo no check in</strong><br />
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
@@ -200,9 +198,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 
-
 <br /><br />
-
 </div>
 <div id="sep_top_reserva"></div>
 
@@ -237,13 +233,11 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 					<a href="#" onclick="javascript:document.moip.submit();" border="0"><img src="http://www.moip.com.br/img/novas/moip.gif" border="0" width="70" height="35"/></a>
 					
 				</form>
-				
 				<script language="javascript">
                 <!--
                 	calcularvalorMoip( '${(reservaPagar.valor*10/100)}', '<bean:write name="reservaPagar" property="valor" format="00.00"/>');
                 -->
                 </script>
-				
 			</td>
 		</tr>
 		</table>
