@@ -78,10 +78,8 @@ R$ ${( res.valor + ( res.valor *10/100))}
 </div>
 <div class="status_reserva">
 
-
 			<logic:equal name="res" property="status" value="0">Em análise</logic:equal>
-			<logic:equal name="res" property="status" value="1">Aprovada<br /><a href="/DB4-BuskazaWeb/usuario/reserva.do?act=formPagarReserva&cr=${res.codigo}">Efetuar pagamento</a>
-			</logic:equal>
+			<logic:equal name="res" property="status" value="1">Aprovada<br /><a href="/DB4-BuskazaWeb/usuario/reserva.do?act=formPagarReserva&cr=${res.codigo}">Efetuar pagamento</a></logic:equal>
 			<logic:equal name="res" property="status" value="2">Negada</logic:equal>
 			<logic:equal name="res" property="status" value="3">Paga</logic:equal>
 
