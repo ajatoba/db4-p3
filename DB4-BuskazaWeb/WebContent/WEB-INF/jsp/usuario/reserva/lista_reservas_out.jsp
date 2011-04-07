@@ -74,7 +74,7 @@ R$ ${( res.valor + ( res.valor *10/100))}
 <div class="total_reserva">
 
 </div>
-<div class="visualizar_reserva">dasdas</div>
+<div class="visualizar_reserva"></div>
 </div>
 <div class="status_reserva">
 
