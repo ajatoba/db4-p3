@@ -24,7 +24,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
 	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
-	
+	<script type="text/javascript" src="/buzkaza/_js/function_calcular_data.js"></script>
 	
 </head>
 
@@ -56,8 +56,15 @@
 <div class="data_reserva_de">de<br /><bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/></div>
 <div class="data_reserva_ate">ate<br /><bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/></div>
 <div class="nota_reserva">
-Valor de 10 dia(s)&nbsp;
+Valor de <span id="data_total"></span> dia(s)&nbsp;
 R$ ${( res.valor + ( res.valor *10/100))} 
+
+
+<script language="javascript">
+<!--
+	calcularData( '<bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/>');
+-->
+</script>
 </div>
 <div class="total_reserva">
 
