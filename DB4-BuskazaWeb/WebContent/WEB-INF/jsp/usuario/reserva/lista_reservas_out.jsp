@@ -56,13 +56,13 @@
 <div class="data_reserva_de">de<br /><bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/></div>
 <div class="data_reserva_ate">ate<br /><bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/></div>
 <div class="nota_reserva">
-Valor de <bean:write name="qtdDias"/> <span id="data_total"></span> dia(s)&nbsp;
+Valor de <span id="data_total_${res.valor}_${res.imovel.codigo}"></span> dia(s)&nbsp;
 R$ ${( res.valor + ( res.valor *10/100))} 
 
 
 <script language="javascript">
 <!--
-	calcularData( '<bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/>');
+	calcularDataListaReserva( '<bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/>', 'data_total${res.imovel.codigo}');
 -->
 </script>
 </div>
