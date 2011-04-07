@@ -62,7 +62,7 @@ R$ ${( res.valor + ( res.valor *10/100))}
 
 <script language="javascript">
 <!--
-	calcularDataListaReserva( '<bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/>', 'data_total${res.imovel.codigo}');
+	calcularDataListaReserva( '<bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/>', 'data_total_${res.valor}_${res.imovel.codigo}');
 -->
 </script>
 </div>
