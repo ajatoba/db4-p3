@@ -341,11 +341,7 @@
 <div class="box_precos">
 
 	<logic:notEmpty name="imovel" property="anuncios">
-	   
-	 <logic:iterate id="an" name="imovel" property="anuncios">
-	 
-	 
-		<table border="0" cellspacing="1" cellpadding="0" width="545">
+	   <table border="0" cellspacing="1" cellpadding="0" width="545">
 		  <tr class="tabela_preco">
 		    <td class="preco_data">De</td>
 		    <td class="preco_data">Até</td>
@@ -356,6 +352,10 @@
 		    <td class="preco_valor_pacote">Pacote Fechado</td>
 		    <td class="preco_valor_nada">&nbsp;</td> 
 		  </tr>
+	 <logic:iterate id="an" name="imovel" property="anuncios">
+	 
+	 
+		
 	
 	   
 	   	<tr>
