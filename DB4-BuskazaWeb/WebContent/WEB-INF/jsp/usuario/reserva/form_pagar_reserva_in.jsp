@@ -235,7 +235,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 				</form>
 				<script language="javascript">
                 <!--
-                	calcularvalorMoip( '${(reservaPagar.valor*10/100)}', '<bean:write name="reservaPagar" property="valor" format="00.00"/>');
+                	calcularvalorMoip( '${((reservaPagar.valor*10/100)* 10)}', '<bean:write name="reservaPagar" property="valor" format="00.00"/>');
                 -->
                 </script>
 			</td>
