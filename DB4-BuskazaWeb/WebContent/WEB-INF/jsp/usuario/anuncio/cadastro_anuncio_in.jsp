@@ -340,21 +340,24 @@
 
 <div class="box_precos">
 
-	<table border="0" cellspacing="1" cellpadding="0" width="545">
-	  <tr class="tabela_preco">
-	    <td class="preco_data">De</td>
-	    <td class="preco_data">Até</td>
-	    <td class="preco_valor">Diária</td>
-	    <td class="preco_valor">Semana</td>
-	    <td class="preco_valor">Quizenal</td>
-	    <td class="preco_valor">Mensal</td>
-	    <td class="preco_valor_pacote">Pacote Fechado</td>
-	    <td class="preco_valor_nada">&nbsp;</td> 
-	  </tr>
-	
-	   <logic:notEmpty name="imovel" property="anuncios">
+	<logic:notEmpty name="imovel" property="anuncios">
 	   
-	   	<logic:iterate id="an" name="imovel" property="anuncios">
+	 <logic:iterate id="an" name="imovel" property="anuncios">
+	 
+	 
+		<table border="0" cellspacing="1" cellpadding="0" width="545">
+		  <tr class="tabela_preco">
+		    <td class="preco_data">De</td>
+		    <td class="preco_data">Até</td>
+		    <td class="preco_valor">Diária</td>
+		    <td class="preco_valor">Semana</td>
+		    <td class="preco_valor">Quizenal</td>
+		    <td class="preco_valor">Mensal</td>
+		    <td class="preco_valor_pacote">Pacote Fechado</td>
+		    <td class="preco_valor_nada">&nbsp;</td> 
+		  </tr>
+	
+	   
 	   	<tr>
 		    <td colspan="7" class="tabela_preco_data_info">
 		  		<!-- SETANDO A COR -->
@@ -390,7 +393,7 @@
 	   </table>
 	   </logic:notEmpty>
 	   <logic:empty name="imovel" property="anuncios">
-	   	Ainda não há disponibilidade cadastrada para esse imóvel
+	   <span class="txt_caracteristicas_desc">	Ainda não há disponibilidade cadastrada para esse imóvel</span>
 	   </logic:empty>
 	
 	</table>
