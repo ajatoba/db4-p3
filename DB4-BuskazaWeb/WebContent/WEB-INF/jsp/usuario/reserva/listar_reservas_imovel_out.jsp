@@ -47,7 +47,7 @@ function submitForm(status){
 	        	<bean:write name="rim" property="periodoFinal" format="dd/MM/yyyy"/>
 	        	
 				<br/>
-	        	Total R$ ${rim.valor }
+	        	Total R$ ${( rim.valor + ( rim.valor *10/100))}
 	        </td>
 	        <td>
 	        	<a href="#" onclick="javascript:submitForm(1);" border="0">CONFIRMAR</a>	        
