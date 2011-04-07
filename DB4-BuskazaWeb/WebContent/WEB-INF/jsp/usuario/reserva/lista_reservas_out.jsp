@@ -56,8 +56,8 @@
 <div class="data_reserva_de">de<br /><bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/></div>
 <div class="data_reserva_ate">ate<br /><bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/></div>
 <div class="nota_reserva">
-Valor de 12 dia(s)&nbsp;
-R$ <bean:write name="res" property="valor" format="00.00"/>
+Valor de 10 dia(s)&nbsp;
+R$ ${( res.valor + ( res.valor *10/100))} 
 </div>
 <div class="total_reserva">
 
