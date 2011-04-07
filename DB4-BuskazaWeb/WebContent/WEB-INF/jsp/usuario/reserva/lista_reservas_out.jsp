@@ -42,7 +42,7 @@
 <div id="cont_reserva">
 <div id="meio_reserva">
 <div class="top_reserva">
-	<div class="txt_minha_reserva"><span class="MyriadPro24">Minhas Reservas</span></div></div>
+	<div class="txt_meus_anuncios">Minhas Reservas</div>
 </div>
 <div id="sep_top_reserva"></div>
 
@@ -100,7 +100,7 @@ R$ ${( res.valor + ( res.valor *10/100))}
 	
 
 <logic:notPresent name="reservas">
-	Não há reservas
+<div id="box_listagem"><span class="txt_caracteristicas_desc">Não há reservas</span></div>
 </logic:notPresent>
 
 <!--FIM CADASTRO-->
