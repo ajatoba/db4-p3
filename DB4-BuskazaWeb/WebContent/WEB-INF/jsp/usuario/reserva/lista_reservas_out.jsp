@@ -52,7 +52,7 @@
 <div id="box_listagem">
 <div class="foto_reserva"><img src="/buzkaza/imagens_usuarios/<bean:write name="res" property="imovel.primeirafoto"/>" width="140" height="104" /></div>
 <div class="detalhe_reserva">
-<div class="bairro_reserva">Copacabana</div>
+<div class="bairro_reserva">${res.imovel.bairro}</div>
 <div class="data_reserva_de">de<br /><bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/></div>
 <div class="data_reserva_ate">ate<br /><bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/></div>
 <div class="nota_reserva">
