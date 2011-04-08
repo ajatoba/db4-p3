@@ -55,7 +55,7 @@
                                 <p class="buzkaza_onde"> Buzkaza - em casa, onde estiver.</p>
                                 <span class="buzkaza_onde2"> O Buzkaza é uma empresa do grupo Original Services, que atua
 								na área de varejo e turismo, a mais de dez anos, com sede no
-								Rio de Janeiro/RJ - Brasil.<br />
+								Rio de Janeiro/RJ - Brasil.
 								Formada por uma equipe multidisciplinar, o Buzkaza e seus parceiros tem por objetivo, oferecer a seus 
 								usuários uma experiência completa nos serviços de reservas de imóveis no Brasil, Américas e Europa.</span>                            
                             </div>
