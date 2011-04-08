@@ -114,7 +114,7 @@
         <div class="direitos">Buzkaza.com.br &copy; 2011</div>
                 
         <div class="privacidade">&nbsp;</div>	
-        <div class="afiliado">&#8226; <a class="thickbox link_rodape" href="/buzkaza/thickbox/imagem_planta.html?height=400&width=600">Seja um afiliado</a></div>	
+        <div class="afiliado">&#8226; <a class="thickbox link_rodape" href="/buzkaza/thickbox/iframe_afiliado.html?height=400&width=600">Seja um afiliado</a></div>	
         <div class="publicidade">&#8226; <a class="thickbox link_rodape" href="/buzkaza/thickbox/iframe_publicidade.html?height=400&width=600">Publicidade</a></div>	
         <div class="imprensa">&#8226; <a class="thickbox link_rodape" href="/buzkaza/thickbox/iframe_impresa.html?height=400&width=600">Imprensa</a></div>	
         <!-- <div class="privacidade">&#8226; Privacidade</div> -->	
