@@ -162,7 +162,7 @@ $(document).ready(function()
 	<div class="calculo_reserva">
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Total da Reserva:</div>
-                    <div class="calculo_total_valor">R$ ${reserva.valor}</div>
+                    <div class="calculo_total_valor">R$ ${( reserva.valor + ( reserva.valor *10/100))}</div>
             </div>
             <div class="calculo_amarelo">
                     <div class="calculo_total_info">Sinal 10%:</div>
@@ -174,7 +174,7 @@ $(document).ready(function()
             </div>
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Saldo no Check in:</div>
-                    <div class="calculo_total_valor">R$ ${( reserva.valor + ( reserva.valor *10/100))}</div>
+                    <div class="calculo_total_valor">R$ ${reserva.valor}</div>
             </div>
     </div>
     
