@@ -253,7 +253,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 	   	<html:radio property="valor" value="${reserva.valor}">Opção 2: </html:radio><br>
 	   	<bean:write name="reserva" property="valor" format="00.00"/>
 	-->	
-	<html:hidden property="valor" value="${(reserva.valor*10/100)}" />
+	<html:hidden property="valor" value="${reserva.valor}" />
 </logic:equal>
 <logic:notEqual name="reserva" property="imovel.permiteOpcaoPagamento" value="true">
 	<html:hidden property="valor" value="${reserva.valor}"/>
