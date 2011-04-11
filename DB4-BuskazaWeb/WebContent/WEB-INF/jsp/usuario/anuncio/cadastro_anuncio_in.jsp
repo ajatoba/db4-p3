@@ -19,14 +19,20 @@
 	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
 	
-	<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
+	<script type="text/javascript" src="/buzkaza/_js/jquery-1.4.2.min.js" ></script>
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 	<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>	
 	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
 	<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
 	<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js" ></script>
-
-
+	
+	<!-- calendário -->
+		<script type="text/javascript" src="/buzkaza/_js/date.js"></script>
+		<script type="text/javascript" src="/buzkaza/_js/jquery.datePicker.js"></script>
+		<script type="text/javascript" src="/buzkaza/_js/jquery.datePickerMultiMonth.js"></script>
+		<link rel="stylesheet" type="text/css" media="screen" href="/buzkaza/_css/datePicker.css">
+	<!-- calendário -->
+	
 	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
 	
@@ -52,6 +58,132 @@
 			
 		});
 		
+</script>
+
+<script type="text/javascript" charset="utf-8">
+$(function()
+{
+	Date.format = 'yyyy-mm-dd';
+	var $hiddenInput = '2011-04-01';
+	
+	
+	$('#multimonth').datePickerMultiMonth(
+		{
+			startDate: '2011-04-01',
+			numMonths: 9,
+			inline: true
+		}
+	).dpmmSetSelected(
+		$hiddenInput
+	).bind(
+		'dateSelected',
+		function(event, date, $td, status)
+		{
+			$hiddenInput.val(date.asString());
+		}
+	);				
+	
+	$('#showHiddenValue').bind(
+		'click',
+		function(e)
+		{
+			alert($hiddenInput.val());
+			return false;
+		}
+	);
+});
+
+
+$(function()
+{
+	$('#button').click(
+		function() {
+			calcularData();
+		}
+	)
+});
+
+function calcularData( from, to, bg){
+		
+	data0	= from;
+	data1	= from.split("/");
+	data2	= to.split("/");
+		
+	if( ( from != "") && ( to != "") )
+	{
+			switch ( data1[1] ) {
+				case "01": mes1="Jan"; break;
+				case "02": mes1="Feb"; break;
+				case "03": mes1="Mar";  break;
+				case "04": mes1="Apr";  break;
+				case "05": mes1="May";  break;
+				case "06": mes1="Jun";  break;
+				case "07": mes1="Jul";  break;
+				case "08": mes1="Aug";  break;
+				case "09": mes1="Sep";  break;
+				case "10": mes1="Oct";  break;
+				case "11": mes1="Nov";  break;
+				case "12": mes1="Dec";  break;
+				default: mes1:"Jan";  break;
+			}
+			
+			switch ( data2[1] ) {
+				case "01": mes2="Jan";  break;
+				case "02": mes2="Feb";  break;
+				case "03": mes2="Mar";  break;
+				case "04": mes2="Apr";  break;
+				case "05": mes2="May";  break;
+				case "06": mes2="Jun";  break;
+				case "07": mes2="Jul";  break;
+				case "08": mes2="Aug";  break;
+				case "09": mes2="Sep";  break;
+				case "10": mes2="Oct";  break;
+				case "11": mes2="Nov";  break;
+				case "12": mes2="Dec";  break;
+				default: mes2:"Jan";  break;
+			}
+			var firstDate = new Date(	data1[0]  + " " + mes1 + " " + data1[2] );
+			var secondDate = new Date(	data2[0]  + " " + mes2 + " " + data2[2] );
+			
+			var daysDiff = (secondDate.valueOf() - firstDate.valueOf());
+			daysDiff = Math.floor(Math.abs((((daysDiff  / 1000) / 60) / 60) / 24));
+			
+			
+			for(i=0; i <= daysDiff; i++){
+				
+				dia = somaDias( data0 , i);
+				
+				d = dia.split("/");
+				
+				$('.1aaaa'+ d[2]+"-"+ d[1] +"-"+ d[0]).css({backgroundColor: bg});
+			}
+	}
+	
+}
+
+
+function somaDias( txtData, DiasAdd )
+{
+	var DataFinal;
+	//var txtData = "01/01/2011";
+	//var DiasAdd = 366;
+	var d = new Date();
+			 
+	d.setTime(Date.parse(txtData.split("/").reverse().join("/"))+(86400000*(DiasAdd)))
+	
+	if(d.getDate() < 10)
+		DataFinal = "0"+d.getDate().toString();
+	else
+		DataFinal = d.getDate().toString();
+	
+	if((d.getMonth()+1) < 10)
+		DataFinal += "/0"+(d.getMonth()+1).toString()+"/"+d.getFullYear().toString();
+	else
+		DataFinal += "/"+((d.getMonth()+1).toString())+"/"+d.getFullYear().toString();
+	
+	return DataFinal;
+}
+
 </script>
 	
 </head>
@@ -405,8 +537,31 @@
 
 
 
+
+
+
+
 <html:form method="post" action="/usuario/anuncio?act=incluirAnuncio">
 <input type="hidden" name="ci" value="${imovel.codigo}">
+
+<div id="container">
+  <div id="multimonth"></div>
+  <div id="data_duracao"></div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+$(document).ready(function() {
+  listaDadas();
+});
+
+function listaDadas(){
+	<logic:iterate id="an" name="imovel" property="anuncios">
+		calcularData( '<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>', '#00D8FF');	
+	</logic:iterate>
+ }
+</script>
+
 
 <div id="formulario_edicao2">
 
