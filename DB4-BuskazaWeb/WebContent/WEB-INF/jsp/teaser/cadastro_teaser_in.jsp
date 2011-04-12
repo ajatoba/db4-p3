@@ -70,7 +70,7 @@
         });
 
 		$(function(){
-			$('#usuarioForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
+			$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
 			
 			//$("#cep").mask("99999-999");
 			$("#cpf").mask("999.999.999-99");			
@@ -170,6 +170,8 @@
     <!-- ****************** -->
 <!--FORM-->
 <div id="cont_cadastro">
+  
+  <div id="indice_cadastro"><img src="/buzkaza/_img/cadastro_usuario_aba_passo2.jpg" height="57" width="971" border="0"/></div>
   
   <div id="formulario_cadastro">
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul">Informações do proprietário</span></span><br />
