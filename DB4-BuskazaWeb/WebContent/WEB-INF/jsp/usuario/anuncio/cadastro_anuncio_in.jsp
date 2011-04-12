@@ -66,10 +66,16 @@ $(function()
 	Date.format = 'yyyy-mm-dd';
 	var $hiddenInput = '2011-04-01';
 	
+	fdata = new Date();
+	dia = fdata.getDate();
+	mes = fdata.getMonth()+1;
+	ano = fdata.getFullYear();
+	
+	var datainicio = ano+"-"+mes+"-"+dia;
 	
 	$('#multimonth').datePickerMultiMonth(
 		{
-			startDate: '2011-04-01',
+			startDate: datainicio,
 			numMonths: 9,
 			inline: true
 		}
@@ -81,7 +87,7 @@ $(function()
 		{
 			$hiddenInput.val(date.asString());
 		}
-	);				
+	);			
 	
 	$('#showHiddenValue').bind(
 		'click',
