@@ -47,7 +47,7 @@
         
 			
 			$("#cadastrar_user").click( function() {
-				var form = 	document.usuarioForm;
+				var form = 	document.getElementById("usuarioFormCad");
 				
 				if(checkForm(form)){					
 					form.submit();
@@ -179,7 +179,7 @@
     </p>
 
     
-	<html:form method="post" styleId="usuarioForm" action="/usuario?act=incluirUsuario">
+	<html:form method="post" styleId="usuarioFormCad" action="/usuario?act=incluirUsuario">
       <div>
         <table width="95%" border="0" cellpadding="0" cellspacing="0" align="center">
           <tr>
@@ -386,9 +386,14 @@
                             <html:option value="TO">Tocantins</html:option> 
           		</html:select>  
           	</td>
-            <td>            
+            <td>
+            	<!--             
             	<html:select property="pais" styleClass="number,MyriadProRegular" title="Pais">  
 					<html:options collection="paises" property="codigo" labelProperty="nome"/>
+				</html:select>
+				-->
+				<html:select property="pais" styleClass="MyriadProRegular" style="width:85px;">
+							<html:option value="1">Brasil</html:option>
 				</html:select>
             </td>
             
