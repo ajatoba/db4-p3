@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/busca.css"/>	
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css"/>
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css"/>
+<link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
 		
 <script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>
 <script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
