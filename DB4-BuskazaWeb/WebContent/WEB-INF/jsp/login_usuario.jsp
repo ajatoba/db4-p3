@@ -41,12 +41,6 @@
 <div>
     <font color="red">
   
-		
-				
-		
-			
-				
-		
   	</font>
 </div>
   	<br />
@@ -60,7 +54,7 @@
 
   	<td rowspan="5" valign="top">
     <div class="logo_login"></div>
-    <a href="/DB4-BuskazaWeb/usuario.do?act=formIncluirUsuario" border="0"><div class="cad_login"></div></a>
+    <a href="/passo_1_usuario.html" border="0"><div class="cad_login"></div></a>
     </td>
     <td class="MyriadProRegular">Login (E-Mail)</td>
   </tr>
