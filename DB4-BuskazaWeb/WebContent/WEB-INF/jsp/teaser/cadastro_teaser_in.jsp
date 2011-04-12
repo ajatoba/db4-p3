@@ -169,7 +169,7 @@
   	</font>
     <!-- ****************** -->
 <!--FORM-->
-<div id="cont_cadastro">
+
   
   <div id="indice_cadastro"><img src="/buzkaza/_img/cadastro_usuario_aba_passo2.jpg" height="57" width="971" border="0"/></div>
   
@@ -444,7 +444,7 @@
 </div>
 </div>
 <!--FIM BUSCA-->
-</div></div>
+</div>
 
 <jsp:include page="../usuario/rodape.jsp"/>
 </body>
