@@ -44,12 +44,11 @@
 <jsp:include page="../topo.jsp"/>
 
 
-<div id="cadastro">
-<div id="top_cad">
-<a href="http://www.buzkaza.com.br/teaser/"><div id="link_back"></div></a>
-</div>
-<div id="meio_cad">
+<div id="cont_reserva">
 <!--FORM-->
+
+<div id="indice_cadastro"><img src="/buzkaza/_img/cadastro_imovel_aba_passo3.jpg" height="57" width="971" border="0"/></div>
+
 <div id="msg_finaliza_cadastro">
   <div class="ok"></div>
   <div class="msg_confirmado">
