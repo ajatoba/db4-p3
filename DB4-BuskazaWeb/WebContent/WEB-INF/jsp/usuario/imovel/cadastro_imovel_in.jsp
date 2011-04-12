@@ -13,7 +13,7 @@
 	
 	<link href="/buzkaza/_css/cadastro_imovel.css" rel="stylesheet" type="text/css" />
 	
-	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
+	<!-- <link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" /> -->
 
 	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
@@ -35,7 +35,7 @@
 		var mensagemAlert="";
 	
 		$(function(){
-			$('#imovelForm').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
+			$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
 		});
 
 		 $(document).ready( function() {		        
@@ -149,6 +149,8 @@
 <html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=incluirImovel" enctype="multipart/form-data">
 
 <div id="cont_cadastro" style="height:auto;">
+
+ <div id="indice_cadastro"><img src="/buzkaza/_img/cadastro_imovel_aba_passo2.jpg" height="57" width="971" border="0"/></div>
  
   <div id="formulario_cadastro_imovel" style="margin-top:10px;">
   
