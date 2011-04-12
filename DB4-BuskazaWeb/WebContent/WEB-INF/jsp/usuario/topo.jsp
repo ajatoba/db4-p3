@@ -108,7 +108,7 @@
 	    </li>
 	  </ul>
 	</div>
-	<div class="btn_cadastre_se"><a href="/DB4-BuskazaWeb/usuario.do?act=formIncluirUsuario"><img src="/buzkaza/_img/btn_cadastre_se.jpg" height="35" width="139" border="0"/></a></div>
+	<div class="btn_cadastre_se"><a href="/passo_1_usuario.html"><img src="/buzkaza/_img/btn_cadastre_se.jpg" height="35" width="139" border="0"/></a></div>
     
     <% } %>
     
