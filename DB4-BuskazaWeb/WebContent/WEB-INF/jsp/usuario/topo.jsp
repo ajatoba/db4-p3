@@ -28,14 +28,16 @@
     </div>
     <div class="bottom_menu">
       <a href="/DB4-BuskazaWeb/imovel.do?act=formBuscarImovel"><div class="btn_alugar">alugar imóvel</div></a>
-      <a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel"><div class="btn_anunciar">anunciar imóvel</div></a>
+      <a href="/passo_1_imovel.html"><div class="btn_anunciar">anunciar imóvel</div></a>
       <a href="http://www.buzkaza.com.br/blog/" target="_black"><div class="btn_blog">blogs</div></a>
       
-      <div class="btn_logado">
       <%if (session.getAttribute("usuario") != null) {%>
+      
+      <div class="btn_logado">
+      
       Olá,       
       <%=((Usuario)session.getAttribute("usuario")).getNome() %>
-      <%} %>
+      
       </div>
       
 		<div class="btn_funcoes_login">
@@ -60,6 +62,56 @@
 		           </li>
 		       </ul>
 		   </div>   
+    
+    <%}else{ %>
+    
+    <div class="btn_login">
+
+		<ul id="menu_dropdown2" class="menubar" style="position:absolute;">
+	    <li id="submenu" class="submenu2">
+	      <ol class="curso_seleci_login">
+	        <li id="drop_down_curso" class="seleci_login">&nbsp;</li>
+	      </ol>
+	      <ul class="menu" id="menu2">
+	        <li id="menu_sepa"></li>
+	        <li>
+	              <form name="usuarioForm" id="usuarioForm" method="post" action="/DB4-BuskazaWeb/usuario.do?act=autenticarUsuario">
+	                <div class="menu_sep_form">Login(Email)</div>
+	                <div class="menu_sep_form">
+	                  <input type="text" name="usuarioEntity.email" size="211" value="" title="Email" style="width:221px;"/>
+	                </div>
+	                <div class="menu_sep_form">
+	                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	                    <tr>
+	                      <td width="30%">Senha</td>
+	                      <td width="70%" align="right">Esqueceu sua senha?</td>
+	                    </tr>
+	                  </table>
+	                </div>
+	                <div class="menu_sep_form">
+	                  <input type="password" name="usuarioEntity.senha" size="211" value="" title="Senha" style="width:221px;"/>
+	                </div>
+	                <div class="menu_sep_form">
+	                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	                    <tr>
+	                      <td width="70%"><div style="float:left"><input type="checkbox" name="lembrar"/></div> <div style="margin-top:7px; float:left">Lembrar login/senha</div></td>
+	                      <td width="30%" align="right"><input type="image" src="/buzkaza/_img/menu_down/btn_login_entrar.png" name="button" id="button" value="Submit" /></td>
+	                    </tr>
+	                  </table>
+	                  
+	                </div>
+	              </form>
+	        </li>
+	      </ul>
+	      <div id="menu_sep_login_baixo">&nbsp;</div>
+	      <script type="text/javascript">  horizontal1(); </script> 
+	    </li>
+	  </ul>
+	</div>
+	<div class="btn_cadastre_se"><a href="/DB4-BuskazaWeb/usuario.do?act=formIncluirUsuario"><img src="/buzkaza/_img/btn_cadastre_se.jpg" height="35" width="139" border="0"/></a></div>
+    
+    <% } %>
+    
     
 </div>
     </div>
