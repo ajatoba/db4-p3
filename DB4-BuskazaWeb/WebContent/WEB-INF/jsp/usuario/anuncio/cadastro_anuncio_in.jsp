@@ -11,8 +11,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 	<link href="/buzkaza/_css/detalhe_imovel.css" rel="stylesheet" type="text/css"/>
 	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
@@ -27,9 +28,9 @@
 	<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js" ></script>
 	
 	<!-- calendário -->
-		<script type="text/javascript" src="/buzkaza/_js/date.js"></script>
-		<script type="text/javascript" src="/buzkaza/_js/jquery.datePicker.js"></script>
-		<script type="text/javascript" src="/buzkaza/_js/jquery.datePickerMultiMonth.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/buzkaza/_js/date.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/buzkaza/_js/jquery.datePicker.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/buzkaza/_js/jquery.datePickerMultiMonth.js"></script>
 		<link rel="stylesheet" type="text/css" media="screen" href="/buzkaza/_css/datePicker.css">
 	<!-- calendário -->
 	
