@@ -33,7 +33,7 @@
 
 <div id="cont_reserva">
 
-<div id="indice_cadastro"><img src="/buzkaza/_img/cadastro_usuario_aba_passo2.jpg" height="57" width="971" border="0"/></div>
+<div id="indice_cadastro"><img src="/buzkaza/_img/cadastro_usuario_aba_passo3.jpg" height="57" width="971" border="0"/></div>
 
 <div id="meio_cad">
 <!--FORM-->
