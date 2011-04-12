@@ -200,13 +200,55 @@
           </tr>
           <tr>
             <td><html:text property="municipio" styleId="cidade" size="160"/></td>
-            <td><html:select property="imovelEntity.estado.codigo" styleId="estado">
-            	<html:options collection="estados" property="codigo" labelProperty="nome"/>
-							
-        	</html:select></td>
-            <td><html:select property="pais" styleId="pais">
+            <td>
+            
+            <!-- <html:select property="imovelEntity.estado.codigo" styleId="estado">
+            	<html:options collection="estados" property="codigo" labelProperty="nome"/>							
+        	</html:select> --> 
+        	
+        	<html:select property="imovelEntity.estado.codigo" styleId="estado" styleClass="MyriadProRegular">
+				<html:option value="AC">Acre</html:option>
+				<html:option value="AL">Alagoas</html:option>
+				<html:option value="AP">Amap&aacute;</html:option>
+				<html:option value="AM">Amazonas</html:option>
+				<html:option value="BA">Bahia</html:option>
+				<html:option value="CE">Cear&aacute;</html:option>
+				<html:option value="DF">Distrito Federal</html:option>
+				<html:option value="ES">Espir&iacute;to Santo</html:option>
+				<html:option value="GO">Goi&aacute;s</html:option> 
+				<html:option value="MA">Maranh&atilde;o</html:option> 
+				<html:option value="MT">Mato Grosso</html:option> 
+				<html:option value="MS">Mato Grosso do Sul</html:option> 
+				<html:option value="MG">Minas Gerais</html:option> 
+				<html:option value="PA">Par&aacute;</html:option> 
+				<html:option value="PB">Par&aacute;ba</html:option> 
+				<html:option value="PR">Paran&aacute;</html:option> 
+				<html:option value="PE">Pernambuco</html:option> 
+				<html:option value="PI">Piau&iacute;</html:option> 
+				<html:option value="RJ">Rio de Janeiro</html:option> 
+				<html:option value="RN">Rio Grande do Norte</html:option> 
+				<html:option value="RS">Rio Grande do Sul</html:option> 
+				<html:option value="RO">Rond&ocirc;nia</html:option> 
+				<html:option value="RR">Roraima</html:option> 
+				<html:option value="SC">Santa Catarina</html:option> 
+				<html:option value="SP">S&atilde;o Paulo</html:option> 
+				<html:option value="SE">Sergipe</html:option> 
+				<html:option value="TO">Tocantins</html:option>
+			</html:select>
+        	
+        	
+        	</td>
+            <td>
+            <!-- 
+            <html:select property="pais" styleId="pais">
 				<html:options collection="paises" property="codigo" labelProperty="nome"/>
-			</html:select></td>
+			</html:select>			
+			 -->
+			 <html:select property="pais" styleId="pais" style="width:85px;">
+					<html:option value="1">Brasil</html:option>
+			</html:select>
+			
+			</td>
 			
           </tr>
         </table></td>
