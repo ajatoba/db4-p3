@@ -23,8 +23,6 @@
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 	<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>	
 	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
-	<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
-	<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js" ></script>
 	
 	<!-- calendário -->
 		<script type="text/javascript" charset="utf-8" src="/buzkaza/_js/date.js"></script>
@@ -246,8 +244,18 @@ function somaDias( txtData, DiasAdd )
 	<div class="mapa_big">	
 			<logic:notEmpty name="imovel" property="linkGoogleMaps">
 			<div class="chamada_mapa">Mapa</div>
-				${imovel.linkGoogleMaps }
+				<div class="divmapadetalhe">
+					${imovel.linkGoogleMaps }
+					<script language="javascript">
+						$(document).ready(function(){
+							$('.divmapadetalhe iframe').css({'width': '350px', 'height': '300px' });
+						});
+					</script>
+					<br /><br /><br /><br /><br /><br />
+				</div>  
 			</logic:notEmpty>
+			
+			
 	</div>
 	
 	</div>
@@ -258,7 +266,7 @@ function somaDias( txtData, DiasAdd )
     	<span class="txt_cinza_detalhes">
     	
     	<span class="tit_azul_detalhes"><bean:write name="imovel" property="bairro"/>, ${imovel.estado.codigo}</span><br />
-    	<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/>, <bean:write name="imovel" property="complemento"/></span><br /><br />
+    	<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/>, <bean:write name="imovel" property="complemento"/> <br />Numero: ${imovel.numero} - CEP: ${imovel.cep}</span><br /><br />
     	 
     	<span class="txt_azul_peq_detalhes">ID</span>&nbsp;: <bean:write name="imovel" property="usuarioProprietario.codigo"/>-<bean:write name="imovel" property="codigo"/><br />
 		<span class="txt_azul_peq_detalhes">Distância do Centro</span>&nbsp;: <bean:write name="imovel" property="distanciaCentro"/><br />
@@ -267,13 +275,33 @@ function somaDias( txtData, DiasAdd )
 		<span class="txt_azul_peq_detalhes">Metragem</span>&nbsp;: ${imovel.metragem}m<sup>2</sup><br />
 		<span class="txt_azul_peq_detalhes">Capacidade</span>&nbsp;: ${imovel.capacidade} pessoas<br />
 		<span class="txt_azul_peq_detalhes">Camas</span>&nbsp;: ${imovel.camas}<br />
-		<span class="txt_azul_peq_detalhes">Vídeo</span>&nbsp;: <bean:write name="imovel" property="linkYouTube"/><br />
+		
+		<logic:notEmpty name="imovel" property="linkYouTube">
+			<span class="txt_azul_peq_detalhes">Vídeo</span>&nbsp;: <a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">YouTube</a><br />
+		</logic:notEmpty>
+		
+		<div id="thickbox_youtube" style="visibility:hidden; display:none;">            
+           	<div class="topo">
+                   <div id="titulo">Vídeo</div>
+               </div>
+			<div class="meio">            
+           		<div class="divmapa">
+           				${imovel.linkYouTube}
+                </div>
+                <script language="javascript">
+					$(document).ready(function(){
+						$('.divmapa iframe').css({'width': '560px', 'height': '310px' });
+					});
+				</script>                                       
+               </div>    
+               <div class="baixo"></div>
+		</div>
 		<span class="txt_azul_peq_detalhes">Horário CheckIn Entrada</span>&nbsp;: <bean:write name="imovel" property="checkInEntrada" format="HH:mm"/><br />		
 		<span class="txt_azul_peq_detalhes">Horário CheckIn Saída</span>&nbsp;: <bean:write name="imovel" property="checkInSaida" format="HH:mm"/><br />
 		<span class="txt_azul_peq_detalhes">Horário CheckOut Entrada</span>&nbsp;: <bean:write name="imovel" property="checkOutEntrada" format="HH:mm"/><br />
 		<span class="txt_azul_peq_detalhes">Horário CheckOut Saída</span>&nbsp;: <bean:write name="imovel" property="checkOutSaida" format="HH:mm"/><br />
 		
-		</span>
+		
 		
 	  	<logic:notEmpty name="imovel" property="equipamentos">
 	  		<span class="tit_azul_detalhes">Equipamentos</span><br/>
@@ -291,8 +319,9 @@ function somaDias( txtData, DiasAdd )
 	  	
 	  	<br><br>
 	  	
-	  	Período Selecionado: ${diaInicial}/${mesInicial}/${anoInicial} a ${diaFinal}/${mesFinal}/${anoFinal}<br>
-	  	Valor: ${valor}
+	  	<span class="txt_azul_peq_detalhes">Período Selecionado</span>&nbsp;: ${diaInicial}/${mesInicial}/${anoInicial} a ${diaFinal}/${mesFinal}/${anoFinal}<br />
+	  	<span class="txt_azul_peq_detalhes">Valor</span>&nbsp;: ${( valor + ( valor *10/100))} <br>
+	  	
 	  	<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
 				<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
 				<html:hidden property="codigoImovel" value="${imovel.codigo}"/> 
@@ -309,9 +338,9 @@ function somaDias( txtData, DiasAdd )
 				</div>
 					
 		</html:form>
-	  	
+	  	</span>
 	  	<br><br>
-	  	<div id="container">
+<div id="container">
   <div id="multimonth"></div>
   <div id="data_duracao"></div>
 </div>
@@ -337,18 +366,14 @@ function listaDadas(){
 	</logic:iterate>
 
 	<logic:iterate id="bl" name="imovel" property="bloqueios">
-
-		var color="#2980C5";
-		
-		calcularData( '<bean:write name="bl" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="bl" property="dataFinal" format="dd/MM/yyyy"/>', color);	
+			var color="#2980C5";		
+			calcularData( '<bean:write name="bl" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="bl" property="dataFinal" format="dd/MM/yyyy"/>', color);	
 	</logic:iterate>
 
 	<logic:iterate id="rs" name="imovel" property="reservas">
-
 		<logic:equal name="rs" property="status" value="1">
-		var color="#d62222";
-		
-		calcularData( '<bean:write name="rs" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="rs" property="periodoFinal" format="dd/MM/yyyy"/>', color);
+			var color="#d62222";		
+			calcularData( '<bean:write name="rs" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="rs" property="periodoFinal" format="dd/MM/yyyy"/>', color);
 		</logic:equal>
 	</logic:iterate>
  }
