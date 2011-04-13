@@ -68,7 +68,9 @@
 			  <tr valign="top">
 			    <td width="35%" valign="top">
 			    	<span class="tit_azul_detalhes">${reservaPagar.imovel.bairro}, ${reservaPagar.imovel.estado.codigo}</span><br />
-	    			<span class="txt_cinza_detalhes">${reservaPagar.imovel.logradouro}<br />id: ${reservaPagar.imovel.codigo}</span>
+	    			<span class="txt_cinza_detalhes">${reservaPagar.imovel.logradouro}, ${reservaPagar.imovel.complemento} <br />
+    					Número: ${reservaPagar.imovel.numero} - CEP: ${reservaPagar.imovel.cep}<br />
+    					ID: ${reservaPagar.imovel.usuarioProprietario.codigo}-${reservaPagar.imovel.codigo}</span>
 			    </td>
 			    <td width="65%" valign="top">
 				    <span class="txt_cinza_detalhes">
