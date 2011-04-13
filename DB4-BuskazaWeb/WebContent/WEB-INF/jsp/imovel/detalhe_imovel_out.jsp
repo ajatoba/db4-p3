@@ -266,7 +266,8 @@ function somaDias( txtData, DiasAdd )
     	<span class="txt_cinza_detalhes">
     	
     	<span class="tit_azul_detalhes"><bean:write name="imovel" property="bairro"/>, ${imovel.estado.codigo}</span><br />
-    	<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/>, <bean:write name="imovel" property="complemento"/> <br />Numero: ${imovel.numero} - CEP: ${imovel.cep}</span><br /><br />
+    	<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/>, <bean:write name="imovel" property="complemento"/> <br />
+    	Número: ${imovel.numero} - CEP: ${imovel.cep}</span><br /><br />
     	 
     	<span class="txt_azul_peq_detalhes">ID</span>&nbsp;: <bean:write name="imovel" property="usuarioProprietario.codigo"/>-<bean:write name="imovel" property="codigo"/><br />
 		<span class="txt_azul_peq_detalhes">Distância do Centro</span>&nbsp;: <bean:write name="imovel" property="distanciaCentro"/><br />
@@ -320,7 +321,7 @@ function somaDias( txtData, DiasAdd )
 	  	<br><br>
 	  	
 	  	<span class="txt_azul_peq_detalhes">Período Selecionado</span>&nbsp;: ${diaInicial}/${mesInicial}/${anoInicial} a ${diaFinal}/${mesFinal}/${anoFinal}<br />
-	  	<span class="txt_azul_peq_detalhes">Valor</span>&nbsp;: ${( valor + ( valor *10/100))} <br>
+	  	<span class="txt_azul_peq_detalhes">Valor</span>&nbsp;: ${( valor + ( valor *10/100))} <br /><br />
 	  	
 	  	<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
 				<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
