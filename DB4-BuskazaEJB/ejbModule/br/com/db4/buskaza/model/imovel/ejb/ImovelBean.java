@@ -98,7 +98,7 @@ public class ImovelBean implements ImovelBeanLocal {
         
         c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_bloqueio where ( ? between dataInicial and dataFinal) or (? between dataInicial and dataFinal)) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
         
-        c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_reserva where ( ? between periodoInicial and periodoFinal) or (? between periodoInicial and periodoFinal)) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
+        c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_reserva where status = 1 and  ( ? between periodoInicial and periodoFinal) or (? between periodoInicial and periodoFinal)) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
         
         if (imovel.getCapacidade() != 0) { 
         	c.add(Restrictions.between("capacidade", new Integer(0), imovel.getCapacidade())); 
@@ -120,7 +120,8 @@ public class ImovelBean implements ImovelBeanLocal {
             }
     	}        
         
-        if (imovel.getMunicipio() != null && imovel.getMunicipio().length() > 0) {        
+        if (imovel.getMunicipio() != null && imovel.getMunicipio().length() > 0) {
+        	System.out.println("Buscando Município:" + imovel.getMunicipio());
         	c.add(Restrictions.like("municipio", imovel.getMunicipio(),MatchMode.ANYWHERE)); 
         } 
         

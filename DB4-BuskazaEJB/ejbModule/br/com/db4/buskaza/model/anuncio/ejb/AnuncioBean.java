@@ -13,6 +13,7 @@ import org.hibernate.CacheMode;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.CriteriaSpecification;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.ejb.EntityManagerImpl;
 import org.hibernate.sql.JoinFragment;
@@ -43,9 +44,12 @@ public class AnuncioBean implements AnuncioBeanLocal {
 		Criteria c = session.createCriteria(Anuncio.class); 
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);	
+		c.addOrder(Order.desc("dataAnuncio"));
 		
         if (usuarioProprietario != null && usuarioProprietario > 0) {  
         	Criteria criterioImovel = session.createCriteria(Imovel.class); 
+        	
+        	criterioImovel.addOrder(Order.desc("dataCadastro"));
         	
         	criterioImovel.add(Restrictions.eq("usuarioProprietario.codigo",usuarioProprietario));         	
         	List<Imovel> imoveis = criterioImovel.list();
@@ -77,6 +81,7 @@ public class AnuncioBean implements AnuncioBeanLocal {
 		Criteria c = session.createCriteria(Anuncio.class); 
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);	
+		c.addOrder(Order.desc("dataAnuncio"));
 		
         if (codigoImovel!= null && codigoImovel > 0) {        
         	c.add(Restrictions.eq("imovel.codigo",codigoImovel)); 

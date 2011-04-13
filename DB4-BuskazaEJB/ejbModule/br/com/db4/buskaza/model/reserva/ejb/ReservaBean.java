@@ -13,6 +13,7 @@ import org.hibernate.CacheMode;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.CriteriaSpecification;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.ejb.EntityManagerImpl;
 import org.jboss.ejb3.annotation.LocalBinding;
@@ -43,6 +44,7 @@ public class ReservaBean implements ReservaBeanLocal {
 		Criteria c = session.createCriteria(Reserva.class); 
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);	
+		c.addOrder(Order.desc("dataReserva"));
 		
         if (usuarioProprietario != null && usuarioProprietario > 0) { 
         	c.add(Restrictions.eq("locatario.codigo", usuarioProprietario));
@@ -69,6 +71,7 @@ public class ReservaBean implements ReservaBeanLocal {
 		Criteria c = session.createCriteria(Reserva.class); 
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);	
+		c.addOrder(Order.desc("dataReserva"));
 		
         if (codigoImovel != null && codigoImovel > 0) { 
         	c.add(Restrictions.eq("imovel.codigo", codigoImovel));
@@ -120,6 +123,7 @@ public class ReservaBean implements ReservaBeanLocal {
 		Criteria c = session.createCriteria(Reserva.class); 
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);	
+		c.addOrder(Order.desc("dataReserva"));
 		
 		c.add(Restrictions.eq("status",1)); //SÓ PEGA AS RESERVAS APROVADAS!!
 		
