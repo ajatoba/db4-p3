@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Local;
 
 import br.com.db4.buskaza.model.entity.Anuncio;
+import br.com.db4.buskaza.model.entity.Imovel;
 
 @Local
 public interface AnuncioBeanLocal {
@@ -20,5 +21,7 @@ public interface AnuncioBeanLocal {
 	public Anuncio getAnuncio(Integer codigoAnuncio);
 	
 	public void excluirAnuncio(Anuncio anuncio);
+	
+	public boolean checkDisponibilidade(Imovel imovel, Anuncio anuncio);
 
 }

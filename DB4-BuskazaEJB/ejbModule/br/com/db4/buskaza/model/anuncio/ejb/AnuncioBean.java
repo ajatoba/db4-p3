@@ -15,6 +15,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.ejb.EntityManagerImpl;
+import org.hibernate.sql.JoinFragment;
 import org.jboss.ejb3.annotation.LocalBinding;
 
 import br.com.db4.buskaza.model.entity.Anuncio;
@@ -90,6 +91,7 @@ public class AnuncioBean implements AnuncioBeanLocal {
         return c.list(); 
 	}
 	
+		
 	public Integer incluirAnuncio(Anuncio anuncio) {
 		em.persist(anuncio);
 		if(!em.contains(anuncio))
@@ -110,5 +112,37 @@ public class AnuncioBean implements AnuncioBeanLocal {
 	public Anuncio getAnuncio(Integer codigoAnuncio){
 		return em.find(Anuncio.class, codigoAnuncio);
 	}
-
+	
+public boolean checkDisponibilidade(Imovel imovel, Anuncio anuncio){ 
+		
+		boolean disponivel = true;
+		
+		Session session;  
+		if (em.getDelegate() instanceof EntityManagerImpl) {  
+		    EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
+		    session = entityManagerImpl.getSession();  
+		} else {  
+		    session = (Session) em.getDelegate();  
+		}
+		
+		Criteria c = session.createCriteria(Anuncio.class); 
+		c.setCacheable(true);
+		c.setCacheMode(CacheMode.NORMAL);
+		
+		c.add(Restrictions.eq("imovel", imovel));
+		
+		c.add(Restrictions.le("dataInicial" ,anuncio.getDataInicial()));
+		c.add(Restrictions.ge("dataFinal" ,anuncio.getDataFinal()));
+        
+        
+        c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
+        
+        if (c.list().size() > 0) {
+			disponivel = false;
+		}else {
+			disponivel = true;
+		}
+        
+        return disponivel; 
+    } 
 }

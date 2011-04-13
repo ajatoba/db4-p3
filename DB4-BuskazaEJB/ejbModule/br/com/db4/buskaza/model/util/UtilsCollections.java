@@ -3,6 +3,7 @@ package br.com.db4.buskaza.model.util;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -178,7 +179,30 @@ public class UtilsCollections {
             throw new IllegalArgumentException( e );
         }
     }
+    
+    /**
+     * Converte uma Collection em um Lista
+     * 
+     * @param <T> - VO
+     * @param colecao - Coleção
+     * @param propriedade Propriedade do VO
+     * @return Map - chave( codigo ) e valor( bean )
+     */
+    public static <T> List<Date> listarPropriedadeDate( final Collection<T> colecao, final String propriedade ) {
+        final List<Date> lista = new ArrayList<Date>();
 
+        try {
+            for ( Iterator<T> itBean = colecao.iterator(); itBean.hasNext(); ) {
+                final T bean = itBean.next();
+
+                lista.add((Date)PropertyUtils.getProperty( bean, propriedade ));
+            }
+
+            return lista;
+        } catch ( Exception e ) {
+            throw new IllegalArgumentException( e );
+        }
+    }
     /**
      * Verifica se a lista está vazia.
      * 

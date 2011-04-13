@@ -48,6 +48,10 @@ public class Imovel implements Serializable{
 	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
 	private Set<Reserva> reservas;
 	
+	@OneToMany(fetch=FetchType.EAGER)	
+	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
+	private Set<Bloqueio> bloqueios;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_planta")
 	private Planta planta;
@@ -164,7 +168,14 @@ public class Imovel implements Serializable{
 	private boolean permiteOpcaoPagamento;
 	
 	
-	
+	public Set<Bloqueio> getBloqueios() {
+		return bloqueios;
+	}
+
+	public void setBloqueios(Set<Bloqueio> bloqueios) {
+		this.bloqueios = bloqueios;
+	}
+
 	public boolean isPermiteOpcaoPagamento() {
 		return permiteOpcaoPagamento;
 	}

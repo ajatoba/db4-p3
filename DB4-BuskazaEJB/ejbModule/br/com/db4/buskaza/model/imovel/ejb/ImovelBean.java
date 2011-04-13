@@ -1,7 +1,11 @@
 package br.com.db4.buskaza.model.imovel.ejb;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
@@ -10,6 +14,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.apache.log4j.jmx.Agent;
 import org.hibernate.CacheMode;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -18,10 +23,13 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.ejb.EntityManagerImpl;
 import org.hibernate.sql.JoinFragment;
+import org.hibernate.type.Type;
 import org.jboss.ejb3.annotation.LocalBinding;
 
 import br.com.db4.buskaza.model.entity.Anuncio;
+import br.com.db4.buskaza.model.entity.Bloqueio;
 import br.com.db4.buskaza.model.entity.Imovel;
+import br.com.db4.buskaza.model.entity.Reserva;
 import br.com.db4.buskaza.model.util.*;
 
 @Stateless
@@ -64,6 +72,8 @@ public class ImovelBean implements ImovelBeanLocal {
 		
 		c.add(Restrictions.gt("status", -1));
 		
+		
+		
         if (imovel.getEstado() != null && imovel.getEstado().getCodigo()!= null && imovel.getEstado().getCodigo().length() > 0) {        
         	c.add(Restrictions.eq("estado.codigo", imovel.getEstado().getCodigo())); 
         } 
@@ -74,13 +84,22 @@ public class ImovelBean implements ImovelBeanLocal {
         } 
         
         if (anuncio != null) { 
-        	Criteria joinPeriodoAnuncio = c.createCriteria("anuncios", JoinFragment.INNER_JOIN);	
+        	Criteria joinPeriodoAnuncio = c.createCriteria("anuncios", JoinFragment.LEFT_OUTER_JOIN);	
         	
+        	if(anuncio.getTipoAnuncio() != null && anuncio.getTipoAnuncio().getCodigo() != 6){
+        		joinPeriodoAnuncio.add (Restrictions.ne("tipoAnuncio.codigo", new Integer(6)));//NÃO ACHA OS PACOTES FECHADOS
+        	}else if (anuncio.getTipoAnuncio() != null && anuncio.getTipoAnuncio().getCodigo() == 6){
+        		joinPeriodoAnuncio.add (Restrictions.eq("tipoAnuncio.codigo", new Integer(6)));//SÓ ACHA OS PACOTES FECHADOS
+        	}
         	joinPeriodoAnuncio.add (Restrictions.le("dataInicial" ,anuncio.getDataInicial()));
         	joinPeriodoAnuncio.add (Restrictions.ge("dataFinal" ,anuncio.getDataFinal()));
+        	
         }
         
-            
+        c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_bloqueio where ( ? between dataInicial and dataFinal) or (? between dataInicial and dataFinal)) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
+        
+        c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_reserva where ( ? between periodoInicial and periodoFinal) or (? between periodoInicial and periodoFinal)) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
+        
         if (imovel.getCapacidade() != 0) { 
         	c.add(Restrictions.between("capacidade", new Integer(0), imovel.getCapacidade())); 
         } 
@@ -206,6 +225,9 @@ public class ImovelBean implements ImovelBeanLocal {
 		
 		return imovel.getCodigo();
 	}
+	
+	
+
 	
 	
 }

@@ -22,5 +22,7 @@ public interface ReservaBeanLocal {
 	
 	public Reserva getReserva(Integer codigoReserva);
 	
+	public List<Reserva> listarReservasImovel(Integer codigoImovel, int mes, int ano);
+	
 
 }
