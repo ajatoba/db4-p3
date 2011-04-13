@@ -74,7 +74,7 @@
 
 	        	logradouro 	= $("#logradouro").val();
 	        	numero		= $("#numero").val();
-	        	complemento = $("#complemento").val();
+	        	// complemento = $("#complemento").val();
 	        	bairro		= $("#bairro").val();
 	        	cidade		= $("#cidade").val();
 	        	estado		= $("#estado").val();
@@ -89,7 +89,7 @@
 	        	
 	        	if(logradouro	=="") msg += "Endereço \n";		        
 	        	if(numero		=="") msg += "Número \n";		        
-	        	if(complemento	=="") msg += "Complemento \n";
+	        	// if(complemento	=="") msg += "Complemento \n";
 	        	if(bairro		=="") msg += "Bairro \n";
 	        	if(cidade		=="") msg += "Cidade \n";
 	        	if(estado		=="") msg += "Estado \n";
