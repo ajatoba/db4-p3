@@ -89,7 +89,9 @@ $(document).ready(function()
 			  <tr valign="top">
 			    <td width="35%" valign="top">
 			    	<span class="tit_azul_detalhes">${reserva.imovel.bairro}, ${reserva.imovel.estado.codigo}</span><br />
-	    			<span class="txt_cinza_detalhes">${reserva.imovel.logradouro}<br />id: ${reserva.imovel.codigo}</span>
+	    			<span class="txt_cinza_detalhes">${reserva.imovel.logradouro}, ${reserva.imovel.complemento} <br />
+    					Número: ${reserva.imovel.numero} - CEP: ${reserva.imovel.cep}<br />
+    					ID: ${reserva.imovel.usuarioProprietario.codigo}-${reserva.imovel.codigo}</span>
 			    </td>
 			    <td width="65%" valign="top">
 				    <span class="txt_cinza_detalhes">
@@ -167,9 +169,6 @@ $(document).ready(function()
             <div class="calculo_amarelo">
                     <div class="calculo_total_info">Sinal 10%:</div>
                     <div class="calculo_total_valor">R$ ${(reserva.valor*10/100)}
-                    
-                    
-                    
                     </div>
             </div>
             <div class="calculo_cinza">
