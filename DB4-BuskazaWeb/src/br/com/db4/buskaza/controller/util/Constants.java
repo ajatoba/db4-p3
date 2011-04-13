@@ -79,6 +79,12 @@ public interface Constants {
 	public static final String OBJETO_PAGAR_RESERVA = "reservaPagar";
 	
 	public static final String DETALHE_IMOVEL = "detalhe_imovel_out";
+	
+	public static final String MENSAGEM_DISPONIBILIDADE_PREENCHIDA = "message.disponibilidade.preenchida";
+	
+	public static final String MENSAGEM_SUCESSO_BLOQUEIO = "message.sucesso.bloqueio";
+	
+	public static final String MENSAGEM_SEM_RESULTADOS = "message.sem.resultados";
 
 	
 

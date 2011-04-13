@@ -26,6 +26,7 @@ import org.apache.struts.util.MessageResources;
 
 import br.com.db4.buskaza.controller.exception.ValidacaoFormException;
 import br.com.db4.buskaza.controller.form.ImovelForm;
+import br.com.db4.buskaza.controller.form.ReservaForm;
 import br.com.db4.buskaza.controller.helper.ImageHelper;
 import br.com.db4.buskaza.controller.util.CalendarioUtil;
 import br.com.db4.buskaza.controller.util.Constants;
@@ -37,6 +38,7 @@ import br.com.db4.buskaza.model.entity.Foto;
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.Pais;
 import br.com.db4.buskaza.model.entity.Reserva;
+import br.com.db4.buskaza.model.entity.TipoAnuncio;
 import br.com.db4.buskaza.model.entity.TipoImovel;
 import br.com.db4.buskaza.model.entity.Usuario;
 import br.com.db4.buskaza.model.equipamento.ejb.EquipamentoBeanLocal;
@@ -127,6 +129,14 @@ public class ImovelAction extends DispatchAction {
 			Imovel imovel = popularImovel(imovelForm,null);			
 			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
 			
+			
+			 TipoAnuncio tipoAnuncio = new TipoAnuncio();
+			 
+			 if(imovelForm.getTiposAnuncio() !=null){
+				 tipoAnuncio.setCodigo(imovelForm.getTiposAnuncio());
+			 }else{
+				 tipoAnuncio.setCodigo(1);
+			 }
 			//Buscando pela disponibilidade do anúncio
 			
 			Date dataInicio = new Date(imovelForm.getAnoDataInicialAnuncio()-1900, imovelForm.getMesDataInicialAnuncio()-1, imovelForm.getDiaDataInicialAnuncio());
@@ -135,6 +145,7 @@ public class ImovelAction extends DispatchAction {
 			Anuncio anuncio = new Anuncio();
 			anuncio.setDataInicial(dataInicio);
 			anuncio.setDataFinal(dataFim);
+			anuncio.setTipoAnuncio(tipoAnuncio);
 			
 			//********************************************
 			reserva = new Reserva();
@@ -628,6 +639,19 @@ public class ImovelAction extends DispatchAction {
 				Imovel imovel = imovelEjb.getImovel(Integer.valueOf(codigoImovel));
 				
 				request.setAttribute("imovel", imovel);
+				
+				request.setAttribute("valor",request.getParameter("valor"));
+				
+				request.setAttribute("diaInicial", request.getParameter("diaPeriodoInicial"));
+				request.setAttribute("mesInicial", request.getParameter("mesPeriodoInicial"));
+				request.setAttribute("anoInicial", request.getParameter("anoPeriodoInicial"));		
+				
+				request.setAttribute("diaFinal", request.getParameter("diaPeriodoFinal"));
+				request.setAttribute("mesFinal", request.getParameter("mesPeriodoFinal"));
+				request.setAttribute("anoFinal", request.getParameter("anoPeriodoFinal"));		
+				
+				
+				
 			}
 			
 			
@@ -641,4 +665,6 @@ public class ImovelAction extends DispatchAction {
 		
 		return mapping.findForward(Constants.DETALHE_IMOVEL);
 	}
+	
+
 }

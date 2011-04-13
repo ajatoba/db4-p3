@@ -14,45 +14,182 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza - Detalhe do Imóvel</title>
 
+	<link href="/buzkaza/_css/detalhe_imovel.css" rel="stylesheet" type="text/css"/>
 	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
-	
 	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
 	
-	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>	
+	<script type="text/javascript" src="/buzkaza/_js/jquery-1.4.2.min.js" ></script>
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
-	<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
-	<script type="text/javascript" src="/buzkaza/_js/tabs.js"></script>
+	<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>	
 	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
 	<script type="text/javascript" src="/buzkaza/_js/jquery.ui.draggable.js" ></script>
 	<script type="text/javascript" src="/buzkaza/_js/jquery.alerts.js" ></script>
+	
+	<!-- calendário -->
+		<script type="text/javascript" charset="utf-8" src="/buzkaza/_js/date.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/buzkaza/_js/jquery.datePicker.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/buzkaza/_js/jquery.datePickerMultiMonth.js"></script>
+		<link rel="stylesheet" type="text/css" media="screen" href="/buzkaza/_css/datePicker.css">
+	<!-- calendário -->
 	
 	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
 	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/jquery.alerts.css"  />
-	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/tabs.css" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
 	
-	<link href="/buzkaza/_css/detalhe_imovel.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript" src="/buzkaza/_js/tabs.js"></script>
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/tabs.css" media="screen"/>
 	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
 	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+
 	
 	<script language="javascript">
-
-	$(document).ready(function()
-	{
-				
+	$(function(){
 		$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
-	}
-	);
-
+	});
 	
-	$(function(){		
-			$('#sep_top_reserva').corner('rounded 7px');			
+	$(function(){
+		
+			$('#sep_top_reserva').corner('rounded 7px');
+			
 		});
 		
+</script>
+
+<script type="text/javascript" charset="utf-8">
+$(function()
+{
+	Date.format = 'yyyy-mm-dd';
+	var $hiddenInput = '2011-04-01';
+	
+	fdata = new Date();
+	dia = fdata.getDate();
+	mes = fdata.getMonth()+1;
+	ano = fdata.getFullYear();
+	
+	var datainicio = ano+"-"+mes+"-"+dia;
+	
+	$('#multimonth').datePickerMultiMonth(
+		{
+			startDate: datainicio,
+			numMonths: 9,
+			inline: true
+		}
+	).dpmmSetSelected(
+		$hiddenInput
+	).bind(
+		'dateSelected',
+		function(event, date, $td, status)
+		{
+			$hiddenInput.val(date.asString());
+		}
+	);			
+	
+	$('#showHiddenValue').bind(
+		'click',
+		function(e)
+		{
+			alert($hiddenInput.val());
+			return false;
+		}
+	);
+});
+
+
+$(function()
+{
+	$('#button').click(
+		function() {
+			calcularData();
+		}
+	)
+});
+
+function calcularData( from, to, bg){
+		
+	data0	= from;
+	data1	= from.split("/");
+	data2	= to.split("/");
+		
+	if( ( from != "") && ( to != "") )
+	{
+			switch ( data1[1] ) {
+				case "01": mes1="Jan"; break;
+				case "02": mes1="Feb"; break;
+				case "03": mes1="Mar";  break;
+				case "04": mes1="Apr";  break;
+				case "05": mes1="May";  break;
+				case "06": mes1="Jun";  break;
+				case "07": mes1="Jul";  break;
+				case "08": mes1="Aug";  break;
+				case "09": mes1="Sep";  break;
+				case "10": mes1="Oct";  break;
+				case "11": mes1="Nov";  break;
+				case "12": mes1="Dec";  break;
+				default: mes1:"Jan";  break;
+			}
+			
+			switch ( data2[1] ) {
+				case "01": mes2="Jan";  break;
+				case "02": mes2="Feb";  break;
+				case "03": mes2="Mar";  break;
+				case "04": mes2="Apr";  break;
+				case "05": mes2="May";  break;
+				case "06": mes2="Jun";  break;
+				case "07": mes2="Jul";  break;
+				case "08": mes2="Aug";  break;
+				case "09": mes2="Sep";  break;
+				case "10": mes2="Oct";  break;
+				case "11": mes2="Nov";  break;
+				case "12": mes2="Dec";  break;
+				default: mes2:"Jan";  break;
+			}
+			var firstDate = new Date(	data1[0]  + " " + mes1 + " " + data1[2] );
+			var secondDate = new Date(	data2[0]  + " " + mes2 + " " + data2[2] );
+			
+			var daysDiff = (secondDate.valueOf() - firstDate.valueOf());
+			daysDiff = Math.floor(Math.abs((((daysDiff  / 1000) / 60) / 60) / 24));
+			
+			
+			for(i=0; i <= daysDiff; i++){
+				
+				dia = somaDias( data0 , i);
+				
+				d = dia.split("/");
+				
+				$('.1aaaa'+ d[2]+"-"+ d[1] +"-"+ d[0]).css({backgroundColor: bg});
+			}
+	}
+	
+}
+
+
+function somaDias( txtData, DiasAdd )
+{
+	var DataFinal;
+	//var txtData = "01/01/2011";
+	//var DiasAdd = 366;
+	var d = new Date();
+			 
+	d.setTime(Date.parse(txtData.split("/").reverse().join("/"))+(86400000*(DiasAdd)))
+	
+	if(d.getDate() < 10)
+		DataFinal = "0"+d.getDate().toString();
+	else
+		DataFinal = d.getDate().toString();
+	
+	if((d.getMonth()+1) < 10)
+		DataFinal += "/0"+(d.getMonth()+1).toString()+"/"+d.getFullYear().toString();
+	else
+		DataFinal += "/"+((d.getMonth()+1).toString())+"/"+d.getFullYear().toString();
+	
+	return DataFinal;
+}
+
 </script>
 </head>
 
@@ -144,12 +281,80 @@
 	  			<bean:write name="equipamento" property="descricao"/>" />  		
 	  		</logic:iterate>
 	  	</logic:notEmpty>
-	  	  	
+	  	
+	  	<br><br>
+	  	
+	  	Período Selecionado: ${diaInicial}/${mesInicial}/${anoInicial} a ${diaFinal}/${mesFinal}/${anoFinal}<br>
+	  	Valor: ${valor}
+	  	<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
+				<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
+				<html:hidden property="codigoImovel" value="${imovel.codigo}"/> 
+				<html:hidden property="valor" value="${valor}"/>
+				<html:hidden property="diaPeriodoInicial" value="${diaInicial}"/>	
+				<html:hidden property="mesPeriodoInicial" value="${mesInicial}"/>
+				<html:hidden property="anoPeriodoInicial" value="${anoInicial}"/>
+				<html:hidden property="diaPeriodoFinal" value="${diaFinal}"/>	
+				<html:hidden property="mesPeriodoFinal" value="${mesFinal}"/>
+				<html:hidden property="anoPeriodoFinal" value="${anoFinal}"/>
+				
+				<div class="botao_reserva2">
+					<input type="image" src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" /><br/>
+				</div>
+					
+		</html:form>
+	  	
+	  	<br><br>
+	  	<div id="container">
+  <div id="multimonth"></div>
+  <div id="data_duracao"></div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+$(document).ready(function() {
+  listaDadas();
+});
+
+function listaDadas(){
+	<logic:iterate id="an" name="imovel" property="anuncios">
+
+		<logic:equal name="an" property="tipoAnuncio.codigo" value="0">var color="#FFF"; </logic:equal>
+		<logic:equal name="an" property="tipoAnuncio.codigo" value="1">var color="#2980C5"; </logic:equal>			  		
+		<logic:equal name="an" property="tipoAnuncio.codigo" value="2">var color="#FF6D00"; </logic:equal>
+		<logic:equal name="an" property="tipoAnuncio.codigo" value="3">var color="#8DBF22"; </logic:equal>
+		<logic:equal name="an" property="tipoAnuncio.codigo" value="4">var color="#FFC600"; </logic:equal>
+		<logic:equal name="an" property="tipoAnuncio.codigo" value="5">var color="#D300FF"; </logic:equal>
+		<logic:equal name="an" property="tipoAnuncio.codigo" value="6">var color="#00D8FF"; </logic:equal>
+		
+		calcularData( '<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>', color);	
+	</logic:iterate>
+
+	<logic:iterate id="bl" name="imovel" property="bloqueios">
+
+		var color="#2980C5";
+		
+		calcularData( '<bean:write name="bl" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="bl" property="dataFinal" format="dd/MM/yyyy"/>', color);	
+	</logic:iterate>
+
+	<logic:iterate id="rs" name="imovel" property="reservas">
+
+		var color="#d62222";
+		
+		calcularData( '<bean:write name="rs" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="rs" property="periodoFinal" format="dd/MM/yyyy"/>', color);	
+	</logic:iterate>
+ }
+
+
+</script>
+	  	
 	</div>
 
 </div>
 
 </div>
+
+
+
 <div class="bottom_formulario"></div>
 <div class="linha_cinza"></div>
 

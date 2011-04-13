@@ -1,6 +1,7 @@
 package br.com.db4.buskaza.controller.action;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -27,7 +28,9 @@ import br.com.db4.buskaza.controller.util.Calendario;
 import br.com.db4.buskaza.controller.util.CalendarioUtil;
 import br.com.db4.buskaza.controller.util.Constants;
 import br.com.db4.buskaza.model.anuncio.ejb.AnuncioBeanLocal;
+import br.com.db4.buskaza.model.bloqueio.ejb.BloqueioBeanLocal;
 import br.com.db4.buskaza.model.entity.Anuncio;
+import br.com.db4.buskaza.model.entity.Bloqueio;
 import br.com.db4.buskaza.model.entity.Equipamento;
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.Telefone;
@@ -73,12 +76,17 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 		try {
 			carregaListas(request);
 			
-			String codigoImovel=request.getParameter("ci"), ano=request.getParameter("ano"), mes=request.getParameter("mes");
-			int imovelId=0, anoCalendario=0, mesCalendario=0;
-			
+			String codigoImovel=request.getParameter("ci");
+			int imovelId=0;
 			if (codigoImovel != null && !codigoImovel.equals("")) {
 				imovelId = Integer.parseInt(codigoImovel);
 			}
+			
+			/*
+			, ano=request.getParameter("ano"), mes=request.getParameter("mes");
+			int imovelId=0, anoCalendario=0, mesCalendario=0;
+			
+			
 			
 			if (ano != null && !ano.equals("")) {
 				anoCalendario = Integer.parseInt(ano);
@@ -91,20 +99,22 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 			}else{
 				mesCalendario = (new Date().getMonth())+ 1;
 			}
-			
+			*/
 			ImovelBeanLocal imovelEJB = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);			
 			Imovel im = imovelEJB.getImovel(imovelId);
 			
+			/*
 			AnuncioBeanLocal anuncioEJB = (AnuncioBeanLocal) ServiceLocator.getInstance().locateEJB(AnuncioBeanLocal.LOCAL);			
 			List<Anuncio> anuncios = anuncioEJB.listarAnunciosImovel(im.getCodigo(), mesCalendario, anoCalendario);
-			
+			*/
 			request.setAttribute("imovel", im );
 			
 			//CAREGANDO CALENDÁRIO DE ANÚNCIOS
-			Map<String,Calendario> calendarioAnuncio = CalendarioUtil.getInstance().montaCalendarioAnuncio(mesCalendario, anoCalendario, anuncios);
+			/*
+			Map<String,Calendario> calendarioAnuncio = CalendarioUtil.getInstance().montaCalendarioAnuncio(mesCalendario, anoCalendario, anuncios, im );
 			
 			request.setAttribute("calendarioAnuncio", calendarioAnuncio );
-			
+			*/
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -120,15 +130,63 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 				
 		try {
 			
+			
+			
 			AnuncioForm anuncioForm = (AnuncioForm) form;
 			
 			Anuncio anuncio = popularAnuncio(anuncioForm);	
+			
+			AnuncioBeanLocal anuncioEjb = (AnuncioBeanLocal) ServiceLocator.getInstance().locateEJB(AnuncioBeanLocal.LOCAL);
 			
 			ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
 			
 			Imovel imovel = imovelEjb.getImovel(Integer.parseInt(codigoImovel));
 			
 			anuncio.setImovel(imovel);
+			
+			
+			//FAZENDO BLOQUEIO DO PERÍODO, SE FOR O CASO
+			//anuncio.getCodigo()==1 //BLOQUEAR
+			if (anuncio.getTipoAnuncio().getCodigo() == 1) {
+				BloqueioBeanLocal bloqueioEjb = (BloqueioBeanLocal) ServiceLocator.getInstance().locateEJB(BloqueioBeanLocal.LOCAL);
+				Bloqueio bloqueio = new Bloqueio();
+				bloqueio.setImovel(imovel);
+				bloqueio.setDataInicial(anuncio.getDataInicial());
+				bloqueio.setDataFinal(anuncio.getDataFinal());
+				try {					
+					Integer codigoBloqueio = bloqueioEjb.incluirBloqueio(bloqueio);
+					if (codigoBloqueio > 0) {
+						request.setAttribute(Constants.SUCESSO_PARAMETER,"Período Bloqueado com Sucesso" );
+						request.setAttribute("ci",codigoImovel);
+						return formCadastroAnuncio(mapping, form, request, response);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				    final ActionMessages actionErrors = new ActionMessages();
+				    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+				    saveErrors( request, actionErrors );
+				    return formCadastroAnuncio(mapping, form, request, response);
+				}
+			}
+			
+			//******************************************
+			
+			//VERIFICAR SE O PERÍODO SELECIONADO JÁ ESTÁ CADASTRADO
+			//SÓ FAÇO ESSE TESTE SE O USUÁRIO NÃO ESTIVER TENTANDO BLOQUEAR UM PERÍODO
+			//anuncio.getCodigo()==1 //BLOQUEAR
+			if (anuncio.getTipoAnuncio().getCodigo() != 1) {
+				boolean periodoDisponivel = true;
+				periodoDisponivel = anuncioEjb.checkDisponibilidade(imovel, anuncio);
+				if (!periodoDisponivel) {			
+					request.setAttribute("ci",codigoImovel);
+					final ActionMessages actionErrors = new ActionMessages();
+				    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage(Constants.MENSAGEM_DISPONIBILIDADE_PREENCHIDA) );
+				    saveErrors( request, actionErrors );
+				    return formCadastroAnuncio(mapping, form, request, response);
+				}				
+			}
+			// ***************************************************
+			
 			
 			if(!anuncio.isPermitirEntrada()){
 				usuario.setAgencia(request.getParameter("agencia"));
@@ -166,9 +224,6 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 				
 			}
 			
-			AnuncioBeanLocal anuncioEjb = (AnuncioBeanLocal) ServiceLocator.getInstance().locateEJB(AnuncioBeanLocal.LOCAL);
-			
-						
 			anuncioEjb.incluirAnuncio(anuncio);				
 			
 		} catch (Exception e ) {

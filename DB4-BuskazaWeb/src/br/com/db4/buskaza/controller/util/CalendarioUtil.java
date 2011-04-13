@@ -10,7 +10,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.com.db4.buskaza.model.bloqueio.ejb.BloqueioBeanLocal;
 import br.com.db4.buskaza.model.entity.Anuncio;
+import br.com.db4.buskaza.model.entity.Bloqueio;
+import br.com.db4.buskaza.model.entity.Imovel;
+import br.com.db4.buskaza.model.entity.Reserva;
+import br.com.db4.buskaza.model.reserva.ejb.ReservaBeanLocal;
+import br.com.db4.buskaza.model.util.ServiceLocator;
 
 public class CalendarioUtil {
 	
@@ -75,7 +81,7 @@ public class CalendarioUtil {
 	}
 	*/
 	//metodo para ser utilizado para montar o calendario para tela de anuncio
-	public static Map<String,Calendario> montaCalendarioAnuncio(int mes,int ano, Collection<Anuncio> anuncios){
+	public static Map<String,Calendario> montaCalendarioAnuncio(int mes,int ano, Collection<Anuncio> anuncios, Imovel imovel){
 		
 		Map<String,Calendario> calendario = montaCalendario(mes, ano);
 
@@ -86,17 +92,43 @@ public class CalendarioUtil {
 			}
 		}	
 		
-		/*
-		Collection<Reserva> reservas = getReservas(mes, ano);
+		
+		ReservaBeanLocal reservaEjb =  null;
+		
+		try {
+			reservaEjb = (ReservaBeanLocal) ServiceLocator.getInstance().locateEJB(ReservaBeanLocal.LOCAL);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		Collection<Reserva> reservas = reservaEjb.listarReservasImovel(imovel.getCodigo(), mes, ano);
 		
 		for (Reserva reserva : reservas) {
-			List<String> dias = getDiasPeriodo(reserva.getDataInicial(), reserva.getDataFinal());
+			List<String> dias = getDiasPeriodo(reserva.getPeriodoInicial(), reserva.getPeriodoFinal());
 			for (String dia : dias) {
-				calendario.get(dia).setTipoAnuncio(60); // seta o tipo reservado está reservado
+				calendario.get(dia).setTipoAnuncio(-1); // -1 = RESERVADO
 			}
 		}	
-		*/
-	
+		
+		
+		BloqueioBeanLocal bloqueioEjb =  null;
+		
+		try {
+			bloqueioEjb = (BloqueioBeanLocal) ServiceLocator.getInstance().locateEJB(BloqueioBeanLocal.LOCAL);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		Collection<Bloqueio> bloqueios = bloqueioEjb.listarBloqueiosImovel(imovel.getCodigo(), mes, ano);
+		
+		for (Bloqueio bloqueio : bloqueios) {
+			List<String> dias = getDiasPeriodo(bloqueio.getDataInicial(), bloqueio.getDataFinal());
+			for (String dia : dias) {
+				calendario.get(dia).setTipoAnuncio(1); // 1 = BLOQUEADO
+			}
+		}	
+		
+		
 		return calendario;
 	}
 	

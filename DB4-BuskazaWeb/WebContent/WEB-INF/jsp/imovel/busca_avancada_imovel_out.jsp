@@ -133,6 +133,21 @@
 				    	</span><br />
                     <br />
                     
+					<html:form action="/imovel.do?act=detalheImovel" method="POST" >
+					<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
+					<html:hidden property="ci" value="${ims.key.codigo}"/> 
+					<html:hidden property="valor" value="${ims.value}"/>
+					<html:hidden property="diaPeriodoInicial" value="${periodoBuscado.periodoInicial.date}"/>	
+					<html:hidden property="mesPeriodoInicial" value="${(periodoBuscado.periodoInicial.month)+1}"/>
+					<html:hidden property="anoPeriodoInicial" value="${(periodoBuscado.periodoInicial.year)+1900}"/>
+					<html:hidden property="diaPeriodoFinal" value="${periodoBuscado.periodoFinal.date}"/>	
+					<html:hidden property="mesPeriodoFinal" value="${(periodoBuscado.periodoFinal.month)+1}"/>
+					<html:hidden property="anoPeriodoFinal" value="${(periodoBuscado.periodoFinal.year)+1900}"/>
+					
+					<div class="botao_reserva1">
+						<input type="image" src="/buzkaza/_img/btn_detalhes.png" width="64" height="24" border="0"/> 
+					</div>
+					</html:form>
 					<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
 					<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
 					<html:hidden property="codigoImovel" value="${ims.key.codigo}"/> 
@@ -144,9 +159,6 @@
 					<html:hidden property="mesPeriodoFinal" value="${(periodoBuscado.periodoFinal.month)+1}"/>
 					<html:hidden property="anoPeriodoFinal" value="${(periodoBuscado.periodoFinal.year)+1900}"/>
 					
-					<div class="botao_reserva1">
-						<a href="/DB4-BuskazaWeb/imovel.do?act=detalheImovel&ci=${ims.key.codigo}" class="link_ver_detalhe"><img src="/buzkaza/_img/btn_detalhes.png" width="64" height="24" border="0"/></a> 
-					</div>
 					<div class="botao_reserva2">
 						<input type="image" src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" /><br/>
 					</div>

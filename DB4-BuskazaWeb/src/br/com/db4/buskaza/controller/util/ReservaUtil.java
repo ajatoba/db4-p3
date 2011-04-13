@@ -55,9 +55,7 @@ public class ReservaUtil {
 				while (itReservas.hasNext()) {
 					String diaReserva = itReservas.next();
 					if(diaAnuncio.equals(diaReserva)){
-						System.out.println("DIA:" + diaReserva + "-" + anuncio.getCodigo());
-						diaValor.put(diaReserva, anuncio);
-						
+						diaValor.put(diaReserva, anuncio);						
 						break;
 					}					
 				}				

@@ -36,8 +36,6 @@ public class ReservaAction extends DispatchAction {
 public ActionForward formReservas(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
 		try{		
 			
-				System.out.println("CHEGUEI NO FORM DE RESERVAS");
-				
 				HttpSession session = request.getSession();
 				
 				Usuario locatario = (Usuario)request.getSession().getAttribute(Constants.USUARIO_SESSAO);
@@ -45,6 +43,8 @@ public ActionForward formReservas(ActionMapping mapping, ActionForm form, HttpSe
 				ReservaForm rform = null; 
 				
 				Reserva reserva = null;
+				
+				Imovel im = null;
 				
 				if (session.getAttribute("reserva") != null) {
 					reserva = (Reserva)session.getAttribute("reserva") ;
@@ -58,38 +58,6 @@ public ActionForward formReservas(ActionMapping mapping, ActionForm form, HttpSe
 				reserva.setLocatario(locatario);
 				
 				session.setAttribute("reserva", reserva);
-				
-				// MONTANDO CALENDÁRIO DE DISPONIBILIDADE
-				
-				String codigoImovel=String.valueOf(reserva.getImovel().getCodigo()), ano=request.getParameter("ano"), mes=request.getParameter("mes");
-				int imovelId=0, anoCalendario=0, mesCalendario=0;
-				
-				if (codigoImovel != null && !codigoImovel.equals("")) {
-					imovelId = Integer.parseInt(codigoImovel);
-				}
-				
-				if (ano != null && !ano.equals("")) {
-					anoCalendario = Integer.parseInt(ano);
-				}else{
-					anoCalendario = (reserva.getPeriodoInicial().getYear())+ 1900;
-				}
-				
-				if (mes != null && !mes.equals("")) {
-					mesCalendario = Integer.parseInt(mes);
-				}else{
-					mesCalendario = (reserva.getPeriodoInicial().getMonth())+ 1;
-				}
-				
-				AnuncioBeanLocal anuncioEJB = (AnuncioBeanLocal) ServiceLocator.getInstance().locateEJB(AnuncioBeanLocal.LOCAL);			
-				List<Anuncio> anuncios = anuncioEJB.listarAnunciosImovel(reserva.getImovel().getCodigo(), mesCalendario, anoCalendario);
-				
-				//CAREGANDO CALENDÁRIO DE ANÚNCIOS
-				Map<String,Calendario> calendarioAnuncio = CalendarioUtil.getInstance().montaCalendarioAnuncio(mesCalendario, anoCalendario, anuncios);
-				
-				request.setAttribute("calendarioAnuncio", calendarioAnuncio );
-				
-				//
-				
 				
 				return mapping.findForward(Constants.FORWARD_SAIDA_INCLUIR_RESERVA);
 				

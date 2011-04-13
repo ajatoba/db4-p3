@@ -141,7 +141,18 @@ public class ImovelForm extends ActionForm {
 	private boolean onibus;	
 	private boolean trem;
 	
-		
+	protected Integer tiposAnuncio;
+	
+	
+	
+	public Integer getTiposAnuncio() {
+		return tiposAnuncio;
+	}
+
+	public void setTiposAnuncio(Integer tiposAnuncio) {
+		this.tiposAnuncio = tiposAnuncio;
+	}
+
 	public boolean isMetro() {
 		return metro;
 	}

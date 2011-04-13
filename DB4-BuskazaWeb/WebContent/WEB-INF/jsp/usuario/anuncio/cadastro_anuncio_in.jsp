@@ -318,117 +318,13 @@ function somaDias( txtData, DiasAdd )
               <tr>
                 <td colspan="3">
                 	
-                	<html:form method="post" styleId="anuncioForm" action="/usuario/anuncio?act=formCadastroAnuncio">
-				  	<input type="hidden" name="ci" value="${imovel.codigo}">
-				  	
-	                	<table border="0" cellspacing="0" cellpadding="0">
-			              <tr>
-			                <td>
-		                		<select name="mes" style="width:130px">
-		                		    <option value="01" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("01")) out.println("selected");%>>Janeiro</option>
-							        <option value="02" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("02")) out.println("selected");%>>Fevereiro</option>
-							        <option value="03" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("03")) out.println("selected");%>>Março</option>
-							        <option value="04" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("04")) out.println("selected");%>>Abril</option>
-							        <option value="05" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("05")) out.println("selected");%>>Maio</option>
-							        <option value="06" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("06")) out.println("selected");%>>Junho</option>
-							        <option value="07" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("07")) out.println("selected");%>>Julho</option>
-							        <option value="08" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("08")) out.println("selected");%>>Agosto</option>
-							    	<option value="09" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("09")) out.println("selected");%>>Setembro</option>
-							        <option value="10" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("10")) out.println("selected");%>>Outubro</option>
-							        <option value="11" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("11")) out.println("selected");%>>Novembro</option>
-							        <option value="12" <% if(request.getParameter("mes")!= null && request.getParameter("mes").equals("12")) out.println("selected");%>>Dezembro</option>                  
-								</select> 
-			                </td>
-			                <td width="10">&nbsp;</td>
-			                <td>
-		                		<select name="ano">
-		                			<%if(request.getParameter("ano")!= null) {
-		                				%>
-		                				<option value="<%=request.getParameter("ano") %>"><%=request.getParameter("ano") %></option>
-		                			<%}%>	                        
-							        <option value="2011">2011</option>
-							        <option value="2012">2012</option>
-							        <option value="2013">2013</option>
-							        <option value="2014">2014</option>
-							        <option value="2015">2015</option>
-								</select>			                
-			                </td>
-			                <td width="10">&nbsp;</td>
-			                <td><input type="submit" value="Trocar Período"></td>
-			                </tr>
-			            </table>
-				  	
-				  	</html:form>
+                	
 				</td>
               </tr>
 			</table>
   	
 
-			<table width="342" border="0" cellspacing="1" class="tabela_lista_data">
-		  	<tr class="tabela_caracteristicas">
-		  		<td width='10%'>Dom</td>
-		  		<td width='10%'>Seg</td>
-		  		<td width='10%'>Ter</td>
-		  		<td width='10%'>Qua</td>
-		  		<td width='10%'>Qui</td>
-		  		<td width='10%'>Sex</td>
-		  		<td width='10%'>Sáb</td>
-		  	</tr>		  		
-		  	<%
-		  	//ALGORITMO DE CONSTRUÇÃO DO CALENDÁRIO - CUIDADO AO MEXER!!!
-		  	Map<String,Calendario> calendarioAnuncio = (Map) request.getAttribute("calendarioAnuncio");
 			
-		  	Iterator it = null;
-		  	if(calendarioAnuncio != null && calendarioAnuncio.size() > 0){
-		  		it = calendarioAnuncio.entrySet().iterator();
-		  	}
-		  	
-		  	boolean populado = false;
-		  	
-		  	int index = 0;
-		  	if(it != null){
-		  	while (it.hasNext()) {
-		  		index = index+1;
-		  		Map.Entry mapa = (Map.Entry)it.next();
-		        Calendario anuncio = (Calendario) mapa.getValue();
-		        
-		        if(!populado){
-			        for(int x=0; x<anuncio.getDiaSemana();x++){
-			        	index = index+1;
-			        	out.println("<td bgcolor='#d8d8d8'>&nbsp;</td>");
-			        	populado = true;
-			        }
-		        }
-		        
-		        //COLORINDO O CALENDARIO
-		        String color = "";
-		        
-		        switch (anuncio.getTipoAnuncio()) {
-		        case 0: color="#d8d8d8";
-		        	break;
-		        case 1: color="#2980C5";
-		        	break;
-		        case 2: color="#FF6D00";
-		        	break;
-		        case 3: color="#8DBF22";
-		        	break;
-		        case 4: color="#FFC600";
-		        	break;
-		        case 5: color="#D300FF";
-		        	break;
-		        case 6: color="#00D8FF";
-		        	break;
-		        }
-		        //**********************
-		        
-		        out.println("<td bgcolor='"+ color +"' class='td_caracteristicas'>"+ mapa.getKey() +"</td>");
-		        
-		        if((index % 7) == 0) out.println("</tr>");		        
-		    }
-		  	}
-		  	//******************************************
-		  	%>
-		  	</table>
 		  	
 		  	
 		  	            
@@ -575,7 +471,23 @@ function listaDadas(){
 		
 		calcularData( '<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>', color);	
 	</logic:iterate>
+
+	<logic:iterate id="bl" name="imovel" property="bloqueios">
+
+		var color="#2980C5";
+		
+		calcularData( '<bean:write name="bl" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="bl" property="dataFinal" format="dd/MM/yyyy"/>', color);	
+	</logic:iterate>
+
+	<logic:iterate id="rs" name="imovel" property="reservas">
+
+		var color="#d62222";
+		
+		calcularData( '<bean:write name="rs" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="rs" property="periodoFinal" format="dd/MM/yyyy"/>', color);	
+	</logic:iterate>
  }
+
+
 </script>
 <br />
 
