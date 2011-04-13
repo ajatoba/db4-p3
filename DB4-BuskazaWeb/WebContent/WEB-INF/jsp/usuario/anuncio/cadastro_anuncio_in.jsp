@@ -481,9 +481,11 @@ function listaDadas(){
 
 	<logic:iterate id="rs" name="imovel" property="reservas">
 
+		<logic:equal name="rs" property="status" value="1">
 		var color="#d62222";
 		
-		calcularData( '<bean:write name="rs" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="rs" property="periodoFinal" format="dd/MM/yyyy"/>', color);	
+		calcularData( '<bean:write name="rs" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="rs" property="periodoFinal" format="dd/MM/yyyy"/>', color);
+		</logic:equal>
 	</logic:iterate>
  }
 

@@ -85,6 +85,8 @@ public interface Constants {
 	public static final String MENSAGEM_SUCESSO_BLOQUEIO = "message.sucesso.bloqueio";
 	
 	public static final String MENSAGEM_SEM_RESULTADOS = "message.sem.resultados";
+	
+	public static final String FORWARD_SAIDA_VERIFICA_PACOTE = "veirifica_pacote_in";
 
 	
 

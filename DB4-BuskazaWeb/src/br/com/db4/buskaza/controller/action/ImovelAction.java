@@ -137,7 +137,10 @@ public class ImovelAction extends DispatchAction {
 			 }else{
 				 tipoAnuncio.setCodigo(1);
 			 }
-			//Buscando pela disponibilidade do anúncio
+			
+			
+			 
+			 //Buscando pela disponibilidade do anúncio
 			
 			Date dataInicio = new Date(imovelForm.getAnoDataInicialAnuncio()-1900, imovelForm.getMesDataInicialAnuncio()-1, imovelForm.getDiaDataInicialAnuncio());
 			Date dataFim 	= new Date(imovelForm.getAnoDataFinalAnuncio()-1900, imovelForm.getMesDataFinalAnuncio()-1, imovelForm.getDiaDataFinalAnuncio());
@@ -170,6 +173,8 @@ public class ImovelAction extends DispatchAction {
 				//System.out.println("PREÇO DO ANÚNCIO:" + ReservaUtil.getInstance().calculaPrecoReserva(imovelPreco.getAnuncios(), reserva) );			
 			}
 	        
+	        request.setAttribute("tipoBusca", anuncio.getTipoAnuncio());
+	        
 			carregaListas(request);
 			
 		} catch (Exception e) {
@@ -180,6 +185,7 @@ public class ImovelAction extends DispatchAction {
 		    return formBuscarImovel(mapping, form, request, response);
 		    
 		}
+		
 		
 		request.setAttribute("periodoBuscado", reserva);
 		request.setAttribute("qtdDias", qtdDias);

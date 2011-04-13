@@ -91,6 +91,7 @@
 			<forward name="aprovar_reserva_out" path="/WEB-INF/jsp/usuario/reserva/aprovar_reserva_out.jsp" />
 			<forward name="form_pagar_reserva_in" path="/WEB-INF/jsp/usuario/reserva/form_pagar_reserva_in.jsp" />
 			<forward name="pagar_reserva_erro" path="/WEB-INF/jsp/usuario/reserva/pagar_reserva_erro.jsp" />
+			<forward name="veirifica_pacote_in" path="/WEB-INF/jsp/usuario/reserva/veirifica_pacote_in.jsp" />
 								
 		</action>
 		

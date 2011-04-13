@@ -70,29 +70,39 @@ public class ReservaUtil {
 	    while (itValor.hasNext()) {
 	        Map.Entry mapa = (Map.Entry)itValor.next();	        
 	        
-	        if (qtdDias < 7)
-	        	precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaDiaria();
+	        //SE FOR PACOTE FECHADO, PEGA O VALOR DO PACOTE
+	        if(((Anuncio)mapa.getValue()).getTipoAnuncio().getCodigo() == 6){
+	        	
+	        	System.out.println("CALCULANDO PREÇO PACOTE FECHADO");
+	        	
+	        	precoTotal = ((Anuncio)mapa.getValue()).getTarifaPacoteFechado();
+	        	
+	        }else{
 	        
-	        if (qtdDias >= 7 && qtdDias < 15)
-	        	if(((Anuncio)mapa.getValue()).getTarifaSemanal() > 0){
-	        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaSemanal();
-	        	}else{
-	        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaDiaria();
-	        	}
-	        
-	        if (qtdDias >= 15 && qtdDias < 30)
-	        	if(((Anuncio)mapa.getValue()).getTarifaQuinzenal() > 0){
-	        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaQuinzenal();
-	        	}else{
-	        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaDiaria();
-	        	}
-	        
-	        if (qtdDias >= 30)
-	        	if(((Anuncio)mapa.getValue()).getTarifaMensal() > 0){
-	        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaMensal();
-	        	}else{
-	        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaDiaria();
-	        	}
+		        if (qtdDias < 7)
+		        	precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaDiaria();
+		        
+		        if (qtdDias >= 7 && qtdDias < 15)
+		        	if(((Anuncio)mapa.getValue()).getTarifaSemanal() > 0){
+		        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaSemanal();
+		        	}else{
+		        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaDiaria();
+		        	}
+		        
+		        if (qtdDias >= 15 && qtdDias < 30)
+		        	if(((Anuncio)mapa.getValue()).getTarifaQuinzenal() > 0){
+		        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaQuinzenal();
+		        	}else{
+		        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaDiaria();
+		        	}
+		        
+		        if (qtdDias >= 30)
+		        	if(((Anuncio)mapa.getValue()).getTarifaMensal() > 0){
+		        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaMensal();
+		        	}else{
+		        		precoTotal = precoTotal + ((Anuncio)mapa.getValue()).getTarifaDiaria();
+		        	}
+	        }
 	        
 	    }
 

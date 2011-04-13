@@ -2,13 +2,17 @@ package br.com.db4.buskaza.controller.form;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.upload.FormFile;
 
 import br.com.db4.buskaza.model.entity.Anuncio;
+import br.com.db4.buskaza.model.entity.Equipamento;
 import br.com.db4.buskaza.model.entity.Estado;
+import br.com.db4.buskaza.model.entity.Idioma;
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.util.LoggerUtil;
 
@@ -22,7 +26,10 @@ public class ImovelForm extends ActionForm {
 	public ImovelForm(){
 		imovelEntity = new Imovel();
 		imovelEntity.setEstado(new Estado());
-	
+		imovelEntity.setIdiomas(new ArrayList<Idioma>());
+		imovelEntity.setCamas(new Integer(0).intValue());
+		imovelEntity.setEquipamentos(new HashSet<Equipamento>());
+		
 		this.indexFotos = 0;
 		this.fotos = new ArrayList<FormFile>();
 	}

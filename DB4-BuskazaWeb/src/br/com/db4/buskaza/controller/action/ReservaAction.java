@@ -71,6 +71,44 @@ public ActionForward formReservas(ActionMapping mapping, ActionForm form, HttpSe
 		}
 	}
 	
+public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
+	try{		
+		
+			HttpSession session = request.getSession();
+			
+			Usuario locatario = (Usuario)request.getSession().getAttribute(Constants.USUARIO_SESSAO);
+			
+			ReservaForm rform = null; 
+			
+			Reserva reserva = null;
+			
+			Imovel im = null;
+			
+			if (session.getAttribute("reserva") != null) {
+				reserva = (Reserva)session.getAttribute("reserva") ;
+				session.removeAttribute("requestReserva");
+			}else{
+			
+				rform = (ReservaForm) form;			
+				reserva = popularReserva(rform);				
+			}
+			
+			reserva.setLocatario(locatario);
+			
+			session.setAttribute("reserva", reserva);
+			
+			return mapping.findForward(Constants.FORWARD_SAIDA_VERIFICA_PACOTE);
+			
+	} catch (Exception e) {
+		e.printStackTrace();
+		final ActionMessages actionErrors = new ActionMessages();
+	    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( Constants.MENSAGEM_ERRO_INESPERADO,e.getMessage() ) );
+	    saveErrors( request, actionErrors );
+	    
+	    return mapping.findForward(Constants.FORWARD_SAIDA_INCLUIR_RESERVA);
+	}
+}
+
 
 	public ActionForward listarReservas(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response) {
 		
@@ -258,10 +296,19 @@ public ActionForward formReservas(ActionMapping mapping, ActionForm form, HttpSe
 			
 			String assunto="",mensagem="",remetente="",destinatario="";			
 			
-			mensagem  		= messageResources.getMessage("aprovacaoReserva.mensagem");
+			if (reserva.getStatus() == 1) {
+				mensagem  		= messageResources.getMessage("aprovacaoReserva.mensagem");
+				assunto 		= messageResources.getMessage("aprovacaoReserva.assunto");
+			}else {
+				mensagem  		= messageResources.getMessage("negacaoReserva.mensagem");
+				assunto 		= messageResources.getMessage("negacaoReserva.assunto");
+			}
+			
+			
 			mensagem 		= mensagem.replaceAll("<CODIGO_RESERVA>", String.valueOf(reserva.getCodigo()));
 			   
-			assunto 		= messageResources.getMessage("aprovacaoReserva.assunto");			
+						
+			
 			remetente 		= messageResources.getMessage("mail.from");
 			
 			destinatario 	= reserva.getLocatario().getEmail();			

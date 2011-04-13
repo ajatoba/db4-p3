@@ -372,10 +372,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 					      </tr>
 					      <tr>
 					        <td>
-				        		<html:select property="camas" style="width:100px;">
-					                <html:option value="1">Solteiro</html:option>
-					                <html:option value="2">Casal</html:option>          
-					            </html:select>  
+				        		 
 					        </td>
 					        <td>
 					        	<div>
