@@ -3,13 +3,58 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Buzkaza - Incluir Reserva</title>
+
+<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/size_campos.css"/>
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/detalhe_imovel.css"/>
+
+<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
+<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
+<link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
+
+<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
+<script type="text/javascript" src="/buzkaza/_js/tabs.js"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
+<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+<script type="text/javascript" src="/buzkaza/_js/function_calcular_data.js"></script>
+
+<script language="javascript">
+
+$(document).ready(function()
+{
+	$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
+}
+);
+</script>
 </head>
 <body>
+<!-- topo com linha azul -->
+<jsp:include page="../topo.jsp"/>
+
+<div id="meio_reserva">
+<div class="top_reserva">
+	<div class="txt_meus_anuncios">Solicitação de Reserva</div>
+</div>
+
+</div>
+<div id="sep_top_reserva_fina"></div>
+
+<div id="listagem_reservas">
 
 O período que você selecionou faz parte de um pacote fechado.  Selecione abaixo:
 <br>
@@ -44,6 +89,18 @@ O período que você selecionou faz parte de um pacote fechado.  Selecione abaixo:
 </logic:present>
 
 </logic:present>
+
+
+</div>
+
+
+
+</div>
+
+</div>
+<br /><br />
+
+<jsp:include page="../rodape.jsp"/>
 
 </body>
 </html>
