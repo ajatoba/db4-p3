@@ -46,6 +46,8 @@ $(document).ready(function()
 <!-- topo com linha azul -->
 <jsp:include page="../topo.jsp"/>
 
+<div id="cont_reserva2">
+
 <div id="meio_reserva">
 <div class="top_reserva">
 	<div class="txt_meus_anuncios">Solicitação de Reserva</div>
@@ -97,7 +99,7 @@ O período que você selecionou faz parte de um pacote fechado.  Selecione abaixo:
 
 </div>
 
-</div>
+</div></div>
 <br /><br />
 
 <jsp:include page="../rodape.jsp"/>
