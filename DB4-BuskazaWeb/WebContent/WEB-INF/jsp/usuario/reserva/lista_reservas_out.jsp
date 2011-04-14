@@ -9,14 +9,16 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Buzkaza - Minhas Reservas</title>
-	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
-
-	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
-	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
 	
-	<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
-	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/cadastro.css"/>
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css" />
+	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/detalhe_imovel.css"/>
+	
+	<link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" />
+	<link rel="stylesheet" type="text/css" href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" />
 	
 	<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
@@ -54,7 +56,10 @@
 <div id="box_listagem">
 <div class="foto_reserva"><img src="/buzkaza/imagens_usuarios/<bean:write name="res" property="imovel.primeirafoto"/>" width="140" height="104" /></div>
 <div class="detalhe_reserva">
-<div class="bairro_reserva">${res.imovel.bairro}</div>
+<div class="bairro_reserva">${res.imovel.bairro}, ${res.imovel.estado.codigo}<br />
+
+	<span class="txt_cinza_detalhes">${res.imovel.logradouro}, ${res.imovel.complemento}</span>
+</div>
 <div class="data_reserva_de">de<br /><bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/></div>
 <div class="data_reserva_ate">ate<br /><bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/></div>
 <div class="nota_reserva">
@@ -79,11 +84,41 @@ R$ ${( res.valor + ( res.valor *10/100))}
 <div class="status_reserva">
 
 			<logic:equal name="res" property="status" value="0">Em análise</logic:equal>
-			<logic:equal name="res" property="status" value="1">Aprovada<br /><a href="/DB4-BuskazaWeb/usuario/reserva.do?act=formPagarReserva&cr=${res.codigo}">Efetuar pagamento</a></logic:equal>
+			<logic:equal name="res" property="status" value="1">Aprovada<br />
+			
+			<form action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip" id="moip">
+				<input type="hidden" name="id_carteira" value="buzkaza">			
+				<input type="hidden" name="valor" id="valor_reserva" value="${(res.valor*10/100)}00">
+				<input type="hidden" name="nome" value="${res.locatario.nome}">
+				<input type="hidden" name="pagador_nome" value="${res.locatario.nome}">
+				<input type="hidden" name="pagador_email" value="${res.locatario.email}">
+				<input type="hidden" name="id_transacao" value="${res.codigo}">
+				
+				
+				<input type="hidden" name="pagador_cidade" value=""/>
+				<input type="hidden" name="pagador_estado" value=""/>
+				<input type="hidden" name="pagador_cep" value=""/>
+										
+										
+				<input type="hidden" name="descricao" value="Aluguel do Imóvel de Código:${res.imovel.codigo}">
+				<input type="hidden" name="url_retorno" value="http://www.buzkaza.com.br">
+				<a href="#" onclick="javascript:document.moip.submit();" border="0">Efetuar pagamento</a>		
+			</form>
+			<script language="javascript">
+                <!--
+                	calcularvalorMoip( '${((res.valor*10/100))}', '<bean:write name="res" property="valor" format="00.00"/>');
+                -->
+            </script>
+                
+				<!-- 
+				<a href="/DB4-BuskazaWeb/usuario/reserva.do?act=formPagarReserva&cr=${res.codigo}">Efetuar pagamento</a> -->
+			</logic:equal>
 			<logic:equal name="res" property="status" value="2">Negada</logic:equal>
 			<logic:equal name="res" property="status" value="3">Paga</logic:equal>
 
 
+
+				
 </div>
 
 </div>
@@ -102,6 +137,8 @@ R$ ${( res.valor + ( res.valor *10/100))}
 </logic:notPresent>
 
 <!--FIM CADASTRO-->
+
+</div></div></div>
 
 <jsp:include page="../rodape.jsp"/>
 
