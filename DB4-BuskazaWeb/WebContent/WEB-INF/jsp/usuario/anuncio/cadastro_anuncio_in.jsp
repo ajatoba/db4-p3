@@ -77,7 +77,7 @@ $(function()
 	$('#multimonth').datePickerMultiMonth(
 		{
 			startDate: datainicio,
-			numMonths: 9,
+			numMonths: 2,
 			inline: true
 		}
 	).dpmmSetSelected(
@@ -219,8 +219,9 @@ function somaDias( txtData, DiasAdd )
 					  <tr valign="top">
 					    <td width="35%" valign="top">
 					    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.estado.codigo} </span><br />
-			    			<span class="txt_cinza_detalhes">${imovel.logradouro}<br />
-			    			id: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span>
+			    			<span class="txt_cinza_detalhes">${imovel.logradouro}, ${imovel.complemento} <br />
+    						Número: ${imovel.numero} - CEP: ${imovel.cep}<br />
+			    			ID: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span>
 					    </td>
 					    <td width="65%" valign="top">
 
@@ -324,7 +325,50 @@ function somaDias( txtData, DiasAdd )
 			</table>
   	
 
+			<div id="container">
+			  <div id="multimonth"></div>
+			  <div id="data_duracao"></div>
+			</div>
 			
+			<script type="text/javascript" charset="utf-8">
+			
+			$(document).ready(function() {
+			  listaDadas();
+			});
+			
+			function listaDadas(){
+				<logic:iterate id="an" name="imovel" property="anuncios">
+			
+					<logic:equal name="an" property="tipoAnuncio.codigo" value="0">var color="#FFF"; </logic:equal>
+					<logic:equal name="an" property="tipoAnuncio.codigo" value="1">var color="#2980C5"; </logic:equal>			  		
+					<logic:equal name="an" property="tipoAnuncio.codigo" value="2">var color="#FF6D00"; </logic:equal>
+					<logic:equal name="an" property="tipoAnuncio.codigo" value="3">var color="#8DBF22"; </logic:equal>
+					<logic:equal name="an" property="tipoAnuncio.codigo" value="4">var color="#FFC600"; </logic:equal>
+					<logic:equal name="an" property="tipoAnuncio.codigo" value="5">var color="#D300FF"; </logic:equal>
+					<logic:equal name="an" property="tipoAnuncio.codigo" value="6">var color="#00D8FF"; </logic:equal>
+					
+					calcularData( '<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>', color);	
+				</logic:iterate>
+			
+				<logic:iterate id="bl" name="imovel" property="bloqueios">
+			
+					var color="#2980C5";
+					
+					calcularData( '<bean:write name="bl" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="bl" property="dataFinal" format="dd/MM/yyyy"/>', color);	
+				</logic:iterate>
+			
+				<logic:iterate id="rs" name="imovel" property="reservas">
+			
+					<logic:equal name="rs" property="status" value="1">
+					var color="#d62222";
+					
+					calcularData( '<bean:write name="rs" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="rs" property="periodoFinal" format="dd/MM/yyyy"/>', color);
+					</logic:equal>
+				</logic:iterate>
+			 }
+			
+			
+			</script>		
 		  	
 		  	
 		  	            
@@ -447,50 +491,7 @@ function somaDias( txtData, DiasAdd )
 <html:form method="post" action="/usuario/anuncio?act=incluirAnuncio">
 <input type="hidden" name="ci" value="${imovel.codigo}">
 
-<div id="container">
-  <div id="multimonth"></div>
-  <div id="data_duracao"></div>
-</div>
 
-<script type="text/javascript" charset="utf-8">
-
-$(document).ready(function() {
-  listaDadas();
-});
-
-function listaDadas(){
-	<logic:iterate id="an" name="imovel" property="anuncios">
-
-		<logic:equal name="an" property="tipoAnuncio.codigo" value="0">var color="#FFF"; </logic:equal>
-		<logic:equal name="an" property="tipoAnuncio.codigo" value="1">var color="#2980C5"; </logic:equal>			  		
-		<logic:equal name="an" property="tipoAnuncio.codigo" value="2">var color="#FF6D00"; </logic:equal>
-		<logic:equal name="an" property="tipoAnuncio.codigo" value="3">var color="#8DBF22"; </logic:equal>
-		<logic:equal name="an" property="tipoAnuncio.codigo" value="4">var color="#FFC600"; </logic:equal>
-		<logic:equal name="an" property="tipoAnuncio.codigo" value="5">var color="#D300FF"; </logic:equal>
-		<logic:equal name="an" property="tipoAnuncio.codigo" value="6">var color="#00D8FF"; </logic:equal>
-		
-		calcularData( '<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>', color);	
-	</logic:iterate>
-
-	<logic:iterate id="bl" name="imovel" property="bloqueios">
-
-		var color="#2980C5";
-		
-		calcularData( '<bean:write name="bl" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="bl" property="dataFinal" format="dd/MM/yyyy"/>', color);	
-	</logic:iterate>
-
-	<logic:iterate id="rs" name="imovel" property="reservas">
-
-		<logic:equal name="rs" property="status" value="1">
-		var color="#d62222";
-		
-		calcularData( '<bean:write name="rs" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="rs" property="periodoFinal" format="dd/MM/yyyy"/>', color);
-		</logic:equal>
-	</logic:iterate>
- }
-
-
-</script>
 <br />
 
 <div id="formulario_edicao2">
