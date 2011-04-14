@@ -230,6 +230,11 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 					<input type="hidden" name="pagador_nome" value="${reservaPagar.locatario.nome}">
 					<input type="hidden" name="pagador_email" value="${reservaPagar.locatario.email}">
 					<input type="hidden" name="id_transacao" value="${reservaPagar.codigo}">
+					
+					<input type="hidden" name="pagador_cidade" value=""/>
+					<input type="hidden" name="pagador_estado" value=""/>
+					<input type="hidden" name="pagador_cep" value=""/>
+					
 					<input type="hidden" name="descricao" value="Aluguel do Imóvel de Código:${reservaPagar.imovel.codigo}">
 					<input type="hidden" name="url_retorno" value="http://www.buzkaza.com.br">
 					<a href="#" onclick="javascript:document.moip.submit();" border="0"><img src="http://www.moip.com.br/img/novas/moip.gif" border="0" width="70" height="35"/></a>
