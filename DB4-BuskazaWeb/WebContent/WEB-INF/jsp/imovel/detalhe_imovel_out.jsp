@@ -74,7 +74,7 @@ $(function()
 	$('#multimonth').datePickerMultiMonth(
 		{
 			startDate: datainicio,
-			numMonths: 9,
+			numMonths: 2,
 			inline: true
 		}
 	).dpmmSetSelected(
