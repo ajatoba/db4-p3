@@ -372,8 +372,16 @@
         </table></td>
     </tr>
     <tr>
-      <td>Buscar:</td>
-      <td colspan="2"><html:radio property="tiposAnuncio" value="1"/>Disponibilidades <html:radio property="tiposAnuncio" value="6"/>Pacotes Fechados</td>
+      <td height="30"  colspan="3">
+      <table>
+      	<tr>
+      		<td>Buscar por: &nbsp;</td>
+	      	<td><html:radio property="tiposAnuncio" value="1"/></td>
+	      	<td>Disponibilidades</td>
+	      	<td><html:radio property="tiposAnuncio" value="6"/></td>
+	      	<td>Pacotes Fechados</td>
+	    </tr>
+	  </table>
     </tr>
   </table>
 
