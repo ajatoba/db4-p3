@@ -10,15 +10,16 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Buzkaza - Minhas Reservas</title>
 	
-	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
+	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/cadastro.css"/>
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css" />
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/detalhe_imovel.css"/>
 	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" />
-	<link rel="stylesheet" type="text/css" href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" />
+	
+	<link rel="stylesheet" type="text/css" href="/buzkaza/webfontkit-20101006-104039/stylesheet.css"/>
+	<link rel="stylesheet" type="text/css" href="/buzkaza/webfontkit-20110225-090425/stylesheet.css"/>
 	
 	<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
@@ -56,18 +57,24 @@
 <div id="box_listagem">
 <div class="foto_reserva"><img src="/buzkaza/imagens_usuarios/<bean:write name="res" property="imovel.primeirafoto"/>" width="140" height="104" /></div>
 <div class="detalhe_reserva">
-<div class="bairro_reserva">${res.imovel.bairro}, ${res.imovel.estado.codigo}<br />
+<div class="bairro_reserva">
 
-	<span class="txt_cinza_detalhes">${res.imovel.logradouro}, ${res.imovel.complemento}</span>
+
+<span class="tit_azul2">${res.imovel.bairro}, ${res.imovel.municipio} - ${res.imovel.estado.codigo}</span><br />
+<span class="txt_cinza_detalhes">${res.imovel.logradouro}, ${res.imovel.numero} - ${res.imovel.complemento} - Cep ${res.imovel.cep}</span>
+
+	
 </div>
-<div class="data_reserva_de">de<br /><bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/></div>
-<div class="data_reserva_ate">ate<br /><bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/></div>
+<div class="data_reserva_de"><span class="tit_azul2">De</span><br /><bean:write name="res" property="periodoInicial" format="dd/MM/yyyy"/></div>
+<div class="data_reserva_ate"><span class="tit_azul2">Até</span><br /><bean:write name="res" property="periodoFinal" format="dd/MM/yyyy"/></div>
 <div class="nota_reserva">
 <%
 	index = index+1;
 %>
-Valor de <span id="data_total_<% out.print( index ); %>_${res.imovel.codigo}"></span> dia(s)&nbsp;
-R$ ${( res.valor + ( res.valor *10/100))} 
+<span class="txt_cinza_detalhes">
+	Valor de <span id="data_total_<% out.print( index ); %>_${res.imovel.codigo}"></span> dia(s)&nbsp;
+	R$ ${( res.valor + ( res.valor *10/100))}
+</span>
 
 
 <script language="javascript">
@@ -86,7 +93,7 @@ R$ ${( res.valor + ( res.valor *10/100))}
 			<logic:equal name="res" property="status" value="0">Em análise</logic:equal>
 			<logic:equal name="res" property="status" value="1">Aprovada<br />
 			
-			<form action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip" id="moip">
+			<form action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip<% out.print( index ); %>" id="moip<% out.print( index ); %>">
 				<input type="hidden" name="id_carteira" value="buzkaza">			
 				<input type="hidden" name="valor" id="valor_reserva" value="${(res.valor*10/100)}00">
 				<input type="hidden" name="nome" value="${res.locatario.nome}">
@@ -102,7 +109,7 @@ R$ ${( res.valor + ( res.valor *10/100))}
 										
 				<input type="hidden" name="descricao" value="Aluguel do Imóvel de Código:${res.imovel.codigo}">
 				<input type="hidden" name="url_retorno" value="http://www.buzkaza.com.br">
-				<a href="#" onclick="javascript:document.moip.submit();" border="0">Efetuar pagamento</a>		
+				<a href="#" onclick="javascript:document.moip<% out.print( index ); %>.submit();" border="0">Efetuar pagamento</a>		
 			</form>
 			<script language="javascript">
                 <!--
@@ -115,9 +122,6 @@ R$ ${( res.valor + ( res.valor *10/100))}
 			</logic:equal>
 			<logic:equal name="res" property="status" value="2">Negada</logic:equal>
 			<logic:equal name="res" property="status" value="3">Paga</logic:equal>
-
-
-
 				
 </div>
 
@@ -128,9 +132,6 @@ R$ ${( res.valor + ( res.valor *10/100))}
 <!--BOX COM A RESERVA-->
 </logic:iterate>
 </logic:present>
-
-
-	
 
 <logic:notPresent name="reservas">
 <div id="box_listagem"><span class="txt_caracteristicas_desc">Não há reservas</span></div>
