@@ -3,6 +3,8 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -67,9 +69,9 @@
 			<table width="100%" border="0" > 
 			  <tr valign="top">
 			    <td width="35%" valign="top">
-			    	<span class="tit_azul_detalhes">${reservaPagar.imovel.bairro}, ${reservaPagar.imovel.estado.codigo}</span><br />
-	    			<span class="txt_cinza_detalhes">${reservaPagar.imovel.logradouro}, ${reservaPagar.imovel.complemento} <br />
-    					Número: ${reservaPagar.imovel.numero} - CEP: ${reservaPagar.imovel.cep}<br />
+			    	<span class="tit_azul_detalhes">${reservaPagar.imovel.bairro}, ${reservaPagar.imovel.municipio} - ${reservaPagar.imovel.estado.codigo}</span><br />
+	    			<span class="txt_cinza_detalhes">${reservaPagar.imovel.logradouro}, ${reservaPagar.imovel.numero} - ${reservaPagar.imovel.complemento} - Cep ${reservaPagar.imovel.cep}<br />
+    					
     					ID: ${reservaPagar.imovel.usuarioProprietario.codigo}-${reservaPagar.imovel.codigo}</span>
 			    </td>
 			    <td width="65%" valign="top">
@@ -137,15 +139,15 @@
 	<div class="calculo_reserva">
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Total da Reserva:</div>
-                    <div class="calculo_total_valor">R$ ${(( reservaPagar.valor + ( reservaPagar.valor *10/100)))}</div>
+                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${(( reservaPagar.valor + ( reservaPagar.valor *10/100)))}"/></div>
             </div>
             <div class="calculo_amarelo">
-                    <div class="calculo_total_info">Sinal 10%:</div>
-                    <div class="calculo_total_valor">R$ ${((reservaPagar.valor*10/100))}</div>
+                    <div class="calculo_total_info">Taxa de reserva:</div>
+                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((reservaPagar.valor*10/100))}"/></div>
             </div>
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Saldo no Check in:</div>
-                    <div class="calculo_total_valor">R$ ${(reservaPagar.valor)}</div>
+                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${(reservaPagar.valor)}"/></div>
             </div>
     </div>
     
@@ -231,9 +233,20 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 					<input type="hidden" name="pagador_email" value="${reservaPagar.locatario.email}">
 					<input type="hidden" name="id_transacao" value="${reservaPagar.codigo}">
 					
-					<input type="hidden" name="pagador_cidade" value=""/>
-					<input type="hidden" name="pagador_estado" value=""/>
-					<input type="hidden" name="pagador_cep" value=""/>
+					
+					
+					<input type="hidden" name="pagador_logradouro" value="${reservaPagar.locatario.endereco.logradouro}"/>
+					<input type="hidden" name="pagador_numero" value="${reservaPagar.locatario.endereco.numero}"/>
+					<input type="hidden" name="pagador_complemento"	value="${reservaPagar.locatario.endereco.complemento}"/>
+					<input type="hidden" name="pagador_bairro" value=""/>
+					
+					<!-- 
+						<input type="hidden" name="pagador_telefone" value="0000000000"/>
+					-->
+					 					
+					<input type="hidden" name="pagador_cidade" value="${reservaPagar.locatario.endereco.municipio}"/>
+					<input type="hidden" name="pagador_estado" value="${reservaPagar.locatario.endereco.estado.codigo}"/>
+					<input type="hidden" name="pagador_cep" id="pagador_cep" value="${reservaPagar.locatario.endereco.cep}"/>
 					
 					<input type="hidden" name="descricao" value="Aluguel do Imóvel de Código:${reservaPagar.imovel.codigo}">
 					<input type="hidden" name="url_retorno" value="http://www.buzkaza.com.br">
@@ -242,7 +255,8 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 				</form>
 				<script language="javascript">
                 <!--
-                	calcularvalorMoip( '${((reservaPagar.valor*10/100))}', '<bean:write name="reservaPagar" property="valor" format="00.00"/>');
+                	calcularvalorMoip( '<fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((reservaPagar.valor*10/100))}"/>', '<bean:write name="reservaPagar" property="valor" format="00.00"/>');
+                	montarCepMoip('${reservaPagar.locatario.endereco.cep}' );
                 -->
                 </script>
 			</td>
