@@ -83,14 +83,18 @@ public class ImovelBean implements ImovelBeanLocal {
         	joinEquipamento.add (Restrictions.in("codigo", UtilsCollections.listarPropriedadeInteger(imovel.getEquipamentos(),"codigo"))); 
         } 
         
+        
         if (anuncio != null) { 
         	Criteria joinPeriodoAnuncio = c.createCriteria("anuncios", JoinFragment.LEFT_OUTER_JOIN);	
         	
-        	if(anuncio.getTipoAnuncio() != null && anuncio.getTipoAnuncio().getCodigo() != 6){
-        		joinPeriodoAnuncio.add (Restrictions.ne("tipoAnuncio.codigo", new Integer(6)));//NÃO ACHA OS PACOTES FECHADOS
-        	}else if (anuncio.getTipoAnuncio() != null && anuncio.getTipoAnuncio().getCodigo() == 6){
-        		joinPeriodoAnuncio.add (Restrictions.eq("tipoAnuncio.codigo", new Integer(6)));//SÓ ACHA OS PACOTES FECHADOS
+        	if(anuncio.getTipoAnuncio() != null){
+	        	if(anuncio.getTipoAnuncio().getCodigo() != Constants.TIPO_ANUNCIO_PACOTE_FECHADO){
+	        		joinPeriodoAnuncio.add (Restrictions.ne("tipoAnuncio.codigo", Constants.TIPO_ANUNCIO_PACOTE_FECHADO));//NÃO ACHA OS PACOTES FECHADOS
+	        	}else if (anuncio.getTipoAnuncio().getCodigo() == Constants.TIPO_ANUNCIO_PACOTE_FECHADO){
+	        		joinPeriodoAnuncio.add (Restrictions.eq("tipoAnuncio.codigo", Constants.TIPO_ANUNCIO_PACOTE_FECHADO));//SÓ ACHA OS PACOTES FECHADOS
+	        	}
         	}
+        	
         	joinPeriodoAnuncio.add (Restrictions.le("dataInicial" ,anuncio.getDataInicial()));
         	joinPeriodoAnuncio.add (Restrictions.ge("dataFinal" ,anuncio.getDataFinal()));
         	
@@ -98,7 +102,8 @@ public class ImovelBean implements ImovelBeanLocal {
         
         c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_bloqueio where ( ? between dataInicial and dataFinal) or (? between dataInicial and dataFinal)) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
         
-        c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_reserva where status = 1 and  ( ? between periodoInicial and periodoFinal) or (? between periodoInicial and periodoFinal)) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
+        c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_reserva where status = " + Constants.STATUS_RESERVA_APROVADA + " and  ( ? between periodoInicial and periodoFinal) or (? between periodoInicial and periodoFinal)) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
+        
         
         if (imovel.getCapacidade() != 0) { 
         	c.add(Restrictions.between("capacidade", new Integer(0), imovel.getCapacidade())); 

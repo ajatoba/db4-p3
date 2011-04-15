@@ -78,9 +78,10 @@ public class ReservaBean implements ReservaBeanLocal {
         	
         } 
         
-        if(status > 0){
+        if(status >= 0){//POIS -1 DEVE LISTAR TODAS AS RESERVAS
         	c.add(Restrictions.eq("status", status));
         }
+        
         c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
         return c.list(); 
 	}
