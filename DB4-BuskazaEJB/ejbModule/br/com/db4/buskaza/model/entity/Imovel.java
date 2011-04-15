@@ -167,81 +167,9 @@ public class Imovel implements Serializable{
 	
 	private boolean permiteOpcaoPagamento;
 	
-	//NOVOS CAMPOS - 14/04/2011
-	private double taxaCheckinForaHorario;
-	
-	private double taxaCheckoutForaHorario;
-	
-	private double taxaCaucao;
-	
-	private double taxaAgua;
-	
-	private double taxaGas;
-	
-	private double taxaEletricidade;
-	
-	private double taxaLimpeza;
-	
-	//***************************
 	
 	public Set<Bloqueio> getBloqueios() {
 		return bloqueios;
-	}
-
-	public double getTaxaCheckinForaHorario() {
-		return taxaCheckinForaHorario;
-	}
-
-	public void setTaxaCheckinForaHorario(double taxaCheckinForaHorario) {
-		this.taxaCheckinForaHorario = taxaCheckinForaHorario;
-	}
-
-	public double getTaxaCheckoutForaHorario() {
-		return taxaCheckoutForaHorario;
-	}
-
-	public void setTaxaCheckoutForaHorario(double taxaCheckoutForaHorario) {
-		this.taxaCheckoutForaHorario = taxaCheckoutForaHorario;
-	}
-
-	public double getTaxaCaucao() {
-		return taxaCaucao;
-	}
-
-	public void setTaxaCaucao(double taxaCaucao) {
-		this.taxaCaucao = taxaCaucao;
-	}
-
-	public double getTaxaAgua() {
-		return taxaAgua;
-	}
-
-	public void setTaxaAgua(double taxaAgua) {
-		this.taxaAgua = taxaAgua;
-	}
-
-	public double getTaxaGas() {
-		return taxaGas;
-	}
-
-	public void setTaxaGas(double taxaGas) {
-		this.taxaGas = taxaGas;
-	}
-
-	public double getTaxaEletricidade() {
-		return taxaEletricidade;
-	}
-
-	public void setTaxaEletricidade(double taxaEletricidade) {
-		this.taxaEletricidade = taxaEletricidade;
-	}
-
-	public double getTaxaLimpeza() {
-		return taxaLimpeza;
-	}
-
-	public void setTaxaLimpeza(double taxaLimpeza) {
-		this.taxaLimpeza = taxaLimpeza;
 	}
 
 	public void setBloqueios(Set<Bloqueio> bloqueios) {
