@@ -10,12 +10,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza</title>
 
-<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
-<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
 
-<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
+
 <link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 <link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+
+
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css"/>
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css"/>
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/detalhe_imovel.css"/>
+
+<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
 
 <script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 <script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
@@ -76,10 +81,13 @@ $(function(){
 		
 		<div id="box_listagem">
 		<div class="foto_reserva"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="primeirafoto"/>" width="132" height="99" /></div>
-		<div class="detalhe_reserva">
-		  <div class="bairro_reserva">${ims.bairro} -${ims.estado.codigo}<br>
-		    <span class="nome_rua">${ims.logradouro}</span></div>
-		  <div class="nota_reserva"><span class="id_imoves">id: <bean:write name="ims" property="usuarioProprietario.codigo"/>-<bean:write name="ims" property="codigo"/></span></div>
+		
+		<div class="detalhe_reserva2">
+		  <div class="bairro_reserva">		  
+		  		<span class="tit_azul2">${ims.bairro}, ${ims.municipio} - ${ims.estado.codigo}</span><br />
+		    	<span class="txt_cinza_detalhes">${ims.logradouro}, ${ims.numero} - ${ims.complemento} - Cep ${ims.cep}</span></div>
+		    
+		  <div class="nota_reserva"><span class="id_imoves">ID: <bean:write name="ims" property="usuarioProprietario.codigo"/>-<bean:write name="ims" property="codigo"/></span></div>
 		  <div class="visualizar_reserva">
 		    <logic:equal name="ims" property="status" value="0">Em análise &nbsp;&nbsp;</logic:equal>    
 		    <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}" class="link_azul">Editar Anúncio</a> &nbsp;&nbsp;
