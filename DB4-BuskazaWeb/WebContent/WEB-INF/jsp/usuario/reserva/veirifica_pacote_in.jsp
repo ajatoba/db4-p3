@@ -10,15 +10,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza - Incluir Reserva</title>
 
-<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
+
+<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/cadastro.css" />
 
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css" />
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/size_campos.css"/>
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/detalhe_imovel.css"/>
 
-<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
-<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+
 
 <script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 <script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
@@ -67,7 +70,8 @@ O período que você selecionou faz parte de um pacote fechado.  Selecione abaixo:
 
 	<logic:iterate name="reserva" property="imovel.anuncios" id="an">
 		<logic:equal name="an" property="tipoAnuncio.codigo" value="6">
-			<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/><br>
+		
+			
 			
 			<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
 				<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
@@ -79,9 +83,14 @@ O período que você selecionou faz parte de um pacote fechado.  Selecione abaixo:
 				<html:hidden property="diaPeriodoFinal" value="${an.dataFinal.date}"/>	
 				<html:hidden property="mesPeriodoFinal" value="${(an.dataFinal.month)+1}"/>
 				<html:hidden property="anoPeriodoFinal" value="${(an.dataFinal.year)+1900}"/>
-					
-				<div class="botao_reserva2">
-					<input type="image" src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" /><br/>
+				
+				<div>
+					<div class="txt_form" style="float:left" >
+						<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/><br>
+					</div>	
+					<div class="botao_reserva2">
+						<input type="image" src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" /><br/>
+					</div>
 				</div>
 			</html:form>						
 			
