@@ -7,6 +7,8 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -88,9 +90,9 @@ $(document).ready(function()
 			<table width="100%" border="0" > 
 			  <tr valign="top">
 			    <td width="35%" valign="top">
-			    	<span class="tit_azul_detalhes">${reserva.imovel.bairro}, ${reserva.imovel.estado.codigo}</span><br />
-	    			<span class="txt_cinza_detalhes">${reserva.imovel.logradouro}, ${reserva.imovel.complemento} <br />
-    					Número: ${reserva.imovel.numero} - CEP: ${reserva.imovel.cep}<br />
+			    	<span class="tit_azul_detalhes">${reserva.imovel.bairro}, ${reserva.imovel.municipio} - ${reserva.imovel.estado.codigo}</span><br />
+	    			<span class="txt_cinza_detalhes">${reserva.imovel.logradouro}, ${reserva.imovel.numero} - ${reserva.imovel.complemento} - Cep ${reserva.imovel.cep}<br />
+    					
     					ID: ${reserva.imovel.usuarioProprietario.codigo}-${reserva.imovel.codigo}</span>
 			    </td>
 			    <td width="65%" valign="top">
@@ -143,14 +145,6 @@ $(document).ready(function()
 			                </div>    
 			                <div class="baixo"></div>
 						</div>
-					    
-					    
-					    
-					    
-					    
-					    
-					    
-					    
 				   </span>			      
 			    </td>
 			  </tr>
@@ -164,16 +158,16 @@ $(document).ready(function()
 	<div class="calculo_reserva">
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Total da Reserva:</div>
-                    <div class="calculo_total_valor">R$ ${( reserva.valor + ( reserva.valor *10/100))}</div>
+                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( reserva.valor + ( reserva.valor *10/100))}"/></div>
             </div>
             <div class="calculo_amarelo">
-                    <div class="calculo_total_info">Sinal 10%:</div>
-                    <div class="calculo_total_valor">R$ ${(reserva.valor*10/100)}
+                    <div class="calculo_total_info">Taxa de reserva:</div>
+                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${(reserva.valor*10/100)}"/>
                     </div>
             </div>
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Saldo no Check in:</div>
-                    <div class="calculo_total_valor">R$ ${reserva.valor}</div>
+                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${reserva.valor}"/></div>
             </div>
     </div>
     
