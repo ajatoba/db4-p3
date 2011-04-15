@@ -3,21 +3,25 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza</title>
 
-<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
-<link href="/buzkaza/_css/busca.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" />
 
-<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
-<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/cadastro.css"/>
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/busca.css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css"/>
 
-<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
-<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
+
 
 <script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 <script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
@@ -121,16 +125,8 @@
                 <tr>
                   <td align="left" valign="top">
                    <div id="busca_endereco">
-		                  <span class="tit_azul2"><bean:write name="ims" property="key.bairro"/>, <bean:write name="ims" property="key.estado.codigo"/></span><br />
-			                  
-		                    <span class="txt_form">
-		                    <bean:write name="ims" property="key.logradouro"/>, <bean:write name="ims" property="key.complemento"/>
-		                    <!-- 
-		                    <bean:write name="ims" property="key.numero"/> , 
-				    				<bean:write name="ims" property="key.bairro"/>, <bean:write name="ims" property="key.complemento"/>, 
-				    				<bean:write name="ims" property="key.municipio"/> - <bean:write name="ims" property="key.estado.codigo"/>
-				    		 -->
-				    	</span><br />
+		                  <span class="tit_azul2">${ims.key.bairro}, ${ims.key.municipio} - ${ims.key.estado.codigo}</span><br />			                  
+		                  <span class="txt_form">${ims.key.logradouro}, ${ims.key.numero} - ${ims.key.complemento} - Cep ${ims.key.cep}</span><br />
                     <br />
                     
                     <logic:equal name="tipoBusca" property="codigo" value="6">
@@ -213,13 +209,17 @@
 	                          <div class="bustotal">
 	                              Valor total<br />
 	                                <span class="valor_cinza"><bean:write name="qtdDias"/> Dia(s):<br /></span>
-	                                <span class="valor_azul">R$  ${( ims.value + ( ims.value  *10/100))} </span>                        
+	                                <span class="valor_azul">R$  <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( ims.value + ( ims.value  *10/100))}"/> </span>                        
 	                          </div>
 	                       </div>
 	                       <div class="box_busca_valor_media">
 	                            <div class="busmedia">               
 	                                Média da Diária:<br />
-	                                <span class="valor_cinza">R$ ${( ims.value + ( ims.value  *10/100)) /qtdDias}</span>
+	                                <span class="valor_cinza">R$
+	                                
+	                                <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( ims.value + ( ims.value  *10/100)) /qtdDias}"/>
+	                                
+	                                 </span>
 	                       		</div>
 	                      	</div>
 	                  </div>
