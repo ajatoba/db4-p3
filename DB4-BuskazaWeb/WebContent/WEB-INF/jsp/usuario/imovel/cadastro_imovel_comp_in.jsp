@@ -80,9 +80,9 @@ $('#sep_top_reserva').corner('rounded 7px');
 			<table width="100%" border="0" > 
 			  <tr valign="top">
 			    <td width="35%" valign="top">
-			    	<span class="tit_azul_detalhes"><bean:write name="imovel" property="bairro"/>, ${imovel.estado.codigo} </span><br />
-	    			<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/><br />
-	    			id: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span>
+			    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
+	    			<span class="txt_cinza_detalhes">${imovel.logradouro}, ${imovel.numero} - ${imovel.complemento} - Cep ${imovel.cep}<br />
+	    			ID: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span>
 			    </td>
 			    <td width="65%" valign="top">			    	
 				    <span class="txt_cinza_detalhes">
