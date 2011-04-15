@@ -225,7 +225,7 @@ function somaDias( txtData, DiasAdd )
 			<div class="foto_big"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="341" height="271" />
 	</div>
 	
-	<div class="thumbs_fotos">
+	
 		<logic:notEmpty name="imovel" property="fotos">
 						Fotos<br/>
 						<logic:iterate id="ft" name="imovel" property="fotos">							
@@ -233,7 +233,7 @@ function somaDias( txtData, DiasAdd )
 						</logic:iterate>												
 				</logic:notEmpty>
 								
-  	</div>
+  	
 	
 	<div class="chamada_planta">Planta</div>
 	
@@ -303,20 +303,21 @@ function somaDias( txtData, DiasAdd )
 		<span class="txt_azul_peq_detalhes">Horário CheckOut Saída</span>&nbsp;: <bean:write name="imovel" property="checkOutSaida" format="HH:mm"/><br />
 		
 		
-		
-	  	<logic:notEmpty name="imovel" property="equipamentos">
+		<logic:notEmpty name="imovel" property="equipamentos">
 	  		<span class="tit_azul_detalhes">Equipamentos</span><br/>
-	  		<logic:iterate name="imovel" id="equipamentos" id="equipamento">
-	  			<bean:write name="equipamento" property="descricao"/>" />  		
+	  		<logic:iterate name="imovel" property="equipamentos" id="equipamento">
+	  			<bean:write name="equipamento" property="nome"/><br>  		
 	  		</logic:iterate>
 	  	</logic:notEmpty>
-	  	
+	  	<br>
 	  	<logic:notEmpty name="imovel" property="tiposPagamento">
 	  		<span class="tit_azul_detalhes">Tipos de Pagamento:</span><br/>
-	  		<logic:iterate name="imovel" id="tiposPagamento" id="tipoPagamento">
-	  			<bean:write name="tipoPagamento" property="nome"/>" />  		
+	  		<logic:iterate name="imovel" id="tipoPagamento" property="tiposPagamento">
+	  			<bean:write name="tipoPagamento" property="nome"/><br> 		
 	  		</logic:iterate>
 	  	</logic:notEmpty>
+		
+	  	
 	  	
 	  	<br><br>
 	  	

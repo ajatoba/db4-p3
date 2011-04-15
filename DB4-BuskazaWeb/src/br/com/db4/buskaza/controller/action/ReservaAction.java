@@ -296,19 +296,16 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			
 			String assunto="",mensagem="",remetente="",destinatario="";			
 			
-			if (reserva.getStatus() == 1) {
+			if (reserva.getStatus() == Constants.STATUS_RESERVA_APROVADA) {
 				mensagem  		= messageResources.getMessage("aprovacaoReserva.mensagem");
 				assunto 		= messageResources.getMessage("aprovacaoReserva.assunto");
-			}else {
+			}else if (reserva.getStatus() == Constants.STATUS_RESERVA_NEGADA) {			
 				mensagem  		= messageResources.getMessage("negacaoReserva.mensagem");
 				assunto 		= messageResources.getMessage("negacaoReserva.assunto");
 			}
 			
 			
 			mensagem 		= mensagem.replaceAll("<CODIGO_RESERVA>", String.valueOf(reserva.getCodigo()));
-			   
-						
-			
 			remetente 		= messageResources.getMessage("mail.from");
 			
 			destinatario 	= reserva.getLocatario().getEmail();			

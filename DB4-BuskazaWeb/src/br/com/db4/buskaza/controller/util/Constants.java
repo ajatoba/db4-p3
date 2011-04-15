@@ -87,6 +87,14 @@ public interface Constants {
 	public static final String MENSAGEM_SEM_RESULTADOS = "message.sem.resultados";
 	
 	public static final String FORWARD_SAIDA_VERIFICA_PACOTE = "veirifica_pacote_in";
+	
+	//STATUS DAS RESERVAS
+	
+	public static final Integer STATUS_RESERVA_AGUARDANDO_APROVACAO = 0;
+	
+	public static final Integer STATUS_RESERVA_APROVADA = 1;
+	
+	public static final Integer STATUS_RESERVA_NEGADA = 2;
 
 	
 

@@ -208,6 +208,7 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 				String[] tiposPagamentoBoxes = request.getParameterValues("tiposPagamento");//anuncioForm.getTiposPagamento();
 				
 				if(tiposPagamentoBoxes != null && tiposPagamentoBoxes.length >0){
+					System.out.println("SALVANDO OS TIPOS DE PAGAMENTO");
 					tiposPagamento = new HashSet<TipoPagamento>();
 					for (int x=0; x < tiposPagamentoBoxes.length; x++){
 						
@@ -220,6 +221,7 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 				
 				imovel.setTiposPagamento(tiposPagamento);
 				
+				System.out.println("ALTERANDO O IMÓVEL");
 				imovelEjb.alterarImovel(imovel);
 				
 			}

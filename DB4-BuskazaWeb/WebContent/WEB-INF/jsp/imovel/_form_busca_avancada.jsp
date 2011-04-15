@@ -409,7 +409,7 @@
 </div>
   
   
-<div class="btn_busca"><a href="#" onclick="submitForm();" border="0"><img src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></a></div>  
+<div class="btn_busca"><input type="image" img src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></a></div>  
 
 <br /><br />
 

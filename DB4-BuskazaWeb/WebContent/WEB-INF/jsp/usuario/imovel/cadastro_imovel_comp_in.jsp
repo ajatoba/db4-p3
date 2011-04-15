@@ -170,7 +170,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 								      </tr>
 								      <tr>
 								        <td>
-								        	<html:select property="metragem" styleId="metragem" style="width:80px;">
+								        	<html:select name="imovel" property="metragem" styleId="metragem" style="width:80px;">
 								      			<html:option value="20.0">20m</html:option>
 								                <html:option value="25.0">25m</html:option>
 								                <html:option value="30.0">30m</html:option>
@@ -307,7 +307,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 								           
 								         </td>
 								        <td>
-								        	<html:select property="capacidade" styleId="capacidade">
+								        	<html:select name="imovel" property="capacidade" styleId="capacidade">
 								      			<html:option value="1">1 Pessoa</html:option>
 												<html:option value="2">2 Pessoas</html:option>
 												<html:option value="3">3 Pessoas</html:option>
@@ -332,7 +332,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 												<html:option value="22">22 Pessoas</html:option>
 								      		</html:select>
 								        </td>
-								        <td><html:select property="quartos" styleId="quartos">
+								        <td><html:select name="imovel" property="quartos" styleId="quartos">
 								      			<html:option value="1">1 Quarto</html:option>
 												<html:option value="2">2 Quartos</html:option>
 												<html:option value="3">3 Quartos</html:option>
@@ -376,7 +376,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 					        </td>
 					        <td>
 					        	<div>
-						        	<html:select property="camas" style="width:80px;">
+						        	<html:select name="imovel" property="camas" style="width:80px;">
 						                <html:option value="1">1</html:option>
 						                <html:option value="2">2</html:option>
 						                <html:option value="3">3</html:option>
@@ -440,7 +440,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 							            <div id="sep_form_busca" class="txt_form">
 							            
 							            	<div class="equip_top1">									
-												    <html:multibox property="equipamentos" styleClass="MyriadProRegular"> 
+												    <html:multibox name="imovel" property="equipamentos" styleClass="MyriadProRegular"> 
 														<bean:write name="equipamento" property="codigo"/>  
 													</html:multibox>
 												</div>
@@ -517,7 +517,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 						<td class="txt_caracteristicas"><div class="sepd">Email Alternativo</div></td>
 					</tr>
 					<tr class="txt_caracteristicas">    
-						<td><div class="seps"><html:text property="nomeCheckIn"  size="200" style="width:210px;" /></div></td>
+						<td><div class="seps"><html:text name="imovel"  property="nomeCheckIn"  size="200" style="width:210px;" /></div></td>
 					    <td><div class="sepd"><html:text property="ddd" maxlength="3"  size="30" style="width:40px;"/></div>
 					    	<div class="sepd"><html:text property="telefone"  maxlength="8" size="100" style="width:110px;"/></div></td>
 					    	
