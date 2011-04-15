@@ -265,9 +265,8 @@ function somaDias( txtData, DiasAdd )
 	<div class="right_detalhe">
     	<span class="txt_cinza_detalhes">
     	
-    	<span class="tit_azul_detalhes"><bean:write name="imovel" property="bairro"/>, ${imovel.estado.codigo}</span><br />
-    	<span class="txt_cinza_detalhes"><bean:write name="imovel" property="logradouro"/>, <bean:write name="imovel" property="complemento"/> <br />
-    	Número: ${imovel.numero} - CEP: ${imovel.cep}</span><br /><br />
+    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
+    	<span class="txt_cinza_detalhes">${imovel.logradouro}, ${imovel.numero} - ${imovel.complemento} - Cep ${imovel.cep}</span><br /><br />
     	 
     	<span class="txt_azul_peq_detalhes">ID</span>&nbsp;: <bean:write name="imovel" property="usuarioProprietario.codigo"/>-<bean:write name="imovel" property="codigo"/><br />
 		<span class="txt_azul_peq_detalhes">Distância do Centro</span>&nbsp;: <bean:write name="imovel" property="distanciaCentro"/><br />
