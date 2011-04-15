@@ -218,9 +218,8 @@ function somaDias( txtData, DiasAdd )
 					<table width="100%" border="0" > 
 					  <tr valign="top">
 					    <td width="35%" valign="top">
-					    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.estado.codigo} </span><br />
-			    			<span class="txt_cinza_detalhes">${imovel.logradouro}, ${imovel.complemento} <br />
-    						Número: ${imovel.numero} - CEP: ${imovel.cep}<br />
+					    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
+			    			<span class="txt_cinza_detalhes">${imovel.logradouro}, ${imovel.numero} - ${imovel.complemento} - Cep ${imovel.cep}<br />
 			    			ID: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span>
 					    </td>
 					    <td width="65%" valign="top">
