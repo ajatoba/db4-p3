@@ -88,6 +88,8 @@ public interface Constants {
 	
 	public static final String FORWARD_SAIDA_VERIFICA_PACOTE = "veirifica_pacote_in";
 	
+	public static final String FORWARD_SAIDA_FOTOS_IMOVEL = "fotos_imovel_list";
+	
 	//STATUS DAS RESERVAS
 	
 	public static final Integer STATUS_RESERVA_AGUARDANDO_APROVACAO = 0;

@@ -26,7 +26,7 @@ public class ImovelForm extends ActionForm {
 	public ImovelForm(){
 		imovelEntity = new Imovel();
 		imovelEntity.setEstado(new Estado());
-		imovelEntity.setIdiomas(new ArrayList<Idioma>());
+		imovelEntity.setIdiomas(new HashSet<Idioma>());
 		imovelEntity.setCamas(new Integer(0).intValue());
 		imovelEntity.setEquipamentos(new HashSet<Equipamento>());
 		
@@ -150,10 +150,81 @@ public class ImovelForm extends ActionForm {
 	
 	protected Integer tiposAnuncio;
 	
+	/* NOVOS CAMPOS - 16-04-2011*/
+	
+	private String emailCheckin;
+	
+	private String emailCheckin2;
+	
+	private double taxaAgua;
+	
+	private double taxaGas;
+	
+	private double taxaLateCheckout;
+	
+	private double taxaLateCheckin;
+	
+	/*****************************/
 	
 	
 	public Integer getTiposAnuncio() {
 		return tiposAnuncio;
+	}
+
+	public FormFile getArquivoFoto() {
+		return arquivoFoto;
+	}
+
+	public void setArquivoFoto(FormFile arquivoFoto) {
+		this.arquivoFoto = arquivoFoto;
+	}
+
+	public String getEmailCheckin() {
+		return emailCheckin;
+	}
+
+	public void setEmailCheckin(String emailCheckin) {
+		this.emailCheckin = emailCheckin;
+	}
+
+	public String getEmailCheckin2() {
+		return emailCheckin2;
+	}
+
+	public void setEmailCheckin2(String emailCheckin2) {
+		this.emailCheckin2 = emailCheckin2;
+	}
+
+	public double getTaxaAgua() {
+		return taxaAgua;
+	}
+
+	public void setTaxaAgua(double taxaAgua) {
+		this.taxaAgua = taxaAgua;
+	}
+
+	public double getTaxaGas() {
+		return taxaGas;
+	}
+
+	public void setTaxaGas(double taxaGas) {
+		this.taxaGas = taxaGas;
+	}
+
+	public double getTaxaLateCheckout() {
+		return taxaLateCheckout;
+	}
+
+	public void setTaxaLateCheckout(double taxaLateCheckout) {
+		this.taxaLateCheckout = taxaLateCheckout;
+	}
+
+	public double getTaxaLateCheckin() {
+		return taxaLateCheckin;
+	}
+
+	public void setTaxaLateCheckin(double taxaLateCheckin) {
+		this.taxaLateCheckin = taxaLateCheckin;
 	}
 
 	public void setTiposAnuncio(Integer tiposAnuncio) {

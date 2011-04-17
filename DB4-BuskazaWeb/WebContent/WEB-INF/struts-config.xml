@@ -14,6 +14,8 @@
 			type="br.com.db4.buskaza.controller.form.AnuncioForm"></form-bean>		
 		<form-bean name="reservaForm"
 			type="br.com.db4.buskaza.controller.form.ReservaForm"></form-bean>
+		<form-bean name="fotoForm"
+			type="br.com.db4.buskaza.controller.form.FotoForm"></form-bean>
 	</form-beans>
 
 	<global-exceptions>
@@ -107,6 +109,15 @@
 			<forward name="admin_listagem_imoveis" path="/WEB-INF/jsp/admin/imovel/listar_imoveis_out.jsp" />
 			<forward name="admin_form_aprovar_imovel" path="/WEB-INF/jsp/admin/imovel/aprovar_imovel_in.jsp" />
 			<forward name="admin_imovel_out" path="/WEB-INF/jsp/admin/imovel/admin_imovel_out.jsp" />						
+		</action>
+		
+		<action path="/usuario/foto"
+			type="br.com.db4.buskaza.controller.action.FotoAction" parameter="act"
+			scope="request" name="fotoForm" validate="true" input="/WEB-INF/jsp/usuario/imovel/fotos_imovel_list.jsp">
+
+			<forward name="fotos_imovel_list" path="/WEB-INF/jsp/usuario/imovel/fotos_imovel_list.jsp" />	
+					
+			
 		</action>
 
 	</action-mappings>

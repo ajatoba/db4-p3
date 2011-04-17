@@ -241,8 +241,12 @@ public class ImovelAction extends DispatchAction {
 		Integer[] equipamentosBoxes = form.getEquipamentos();
 		
 		if(equipamentosBoxes != null && equipamentosBoxes.length >0){
+			
+			
 			equipamentos = new HashSet<Equipamento>();
 			for (int x=0; x < equipamentosBoxes.length; x++){
+				
+				System.out.println("POPULANDO EQUIPAMENTOS");
 				
 				equipamento = new Equipamento();
 				equipamento.setCodigo(equipamentosBoxes[0].intValue());
@@ -446,9 +450,23 @@ public class ImovelAction extends DispatchAction {
 				carregaListas(request);	
 				ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
 				Imovel imovel = imovelEjb.getImovel(Integer.valueOf(codigoImovel));
+				
+				
 				ImovelForm imovelForm = (ImovelForm)form;	
 				
 				imovelForm.setImovelEntity(imovel);
+				
+				imovelForm.setCheckInEntradaHora(imovel.getCheckInEntrada().getHours());
+				imovelForm.setCheckInEntradaMinuto(imovel.getCheckInEntrada().getMinutes());
+				
+				imovelForm.setCheckOutEntradaHora(imovel.getCheckOutEntrada().getHours());
+				imovelForm.setCheckOutEntradaMinuto(imovel.getCheckOutEntrada().getMinutes());
+				
+				imovelForm.setCheckInSaidaHora(imovel.getCheckInSaida().getHours());
+				imovelForm.setCheckInSaidaMinuto(imovel.getCheckInSaida().getMinutes());
+				
+				imovelForm.setCheckOutSaidaHora(imovel.getCheckOutSaida().getHours());
+				imovelForm.setCheckOutSaidaMinuto(imovel.getCheckOutSaida().getMinutes());
 				
 				request.setAttribute("imovel", imovel);
 			}
@@ -557,13 +575,34 @@ public class ImovelAction extends DispatchAction {
 
 	
 	private Imovel popularDadosComplementoImovel(ImovelForm form,
-			Usuario usuario) {
+			Usuario usuario) throws ValidacaoFormException, FileNotFoundException, IOException {
 		
 		Imovel imovel = form.getImovelEntity();	
 		
 		Date checkInEntrada=null, checkInSaida=null, checkOutEntrada=null,checkOutSaida=null,lateCheckOut=null;
-		Collection<Equipamento> equipamentos = null;
+
+
+		Set<Equipamento> equipamentos = null;
+		Equipamento equipamento = null;
 		
+		Integer[] equipamentosBoxes = form.getEquipamentos();
+		
+		if(equipamentosBoxes != null && equipamentosBoxes.length >0){
+			
+			
+			equipamentos = new HashSet<Equipamento>();
+			for (int x=0; x < equipamentosBoxes.length; x++){
+				
+				equipamento = new Equipamento();
+				equipamento.setCodigo(equipamentosBoxes[x].intValue());
+				
+				equipamentos.add(equipamento);
+			}			
+		}
+		
+		if(equipamentos !=null && equipamentos.size()>0){
+			imovel.setEquipamentos(equipamentos);
+		}
 		
 		if(form.getCheckInEntradaHora() != null && form.getCheckInEntradaMinuto()!= null)		
 			checkInEntrada = new Date(0,0,0,form.getCheckInEntradaHora().intValue(), form.getCheckInEntradaMinuto().intValue());
@@ -628,6 +667,42 @@ public class ImovelAction extends DispatchAction {
 			ti.setCodigo(form.getTipoImovel());
 			imovel.setTipoImovel(ti);
 		}		
+		
+		/* NOVOS CAMPOS - 16-04-2011*/
+		
+		if(form.getDdd()!= null)
+			imovel.setDdd(form.getDdd());
+		
+		if(form.getDdd2()!= null)
+			imovel.setDdd2(form.getDdd2());
+		
+		if(form.getEmailCheckin() != null)
+			imovel.setEmailCheckin(form.getEmailCheckin());
+		
+		if(form.getEmailCheckin2() != null)
+			imovel.setEmailCheckin2(form.getEmailCheckin2());
+		
+		if(form.getTaxaAgua()> 0)
+			imovel.setTaxaAgua(form.getTaxaAgua());
+		
+		if(form.getTaxaGas()> 0)
+			imovel.setTaxaGas(form.getTaxaGas());
+		
+		if(form.getTaxaLateCheckout()> 0)
+			imovel.setTaxaLateCheckout(form.getTaxaLateCheckout());
+		
+		if(form.getTaxaLateCheckin()> 0)
+			imovel.setTaxaLateCheckin(form.getTaxaLateCheckin());
+		
+		if(form.getCalcao()> 0)
+			imovel.setCalcao(form.getCalcao());
+		
+		if(form.getEnergia()> 0)
+			imovel.setEnergia(form.getEnergia());
+		
+		if(form.getDiarista()> 0)
+			imovel.setDiarista(form.getDiarista());
+		/*****************************/
 		
 		return imovel;
 

@@ -53,7 +53,11 @@ $('#sep_top_reserva').corner('rounded 7px');
 	$("#mapa_").corner("bottom 7px");
 	});
 </script>
-
+<script>
+function abrirPop(url){
+	window.open(url,"mywindow","menubar=0,resizable=0,width=500,height=500");
+}
+</script>
 </head>
 
 <body>
@@ -391,8 +395,8 @@ $('#sep_top_reserva').corner('rounded 7px');
 					            </div>
 					        </td>
 					        <td>
-					        		<html:select property="idiomas">
-							     		<html:options collection="idiomas" property="codigo" labelProperty="nome"/>     
+					        		<html:select name="imovel" property="idiomas" multiple="true">
+							     		<html:options collection="idiomas" property="codigo" labelProperty="nome" />     
 							     	</html:select>
 					        
 					        
@@ -405,14 +409,22 @@ $('#sep_top_reserva').corner('rounded 7px');
 				  </tr>
 			      
 			      <tr>
-				    <td class="txt_caracteristicas"></td>
+				    <td class="txt_caracteristicas"><a href="javascript:abrirPop('/DB4-BuskazaWeb/usuario/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');">fotos</a></td>
 				  </tr>
+				  <tr>
+				    <td class="txt_caracteristicas">
+				    
+				    
+				    </td>
+				  </tr>
+				  
 				  <tr>
 				    <td><html:submit>ENVIAR</html:submit></td>
 				  </tr> 
 			    </table>
 	
 	</div>
+	
 	<div class="right_formulario">
 					
 					
@@ -424,68 +436,33 @@ $('#sep_top_reserva').corner('rounded 7px');
 					    <td><table width="100%" border="0">
 					      <tr class="txt_caracteristicas">
 					        <td> </td>
-					        <!--
-					        <td>Qtd</td>
-					        <td>Valor</td>
-					        --->
+
 					      </tr>
 					      <tr>
 					        <td>
-					        <!--         
-					            <html:select property="equipamentos">
-					                <html:options collection="equipamentos" property="codigo" labelProperty="nome"/>     
-					            </html:select>-->
-					            
-					            <logic:iterate name="equipamentos" id="equipamento">
-							            <div id="sep_form_busca" class="txt_form">
-							            
-							            	<div class="equip_top1">									
-												    <html:multibox name="imovel" property="equipamentos" styleClass="MyriadProRegular"> 
-														<bean:write name="equipamento" property="codigo"/>  
-													</html:multibox>
-												</div>
-												<div class="equip_top2">
-													<bean:write name="equipamento" property="nome"/>
-												</div>
-							            </div>
+					       		<logic:iterate name="equipamentos" id="equipamento">
+							    	<div id="sep_form_busca" class="txt_form">
+							           	<div class="equip_top1">									
+										    <html:multibox name="imovel" property="equipamentos"> 
+												<bean:write name="equipamento" property="codigo"/>
+											</html:multibox>
+										</div>
+										<div class="equip_top2">
+											<bean:write name="equipamento" property="nome"/>
+										</div>
+							        </div>
 					            </logic:iterate>
-					            
-					        </td>
-					        <!-- 
-						        <td><input type="text" name="qntEquipamento" id="qntEquipamento"  size="60" style="width:70px;"/></td>
-						        <td>
-						        	<div class="sepd"><input type="text" name="valorEquipamento" id="valorEquipamento" size="60" style="width:70px;" /></div>
-						          	<div class="sepd"><input type="submit" name="button4" id="button4" value="Enviar" /></div></td>
-					        -->
+					         </td>
+
 					      </tr>
 					    </table></td>
 					  </tr>
-					  <!-- 
-					  <tr>
-					    <td class="txt_caracteristicas">Listagem dos itens adicionados acima</td>
-					  </tr>
-					   -->
+
 					  <tr>
 					    <td>&nbsp;</td>
 					  </tr>
-					  <tr>
-					    <td><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /><span class="txt_caracteristica">Equipamentos Permissões e Facilidades</span></td>
-					  </tr>
-					  <tr>
-					    <td class="txt_caracteristicas">Arquivo (Qtd Min 6/máx 200KB)</td>
-					  </tr>
-					  <tr>
-					    <td>
-					    
-					    	<div style="margin-top:8px;"><html:file property="arquivoFoto[1]" styleId="file1" /></div>
-					     	<div style="margin-top:8px;"><html:file property="arquivoFoto[2]" styleId="file2" /></div>
-					     	<div style="margin-top:8px;"><html:file property="arquivoFoto[3]" styleId="file3" /></div>
-					     	
-					        <div style="margin-top:8px;"><html:file property="arquivoFoto[4]" styleId="file4" /></div>
-					        <div style="margin-top:8px;"><html:file property="arquivoFoto[5]" styleId="file5" /></div>
-					        <div style="margin-top:8px;"><html:file property="arquivoFoto[6]" styleId="file6" /></div>
-					    </td>
-					  </tr>
+					  
+					  
 					  <tr>
 					    <td>&nbsp;</td>
 					  </tr>
@@ -518,15 +495,15 @@ $('#sep_top_reserva').corner('rounded 7px');
 					</tr>
 					<tr class="txt_caracteristicas">    
 						<td><div class="seps"><html:text name="imovel"  property="nomeCheckIn"  size="200" style="width:210px;" /></div></td>
-					    <td><div class="sepd"><html:text property="ddd" maxlength="3"  size="30" style="width:40px;"/></div>
-					    	<div class="sepd"><html:text property="telefone"  maxlength="8" size="100" style="width:110px;"/></div></td>
+					    <td><div class="sepd"><html:text name="imovel"  property="ddd" maxlength="3"  size="30" style="width:40px;"/></div>
+					    	<div class="sepd"><html:text name="imovel"  name="imovel"  property="telefone"  maxlength="8" size="100" style="width:110px;"/></div></td>
 					    	
 						<td><div class="sepd">&nbsp;</div>
-							<div class="sepd"><html:text property="ddd2" maxlength="3" size="30" style="width:40px;"/></div>
-							<div class="sepd"><html:text property="telefone2" maxlength="8" size="100" style="width:110px;"/></div></td>
+							<div class="sepd"><html:text name="imovel"  property="ddd2" maxlength="3" size="30" style="width:40px;"/></div>
+							<div class="sepd"><html:text name="imovel"  property="telefone2" maxlength="8" size="100" style="width:110px;"/></div></td>
 							
-						<td><div class="sepd"><html:text property="email"  size="170" style="width:180px;"/></div></td>
-					    <td><div class="sepd"><html:text property="email2"  size="170" style="width:180px;"/></div></td>
+						<td><div class="sepd"><html:text name="imovel"  property="emailCheckin"  size="170" style="width:180px;"/></div></td>
+					    <td><div class="sepd"><html:text name="imovel"  property="emailCheckin2"  size="170" style="width:180px;"/></div></td>
 					</tr>					
 				</table>
 		</td>
@@ -560,6 +537,22 @@ $('#sep_top_reserva').corner('rounded 7px');
 		 </td>
 		 
         </tr>
+        <tr>
+        	<td width="70%">
+        	<div class="sept">Caução:<html:text name="imovel" property="calcao"/></div>
+			<div class="sept">Eletricidade:<html:text name="imovel" property="energia"/></div>
+			<div class="sept">Água:<html:text name="imovel" property="taxaAgua"/></div>
+			<div class="sept">Gás:<html:text name="imovel" property="taxaGas"/></div>
+			<div class="sept">Limpeza:<html:text name="imovel" property="diarista"/></div>
+        	</td>
+        </tr>
+        <tr>
+        	<td width="70%">
+        	<div class="sept">Taxa Checkin Atrasado:<html:text name="imovel" property="taxaLateCheckin"/></div>
+			<div class="sept">Taxa CheckOut Atrasado:<html:text name="imovel" property="taxaLateCheckout"/></div>
+		
+        	</td>
+        </tr>
 		</table>
   		</td>
   	</tr>  	
@@ -567,7 +560,8 @@ $('#sep_top_reserva').corner('rounded 7px');
   
 </div>
 
-
+<br>
+				    
 
 </html:form>
 
