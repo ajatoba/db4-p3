@@ -2,6 +2,7 @@ package br.com.db4.buskaza.model.imovel.ejb;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Map;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -28,8 +30,10 @@ import org.jboss.ejb3.annotation.LocalBinding;
 
 import br.com.db4.buskaza.model.entity.Anuncio;
 import br.com.db4.buskaza.model.entity.Bloqueio;
+import br.com.db4.buskaza.model.entity.Foto;
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.Reserva;
+import br.com.db4.buskaza.model.foto.ejb.FotoBeanLocal;
 import br.com.db4.buskaza.model.util.*;
 
 @Stateless
@@ -102,7 +106,7 @@ public class ImovelBean implements ImovelBeanLocal {
         
         c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_bloqueio where ( ? between dataInicial and dataFinal) or (? between dataInicial and dataFinal)) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
         
-        c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_reserva where status = " + Constants.STATUS_RESERVA_APROVADA + " and  ( ? between periodoInicial and periodoFinal) or (? between periodoInicial and periodoFinal)) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
+        c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_reserva where status = "+Constants.STATUS_RESERVA_APROVADA+" and  (( ? between periodoInicial and periodoFinal) or (? between periodoInicial and periodoFinal))) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
         
         
         if (imovel.getCapacidade() != 0) { 
@@ -225,7 +229,7 @@ public class ImovelBean implements ImovelBeanLocal {
 	
 	public Integer alterarImovel(Imovel imovel){		
 		if(!em.contains(imovel))
-        {
+        {			
 			imovel = em.merge(imovel);
         }
 		

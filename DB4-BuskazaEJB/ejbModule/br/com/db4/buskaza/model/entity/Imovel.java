@@ -151,10 +151,9 @@ public class Imovel implements Serializable{
 	@Lob
 	private String linkYouTube;
 	
-	
-	@ManyToMany(fetch = FetchType.LAZY)	
+	@ManyToMany(fetch = FetchType.EAGER)	
 	@JoinTable(name ="tb_imovel_idioma")    
-	private Collection<Idioma> idiomas;
+	private Set<Idioma> idiomas;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataCadastro;
@@ -167,7 +166,90 @@ public class Imovel implements Serializable{
 	
 	private boolean permiteOpcaoPagamento;
 	
+	/* NOVOS CAMPOS - 16-04-2011*/
 	
+	private String ddd;
+	
+	private String ddd2;
+	
+	private String emailCheckin;
+	
+	private String emailCheckin2;
+	
+	private double taxaAgua;
+	
+	private double taxaGas;
+	
+	private double taxaLateCheckout;
+	
+	private double taxaLateCheckin;
+	
+	/*****************************/
+		
+	public String getDdd() {
+		return ddd;
+	}
+
+	public void setDdd(String ddd) {
+		this.ddd = ddd;
+	}
+
+	public String getDdd2() {
+		return ddd2;
+	}
+
+	public void setDdd2(String ddd2) {
+		this.ddd2 = ddd2;
+	}
+
+	public String getEmailCheckin() {
+		return emailCheckin;
+	}
+
+	public void setEmailCheckin(String emailCheckin) {
+		this.emailCheckin = emailCheckin;
+	}
+
+	public String getEmailCheckin2() {
+		return emailCheckin2;
+	}
+
+	public void setEmailCheckin2(String emailCheckin2) {
+		this.emailCheckin2 = emailCheckin2;
+	}
+
+	public double getTaxaAgua() {
+		return taxaAgua;
+	}
+
+	public void setTaxaAgua(double taxaAgua) {
+		this.taxaAgua = taxaAgua;
+	}
+
+	public double getTaxaGas() {
+		return taxaGas;
+	}
+
+	public void setTaxaGas(double taxaGas) {
+		this.taxaGas = taxaGas;
+	}
+
+	public double getTaxaLateCheckout() {
+		return taxaLateCheckout;
+	}
+
+	public void setTaxaLateCheckout(double taxaLateCheckout) {
+		this.taxaLateCheckout = taxaLateCheckout;
+	}
+
+	public double getTaxaLateCheckin() {
+		return taxaLateCheckin;
+	}
+
+	public void setTaxaLateCheckin(double taxaLateCheckin) {
+		this.taxaLateCheckin = taxaLateCheckin;
+	}
+
 	public Set<Bloqueio> getBloqueios() {
 		return bloqueios;
 	}
@@ -534,11 +616,11 @@ public class Imovel implements Serializable{
 	}
 
 
-	public Collection<Idioma> getIdiomas() {
+	public Set<Idioma> getIdiomas() {
 		return idiomas;
 	}
 
-	public void setIdiomas(Collection<Idioma> idiomas) {
+	public void setIdiomas(Set<Idioma> idiomas) {
 		this.idiomas = idiomas;
 	}
 	
