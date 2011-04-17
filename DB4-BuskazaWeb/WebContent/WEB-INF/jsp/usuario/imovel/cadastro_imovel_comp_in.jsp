@@ -55,7 +55,7 @@ $('#sep_top_reserva').corner('rounded 7px');
 </script>
 <script>
 function abrirPop(url){
-	window.open(url,"mywindow","menubar=0,resizable=0,width=500,height=500");
+	window.open(url,"fotos","menubar=0,resizable=0,width=600,height=500, scrollbars=1");
 }
 </script>
 </head>
@@ -370,54 +370,77 @@ function abrirPop(url){
 				    
 					    <table border="0" width="75%">
 					      <tr>
-					        <td class="txt_caracteristicas">Camas</td>
-					        <td class="txt_caracteristicas">Qtd:</td>
+					        <td class="txt_caracteristicas">Qtd. Camas:</td>
 					        <td class="txt_caracteristicas">Idiomas Falados</td>
+					        <td></td>
 					      </tr>
 					      <tr>
 					        <td>
-				        		 
+				        		<div>
+						        <html:select name="imovel" property="camas" style="width:80px;">
+						            <html:option value="1">1</html:option>
+						            <html:option value="2">2</html:option>
+						            <html:option value="3">3</html:option>
+						            <html:option value="4">4</html:option>
+						            <html:option value="5">5</html:option>
+						            <html:option value="6">6</html:option>
+						            <html:option value="7">7</html:option>
+						            <html:option value="8">8</html:option>
+						            <html:option value="9">9</html:option>
+						        	<html:option value="10">10</html:option>            
+						        </html:select>
+					            </div> 
 					        </td>
 					        <td>
-					        	<div>
-						        	<html:select name="imovel" property="camas" style="width:80px;">
-						                <html:option value="1">1</html:option>
-						                <html:option value="2">2</html:option>
-						                <html:option value="3">3</html:option>
-						                <html:option value="4">4</html:option>
-						                <html:option value="5">5</html:option>
-						                <html:option value="6">6</html:option>
-						                <html:option value="7">7</html:option>
-						                <html:option value="8">8</html:option>
-						                <html:option value="9">9</html:option>
-						                <html:option value="10">10</html:option>            
-						            </html:select>
-					            </div>
+					        	<html:select property="idiomas" multiple="true">
+							     	<html:options collection="idiomas" property="codigo" labelProperty="nome" />     
+							     </html:select>
 					        </td>
 					        <td>
-					        		<html:select name="imovel" property="idiomas" multiple="true">
-							     		<html:options collection="idiomas" property="codigo" labelProperty="nome" />     
-							     	</html:select>
-					        
-					        
+					        <a href="javascript:abrirPop('/DB4-BuskazaWeb/usuario/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');">Ver fotos</a>
 					        </td>
 					      </tr>
+					      <tr>
+						      <td>Caução:</td>
+						      <td>Eletricidade:</td>
+						      <td>Água:</td>
+					      </tr>
+					      <tr>
+						      <td><html:text name="imovel" property="calcao"/></td>
+						      <td><html:text name="imovel" property="energia"/></td>
+						      <td><html:text name="imovel" property="taxaAgua"/></td>
+					      </tr>
+					      <tr>
+						      <td>Gás:</td>
+						      <td>Limpeza:</td>
+						      <td></td>
+					      </tr>
+					      <tr>
+						      <td><html:text name="imovel" property="taxaGas"/></td>
+						      <td><html:text name="imovel" property="diarista"/></td>
+						      <td></td>
+					      </tr>
+					      <tr>
+						      <td>Taxa Checkin Atrasado:</td>
+						      <td>Taxa CheckOut Atrasado:</td>
+						      <td></td>
+					      </tr>
+					      <tr>
+						      <td><html:text name="imovel" property="taxaLateCheckin"/></td>
+						      <td><html:text name="imovel" property="taxaLateCheckout"/></td>
+						      <td></td>
+					      </tr>
 					    </table>
-				    
-				    
-				    </td>
+				   
+				   </td>
 				  </tr>
 			      
 			      <tr>
-				    <td class="txt_caracteristicas"><a href="javascript:abrirPop('/DB4-BuskazaWeb/usuario/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');">fotos</a></td>
+				    <td class="txt_caracteristicas"></td>
 				  </tr>
 				  <tr>
-				    <td class="txt_caracteristicas">
-				    
-				    
-				    </td>
-				  </tr>
-				  
+				    <td class="txt_caracteristicas"></td>
+				  </tr>				  
 				  <tr>
 				    <td><html:submit>ENVIAR</html:submit></td>
 				  </tr> 
@@ -443,7 +466,7 @@ function abrirPop(url){
 					       		<logic:iterate name="equipamentos" id="equipamento">
 							    	<div id="sep_form_busca" class="txt_form">
 							           	<div class="equip_top1">									
-										    <html:multibox name="imovel" property="equipamentos"> 
+										    <html:multibox property="equipamentos"> 
 												<bean:write name="equipamento" property="codigo"/>
 											</html:multibox>
 										</div>
@@ -456,16 +479,7 @@ function abrirPop(url){
 
 					      </tr>
 					    </table></td>
-					  </tr>
-
-					  <tr>
-					    <td>&nbsp;</td>
-					  </tr>
-					  
-					  
-					  <tr>
-					    <td>&nbsp;</td>
-					  </tr>
+					  </tr>					 
 					</table>
 	</div>
 </div>
@@ -539,18 +553,11 @@ function abrirPop(url){
         </tr>
         <tr>
         	<td width="70%">
-        	<div class="sept">Caução:<html:text name="imovel" property="calcao"/></div>
-			<div class="sept">Eletricidade:<html:text name="imovel" property="energia"/></div>
-			<div class="sept">Água:<html:text name="imovel" property="taxaAgua"/></div>
-			<div class="sept">Gás:<html:text name="imovel" property="taxaGas"/></div>
-			<div class="sept">Limpeza:<html:text name="imovel" property="diarista"/></div>
+        	
         	</td>
         </tr>
         <tr>
         	<td width="70%">
-        	<div class="sept">Taxa Checkin Atrasado:<html:text name="imovel" property="taxaLateCheckin"/></div>
-			<div class="sept">Taxa CheckOut Atrasado:<html:text name="imovel" property="taxaLateCheckout"/></div>
-		
         	</td>
         </tr>
 		</table>

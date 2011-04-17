@@ -56,7 +56,7 @@ public class ImovelForm extends ActionForm {
 	
 	private Integer camas;
 	
-	private int[] idiomas;
+	private Integer[] idiomas;
 	
 	private boolean transportePublico;
 	
@@ -616,12 +616,12 @@ public class ImovelForm extends ActionForm {
 		this.camas = camas;
 	}
 	
-	public int[] getIdiomas() {
+	public Integer[] getIdiomas() {
 		return idiomas;
 	}
 
 	
-	public void setIdiomas(int[] idiomas) {
+	public void setIdiomas(Integer[] idiomas) {
 		this.idiomas = idiomas;
 	}
 	

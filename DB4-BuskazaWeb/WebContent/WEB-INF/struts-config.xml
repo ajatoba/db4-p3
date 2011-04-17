@@ -116,8 +116,13 @@
 			scope="request" name="fotoForm" validate="true" input="/WEB-INF/jsp/usuario/imovel/fotos_imovel_list.jsp">
 
 			<forward name="fotos_imovel_list" path="/WEB-INF/jsp/usuario/imovel/fotos_imovel_list.jsp" />	
-					
-			
+		</action>
+		
+		<action path="/imovel/foto"
+			type="br.com.db4.buskaza.controller.action.FotoAction" parameter="act"
+			scope="request" name="fotoForm" validate="true" input="/WEB-INF/jsp/imovel/fotos_imovel_list.jsp">
+
+			<forward name="fotos_imovel_list" path="/WEB-INF/jsp/imovel/fotos_imovel_list.jsp" />	
 		</action>
 
 	</action-mappings>

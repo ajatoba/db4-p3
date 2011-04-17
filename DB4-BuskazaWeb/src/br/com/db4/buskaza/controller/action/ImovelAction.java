@@ -35,6 +35,7 @@ import br.com.db4.buskaza.controller.util.SendMail;
 import br.com.db4.buskaza.model.entity.Anuncio;
 import br.com.db4.buskaza.model.entity.Equipamento;
 import br.com.db4.buskaza.model.entity.Foto;
+import br.com.db4.buskaza.model.entity.Idioma;
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.Pais;
 import br.com.db4.buskaza.model.entity.Reserva;
@@ -468,6 +469,38 @@ public class ImovelAction extends DispatchAction {
 				imovelForm.setCheckOutSaidaHora(imovel.getCheckOutSaida().getHours());
 				imovelForm.setCheckOutSaidaMinuto(imovel.getCheckOutSaida().getMinutes());
 				
+				/* CARREGANDO EQUIPAMENTOS */
+				List<Integer> equipamentos = new ArrayList<Integer>();
+				
+				if (imovel.getEquipamentos()!=null && imovel.getEquipamentos().size() > 0) {
+					Iterator<Equipamento> it = imovel.getEquipamentos().iterator();
+					Integer []iArray = new Integer[imovel.getEquipamentos().size()];
+					int x=0;
+					while (it.hasNext()) {
+						iArray[x] = it.next().getCodigo();
+						x=x+1;
+					}
+					imovelForm.setEquipamentos(iArray);
+				}
+				/****************************/
+				
+				/* CARREGANDO IDIOMAS */
+				List<Integer> idiomas = new ArrayList<Integer>();
+				
+				if (imovel.getIdiomas()!=null && imovel.getIdiomas().size() > 0) {
+					Iterator<Idioma> itIdiomas = imovel.getIdiomas().iterator();
+					Integer []iArrayIdiomas = new Integer[imovel.getIdiomas().size()];
+					int xi=0;
+					while (itIdiomas.hasNext()) {
+						iArrayIdiomas[xi] = itIdiomas.next().getCodigo();
+						xi=xi+1;
+					}
+					imovelForm.setIdiomas(iArrayIdiomas);
+				}
+				/****************************/
+				
+				
+				
 				request.setAttribute("imovel", imovel);
 			}
 			
@@ -580,7 +613,29 @@ public class ImovelAction extends DispatchAction {
 		Imovel imovel = form.getImovelEntity();	
 		
 		Date checkInEntrada=null, checkInSaida=null, checkOutEntrada=null,checkOutSaida=null,lateCheckOut=null;
-
+		
+		/******  IDIOMAS *******/
+		Set<Idioma> idiomas = null;
+		Idioma idioma = null;
+		
+		Integer[] idiomasBoxes = form.getIdiomas();
+		
+		if(idiomasBoxes != null && idiomasBoxes.length >0){
+			
+			idiomas = new HashSet<Idioma>();
+			for (int x=0; x < idiomasBoxes.length; x++){
+				
+				idioma = new Idioma();
+				idioma.setCodigo(idiomasBoxes[x].intValue());
+				
+				idiomas.add(idioma);
+			}			
+		}
+		
+		if(idiomas != null && idiomas.size() >0)
+			imovel.setIdiomas(idiomas);
+		/****************************/
+		
 
 		Set<Equipamento> equipamentos = null;
 		Equipamento equipamento = null;

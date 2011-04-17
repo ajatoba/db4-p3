@@ -43,7 +43,11 @@
 	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
 	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
-
+<script>
+function abrirPop(url){
+	window.open(url,"fotos","menubar=0,resizable=0,width=600,height=500, scrollbars=1");
+}
+</script>
 	
 	<script language="javascript">
 	$(function(){
@@ -225,16 +229,8 @@ function somaDias( txtData, DiasAdd )
 			<div class="foto_big"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="341" height="271" />
 	</div>
 	
-	
-		<logic:notEmpty name="imovel" property="fotos">
-						Fotos<br/>
-						<logic:iterate id="ft" name="imovel" property="fotos">							
-							<img src="/buzkaza/imagens_usuarios/<bean:write name="ft" property="caminhoThumbnail"/>"/>
-						</logic:iterate>												
-				</logic:notEmpty>
-								
-  	
-	
+	<a href="javascript:abrirPop('/DB4-BuskazaWeb/imovel/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');">Ver todas as fotos</a><br>	
+
 	<div class="chamada_planta">Planta</div>
 	
 	<div class="planta_big"><img src="/buzkaza/imagens_usuarios/${imovel.planta.caminho}"  width="341" height="271" /></div>
@@ -300,14 +296,34 @@ function somaDias( txtData, DiasAdd )
 		<span class="txt_azul_peq_detalhes">Horário CheckIn Saída</span>&nbsp;: <bean:write name="imovel" property="checkInSaida" format="HH:mm"/><br />
 		<span class="txt_azul_peq_detalhes">Horário CheckOut Entrada</span>&nbsp;: <bean:write name="imovel" property="checkOutEntrada" format="HH:mm"/><br />
 		<span class="txt_azul_peq_detalhes">Horário CheckOut Saída</span>&nbsp;: <bean:write name="imovel" property="checkOutSaida" format="HH:mm"/><br />
-		
-		
+		<br>
+		<span class="txt_azul_peq_detalhes">Taxa Checkin Atrasado</span>&nbsp;: <bean:write name="imovel" property="taxaLateCheckin"/><br />		
+		<span class="txt_azul_peq_detalhes">Taxa Checkout Atrasado</span>&nbsp;: <bean:write name="imovel" property="taxaLateCheckout"/><br />
+		<span class="txt_azul_peq_detalhes">Taxa Água</span>&nbsp;: <bean:write name="imovel" property="taxaAgua"/><br />
+		<span class="txt_azul_peq_detalhes">Taxa Gás</span>&nbsp;: <bean:write name="imovel" property="taxaGas"/><br />
+		<span class="txt_azul_peq_detalhes">Taxa Eletricidade</span>&nbsp;: <bean:write name="imovel" property="energia"/><br />
+		<span class="txt_azul_peq_detalhes">Taxa Limpeza</span>&nbsp;: <bean:write name="imovel" property="diarista"/><br />
+		<span class="txt_azul_peq_detalhes">Caução</span>&nbsp;: <bean:write name="imovel" property="calcao"/><br />
+		<br>
+		<logic:notEmpty name="imovel" property="idiomas">
+	  		<span class="tit_azul_detalhes">Idiomas Falados</span><br/>
+	  		<logic:iterate name="imovel" property="idiomas" id="idiomas">
+	  			<bean:write name="idioma" property="nome"/><br>  		
+	  		</logic:iterate>
+	  	</logic:notEmpty>
+	  	<logic:empty name="imovel" property="idiomas">
+	  		Não foram cadastrados idiomas para esse imóvel
+	  	</logic:empty>
+	  	<br>
 		<logic:notEmpty name="imovel" property="equipamentos">
 	  		<span class="tit_azul_detalhes">Equipamentos</span><br/>
 	  		<logic:iterate name="imovel" property="equipamentos" id="equipamento">
 	  			<bean:write name="equipamento" property="nome"/><br>  		
 	  		</logic:iterate>
 	  	</logic:notEmpty>
+	  	<logic:empty name="imovel" property="equipamentos">
+	  		Não foram cadastrados equipamentos para esse imóvel
+	  	</logic:empty>
 	  	<br>
 	  	<logic:notEmpty name="imovel" property="tiposPagamento">
 	  		<span class="tit_azul_detalhes">Tipos de Pagamento:</span><br/>
@@ -315,6 +331,9 @@ function somaDias( txtData, DiasAdd )
 	  			<bean:write name="tipoPagamento" property="nome"/><br> 		
 	  		</logic:iterate>
 	  	</logic:notEmpty>
+	  	<logic:empty name="imovel" property="tiposPagamento">
+	  		Não foram cadastrados tipos de pagamento para esse imóvel
+	  	</logic:empty>
 		
 	  	
 	  	
