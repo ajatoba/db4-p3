@@ -305,9 +305,10 @@ function somaDias( txtData, DiasAdd )
 		<span class="txt_azul_peq_detalhes">Taxa Limpeza</span>&nbsp;: <bean:write name="imovel" property="diarista"/><br />
 		<span class="txt_azul_peq_detalhes">Caução</span>&nbsp;: <bean:write name="imovel" property="calcao"/><br />
 		<br>
+		
 		<logic:notEmpty name="imovel" property="idiomas">
 	  		<span class="tit_azul_detalhes">Idiomas Falados</span><br/>
-	  		<logic:iterate name="imovel" property="idiomas" id="idiomas">
+	  		<logic:iterate name="imovel" property="idiomas" id="idioma">
 	  			<bean:write name="idioma" property="nome"/><br>  		
 	  		</logic:iterate>
 	  	</logic:notEmpty>
