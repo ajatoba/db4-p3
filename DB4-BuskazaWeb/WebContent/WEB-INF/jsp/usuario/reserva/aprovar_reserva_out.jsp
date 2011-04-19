@@ -11,6 +11,16 @@
 <link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
 <link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
 <link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+
+<link href="/buzkaza/_css/estilo_iframe.css" rel="stylesheet" type="text/css" />
+<style>
+
+body{ margin:0px; padding:0px; background-color:#FFF  }
+
+a{  font-family:Arial, Helvetica, sans-serif; color:#666666; text-decoration:underline }
+
+</style>
+
 <title>Solicitação de Reserva</title>
 </head>
 <body>
