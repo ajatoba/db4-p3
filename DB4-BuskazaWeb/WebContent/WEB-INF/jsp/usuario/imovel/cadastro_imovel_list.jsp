@@ -110,15 +110,34 @@ $(function(){
 			<logic:notEmpty name="ims" property="reservas">
 					<div class="status_anuncio">
 							<div class="verde_anuncio">
-								<a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=0');" style="color:#90b821;">
+								
+								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_aguardando_confirmacao_${ims.codigo}' class="thickbox link_reserva_finalizada">
 									Aguardando Confirmação
 								</a>
-								<br>
-								<a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=1');" style="color:#90b821;">
+								<br />								
+								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_reserva_finalizada_${ims.codigo}' class="thickbox link_reserva_finalizada">
 									Resevas Finalizadas
 								</a>							
 							</div>
 					</div>
+					
+					
+					<div id="thickbox_aguardando_confirmacao_${ims.codigo}" style="visibility:hidden; display:none;">            
+			           	<div class="topo"><div id="titulo">Solicitação de Reserva</div></div>
+						<div class="meio_historico">
+			           		 <iframe src="/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=0" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_reserva" noframeborder="0"  frameborder="0"></iframe>
+			            </div><div class="baixo"></div>
+			       </div>
+					
+					
+					<div id="thickbox_reserva_finalizada_${ims.codigo}" style="visibility:hidden; display:none;">            
+			           	<div class="topo"><div id="titulo">Solicitação de Reserva</div></div>
+						<div class="meio_historico">
+			           		 <iframe src="/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=1" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_reserva" noframeborder="0"  frameborder="0"></iframe>
+			            </div><div class="baixo"></div>
+			       </div>
+					
+					
 			</logic:notEmpty>
 			
 		</div>      
@@ -128,6 +147,23 @@ $(function(){
 		</html:form>
 	 </logic:iterate>
 </logic:present>
+
+
+<logic:empty name="imoveis">
+		<div class="nenhum_imovel_text">
+		Nenhum imóvel anunciado até o momento.
+		</div>
+		<a href="/passo_1_imovel.html">
+		    <div class="nenhum_imovel">
+		    </div>
+		</a>
+		
+		<br /><br />
+		<br /><br />
+		<br /><br />
+</logic:empty>
+
+
 </div>
 
 </div></div>
