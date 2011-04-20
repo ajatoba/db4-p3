@@ -83,12 +83,12 @@ function abrirPop(url){
 	<div class="endereco_bairro">
 			<table width="100%" border="0" > 
 			  <tr valign="top">
-			    <td width="35%" valign="top">
+			    <td width="58%" valign="top">
 			    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
 	    			<span class="txt_cinza_detalhes">${imovel.logradouro}, ${imovel.numero} - ${imovel.complemento} - Cep ${imovel.cep}<br />
 	    			ID: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span>
 			    </td>
-			    <td width="65%" valign="top">			    	
+			    <td width="42%" valign="top">			    	
 				    <span class="txt_cinza_detalhes">
 				      Distância do centro: ${imovel.distanciaCentro}<br />
 				      
@@ -400,34 +400,34 @@ function abrirPop(url){
 					        <a href="javascript:abrirPop('/DB4-BuskazaWeb/usuario/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');">Ver fotos</a>
 					        </td>
 					      </tr>
-					      <tr>
+					      <tr class="txt_caracteristicas">
 						      <td>Caução:</td>
 						      <td>Eletricidade:</td>
 						      <td>Água:</td>
 					      </tr>
 					      <tr>
-						      <td><html:text name="imovel" property="calcao"/></td>
-						      <td><html:text name="imovel" property="energia"/></td>
-						      <td><html:text name="imovel" property="taxaAgua"/></td>
+						      <td><html:text name="imovel" property="calcao" size="90" style="width:100px;"/></td>
+						      <td><html:text name="imovel" property="energia" size="90" style="width:100px;"/></td>
+						      <td><html:text name="imovel" property="taxaAgua" size="90" style="width:100px;"/></td>
 					      </tr>
-					      <tr>
+					      <tr class="txt_caracteristicas">
 						      <td>Gás:</td>
 						      <td>Limpeza:</td>
 						      <td></td>
 					      </tr>
 					      <tr>
-						      <td><html:text name="imovel" property="taxaGas"/></td>
-						      <td><html:text name="imovel" property="diarista"/></td>
+						      <td><html:text name="imovel" property="taxaGas" size="90" style="width:100px;"/></td>
+						      <td><html:text name="imovel" property="diarista" size="90" style="width:100px;"/></td>
 						      <td></td>
 					      </tr>
-					      <tr>
+					      <tr class="txt_caracteristicas">
 						      <td>Taxa Checkin Atrasado:</td>
 						      <td>Taxa CheckOut Atrasado:</td>
 						      <td></td>
 					      </tr>
 					      <tr>
-						      <td><html:text name="imovel" property="taxaLateCheckin"/></td>
-						      <td><html:text name="imovel" property="taxaLateCheckout"/></td>
+						      <td><html:text name="imovel" property="taxaLateCheckin" size="90" style="width:100px;"/></td>
+						      <td><html:text name="imovel" property="taxaLateCheckout" size="90" style="width:100px;"/></td>
 						      <td></td>
 					      </tr>
 					    </table>
