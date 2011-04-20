@@ -229,7 +229,14 @@ function somaDias( txtData, DiasAdd )
 			<div class="foto_big"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="341" height="271" />
 	</div>
 	
-	<a href="javascript:abrirPop('/DB4-BuskazaWeb/imovel/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');">Ver todas as fotos</a><br>	
+	<a href='#TB_inline?height=500&amp;width=610&inlineId=thickbox_foto' class="thickbox">Ver todas as fotos</a><br>	
+
+
+		<div id="thickbox_foto" style="visibility:hidden; display:none;">
+			
+           		 <iframe src="/DB4-BuskazaWeb/imovel/foto.do?act=listarFotosImovel&ci=${imovel.codigo}" id="id" name="id" allowtransparency="0" scrolling="auto"  class="iframe_foto" noframeborder="0"  frameborder="0"></iframe>
+            
+       	</div>
 
 	<div class="chamada_planta">Planta</div>
 	
