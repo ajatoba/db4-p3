@@ -8,11 +8,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
-<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 
-<link href="/buzkaza/_css/estilo_iframe.css" rel="stylesheet" type="text/css" />
+
+<link href="/buzkaza/thickbox/_css/estilo_iframe.css" rel="stylesheet" type="text/css" />
 <style>
 
 body{ margin:0px; padding:0px; background-color:#FFF  }
@@ -52,7 +50,9 @@ a{  font-family:Arial, Helvetica, sans-serif; color:#666666; text-decoration:und
 		</logic:messagesNotPresent>
   	</font>
     <!-- ****************** -->
+<div class="confirmado_sucesso"></div>
 
+<!-- 
 <p align="center" valign="center" class="MyriadPro24">
 Operação realizada com sucesso!
 </p>
@@ -61,7 +61,7 @@ Operação realizada com sucesso!
 <p align="center" class="MyriadProRegular">
 <a href="#" onclick="javascript:window.close();" >Fechar</a>
 </p>
-
+ -->
 
 </body>
 </html>
