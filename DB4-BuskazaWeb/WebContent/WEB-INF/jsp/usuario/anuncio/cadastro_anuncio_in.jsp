@@ -217,12 +217,12 @@ function somaDias( txtData, DiasAdd )
 			<div class="endereco_bairro">
 					<table width="100%" border="0" > 
 					  <tr valign="top">
-					    <td width="35%" valign="top">
+					    <td width="58%" valign="top">
 					    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
 			    			<span class="txt_cinza_detalhes">${imovel.logradouro}, ${imovel.numero} - ${imovel.complemento} - Cep ${imovel.cep}<br />
 			    			ID: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span>
 					    </td>
-					    <td width="65%" valign="top">
+					    <td width="42%" valign="top">
 
 						    <span class="txt_cinza_detalhes">
 						      Distância do centro: ${imovel.distanciaCentro}<br />
@@ -273,8 +273,6 @@ function somaDias( txtData, DiasAdd )
 					                </div>    
 					                <div class="baixo"></div>
 								</div>
-								
-						      
 						      	      
 					    </td>
 					  </tr>
@@ -317,8 +315,6 @@ function somaDias( txtData, DiasAdd )
               
               <tr>
                 <td colspan="3">
-                	
-                	
 				</td>
               </tr>
 			</table>
@@ -408,9 +404,6 @@ function somaDias( txtData, DiasAdd )
 		    </td>
 		 </tr>
 		</table>        
-		  	
-		  	
-		  	
 		  	
 </div>
 <div class="right_formulario_">
