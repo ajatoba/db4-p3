@@ -85,16 +85,19 @@ $(function(){
 		<div class="detalhe_reserva2">
 		  <div class="bairro_reserva">		  
 		  		<span class="tit_azul2">${ims.bairro}, ${ims.municipio} - ${ims.estado.codigo}</span><br />
-		    	<span class="txt_cinza_detalhes">${ims.logradouro}, ${ims.numero} - ${ims.complemento} - Cep ${ims.cep}</span></div>
+		    	<span class="txt_cinza_detalhes">${ims.logradouro}, ${ims.numero} - ${ims.complemento} - Cep ${ims.cep}
+		    			<br /> ID: <bean:write name="ims" property="usuarioProprietario.codigo"/>-<bean:write name="ims" property="codigo"/>
+		    	</span></div>
+		    	
 		    
-		  <div class="nota_reserva"><span class="id_imoves">ID: <bean:write name="ims" property="usuarioProprietario.codigo"/>-<bean:write name="ims" property="codigo"/></span></div>
+		  <div class="nota_reserva"><span class="id_imoves"></span></div>
 		  <div class="visualizar_reserva">
 		    <logic:equal name="ims" property="status" value="0">Em análise &nbsp;&nbsp;</logic:equal>    
 		    <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}" class="link_azul">Editar Anúncio</a> &nbsp;&nbsp;
 	    			<a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}" class="link_azul">Disponibilidade/Preços</a> &nbsp;&nbsp;		    	
 		    	
 		    	<logic:notEmpty name="ims" property="reservas">
-    					<a href="#" onclick="javascript:openWindow('/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=-1');" class="link_azul">Histórico de Reservas</a> &nbsp;&nbsp;
+		    			<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_historico_${ims.codigo}' class="thickbox link_azul">Histórico de Reservas</a> &nbsp;&nbsp;
 		    	</logic:notEmpty>
 		    	
 		    	
@@ -122,8 +125,17 @@ $(function(){
 					</div>
 					
 					
+					
+					<div id="thickbox_historico_${ims.codigo}" style="visibility:hidden; display:none;">            
+			           	<div class="topo"><div id="titulo">Histórico de Reservas</div></div>
+						<div class="meio_historico">
+			           		 <iframe src="/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=-1" id="id" name="id" allowtransparency="0" scrolling="auto"  class="iframe_reserva" noframeborder="0"  frameborder="0"></iframe>
+			            </div><div class="baixo"></div>
+			       </div>
+					
+					
 					<div id="thickbox_aguardando_confirmacao_${ims.codigo}" style="visibility:hidden; display:none;">            
-			           	<div class="topo"><div id="titulo">Solicitação de Reserva</div></div>
+			           	<div class="topo"><div id="titulo">Aguardando Confirmação</div></div>
 						<div class="meio_historico">
 			           		 <iframe src="/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=0" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_reserva" noframeborder="0"  frameborder="0"></iframe>
 			            </div><div class="baixo"></div>
@@ -131,7 +143,7 @@ $(function(){
 					
 					
 					<div id="thickbox_reserva_finalizada_${ims.codigo}" style="visibility:hidden; display:none;">            
-			           	<div class="topo"><div id="titulo">Solicitação de Reserva</div></div>
+			           	<div class="topo"><div id="titulo">Resevas Finalizadas</div></div>
 						<div class="meio_historico">
 			           		 <iframe src="/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=1" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_reserva" noframeborder="0"  frameborder="0"></iframe>
 			            </div><div class="baixo"></div>
