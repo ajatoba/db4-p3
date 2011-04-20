@@ -3,6 +3,9 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
 
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -73,7 +76,7 @@
 %>
 <span class="txt_cinza_detalhes">
 	Valor de <span id="data_total_<% out.print( index ); %>_${res.imovel.codigo}"></span> dia(s)&nbsp;
-	R$ ${( res.valor + ( res.valor *10/100))}
+	R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( res.valor + ( res.valor *10/100))}"/>
 </span>
 
 
@@ -113,7 +116,7 @@
 			</form>
 			<script language="javascript">
                 <!--
-                	calcularvalorMoip( '${((res.valor*10/100))}', '<bean:write name="res" property="valor" format="00.00"/>');
+                	calcularvalorMoip( '<fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((res.valor*10/100))}"/>', '<bean:write name="res" property="valor" format="00.00"/>');
                 -->
             </script>
                 
