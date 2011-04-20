@@ -68,13 +68,13 @@
 	<div class="endereco_bairro">
 			<table width="100%" border="0" > 
 			  <tr valign="top">
-			    <td width="35%" valign="top">
+			    <td width="58%" valign="top">
 			    	<span class="tit_azul_detalhes">${reservaPagar.imovel.bairro}, ${reservaPagar.imovel.municipio} - ${reservaPagar.imovel.estado.codigo}</span><br />
 	    			<span class="txt_cinza_detalhes">${reservaPagar.imovel.logradouro}, ${reservaPagar.imovel.numero} - ${reservaPagar.imovel.complemento} - Cep ${reservaPagar.imovel.cep}<br />
     					
     					ID: ${reservaPagar.imovel.usuarioProprietario.codigo}-${reservaPagar.imovel.codigo}</span>
 			    </td>
-			    <td width="65%" valign="top">
+			    <td width="42%" valign="top">
 				    <span class="txt_cinza_detalhes">
 				      	Distância do centro: ${reservaPagar.imovel.distanciaCentro}<br />
 				      	<!-- 
