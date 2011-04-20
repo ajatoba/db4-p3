@@ -73,14 +73,8 @@ public class UsuarioBean implements UsuarioBeanLocal {
 		criteria.setCacheable(true);
 		criteria.setCacheMode(CacheMode.NORMAL);		
 				
-		
-		if (login != null && login.length() > 0) {
-			criteria.add(Restrictions.eq("email", login));
-		}
-		
-		if (senha != null && senha.length() > 0) {
-			criteria.add(Restrictions.eq("senha", senha));
-		}
+		criteria.add(Restrictions.eq("email", login));
+		criteria.add(Restrictions.eq("senha", senha));
 		
 		Criteria linesCritera = criteria.createCriteria("perfis", JoinFragment.INNER_JOIN);	
 		linesCritera.add (Restrictions.eq("codigo", tipoPerfil)); //Tipo de perfil de usuario
