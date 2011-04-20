@@ -414,10 +414,23 @@
 			</html:select>
       	</div></span></td>
           </tr>
+          <tr>
+          	<td>
+          	<table>
+		      	<tr>
+		      		<td>Buscar por: &nbsp;</td>
+			      	<td><html:radio property="tiposAnuncio" value="1"/></td>
+			      	<td>Disponibilidades</td>
+			      	<td><html:radio property="tiposAnuncio" value="6"/></td>
+			      	<td>Pacotes Fechados</td>
+			    </tr>
+			  </table>
+          	</td>
+          </tr>
           </table>
           
  </div>         
- <div class="form_busca_3"><a href="#" onclick="submitForm();" border="0"><img src="/buzkaza/_img/btn_buscar_imovel.jpg" width="205" height="30" border="0"/></a></div>       
+ <div class="form_busca_3"><input type="image" src="/buzkaza/_img/btn_buscar_imovel.jpg" width="205" height="30" border="0"/></div>       
 
 </div>
 

@@ -40,7 +40,9 @@
 <!-- MENSAGEM DE ERRO -->
 <div>
     <font color="red">
-  
+  	<logic:present name="erro">
+  		<bean:write name="erro"/>
+  	</logic:present>
   	</font>
 </div>
   	<br />

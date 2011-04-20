@@ -228,13 +228,7 @@ public class ImovelAction extends DispatchAction {
 	private Imovel popularImovel(ImovelForm form, Usuario usuario) throws ValidacaoFormException, FileNotFoundException, IOException {
 		
 		Imovel imovel = form.getImovelEntity();	
-		
-		if(imovel == null){
-			System.out.println("IMOVEL ENTITY NULO");
-		}else{
-			System.out.println("BAIRRO:"+imovel.getBairro());
-		}
-		
+				
 		Date checkInEntrada=null, checkInSaida=null, checkOutEntrada=null,checkOutSaida=null,lateCheckOut=null;
 		Set<Equipamento> equipamentos = null;
 		Equipamento equipamento = null;
@@ -246,8 +240,6 @@ public class ImovelAction extends DispatchAction {
 			
 			equipamentos = new HashSet<Equipamento>();
 			for (int x=0; x < equipamentosBoxes.length; x++){
-				
-				System.out.println("POPULANDO EQUIPAMENTOS");
 				
 				equipamento = new Equipamento();
 				equipamento.setCodigo(equipamentosBoxes[0].intValue());
@@ -381,9 +373,23 @@ public class ImovelAction extends DispatchAction {
 			}
 		}
 		
+		/*ESSE ALGORÍTIMO FOI NECESSÁRIO POR CONTA DAS MUDANÇAS
+		SOLICITADAS PELA DB4 EM 19/04/2011, QUE OBRIGAM A ENTIDADE FOTO
+		A POSSIR UMA CHAVE ESTRANGEIRA DE IMÓVEL
+		*/
+		Set<Foto> fotosImovel2 = new HashSet<Foto>();
 		if(fotosImovel!= null && fotosImovel.size() > 0){
-			imovel.setFotos(fotosImovel);
+			Iterator<Foto> it = fotosImovel.iterator();
+			while (it.hasNext()) {
+				Foto foto = (Foto) it.next();
+				foto.setImovel(imovel);
+				fotosImovel2.add(foto);
+			}
+			
+			
+			imovel.setFotos(fotosImovel2);
 		}
+		/****************************************/
 		
 		if(form.getPlanta()!= null && form.getPlanta().getFileData()!= null && form.getPlanta().getFileData().length > 0){
 			imovel.setPlanta(ImageHelper.gerarPlanta(form.getPlanta()));
@@ -450,24 +456,32 @@ public class ImovelAction extends DispatchAction {
 			{
 				carregaListas(request);	
 				ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
-				Imovel imovel = imovelEjb.getImovel(Integer.valueOf(codigoImovel));
-				
+				Imovel imovel = imovelEjb.getImovel(Integer.parseInt(codigoImovel));
 				
 				ImovelForm imovelForm = (ImovelForm)form;	
 				
 				imovelForm.setImovelEntity(imovel);
 				
-				imovelForm.setCheckInEntradaHora(imovel.getCheckInEntrada().getHours());
-				imovelForm.setCheckInEntradaMinuto(imovel.getCheckInEntrada().getMinutes());
+				if(imovel.getCheckInEntrada() != null){
+					imovelForm.setCheckInEntradaHora(imovel.getCheckInEntrada().getHours());
+					imovelForm.setCheckInEntradaMinuto(imovel.getCheckInEntrada().getMinutes());
+				}
 				
+				if(imovel.getCheckOutEntrada() != null){
 				imovelForm.setCheckOutEntradaHora(imovel.getCheckOutEntrada().getHours());
 				imovelForm.setCheckOutEntradaMinuto(imovel.getCheckOutEntrada().getMinutes());
+				}
 				
-				imovelForm.setCheckInSaidaHora(imovel.getCheckInSaida().getHours());
-				imovelForm.setCheckInSaidaMinuto(imovel.getCheckInSaida().getMinutes());
+				if(imovel.getCheckInSaida() != null){
+					imovelForm.setCheckInSaidaHora(imovel.getCheckInSaida().getHours());
+					imovelForm.setCheckInSaidaMinuto(imovel.getCheckInSaida().getMinutes());
+					
+				}
 				
-				imovelForm.setCheckOutSaidaHora(imovel.getCheckOutSaida().getHours());
-				imovelForm.setCheckOutSaidaMinuto(imovel.getCheckOutSaida().getMinutes());
+				if(imovel.getCheckOutSaida() != null){					
+					imovelForm.setCheckOutSaidaHora(imovel.getCheckOutSaida().getHours());
+					imovelForm.setCheckOutSaidaMinuto(imovel.getCheckOutSaida().getMinutes());
+				}
 				
 				/* CARREGANDO EQUIPAMENTOS */
 				List<Integer> equipamentos = new ArrayList<Integer>();

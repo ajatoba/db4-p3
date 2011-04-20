@@ -215,21 +215,25 @@ public class UsuarioAction extends DispatchAction {
 			UsuarioBeanLocal usuarioEjb = (UsuarioBeanLocal) ServiceLocator.getInstance().locateEJB(UsuarioBeanLocal.LOCAL);
 			Usuario usuario = usuarioEjb.autenticarUsuario(usuarioForm.getUsuarioEntity().getEmail(), usuarioForm.getUsuarioEntity().getSenha(),Constants.tipoPerfilUsuario);
 			
-			
+			MessageResources messageResources = getResources(request, "app");
 			
 			if(usuario != null && usuario.getCodigo() >0){			
-				request.getSession().setAttribute(Constants.USUARIO_SESSAO, usuario);			
-				//return mapping.findForward("");
+				
+				if(usuario.isConfirmado()){
+				
+					request.getSession().setAttribute(Constants.USUARIO_SESSAO, usuario);			
+				}else {
+					request.setAttribute(Constants.ERRO_PARAMETER, messageResources.getMessage("message.erro.nao.ativo"));
+					return mapping.findForward(Constants.LOGIN_USUARIO);
+				}
 				
 				if (request.getSession().getAttribute("reserva") != null) {
 					return new ActionForward("/usuario/reserva.do?act=formReservas");
 				}
 				
 				return new ActionForward("/usuario/imovel.do?act=listarImoveis");
-			}else{
-				final ActionMessages actionErrors = new ActionMessages();
-			    actionErrors.add( Constants.ERRO_PARAMETER, new ActionMessage( "message.erro.login.invalido"));
-			    saveErrors( request, actionErrors );
+			}else{				
+			    request.setAttribute(Constants.ERRO_PARAMETER, messageResources.getMessage("message.erro.login.invalido"));
 				return mapping.findForward(Constants.LOGIN_USUARIO);				
 			}
 		} catch ( final Exception e ) {

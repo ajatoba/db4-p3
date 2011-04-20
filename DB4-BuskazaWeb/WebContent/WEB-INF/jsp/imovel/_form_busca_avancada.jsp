@@ -417,7 +417,7 @@
 </div>
   
   
-<div class="btn_busca"><input type="image" img src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></a></div>  
+<div class="btn_busca"><input type="image" src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></div>  
 
 <br /><br />
 
