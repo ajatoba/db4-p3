@@ -89,13 +89,13 @@ $(document).ready(function()
 	<div class="endereco_bairro">
 			<table width="100%" border="0" > 
 			  <tr valign="top">
-			    <td width="35%" valign="top">
+			    <td width="58%" valign="top">
 			    	<span class="tit_azul_detalhes">${reserva.imovel.bairro}, ${reserva.imovel.municipio} - ${reserva.imovel.estado.codigo}</span><br />
 	    			<span class="txt_cinza_detalhes">${reserva.imovel.logradouro}, ${reserva.imovel.numero} - ${reserva.imovel.complemento} - Cep ${reserva.imovel.cep}<br />
     					
     					ID: ${reserva.imovel.usuarioProprietario.codigo}-${reserva.imovel.codigo}</span>
 			    </td>
-			    <td width="65%" valign="top">
+			    <td width="42%" valign="top">
 				    <span class="txt_cinza_detalhes">
 				      	Distância do centro: ${reserva.imovel.distanciaCentro}<br />
 					    					    
