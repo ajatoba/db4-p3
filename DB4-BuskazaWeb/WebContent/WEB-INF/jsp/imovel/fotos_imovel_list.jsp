@@ -20,8 +20,7 @@
 <ul id="slideshow">
 
 <logic:present name="fotos">
-	<logic:iterate name="fotos" id="foto">
-	
+	<logic:iterate name="fotos" id="foto">	
 	<li>
 		<h3></h3>
 		<span>/buzkaza/imagens_usuarios/<bean:write name="foto" property="caminho"/></span>
