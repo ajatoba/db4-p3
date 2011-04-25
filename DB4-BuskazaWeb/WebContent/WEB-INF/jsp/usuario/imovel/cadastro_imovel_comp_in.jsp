@@ -168,11 +168,12 @@ function abrirPop(url){
 				     <td>
 									<table width="100%" border="0">
 								      <tr class="txt_caracteristicas">
-								        <td>Metragem</td>
+								        <td>Distância do centro</td>
 								        <td>Capacidade</td>
-								        <td>Quartos</td>
+								        <td>Metragem</td>
 								      </tr>
 								      <tr>
+								      <td><input type="text" name="distanciaCentro" size="90" style="width:100px;"></td>
 								        <td>
 								        	<html:select name="imovel" property="metragem" styleId="metragem" style="width:80px;">
 								      			<html:option value="20.0">20m</html:option>
@@ -336,30 +337,6 @@ function abrirPop(url){
 												<html:option value="22">22 Pessoas</html:option>
 								      		</html:select>
 								        </td>
-								        <td><html:select name="imovel" property="quartos" styleId="quartos">
-								      			<html:option value="1">1 Quarto</html:option>
-												<html:option value="2">2 Quartos</html:option>
-												<html:option value="3">3 Quartos</html:option>
-												<html:option value="4">4 Quartos</html:option>
-												<html:option value="5">5 Quartos</html:option>
-												<html:option value="6">6 Quartos</html:option>
-												<html:option value="7">7 Quartos</html:option>
-												<html:option value="8">8 Quartos</html:option>				
-												<html:option value="9">9 Quartos</html:option>				
-												<html:option value="10">10 Quartos</html:option>
-												<html:option value="11">11 Quartos</html:option>
-												<html:option value="12">12 Quartos</html:option>
-												<html:option value="13">13 Quartos</html:option>
-												<html:option value="14">14 Quartos</html:option>
-												<html:option value="15">15 Quartos</html:option>
-												<html:option value="16">16 Quartos</html:option>
-												<html:option value="17">17 Quartos</html:option>				
-												<html:option value="18">18 Quartos</html:option>
-												<html:option value="19">19 Quartos</html:option>				
-												<html:option value="20">20 Quartos</html:option>
-												<html:option value="21">21 Quartos</html:option>
-												<html:option value="22">22 Quartos</html:option>
-								      	</html:select></td>
 								      </tr>
 								    </table>        
 			        </td>
@@ -370,11 +347,38 @@ function abrirPop(url){
 				    
 					    <table border="0" width="75%">
 					      <tr>
+					      	<td class="txt_caracteristicas">Quartos</td>
 					        <td class="txt_caracteristicas">Qtd. Camas:</td>
 					        <td class="txt_caracteristicas">Idiomas Falados</td>
 					        <td></td>
 					      </tr>
 					      <tr>
+					      <td>
+					      	<div><html:select name="imovel" property="quartos" styleId="quartos">
+						      			<html:option value="1">1 Quarto</html:option>
+										<html:option value="2">2 Quartos</html:option>
+										<html:option value="3">3 Quartos</html:option>
+										<html:option value="4">4 Quartos</html:option>
+										<html:option value="5">5 Quartos</html:option>
+										<html:option value="6">6 Quartos</html:option>
+										<html:option value="7">7 Quartos</html:option>
+										<html:option value="8">8 Quartos</html:option>				
+										<html:option value="9">9 Quartos</html:option>				
+										<html:option value="10">10 Quartos</html:option>
+										<html:option value="11">11 Quartos</html:option>
+										<html:option value="12">12 Quartos</html:option>
+										<html:option value="13">13 Quartos</html:option>
+										<html:option value="14">14 Quartos</html:option>
+										<html:option value="15">15 Quartos</html:option>
+										<html:option value="16">16 Quartos</html:option>
+										<html:option value="17">17 Quartos</html:option>				
+										<html:option value="18">18 Quartos</html:option>
+										<html:option value="19">19 Quartos</html:option>				
+										<html:option value="20">20 Quartos</html:option>
+										<html:option value="21">21 Quartos</html:option>
+										<html:option value="22">22 Quartos</html:option>
+						      	</html:select></div>
+							</td>
 					        <td>
 				        		<div>
 						        <html:select name="imovel" property="camas" style="width:80px;">
