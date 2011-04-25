@@ -160,10 +160,10 @@
         <td colspan="2"><img src="/buzkaza/teaser/_img/bullet_cadastro.png" width="22" height="13" /><span class="MyriadProSemiboldIt"><span id="titulo_azul"> Endereço</span></span><br /></td>
         <td width="17%">&nbsp;</td>
         <td width="17%">&nbsp;</td>
-        <td width="24%">&nbsp;</td>
+        <td width="20%">&nbsp;</td>
       </tr>
       <tr>
-        <td width="30%">&nbsp;</td>
+        <td width="34%">&nbsp;</td>
         <td width="12%">&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
@@ -177,11 +177,11 @@
         <td class="MyriadProRegular">CEP</td>
       </tr>
       <tr>
-        <td><html:text property="logradouro" styleId="logradouro" size="260"/></td>
-        <td><html:text property="numero" styleId="numero" size="88"/></td>
-        <td><html:text property="complemento" styleId="complemento" size="138"/></td>
-        <td><html:text property="bairro" styleId="bairro" size="138"/></td>
-        <td><html:text property="cep" size="138"/></td>
+        <td><html:text property="logradouro" styleId="logradouro" size="260" style="width:270px"/></td>
+        <td><html:text property="numero" styleId="numero" size="88" style="width:98px"/></td>
+        <td><html:text property="complemento" styleId="complemento" size="138" style="width:148px"/></td>
+        <td><html:text property="bairro" styleId="bairro" size="138" style="width:148px"/></td>
+        <td><html:text property="cep" maxlength="9" size="138" style="width:148px"/></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -199,7 +199,7 @@
             <td>País</td>
           </tr>
           <tr>
-            <td><html:text property="municipio" styleId="cidade" size="160"/></td>
+            <td><html:text property="municipio" styleId="cidade" size="160" style="width:170px"/></td>
             <td>
             
             <!-- <html:select property="imovelEntity.estado.codigo" styleId="estado">
