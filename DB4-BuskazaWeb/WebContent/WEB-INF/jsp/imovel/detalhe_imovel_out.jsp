@@ -229,14 +229,12 @@ function somaDias( txtData, DiasAdd )
 			<div class="foto_big"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="341" height="271" />
 	</div>
 	
-	<a href='#TB_inline?height=500&amp;width=610&inlineId=thickbox_foto' class="thickbox">Ver todas as fotos</a><br>	
+	<a href='#TB_inline?height=550&amp;width=610&inlineId=thickbox_foto' class="thickbox">Ver todas as fotos</a><br>	
 
 
-		<div id="thickbox_foto" style="visibility:hidden; display:none;">
-			
-           		 <iframe src="/DB4-BuskazaWeb/imovel/foto.do?act=listarFotosImovel&ci=${imovel.codigo}" id="id" name="id" allowtransparency="0" scrolling="auto"  class="iframe_foto" noframeborder="0"  frameborder="0"></iframe>
-            
-       	</div>
+	<div id="thickbox_foto" style="visibility:hidden; display:none;">			
+		<iframe src="/DB4-BuskazaWeb/imovel/foto.do?act=listarFotosImovel&ci=${imovel.codigo}" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_foto" noframeborder="0"  frameborder="0"></iframe>
+	</div>
 
 	<div class="chamada_planta">Planta</div>
 	
@@ -361,7 +359,7 @@ function somaDias( txtData, DiasAdd )
 				<html:hidden property="mesPeriodoFinal" value="${mesFinal}"/>
 				<html:hidden property="anoPeriodoFinal" value="${anoFinal}"/>
 				
-				<div class="botao_reserva2">
+				<div class="botao_reserva1">
 					<input type="image" src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" /><br/>
 				</div>
 					
