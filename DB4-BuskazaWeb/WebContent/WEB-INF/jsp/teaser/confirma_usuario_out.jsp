@@ -15,9 +15,10 @@
 <link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css"/>
 
 
-<link rel="stylesheet" href="/buzkaza/teaser/jqtransformplugin/jqtransform.css" type="text/css" media="all"/>
-<script type="text/javascript" src="/buzkaza/teaser/requiered/jquery.js" ></script>
-	<script type="text/javascript" src="/buzkaza/teaser/jqtransformplugin/jquery.jqtransform.js"></script>
+<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
+
+<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
+<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 	<script language="javascript">
 		$(function(){
 			$('#form').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
