@@ -29,7 +29,7 @@
 
 	<script language="javascript">
 		$(function(){
-			$('#form').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
+			$('form').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
 		});
 	</script>
 
@@ -52,7 +52,8 @@
 <div id="msg_finaliza_cadastro">
   <div class="ok"></div>
   <div class="msg_confirmado">
-  		<span class="MyriadPro24">Imóvel salvo com sucesso!!
+  		<span class="MyriadPro24">
+  			<span class="MyriadPro18">Imóvel salvo com sucesso!!</span>
   		</span>
   </div>
 
