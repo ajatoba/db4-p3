@@ -79,7 +79,7 @@
 <div id="msg_finaliza_cadastro">
   <div class="confirmado"></div>
   <div class="msg_confirmado"><span class="MyriadPro18">Seu cadastro foi confirmado com sucesso!
-  <br>Clique <a href="http://www.buzkaza.com.br/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel" class="link_aqui">aqui</a> para cadastrar seu imóvel.
+  <br>Clique <a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel" class="link_aqui">aqui</a> para cadastrar seu imóvel.
   
   
   </span></div>
