@@ -6,12 +6,12 @@
   <div class="form_01">
   <table width="490" border="0" align="center" cellpadding="0" cellspacing="2" class="txt_form">
     <tr>
-      <td width="50%" height="30">Cidade</td>
+      <td width="222px" height="30">Cidade</td>
       <td height="30" colspan="2">Estado</td>
       </tr>
     <tr>
-      <td width="50%" height="30">
-      	<html:text property="municipio" style="width:210px"  styleClass="MyriadProRegular" size="210" />
+      <td height="30">
+      	<html:text property="municipio" size="195" style="width:205px"  styleClass="MyriadProRegular" />
         	
       </td>
       <td height="30" colspan="2">   
@@ -20,7 +20,7 @@
 				<html:options collection="estados" property="codigo" labelProperty="nome" />
         	</html:select>
         -->       	
-<html:select property="imovelEntity.estado.codigo" style="width:210px" styleClass="MyriadProRegular"> 
+<html:select property="imovelEntity.estado.codigo" style="width:188x" styleClass="MyriadProRegular"> 
 	<html:option value="">Todos</html:option> 
 	<html:option value="AC">Acre</html:option> 
 	<html:option value="AL">Alagoas</html:option> 
@@ -60,10 +60,11 @@
     <td>Área(m2)</td>
     <td>Capacidade</td>
   </tr>
-  <tr>
-    <td><html:select property="pais" styleClass="MyriadProRegular">
+  <tr  valign="top">
+    <td height="40">
+    	<html:select property="pais" style="width:98px" styleClass="MyriadProRegular">
       	<!--  <html:options collection="paises" property="codigo" labelProperty="nome"/> -->        
-      	<html:option value="1">Brasil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</html:option>
+      	<html:option value="1">Brasil</html:option>
       
       </html:select></td>
     <td><html:select property="quartos" styleClass="MyriadProRegular">
@@ -251,7 +252,7 @@
           <td height="30">Partida</td>
           </tr>
         <tr>
-          <td><html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular">                        
+          <td height="40"><html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular">                        
 			<html:option value="01">01</html:option>
             <html:option value="02">02</html:option>
             <html:option value="03">03</html:option>
