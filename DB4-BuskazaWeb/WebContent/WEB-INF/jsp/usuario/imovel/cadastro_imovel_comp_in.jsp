@@ -173,7 +173,7 @@ function abrirPop(url){
 								        <td>Metragem</td>
 								      </tr>
 								      <tr>
-								      <td><input type="text" name="distanciaCentro" size="90" style="width:100px;"></td>
+								      <td><input type="text" name="distanciaCentro"  property="distanciaCentro" size="90" style="width:100px;"></td>
 								        <td>
 								        	<html:select name="imovel" property="metragem" styleId="metragem" style="width:80px;">
 								      			<html:option value="20.0">20m</html:option>
@@ -345,14 +345,14 @@ function abrirPop(url){
 			      <tr>
 				    <td>
 				    
-					    <table border="0" width="75%">
+					    <table border="0" >
 					      <tr>
 					      	<td class="txt_caracteristicas">Quartos</td>
 					        <td class="txt_caracteristicas">Qtd. Camas:</td>
 					        <td class="txt_caracteristicas">Idiomas Falados</td>
 					        <td></td>
 					      </tr>
-					      <tr>
+					      <tr valign="top">
 					      <td>
 					      	<div><html:select name="imovel" property="quartos" styleId="quartos">
 						      			<html:option value="1">1 Quarto</html:option>
@@ -527,31 +527,36 @@ function abrirPop(url){
 		</td>
 	</tr>
 	<tr class="txt_caracteristicas">
-			<td width="30%">Horário Check in</td>
-      		<td width="70%">Horário Check out</td>
+			<td colspan="2">
+				<div class="divhorario1">Horário Check in</div>
+				<div class="divhorario2">Horário Check out</div>
+			</td>
 	</tr>			
 	<tr class="txt_caracteristicas">
-        <td width="30%" class="txt_caracteristicas">
-        	<div class="sept">De</div>
-        	<div class="sepd"><html:text property="checkInEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
-          	<div class="sept"> :</div>
-         	<div class="sepd"><html:text property="checkInEntradaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
-          	<div class="sept"> Até</div>
-         	<div class="sepd"><html:text property="checkInSaidaHora" maxlength="2" size="30" style="width:40px;" /></div>
-          	<div class="sept"> :</div>
-          	<div class="sepd"><html:text property="checkInSaidaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
-          	
-        	</td>
-      		<td width="70%">
-        	
-        	  <div class="sept">De</div>
-	          <div class="sepd"><html:text property="checkOutEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
-			  <div class="sept"> :</div>
-			  <div class="sepd"><html:text property="checkOutEntradaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
-			  <div class="sept"> Até</div>
-			  <div class="sepd"><html:text property="checkOutSaidaHora" maxlength="2" size="30" style="width:40px;" /></div>
-			  <div class="sept"> :</div>
-			  <div class="sepd"><html:text property="checkOutSaidaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
+        <td colspan="2" class="txt_caracteristicas">
+        
+	        <div class="divhorario3">
+	        	<div class="sept">De</div>
+	        	<div class="sepd"><html:text property="checkInEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
+	          	<div class="sept"> :</div>
+	         	<div class="sepd"><html:text property="checkInEntradaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
+	          	<div class="sept"> Até</div>
+	         	<div class="sepd"><html:text property="checkInSaidaHora" maxlength="2" size="30" style="width:40px;" /></div>
+	          	<div class="sept"> :</div>
+	          	<div class="sepd"><html:text property="checkInSaidaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
+	         </div> 	
+	        
+	        <div class="divhorario4">
+	        	  <div class="sept">De</div>
+		          <div class="sepd"><html:text property="checkOutEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
+				  <div class="sept"> :</div>
+				  <div class="sepd"><html:text property="checkOutEntradaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
+				  <div class="sept"> Até</div>
+				  <div class="sepd"><html:text property="checkOutSaidaHora" maxlength="2" size="30" style="width:40px;" /></div>
+				  <div class="sept"> :</div>
+				  <div class="sepd"><html:text property="checkOutSaidaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
+			 </div>
+		 
 		 </td>
 		 
         </tr>
