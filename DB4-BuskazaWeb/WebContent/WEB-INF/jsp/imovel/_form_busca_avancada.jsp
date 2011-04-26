@@ -4,7 +4,7 @@
 <div class="MyriadProRegular">
 
   <div class="form_01">
-  <table width="490" border="0" align="center" cellpadding="0" cellspacing="2" class="txt_form">
+  <table border="0" align="center" cellpadding="0" cellspacing="2" class="txt_form">
     <tr>
       <td width="222px" height="30">Cidade</td>
       <td height="30" colspan="2">Estado</td>
@@ -388,25 +388,24 @@
 
 </div>
 <div class="form_02">
-<table width="90%" border="0" align="center" cellpadding="0" cellspacing="1">
+<table border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td colspan="3" class="txt_caracteristica"><img src="/buzkaza/_img/bullet.jpg" width="21" height="16" />Equipamentos</td>
+    <td colspan="3" class="txt_caracteristica_equip"><img src="/buzkaza/_img/bullet.jpg" width="21" height="16" />Equipamentos</td>
     </tr>
     <tr>
 		<td colspan="3" class="MyriadProRegular">
 		    <logic:notEmpty name="equipamentos">	
 		        <logic:iterate name="equipamentos" id="equipamento">
 							
-							<div id="sep_form_busca" class="txt_form">
-								
-										<div class="equip_top1">									
-										    <html:multibox property="equipamentos" styleClass="MyriadProRegular"> 
-												<bean:write name="equipamento" property="codigo"/>  
-											</html:multibox>
-										</div>
-										<div class="equip_top2">
-											<bean:write name="equipamento" property="nome"/>
-										</div>
+							<div id="sep_form_busca" class="txt_form">								
+									<div class="equip_top1">									
+									    <html:multibox property="equipamentos" styleClass="MyriadProRegular"> 
+											<bean:write name="equipamento" property="codigo"/>  
+										</html:multibox>
+									</div>
+									<div class="equip_top2">
+										<bean:write name="equipamento" property="nome"/>
+									</div>
 					      </div>
 			    </logic:iterate>
 		    </logic:notEmpty> 
