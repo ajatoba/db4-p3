@@ -87,7 +87,7 @@
 	                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	                    <tr>
 	                      <td width="30%">Senha</td>
-	                      <td width="70%" align="right">Esqueceu sua senha?</td>
+	                      <td width="70%" align="right"><!--  Esqueceu sua senha? --></td>
 	                    </tr>
 	                  </table>
 	                </div>
