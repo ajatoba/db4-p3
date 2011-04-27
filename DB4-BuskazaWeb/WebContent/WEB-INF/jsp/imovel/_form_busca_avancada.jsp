@@ -1,6 +1,8 @@
 
 <html:form method="post" styleId="imovelBuscaForm" action="/imovel.do?act=buscarImovel">
 
+<input type="hidden" name="tiposAnuncio" id="tiposAnuncio" value="1">
+
 <div class="MyriadProRegular">
 
   <div class="form_01">
@@ -372,6 +374,7 @@
           </tr>
         </table></td>
     </tr>
+    <!--
     <tr>
       <td height="30"  colspan="3">
       <table>
@@ -383,7 +386,7 @@
 	      	<td>Pacotes Fechados</td>
 	    </tr>
 	  </table>
-    </tr>
+    </tr>  -->
   </table>
 
 </div>
