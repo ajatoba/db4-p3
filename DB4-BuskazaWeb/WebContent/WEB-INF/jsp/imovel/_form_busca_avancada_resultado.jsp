@@ -5,23 +5,18 @@
 
 
 
+<div class="buscaOculta">
 
-          	<table>
-		      	<tr>
-		      		<td>Buscar por: &nbsp;</td>
-			      	<td><html:radio property="tiposAnuncio" value="1"/></td>
-			      	<td>Disponibilidades</td>
-			      	<td><html:radio property="tiposAnuncio" value="6"/></td>
-			      	<td>Pacotes Fechados</td>
-			    </tr>
-			  </table>
-
+	<html:radio property="tiposAnuncio" styleId="tiposAnuncioDispo" value="1"/></td>
+	<html:radio property="tiposAnuncio" styleId="tiposAnuncioPacote" value="6"/>
+	
+	<script>selecionarTiposAnuncio('<%= request.getParameter("tiposAnuncio") %>')</script>
+</div>
 
 
 
 <div class="form_busca_geral">
 
-<div class="titulo_busca_avancada">Redefinir Busca</div>
 
 
 	<div class="form_busca_1">
