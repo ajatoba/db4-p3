@@ -53,7 +53,7 @@
 
 <div class="top_busca_disp">	
     <div class="top_busca_disponibilidades">
-        	<div class="link_img_pacote"></div>
+        <a href="javascript:linkPacote()"><div class="link_img_pacote"></div></a>
     </div>
 </div>
 
