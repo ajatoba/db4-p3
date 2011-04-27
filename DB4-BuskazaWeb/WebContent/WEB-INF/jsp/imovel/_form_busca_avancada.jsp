@@ -63,7 +63,7 @@
     <td>Capacidade</td>
   </tr>
   <tr  valign="top">
-    <td height="40">
+    <td height="30">
     	<html:select property="pais" style="width:98px" styleClass="MyriadProRegular">
       	<!--  <html:options collection="paises" property="codigo" labelProperty="nome"/> -->        
       	<html:option value="1">Brasil</html:option>
