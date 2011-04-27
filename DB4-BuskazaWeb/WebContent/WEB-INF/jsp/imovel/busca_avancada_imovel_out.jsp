@@ -123,8 +123,8 @@
 		<div id="cont_ba">
 		
 		<table border="0" cellspacing="0" cellpadding="0" class="MyriadProRegular">
-		  <tr>
-		    <td valign="center" align="center" width="150"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="key.primeirafoto"/>" width="140" height="104" /></td>
+		  <tr valign="top">
+		    <td align="center" width="150"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="key.primeirafoto"/>" width="140" height="104" /></td>
 		    <td width="536">
 		    	
 		    	
