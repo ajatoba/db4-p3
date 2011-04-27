@@ -6,7 +6,17 @@
 
 
 
-<input type="hidden" name="tiposAnuncio" id="tiposAnuncio" value="">
+          	<table>
+		      	<tr>
+		      		<td>Buscar por: &nbsp;</td>
+			      	<td><html:radio property="tiposAnuncio" value="1"/></td>
+			      	<td>Disponibilidades</td>
+			      	<td><html:radio property="tiposAnuncio" value="6"/></td>
+			      	<td>Pacotes Fechados</td>
+			    </tr>
+			  </table>
+
+
 
 
 <div class="form_busca_geral">
