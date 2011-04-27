@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Buzkaza - Incluir Reserva</title>
+<title>Buzkaza</title>
 
 
 <link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
@@ -49,7 +49,7 @@ $(document).ready(function()
 <!-- topo com linha azul -->
 <jsp:include page="../topo.jsp"/>
 
-<div id="cont_reserva2">
+<div id="cont_reserva3">
 
 <div id="meio_reserva">
 <div class="top_reserva">
@@ -61,9 +61,8 @@ $(document).ready(function()
 
 <div id="listagem_reservas">
 
-O período que você selecionou faz parte de um pacote fechado.  Selecione abaixo:
-<br>
-<br>
+<div class="texto_reserva_pacote"> O período que você selecionou faz parte de um pacote fechado.  Selecione abaixo:</div>
+
 <logic:present name="reserva">
 
 <logic:present name="reserva" property="imovel">
@@ -84,9 +83,9 @@ O período que você selecionou faz parte de um pacote fechado.  Selecione abaixo:
 				<html:hidden property="mesPeriodoFinal" value="${(an.dataFinal.month)+1}"/>
 				<html:hidden property="anoPeriodoFinal" value="${(an.dataFinal.year)+1900}"/>
 				
-				<div>
-					<div class="txt_form" style="float:left" >
-						<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/><br>
+				<div class="lista_data_reserva">
+					<div class="txt_datas" style="float:left" >
+						<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/> a <bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>
 					</div>	
 					<div class="botao_reserva2">
 						<input type="image" src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" /><br/>
@@ -109,7 +108,7 @@ O período que você selecionou faz parte de um pacote fechado.  Selecione abaixo:
 </div>
 
 </div></div>
-<br /><br />
+
 
 <jsp:include page="../rodape.jsp"/>
 
