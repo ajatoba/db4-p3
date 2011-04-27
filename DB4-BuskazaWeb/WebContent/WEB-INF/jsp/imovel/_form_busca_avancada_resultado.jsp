@@ -3,6 +3,12 @@
 <html:hidden property="anoDataFinalAnuncio" styleId="anoDataInicialAnuncio" />
 <html:hidden property="anoDataInicialAnuncio" styleId="anoDataInicialAnuncio"/>
 
+
+
+
+<input type="hidden" name="tiposAnuncio" id="tiposAnuncio">
+
+
 <div class="form_busca_geral">
 
 <div class="titulo_busca_avancada">Redefinir Busca</div>
@@ -414,6 +420,7 @@
 			</html:select>
       	</div></span></td>
           </tr>
+           
           <tr>
           	<td>
           	<table>
