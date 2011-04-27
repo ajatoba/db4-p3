@@ -83,8 +83,8 @@
 
 
 <div class="top_busca_disp">	
-    <div class="top_busca_disponibilidades">
-        <a href="javascript:linkPacote()"><div class="link_img_pacote"></div></a>
+    <div class="top_busca_disponibilidades_redefinir">
+        <a href="javascript:linkPacoteRedefinir()"><div class="link_img_pacote"></div></a>
     </div>
 </div>
 
