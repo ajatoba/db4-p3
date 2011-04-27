@@ -82,6 +82,13 @@
 <div id="cont_result_busca">
 
 
+<div class="top_busca_disp">	
+    <div class="top_busca_disponibilidades">
+        <a href="javascript:linkPacote()"><div class="link_img_pacote"></div></a>
+    </div>
+</div>
+
+
 
 
 
