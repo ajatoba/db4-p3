@@ -60,7 +60,6 @@
 <div id="form_busca">
 
 
-<div class="titulo_busca"><span class="MyriadPro24">Buscar An&uacute;ncio</span></div>
 
 <div class="selecione_busca">Selecione abaixo as informaes para efetuar sua busca</div>
 
