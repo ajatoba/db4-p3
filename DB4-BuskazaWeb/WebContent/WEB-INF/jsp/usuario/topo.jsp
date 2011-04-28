@@ -68,48 +68,77 @@
     
     <%}else{ %>
     
+    <link  rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down_novo.css"/>
+    
     <div class="btn_login">
 
-		<ul id="menu_dropdown2" class="menubar" style="position:absolute;">
-	    <li id="submenu" class="submenu2">
-	      <ol class="curso_seleci_login">
-	        <li id="drop_down_curso" class="seleci_login">&nbsp;</li>
-	      </ol>
-	      <ul class="menu" id="menu2">
-	        <li id="menu_sepa"></li>
-	        <li>
-	              <form name="usuarioForm" id="usuarioForm" method="post" action="/DB4-BuskazaWeb/usuario.do?act=autenticarUsuario">
-	                <div class="menu_sep_form">Login(Email)</div>
-	                <div class="menu_sep_form">
-	                  <input type="text" name="usuarioEntity.email" size="211" value="" title="Email" style="width:221px;"/>
-	                </div>
-	                <div class="menu_sep_form">
-	                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-	                    <tr>
-	                      <td width="30%">Senha</td>
-	                      <td width="70%" align="right"><!--  Esqueceu sua senha? --></td>
-	                    </tr>
-	                  </table>
-	                </div>
-	                <div class="menu_sep_form">
-	                  <input type="password" name="usuarioEntity.senha" size="211" value="" title="Senha" style="width:221px;"/>
-	                </div>
-	                <div class="menu_sep_form">
-	                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-	                    <tr>
-	                      <td width="70%"><div style="float:left"><input type="checkbox" name="lembrar"/></div> <div style="margin-top:7px; float:left">Lembrar login/senha</div></td>
-	                      <td width="30%" align="right"><input type="image" src="/buzkaza/_img/menu_down/btn_login_entrar.png" name="button" id="button" value="Submit" /></td>
-	                    </tr>
-	                  </table>
-	                  
-	                </div>
-	              </form>
-	        </li>
-	      </ul>
-	      <div id="menu_sep_login_baixo">&nbsp;</div>
-	      <script type="text/javascript">  horizontal1(); </script> 
-	    </li>
-	  </ul>
+			<div id="topnav" class="topnav" >
+	            <div href="menu_down/login" class="signin"><span></span></div>
+	        </div>
+	      <fieldset id="signin_menu">
+	        <form method="post" id="signin" name="usuarioForm" action="/DB4-BuskazaWeb/usuario.do?act=autenticarUsuario">
+	          <div class="linha_menu_login_topo"></div>
+	          <div class="linha_menu_login_meio">
+	                    <div class="menu_sep_form_novo">Login(Email)</div>
+	                    <div class="menu_sep_form_novo">
+	                      <input type="text" name="usuarioEntity.email" size="211" value="" title="Email" style="width:221px;"/>
+	                    </div>
+	                    <div class="menu_sep_form_novo">
+	                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	                        <tr>
+	                          <td width="30%">Senha</td>
+	                          <td width="70%" align="right"><!--  Esqueceu sua senha? --></td>
+	                        </tr>
+	                      </table>
+	                    </div>
+	                    <div class="menu_sep_form_novo">
+	                      <input type="password" name="usuarioEntity.senha" size="211" value="" title="Senha" style="width:221px;"/>
+	                    </div>
+	                    <div class="menu_sep_form_novo_fim">
+	                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	                        <tr>
+	                          <td width="70%"><div style="float:left">
+	                              <input type="checkbox" name="lembrar"/>
+	                            </div>
+	                            <div id="menu_sep_form_lembrar">Lembrar login/senha</div></td>
+	                          <td width="30%" align="right"><input type="image" src="/buzkaza/_img/menu_down/btn_login_entrar.png" name="button" id="button" value="Submit" /></td>
+	                        </tr>
+	                      </table>
+	                    </div>
+	          </div>
+	          <div class="linha_menu_login_baixo"></div>
+	        </form>
+	      </fieldset>
+
+
+<script type="text/javascript">
+        $(document).ready(function() {
+
+            $(".signin").click(function(e) {          
+				e.preventDefault();
+                $("fieldset#signin_menu").toggle();
+				$(".signin").toggleClass("menu-open");
+				
+				$(".topnav").css('background' , 'url(/buzkaza/_img/menu_down/efetuar_login.png) repeat-y');
+            });
+			
+			$("fieldset#signin_menu").mouseup(function() {
+				return false
+			});
+			$(document).mouseup(function(e) {
+				if($(e.target).parent(".signin").length==0) {
+					$(".signin").removeClass("menu-open");
+					$("fieldset#signin_menu").hide();
+					$(".topnav").css('background' , 'url(/buzkaza/_img/menu_down/efetuar_login0.png) repeat-y');
+				}
+			});			
+			
+        });
+</script> 
+
+
+
+
 	</div>
 	<div class="btn_cadastre_se"><a href="/passo_1_usuario.html"><img src="/buzkaza/_img/btn_cadastre_se.jpg" height="35" width="139" border="0"/></a></div>
     
