@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Buzkaza</title>
+<title>Buzkaza - em casa, onde estiver</title>
 
 <link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css"/>
 <link href="/buzkaza/_css/busca.css" rel="stylesheet" type="text/css"/>	
@@ -21,7 +21,7 @@
 <script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 	<script language="javascript">
 		$(function(){
-			$('#form').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
+			$('form').jqTransform({imgPath:'/buzkaza/teaser/jqtransformplugin/img/'});
 		});
 	</script>
 	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
