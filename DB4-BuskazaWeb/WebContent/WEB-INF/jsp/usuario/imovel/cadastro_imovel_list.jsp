@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Buzkaza</title>
+<title>Buzkaza - em casa, onde estiver</title>
 
 
 
@@ -154,8 +154,6 @@ $(function(){
 			
 		</div>      
 		<div id="separator_listagem"></div>
-		
-		<br>
 		</html:form>
 	 </logic:iterate>
 </logic:present>
