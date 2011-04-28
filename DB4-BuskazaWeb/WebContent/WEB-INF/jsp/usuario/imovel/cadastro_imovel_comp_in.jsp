@@ -439,16 +439,6 @@ function abrirPop(url){
 				   
 				   </td>
 				  </tr>
-			      
-			      <tr>
-				    <td class="txt_caracteristicas"></td>
-				  </tr>
-				  <tr>
-				    <td class="txt_caracteristicas"></td>
-				  </tr>				  
-				  <tr>
-				    <td><html:submit>ENVIAR</html:submit></td>
-				  </tr> 
 			    </table>
 	
 	</div>
@@ -492,9 +482,6 @@ function abrirPop(url){
 
 
 <div class="bottom_formulario">
-
-	
-	
 	<table width="100%" border="0">
   	<tr class="txt_caracteristicas">
   		<td width="30%" class="txt_caracteristica">Dados de Check-In Check-Out</td>
@@ -576,8 +563,8 @@ function abrirPop(url){
   </table>
   
 </div>
+<tr><td><html:submit>ENVIAR</html:submit></td></tr>
 
-<br>
 				    
 
 </html:form>
