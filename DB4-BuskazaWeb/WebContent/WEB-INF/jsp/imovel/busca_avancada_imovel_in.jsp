@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Buzkaza</title>
+<title>Buzkaza - em casa, onde estiver</title>
 
 	
 <link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
@@ -61,7 +61,7 @@
 
 
 
-<div class="selecione_busca">Selecione abaixo as informaes para efetuar sua busca</div>
+<div class="selecione_busca">Selecione abaixo as informações para efetuar sua busca</div>
 
 
 
