@@ -175,8 +175,8 @@ function abrirPop(url){
 								        <td>Capacidade</td>
 								      </tr>
 								      <tr>
-								      	<td width="140"><input type="text" name="distanciaCentro"  property="distanciaCentro" size="90" style="width:120px;"></td>
-								      	<td width="123">
+								      	<td width="140"><input type="text" name="distanciaCentro"  property="distanciaCentro" size="110" style="width:120px;"></td>
+								      	<td width="146">
 								        	<html:select name="imovel" property="metragem" styleId="metragem" style="width:103px;">
 								      			<html:option value="20.0">20m</html:option>
 								                <html:option value="25.0">25m</html:option>
@@ -405,7 +405,7 @@ function abrirPop(url){
 							     </html:select>
 					        </td>
 					      </tr>
-					      <td ><span class="txt_caracteristica">Taxas Extras</span></td>
+					      <td><span class="txt_caracteristica">Taxas Extras</span></td>
 					      <tr class="txt_caracteristicas">
 						      <td>Caução:</td>
 						      <td>Eletricidade:</td>
@@ -444,38 +444,33 @@ function abrirPop(url){
 	</div>
 	
 	<div class="right_formulario">
-					
-					
 					<table width="100%" border="0">
 					  <tr>
 					    <td><span class="txt_caracteristica">Equipamentos Permissões e Facilidades</span></td>
 					  </tr>
 					  <tr>
-					    <td><table width="100%" border="0">
-					      <tr class="txt_caracteristicas">
-					        <td> </td>
-
-					      </tr>
-					      <tr>
-					        <td>
-					       		<logic:iterate name="equipamentos" id="equipamento">
-							    	<div id="sep_form_busca" class="txt_form">
-							           	<div class="equip_top1">									
-										    <html:multibox property="equipamentos"> 
+					    <td>
+					    	<table width="100%" border="0">
+					      		<tr>
+					        		<td>
+					       				<logic:iterate name="equipamentos" id="equipamento">
+							    			<div id="sep_form_busca" class="txt_form">
+							           			<div class="equip_top1">									
+										    		<html:multibox property="equipamentos"> 
 												<bean:write name="equipamento" property="codigo"/>
-											</html:multibox>
-										</div>
-										<div class="equip_top2">
-											<bean:write name="equipamento" property="nome"/>
-										</div>
-							        </div>
-					            </logic:iterate>
-					         </td>
-
-					      </tr>
-					    </table></td>
+													</html:multibox>
+												</div>
+												<div class="equip_top2">
+													<bean:write name="equipamento" property="nome"/>
+												</div>
+							        		</div>
+					            		</logic:iterate>
+					        		</td>
+					      		</tr>
+					    	</table>
+					    </td>
 					  </tr>					 
-					</table>
+					</table><!-- Final Tabela Equipamentos -->
 	</div>
 </div>
 
@@ -484,8 +479,8 @@ function abrirPop(url){
 <div class="bottom_formulario">
 	<table width="100%" border="0">
   	<tr class="txt_caracteristicas">
-  		<td width="30%" class="txt_caracteristica">Dados de Check-In Check-Out</td>
-  		<td width="70%" class="txt_caracteristica"></td>
+  		<td width="100%" class="txt_caracteristica">Dados de Check-In Check-Out</td><br />
+  		<td width="100%" class="txt_caracteristica">*Todas as taxas extras, incluindo taxa de check in e check out fora de horário, deverão ser pagas em dinheiro ao próprio proprietário. Apenas iremos informar os valores.</td>
   	</tr>
   	<tr class="txt_caracteristicas">
         <td class="txt_caracteristicas" colspan="2">	
@@ -493,7 +488,7 @@ function abrirPop(url){
 		  		<table border="0">
 					<tr>    
 						<td class="txt_caracteristicas"><div class="seps">Nome de quem fará o Check in</div></td>
-						<td class="txt_caracteristicas"><div class="sepd">Telefone</td>
+						<td class="txt_caracteristicas"><div class="sepd">Telefone</div></td>
 						<td class="txt_caracteristicas"><div class="sepd">&nbsp;</div>
 						<div class="sepd">Telefone Aleternativo</div></td>
 						<td class="txt_caracteristicas"><div class="sepd">Email</div></td>
@@ -526,36 +521,27 @@ function abrirPop(url){
 	        <div class="divhorario3">
 	        	<div class="sept">De</div>
 	        	<div class="sepd"><html:text property="checkInEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
-	          	<div class="sept"> :</div>
+	          	<div class="sept"> : </div>
 	         	<div class="sepd"><html:text property="checkInEntradaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
 	          	<div class="sept"> Até</div>
 	         	<div class="sepd"><html:text property="checkInSaidaHora" maxlength="2" size="30" style="width:40px;" /></div>
-	          	<div class="sept"> :</div>
+	          	<div class="sept"> : </div>
 	          	<div class="sepd"><html:text property="checkInSaidaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
 	         </div> 	
 	        
 	        <div class="divhorario4">
 	        	  <div class="sept">De</div>
 		          <div class="sepd"><html:text property="checkOutEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
-				  <div class="sept"> :</div>
+				  <div class="sept"> : </div>
 				  <div class="sepd"><html:text property="checkOutEntradaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
 				  <div class="sept"> Até</div>
 				  <div class="sepd"><html:text property="checkOutSaidaHora" maxlength="2" size="30" style="width:40px;" /></div>
-				  <div class="sept"> :</div>
+				  <div class="sept"> : </div>
 				  <div class="sepd"><html:text property="checkOutSaidaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
 			 </div>
 		 
 		 </td>
 		 
-        </tr>
-        <tr>
-        	<td width="70%">
-        	
-        	</td>
-        </tr>
-        <tr>
-        	<td width="70%">
-        	</td>
         </tr>
 		</table>
   		</td>
@@ -563,16 +549,11 @@ function abrirPop(url){
   </table>
   
 </div>
-<tr><td><html:submit>ENVIAR</html:submit></td></tr>
-
-				    
-
+<tr><td><input type="image" src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></td></tr>
 </html:form>
 
 </div>
 </div>
-
-
 
 <jsp:include page="../rodape.jsp"/>
 
