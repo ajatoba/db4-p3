@@ -86,11 +86,13 @@ function abrirPop(url){
 			    <td width="58%" valign="top">
 			    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
 	    			<span class="txt_cinza_detalhes">${imovel.logradouro}, ${imovel.numero} - ${imovel.complemento} - Cep ${imovel.cep}<br />
-	    			ID: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span>
+	    			ID: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span><br />
+	    			<a href="javascript:abrirPop('/DB4-BuskazaWeb/usuario/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');">Ver fotos</a>
 			    </td>
 			    <td width="42%" valign="top">			    	
 				    <span class="txt_cinza_detalhes">
-				      Distância do centro: ${imovel.distanciaCentro}<br />
+				    	<span class="arial12boldazul">Perfil do Imóvel:</span> ${imovel.distanciaCentro}<br />
+						<span class="arial12boldazul">Distância do centro:</span> ${imovel.distanciaCentro}km<br />
 				      
 				      <logic:notEmpty name="imovel" property="linkGoogleMaps">
 				      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
@@ -146,7 +148,7 @@ function abrirPop(url){
 </div>
 
 
-<div id="sep_top_reserva"></div>
+<div id="sep_top_reserva_fina"></div>
 
 
 <html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=alterarImovel" enctype="multipart/form-data">
@@ -161,7 +163,7 @@ function abrirPop(url){
 	
 				<table width="100%" border="0" cellspacing="3">
 				  <tr>
-				    <td><img src="/buzkaza/_img/bullet.jpg" width="21" height="16" /> <span class="txt_caracteristica">Características do Imóvel</span></td>
+				    <td><span class="txt_caracteristica">Características do Imóvel</span></td>
 				  </tr>
 				  
 			      <tr>
@@ -169,13 +171,13 @@ function abrirPop(url){
 									<table width="100%" border="0">
 								      <tr class="txt_caracteristicas">
 								        <td>Distância do centro</td>
-								        <td>Capacidade</td>
 								        <td>Metragem</td>
+								        <td>Capacidade</td>
 								      </tr>
 								      <tr>
-								      <td><input type="text" name="distanciaCentro"  property="distanciaCentro" size="90" style="width:100px;"></td>
-								        <td>
-								        	<html:select name="imovel" property="metragem" styleId="metragem" style="width:80px;">
+								      	<td width="140"><input type="text" name="distanciaCentro"  property="distanciaCentro" size="90" style="width:120px;"></td>
+								      	<td width="123">
+								        	<html:select name="imovel" property="metragem" styleId="metragem" style="width:103px;">
 								      			<html:option value="20.0">20m</html:option>
 								                <html:option value="25.0">25m</html:option>
 								                <html:option value="30.0">30m</html:option>
@@ -348,13 +350,14 @@ function abrirPop(url){
 					    <table border="0" >
 					      <tr>
 					      	<td class="txt_caracteristicas">Quartos</td>
-					        <td class="txt_caracteristicas">Qtd. Camas:</td>
+					        <td class="txt_caracteristicas">Qtd. Camas</td>
 					        <td class="txt_caracteristicas">Idiomas Falados</td>
 					        <td></td>
 					      </tr>
 					      <tr valign="top">
-					      <td>
-					      	<div><html:select name="imovel" property="quartos" styleId="quartos">
+					      <td width="124">
+					      	<div>
+					      		<html:select name="imovel" property="quartos" styleId="quartos">
 						      			<html:option value="1">1 Quarto</html:option>
 										<html:option value="2">2 Quartos</html:option>
 										<html:option value="3">3 Quartos</html:option>
@@ -377,9 +380,10 @@ function abrirPop(url){
 										<html:option value="20">20 Quartos</html:option>
 										<html:option value="21">21 Quartos</html:option>
 										<html:option value="22">22 Quartos</html:option>
-						      	</html:select></div>
+						      		</html:select>
+						      	</div>
 							</td>
-					        <td>
+					        <td width="123">
 				        		<div>
 						        <html:select name="imovel" property="camas" style="width:80px;">
 						            <html:option value="1">1</html:option>
@@ -400,10 +404,8 @@ function abrirPop(url){
 							     	<html:options collection="idiomas" property="codigo" labelProperty="nome" />     
 							     </html:select>
 					        </td>
-					        <td>
-					        <a href="javascript:abrirPop('/DB4-BuskazaWeb/usuario/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');">Ver fotos</a>
-					        </td>
 					      </tr>
+					      <td ><span class="txt_caracteristica">Taxas Extras</span></td>
 					      <tr class="txt_caracteristicas">
 						      <td>Caução:</td>
 						      <td>Eletricidade:</td>
@@ -427,14 +429,13 @@ function abrirPop(url){
 					      <tr class="txt_caracteristicas">
 						      <td>Taxa Checkin Atrasado:</td>
 						      <td>Taxa CheckOut Atrasado:</td>
-						      <td></td>
 					      </tr>
 					      <tr>
 						      <td><html:text name="imovel" property="taxaLateCheckin" size="90" style="width:100px;"/></td>
 						      <td><html:text name="imovel" property="taxaLateCheckout" size="90" style="width:100px;"/></td>
-						      <td></td>
 					      </tr>
-					    </table>
+					      
+</table>
 				   
 				   </td>
 				  </tr>
@@ -457,7 +458,7 @@ function abrirPop(url){
 					
 					<table width="100%" border="0">
 					  <tr>
-					    <td><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /><span class="txt_caracteristica">Equipamentos Permissões e Facilidades</span></td>
+					    <td><span class="txt_caracteristica">Equipamentos Permissões e Facilidades</span></td>
 					  </tr>
 					  <tr>
 					    <td><table width="100%" border="0">
