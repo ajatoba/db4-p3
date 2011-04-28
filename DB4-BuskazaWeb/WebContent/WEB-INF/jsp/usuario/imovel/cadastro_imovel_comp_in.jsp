@@ -479,7 +479,7 @@ function abrirPop(url){
 <div class="bottom_formulario">
 	<table width="100%" border="0">
   	<tr class="txt_caracteristicas">
-  		<td width="100%" class="txt_caracteristica">Dados de Check-In Check-Out</td><br />
+  		<td width="100%" class="txt_caracteristica">Dados de Check-In Check-Out</td>
   		<td width="100%" class="txt_caracteristica">*Todas as taxas extras, incluindo taxa de check in e check out fora de horário, deverão ser pagas em dinheiro ao próprio proprietário. Apenas iremos informar os valores.</td>
   	</tr>
   	<tr class="txt_caracteristicas">
