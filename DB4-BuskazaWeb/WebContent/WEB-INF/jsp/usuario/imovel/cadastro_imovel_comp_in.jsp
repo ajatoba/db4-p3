@@ -68,7 +68,7 @@ function abrirPop(url){
 <div id="cont_reserva">
 	<div id="meio_reserva">
 		    <div class="top_reserva">
-		      	<div class="txt_meus_anuncios"><span class="MyriadPro24">Meus Anúncios/////</span><span class="MyriadPro18"> / Editar Anúncio</span></div>
+		      	<div class="txt_meus_anuncios"><span class="MyriadPro24">Meus Anúncios</span><span class="MyriadPro18"> / Editar Anúncio</span></div>
 		      	<div class="combo_anuncios"> &nbsp;&nbsp;<a href="/DB4-BuskazaWeb/usuario/imovel.do?act=listarImoveis"><img src="/buzkaza/_img/btn_voltar_listaranuncios" width="151" height="31" style=" float:right;" border="0"/></a></div>
 		    </div>
 	</div>
