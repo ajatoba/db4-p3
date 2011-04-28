@@ -11,7 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Buzkaza</title>
+<title>Buzkaza - em casa, onde estiver</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -203,8 +203,8 @@ function somaDias( txtData, DiasAdd )
 <div id="cont_reserva">
 	<div id="meio_reserva">
 		    <div class="top_reserva">
-		      	<div class="txt_meus_anuncios"><span class="MyriadPro24">Meus Anúncios</span><span class="MyriadPro18">/Disponibilidade e Preços</span></div>
-		      	<div class="combo_anuncios"> &nbsp;&nbsp;<a href="/DB4-BuskazaWeb/usuario/imovel.do?act=listarImoveis"><img src="/buzkaza/_img/btn_voltar_listaranuncios" width="151" height="31" style=" float:right;" border="0"/></a></div>
+		      	<div class="txt_meus_anuncios"><span class="MyriadPro24">Meus Anúncios</span><span class="MyriadPro18"> / Disponibilidade e Preços</span></div>
+		      	<div class="combo_anuncios"> &nbsp;&nbsp;<a href="/DB4-BuskazaWeb/usuario/imovel.do?act=listarImoveis"><img src="/buzkaza/_img/btn_voltar_listaranuncios.jpg" width="151" height="31" style=" float:right;" border="0"/></a></div>
 		    </div>
 	</div>
 
