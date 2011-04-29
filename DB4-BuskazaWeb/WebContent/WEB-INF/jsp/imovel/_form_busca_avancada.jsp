@@ -15,11 +15,7 @@
       			<html:text property="municipio" size="195" style="width:205px"  styleClass="MyriadProRegular" />	
       		</td>
       		<td height="30" colspan="2">   
-         	<!-- 
-      		<html:select property="imovelEntity.estado.codigo" styleClass="MyriadProRegular">    			 
-				<html:options collection="estados" property="codigo" labelProperty="nome" />
-        	</html:select>
-        	-->       	
+         	      	
 			<html:select property="imovelEntity.estado.codigo" style="width:188x" styleClass="MyriadProRegular"> 
 			<html:option value="">Todos</html:option> 
 			<html:option value="AC">Acre</html:option> 
@@ -50,6 +46,11 @@
 			<html:option value="SE">Sergipe</html:option> 
 			<html:option value="TO">Tocantins</html:option>
 			</html:select>     
+			<!-- 
+      		<html:select property="imovelEntity.estado.codigo" styleClass="MyriadProRegular">    			 
+				<html:options collection="estados" property="codigo" labelProperty="nome" />
+        	</html:select>
+        	--> 
            </td>
       	</tr>
 		<tr >
