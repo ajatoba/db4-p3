@@ -48,6 +48,16 @@ public class Reserva implements Serializable {
 	
 	@NotNull
 	private Integer status = 0; //0 - Em avaliação / 1 - Confirmada  / 2 - Cancelada / 3 -  Concluida 
+	/* 
+	  	novos STATUS vindos do MOIP
+		1 autorizado
+		2 iniciado
+		3 boleto impresso
+		4 concluido
+		5 cancelado
+		6 em análise
+		7 estornado
+	*/
 	
 	@OneToOne
 	@ManyToOne
