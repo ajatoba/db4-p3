@@ -69,7 +69,7 @@ function abrirPop(url){
 	<div id="meio_reserva">
 		    <div class="top_reserva">
 		      	<div class="txt_meus_anuncios"><span class="MyriadPro24">Meus Anúncios</span><span class="MyriadPro18"> / Editar Anúncio</span></div>
-		      	<div class="combo_anuncios"> &nbsp;&nbsp;<a href="/DB4-BuskazaWeb/usuario/imovel.do?act=listarImoveis"><img src="/buzkaza/_img/btn_voltar_listaranuncios" width="151" height="31" style=" float:right;" border="0"/></a></div>
+		      	<div class="combo_anuncios"> &nbsp;&nbsp;<a href="/DB4-BuskazaWeb/usuario/imovel.do?act=listarImoveis"><img src="/buzkaza/_img/btn_voltar_listaranuncios.jpg" width="151" height="31" style=" float:right;" border="0"/></a></div>
 		    </div>
 	</div>
 	
@@ -426,15 +426,6 @@ function abrirPop(url){
 						      <td><html:text name="imovel" property="diarista" size="90" style="width:100px;"/></td>
 						      <td></td>
 					      </tr>
-					      <tr class="txt_caracteristicas">
-						      <td>Taxa Checkin Atrasado:</td>
-						      <td>Taxa CheckOut Atrasado:</td>
-					      </tr>
-					      <tr>
-						      <td><html:text name="imovel" property="taxaLateCheckin" size="90" style="width:100px;"/></td>
-						      <td><html:text name="imovel" property="taxaLateCheckout" size="90" style="width:100px;"/></td>
-					      </tr>
-					      
 </table>
 				   
 				   </td>
@@ -478,9 +469,11 @@ function abrirPop(url){
 
 <div class="bottom_formulario">
 	<table width="100%" border="0">
-  	<tr class="txt_caracteristicas">
-  		<td width="100%" class="txt_caracteristica">Dados de Check-In Check-Out</td>
-  		<td width="100%" class="txt_caracteristica">*Todas as taxas extras, incluindo taxa de check in e check out fora de horário, deverão ser pagas em dinheiro ao próprio proprietário. Apenas iremos informar os valores.</td>
+	<tr>
+		<td width="100%" class="txt_caracteristica">Dados de Check-in e Check-out</td>
+	</tr>
+	<tr>
+	  <td width="100%" class="txt_caracteristica">Todas as taxas extras, incluindo taxa de Check-in e Check-out fora de horário, deverão ser pagas em dinheiro ao próprio proprietário. Apenas iremos informar os valores.</td>
   	</tr>
   	<tr class="txt_caracteristicas">
         <td class="txt_caracteristicas" colspan="2">	
@@ -497,11 +490,11 @@ function abrirPop(url){
 					<tr class="txt_caracteristicas">    
 						<td><div class="seps"><html:text name="imovel"  property="nomeCheckIn"  size="200" style="width:210px;" /></div></td>
 					    <td><div class="sepd"><html:text name="imovel"  property="ddd" maxlength="3"  size="30" style="width:40px;"/></div>
-					    	<div class="sepd"><html:text name="imovel"  name="imovel"  property="telefone"  maxlength="8" size="100" style="width:110px;"/></div></td>
+					    <div class="sepd"><html:text name="imovel"  name="imovel"  property="telefone"  maxlength="8" size="100" style="width:110px;"/></div></td>
 					    	
 						<td><div class="sepd">&nbsp;</div>
-							<div class="sepd"><html:text name="imovel"  property="ddd2" maxlength="3" size="30" style="width:40px;"/></div>
-							<div class="sepd"><html:text name="imovel"  property="telefone2" maxlength="8" size="100" style="width:110px;"/></div></td>
+						<div class="sepd"><html:text name="imovel"  property="ddd2" maxlength="3" size="30" style="width:40px;"/></div>
+						<div class="sepd"><html:text name="imovel"  property="telefone2" maxlength="8" size="100" style="width:110px;"/></div></td>
 							
 						<td><div class="sepd"><html:text name="imovel"  property="emailCheckin"  size="170" style="width:180px;"/></div></td>
 					    <td><div class="sepd"><html:text name="imovel"  property="emailCheckin2"  size="170" style="width:180px;"/></div></td>
@@ -517,7 +510,6 @@ function abrirPop(url){
 	</tr>			
 	<tr class="txt_caracteristicas">
         <td colspan="2" class="txt_caracteristicas">
-        
 	        <div class="divhorario3">
 	        	<div class="sept">De</div>
 	        	<div class="sepd"><html:text property="checkInEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
@@ -527,8 +519,7 @@ function abrirPop(url){
 	         	<div class="sepd"><html:text property="checkInSaidaHora" maxlength="2" size="30" style="width:40px;" /></div>
 	          	<div class="sept"> : </div>
 	          	<div class="sepd"><html:text property="checkInSaidaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
-	         </div> 	
-	        
+	         </div>	        
 	        <div class="divhorario4">
 	        	  <div class="sept">De</div>
 		          <div class="sepd"><html:text property="checkOutEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
@@ -538,18 +529,26 @@ function abrirPop(url){
 				  <div class="sepd"><html:text property="checkOutSaidaHora" maxlength="2" size="30" style="width:40px;" /></div>
 				  <div class="sept"> : </div>
 				  <div class="sepd"><html:text property="checkOutSaidaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
-			 </div>
-		 
-		 </td>
-		 
-        </tr>
+			 </div>		 
+		 </td>		 
+	</tr>
+	<tr class="txt_caracteristicas">
+			<td>Taxa para check in fora do horário:</td>
+			<td>Taxa para check out fora do horário:</td>		
+	</tr>
+	<tr class="txt_caracteristicas">
+			<td><html:text name="imovel" property="taxaLateCheckin" size="90" style="width:100px;"/></td>
+			<td><html:text name="imovel" property="taxaLateCheckout" size="90" style="width:100px;"/></td>
+	</tr>						
 		</table>
   		</td>
-  	</tr>  	
-  </table>
+	</tr>  	
+</table>
   
 </div>
-<tr><td><input type="image" src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></td></tr>
+
+<div><input type="image" src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></div>
+
 </html:form>
 
 </div>
