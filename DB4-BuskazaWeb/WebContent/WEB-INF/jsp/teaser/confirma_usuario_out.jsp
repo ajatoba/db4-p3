@@ -76,15 +76,17 @@
   	</font>
     <!-- ****************** -->
 
+	<div id="msg_finaliza_cadastro">
+  		<div class="confirmado"></div>
+  		<div class="miolo_confirmado">
+  			<span class="MyriadPro30Green">Seu cadastro foi efetuado com sucesso!</span><br>
+  			<span class="MyriadPro25Blue">Anunciar e alugar no Buzkaza, é muito simples e fácil.<br><br>
+  			<a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel" class="link_aqui">Anunciar meu imóvel</a> | 
+  			<a href="/DB4-BuskazaWeb/imovel.do?act=formBuscarImovel" class="link_aqui">Alugar um imóvel.</a>
+  			</span>
+  		</div>
+	</div>
 
-<div id="msg_finaliza_cadastro">
-  <div class="confirmado"></div>
-  <div class="msg_confirmado"><span class="MyriadPro18">Seu cadastro foi confirmado com sucesso!
-  <br>Clique <a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovel" class="link_aqui">aqui</a> para cadastrar seu imóvel.
-  
-  
-  </span></div>
-</div>
 <!--FORM-->
 </div>
 </div>
