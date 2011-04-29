@@ -25,7 +25,7 @@ function submitForm(status){
 
 </head>
 
-<body>
+<body style="overflow-x: hidden">
 
 <%
 	int index = 0;
@@ -58,9 +58,26 @@ function submitForm(status){
 			                <span id="data_total_<% out.print( index ); %>_${rim.codigo}"></span> dia(s) - <bean:write name="rim" property="periodoInicial" format="dd/MM/yyyy"/> a 
 			                <bean:write name="rim" property="periodoFinal" format="dd/MM/yyyy"/><br />   
 			                Total: R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( rim.valor + ( rim.valor *10/100))}"/>
-			            </li>        
+			                <br>
+			                
+			                <logic:equal name="rim" property="status" value="0">Em análise</logic:equal>
+                    		<logic:equal name="rim" property="status" value="1">Autorizado</logic:equal>
+							<logic:equal name="rim" property="status" value="2">Iniciado</logic:equal>							
+							<logic:equal name="rim" property="status" value="3">Boleto Impresso</logic:equal>
+							<logic:equal name="rim" property="status" value="4">Concluído</logic:equal>
+							<logic:equal name="rim" property="status" value="5">Cancelado</logic:equal>
+							<logic:equal name="rim" property="status" value="6">Em análise</logic:equal>
+							<logic:equal name="rim" property="status" value="7">Estornado</logic:equal>
+			                
+			                
+			                
+			            </li>
+			            <!--  
 			            <li class="res_2"><a href="#" onclick="javascript:submitForm(1);" border="0"><img src="/buzkaza/_img/botao_confirmar.jpg" width="91" height="30" border="0"/></a></li>
 			            <li class="res_3"><a href="#" onclick="javascript:submitForm(2);" border="0"><img src="/buzkaza/_img/botao_negar.jpg" width="91" height="30" border="0"/></a></li>
+			            -->        
+			            <li class="res_2"><a href="#" onclick="javascript:submitForm(1);" border="0"><img src="/buzkaza/_img/botao_confirmar.jpg" width="91" height="30" border="0"/></a></li>
+			            <li class="res_3"><a href="#" onclick="javascript:submitForm(5);" border="0"><img src="/buzkaza/_img/botao_negar.jpg" width="91" height="30" border="0"/></a></li>
 			        </ul>
 			        
 			        <script language="javascript">
