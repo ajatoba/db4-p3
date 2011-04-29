@@ -91,7 +91,7 @@ function abrirPop(url){
 			    </td>
 			    <td width="42%" valign="top">			    	
 				    <span class="txt_cinza_detalhes">
-				    	<span class="arial12boldazul">Perfil do Imóvel:</span> ${imovel.distanciaCentro}<br />
+				    	<span class="arial12boldazul">Perfil do Imóvel:</span> ${imovel.tipoImovel.nome}<br />
 						<span class="arial12boldazul">Distância do centro:</span> ${imovel.distanciaCentro}km<br />
 				      
 				      <logic:notEmpty name="imovel" property="linkGoogleMaps">
@@ -490,7 +490,7 @@ function abrirPop(url){
 						<td class="txt_caracteristicas"><div class="seps">Nome de quem fará o Check in</div></td>
 						<td class="txt_caracteristicas"><div class="sepd">Telefone</div></td>
 						<td class="txt_caracteristicas"><div class="sepd">&nbsp;</div>
-						<div class="sepd">Telefone Aleternativo</div></td>
+						<div class="sepd">Telefone Alternativo</div></td>
 						<td class="txt_caracteristicas"><div class="sepd">Email</div></td>
 						<td class="txt_caracteristicas"><div class="sepd">Email Alternativo</div></td>
 					</tr>
