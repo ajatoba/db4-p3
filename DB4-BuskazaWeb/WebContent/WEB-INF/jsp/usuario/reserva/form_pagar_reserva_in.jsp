@@ -225,7 +225,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 				</form>
 			</td>-->
 			<td>
-				<form action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip" id="moip">
+				<form action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip" id="moip" target="_blank">
 					<input type="hidden" name="id_carteira" value="buzkaza">			
 					<input type="hidden" name="valor" id="valor_reserva" value="${(reservaPagar.valor*10/100)}00">
 					<input type="hidden" name="nome" value="${reservaPagar.locatario.nome}">
