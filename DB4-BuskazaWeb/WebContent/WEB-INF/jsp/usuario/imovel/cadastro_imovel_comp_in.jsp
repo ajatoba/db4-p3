@@ -87,7 +87,7 @@ function abrirPop(url){
 			    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
 	    			<span class="txt_cinza_detalhes">${imovel.logradouro}, ${imovel.numero} - ${imovel.complemento} - Cep ${imovel.cep}<br />
 	    			ID: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span><br />
-	    			<a href="javascript:abrirPop('/DB4-BuskazaWeb/usuario/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');">Ver fotos</a>
+	    			<a href="javascript:abrirPop('/DB4-BuskazaWeb/usuario/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');"><span class="bullet_seta_cinza">Ver Fotos</span></a>
 			    </td>
 			    <td width="42%" valign="top">			    	
 				    <span class="txt_cinza_detalhes">
@@ -464,90 +464,87 @@ function abrirPop(url){
 					</table><!-- Final Tabela Equipamentos -->
 	</div>
 </div>
-
-
-
 <div class="bottom_formulario">
 	<table width="100%" border="0">
-	<tr>
-		<td width="100%" class="txt_caracteristica">Dados de Check-in e Check-out</td>
-	</tr>
-	<tr>
-	  <td width="100%" class="txt_caracteristica">Todas as taxas extras, incluindo taxa de Check-in e Check-out fora de horário, deverão ser pagas em dinheiro ao próprio proprietário. Apenas iremos informar os valores.</td>
-  	</tr>
-  	<tr class="txt_caracteristicas">
-        <td class="txt_caracteristicas" colspan="2">	
-  		
-		  		<table border="0">
-					<tr>    
-						<td class="txt_caracteristicas"><div class="seps">Nome de quem fará o Check in</div></td>
-						<td class="txt_caracteristicas"><div class="sepd">Telefone</div></td>
-						<td class="txt_caracteristicas"><div class="sepd">&nbsp;</div>
-						<div class="sepd">Telefone Alternativo</div></td>
-						<td class="txt_caracteristicas"><div class="sepd">Email</div></td>
-						<td class="txt_caracteristicas"><div class="sepd">Email Alternativo</div></td>
+		<tr>
+			<td width="100%" class="txt_caracteristica">Dados de Check-in e Check-out</td>
+		</tr>
+		<tr>
+	  		<td class="arial13Cinza">Todas as taxas extras, incluindo taxa de Check-in e Check-out fora de horário, deverão ser pagas em dinheiro ao proprietário. Apenas iremos informar os valores.</td>
+  		</tr>
+  		<tr><td height="25" colspan="5">&nbsp;</td></tr><!--TR separadora-->
+  		<tr>
+        	<td class="txt_caracteristicas" colspan="2">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr class="txt_caracteristicas">
+						<td><span class="txt_caracteristicas">Nome de quem fará o Check in</span></td>
+						<td><span class="txt_caracteristicas">Telefone</span></td>
+						<td><span class="txt_caracteristicas">Telefone Alternativo</span></td>
+						<td><span class="txt_caracteristicas">Email</span></td>
+						<td><span class="txt_caracteristicas">Email Alternativo</span></td>
 					</tr>
-					<tr class="txt_caracteristicas">    
-						<td><div class="seps"><html:text name="imovel"  property="nomeCheckIn"  size="200" style="width:210px;" /></div></td>
-					    <td><div class="sepd"><html:text name="imovel"  property="ddd" maxlength="3"  size="30" style="width:40px;"/></div>
-					    <div class="sepd"><html:text name="imovel"  name="imovel"  property="telefone"  maxlength="8" size="100" style="width:110px;"/></div></td>
-					    	
-						<td><div class="sepd">&nbsp;</div>
-						<div class="sepd"><html:text name="imovel"  property="ddd2" maxlength="3" size="30" style="width:40px;"/></div>
-						<div class="sepd"><html:text name="imovel"  property="telefone2" maxlength="8" size="100" style="width:110px;"/></div></td>
-							
-						<td><div class="sepd"><html:text name="imovel"  property="emailCheckin"  size="170" style="width:180px;"/></div></td>
-					    <td><div class="sepd"><html:text name="imovel"  property="emailCheckin2"  size="170" style="width:180px;"/></div></td>
-					</tr>					
+					<tr>    
+						<td><div class="sepd"><html:text name="imovel"  property="nomeCheckIn"  size="180" style="width:190px;" /></div></td>
+						<td><div class="sepd2"><html:text name="imovel"  property="ddd" maxlength="3"  size="30" style="width:40px;"/></div>
+						<div class="sepd"><html:text name="imovel"  name="imovel"  property="telefone"  maxlength="8" size="90" style="width:100px;"/></div></td> 
+						<td><div class="sepd2"><html:text name="imovel"  property="ddd2" maxlength="3" size="30" style="width:40px;"/></div>                        
+						<div class="sepd"><html:text name="imovel"  property="telefone2" maxlength="8" size="90" style="width:100px;"/></div></td>                        					
+						<td><div class="sepd"><html:text name="imovel"  property="emailCheckin"  size="150" style="width:160px;"/></div></td>
+						<td><div class="seps"><html:text name="imovel"  property="emailCheckin2"  size="150" style="width:160px;"/></div></td>
+					</tr>
 				</table>
-		</td>
-	</tr>
-	<tr class="txt_caracteristicas">
-			<td colspan="2">
-				<div class="divhorario1">Horário Check in</div>
-				<div class="divhorario2">Horário Check out</div>
 			</td>
-	</tr>			
-	<tr class="txt_caracteristicas">
-        <td colspan="2" class="txt_caracteristicas">
-	        <div class="divhorario3">
-	        	<div class="sept">De</div>
-	        	<div class="sepd"><html:text property="checkInEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
-	          	<div class="sept"> : </div>
-	         	<div class="sepd"><html:text property="checkInEntradaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
-	          	<div class="sept"> Até</div>
-	         	<div class="sepd"><html:text property="checkInSaidaHora" maxlength="2" size="30" style="width:40px;" /></div>
-	          	<div class="sept"> : </div>
-	          	<div class="sepd"><html:text property="checkInSaidaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
-	         </div>	        
-	        <div class="divhorario4">
-	        	  <div class="sept">De</div>
-		          <div class="sepd"><html:text property="checkOutEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
-				  <div class="sept"> : </div>
-				  <div class="sepd"><html:text property="checkOutEntradaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
-				  <div class="sept"> Até</div>
-				  <div class="sepd"><html:text property="checkOutSaidaHora" maxlength="2" size="30" style="width:40px;" /></div>
-				  <div class="sept"> : </div>
-				  <div class="sepd"><html:text property="checkOutSaidaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
-			 </div>		 
-		 </td>		 
-	</tr>
-	<tr class="txt_caracteristicas">
-			<td>Taxa para check in fora do horário:</td>
-			<td>Taxa para check out fora do horário:</td>		
-	</tr>
-	<tr class="txt_caracteristicas">
-			<td><html:text name="imovel" property="taxaLateCheckin" size="90" style="width:100px;"/></td>
-			<td><html:text name="imovel" property="taxaLateCheckout" size="90" style="width:100px;"/></td>
-	</tr>						
-		</table>
-  		</td>
-	</tr>  	
-</table>
-  
+		</tr>
+		<tr><td height="20" colspan="5">&nbsp;</td></tr><!--TR separadora-->
+		
+		<tr><!--tr Check-in/out-->
+			<td colspan="5"><!--td Check-in/out-->
+            	<table border="0" cellpadding="0" cellspacing="0"><!--table Check-in/out-->
+                	<tr class="txt_caracteristicas">
+                    	<td><span class="txt_caracteristicas">Horário Check-in</span></td>
+                    	<td><span class="txt_caracteristicas">Horário Check-out</span></td>
+                	</tr>
+                	<tr class="txt_caracteristicas">
+						<td>
+                        	<div class="divhorario3">
+	        				<div class="sept">De&nbsp;&nbsp;</div>
+	        				<div class="seps"><html:text property="checkInEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
+	          				<div class="sept">&nbsp;:&nbsp;</div>
+	         				<div class="sepd"><html:text property="checkInEntradaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
+	          				<div class="sept">Até&nbsp;&nbsp;</div>
+	         				<div class="seps"><html:text property="checkInSaidaHora" maxlength="2" size="30" style="width:40px;" /></div>
+	          				<div class="sept">&nbsp;:&nbsp;</div>
+	          				<div class="sepd"><html:text property="checkInSaidaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
+	         				</div>
+             			</td>
+						<td>
+                            <div class="divhorario4">
+	        				<div class="sept">De&nbsp;&nbsp;</div>
+	        				<div class="seps"><html:text property="checkOutEntradaHora" maxlength="2" size="30" style="width:40px;" /></div>
+	          				<div class="sept">&nbsp;:&nbsp;</div>
+	         				<div class="sepd"><html:text property="checkOutEntradaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
+	          				<div class="sept">Até&nbsp;&nbsp;</div>
+	         				<div class="seps"><html:text property="checkOutSaidaHora" maxlength="2" size="30" style="width:40px;" /></div>
+	          				<div class="sept">&nbsp;:&nbsp;</div>
+	          				<div class="sepd"><html:text property="checkOutSaidaMinuto" maxlength="2" size="30" style="width:40px;" /></div>
+	         				</div>
+             			</td>
+                	</tr> 
+                    <tr class="txt_caracteristicas">
+                    	<td>Taxa para Check-in fora do horário:</td>
+                    	<td>Taxa para Check-out fora do horário:</td>
+                    </tr>							                      	  
+                    <tr>
+                    	<td><html:text name="imovel" property="taxaLateCheckin" size="90" style="width:100px;"/></td>
+                    	<td><html:text name="imovel" property="taxaLateCheckout" size="90" style="width:100px;"/></td>
+                    </tr>
+                </table><!--Final table Check-in/out-->
+             </td><!--Final td Check-in/out-->
+         </tr><!--Final tr Check-in/out-->
+		</table>  
 </div>
 
-<div><input type="image" src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></div>
+<div class="btnSalvarEdicao"><input type="image" src="/buzkaza/_img/btnSalvar.jpg" width="265" height="50" border="0"/></div>
 
 </html:form>
 
