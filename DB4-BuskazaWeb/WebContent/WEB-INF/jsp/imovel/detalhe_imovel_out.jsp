@@ -229,7 +229,7 @@ function somaDias( txtData, DiasAdd )
 			<div class="foto_big"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="341" height="271" />
 	</div>
 	
-	<a href='#TB_inline?height=550&amp;width=610&inlineId=thickbox_foto' class="thickbox">Ver todas as fotos</a><br>	
+	<a href='#TB_inline?height=580&amp;width=610&inlineId=thickbox_foto' class="thickbox">Ver todas as fotos</a><br>	
 
 
 	<div id="thickbox_foto" style="visibility:hidden; display:none;">			
