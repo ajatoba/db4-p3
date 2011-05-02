@@ -45,12 +45,7 @@
 			<html:option value="SP">S&atilde;o Paulo</html:option> 
 			<html:option value="SE">Sergipe</html:option> 
 			<html:option value="TO">Tocantins</html:option>
-			</html:select>     
-			<!-- 
-      		<html:select property="imovelEntity.estado.codigo" styleClass="MyriadProRegular">    			 
-				<html:options collection="estados" property="codigo" labelProperty="nome" />
-        	</html:select>
-        	--> 
+			</html:select>
            </td>
       	</tr>
 		<tr >
@@ -255,6 +250,8 @@
 			</tr>
         	<tr>
           		<td height="30" width="255">
+          		
+          		<div class="seps">
           			<html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular">                        
 					<html:option value="01">01</html:option>
             		<html:option value="02">02</html:option>
@@ -288,23 +285,24 @@
             		<html:option value="30">30</html:option>
             		<html:option value="31">31</html:option>                            
 					</html:select>
-				<div class="sepd">
+				</div>
+				<div class="sepAnoBusca">
 					<html:select property="mesDataInicialAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
 	            		<html:option value="1">Janeiro</html:option>
 	            		<html:option value="2">Fevereiro</html:option>
-	            <html:option value="3">Março</html:option>
-	            <html:option value="4">Abril</html:option>
-	            <html:option value="5">Maio</html:option>
-	            <html:option value="6">Junho</html:option>
-	            <html:option value="7">Julho</html:option>
-	            <html:option value="8">Agosto</html:option>
-	            <html:option value="9">Setembro</html:option>
-	            <html:option value="10">Outubro</html:option>
+			            <html:option value="3">Março</html:option>
+			            <html:option value="4">Abril</html:option>
+			            <html:option value="5">Maio</html:option>
+			            <html:option value="6">Junho</html:option>
+			            <html:option value="7">Julho</html:option>
+			            <html:option value="8">Agosto</html:option>
+			            <html:option value="9">Setembro</html:option>
+			            <html:option value="10">Outubro</html:option>
 						<html:option value="11">Novembro</html:option>
 						<html:option value="12">Dezembro</html:option>                  
 					</html:select>
       			</div>
-      			<div class="sepd">
+      			<div class="sepAnoBusca">
 	      			<html:select property="anoDataInicialAnuncio" title="Ano" styleId="anoDataInicialAnuncio" styleClass="MyriadProRegular">
 	        			<html:option value="2011">2011</html:option>
 		        		<html:option value="2012">2012</html:option>
@@ -316,56 +314,58 @@
         </td><!-- Final TD Data Inicial -->
         
           		<td>
+          		<div class="seps">
           			<html:select property="diaDataFinalAnuncio" title="dia" styleId="diaDataFinalAnuncio" styleClass="MyriadProRegular">                        
 						<html:option value="01">01</html:option>
             			<html:option value="02">02</html:option>
             			<html:option value="03">03</html:option>
-            <html:option value="04">04</html:option>
-            <html:option value="05">05</html:option>
-            <html:option value="06">06</html:option>
-            <html:option value="07">07</html:option>
-            <html:option value="08">08</html:option>
-            <html:option value="09">09</html:option>                            
-            <html:option value="10">10</html:option>
-            <html:option value="11">11</html:option>
-            <html:option value="12">12</html:option>
-            <html:option value="13">13</html:option>
-			<html:option value="14">14</html:option>
-            <html:option value="15">15</html:option>
-            <html:option value="16">16</html:option>
-            <html:option value="17">17</html:option>
-            <html:option value="18">18</html:option>
-            <html:option value="19">19</html:option>                            
-            <html:option value="20">20</html:option>
-            <html:option value="21">21</html:option>
-            <html:option value="22">22</html:option>
-            <html:option value="23">23</html:option>
-            <html:option value="24">24</html:option>
-            <html:option value="25">25</html:option>
-            <html:option value="26">26</html:option>
-            <html:option value="27">27</html:option>
+			            <html:option value="04">04</html:option>
+			            <html:option value="05">05</html:option>
+			            <html:option value="06">06</html:option>
+			            <html:option value="07">07</html:option>
+			            <html:option value="08">08</html:option>
+			            <html:option value="09">09</html:option>                            
+			            <html:option value="10">10</html:option>
+			            <html:option value="11">11</html:option>
+			            <html:option value="12">12</html:option>
+			            <html:option value="13">13</html:option>
+						<html:option value="14">14</html:option>
+			            <html:option value="15">15</html:option>
+			            <html:option value="16">16</html:option>
+			            <html:option value="17">17</html:option>
+			            <html:option value="18">18</html:option>
+			            <html:option value="19">19</html:option>                            
+			            <html:option value="20">20</html:option>
+			            <html:option value="21">21</html:option>
+			            <html:option value="22">22</html:option>
+			            <html:option value="23">23</html:option>
+			            <html:option value="24">24</html:option>
+			            <html:option value="25">25</html:option>
+			            <html:option value="26">26</html:option>
+			            <html:option value="27">27</html:option>
             			<html:option value="28">28</html:option>
             			<html:option value="29">29</html:option>                            
             			<html:option value="30">30</html:option>
             			<html:option value="31">31</html:option>                            
 					</html:select>
-				<div class="sepd">
+				</div>
+				<div class="sepAnoBusca">
 					<html:select property="mesDataFinalAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
 	            		<html:option value="1">Janeiro</html:option>
 	            		<html:option value="2">Fevereiro</html:option>
-	            <html:option value="3">Março</html:option>
-	            <html:option value="4">Abril</html:option>
-	            <html:option value="5">Maio</html:option>
-	            <html:option value="6">Junho</html:option>
-	            <html:option value="7">Julho</html:option>
-	            <html:option value="8">Agosto</html:option>
-	            <html:option value="9">Setembro</html:option>
-	            <html:option value="10">Outubro</html:option>
-				<html:option value="11">Novembro</html:option>
-				<html:option value="12">Dezembro</html:option>                  
-			</html:select>
+			            <html:option value="3">Março</html:option>
+			            <html:option value="4">Abril</html:option>
+			            <html:option value="5">Maio</html:option>
+			            <html:option value="6">Junho</html:option>
+			            <html:option value="7">Julho</html:option>
+			            <html:option value="8">Agosto</html:option>
+			            <html:option value="9">Setembro</html:option>
+			            <html:option value="10">Outubro</html:option>
+						<html:option value="11">Novembro</html:option>
+						<html:option value="12">Dezembro</html:option>                  
+					</html:select>
       	</div>
-      	<div class="sepd">
+      	<div class="sepAnoBusca">
 	      	<html:select property="anoDataFinalAnuncio" title="Ano" styleId="anoDataInicialAnuncio" styleClass="MyriadProRegular">
 	        	<html:option value="2011">2011</html:option>
 		        <html:option value="2012">2012</html:option>
@@ -377,19 +377,6 @@
           </tr>
         </table></td>
     </tr>
-    <!--
-    <tr>
-      <td height="30"  colspan="3">
-      <table>
-      	<tr>
-      		<td>Buscar por: &nbsp;</td>
-	      	<td><html:radio property="tiposAnuncio" value="1"/></td>
-	      	<td>Disponibilidades</td>
-	      	<td><html:radio property="tiposAnuncio" value="6"/></td>
-	      	<td>Pacotes Fechados</td>
-	    </tr>
-	  </table>
-    </tr>  -->
   </table>
 
 </div>
