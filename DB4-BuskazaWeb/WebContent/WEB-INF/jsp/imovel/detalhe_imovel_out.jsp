@@ -7,6 +7,9 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <%@page import="br.com.db4.buskaza.model.entity.Imovel"%><html xmlns="http://www.w3.org/1999/xhtml">
@@ -229,17 +232,16 @@ function somaDias( txtData, DiasAdd )
 			<div class="foto_big"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="341" height="271" />
 	</div>
 	
-	<a href='#TB_inline?height=580&amp;width=610&inlineId=thickbox_foto' class="thickbox">Ver todas as fotos</a><br>	
+	<a href='#TB_inline?height=570&amp;width=610&inlineId=thickbox_foto' class="thickbox">Ver todas as fotos</a><br>	
 
 
 	<div id="thickbox_foto" style="visibility:hidden; display:none;">			
-		<iframe src="/DB4-BuskazaWeb/imovel/foto.do?act=listarFotosImovel&ci=${imovel.codigo}" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_foto" noframeborder="0"  frameborder="0"></iframe>
+			<iframe src="/DB4-BuskazaWeb/imovel/foto.do?act=listarFotosImovel&ci=${imovel.codigo}" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_foto" noframeborder="0"  frameborder="0"></iframe>
 	</div>
 
 	<div class="chamada_planta">Planta</div>
 	
 	<div class="planta_big"><img src="/buzkaza/imagens_usuarios/${imovel.planta.caminho}"  width="341" height="271" /></div>
-	
 	
 	
 	<div class="mapa_big">	
@@ -346,7 +348,11 @@ function somaDias( txtData, DiasAdd )
 	  	<br><br>
 	  	
 	  	<span class="txt_azul_peq_detalhes">Período Selecionado</span>&nbsp;: ${diaInicial}/${mesInicial}/${anoInicial} a ${diaFinal}/${mesFinal}/${anoFinal}<br />
-	  	<span class="txt_azul_peq_detalhes">Valor</span>&nbsp;: ${( valor + ( valor *10/100))} <br /><br />
+	  	<span class="txt_azul_peq_detalhes">Valor</span>&nbsp;:  <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor + ( valor *10/100))}"/><br /><br />
+	  	
+	  	
+	  	
+	  	
 	  	
 	  	<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
 				<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
