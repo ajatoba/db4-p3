@@ -14,7 +14,7 @@
 <script type="text/javascript" src="/buzkaza/_js/compressed.js"></script>
 
 </head>
-<body>
+<body style="overflow-x: hidden">
 
 
 <ul id="slideshow">
