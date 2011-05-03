@@ -52,9 +52,8 @@
 <div id="msg_finaliza_cadastro">
   <div class="ok"></div>
   <div class="msg_confirmado">
-  		<span class="MyriadPro24">
-  			<span class="MyriadPro18">Imóvel salvo com sucesso!!</span>
-  		</span>
+  			<span class="MyriadPro25Blue">Informações enviadas com sucesso!<br>Aguarde confirmação por email.</span><br><br>
+  			<span class="arial13Cinza">Seu anúncio será avaliado pela nossa equipe.<br>Enviaremos a confirmacão por email.</span>
   </div>
 
 </div>
