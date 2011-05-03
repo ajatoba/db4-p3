@@ -212,7 +212,7 @@ function somaDias( txtData, DiasAdd )
 	
 	<div id="listagem_reservas">
 		<div class="topo_edicao">
-			<div class="mapa_planta"><img src="/buzkaza/imagens_usuarios/${imovel.primeirafoto}" width="140" height="104" /></div>
+			<div class="mapa_planta_reserva"><img src="/buzkaza/imagens_usuarios/${imovel.primeirafoto}" width="140" height="104" /></div>
 
 			<div class="endereco_bairro">
 					<table width="100%" border="0" > 
@@ -225,7 +225,8 @@ function somaDias( txtData, DiasAdd )
 					    <td width="42%" valign="top">
 
 						    <span class="txt_cinza_detalhes">
-						      Distância do centro: ${imovel.distanciaCentro}<br />
+						    	<span class="arial12boldazul">Perfil do Imóvel:</span> ${imovel.tipoImovel.nome}<br />
+						      	<span class="arial12boldazul">Distância do centro:</span> ${imovel.distanciaCentro}km<br />
 						      
 						      <logic:notEmpty name="imovel" property="linkGoogleMaps">
 						      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
@@ -296,30 +297,15 @@ function somaDias( txtData, DiasAdd )
 
 			  	</font>
 			<!-- ****************** -->
+			
+<div id="sep_top_reserva_fina"></div>
 
-	<div class="menu_edicao">
-		<div class="menu_01_cinza"></div>
-		<div class="menu_02_cinza"></div>
-		<div class="menu_03"></div>
+<div id="formulario_edicao3">
+	<div class="formulario_edicao3">
+		<div class="txt_caracteristica">Datas e Tarifas cadastradas</div>
+		<div class="arial13Cinza">Veja abaixo as datas e tarifas cadastradas.</div>
 	</div>
-
-	<div id="formulario_edicao3">
 	<div class="left_formulario_">
-			<table width="100%" border="0">
-              <tr>
-                <td colspan="3" height="30" valign="top"><span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Datas e Tarifas cadastradas</span></td>
-              </tr>
-              <tr valign="top">
-				<td colspan="3" height="27"><span class="txt_caracteristicas_desc">Visualiza suas datas e tarifas cadastradas</span></td>
-			  </tr>
-              
-              <tr>
-                <td colspan="3">
-				</td>
-              </tr>
-			</table>
-  	
-
 			<div id="container">
 			  <div id="multimonth"></div>
 			  <div id="data_duracao"></div>
@@ -363,9 +349,7 @@ function somaDias( txtData, DiasAdd )
 			 }
 			
 			
-			</script>		
-		  	
-		  	
+			</script>	
 		  	            
 		<table width="100%" border="0" cellspacing="0" class="box_legenda_info">
 		 <tr>
@@ -407,10 +391,6 @@ function somaDias( txtData, DiasAdd )
 		  	
 </div>
 <div class="right_formulario_">
-
-
-<div class="box_precos">
-
 	<logic:notEmpty name="imovel" property="anuncios">
 	   <table border="0" cellspacing="1" cellpadding="0" width="545">
 		  <tr class="tabela_preco">
@@ -424,11 +404,6 @@ function somaDias( txtData, DiasAdd )
 		    <td class="preco_valor_nada">&nbsp;</td> 
 		  </tr>
 	 <logic:iterate id="an" name="imovel" property="anuncios">
-	 
-	 
-		
-	
-	   
 	   	<tr>
 		    <td colspan="7" class="tabela_preco_data_info">
 		  		<!-- SETANDO A COR -->
@@ -464,76 +439,51 @@ function somaDias( txtData, DiasAdd )
 	   </table>
 	   </logic:notEmpty>
 	   <logic:empty name="imovel" property="anuncios">
-	   <span class="txt_caracteristicas_desc">	Ainda não há disponibilidade cadastrada para esse imóvel</span>
+	   <span class="txt_caracteristicas_desc">Ainda não há disponibilidade cadastrada para esse imóvel</span>
 	   </logic:empty>
+		</table>
+	</div>
+</div>
 	
-	</table>
-</div>
-
-       </div>
-</div>
-
-
-
-
-
-
-
-
+	
 <html:form method="post" action="/usuario/anuncio?act=incluirAnuncio">
-<input type="hidden" name="ci" value="${imovel.codigo}">
-
-
-<br />
-
-<div id="formulario_edicao2">
-
-    	
-	    
-		<table width="100%" border="0" cellpadding="0" cellspacing="0">	 	  
-		<tr valign="top">
-			<td height="30"><span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Cadastrar Datas/Tarifas</span></td>
-		</tr>
-		<tr valign="top">
-			<td height="27"><span class="txt_caracteristicas_desc">Os preços semanais e mensais devem ser introduzidos com os preços unitários pelo dia</span></td>
-		</tr>
-		
-      </table> 
-
-
-
-      	<table border="0">
-	     <tr>
-	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Diária</div></td>
-	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Semanal</div></td>
-	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Mensal</div></td>
-	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Quinzenal</div></td>
-	       <td class="txt_caracteristicas"><div class="sepd">&nbsp;Pacote</div></td>
-	     </tr>
-	     <tr>
-	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" styleId="tarifaDiaria" maxlength="10" size="70" style="width:80px;" /></div></td>
-	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" styleId="tarifaSemanal" maxlength="10" size="70" style="width:80px;" /></div></td>
-	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaMensal" styleClass="number,MyriadProRegular" styleId="tarifaMensal" maxlength="10" size="70" style="width:80px;" /></div></td>
-	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="70" style="width:80px;" /></div></td>
-	       <td class="txt_caracteristicas"><div class="sepd"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70" style="width:80px;" /></div></td>
-	       <td class="txt_caracteristicas">
+	<input type="hidden" name="ci" value="${imovel.codigo}">
+	<br />
+	<div id="formulario_edicao2">
+		<div class="txt_caracteristica">Cadastrar Períodos</div>
+			<div class="arial13Cinza">No campo Pacote Fechado digite o valor total do pacote. Nos demais o valor da diária.</div>
+			<br />
+    		<table border="0" cellpadding="0" cellspacing="0">
+	     		<tr class="txt_caracteristicas">
+	       			<td ><div class="sep10">&nbsp;Diária</div></td>
+	       			<td ><div class="sep10">&nbsp;Semanal</div></td>
+	       			<td ><div class="sep10">&nbsp;Quinzenal</div></td>
+	       			<td ><div class="sep10">&nbsp;Mensal</div></td>	       
+	       			<td ><div class="sep10">&nbsp;Pacote Fechado</div></td>
+	       			<td><div class="sep10">&nbsp;Período</div></td>
+	     		</tr>
+	     		<tr>
+	       			<td ><div class="sep10"><html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" styleId="tarifaDiaria" maxlength="10" size="70" style="width:80px;" /></div></td>
+	       			<td ><div class="sep10"><html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" styleId="tarifaSemanal" maxlength="10" size="70" style="width:80px;" /></div></td>
+	       			<td ><div class="sep10"><html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="70" style="width:80px;" /></div></td>
+	       			<td ><div class="sep10"><html:text property="tarifaMensal" styleClass="number,MyriadProRegular" styleId="tarifaMensal" maxlength="10" size="70" style="width:80px;" /></div></td>
+	       			<td ><div class="sep10"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70" style="width:80px;" /></div></td>
+	       		<td >
+	       		
 	       		<div class="sepd"><html:select property="tipoAnuncio" styleId="tipoAnuncio">
 					<html:options collection="tiposAnuncio" property="codigo" labelProperty="nome"/>
 				</html:select></div></td>
 	     </tr>
-       </table>
+    </table>
        
-       
-       
-       <table  border="0">
-                  <tr>
-                    <td class="txt_caracteristicas">&nbsp;De</td>
-                    <td class="txt_caracteristicas"><div class="sepdform2">Até</div></td>
-                    <td>&nbsp;</td>
+       <table  border="0" cellpadding="0" cellspacing="0">
+                  <tr class="txt_caracteristicas">
+                    <td >&nbsp;De</td>
+                    <td >&nbsp;Até</td>
                   </tr>
                   <tr>
                     <td><span class="txt_caracteristicas">
-						<div class="seps">
+						<div class="sep10">
 							<html:select property="diaDataInicial" title="dia" styleId="diaDataInicial" styleClass="MyriadProRegular,string" style="width:55px">
 								<html:option value="01">01</html:option>
 					            <html:option value="02">02</html:option>
@@ -568,7 +518,7 @@ function somaDias( txtData, DiasAdd )
 					            <html:option value="31">31</html:option>                            
 							</html:select>
 						</div>
-						<div class="sepd">
+						<div class="sep10">
 					        <html:select property="mesDataInicial" title="mesDataInicial" styleId="mesDataInicial" styleClass="MyriadProRegular,string">                        
 					            <html:option value="1">Janeiro</html:option>
 					            <html:option value="2">Fevereiro</html:option>
@@ -594,9 +544,10 @@ function somaDias( txtData, DiasAdd )
 					        </html:select>
 				        </div>
 				        
-                        </span></td>
+                   		</span>
+                    </td>
                     <td><span class="txt_caracteristicas">
-                      <div class="sepdform">
+                      <div class="sep10">
 						<html:select property="diaDataFinal" title="dia" styleId="diaDataFinal" styleClass="MyriadProRegular,string" style="width:55px">                        
 							<html:option value="01">01</html:option>
 				            <html:option value="02">02</html:option>
@@ -631,7 +582,7 @@ function somaDias( txtData, DiasAdd )
 				            <html:option value="31">31</html:option>                            
 						</html:select>
 						</div>
-						<div class="sepd">						
+						<div class="sep10">						
 					        <html:select property="mesDataFinal" title="mesDataInicial" styleId="mesDataFinal" styleClass="MyriadProRegular,string">                        
 					            <html:option value="1">Janeiro</html:option>
 					            <html:option value="2">Fevereiro</html:option>
@@ -647,7 +598,7 @@ function somaDias( txtData, DiasAdd )
 								<html:option value="12">Dezembro</html:option>                  
 							</html:select>
 				      	</div>				      	
-				      	<div class="sepd">				      	
+				      	<div class="sep10">				      	
 					      	<html:select property="anoDataFinal" title="Ano" styleId="anoDataFinal" styleClass="MyriadProRegular,string" style="width:60px;">
 					        	<html:option value="2011">2011</html:option>
 						        <html:option value="2012">2012</html:option>
@@ -656,68 +607,45 @@ function somaDias( txtData, DiasAdd )
 						        <html:option value="2015">2015</html:option>
 					        </html:select>
 						</div>
-                      </span></td>
-                      <td><div class="sepd"><input type="submit" name="gravar" id="button5" value="Gravar" /></div></td>
-                      
+                      </span>
+                  	</td>
                   </tr>
                 </table>
- </div>       
-        
-
-       
-      	
-
+</div>
+<div class="divSep"></div>
 
 <div id="formulario_edicao2">
+	<div class="txt_caracteristica">Opções de pagamento</div>
+	<div class="arial13Cinza">Sinalize as opções que você disponibiliza para o pagamento que será efetuado no Check-in.</div>
+	<table border="0" class="box_opcao_pag_info">
+		<tr>
+			<td>
+			<span class="txt_caracteristicas">
+				<logic:present name="tiposPagamento">
+				<logic:notEmpty name="tiposPagamento">	
+					<table>
+						<logic:iterate name="tiposPagamento" id="tipoPagamento">
+							<div class="boxe_opcao_pagamento">
+							<input type="checkbox" name="tiposPagamento" value="<bean:write name="tipoPagamento" property="codigo"/>"><div class="sepf2"><bean:write name="tipoPagamento" property="nome"/></div>
+							</div>										
+						</logic:iterate>
+					</table>
+				</logic:notEmpty>
+				</logic:present>
+			</span>	
+			</td>
+		</tr>				                
+	</table>	    
+</div> <!-- Fim formulario_edicao2 -->
 
-	<span class="txt_caracteristicas"><img src="/buzkaza/_img/bullet.jpg" alt="" width="21" height="16" /></span><span class="tit_azul2">Opções de pagamento</span>
-  	
-							<table border="0" class="box_opcao_pag_info">
-				                <tr>
-				                  <td><span class="txt_caracteristicas"> <html:hidden property="permitirEntrada" value="true"/> Pagamento de sinal para confirmação de reserva, com saldo direto no check in.<br />
-				                    Sinal de 10% (Deduzida do total da estadia+taxas extras) + encargos do cartão ou boleto referente o sinal de 10%, retidos pelo Buzkaza como taxa de transação.</span></td>
-				                </tr>
-				                <tr>
-				                  <td><span class="txt_caracteristicas">Forma de Pagamento</span></td>
-				                </tr>
-				                <tr>
-				                	<td><span class="txt_caracteristicas">
-				                		<logic:present name="tiposPagamento">
-				                		<logic:notEmpty name="tiposPagamento">	
-				                		<table>
-					                    
-					                    <logic:iterate name="tiposPagamento" id="tipoPagamento">
-							            	<tr>
-							            		<td><input type="checkbox" name="tiposPagamento" value="<bean:write name="tipoPagamento" property="codigo"/>"><div class="sepf"><bean:write name="tipoPagamento" property="nome"/></div>
-								            	</td>
-											</tr>										
-					            		</logic:iterate>
-					            		</table>
-					            		</logic:notEmpty>
-					            		</logic:present>
-				                	</td>
-				                </tr>				                
-				              </table>
-      	<br /><br />
-	    
-</div>	    
-</html:form>	    
-
-
-
-
+<div class="btnSalvarEdicao"><input type="image" src="/buzkaza/_img/btnSalvar.jpg" width="265" height="50" border="0"/></div>
+<!--  
+<div class="sepd"><input type="submit" name="gravar" id="button5" value="Gravar" /></div>
+-->
+</html:form>
 
 </div>
 </div>
-</div>
-
-</div>
-
-
-
-<div class="bottom_formulario"></div>
-<div class="linha_cinza"></div>
-</div></div>
 
 <jsp:include page="../rodape.jsp"/>
 
