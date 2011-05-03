@@ -637,11 +637,9 @@ function somaDias( txtData, DiasAdd )
 		</tr>				                
 	</table>	    
 </div> <!-- Fim formulario_edicao2 -->
-
+<br><br>
 <div class="btnSalvarEdicao"><input type="image" src="/buzkaza/_img/btnSalvar.jpg" width="265" height="50" border="0"/></div>
-<!--  
-<div class="sepd"><input type="submit" name="gravar" id="button5" value="Gravar" /></div>
--->
+
 </html:form>
 
 </div>
