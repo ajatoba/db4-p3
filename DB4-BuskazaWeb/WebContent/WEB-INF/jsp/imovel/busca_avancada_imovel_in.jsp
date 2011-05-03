@@ -59,11 +59,7 @@
 
 <div id="form_busca">
 
-
-
 <div class="selecione_busca">Selecione abaixo as informações para efetuar sua busca</div>
-
-
 
 <!-- MENSAGEM DE ERRO -->
     <font color="red">
