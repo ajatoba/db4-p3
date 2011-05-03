@@ -86,7 +86,7 @@ function abrirPop(url){
 			    <td width="58%" valign="top">
 			    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
 	    			<span class="txt_cinza_detalhes">${imovel.logradouro}, ${imovel.numero} - ${imovel.complemento} - Cep ${imovel.cep}<br />
-	    			ID: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span><br />
+	    			ID: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span><br /><br />
 	    			<span class="bullet_seta_cinza"><a href="javascript:abrirPop('/DB4-BuskazaWeb/usuario/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');">Ver Fotos</a></span>
 			    </td>
 			    <td width="42%" valign="top">			    	
