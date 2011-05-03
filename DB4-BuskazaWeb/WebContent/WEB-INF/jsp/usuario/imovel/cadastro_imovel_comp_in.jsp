@@ -87,7 +87,7 @@ function abrirPop(url){
 			    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
 	    			<span class="txt_cinza_detalhes">${imovel.logradouro}, ${imovel.numero} - ${imovel.complemento} - Cep ${imovel.cep}<br />
 	    			ID: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span><br />
-	    			<a href="javascript:abrirPop('/DB4-BuskazaWeb/usuario/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');"><span class="bullet_seta_cinza">Ver Fotos</span></a>
+	    			<span class="bullet_seta_cinza"><a href="javascript:abrirPop('/DB4-BuskazaWeb/usuario/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');">Ver Fotos</a></span>
 			    </td>
 			    <td width="42%" valign="top">			    	
 				    <span class="txt_cinza_detalhes">
@@ -97,10 +97,7 @@ function abrirPop(url){
 				      <logic:notEmpty name="imovel" property="linkGoogleMaps">
 				      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
 				      </logic:notEmpty>
-				      <logic:empty name="imovel" property="linkGoogleMaps">
-							 Sem mapa<br />
-					  </logic:empty>
-					  
+				      <logic:empty name="imovel" property="linkGoogleMaps">Sem mapa<br /></logic:empty>					  
 				      <logic:notEmpty name="imovel" property="linkYouTube">
 				      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
 				      </logic:notEmpty>
@@ -147,13 +144,11 @@ function abrirPop(url){
 	</div>
 </div>
 
-
 <div id="sep_top_reserva_fina"></div>
 
 
 <html:form method="post" styleId="imovelForm" action="/usuario/imovel.do?act=alterarImovel" enctype="multipart/form-data">
 <html:hidden property="imovelEntity.codigo" />
-
 
 <br />
 
