@@ -3,8 +3,6 @@
 <html:hidden property="anoDataFinalAnuncio" styleId="anoDataInicialAnuncio" />
 <html:hidden property="anoDataInicialAnuncio" styleId="anoDataInicialAnuncio"/>
 
-
-
 <div class="buscaOculta">
 
 	<html:radio property="tiposAnuncio" styleId="tiposAnuncioDispo" value="1"/></td>
@@ -13,11 +11,7 @@
 	<script>selecionarTiposAnuncio('<%= request.getParameter("tiposAnuncio") %>')</script>
 </div>
 
-
-
 <div class="form_busca_geral">
-
-
 
 	<div class="form_busca_1">
 
