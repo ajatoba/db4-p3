@@ -14,7 +14,7 @@
       		<td height="30">
       			<html:text property="municipio" size="195" style="width:205px"  styleClass="MyriadProRegular" />	
       		</td>
-      		<td height="30" colspan="2">   
+      		<td height="30" colspan="2">
          	      	
 			<html:select property="imovelEntity.estado.codigo" style="width:188x" styleClass="MyriadProRegular"> 
 			<html:option value="">Todos</html:option> 
@@ -45,26 +45,33 @@
 			<html:option value="SP">S&atilde;o Paulo</html:option> 
 			<html:option value="SE">Sergipe</html:option> 
 			<html:option value="TO">Tocantins</html:option>
+<<<<<<< .mine
+			</html:select>     
+=======
 			</html:select>
+>>>>>>> .r620
            </td>
       	</tr>
 		<tr >
       		<td colspan="3">
-      		<table width="100%" border="0" cellspacing="0" cellpadding="0">
-				<tr height="30">
-    				<td width="30%">Pa&iacute;s</td>
+      		<table border="0" cellspacing="0" cellpadding="0">
+				<tr class="txt_caracteristicas">
+    				<td>Pa&iacute;s</td>
     				<td>Quartos</td>
     				<td>Área(m2)</td>
     				<td>Capacidade</td>
   				</tr>
-			<tr valign="top" height="30">
+				<tr class="txt_caracteristicas">
     			<td>
+    				<div class="sepd">
     				<html:select property="pais" style="width:98px" styleClass="MyriadProRegular">
       				<!--  <html:options collection="paises" property="codigo" labelProperty="nome"/> -->        
       				<html:option value="1">Brasil</html:option>
 					</html:select>
+					</div>
 				</td><!-- Final Dropdown País -->
     			<td>
+    				<div class="sepd">
     				<html:select property="quartos" styleClass="MyriadProRegular">
                 	<html:option value="">Todos</html:option> 
                 	<html:option value="1">1 Quarto</html:option>
@@ -78,8 +85,10 @@
 					<html:option value="9">9 Quartos</html:option>				
 					<html:option value="10">10 Quartos</html:option>
 					</html:select>
+					</div>
 				</td><!-- Final Dropdown Quartos -->
     			<td>
+    				<div class="sepd">
     				<html:select property="metragem" styleClass="MyriadProRegular">    	
                 	<html:option value="">Todos</html:option> 
                 	<html:option value="20.0">20m</html:option>
@@ -126,7 +135,6 @@
                 	<html:option value="225.0">225m</html:option>
                 	<html:option value="230.0">230m</html:option>
                 	<html:option value="235.0">235m</html:option>
-                
                 	<html:option value="240.0">240m</html:option>
                	 	<html:option value="245.0">245m</html:option>
                	 	<html:option value="250.0">250m</html:option>
@@ -136,7 +144,6 @@
                 	<html:option value="270.0">270m</html:option>
                 	<html:option value="275.0">275m</html:option>
                 	<html:option value="280.0">280m</html:option>
-                
                 	<html:option value="285.0">285m</html:option>
                 	<html:option value="290.0">290m</html:option>
                 	<html:option value="295.0">295m</html:option>
@@ -146,7 +153,6 @@
                 	<html:option value="315.0">315m</html:option>
                 	<html:option value="320.0">320m</html:option>
                 	<html:option value="325.0">325m</html:option>
-                
                 	<html:option value="330.0">330m</html:option>
                 	<html:option value="335.0">335m</html:option>
                 	<html:option value="340.0">340m</html:option>
@@ -156,47 +162,42 @@
                 	<html:option value="360.0">360m</html:option>
                 	<html:option value="365.0">365m</html:option>
                 	<html:option value="370.0">370m</html:option>
-                
-                <html:option value="375.0">375m</html:option>
-                <html:option value="380.0">380m</html:option>
-                <html:option value="385.0">385m</html:option>
-                <html:option value="390.0">390m</html:option>
-                <html:option value="395.0">395m</html:option>
-                <html:option value="400.0">400m</html:option>
-                <html:option value="405.0">405m</html:option>
-                <html:option value="410.0">410m</html:option>
-                <html:option value="415.0">415m</html:option>
-                
-                <html:option value="420.0">420m</html:option>
-                <html:option value="425.0">425m</html:option>
-                <html:option value="430.0">430m</html:option>
-                <html:option value="435.0">435m</html:option>
-                <html:option value="440.0">440m</html:option>
-                <html:option value="445.0">445m</html:option>
-                <html:option value="450.0">450m</html:option>
-                <html:option value="455.0">455m</html:option>
-                <html:option value="460.0">460m</html:option>
-                
-                <html:option value="465.0">465m</html:option>
-                <html:option value="470.0">470m</html:option>
-                <html:option value="475.0">475m</html:option>
-                <html:option value="480.0">480m</html:option>
-                <html:option value="485.0">485m</html:option>
-                <html:option value="490.0">490m</html:option>
-                <html:option value="495.0">495m</html:option>
-                <html:option value="500.0">500m</html:option>
-                <html:option value="505.0">505m</html:option>
-                
-                <html:option value="510.0">510m</html:option>
-                <html:option value="515.0">515m</html:option>
-                <html:option value="520.0">520m</html:option>
-                <html:option value="525.0">525m</html:option>
-                <html:option value="530.0">530m</html:option>
-                <html:option value="535.0">535m</html:option>
-                <html:option value="540.0">540m</html:option>
-                <html:option value="545.0">545m</html:option>
-                <html:option value="550.0">550m</html:option>
-                
+                	<html:option value="375.0">375m</html:option>
+                	<html:option value="380.0">380m</html:option>
+                	<html:option value="385.0">385m</html:option>
+                	<html:option value="390.0">390m</html:option>
+                	<html:option value="395.0">395m</html:option>
+                	<html:option value="400.0">400m</html:option>
+                	<html:option value="405.0">405m</html:option>
+                	<html:option value="410.0">410m</html:option>
+                	<html:option value="415.0">415m</html:option>
+                	<html:option value="420.0">420m</html:option>
+                	<html:option value="425.0">425m</html:option>
+                	<html:option value="430.0">430m</html:option>
+                	<html:option value="435.0">435m</html:option>
+                	<html:option value="440.0">440m</html:option>
+                	<html:option value="445.0">445m</html:option>
+                	<html:option value="450.0">450m</html:option>
+                	<html:option value="455.0">455m</html:option>
+                	<html:option value="460.0">460m</html:option>
+                	<html:option value="465.0">465m</html:option>
+                	<html:option value="470.0">470m</html:option>
+                	<html:option value="475.0">475m</html:option>
+                	<html:option value="480.0">480m</html:option>
+                	<html:option value="485.0">485m</html:option>
+                	<html:option value="490.0">490m</html:option>
+                	<html:option value="495.0">495m</html:option>
+                	<html:option value="500.0">500m</html:option>
+                	<html:option value="505.0">505m</html:option>
+                	<html:option value="510.0">510m</html:option>
+                	<html:option value="515.0">515m</html:option>
+                	<html:option value="520.0">520m</html:option>
+                	<html:option value="525.0">525m</html:option>
+                	<html:option value="530.0">530m</html:option>
+               		<html:option value="535.0">535m</html:option>
+                	<html:option value="540.0">540m</html:option>
+                	<html:option value="545.0">545m</html:option>
+                	<html:option value="550.0">550m</html:option>
                 	<html:option value="555.0">555m</html:option>
                 	<html:option value="560.0">560m</html:option>
                 	<html:option value="565.0">565m</html:option>
@@ -206,9 +207,9 @@
                 	<html:option value="585.0">585m</html:option>
                 	<html:option value="590.0">590m</html:option>
                 	<html:option value="595.0">595m</html:option>
-                
                 	<html:option value="600.0">600m</html:option>
             		</html:select>
+            		</div>
 				</td><!-- Final Dropdown Metragem -->
     			<td>		
     				<html:select property="capacidade" styleClass="MyriadProRegular">
@@ -243,13 +244,14 @@
 </tr>
 <tr>
 	<td colspan="3">
-		<table width="100%" border="0" cellspacing="0" cellpadding="0">
-			<tr>
-				<td height="30">Chegada</td>
-				<td height="30">Partida</td>
+		<table border="0" cellspacing="0" cellpadding="0">
+			<tr class="txt_caracteristicas">
+				<td>Chegada</td>
+				<td>Partida</td>
 			</tr>
-        	<tr>
-          		<td height="30" width="255">
+        	<tr class="txt_caracteristicas">
+          		<td>
+          		<div class="sep10">
           		
           		<div class="seps">
           			<html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular">                        
@@ -285,11 +287,26 @@
             		<html:option value="30">30</html:option>
             		<html:option value="31">31</html:option>                            
 					</html:select>
+<<<<<<< .mine
+				</div>
+				<div class="sep10">
+=======
 				</div>
 				<div class="sepAnoBusca">
+>>>>>>> .r620
 					<html:select property="mesDataInicialAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
 	            		<html:option value="1">Janeiro</html:option>
 	            		<html:option value="2">Fevereiro</html:option>
+<<<<<<< .mine
+	            		<html:option value="3">Março</html:option>
+	            		<html:option value="4">Abril</html:option>
+	            		<html:option value="5">Maio</html:option>
+	            		<html:option value="6">Junho</html:option>
+	            		<html:option value="7">Julho</html:option>
+	            		<html:option value="8">Agosto</html:option>
+	            		<html:option value="9">Setembro</html:option>
+	            		<html:option value="10">Outubro</html:option>
+=======
 			            <html:option value="3">Março</html:option>
 			            <html:option value="4">Abril</html:option>
 			            <html:option value="5">Maio</html:option>
@@ -298,6 +315,7 @@
 			            <html:option value="8">Agosto</html:option>
 			            <html:option value="9">Setembro</html:option>
 			            <html:option value="10">Outubro</html:option>
+>>>>>>> .r620
 						<html:option value="11">Novembro</html:option>
 						<html:option value="12">Dezembro</html:option>                  
 					</html:select>
@@ -314,11 +332,41 @@
         </td><!-- Final TD Data Inicial -->
         
           		<td>
+<<<<<<< .mine
+          			<div class="sep10">
+=======
           		<div class="seps">
+>>>>>>> .r620
           			<html:select property="diaDataFinalAnuncio" title="dia" styleId="diaDataFinalAnuncio" styleClass="MyriadProRegular">                        
 						<html:option value="01">01</html:option>
             			<html:option value="02">02</html:option>
             			<html:option value="03">03</html:option>
+<<<<<<< .mine
+            			<html:option value="04">04</html:option>
+            			<html:option value="05">05</html:option>
+            			<html:option value="06">06</html:option>
+            			<html:option value="07">07</html:option>
+            			<html:option value="08">08</html:option>
+            			<html:option value="09">09</html:option>                            
+            			<html:option value="10">10</html:option>
+            			<html:option value="11">11</html:option>
+            			<html:option value="12">12</html:option>
+            			<html:option value="13">13</html:option>
+						<html:option value="14">14</html:option>
+            			<html:option value="15">15</html:option>
+            			<html:option value="16">16</html:option>
+            			<html:option value="17">17</html:option>
+            			<html:option value="18">18</html:option>
+            			<html:option value="19">19</html:option>                            
+            			<html:option value="20">20</html:option>
+            			<html:option value="21">21</html:option>
+            			<html:option value="22">22</html:option>
+            			<html:option value="23">23</html:option>
+            			<html:option value="24">24</html:option>
+            			<html:option value="25">25</html:option>
+            			<html:option value="26">26</html:option>
+            			<html:option value="27">27</html:option>
+=======
 			            <html:option value="04">04</html:option>
 			            <html:option value="05">05</html:option>
 			            <html:option value="06">06</html:option>
@@ -343,16 +391,47 @@
 			            <html:option value="25">25</html:option>
 			            <html:option value="26">26</html:option>
 			            <html:option value="27">27</html:option>
+>>>>>>> .r620
             			<html:option value="28">28</html:option>
             			<html:option value="29">29</html:option>                            
             			<html:option value="30">30</html:option>
             			<html:option value="31">31</html:option>                            
 					</html:select>
+<<<<<<< .mine
+					</div>
+					<div class="sep10">
+						<html:select property="mesDataFinalAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
+=======
 				</div>
 				<div class="sepAnoBusca">
 					<html:select property="mesDataFinalAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
+>>>>>>> .r620
 	            		<html:option value="1">Janeiro</html:option>
 	            		<html:option value="2">Fevereiro</html:option>
+<<<<<<< .mine
+	            		<html:option value="3">Março</html:option>
+	            		<html:option value="4">Abril</html:option>
+	            		<html:option value="5">Maio</html:option>
+	            		<html:option value="6">Junho</html:option>
+	            		<html:option value="7">Julho</html:option>
+	            		<html:option value="8">Agosto</html:option>
+	            		<html:option value="9">Setembro</html:option>
+	            		<html:option value="10">Outubro</html:option>
+						<html:option value="11">Novembro</html:option>
+						<html:option value="12">Dezembro</html:option>                  
+						</html:select>
+      				</div>
+      				<div class="seps">
+	      				<html:select property="anoDataFinalAnuncio" title="Ano" styleId="anoDataInicialAnuncio" styleClass="MyriadProRegular">
+	        				<html:option value="2011">2011</html:option>
+		        			<html:option value="2012">2012</html:option>
+		        			<html:option value="2013">2013</html:option>
+		        			<html:option value="2014">2014</html:option>
+		        			<html:option value="2015">2015</html:option> 
+	        			</html:select>
+	     			</div>
+	     			</td>
+=======
 			            <html:option value="3">Março</html:option>
 			            <html:option value="4">Abril</html:option>
 			            <html:option value="5">Maio</html:option>
@@ -374,6 +453,7 @@
 		        <html:option value="2015">2015</html:option> 
 	        </html:select>
 	     </div></td>
+>>>>>>> .r620
           </tr>
         </table></td>
     </tr>
