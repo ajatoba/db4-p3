@@ -1,4 +1,3 @@
-
 <html:form method="post" styleId="imovelBuscaForm" action="/imovel.do?act=buscarImovel">
 
 <input type="hidden" name="tiposAnuncio" id="tiposAnuncio" value="1">
