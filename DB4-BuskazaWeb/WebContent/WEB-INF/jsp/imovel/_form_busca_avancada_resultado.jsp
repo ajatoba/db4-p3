@@ -28,9 +28,9 @@
                 
               </tr>
               <tr>
-                <td><span class="txt_form"><html:text property="municipio" styleClass="MyriadProRegular" size="195" style="width:205px;" /></span></td>
+                <td><span class="txt_form"><html:text property="municipio" styleId="municipio" styleClass="MyriadProRegular" size="195" style="width:205px;" /></span></td>
                 <td><span class="txt_form">   			 
-                            <html:select property="imovelEntity.estado.codigo" styleClass="MyriadProRegular">
+                            <html:select property="imovelEntity.estado.codigo" styleId="sigla" styleClass="MyriadProRegular">
 								<html:option value="">Todos</html:option> 
 								<html:option value="AC">Acre</html:option>
 								<html:option value="AL">Alagoas</html:option>
