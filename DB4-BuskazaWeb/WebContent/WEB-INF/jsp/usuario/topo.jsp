@@ -87,7 +87,7 @@
 	                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	                        <tr>
 	                          <td width="30%">Senha</td>
-	                          <td width="70%" align="right"><!--  Esqueceu sua senha? --></td>
+	                          <td width="70%" align="right"><a class="thickbox link_esqueceu" href="/buzkaza/thickbox/esqueceu_senha.html?height=400&width=600"> Esqueceu sua senha?</a></td>
 	                        </tr>
 	                      </table>
 	                    </div>
