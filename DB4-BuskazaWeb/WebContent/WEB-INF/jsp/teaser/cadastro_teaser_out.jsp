@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Buzkaza</title>
+<title>Buzkaza - em casa, onde estiver</title>
 
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/cadastro.css"/>
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/busca.css"/>	
@@ -42,8 +42,7 @@
   <div class="ok"></div>
   <div class="msg_confirmado">
   		<span class="MyriadPro18">Seus dados foram cadastrados com sucesso!
-  		<br><br>
-  		
+  		<br><br>  		
   		Agora você precisa validar seu email.<br>
   		Enviamos um link de validação para o seu email cadastrado
   		</span>
