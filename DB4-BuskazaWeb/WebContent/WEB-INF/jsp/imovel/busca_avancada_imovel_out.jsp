@@ -12,6 +12,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza</title>
 
+
+<!-- auto completar -->
+<link href="/buzkaza/_css/jquery-ui.css" rel="stylesheet" type="text/css" />
+
 <link rel="stylesheet" type="text/css" href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" />
 <link rel="stylesheet" type="text/css" href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" />
 
@@ -23,11 +27,40 @@
 <link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
 
 
-<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
+<script type="text/javascript" src="/buzkaza/_js/jquery-1.4.2.min.js" ></script>
 <script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
 <script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+
+
+
+<!-- auto completar -->
+<script type="text/javascript" src="/buzkaza/_js/jquery.ui.core.js"></script>
+<script type="text/javascript" src="/buzkaza/_js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="/buzkaza/_js/position.js"></script>
+<script type="text/javascript" src="/buzkaza/_js/autocomplete.js"></script>
+
+<script language="javascript">
+	$(function() {		
+		$.ajax({
+			url: "/busca_autocompletar.xml",
+			dataType: "xml",
+			success: function( xmlResponse ) {
+				var data = $( "geoname", xmlResponse ).map(function() {
+					return {
+						value: $( "name", this ).text()
+					};
+				}).get();
+				$( "#municipio" ).autocomplete({
+					source: data,
+					minLength: 0					
+				});
+			}
+		});
+	});
+</script>
+
 
 <script language="javascript">
 	$(function(){
@@ -87,9 +120,6 @@
         <a href="javascript:linkPacoteRedefinir()"><div class="link_img_pacote"></div></a>
     </div>
 </div>
-
-
-
 
 
 <div class="form_busca_meio">
@@ -203,7 +233,7 @@
 	                    
 	                    <logic:notEmpty name="ims" property="key.equipamentos">	
 					       <logic:iterate name="ims" property="key.equipamentos" id="equipamento">
-					       		<bean:write name="equipamento" property="nome"/>
+					       		<bean:write name="equipamento" property="nome"/>, 
 					       </logic:iterate>
 				    	</logic:notEmpty>  
                      
