@@ -139,11 +139,11 @@
 	<div class="calculo_reserva">
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Total da Reserva:</div>
-                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${(( reservaPagar.valor + ( reservaPagar.valor *10/100)))}"/></div>
+                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${(( reservaPagar.valor + ( reservaPagar.valor *15/100)))}"/></div>
             </div>
             <div class="calculo_amarelo">
                     <div class="calculo_total_info">Taxa de reserva:</div>
-                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((reservaPagar.valor*10/100))}"/></div>
+                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((reservaPagar.valor*15/100))}"/></div>
             </div>
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Saldo no Check in:</div>
@@ -255,7 +255,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 				</form>
 				<script language="javascript">
                 <!--
-                	calcularvalorMoip( '<fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((reservaPagar.valor*10/100))}"/>', '<bean:write name="reservaPagar" property="valor" format="00.00"/>');
+                	calcularvalorMoip( '<fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((reservaPagar.valor*15/100))}"/>', '<bean:write name="reservaPagar" property="valor" format="00.00"/>');
                 	montarCepMoip('${reservaPagar.locatario.endereco.cep}' );
                 -->
                 </script>
