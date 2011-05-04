@@ -348,7 +348,7 @@ function somaDias( txtData, DiasAdd )
 	  	<br><br>
 	  	
 	  	<span class="txt_azul_peq_detalhes">Período Selecionado</span>&nbsp;: ${diaInicial}/${mesInicial}/${anoInicial} a ${diaFinal}/${mesFinal}/${anoFinal}<br />
-	  	<span class="txt_azul_peq_detalhes">Valor</span>&nbsp;:  <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor + ( valor *10/100))}"/><br /><br />
+	  	<span class="txt_azul_peq_detalhes">Valor</span>&nbsp;:  <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor + ( valor *15/100))}"/><br /><br />
 	  	
 	  	
 	  	
