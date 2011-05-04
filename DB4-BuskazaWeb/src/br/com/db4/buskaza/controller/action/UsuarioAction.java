@@ -329,4 +329,14 @@ public class UsuarioAction extends DispatchAction {
 		
 		return mapping.findForward(Constants.ADMIN_LISTAGEM_PESSOAS);
 	}
+	
+	
+	
+	public ActionForward formInfoLogin(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response)  {
+		return mapping.findForward(Constants.ENTRADA_INFO_LOGIN);
+	}
+	
+	
+	
+	
 }
