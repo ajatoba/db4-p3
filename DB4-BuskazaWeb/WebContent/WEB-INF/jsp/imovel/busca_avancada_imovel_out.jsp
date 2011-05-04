@@ -249,17 +249,13 @@
 	                          <div class="bustotal">
 	                              Valor total<br />
 	                                <span class="valor_cinza"><bean:write name="qtdDias"/> Dia(s):<br /></span>
-	                                <span class="valor_azul">R$  <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( ims.value + ( ims.value  *10/100))}"/> </span>                        
+	                                <span class="valor_azul">R$  <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( ims.value + ( ims.value  *15/100))}"/> </span>                        
 	                          </div>
 	                       </div>
 	                       <div class="box_busca_valor_media">
 	                            <div class="busmedia">               
 	                                Média da Diária:<br />
-	                                <span class="valor_cinza">R$
-	                                
-	                                <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( ims.value + ( ims.value  *10/100)) /qtdDias}"/>
-	                                
-	                                 </span>
+	                                <span class="valor_cinza">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( ims.value + ( ims.value  *15/100)) /qtdDias}"/> </span>
 	                       		</div>
 	                      	</div>
 	                  </div>
