@@ -86,26 +86,35 @@ function abrirPop(url){
 			    <td width="58%" valign="top">
 			    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
 	    			<span class="txt_cinza_detalhes">${imovel.logradouro}, ${imovel.numero} - ${imovel.complemento} - Cep ${imovel.cep}<br />
-	    			ID: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span><br /><br />
-	    			<span class="bullet_seta_cinza"><a href="javascript:abrirPop('/DB4-BuskazaWeb/usuario/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');">Ver Fotos</a></span>
+	    			ID: ${imovel.usuarioProprietario.codigo}-${imovel.codigo}</span>
 			    </td>
 			    <td width="42%" valign="top">			    	
 				    <span class="txt_cinza_detalhes">
 				    	<span class="arial12boldazul">Perfil do Imóvel:</span> ${imovel.tipoImovel.nome}<br />
 						<span class="arial12boldazul">Distância do centro:</span> ${imovel.distanciaCentro}km<br />
 				      
-				      <logic:notEmpty name="imovel" property="linkGoogleMaps">
-				      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
-				      </logic:notEmpty>
-				      <logic:empty name="imovel" property="linkGoogleMaps">Sem mapa<br /></logic:empty>					  
-				      <logic:notEmpty name="imovel" property="linkYouTube">
-				      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
-				      </logic:notEmpty>
-				      <logic:empty name="imovel" property="linkYouTube">
-					   	Sem vídeo<br />
-					  </logic:empty>
+				      <div class="icons_admin">
 				      
-				      </span>
+				      	<logic:notEmpty name="imovel" property="linkGoogleMaps">
+				      		<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe"><div class="icon_mapa_admin">Mapa</div></a>
+				      	</logic:notEmpty>
+				      
+				      	<logic:empty name="imovel" property="linkGoogleMaps">
+				      		<div class="icon_nomapa_admin">Sem mapa</div>
+				      	</logic:empty>	
+				      				  
+				      	<logic:notEmpty name="imovel" property="linkYouTube">
+				      		<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe"><div class="icon_youtube_admin">Vídeo</div></a>
+				      	</logic:notEmpty>
+				      
+				      	<logic:empty name="imovel" property="linkYouTube">
+				      		<div class="icon_noyoutube_admin">Sem vídeo</div>
+				      	</logic:empty>
+				      	
+				      	<a href="javascript:abrirPop('/DB4-BuskazaWeb/usuario/foto.do?act=listarFotosImovel&ci=${imovel.codigo}');"><div class="icon_fotos_admin">Fotos</div></a>
+				      	
+				      </div>
+				    </span>
 				      
 				      <div id="thickbox_mapa" style="visibility:hidden; display:none;">            
 		            	<div class="topo">
@@ -169,8 +178,8 @@ function abrirPop(url){
 								        <td>Metragem</td>
 								        <td>Capacidade</td>
 								      </tr>
-								      <tr>
-								      	<td width="140"><input type="text" name="distanciaCentro"  property="distanciaCentro" size="110" style="width:120px;"></td>
+								      <tr class="txt_caracteristicas">
+								      	<td width="160"><input type="text" name="distanciaCentro"  property="distanciaCentro" size="100" style="width:90px;"> <div class="sept">&nbsp;&nbsp;km</div></td>
 								      	<td width="146">
 								        	<html:select name="imovel" property="metragem" styleId="metragem" style="width:103px;">
 								      			<html:option value="20.0">20m</html:option>
@@ -400,7 +409,14 @@ function abrirPop(url){
 							     </html:select>
 					        </td>
 					      </tr>
-					      <td><span class="txt_caracteristica">Taxas Extras</span></td>
+					      
+
+					      <tr>
+					      	<td colspan="3"><span class="txt_caracteristica">Taxas Extras</span></td>
+					      </tr>
+					      <tr>
+					      	<td colspan="3"><span class="arial13Cinza">As Taxas Extras serão pagas diretamente ao proprietário no Check-in em espécie ou outra forma de pagamento indicada em "Opções de Pagamento".</span></td>
+					      </tr>					      
 					      <tr class="txt_caracteristicas">
 						      <td>Caução:</td>
 						      <td>Eletricidade:</td>
@@ -421,6 +437,7 @@ function abrirPop(url){
 						      <td><html:text name="imovel" property="diarista" size="90" style="width:100px;"/></td>
 						      <td></td>
 					      </tr>
+					      <tr><td height="40" colspan="5">&nbsp;</td></tr>
 </table>
 				   
 				   </td>
@@ -438,7 +455,7 @@ function abrirPop(url){
 					    <td>
 					    	<table width="100%" border="0">
 					      		<tr>
-					        		<td>
+					        		<td colspan="3" class="MyriadProRegular">
 					       				<logic:iterate name="equipamentos" id="equipamento">
 							    			<div id="sep_form_busca" class="txt_form">
 							           			<div class="equip_top1">									
@@ -538,6 +555,8 @@ function abrirPop(url){
          </tr><!--Final tr Check-in/out-->
 		</table>  
 </div>
+
+<br><br>
 
 <div class="btnSalvarEdicao"><input type="image" src="/buzkaza/_img/btnSalvar.jpg" width="265" height="50" border="0"/></div>
 
