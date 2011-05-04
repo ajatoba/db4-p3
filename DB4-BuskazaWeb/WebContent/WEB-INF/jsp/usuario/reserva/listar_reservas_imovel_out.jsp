@@ -57,7 +57,7 @@ function submitForm(status){
 			            <li class="res_1">
 			                <span id="data_total_<% out.print( index ); %>_${rim.codigo}"></span> dia(s) - <bean:write name="rim" property="periodoInicial" format="dd/MM/yyyy"/> a 
 			                <bean:write name="rim" property="periodoFinal" format="dd/MM/yyyy"/><br />   
-			                Total: R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( rim.valor + ( rim.valor *10/100))}"/>
+			                Total: R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( rim.valor + ( rim.valor *15/100))}"/>
 			                <br>
 			                
 			                <logic:equal name="rim" property="status" value="0">Em análise</logic:equal>
