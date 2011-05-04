@@ -10,7 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Buzkaza</title>
+<title>Buzkaza - em casa, onde estiver</title>
 
 
 <!-- auto completar -->
@@ -154,9 +154,10 @@
 		
 		<table border="0" cellspacing="0" cellpadding="0" class="MyriadProRegular">
 		  <tr valign="top">
-		    <td align="center" width="150"><img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="key.primeirafoto"/>" width="140" height="104" /></td>
-		    <td width="536">
-		    	
+		    <td align="center" width="132" height="99">
+		    	<img src="/buzkaza/imagens_usuarios/<bean:write name="ims" property="key.primeirafoto"/>" width="132" height="99" />
+		    </td>
+		    <td width="536">		    	
 		    	
 		    	<table border="0" align="center" cellpadding="0" cellspacing="0" class="sep_table_busca">
                 <tr>
@@ -227,15 +228,17 @@
                   
 							<span class="txt_form_titulo">${ims.key.tipoImovel.nome}</span><br />
 							<span class="txt_form_titulo">Quartos:</span> <bean:write name="ims" property="key.quartos"/><br />
-							<span class="txt_form_titulo">Metragem:</span> <bean:write name="ims" property="key.metragem"/><br />
-							<span class="txt_form_titulo">Capacidade:</span> <bean:write name="ims" property="key.capacidade"/><br />
-							<span class="txt_form_titulo">Proprietário:</span> <bean:write name="ims" property="key.usuarioProprietario.nome"/><br />
-	                    
-	                    <logic:notEmpty name="ims" property="key.equipamentos">	
-					       <logic:iterate name="ims" property="key.equipamentos" id="equipamento">
-					       		<bean:write name="equipamento" property="nome"/>, 
-					       </logic:iterate>
-				    	</logic:notEmpty>  
+							<span class="txt_form_titulo">Metragem:</span> <bean:write name="ims" property="key.metragem"/>km<br />
+							<span class="txt_form_titulo">Capacidade:</span> <bean:write name="ims" property="key.capacidade"/> pessoa(s)<br />
+							<!-- <span class="txt_form_titulo">Proprietário:</span> <bean:write name="ims" property="key.usuarioProprietario.nome"/><br />-->
+	                    	
+	                    	<!--
+	                    	<logic:notEmpty name="ims" property="key.equipamentos">	
+					       		<logic:iterate name="ims" property="key.equipamentos" id="equipamento">
+					       			<bean:write name="equipamento" property="nome"/>, 
+					       		</logic:iterate>
+				    		</logic:notEmpty>
+				    		-->  
                      
 		            </div>        
                    </td>
