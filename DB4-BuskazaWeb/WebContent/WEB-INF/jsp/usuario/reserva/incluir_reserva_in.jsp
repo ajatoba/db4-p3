@@ -161,7 +161,7 @@ $(document).ready(function()
                     <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( reserva.valor + ( reserva.valor *10/100))}"/></div>
             </div>
             <div class="calculo_amarelo">
-                    <div class="calculo_total_info">Taxa de reserva:</div>
+                    <div class="calculo_total_info">Sinal:</div>
                     <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${(reserva.valor*10/100)}"/>
                     </div>
             </div>
@@ -206,26 +206,12 @@ $(document).ready(function()
 
 <span class="titulo_azul">Pagamento</span><br /><br />
 
-<strong>Sinal(10%)</strong><br />
-O pagamento pagamento pagamento pagamento pagamento pagamento<br /><br />
-
-
+<strong>Sinal</strong><br />
+O Sinal deverá ser pago na confirmação da reserva. Este valor é referente a taxa de transação do Buzkaza.
+<br /><br />
 
 <strong>Saldo no check in</strong><br />
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-
-
+O Saldo será pago diretamente ao proprietário, conforme instruções de pagamento.
 <br /><br />
 
 
