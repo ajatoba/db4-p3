@@ -42,7 +42,8 @@
 			<forward name="home_usuario_logado" path="/WEB-INF/jsp/usuario/index.jsp" />
 			<forward name="login_usuario" path="/WEB-INF/jsp/login_usuario.jsp" />
 			<forward name="login_admin" path="/WEB-INF/jsp/login_admin.jsp" />
-			<forward name="home_admin" path="/WEB-INF/jsp/admin/index.jsp" />			
+			<forward name="home_admin" path="/WEB-INF/jsp/admin/index.jsp" />
+			<forward name="info_logado_html" path="/WEB-INF/jsp/info_logado.jsp" />			
 		</action>		
 				
 		
