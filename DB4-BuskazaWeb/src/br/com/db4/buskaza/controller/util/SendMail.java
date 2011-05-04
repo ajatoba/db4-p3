@@ -89,8 +89,11 @@ public class SendMail {
                
                //Setando o assunto  
                msg.setSubject(subject);  
+              // msg.setSubject(subject, "UTF8"); 
+               
                //Setando o conteúdo/corpo do email  
-               msg.setContent(message,"text/plain");  
+               msg.setContent(message,"text/html");  
+               
      
            } catch (Exception e) {  
                System.out.println(">> Erro: Completar Mensagem");  
