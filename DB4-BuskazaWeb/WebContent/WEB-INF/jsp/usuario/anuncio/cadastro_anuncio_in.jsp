@@ -228,22 +228,21 @@ function somaDias( txtData, DiasAdd )
 						    	<span class="arial12boldazul">Perfil do Imóvel:</span> ${imovel.tipoImovel.nome}<br />
 						      	<span class="arial12boldazul">Distância do centro:</span> ${imovel.distanciaCentro}km<br />
 						      
+						      <div class="icons_admin">
 						      <logic:notEmpty name="imovel" property="linkGoogleMaps">
-						      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
+						      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe"><div class="icon_mapa_admin">Mapa</div></a>
 						      </logic:notEmpty>
 						      <logic:empty name="imovel" property="linkGoogleMaps">
-							   	Sem mapa<br />
-							  </logic:empty>
-							  
+							   	<div class="icon_nomapa_admin">Sem mapa</div>
+							  </logic:empty>							  
 						      <logic:notEmpty name="imovel" property="linkYouTube">
-						      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
+						      	<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe"><div class="icon_youtube_admin">Vídeo</div></a>
 						      </logic:notEmpty>
 						      <logic:empty name="imovel" property="linkYouTube">
-							   	Sem vídeo<br />
+							   	<div class="icon_noyoutube_admin">Sem vídeo</div>
 							  </logic:empty>
-						      
-						      </span>		
-						      
+							  </div>						      
+						    </span>		      
 						      
 						      <div id="thickbox_mapa" style="visibility:hidden; display:none;">            
 					            	<div class="topo">
@@ -397,7 +396,7 @@ function somaDias( txtData, DiasAdd )
 		    <td class="preco_data">De</td>
 		    <td class="preco_data">Até</td>
 		    <td class="preco_valor">Diária</td>
-		    <td class="preco_valor">Semana</td>
+		    <td class="preco_valor">Semanal</td>
 		    <td class="preco_valor">Quizenal</td>
 		    <td class="preco_valor">Mensal</td>
 		    <td class="preco_valor_pacote">Pacote Fechado</td>
@@ -456,18 +455,18 @@ function somaDias( txtData, DiasAdd )
     		<table border="0" cellpadding="0" cellspacing="0">
 	     		<tr class="txt_caracteristicas">
 	       			<td ><div class="sep10">&nbsp;Diária</div></td>
-	       			<td ><div class="sep10">&nbsp;Semanal</div></td>
-	       			<td ><div class="sep10">&nbsp;Quinzenal</div></td>
-	       			<td ><div class="sep10">&nbsp;Mensal</div></td>	       
+	       			<td ><div class="sep10">&nbsp;Diária Semanal</div></td>
+	       			<td ><div class="sep10">&nbsp;Diária Quinzenal</div></td>
+	       			<td ><div class="sep10">&nbsp;Diária Mensal</div></td>	       
 	       			<td ><div class="sep10">&nbsp;Pacote Fechado</div></td>
 	       			<td><div class="sep10">&nbsp;Período</div></td>
 	     		</tr>
 	     		<tr>
-	       			<td ><div class="sep10"><html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" styleId="tarifaDiaria" maxlength="10" size="70" style="width:80px;" /></div></td>
-	       			<td ><div class="sep10"><html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" styleId="tarifaSemanal" maxlength="10" size="70" style="width:80px;" /></div></td>
-	       			<td ><div class="sep10"><html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="70" style="width:80px;" /></div></td>
-	       			<td ><div class="sep10"><html:text property="tarifaMensal" styleClass="number,MyriadProRegular" styleId="tarifaMensal" maxlength="10" size="70" style="width:80px;" /></div></td>
-	       			<td ><div class="sep10"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70" style="width:80px;" /></div></td>
+	       			<td ><div class="sep10"><html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" styleId="tarifaDiaria" maxlength="10" size="70" style="width:100px;" /></div></td>
+	       			<td ><div class="sep10"><html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" styleId="tarifaSemanal" maxlength="10" size="70" style="width:100px;" /></div></td>
+	       			<td ><div class="sep10"><html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="70" style="width:100px;" /></div></td>
+	       			<td ><div class="sep10"><html:text property="tarifaMensal" styleClass="number,MyriadProRegular" styleId="tarifaMensal" maxlength="10" size="70" style="width:100px;" /></div></td>
+	       			<td ><div class="sep10"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70" style="width:100px;" /></div></td>
 	       		<td >
 	       		
 	       		<div class="sepd"><html:select property="tipoAnuncio" styleId="tipoAnuncio">
@@ -616,7 +615,7 @@ function somaDias( txtData, DiasAdd )
 
 <div id="formulario_edicao2">
 	<div class="txt_caracteristica">Opções de pagamento</div>
-	<div class="arial13Cinza">Sinalize as opções que você disponibiliza para o pagamento que será efetuado no Check-in.</div>
+	<div class="arial13Cinza">Opções aceitas pelo proprietário no Check in para o pagamento da tarifa e taxas extras.</div>
 	<table border="0" class="box_opcao_pag_info">
 		<tr>
 			<td>
