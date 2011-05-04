@@ -28,6 +28,8 @@ public interface Constants {
 	
 	public static final String FORWARD_ENTRADA_BUSCA_AVANCADA_IMOVEIS = "formulario_busca";
 	
+	public static final String ENTRADA_INFO_LOGIN = "info_logado_html";
+	
 	public static final String FORWARD_SAIDA_BUSCA_AVANCADA_IMOVEIS = "resultado_busca";
 	
 	public static final String FORWARD_SAIDA_IMOVEIS_PROPRIETARIO = "listar_imoveis_proprietario";
