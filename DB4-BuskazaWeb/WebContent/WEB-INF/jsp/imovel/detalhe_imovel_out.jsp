@@ -231,57 +231,89 @@ function somaDias( txtData, DiasAdd )
                 	<span class="arial12boldazul2">Período Selecionado:</span><br />
                     <div style="display:table; float:left; margin-right:20px;">
                     	<span class="check_in_detalhe">Check In</span><br />
-                    	<span class="data_check">05/05/2011</span>
+                    	<span class="data_check">${diaInicial}/${mesInicial}/${anoInicial}</span>
                     </div>
                     <div style="display:table; float:left;">
                     	<span class="check_in_detalhe">Check Out</span><br />
-                    	<span class="data_check">15/05/2011</span>
+                    	<span class="data_check">${diaFinal}/${mesFinal}/${anoFinal}</span>
                     </div>                    
                 </div><!--fim check_inout-->
-                <div class="div_valor_amarela">Total (13 dias): <strong>R$ 27,530.00</strong></div>
-        		<div class="div_valor_amarela">Sinal: <strong>R$ 250,00</strong></div>
+                <div class="div_valor_amarela">Reserva (13 dias): <strong>R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor )}"/></strong></div>
+        		<div class="div_valor_amarela">Sinal: <strong>R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor *15/100 )}"/></strong></div>
                 <div class="btn_reservar_detalhes"><a href="#">Reservar</a></div>
             </div><!--fim div_pagamento-->
             <div class="linha_sep_detalhes"></div>   
             <div class="div_enderecos_detalhes">
-            	<span class="tit_azul_detalhes">Copacabana, Rio de Janeiro - RJ</span><br />
-                <span class="arial13Cinza">R. Siqueira Campos 145, apt 201 - CEP 21510520 - Brasil<br />
-				id: 01-78<br /><br /></span>
-				<div class="icon_youtube_admin">Vídeo</div>
-				<div class="icon_fotos_admin">Fotos</div>
+            	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
+                <span class="arial13Cinza">
+                	${imovel.logradouro}, ${imovel.numero} - ${imovel.complemento} - Cep ${imovel.cep}<br />
+					id: <bean:write name="imovel" property="usuarioProprietario.codigo"/>-<bean:write name="imovel" property="codigo"/><br /><br /></span>
+					
+				<logic:notEmpty name="imovel" property="linkYouTube">
+				<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">
+				<div class="icon_youtube_admin">Vídeo</div></a>
+				</logic:notEmpty>
+				
+				<a href='#TB_inline?height=570&amp;width=610&inlineId=thickbox_foto' class="thickbox"><div class="icon_fotos_admin">Fotos</div></a>
+					<div id="thickbox_foto" style="visibility:hidden; display:none;">			
+					<iframe src="/DB4-BuskazaWeb/imovel/foto.do?act=listarFotosImovel&ci=${imovel.codigo}" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_foto" noframeborder="0"  frameborder="0"></iframe>
+					</div>
                 <br /><br />
+                
                 <div class="div_sep_enderecos_detalhes">
-                <span class="arial12boldazul">Tipo de Imovel:</span><span class="txt_cinza_detalhes"> Apartamento</span><br />
-                <span class="arial12boldazul">Quartos:</span><span class="txt_cinza_detalhes"> 8</span><br />
-                <span class="arial12boldazul">Metragem:</span><span class="txt_cinza_detalhes"> Apartamento</span><br />
+                <span class="arial12boldazul">Tipo de Imovel:</span><span class="txt_cinza_detalhes"> ${imovel.tipoImovel.nome}</span><br />
+                <span class="arial12boldazul">Quartos:</span><span class="txt_cinza_detalhes"> ${imovel.quartos}</span><br />
+                <span class="arial12boldazul">Metragem:</span><span class="txt_cinza_detalhes"> ${imovel.metragem}m<sup>2</sup></span><br />
                 </div>
                 
                 <div class="div_sep_enderecos_detalhes">
-                <span class="arial12boldazul">Capacidade:</span><span class="txt_cinza_detalhes"> 10 pessoa(s)</span><br />
-                <span class="arial12boldazul">Distância do Centro:</span><span class="txt_cinza_detalhes"> 48km</span><br />
-                <span class="arial12boldazul">Cama(s):</span><span class="txt_cinza_detalhes"> 4</span><br />
+                <span class="arial12boldazul">Capacidade:</span><span class="txt_cinza_detalhes"> ${imovel.capacidade} pessoa(s)</span><br />
+                <span class="arial12boldazul">Distância do Centro:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="distanciaCentro"/>km</span><br />
+                <span class="arial12boldazul">Cama(s):</span><span class="txt_cinza_detalhes"> ${imovel.camas}</span><br />
                 </div>
                 
                 <div class="div_sep_enderecos_detalhes_ult">
-                <span class="arial12boldazul">Idiomas:</span><span class="txt_cinza_detalhes"> Inglês, Italiano, Espanhol, Inglês, Frances</span>
+                	<logic:notEmpty name="imovel" property="idiomas">
+	  					<span class="arial12boldazul">Idiomas:&nbsp;</span>
+	  					<span class="txt_cinza_detalhes">
+	  					<logic:iterate name="imovel" property="idiomas" id="idioma">
+	  						<bean:write name="idioma" property="nome"/>,  		
+	  					</logic:iterate>
+	  					</span>
+	  				</logic:notEmpty>
+	  				<!-- Caso não tenha nenhuma idioma cadastrado. -->
+	  				<logic:empty name="imovel" property="idiomas">
+	  					Português
+	  				</logic:empty>
                 </div>
                 
             </div>     
         </div><!--fim top_detalhes-->
         
     </div>
-</div> 	
+</div> 
+
+<!-- LightBox Vídeo -->
+<div id="thickbox_youtube" style="visibility:hidden; display:none;">            
+           	<div class="topo">
+                   <div id="titulo">Vídeo</div>
+               </div>
+			<div class="meio">            
+           		<div class="divmapa">
+           				${imovel.linkYouTube}
+                </div>
+                <script language="javascript">
+					$(document).ready(function(){
+						$('.divmapa iframe').css({'width': '560px', 'height': '310px' });
+					});
+				</script>                                       
+               </div>    
+               <div class="baixo"></div>
+</div>
+<!-- Fim LightBox Vídeo -->
+
   	<!--left-->
 	<div class="left_detalhe">
-			<div class="foto_big"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="341" height="271" />
-	</div>
-	
-	<a href='#TB_inline?height=570&amp;width=610&inlineId=thickbox_foto' class="thickbox">Ver todas as fotos</a><br>	
-
-
-	<div id="thickbox_foto" style="visibility:hidden; display:none;">			
-			<iframe src="/DB4-BuskazaWeb/imovel/foto.do?act=listarFotosImovel&ci=${imovel.codigo}" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_foto" noframeborder="0"  frameborder="0"></iframe>
-	</div>
 
 	<div class="chamada_planta">Planta</div>
 	
@@ -311,38 +343,8 @@ function somaDias( txtData, DiasAdd )
    	<!--right-->
 	<div class="right_detalhe">
     	<span class="txt_cinza_detalhes">
-    	
-    	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
-    	<span class="txt_cinza_detalhes">${imovel.logradouro}, ${imovel.numero} - ${imovel.complemento} - Cep ${imovel.cep}</span><br /><br />
-    	 
-    	<span class="txt_azul_peq_detalhes">ID</span>&nbsp;: <bean:write name="imovel" property="usuarioProprietario.codigo"/>-<bean:write name="imovel" property="codigo"/><br />
-		<span class="txt_azul_peq_detalhes">Distância do Centro</span>&nbsp;: <bean:write name="imovel" property="distanciaCentro"/><br />
-		<span class="txt_azul_peq_detalhes">Tipo</span>&nbsp;: ${imovel.tipoImovel.nome}<br />
-		<span class="txt_azul_peq_detalhes">Quartos</span>&nbsp;: ${imovel.quartos}<br />
-		<span class="txt_azul_peq_detalhes">Metragem</span>&nbsp;: ${imovel.metragem}m<sup>2</sup><br />
-		<span class="txt_azul_peq_detalhes">Capacidade</span>&nbsp;: ${imovel.capacidade} pessoas<br />
-		<span class="txt_azul_peq_detalhes">Camas</span>&nbsp;: ${imovel.camas}<br />
 		
-		<logic:notEmpty name="imovel" property="linkYouTube">
-			<span class="txt_azul_peq_detalhes">Vídeo</span>&nbsp;: <a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">YouTube</a><br />
-		</logic:notEmpty>
 		
-		<div id="thickbox_youtube" style="visibility:hidden; display:none;">            
-           	<div class="topo">
-                   <div id="titulo">Vídeo</div>
-               </div>
-			<div class="meio">            
-           		<div class="divmapa">
-           				${imovel.linkYouTube}
-                </div>
-                <script language="javascript">
-					$(document).ready(function(){
-						$('.divmapa iframe').css({'width': '560px', 'height': '310px' });
-					});
-				</script>                                       
-               </div>    
-               <div class="baixo"></div>
-		</div>
 		<span class="txt_azul_peq_detalhes">Horário CheckIn Entrada</span>&nbsp;: <bean:write name="imovel" property="checkInEntrada" format="HH:mm"/><br />		
 		<span class="txt_azul_peq_detalhes">Horário CheckIn Saída</span>&nbsp;: <bean:write name="imovel" property="checkInSaida" format="HH:mm"/><br />
 		<span class="txt_azul_peq_detalhes">Horário CheckOut Entrada</span>&nbsp;: <bean:write name="imovel" property="checkOutEntrada" format="HH:mm"/><br />
@@ -355,17 +357,9 @@ function somaDias( txtData, DiasAdd )
 		<span class="txt_azul_peq_detalhes">Taxa Eletricidade</span>&nbsp;: <bean:write name="imovel" property="energia"/><br />
 		<span class="txt_azul_peq_detalhes">Taxa Limpeza</span>&nbsp;: <bean:write name="imovel" property="diarista"/><br />
 		<span class="txt_azul_peq_detalhes">Caução</span>&nbsp;: <bean:write name="imovel" property="calcao"/><br />
-		<br>
-		
-		<logic:notEmpty name="imovel" property="idiomas">
-	  		<span class="tit_azul_detalhes">Idiomas Falados</span><br/>
-	  		<logic:iterate name="imovel" property="idiomas" id="idioma">
-	  			<bean:write name="idioma" property="nome"/><br>  		
-	  		</logic:iterate>
-	  	</logic:notEmpty>
-	  	<logic:empty name="imovel" property="idiomas">
-	  		Não foram cadastrados idiomas para esse imóvel
-	  	</logic:empty>
+		<br>	
+
+	  	
 	  	<br>
 		<logic:notEmpty name="imovel" property="equipamentos">
 	  		<span class="tit_azul_detalhes">Equipamentos</span><br/>
@@ -391,11 +385,8 @@ function somaDias( txtData, DiasAdd )
 	  	
 	  	<br><br>
 	  	
-	  	<span class="txt_azul_peq_detalhes">Período Selecionado</span>&nbsp;: ${diaInicial}/${mesInicial}/${anoInicial} a ${diaFinal}/${mesFinal}/${anoFinal}<br />
-	  	<span class="txt_azul_peq_detalhes">Valor</span>&nbsp;:  <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor + ( valor *15/100))}"/><br /><br />
 	  	
-	  	
-	  	
+	  	<span class="txt_azul_peq_detalhes">Valor</span>&nbsp;:  <br /><br /> 	
 	  	
 	  	
 	  	<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
