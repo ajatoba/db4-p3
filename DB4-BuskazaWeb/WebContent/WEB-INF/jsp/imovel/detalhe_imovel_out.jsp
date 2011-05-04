@@ -15,7 +15,7 @@
 <%@page import="br.com.db4.buskaza.model.entity.Imovel"%><html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Buzkaza - Detalhe do Imóvel</title>
+<title>Buzkaza - em casa, onde estiver</title>
 
 	<link href="/buzkaza/_css/detalhe_imovel.css" rel="stylesheet" type="text/css"/>
 	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
@@ -220,13 +220,57 @@ function somaDias( txtData, DiasAdd )
 		</logic:messagesNotPresent>
   	</font>
     <!-- ****************** -->
-
-
-	<div class="barra_top">
-	<div class="aba_detalhes"><span class="txt_cinza_detalhes">Detalhes</span></div>
-	<div class="aba_comments"></div>
-	</div>
-  	
+<div id="cont_reserva">
+    <div class="content_detalhes">
+    	<div class="tit_detalheimovel">Detalhes do Imóvel</div>
+        <div id="sep_top_reserva2"></div>
+        <div class="top_detalhes"><!--top_detalhes-->
+        	<div class="div_fotoprincipal"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="326" height="259" /></div>
+            <div class="div_pagamento"><!--div_pagamento-->
+            	<div class="check_inout"><!--check_inout-->
+                	<span class="arial12boldazul2">Período Selecionado:</span><br />
+                    <div style="display:table; float:left; margin-right:20px;">
+                    	<span class="check_in_detalhe">Check In</span><br />
+                    	<span class="data_check">05/05/2011</span>
+                    </div>
+                    <div style="display:table; float:left;">
+                    	<span class="check_in_detalhe">Check Out</span><br />
+                    	<span class="data_check">15/05/2011</span>
+                    </div>                    
+                </div><!--fim check_inout-->
+                <div class="div_valor_amarela">Total (13 dias): <strong>R$ 27,530.00</strong></div>
+        		<div class="div_valor_amarela">Sinal: <strong>R$ 250,00</strong></div>
+                <div class="btn_reservar_detalhes"><a href="#">Reservar</a></div>
+            </div><!--fim div_pagamento-->
+            <div class="linha_sep_detalhes"></div>   
+            <div class="div_enderecos_detalhes">
+            	<span class="tit_azul_detalhes">Copacabana, Rio de Janeiro - RJ</span><br />
+                <span class="arial13Cinza">R. Siqueira Campos 145, apt 201 - CEP 21510520 - Brasil<br />
+				id: 01-78<br /><br /></span>
+				<div class="icon_youtube_admin">Vídeo</div>
+				<div class="icon_fotos_admin">Fotos</div>
+                <br /><br />
+                <div class="div_sep_enderecos_detalhes">
+                <span class="arial12boldazul">Tipo de Imovel:</span><span class="txt_cinza_detalhes"> Apartamento</span><br />
+                <span class="arial12boldazul">Quartos:</span><span class="txt_cinza_detalhes"> 8</span><br />
+                <span class="arial12boldazul">Metragem:</span><span class="txt_cinza_detalhes"> Apartamento</span><br />
+                </div>
+                
+                <div class="div_sep_enderecos_detalhes">
+                <span class="arial12boldazul">Capacidade:</span><span class="txt_cinza_detalhes"> 10 pessoa(s)</span><br />
+                <span class="arial12boldazul">Distância do Centro:</span><span class="txt_cinza_detalhes"> 48km</span><br />
+                <span class="arial12boldazul">Cama(s):</span><span class="txt_cinza_detalhes"> 4</span><br />
+                </div>
+                
+                <div class="div_sep_enderecos_detalhes_ult">
+                <span class="arial12boldazul">Idiomas:</span><span class="txt_cinza_detalhes"> Inglês, Italiano, Espanhol, Inglês, Frances</span>
+                </div>
+                
+            </div>     
+        </div><!--fim top_detalhes-->
+        
+    </div>
+</div> 	
   	<!--left-->
 	<div class="left_detalhe">
 			<div class="foto_big"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="341" height="271" />
