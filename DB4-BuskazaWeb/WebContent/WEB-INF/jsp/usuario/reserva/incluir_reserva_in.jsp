@@ -158,11 +158,11 @@ $(document).ready(function()
 	<div class="calculo_reserva">
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Total da Reserva:</div>
-                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( reserva.valor + ( reserva.valor *10/100))}"/></div>
+                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( reserva.valor + ( reserva.valor *15/100))}"/></div>
             </div>
             <div class="calculo_amarelo">
                     <div class="calculo_total_info">Sinal:</div>
-                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${(reserva.valor*10/100)}"/>
+                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${(reserva.valor*15/100)}"/>
                     </div>
             </div>
             <div class="calculo_cinza">
