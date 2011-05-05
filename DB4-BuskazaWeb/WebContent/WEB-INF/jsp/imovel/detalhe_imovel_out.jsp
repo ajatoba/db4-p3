@@ -240,7 +240,20 @@ function somaDias( txtData, DiasAdd )
                 </div><!--fim check_inout-->
                 <div class="div_valor_amarela">Reserva (13 dias): <strong>R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor )}"/></strong></div>
         		<div class="div_valor_amarela">Sinal: <strong>R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor *15/100 )}"/></strong></div>
-                <div class="btn_reservar_detalhes"><a href="#">Reservar</a></div>
+                <div class="btn_reservar_detalhes">
+                	<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
+						<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
+						<html:hidden property="codigoImovel" value="${imovel.codigo}"/> 
+						<html:hidden property="valor" value="${valor}"/>
+						<html:hidden property="diaPeriodoInicial" value="${diaInicial}"/>	
+						<html:hidden property="mesPeriodoInicial" value="${mesInicial}"/>
+						<html:hidden property="anoPeriodoInicial" value="${anoInicial}"/>
+						<html:hidden property="diaPeriodoFinal" value="${diaFinal}"/>	
+						<html:hidden property="mesPeriodoFinal" value="${mesFinal}"/>
+						<html:hidden property="anoPeriodoFinal" value="${anoFinal}"/>                
+                		<input type="image" src="/buzkaza/_img/btn_reservar_detalhes.jpg" width="73" height="36" /></div>
+                	</html:form>
+                
             </div><!--fim div_pagamento-->
             <div class="linha_sep_detalhes"></div>   
             <div class="div_enderecos_detalhes">
@@ -291,131 +304,12 @@ function somaDias( txtData, DiasAdd )
         </div><!--fim top_detalhes-->
         <div style="display:table;">
         	<div class="linha_sep_detalhes2"></div>
-        	<div class="div_fotoprincipal"><img src="/buzkaza/imagens_usuarios/${imovel.planta.caminho}"  width="326" height="259" /></div>
         	
-            <div class="tit_arialbullet">Equipamentos e Facilidades</div>
-            	<div style="width:100%; display:table; width:590px; margin-bottom:35px;">
-            	<logic:iterate name="imovel" property="equipamentos" id="equipamento">
-	  				<div class="box_equipamentos"><bean:write name="equipamento" property="nome"/></div>
-	  			</logic:iterate>				
-				<logic:empty name="imovel" property="equipamentos">
-	  				<span class="txt_cinza_detalhes">Não foram cadastrados equipamentos para esse imóvel. Após efetuar a reserva consulte o proprietário.</span>
-	  			</logic:empty>				
-            </div>
-            
-            <div class="tit_arialbullet">Condições de Pagamento no Check In</div>
-            
-            <div class="tit_arialbullet">Taxas Extras</div>
-        </div>
-        
-    </div>
-</div> 
-
-<!-- LightBox Vídeo -->
-<div id="thickbox_youtube" style="visibility:hidden; display:none;">            
-           	<div class="topo">
-                   <div id="titulo">Vídeo</div>
-               </div>
-			<div class="meio">            
-           		<div class="divmapa">
-           				${imovel.linkYouTube}
-                </div>
-                <script language="javascript">
-					$(document).ready(function(){
-						$('.divmapa iframe').css({'width': '560px', 'height': '310px' });
-					});
-				</script>                                       
-               </div>    
-               <div class="baixo"></div>
-</div>
-<!-- Fim LightBox Vídeo -->
-
-  	<!--left-->
-	<div class="left_detalhe">
-	
-	
-	<div class="mapa_big">	
-			<logic:notEmpty name="imovel" property="linkGoogleMaps">
-			<div class="chamada_mapa">Mapa</div>
-				<div class="divmapadetalhe">
-					${imovel.linkGoogleMaps }
-					<script language="javascript">
-						$(document).ready(function(){
-							$('.divmapadetalhe iframe').css({'width': '350px', 'height': '300px' });
-						});
-					</script>
-					<br /><br /><br /><br /><br /><br />
-				</div>  
-			</logic:notEmpty>
-			
-			
-	</div>
-	
-	</div>
-	<!--left-->
-  	
-   	<!--right-->
-	<div class="right_detalhe">
-    	<span class="txt_cinza_detalhes">
-		
-		
-		<span class="txt_azul_peq_detalhes">Horário CheckIn Entrada</span>&nbsp;: <bean:write name="imovel" property="checkInEntrada" format="HH:mm"/><br />		
-		<span class="txt_azul_peq_detalhes">Horário CheckIn Saída</span>&nbsp;: <bean:write name="imovel" property="checkInSaida" format="HH:mm"/><br />
-		<span class="txt_azul_peq_detalhes">Horário CheckOut Entrada</span>&nbsp;: <bean:write name="imovel" property="checkOutEntrada" format="HH:mm"/><br />
-		<span class="txt_azul_peq_detalhes">Horário CheckOut Saída</span>&nbsp;: <bean:write name="imovel" property="checkOutSaida" format="HH:mm"/><br />
-		<br>
-		<span class="txt_azul_peq_detalhes">Taxa Checkin Atrasado</span>&nbsp;: <bean:write name="imovel" property="taxaLateCheckin"/><br />		
-		<span class="txt_azul_peq_detalhes">Taxa Checkout Atrasado</span>&nbsp;: <bean:write name="imovel" property="taxaLateCheckout"/><br />
-		<span class="txt_azul_peq_detalhes">Taxa Água</span>&nbsp;: <bean:write name="imovel" property="taxaAgua"/><br />
-		<span class="txt_azul_peq_detalhes">Taxa Gás</span>&nbsp;: <bean:write name="imovel" property="taxaGas"/><br />
-		<span class="txt_azul_peq_detalhes">Taxa Eletricidade</span>&nbsp;: <bean:write name="imovel" property="energia"/><br />
-		<span class="txt_azul_peq_detalhes">Taxa Limpeza</span>&nbsp;: <bean:write name="imovel" property="diarista"/><br />
-		<span class="txt_azul_peq_detalhes">Caução</span>&nbsp;: <bean:write name="imovel" property="calcao"/><br />
-		<br>
-
-	  	<logic:notEmpty name="imovel" property="tiposPagamento">
-	  		<span class="tit_azul_detalhes">Tipos de Pagamento:</span><br/>
-	  		<logic:iterate name="imovel" id="tipoPagamento" property="tiposPagamento">
-	  			<bean:write name="tipoPagamento" property="nome"/><br> 		
-	  		</logic:iterate>
-	  	</logic:notEmpty>
-	  	<logic:empty name="imovel" property="tiposPagamento">
-	  		Não foram cadastrados tipos de pagamento para esse imóvel
-	  	</logic:empty>
-		
-	  	
-	  	
-	  	<br><br>
-	  	
-	  	
-	  	<span class="txt_azul_peq_detalhes">Valor</span>&nbsp;:  <br /><br /> 	
-	  	
-	  	
-	  	<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
-				<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
-				<html:hidden property="codigoImovel" value="${imovel.codigo}"/> 
-				<html:hidden property="valor" value="${valor}"/>
-				<html:hidden property="diaPeriodoInicial" value="${diaInicial}"/>	
-				<html:hidden property="mesPeriodoInicial" value="${mesInicial}"/>
-				<html:hidden property="anoPeriodoInicial" value="${anoInicial}"/>
-				<html:hidden property="diaPeriodoFinal" value="${diaFinal}"/>	
-				<html:hidden property="mesPeriodoFinal" value="${mesFinal}"/>
-				<html:hidden property="anoPeriodoFinal" value="${anoFinal}"/>
-				
-				<div class="botao_reserva1">
-					<input type="image" src="/buzkaza/_img/btn_reservar.jpg" width="65" height="24" /><br/>
-				</div>
-					
-		</html:form>
-	  	</span>
-	  	<br><br>
-<div id="container">
-  <div id="multimonth"></div>
-  <div id="data_duracao"></div>
-</div>
-
-<script type="text/javascript" charset="utf-8">
-
+        	<div style="display:table; float:left; margin-right:25px; width:326px;"><!-- Inicio Planta e Disponibilidades -->
+        	<div class="div_planta_calendario"><img src="/buzkaza/imagens_usuarios/${imovel.planta.caminho}"  width="326" height="259" /></div>        	
+        	<div class="div_planta_calendario"><!-- Inicio Calendário Disponibilidades -->
+        		<span class="arial12boldazul">Disponibilidades</span>
+        		<script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
   listaDadas();
 });
@@ -446,17 +340,111 @@ function listaDadas(){
 		</logic:equal>
 	</logic:iterate>
  }
+				</script>
+        	</div><!-- Fim Calendário Disponibilidades -->
+        </div> <!-- FIM Planta e Disponibilidades -->
+
+        	<div style="display:table;">
+            <div class="tit_arialbullet">Equipamentos e Facilidades</div>
+            	<div style="width:100%; display:table; width:590px; margin-bottom:35px;">
+            	<logic:iterate name="imovel" property="equipamentos" id="equipamento">
+	  				<div class="box_equipamentos"><bean:write name="equipamento" property="nome"/></div>
+	  			</logic:iterate>	  							
+				<logic:empty name="imovel" property="equipamentos">
+	  				<span class="txt_cinza_detalhes">Não foram cadastrados equipamentos para esse imóvel. Após efetuar a reserva consulte o proprietário.</span>
+	  			</logic:empty>				
+            </div>
+            
+            <div class="tit_arialbullet2">Condições de Pagamento no Check In</div>
+            <div style="width:100%; display:table; width:590px; margin-bottom:10px;">
+            	<div class="txt_cinza_detalhes">Opções aceitas pelo proprietário no Check in para o pagamento da tarifa e taxas extras.</div>
+            </div>
+            <div style="width:100%; display:table; width:590px; margin-bottom:10px;">            	
+					<logic:notEmpty name="imovel" property="tiposPagamento">
+					<div class="box_equipamentos">
+	  					<logic:iterate name="imovel" id="tipoPagamento" property="tiposPagamento">
+	  						<bean:write name="tipoPagamento" property="nome"/>	
+	  					</logic:iterate>
+	  				</div>
+	  				</logic:notEmpty> 				
+				<logic:empty name="imovel" property="tiposPagamento">
+	  				<span class="txt_cinza_detalhes">Não foram cadastrados tipos de pagamento para esse imóvel. Após efetuar a reserva, consulte o proprietário.</span>
+	  			</logic:empty>
+            			             
+            </div>
+            <div style="width:100%; display:table; width:590px; margin-bottom:35px;">
+            	<span class="arial12boldazul">Horário de Check In:</span><span class="txt_cinza_detalhes"> de <bean:write name="imovel" property="checkInEntrada" format="HH:mm"/> até <bean:write name="imovel" property="checkInSaida" format="HH:mm"/> - R$ <bean:write name="imovel" property="taxaLateCheckin"/> para check in fora do horário</span><br />
+                <span class="arial12boldazul">Horário de Check Out:</span><span class="txt_cinza_detalhes"> de <bean:write name="imovel" property="checkOutEntrada" format="HH:mm"/> até <bean:write name="imovel" property="checkOutSaida" format="HH:mm"/> - R$ <bean:write name="imovel" property="taxaLateCheckout"/> para check out fora do horário</span><br />
+            </div>
+            
+            <div class="tit_arialbullet">Taxas Extras</div>
+            	<div class="div_sep_enderecos_detalhes">
+                	<span class="arial12boldazul">Caução:</span><span class="txt_cinza_detalhes"> R$ <bean:write name="imovel" property="calcao"/></span><br />
+                	<span class="arial12boldazul">Eletricidade:</span><span class="txt_cinza_detalhes"> R$ <bean:write name="imovel" property="energia"/></span><br />
+                	<span class="arial12boldazul">Água:</span><span class="txt_cinza_detalhes"> R$ <bean:write name="imovel" property="taxaAgua"/></span><br />
+                </div>
+                <div class="div_sep_enderecos_detalhes">
+                	<span class="arial12boldazul">Gás:</span><span class="txt_cinza_detalhes"> R$ <bean:write name="imovel" property="taxaGas"/></span><br />
+                	<span class="arial12boldazul">Limpeza:</span><span class="txt_cinza_detalhes"> R$ <bean:write name="imovel" property="diarista"/></span><br />
+                </div>
+            </div>
+        
+        </div>
+        
+        <div class="mapa_big">	
+			<logic:notEmpty name="imovel" property="linkGoogleMaps">
+				<span class="arial12boldazul">Mapa</span>
+					<div class="divmapadetalhe">
+						${imovel.linkGoogleMaps }
+						<script language="javascript">
+							$(document).ready(function(){
+								$('.divmapadetalhe iframe').css({'width': '941px', 'height': '350px' });
+							});
+						</script>
+					</div>  
+			</logic:notEmpty>			
+		</div><!-- Fim mapa_big -->
+        
+    </div>
+</div> 
+
+<!-- LightBox Vídeo -->
+<div id="thickbox_youtube" style="visibility:hidden; display:none;">            
+           	<div class="topo">
+                   <div id="titulo">Vídeo</div>
+               </div>
+			<div class="meio">            
+           		<div class="divmapa">
+           				${imovel.linkYouTube}
+                </div>
+                <script language="javascript">
+					$(document).ready(function(){
+						$('.divmapa iframe').css({'width': '560px', 'height': '310px' });
+					});
+				</script>                                       
+               </div>    
+               <div class="baixo"></div>
+</div>
+<!-- Fim LightBox Vídeo -->
+  	
+   	<!--right-->
+	<div class="right_detalhe">
+    	<span class="txt_cinza_detalhes">
+	  	
+	  	
+	  	<span class="txt_azul_peq_detalhes">Valor</span>&nbsp;:  <br /><br /> 	
+	  	
+	  	
+	  	
+	  	</span>
 
 
-</script>
 	  	
 	</div>
 
 </div>
 
 </div>
-
-
 
 <div class="bottom_formulario"></div>
 <div class="linha_cinza"></div>
