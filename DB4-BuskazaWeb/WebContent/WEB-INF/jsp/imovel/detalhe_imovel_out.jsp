@@ -201,9 +201,7 @@ function somaDias( txtData, DiasAdd )
 <body>
 
 <jsp:include page="../usuario/topo.jsp"/>
-
 <!--CADASTRO-->
-
 <div id="cont_reserva">
 
 	<!-- MENSAGEM DE ERRO -->
