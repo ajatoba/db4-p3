@@ -26,6 +26,7 @@
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 	<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>	
 	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+	<script type="text/javascript" src="/buzkaza/_js/function_calcular_data.js"></script>
 	
 	<!-- calendário -->
 		<script type="text/javascript" charset="utf-8" src="/buzkaza/_js/date.js"></script>
@@ -236,7 +237,7 @@ function somaDias( txtData, DiasAdd )
                     	<span class="data_check">${diaFinal}/${mesFinal}/${anoFinal}</span>
                     </div>                    
                 </div><!--fim check_inout-->
-                <div class="div_valor_amarela">Reserva (13 dias): <strong>R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor )}"/></strong></div>
+                <div class="div_valor_amarela">Reserva (<span id="data_total"></span> dias): <strong>R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor )}"/></strong></div>
         		<div class="div_valor_amarela">Sinal: <strong>R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor *15/100 )}"/></strong></div>
                 <div class="btn_reservar_detalhes">
                 	<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
@@ -253,6 +254,15 @@ function somaDias( txtData, DiasAdd )
                 	</html:form>
                 
             </div><!--fim div_pagamento-->
+            
+            <script language="javascript">
+            <!--
+            	trocarImageDetalhe('<bean:write name="imovel" property="primeirafoto"/>');
+
+            	calcularDataDetalhe( '${diaInicial}/${mesInicial}/${anoInicial}' , '${diaFinal}/${mesFinal}/${anoFinal}');
+        	-->
+            </script>
+            
             <div class="linha_sep_detalhes"></div>   
             <div class="div_enderecos_detalhes">
             	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
@@ -360,32 +370,20 @@ function listaDadas(){
             </div>
             
             <div style="width:100%; display:table; width:590px; margin-bottom:10px;">            	
-					<logic:notEmpty name="imovel" property="tiposPagamento">
-            <div class="tit_arialbullet2">Condições de Pagamento no Check In</div>
-            <div style="width:100%; display:table; width:590px; margin-bottom:10px;">
-            	<div class="txt_cinza_detalhes">Opções aceitas pelo proprietário no Check in para o pagamento da tarifa e taxas extras.</div>
-            </div>
-					<div class="box_equipamentos">
-	  					<logic:iterate name="imovel" id="tipoPagamento" property="tiposPagamento">
-	  						<bean:write name="tipoPagamento" property="nome"/>	
-	  					</logic:iterate>
-	  				</div>
-	  				</logic:notEmpty>	  					
+				<logic:notEmpty name="imovel" property="tiposPagamento">
+				            <div class="tit_arialbullet2">Condições de Pagamento no Check In</div>
+				            <div style="width:100%; display:table; width:590px; margin-bottom:10px;">
+				            	<div class="txt_cinza_detalhes">Opções aceitas pelo proprietário no Check in para o pagamento da tarifa e taxas extras.</div>
+				            </div>
+					
+			  				<logic:iterate name="imovel" id="tipoPagamento" property="tiposPagamento">
+			  					<div class="box_equipamentos"><bean:write name="tipoPagamento" property="nome"/></div>	
+			  				</logic:iterate>
+	  				
+	  			</logic:notEmpty>	  					
 				<logic:empty name="imovel" property="tiposPagamento">
 	  				<span class="txt_cinza_detalhes">Não foram cadastrados tipos de pagamento para esse imóvel. Após efetuar a reserva, consulte o proprietário.</span>
 	  			</logic:empty>
-	  			
-	  			 
-	  			<logic:notEmpty name="imovel" property="tiposPagamento">
-	  						<span class="tit_azul_detalhes">TIPOS DE PAGAMENTO</span><br/>
-	  						<logic:iterate name="imovel" id="tipoPagamento" property="tiposPagamento">
-	  						<bean:write name="tipoPagamento" property="nome"/><br> 		
-	  						</logic:iterate>
-	  					</logic:notEmpty>
-	  					
-	  	<logic:empty name="imovel" property="tiposPagamento">
-	  		Não foram cadastrados tipos de pagamento para esse imóvel
-	  	</logic:empty>
 
 	  					
             			             
