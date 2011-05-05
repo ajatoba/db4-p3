@@ -89,7 +89,7 @@ public class SendMail {
                
                //Setando o assunto  
                msg.setSubject(subject);  
-              // msg.setSubject(subject, "UTF8"); 
+               //msg.setSubject(subject, "UTF8"); 
                
                //Setando o conteúdo/corpo do email  
                msg.setContent(message,"text/html");  
