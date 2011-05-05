@@ -100,6 +100,14 @@ $(function()
 	);
 });
 
+$(function()
+{
+	selecionarTipoDispo();
+	
+	$('#botao_salvar_dispo').click(function() {				
+			verificarValorForm();
+		});
+});
 
 $(function()
 {
@@ -109,6 +117,7 @@ $(function()
 		}
 	)
 });
+
 
 function calcularData( from, to, bg){
 		
@@ -445,7 +454,7 @@ function somaDias( txtData, DiasAdd )
 </div>
 	
 	
-<html:form method="post" action="/usuario/anuncio?act=incluirAnuncio">
+<html:form method="post" styleId="anuncioForm" action="/usuario/anuncio?act=incluirAnuncio">
 	<input type="hidden" name="ci" value="${imovel.codigo}">
 	<br />
 	<div id="formulario_edicao2">
@@ -454,24 +463,24 @@ function somaDias( txtData, DiasAdd )
 			<br />
     		<table border="0" cellpadding="0" cellspacing="0">
 	     		<tr class="txt_caracteristicas">
-	       			<td ><div class="sep10">&nbsp;Diária</div></td>
-	       			<td ><div class="sep10">&nbsp;Diária Semanal</div></td>
-	       			<td ><div class="sep10">&nbsp;Diária Quinzenal</div></td>
-	       			<td ><div class="sep10">&nbsp;Diária Mensal</div></td>	       
+	     			<td><div class="sep10">&nbsp;Período</div></td>
+	       			<td class="iddiarias"><div class="sep10">&nbsp;Diária</div></td>
+	       			<td class="iddiarias"><div class="sep10">&nbsp;Diária Semanal</div></td>
+	       			<td class="iddiarias"><div class="sep10">&nbsp;Diária Quinzenal</div></td>
+	       			<td class="iddiarias"><div class="sep10">&nbsp;Diária Mensal</div></td>	       
 	       			<td ><div class="sep10">&nbsp;Pacote Fechado</div></td>
-	       			<td><div class="sep10">&nbsp;Período</div></td>
+	       			
 	     		</tr>
 	     		<tr>
-	       			<td ><div class="sep10"><html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" styleId="tarifaDiaria" maxlength="10" size="70" style="width:100px;" /></div></td>
-	       			<td ><div class="sep10"><html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" styleId="tarifaSemanal" maxlength="10" size="70" style="width:100px;" /></div></td>
-	       			<td ><div class="sep10"><html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="70" style="width:100px;" /></div></td>
-	       			<td ><div class="sep10"><html:text property="tarifaMensal" styleClass="number,MyriadProRegular" styleId="tarifaMensal" maxlength="10" size="70" style="width:100px;" /></div></td>
-	       			<td ><div class="sep10"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70" style="width:100px;" /></div></td>
-	       		<td >
-	       		
-	       		<div class="sepd"><html:select property="tipoAnuncio" styleId="tipoAnuncio">
-					<html:options collection="tiposAnuncio" property="codigo" labelProperty="nome"/>
-				</html:select></div></td>
+	     			<td >	       		
+			       		<div class="sep10"><html:select property="tipoAnuncio" styleId="tipoAnuncio">
+							<html:options collection="tiposAnuncio" property="codigo" labelProperty="nome"/>
+						</html:select></div></td>
+	       			<td class="iddiarias"><div class="sep10"><html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" styleId="tarifaDiaria" maxlength="10" size="70" style="width:100px;" /></div></td>
+	       			<td class="iddiarias"><div class="sep10"><html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" styleId="tarifaSemanal" maxlength="10" size="70" style="width:100px;" /></div></td>
+	       			<td class="iddiarias"><div class="sep10"><html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="70" style="width:100px;" /></div></td>
+	       			<td class="iddiarias"><div class="sep10"><html:text property="tarifaMensal" styleClass="number,MyriadProRegular" styleId="tarifaMensal" maxlength="10" size="70" style="width:100px;" /></div></td>
+	       			<td class="iddiarias"><div class="sep10"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70" style="width:100px;" /></div></td>
 	     </tr>
     </table>
        
