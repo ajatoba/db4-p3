@@ -306,7 +306,8 @@ function somaDias( txtData, DiasAdd )
         	<div class="linha_sep_detalhes2"></div>
         	
         	<div style="display:table; float:left; margin-right:25px; width:326px;"><!-- Inicio Planta e Disponibilidades -->
-        	<div class="div_planta_calendario"><img src="/buzkaza/imagens_usuarios/${imovel.planta.caminho}"  width="326" height="259" /></div>        	
+        	<div class="div_planta_calendario"><img src="/buzkaza/imagens_usuarios/${imovel.planta.caminho}"  width="326" height="259" /></div>  
+        	      	
         	<div class="div_planta_calendario"><!-- Inicio Calendário Disponibilidades -->
         		<span class="arial12boldazul">Disponibilidades</span>
         		
