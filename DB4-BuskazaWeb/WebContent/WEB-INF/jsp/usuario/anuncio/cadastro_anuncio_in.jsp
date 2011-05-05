@@ -45,7 +45,7 @@
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/tabs.css" media="screen"/>
 	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
-	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+	<script type="text/javascript" src="/buzkaza/_js/function.js" charset="utf-8"></script>
 
 	
 	<script language="javascript">
@@ -376,21 +376,24 @@ function somaDias( txtData, DiasAdd )
 		                  <td width="28%" class="txt_legenda">Data Especial</td>
 		                </tr>
 		                <tr>
-		                  <td><div class="box_legenda_cor cor_bloqueado"></div></td>
-		                  <td class="txt_legenda">Bloqueado</td>
-		                  <td><div class="box_legenda_cor cor_media_temporada"></div></td>
-		                  <td class="txt_legenda">Média Temporada</td>
-		                  <td>&nbsp;</td>
-		                  <td>&nbsp;</td>
-		                </tr>
-		                <tr>
+		                 
 		                  <td><div class="box_legenda_cor cor_pacote_fechado"></div></td>
 		                  <td class="txt_legenda">Pacote Fechado</td>
+		                  <td><div class="box_legenda_cor cor_media_temporada"></div></td>
+		                  <td class="txt_legenda">Média Temporada</td>
+		                  <td><div class="box_legenda_cor cor_alta_temporada"></div></td>
+		                  <td class="txt_legenda">Alta Temporada</td>
+		                </tr>
+						<!--
+		                <tr>
+		                   <td><div class="box_legenda_cor cor_bloqueado"></div></td>
+		                  <td class="txt_legenda">Bloqueado</td> 
 		                  <td><div class="box_legenda_cor cor_alta_temporada"></div></td>
 		                  <td class="txt_legenda">Alta Temporada</td>
 		                  <td>&nbsp;</td>
 		                  <td>&nbsp;</td>
 		                </tr>
+						--> 
 		                </table>
 		            <!-- ******* -->
 		    </td>
@@ -473,7 +476,7 @@ function somaDias( txtData, DiasAdd )
 	     		</tr>
 	     		<tr>
 	     			<td>	       		
-			       		<div class="sep10"><html:select property="tipoAnuncio" styleId="tipoAnuncio">
+			       		<div class="sep10"><html:select property="tipoAnuncio" styleId="tipoAnuncio" onchange="selecionarTipoDispo()">
 							<html:options collection="tiposAnuncio" property="codigo" labelProperty="nome"/>
 						</html:select></div></td>
 	       			<td class="iddiarias"><div class="sep10"><html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" styleId="tarifaDiaria" maxlength="10" size="70" style="width:100px;" /></div></td>
@@ -646,7 +649,7 @@ function somaDias( txtData, DiasAdd )
 	</table>	    
 </div> <!-- Fim formulario_edicao2 -->
 <br><br>
-<div class="btnSalvarEdicao"><input type="image" src="/buzkaza/_img/btnSalvar.jpg" width="265" height="50" border="0"/></div>
+<div class="btnSalvarEdicao"><a href="javascript:void(0)"><img src="/buzkaza/_img/btnSalvar.jpg" width="265" height="50" border="0" id="botao_salvar_dispo"/></a></div>
 
 </html:form>
 
