@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Buzkaza</title>
+<title>Buzkaza - em casa, onde estiver</title>
 
 	<script type="text/javascript" src="/buzkaza/topup/jquery-1.4.2.min.js" ></script>	
 	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
