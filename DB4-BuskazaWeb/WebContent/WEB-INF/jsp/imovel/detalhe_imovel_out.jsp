@@ -289,7 +289,24 @@ function somaDias( txtData, DiasAdd )
                 
             </div>     
         </div><!--fim top_detalhes-->
-        <div class="linha_sep_detalhes2"></div>
+        <div style="display:table;">
+        	<div class="linha_sep_detalhes2"></div>
+        	<div class="div_fotoprincipal"><img src="/buzkaza/imagens_usuarios/${imovel.planta.caminho}"  width="326" height="259" /></div>
+        	
+            <div class="tit_arialbullet">Equipamentos e Facilidades</div>
+            	<div style="width:100%; display:table; width:590px; margin-bottom:35px;">
+            	<logic:iterate name="imovel" property="equipamentos" id="equipamento">
+	  				<div class="box_equipamentos"><bean:write name="equipamento" property="nome"/></div>
+	  			</logic:iterate>				
+				<logic:empty name="imovel" property="equipamentos">
+	  				<span class="txt_cinza_detalhes">Não foram cadastrados equipamentos para esse imóvel. Após efetuar a reserva consulte o proprietário.</span>
+	  			</logic:empty>				
+            </div>
+            
+            <div class="tit_arialbullet">Condições de Pagamento no Check In</div>
+            
+            <div class="tit_arialbullet">Taxas Extras</div>
+        </div>
         
     </div>
 </div> 
@@ -315,10 +332,6 @@ function somaDias( txtData, DiasAdd )
 
   	<!--left-->
 	<div class="left_detalhe">
-
-	<div class="chamada_planta">Planta</div>
-	
-	<div class="planta_big"><img src="/buzkaza/imagens_usuarios/${imovel.planta.caminho}"  width="341" height="271" /></div>
 	
 	
 	<div class="mapa_big">	
@@ -358,20 +371,8 @@ function somaDias( txtData, DiasAdd )
 		<span class="txt_azul_peq_detalhes">Taxa Eletricidade</span>&nbsp;: <bean:write name="imovel" property="energia"/><br />
 		<span class="txt_azul_peq_detalhes">Taxa Limpeza</span>&nbsp;: <bean:write name="imovel" property="diarista"/><br />
 		<span class="txt_azul_peq_detalhes">Caução</span>&nbsp;: <bean:write name="imovel" property="calcao"/><br />
-		<br>	
+		<br>
 
-	  	
-	  	<br>
-		<logic:notEmpty name="imovel" property="equipamentos">
-	  		<span class="tit_azul_detalhes">Equipamentos</span><br/>
-	  		<logic:iterate name="imovel" property="equipamentos" id="equipamento">
-	  			<bean:write name="equipamento" property="nome"/><br>  		
-	  		</logic:iterate>
-	  	</logic:notEmpty>
-	  	<logic:empty name="imovel" property="equipamentos">
-	  		Não foram cadastrados equipamentos para esse imóvel
-	  	</logic:empty>
-	  	<br>
 	  	<logic:notEmpty name="imovel" property="tiposPagamento">
 	  		<span class="tit_azul_detalhes">Tipos de Pagamento:</span><br/>
 	  		<logic:iterate name="imovel" id="tipoPagamento" property="tiposPagamento">
