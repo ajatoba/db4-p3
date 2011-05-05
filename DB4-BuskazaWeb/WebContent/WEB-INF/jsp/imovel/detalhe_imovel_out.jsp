@@ -262,7 +262,7 @@ function somaDias( txtData, DiasAdd )
                 
                 <div class="div_sep_enderecos_detalhes">
                 <span class="arial12boldazul">Tipo de Imovel:</span><span class="txt_cinza_detalhes"> ${imovel.tipoImovel.nome}</span><br />
-                <span class="arial12boldazul">Quartos:</span><span class="txt_cinza_detalhes"> ${imovel.quartos}</span><br />
+                <span class="arial12boldazul">Quarto(s):</span><span class="txt_cinza_detalhes"> ${imovel.quartos}</span><br />
                 <span class="arial12boldazul">Metragem:</span><span class="txt_cinza_detalhes"> ${imovel.metragem}m<sup>2</sup></span><br />
                 </div>
                 
@@ -274,7 +274,7 @@ function somaDias( txtData, DiasAdd )
                 
                 <div class="div_sep_enderecos_detalhes_ult">
                 	<logic:notEmpty name="imovel" property="idiomas">
-	  					<span class="arial12boldazul">Idiomas:&nbsp;</span>
+	  					<span class="arial12boldazul">Idioma(s):&nbsp;</span>
 	  					<span class="txt_cinza_detalhes">
 	  					<logic:iterate name="imovel" property="idiomas" id="idioma">
 	  						<bean:write name="idioma" property="nome"/>,  		
@@ -283,12 +283,13 @@ function somaDias( txtData, DiasAdd )
 	  				</logic:notEmpty>
 	  				<!-- Caso não tenha nenhuma idioma cadastrado. -->
 	  				<logic:empty name="imovel" property="idiomas">
-	  					Português
+	  					<span class="arial12boldazul">Idioma(s):&nbsp;</span><span class="txt_cinza_detalhes">Português</span>
 	  				</logic:empty>
                 </div>
                 
             </div>     
         </div><!--fim top_detalhes-->
+        <div class="linha_sep_detalhes2"></div>
         
     </div>
 </div> 
