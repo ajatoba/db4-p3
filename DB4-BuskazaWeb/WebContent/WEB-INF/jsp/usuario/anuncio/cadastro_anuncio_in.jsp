@@ -305,116 +305,129 @@ function somaDias( txtData, DiasAdd )
 
 			  	</font>
 			<!-- ****************** -->
-			
-<div id="sep_top_reserva_fina"></div>
 
-<div id="formulario_edicao3">
-	<div class="formulario_edicao3">
-		<div class="txt_caracteristica">Datas e Tarifas cadastradas</div>
-		<div class="arial13Cinza">Veja abaixo as datas e tarifas cadastradas.</div>
-	</div>
-	<div class="left_formulario_">
-			<div id="container">
-			  <div id="multimonth"></div>
-			  <div id="data_duracao"></div>
-			</div>
-			
-			<script type="text/javascript" charset="utf-8">
-			
-			$(document).ready(function() {
-			  listaDadas();
-			});
-			
-			function listaDadas(){
-				<logic:iterate id="an" name="imovel" property="anuncios">
-			
-					<logic:equal name="an" property="tipoAnuncio.codigo" value="0">var color="#FFF"; </logic:equal>
-					<logic:equal name="an" property="tipoAnuncio.codigo" value="1">var color="#2980C5"; </logic:equal>			  		
-					<logic:equal name="an" property="tipoAnuncio.codigo" value="2">var color="#FF6D00"; </logic:equal>
-					<logic:equal name="an" property="tipoAnuncio.codigo" value="3">var color="#8DBF22"; </logic:equal>
-					<logic:equal name="an" property="tipoAnuncio.codigo" value="4">var color="#FFC600"; </logic:equal>
-					<logic:equal name="an" property="tipoAnuncio.codigo" value="5">var color="#D300FF"; </logic:equal>
-					<logic:equal name="an" property="tipoAnuncio.codigo" value="6">var color="#00D8FF"; </logic:equal>
-					
-					calcularData( '<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>', color);	
-				</logic:iterate>
-			
-				<logic:iterate id="bl" name="imovel" property="bloqueios">
-			
-					var color="#2980C5";
-					
-					calcularData( '<bean:write name="bl" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="bl" property="dataFinal" format="dd/MM/yyyy"/>', color);	
-				</logic:iterate>
-			
-				<logic:iterate id="rs" name="imovel" property="reservas">
-			
-					<logic:equal name="rs" property="status" value="1">
-					var color="#d62222";
-					
-					calcularData( '<bean:write name="rs" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="rs" property="periodoFinal" format="dd/MM/yyyy"/>', color);
-					</logic:equal>
-				</logic:iterate>
-			 }
-			
-			
-			</script>	
+	
+	<div id="sep_top_reserva_fina"></div>
+	
+	<div id="formulario_edicao3">
+		<div class="formulario_edicao3">
+			<div class="txt_caracteristica">Datas e Tarifas cadastradas</div>
+			<div class="arial13Cinza">Veja abaixo as datas e tarifas cadastradas.</div>
+		</div>
+
+		<div class="left_formulario_">
+				<div id="container">
+				  <div id="multimonth"></div>
+				  <div id="data_duracao"></div>
+				</div>
+				
+				<script type="text/javascript" charset="utf-8">
+				
+				$(document).ready(function() {
+				  listaDadas();
+				});
+				
+				function listaDadas(){
+					<logic:iterate id="an" name="imovel" property="anuncios">
+				
+						<logic:equal name="an" property="tipoAnuncio.codigo" value="0">var color="#FFF"; </logic:equal>
+						<logic:equal name="an" property="tipoAnuncio.codigo" value="1">var color="#2980C5"; </logic:equal>			  		
+						<logic:equal name="an" property="tipoAnuncio.codigo" value="2">var color="#FF6D00"; </logic:equal>
+						<logic:equal name="an" property="tipoAnuncio.codigo" value="3">var color="#8DBF22"; </logic:equal>
+						<logic:equal name="an" property="tipoAnuncio.codigo" value="4">var color="#FFC600"; </logic:equal>
+						<logic:equal name="an" property="tipoAnuncio.codigo" value="5">var color="#D300FF"; </logic:equal>
+						<logic:equal name="an" property="tipoAnuncio.codigo" value="6">var color="#00D8FF"; </logic:equal>
+						
+						calcularData( '<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>', color);	
+					</logic:iterate>
+				
+					<logic:iterate id="bl" name="imovel" property="bloqueios">
+				
+						var color="#2980C5";
+						
+						calcularData( '<bean:write name="bl" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="bl" property="dataFinal" format="dd/MM/yyyy"/>', color);	
+					</logic:iterate>
+				
+					<logic:iterate id="rs" name="imovel" property="reservas">
+				
+						<logic:equal name="rs" property="status" value="1">
+						var color="#d62222";
+						
+						calcularData( '<bean:write name="rs" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="rs" property="periodoFinal" format="dd/MM/yyyy"/>', color);
+						</logic:equal>
+					</logic:iterate>
+				 }
+				
+				
+				</script>
+		  	
+		  	
 		  	            
-		<table width="100%" border="0" cellspacing="0" class="box_legenda_info">
-		 <tr>
-		   <td class="txt_legenda" height="25" valign="top">Legenda:</td>
-		 </tr>
-		 <tr>
-		   <td>
-		            <!-- LEGENDA -->
-		                <table width="100%" border="0" cellspacing="1" cellpadding="0">
-		                <tr>
-		                  <td width="5%"><div class="box_legenda_cor cor_reservado"></div></td>
-		                  <td width="28%" class="txt_legenda">Reservado</td>
-		                  <td width="5%"><div class="box_legenda_cor cor_baixa_temporada"></div></td>
-		                  <td width="29%" class="txt_legenda">Baixa Temporada</td>
-		                  <td width="5%"><div class="box_legenda_cor cor_data_especial"></div></td>
-		                  <td width="28%" class="txt_legenda">Data Especial</td>
-		                </tr>
-		                <tr>
-		                 
-		                  <td><div class="box_legenda_cor cor_pacote_fechado"></div></td>
-		                  <td class="txt_legenda">Pacote Fechado</td>
-		                  <td><div class="box_legenda_cor cor_media_temporada"></div></td>
-		                  <td class="txt_legenda">Média Temporada</td>
-		                  <td><div class="box_legenda_cor cor_alta_temporada"></div></td>
-		                  <td class="txt_legenda">Alta Temporada</td>
-		                </tr>
-						<!--
-		                <tr>
-		                   <td><div class="box_legenda_cor cor_bloqueado"></div></td>
-		                  <td class="txt_legenda">Bloqueado</td> 
-		                  <td><div class="box_legenda_cor cor_alta_temporada"></div></td>
-		                  <td class="txt_legenda">Alta Temporada</td>
-		                  <td>&nbsp;</td>
-		                  <td>&nbsp;</td>
-		                </tr>
-						--> 
-		                </table>
-		            <!-- ******* -->
-		    </td>
-		 </tr>
-		</table>        
+				<table width="100%" border="0" cellspacing="0" class="box_legenda_info">
+				 <tr>
+				   <td class="txt_legenda" height="25" valign="top">Legenda:</td>
+				 </tr>
+				 <tr>
+				   <td>
+				            <!-- LEGENDA -->
+				                <table width="100%" border="0" cellspacing="1" cellpadding="0">
+				                <tr>
+				                  <td width="5%"><div class="box_legenda_cor cor_reservado"></div></td>
+				                  <td width="28%" class="txt_legenda">Reservado</td>
+				                  <td width="5%"><div class="box_legenda_cor cor_baixa_temporada"></div></td>
+				                  <td width="29%" class="txt_legenda">Baixa Temporada</td>
+				                  <td width="5%"><div class="box_legenda_cor cor_data_especial"></div></td>
+				                  <td width="28%" class="txt_legenda">Data Especial</td>
+				                </tr>
+				                <tr>
+				                 
+				                  <td><div class="box_legenda_cor cor_pacote_fechado"></div></td>
+				                  <td class="txt_legenda">Pacote Fechado</td>
+				                  <td><div class="box_legenda_cor cor_media_temporada"></div></td>
+				                  <td class="txt_legenda">Média Temporada</td>
+				                  <td>&nbsp;</td>
+				                  <td>&nbsp;</td>
+				                </tr>
+								<!--
+				                <tr>
+				                   <td><div class="box_legenda_cor cor_bloqueado"></div></td>
+				                  <td class="txt_legenda">Bloqueado</td> 
+				                  <td><div class="box_legenda_cor cor_alta_temporada"></div></td>
+				                  <td class="txt_legenda">Alta Temporada</td>
+				                  <td>&nbsp;</td>
+				                  <td>&nbsp;</td>
+				                </tr>
+								--> 
+				                </table>
+				            <!-- ******* -->
+				    </td>
+				 </tr>
+				</table>              
 		  	
 </div>
 <div class="right_formulario_">
+
+
+<div class="box_precos">
+
 	<logic:notEmpty name="imovel" property="anuncios">
 	   <table border="0" cellspacing="1" cellpadding="0" width="545">
 		  <tr class="tabela_preco">
 		    <td class="preco_data">De</td>
 		    <td class="preco_data">Até</td>
 		    <td class="preco_valor">Diária</td>
-		    <td class="preco_valor">Semanal</td>
+		    <td class="preco_valor">Semana</td>
 		    <td class="preco_valor">Quizenal</td>
 		    <td class="preco_valor">Mensal</td>
 		    <td class="preco_valor_pacote">Pacote Fechado</td>
 		    <td class="preco_valor_nada">&nbsp;</td> 
 		  </tr>
 	 <logic:iterate id="an" name="imovel" property="anuncios">
+	 
+	 
+		
+	
+	   
 	   	<tr>
 		    <td colspan="7" class="tabela_preco_data_info">
 		  		<!-- SETANDO A COR -->
@@ -452,11 +465,18 @@ function somaDias( txtData, DiasAdd )
 	   <logic:empty name="imovel" property="anuncios">
 	   <span class="txt_caracteristicas_desc">Ainda não há disponibilidade cadastrada para esse imóvel</span>
 	   </logic:empty>
-		</table>
-	</div>
+	
+	</table>
 </div>
-	
-	
+
+       </div>
+</div>
+
+
+
+
+
+
 <html:form method="post" styleId="anuncioForm" action="/usuario/anuncio?act=incluirAnuncio">
 	<input type="hidden" name="ci" value="${imovel.codigo}">
 	<br />
@@ -464,7 +484,10 @@ function somaDias( txtData, DiasAdd )
 		<div class="txt_caracteristica">Cadastrar Períodos</div>
 			<div class="arial13Cinza">No campo Pacote Fechado digite o valor total do pacote. Nos demais o valor da diária.</div>
 			<br />
-    		<table border="0" cellpadding="0" cellspacing="0">
+
+    	
+	    
+		<table border="0" cellpadding="0" cellspacing="0">
 	     		<tr class="txt_caracteristicas">
 	     			<td><div class="sep10">&nbsp;Período</div></td>
 	       			<td class="iddiarias"><div class="sep10">&nbsp;Diária</div></td>
@@ -487,14 +510,17 @@ function somaDias( txtData, DiasAdd )
 	     </tr>
     </table>
        
-       <table  border="0" cellpadding="0" cellspacing="0">
-                  <tr class="txt_caracteristicas">
-                    <td >&nbsp;De</td>
-                    <td >&nbsp;Até</td>
+       
+       
+       <table  border="0">
+                  <tr>
+                    <td class="txt_caracteristicas">&nbsp;De</td>
+                    <td class="txt_caracteristicas"><div class="sepdform2">Até</div></td>
+                    <td>&nbsp;</td>
                   </tr>
                   <tr>
                     <td><span class="txt_caracteristicas">
-						<div class="sep10">
+						<div class="seps">
 							<html:select property="diaDataInicial" title="dia" styleId="diaDataInicial" styleClass="MyriadProRegular,string" style="width:55px">
 								<html:option value="01">01</html:option>
 					            <html:option value="02">02</html:option>
@@ -529,7 +555,7 @@ function somaDias( txtData, DiasAdd )
 					            <html:option value="31">31</html:option>                            
 							</html:select>
 						</div>
-						<div class="sep10">
+						<div class="sepd">
 					        <html:select property="mesDataInicial" title="mesDataInicial" styleId="mesDataInicial" styleClass="MyriadProRegular,string">                        
 					            <html:option value="1">Janeiro</html:option>
 					            <html:option value="2">Fevereiro</html:option>
@@ -555,10 +581,9 @@ function somaDias( txtData, DiasAdd )
 					        </html:select>
 				        </div>
 				        
-                   		</span>
-                    </td>
+                        </span></td>
                     <td><span class="txt_caracteristicas">
-                      <div class="sep10">
+                      <div class="sepdform">
 						<html:select property="diaDataFinal" title="dia" styleId="diaDataFinal" styleClass="MyriadProRegular,string" style="width:55px">                        
 							<html:option value="01">01</html:option>
 				            <html:option value="02">02</html:option>
@@ -593,7 +618,7 @@ function somaDias( txtData, DiasAdd )
 				            <html:option value="31">31</html:option>                            
 						</html:select>
 						</div>
-						<div class="sep10">						
+						<div class="sepd">						
 					        <html:select property="mesDataFinal" title="mesDataInicial" styleId="mesDataFinal" styleClass="MyriadProRegular,string">                        
 					            <html:option value="1">Janeiro</html:option>
 					            <html:option value="2">Fevereiro</html:option>
@@ -609,7 +634,7 @@ function somaDias( txtData, DiasAdd )
 								<html:option value="12">Dezembro</html:option>                  
 							</html:select>
 				      	</div>				      	
-				      	<div class="sep10">				      	
+				      	<div class="sepd">				      	
 					      	<html:select property="anoDataFinal" title="Ano" styleId="anoDataFinal" styleClass="MyriadProRegular,string" style="width:60px;">
 					        	<html:option value="2011">2011</html:option>
 						        <html:option value="2012">2012</html:option>
@@ -618,11 +643,17 @@ function somaDias( txtData, DiasAdd )
 						        <html:option value="2015">2015</html:option>
 					        </html:select>
 						</div>
-                      </span>
-                  	</td>
+                      </span></td>
+                      <td><div class="sepd"><input type="submit" name="gravar" id="button5" value="Gravar" /></div></td>
+                      
                   </tr>
                 </table>
-</div>
+ </div>       
+        
+
+       
+      	
+
 <div class="divSep"></div>
 
 <div id="formulario_edicao2">
@@ -648,10 +679,20 @@ function somaDias( txtData, DiasAdd )
 		</tr>				                
 	</table>	    
 </div> <!-- Fim formulario_edicao2 -->
-<br><br>
+<br /><br />
 <div class="btnSalvarEdicao"><a href="javascript:void(0)"><img src="/buzkaza/_img/btnSalvar.jpg" width="265" height="50" border="0" id="botao_salvar_dispo"/></a></div>
 
-</html:form>
+
+	    
+</html:form>	    
+
+
+</div>
+</div>
+</div>
+
+</div>
+
 
 </div>
 </div>
@@ -660,3 +701,4 @@ function somaDias( txtData, DiasAdd )
 
 </body>
 </html>
+
