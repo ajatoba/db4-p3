@@ -468,11 +468,11 @@ function somaDias( txtData, DiasAdd )
 	       			<td class="iddiarias"><div class="sep10">&nbsp;Diária Semanal</div></td>
 	       			<td class="iddiarias"><div class="sep10">&nbsp;Diária Quinzenal</div></td>
 	       			<td class="iddiarias"><div class="sep10">&nbsp;Diária Mensal</div></td>	       
-	       			<td ><div class="sep10">&nbsp;Pacote Fechado</div></td>
+	       			<td class="idpacote"><div class="sep10">&nbsp;Pacote Fechado</div></td>
 	       			
 	     		</tr>
 	     		<tr>
-	     			<td >	       		
+	     			<td>	       		
 			       		<div class="sep10"><html:select property="tipoAnuncio" styleId="tipoAnuncio">
 							<html:options collection="tiposAnuncio" property="codigo" labelProperty="nome"/>
 						</html:select></div></td>
@@ -480,7 +480,7 @@ function somaDias( txtData, DiasAdd )
 	       			<td class="iddiarias"><div class="sep10"><html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" styleId="tarifaSemanal" maxlength="10" size="70" style="width:100px;" /></div></td>
 	       			<td class="iddiarias"><div class="sep10"><html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="70" style="width:100px;" /></div></td>
 	       			<td class="iddiarias"><div class="sep10"><html:text property="tarifaMensal" styleClass="number,MyriadProRegular" styleId="tarifaMensal" maxlength="10" size="70" style="width:100px;" /></div></td>
-	       			<td class="iddiarias"><div class="sep10"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70" style="width:100px;" /></div></td>
+	       			<td class="idpacote"><div class="sep10"><html:text property="tarifaPacoteFechado" styleClass="number,MyriadProRegular" styleId="tarifaPacote" maxlength="10" size="70" style="width:100px;" /></div></td>
 	     </tr>
     </table>
        
