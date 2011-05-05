@@ -13,6 +13,7 @@
 
 </head>
 <body>
+
 FOTOS DO IMÓVEL
 <br>
 <logic:present name="fotos">
