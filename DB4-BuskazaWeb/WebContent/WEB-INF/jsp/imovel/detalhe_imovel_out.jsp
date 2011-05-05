@@ -432,25 +432,8 @@ function listaDadas(){
                <div class="baixo"></div>
 </div>
 <!-- Fim LightBox Vídeo -->
-  	
-   	<!--right-->
-	<div class="right_detalhe">
-    	<span class="txt_cinza_detalhes">
-	  	
-	  	
-	  	<span class="txt_azul_peq_detalhes">Valor</span>&nbsp;:  <br /><br /> 	
-	  	
-	  	
-	  	
-	  	</span>
 
-
-	  	
-	</div>
-
-</div>
-
-</div>
+</div><!-- FIM cont_reserva -->
 
 <div class="bottom_formulario"></div>
 <div class="linha_cinza"></div>
