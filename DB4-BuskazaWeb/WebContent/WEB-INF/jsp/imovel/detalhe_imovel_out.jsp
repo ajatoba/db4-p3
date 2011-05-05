@@ -309,6 +309,11 @@ function somaDias( txtData, DiasAdd )
         	<div class="div_planta_calendario"><img src="/buzkaza/imagens_usuarios/${imovel.planta.caminho}"  width="326" height="259" /></div>        	
         	<div class="div_planta_calendario"><!-- Inicio Calendário Disponibilidades -->
         		<span class="arial12boldazul">Disponibilidades</span>
+        		
+        		<div id="container">
+				  <div id="multimonth"></div>
+				  <div id="data_duracao"></div>
+				</div>
         		<script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
   listaDadas();
