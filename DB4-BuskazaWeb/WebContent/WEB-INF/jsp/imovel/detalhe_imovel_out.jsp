@@ -223,7 +223,7 @@ function somaDias( txtData, DiasAdd )
     	<div class="tit_detalheimovel">Detalhes do Imóvel</div>
         <div id="sep_top_reserva2"></div>
         <div class="top_detalhes"><!--top_detalhes-->
-        	<div class="div_fotoprincipal"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="326" height="259" /></div> 	
+        	<div class="div_fotoprincipal"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="326" height="259" /></div>
             <div class="div_pagamento"><!--div_pagamento-->
             	<div class="check_inout"><!--check_inout-->
                 	<span class="arial12boldazul2">Período Selecionado:</span><br />
@@ -236,7 +236,7 @@ function somaDias( txtData, DiasAdd )
                     	<span class="data_check">${diaFinal}/${mesFinal}/${anoFinal}</span>
                     </div>                    
                 </div><!--fim check_inout-->
-                <div class="div_valor_amarela">Reserva (<span id="data_total"></span> dias): <strong>R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor )}"/></strong></div>
+                <div class="div_valor_amarela">Reserva (13 dias): <strong>R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor )}"/></strong></div>
         		<div class="div_valor_amarela">Sinal: <strong>R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor *15/100 )}"/></strong></div>
                 <div class="btn_reservar_detalhes">
                 	<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
@@ -253,16 +253,6 @@ function somaDias( txtData, DiasAdd )
                 	</html:form>
                 
             </div><!--fim div_pagamento-->
-            
-            <script type="text/javascript">
-        	<!-- 
-        		trocarImageDetalhe('<bean:write name="imovel" property="primeirafoto"/>');
-        	
-             	calcularData( '${diaInicial}/${mesInicial}/${anoInicial}', '${diaFinal}/${mesFinal}/${anoFinal}');
-          	-->
-          	</script>
-            
-            
             <div class="linha_sep_detalhes"></div>   
             <div class="div_enderecos_detalhes">
             	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
@@ -369,21 +359,35 @@ function listaDadas(){
 	  			</logic:empty>				
             </div>
             
+            <div style="width:100%; display:table; width:590px; margin-bottom:10px;">            	
+					<logic:notEmpty name="imovel" property="tiposPagamento">
             <div class="tit_arialbullet2">Condições de Pagamento no Check In</div>
             <div style="width:100%; display:table; width:590px; margin-bottom:10px;">
             	<div class="txt_cinza_detalhes">Opções aceitas pelo proprietário no Check in para o pagamento da tarifa e taxas extras.</div>
             </div>
-            <div style="width:100%; display:table; width:590px; margin-bottom:10px;">            	
-					<logic:notEmpty name="imovel" property="tiposPagamento">
 					<div class="box_equipamentos">
 	  					<logic:iterate name="imovel" id="tipoPagamento" property="tiposPagamento">
 	  						<bean:write name="tipoPagamento" property="nome"/>	
 	  					</logic:iterate>
 	  				</div>
-	  				</logic:notEmpty> 				
+	  				</logic:notEmpty>	  					
 				<logic:empty name="imovel" property="tiposPagamento">
 	  				<span class="txt_cinza_detalhes">Não foram cadastrados tipos de pagamento para esse imóvel. Após efetuar a reserva, consulte o proprietário.</span>
 	  			</logic:empty>
+	  			
+	  			 
+	  			<logic:notEmpty name="imovel" property="tiposPagamento">
+	  						<span class="tit_azul_detalhes">TIPOS DE PAGAMENTO</span><br/>
+	  						<logic:iterate name="imovel" id="tipoPagamento" property="tiposPagamento">
+	  						<bean:write name="tipoPagamento" property="nome"/><br> 		
+	  						</logic:iterate>
+	  					</logic:notEmpty>
+	  					
+	  	<logic:empty name="imovel" property="tiposPagamento">
+	  		Não foram cadastrados tipos de pagamento para esse imóvel
+	  	</logic:empty>
+
+	  					
             			             
             </div>
             <div style="width:100%; display:table; width:590px; margin-bottom:35px;">
