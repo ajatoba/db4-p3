@@ -176,7 +176,8 @@ function abrirPop(url){
 								        <td>Capacidade</td>
 								      </tr>
 								      <tr class="txt_caracteristicas">
-								      	<td width="160"><input type="text" name="distanciaCentro"  property="distanciaCentro" size="100" style="width:90px;"> <div class="sept">&nbsp;&nbsp;km</div></td>
+								      	<td width="160">
+								      	<html:text name="imovel" property="distanciaCentro"  size="100" style="width:90px;"/><div class="sept">&nbsp;&nbsp;km</div></td>
 								      	<td width="146">
 								        	<html:select name="imovel" property="metragem" styleId="metragem" style="width:103px;">
 								      			<html:option value="20.0">20m</html:option>
