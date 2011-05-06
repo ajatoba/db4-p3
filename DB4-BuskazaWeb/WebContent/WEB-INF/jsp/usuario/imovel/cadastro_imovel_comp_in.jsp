@@ -169,7 +169,7 @@ function abrirPop(url){
 				  
 			      <tr>
 				     <td>
-									<table width="100%" border="0">
+							<table width="100%" border="0">
 								      <tr class="txt_caracteristicas">
 								        <td>Distância do centro</td>
 								        <td>Metragem</td>
