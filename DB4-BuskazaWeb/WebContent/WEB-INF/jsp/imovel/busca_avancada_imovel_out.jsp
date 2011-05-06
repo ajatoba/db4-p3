@@ -137,7 +137,7 @@
 <div id="conteudo_result_busca">
 
 <div id="top_resultado">
-	<div class="retorno_busca"><span class="MyriadPro14"> Sua busca retornou: <bean:write name="resultado"/> resultado(s)</span></div>	
+	<div class="retorno_busca"><span class="MyriadPro14"> Sua busca retornou: <bean:write name="resultado"/> imóveis</span></div>	
 	<div class="ordenacao_busca"><br /></div>
 </div>
 
@@ -228,7 +228,7 @@
                   
 							<span class="txt_form_titulo">${ims.key.tipoImovel.nome}</span><br />
 							<span class="txt_form_titulo">Quartos:</span> <bean:write name="ims" property="key.quartos"/><br />
-							<span class="txt_form_titulo">Metragem:</span> <bean:write name="ims" property="key.metragem"/>km<br />
+							<span class="txt_form_titulo">Metragem:</span> <bean:write name="ims" property="key.metragem"/>m2<br />
 							<span class="txt_form_titulo">Capacidade:</span> <bean:write name="ims" property="key.capacidade"/> pessoa(s)<br />
 							<!-- <span class="txt_form_titulo">Proprietário:</span> <bean:write name="ims" property="key.usuarioProprietario.nome"/><br />-->
 	                    	
