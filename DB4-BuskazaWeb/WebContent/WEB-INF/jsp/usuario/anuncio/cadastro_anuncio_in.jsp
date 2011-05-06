@@ -370,7 +370,7 @@ function somaDias( txtData, DiasAdd )
 				 <tr>
 				   <td>
 				            <!-- LEGENDA -->
-				                <table width="100%" border="0" cellspacing="1" cellpadding="0">
+				                <table width="326" border="0" cellspacing="1" cellpadding="0">
 				                <tr>
 				                  <td width="5%"><div class="box_legenda_cor cor_reservado"></div></td>
 				                  <td width="28%" class="txt_legenda">Reservado</td>
