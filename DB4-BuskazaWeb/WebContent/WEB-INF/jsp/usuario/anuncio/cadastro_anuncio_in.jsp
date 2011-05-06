@@ -365,7 +365,7 @@ function somaDias( txtData, DiasAdd )
 		  	            
 				<table width="100%" border="0" cellspacing="0" class="box_legenda_info">
 				 <tr>
-				   <td class="txt_legenda" height="25" valign="top">Legenda:</td>
+				   <td class="txt_legenda" height="20" valign="top">Legenda:</td>
 				 </tr>
 				 <tr>
 				   <td>
