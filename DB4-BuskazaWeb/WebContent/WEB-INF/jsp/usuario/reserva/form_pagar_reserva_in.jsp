@@ -10,7 +10,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Buzkaza - Pagar Reserva</title>
+	<title>Buzkaza - em casa, onde estiver</title>
 	
 	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/cadastro.css"/>
 
@@ -76,7 +76,7 @@
 			    </td>
 			    <td width="42%" valign="top">
 				    <span class="txt_cinza_detalhes">
-				      	Distância do centro: ${reservaPagar.imovel.distanciaCentro}<br />
+				      	Distância do centro: ${reservaPagar.imovel.distanciaCentro}Km<br />
 				      	<!-- 
 					    <a href='${reservaPagar.imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
 					    <a href='${reservaPagar.imovel.linkYouTube}' class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
@@ -185,24 +185,15 @@
 
 <span class="titulo_azul">Pagamento</span><br /><br />
 
-<strong>Sinal(10%)</strong><br />
-O pagamento pagamento pagamento pagamento pagamento pagamento<br /><br />
+<strong>Sinal</strong><br />
+O Sinal deverá ser pago na confirmação da reserva. Este valor é referente a taxa de transação do Buzkaza.
+<br /><br />
 
 <strong>Saldo no check in</strong><br />
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-
+O Saldo será pago diretamente ao proprietário, conforme instruções de pagamento.
 <br /><br />
+
+
 </div>
 <div id="sep_top_reserva"></div>
 
