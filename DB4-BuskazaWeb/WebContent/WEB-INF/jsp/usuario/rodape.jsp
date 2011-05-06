@@ -13,26 +13,18 @@
           <div class="txt_box_facil_alugar">Encontre seu imóvel em mais de 100 destinos.</div>
         </div>
         <div class="boxes_facil_alugar_01">
-          <div class="tit_box_facil_alugar">Um sistema de pagamento seguro</div>
-          <div class="txt_box_facil_alugar">Moip e PayPal, aceitos no Brasil e no mundo.</div>
-        </div>
-        <div class="boxes_facil_alugar_02">
-          <div class="tit_box_facil_alugar">Escolha sem dúvida</div>
-          <div class="txt_box_facil_alugar">Analise a planta do imóvel, fotos e facilidades.</div>
+          <div class="tit_box_facil_alugar">Sistema de pagamento seguro</div>
+          <div class="txt_box_facil_alugar">Moip mais de 15 opções de pagamento.</div>
         </div>
       </div>
       <div class="linha2_facil_alugar">
-        <div class="boxes_facil_alugar_01">
-          <div class="tit_box_facil_alugar">Faça a reserva online!</div>
-          <div class="txt_box_facil_alugar">Gostou? Faça sua reserva imediatamente.</div>
-        </div>
-        <div class="boxes_facil_alugar_01">
-          <div class="tit_box_facil_alugar">Disponível em 6 idiomas</div>
-          <div class="txt_box_facil_alugar">Abrangência nas Américas e Europa.</div>
+		<div class="boxes_facil_alugar_01">
+          <span class="tit_box_facil_alugar">Faça a reserva online!</span><br />
+          <span class="txt_box_facil_alugar">Gostou? Faça sua reserva imediatamente.</span>
         </div>
         <div class="boxes_facil_alugar_02">
-          <div class="tit_box_facil_alugar">Participe!</div>
-          <div class="txt_box_facil_alugar">Conheça a opinião de quem já se hospedou e dê a sua!</div>
+          <span class="tit_box_facil_alugar">Escolha sem dúvida</span><br />
+          <span class="txt_box_facil_alugar">Analise a planta do imóvel, fotos e facilidades.</span>
         </div>
       </div>
     </div>
