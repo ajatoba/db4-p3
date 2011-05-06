@@ -357,7 +357,13 @@ function listaDadas(){
 				</script>
         	</div><!-- Fim Calendário Disponibilidades -->
         	<div class="div_legendas">
-        	<!-- LEGENDA -->
+        	<table width="100%" border="0" cellspacing="0" class="box_legenda_info">
+				 <tr>
+				   <td class="txt_legenda" height="20" valign="top">Legenda:</td>
+				 </tr>
+				 <tr>
+				   <td>
+				            <!-- LEGENDA -->
 				                <table width="326" border="0" cellspacing="1" cellpadding="0">
 				                <tr>
 				                  <td width="5%"><div class="box_legenda_cor cor_reservado"></div></td>
@@ -387,6 +393,10 @@ function listaDadas(){
 				                </tr>
 								--> 
 				                </table>
+				            <!-- ******* -->
+				    </td>
+				 </tr>
+				</table>
         	</div><!-- Inicio Legendas -->
         </div> <!-- FIM Planta e Disponibilidades -->
 
