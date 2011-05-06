@@ -14,7 +14,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Buzkaza - Incluir Reserva</title>
+<title>Buzkaza - em casa, onde estiver</title>
 
 <link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
 
@@ -97,7 +97,7 @@ $(document).ready(function()
 			    </td>
 			    <td width="42%" valign="top">
 				    <span class="txt_cinza_detalhes">
-				      	Distância do centro: ${reserva.imovel.distanciaCentro}<br />
+				      	Distância do centro: ${reserva.imovel.distanciaCentro}Km<br />
 					    					    
 					    
 					    
