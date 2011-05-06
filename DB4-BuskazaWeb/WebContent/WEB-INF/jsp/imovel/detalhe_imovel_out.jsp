@@ -357,7 +357,7 @@ function listaDadas(){
 				</script>
         	</div><!-- Fim Calendário Disponibilidades -->
         	<div class="div_legendas">
-        	<table width="100%" border="0" cellspacing="0" class="box_legenda_info">
+        	<table width="100%" border="0" cellspacing="0" class="box_legenda_info_detalhes">
 				 <tr>
 				   <td class="txt_legenda" height="20" valign="top">Legenda:</td>
 				 </tr>
