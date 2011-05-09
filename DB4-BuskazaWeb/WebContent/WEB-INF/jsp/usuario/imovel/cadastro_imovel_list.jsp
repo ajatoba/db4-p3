@@ -95,14 +95,11 @@ $(function(){
 		    <logic:equal name="ims" property="status" value="0">Em análise &nbsp;&nbsp;</logic:equal>    
 		    <logic:equal name="ims" property="status" value="2"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}" class="link_azul">Editar Anúncio</a> &nbsp;&nbsp;
 	    			<a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=formCadastroAnuncio&ci=${ims.codigo}" class="link_azul">Disponibilidade/Preços</a> &nbsp;&nbsp;		    	
-		    	
-		    	<logic:notEmpty name="ims" property="reservas">
+		    	 
 		    			<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_historico_${ims.codigo}' class="thickbox link_azul">Histórico de Reservas</a> &nbsp;&nbsp;
-		    	</logic:notEmpty>
 		    	
 		    	
 		    </logic:equal>    
-		    <logic:notEmpty name="ims" property="anuncios"><!-- <a href="/DB4-BuskazaWeb/usuario/anuncio.do?act=listarAnunciosImovel&ci=${ims.codigo}" class="link_azul">Ver Disponibilidade</a>--> </logic:notEmpty>
 		    <logic:equal name="ims" property="status" value="1"><a href="/DB4-BuskazaWeb/usuario/imovel.do?act=formIncluirImovelComp&ci=${ims.codigo}" class="link_azul">Editar Anúncio</a> &nbsp;&nbsp; </logic:equal>
 		  	<a href="javascript:excluirAnuncio('imovelForm${ims.codigo}')" class="link_azul">Excluir Anúncio</a>
 		  	 <!-- <html:submit> Excluir Imóvel </html:submit> -->  
@@ -110,7 +107,6 @@ $(function(){
 		  
 		</div>
 		
-			<logic:notEmpty name="ims" property="reservas">
 					<div class="status_anuncio">
 							<div class="verde_anuncio">
 								
@@ -150,7 +146,6 @@ $(function(){
 			       </div>
 					
 					
-			</logic:notEmpty>
 			
 		</div>      
 		<div id="separator_listagem"></div>
