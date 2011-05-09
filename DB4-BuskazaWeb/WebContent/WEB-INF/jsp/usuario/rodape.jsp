@@ -5,29 +5,27 @@
 <!--BOX BOTTOM-->
 <div id="boxes_bottom">
   <div class="box_facil_alugar">
-    <div class="conteudo_facil_alugar">
       <div class="tit_facil_alugar">Veja como é fácil alugar no Buzkaza!</div>
       <div class="linha1_facil_alugar">
         <div class="boxes_facil_alugar_01">
           <div class="tit_box_facil_alugar">Máxima Variedade</div>
           <div class="txt_box_facil_alugar">Encontre seu imóvel em mais de 100 destinos.</div>
         </div>
-        <div class="boxes_facil_alugar_01">
+        <div class="boxes_facil_alugar_02">
           <div class="tit_box_facil_alugar">Sistema de pagamento seguro</div>
           <div class="txt_box_facil_alugar">Moip mais de 15 opções de pagamento.</div>
-        </div>
+        </div>        
       </div>
       <div class="linha2_facil_alugar">
-		<div class="boxes_facil_alugar_01">
-          <span class="tit_box_facil_alugar">Faça a reserva online!</span><br />
-          <span class="txt_box_facil_alugar">Gostou? Faça sua reserva imediatamente.</span>
+        <div class="boxes_facil_alugar_01">
+          <div class="tit_box_facil_alugar">Faça a reserva online!</div>
+          <div class="txt_box_facil_alugar">Gostou? Faça sua reserva imediatamente.</div>
         </div>
         <div class="boxes_facil_alugar_02">
-          <span class="tit_box_facil_alugar">Escolha sem dúvida</span><br />
-          <span class="txt_box_facil_alugar">Analise a planta do imóvel, fotos e facilidades.</span>
+          <div class="tit_box_facil_alugar">Escolha sem dúvida</div>
+          <div class="txt_box_facil_alugar">Analise a planta do imóvel, fotos e facilidades.</div>
         </div>
       </div>
-    </div>
   </div>
   <div class="box_bnn">
     <div class="bnn_01"><img src="/buzkaza/_img/bnn_01.jpg" width="433" height="136" /></div>
