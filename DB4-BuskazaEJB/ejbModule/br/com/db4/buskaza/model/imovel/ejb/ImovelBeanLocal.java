@@ -26,6 +26,8 @@ public interface ImovelBeanLocal {
 	
 	public Imovel getImovelEditar(Integer codigoImovel);
 	
+	public Imovel getImovelDetalhes(Integer codigoImovel);
+	
 	public List<Imovel> listarImoveisPorStatus(int Status);
 	
 }

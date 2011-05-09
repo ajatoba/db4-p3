@@ -259,7 +259,7 @@ public class ImovelBean implements ImovelBeanLocal {
 		c.add(Restrictions.eq("codigo", codigoImovel));
 		
 		c.setFetchMode("fotos", FetchMode.LAZY);	
-		c.setFetchMode("equipamentos", FetchMode.EAGER);
+		c.setFetchMode("equipamentos", FetchMode.LAZY);
 		c.setFetchMode("idiomas", FetchMode.LAZY);
 		
 		c.setCacheable(true);
@@ -268,6 +268,41 @@ public class ImovelBean implements ImovelBeanLocal {
 
 		return (Imovel) c.uniqueResult();
 	}
+	
+	
+	
+	public Imovel getImovelDetalhes(Integer codigoImovel){
+		
+		Session session;  
+		if (em.getDelegate() instanceof EntityManagerImpl) {  
+		  EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
+		  session = entityManagerImpl.getSession();  
+		} else {  
+		  session = (Session) em.getDelegate();  
+		}
+		
+		Criteria c = session.createCriteria(Imovel.class);
+		c.add(Restrictions.eq("codigo", codigoImovel));
+		
+		c.setFetchMode("fotos", FetchMode.LAZY);	
+		c.setFetchMode("equipamentos", FetchMode.LAZY);
+		c.setFetchMode("idiomas", FetchMode.LAZY);
+		c.setFetchMode("anuncios", FetchMode.LAZY);
+		c.setFetchMode("tiposPagamento", FetchMode.LAZY);		
+		c.setFetchMode("reservas", FetchMode.LAZY);
+		
+		
+		
+		c.setCacheable(true);
+		c.setCacheMode(CacheMode.NORMAL);
+
+
+		return (Imovel) c.uniqueResult();
+	}
+	
+	
+	
+	
 	
 	public Integer alterarImovel(Imovel imovel){		
 		if(!em.contains(imovel))
