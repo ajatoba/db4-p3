@@ -11,11 +11,13 @@ import javax.persistence.PersistenceContext;
 
 import org.hibernate.CacheMode;
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.ejb.EntityManagerImpl;
+import org.hibernate.sql.JoinFragment;
 import org.jboss.ejb3.annotation.LocalBinding;
 
 import br.com.db4.buskaza.model.entity.Anuncio;
@@ -35,13 +37,46 @@ public class ReservaBean implements ReservaBeanLocal {
 	public List<Reserva> listarReservas(Integer usuarioProprietario){
 		Session session;  
 		if (em.getDelegate() instanceof EntityManagerImpl) {  
+		  EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
+		  session = entityManagerImpl.getSession();  
+		} else {  
+		  session = (Session) em.getDelegate();  
+		}
+		Criteria c = session.createCriteria(Reserva.class);
+		c.setCacheable(true);
+		c.setCacheMode(CacheMode.NORMAL);
+		c.addOrder(Order.desc("dataReserva"));
+
+		c.setFetchMode("imovel", FetchMode.LAZY);
+
+		if (usuarioProprietario != null && usuarioProprietario > 0) { 
+
+		  c.add(Restrictions.eq("locatario.codigo", usuarioProprietario));
+		      
+		} 
+
+		Criteria joinImovel = c.createCriteria("imovel", JoinFragment.INNER_JOIN);        
+		joinImovel.setFetchMode("fotos", FetchMode.LAZY);
+
+
+		       
+		       c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
+		       return c.list(); 
+		}
+	/*
+	public List<Reserva> listarReservas(Integer usuarioProprietario){
+		Session session;  
+		if (em.getDelegate() instanceof EntityManagerImpl) {  
 		    EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
 		    session = entityManagerImpl.getSession();  
 		} else {  
 		    session = (Session) em.getDelegate();  
 		}
 		
-		Criteria c = session.createCriteria(Reserva.class); 
+		Criteria c = session.createCriteria(Reserva.class);
+		
+		c.setFetchMode("imovel", FetchMode.LAZY);
+		
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);	
 		c.addOrder(Order.desc("dataReserva"));
@@ -53,7 +88,7 @@ public class ReservaBean implements ReservaBeanLocal {
         
         c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
         return c.list(); 
-	}
+	}*/
 	
 	public List<Reserva> listarReservasImovel(Integer codigoImovel, int status){
 		
@@ -69,6 +104,7 @@ public class ReservaBean implements ReservaBeanLocal {
 		}
 		
 		Criteria c = session.createCriteria(Reserva.class); 
+		
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);	
 		c.addOrder(Order.desc("dataReserva"));

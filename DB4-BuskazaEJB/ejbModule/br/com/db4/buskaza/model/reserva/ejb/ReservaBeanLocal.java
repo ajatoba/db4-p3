@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.Reserva;
 
