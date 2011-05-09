@@ -32,7 +32,7 @@
     <div class="bottom_menu">
       <a href="/DB4-BuskazaWeb/imovel.do?act=formBuscarImovel"><div class="btn_alugar">alugar imóvel</div></a>
       <a href="/passo_1_imovel.html"><div class="btn_anunciar">anunciar imóvel</div></a>
-      <a href="http://www.buzkaza.com.br/blog/" target="_black"><div class="btn_blog">blogs</div></a>
+      <a href="http://www.buzkaza.com.br/blog/" target="_black"><div class="btn_blog">blog</div></a>
       
       <%if (session.getAttribute("usuario") != null) {%>
       
