@@ -520,7 +520,7 @@ function somaDias( txtData, DiasAdd )
                   </tr>
                   <tr>
                     <td><span class="txt_caracteristicas">
-						<div class="seps">
+						<div class="sep10">
 							<html:select property="diaDataInicial" title="dia" styleId="diaDataInicial" styleClass="MyriadProRegular,string" style="width:55px">
 								<html:option value="01">01</html:option>
 					            <html:option value="02">02</html:option>
@@ -555,7 +555,7 @@ function somaDias( txtData, DiasAdd )
 					            <html:option value="31">31</html:option>                            
 							</html:select>
 						</div>
-						<div class="sepd">
+						<div class="sep10">
 					        <html:select property="mesDataInicial" title="mesDataInicial" styleId="mesDataInicial" styleClass="MyriadProRegular,string">                        
 					            <html:option value="1">Janeiro</html:option>
 					            <html:option value="2">Fevereiro</html:option>
@@ -583,7 +583,7 @@ function somaDias( txtData, DiasAdd )
 				        
                         </span></td>
                     <td><span class="txt_caracteristicas">
-                      <div class="sepdform">
+                      <div class="sep10">
 						<html:select property="diaDataFinal" title="dia" styleId="diaDataFinal" styleClass="MyriadProRegular,string" style="width:55px">                        
 							<html:option value="01">01</html:option>
 				            <html:option value="02">02</html:option>
@@ -618,7 +618,7 @@ function somaDias( txtData, DiasAdd )
 				            <html:option value="31">31</html:option>                            
 						</html:select>
 						</div>
-						<div class="sepd">						
+						<div class="sep10">						
 					        <html:select property="mesDataFinal" title="mesDataInicial" styleId="mesDataFinal" styleClass="MyriadProRegular,string">                        
 					            <html:option value="1">Janeiro</html:option>
 					            <html:option value="2">Fevereiro</html:option>
@@ -634,7 +634,7 @@ function somaDias( txtData, DiasAdd )
 								<html:option value="12">Dezembro</html:option>                  
 							</html:select>
 				      	</div>				      	
-				      	<div class="sepd">				      	
+				      	<div class="sep10">				      	
 					      	<html:select property="anoDataFinal" title="Ano" styleId="anoDataFinal" styleClass="MyriadProRegular,string" style="width:60px;">
 					        	<html:option value="2011">2011</html:option>
 						        <html:option value="2012">2012</html:option>
@@ -644,19 +644,15 @@ function somaDias( txtData, DiasAdd )
 					        </html:select>
 						</div>
                       </span></td>
-                      <td><div class="sepd"><input type="submit" name="gravar" id="button5" value="Gravar" /></div></td>
                       
                   </tr>
                 </table>
- </div>       
-        
-
-       
-      	
-
+</div>
+ 
 <div class="divSep"></div>
 
 <div id="formulario_edicao2">
+	<html:hidden property="permitirEntrada" value="true"/>
 	<div class="txt_caracteristica">Opções de pagamento</div>
 	<div class="arial13Cinza">Opções aceitas pelo proprietário no Check in para o pagamento da tarifa e taxas extras.</div>
 	<table border="0" class="box_opcao_pag_info">
@@ -678,12 +674,10 @@ function somaDias( txtData, DiasAdd )
 			</td>
 		</tr>				                
 	</table>	    
-</div> <!-- Fim formulario_edicao2 -->
+</div>
+
 <br /><br />
 <div class="btnSalvarEdicao"><a href="javascript:void(0)"><img src="/buzkaza/_img/btnSalvar.jpg" width="265" height="50" border="0" id="botao_salvar_dispo"/></a></div>
-
-
-	    
 </html:form>	    
 
 
