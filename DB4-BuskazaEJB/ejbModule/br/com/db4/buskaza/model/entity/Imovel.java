@@ -36,7 +36,7 @@ public class Imovel implements Serializable{
 	@Column(name = "id_imovel")
 	private Integer codigo;
 		
-	@OneToMany(cascade = { CascadeType.PERSIST }, fetch=FetchType.EAGER)	
+	@OneToMany(cascade = { CascadeType.PERSIST }, fetch=FetchType.LAZY)	
 	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
 	private Collection<Foto> fotos;
 	
@@ -44,11 +44,11 @@ public class Imovel implements Serializable{
 	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
 	private Set<Anuncio> anuncios;
 	
-	@OneToMany(fetch=FetchType.EAGER)	
+	@OneToMany(fetch=FetchType.LAZY)	
 	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
 	private Set<Reserva> reservas;
 	
-	@OneToMany(fetch=FetchType.EAGER)	
+	@OneToMany(fetch=FetchType.LAZY)	
 	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
 	private Set<Bloqueio> bloqueios;
 	
@@ -89,11 +89,11 @@ public class Imovel implements Serializable{
 	
 	private String logradouro;
 	
-	@ManyToMany(fetch = FetchType.EAGER)	
+	@ManyToMany(fetch = FetchType.LAZY)	
 	@JoinTable(name ="tb_imovel_equipamento")    
 	private Set<Equipamento> equipamentos;
 	
-	@ManyToMany(fetch = FetchType.EAGER)	
+	@ManyToMany(fetch = FetchType.LAZY)	
 	@JoinTable(name ="tb_imovel_tipo_pagamento")    
 	private Set<TipoPagamento> tiposPagamento;
 	
@@ -151,7 +151,7 @@ public class Imovel implements Serializable{
 	@Lob
 	private String linkYouTube;
 	
-	@ManyToMany(fetch = FetchType.EAGER)	
+	@ManyToMany(fetch = FetchType.LAZY)	
 	@JoinTable(name ="tb_imovel_idioma")    
 	private Set<Idioma> idiomas;
 	
