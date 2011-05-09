@@ -64,6 +64,7 @@ function abrirPop(url){
 <jsp:include page="../topo.jsp"/>
 
 <div id="cont_reserva">
+
 	<div id="meio_reserva">
 		    <div class="top_reserva">
 		      	<div class="txt_meus_anuncios"><span class="MyriadPro24">Meus Anúncios</span><span class="MyriadPro18"> / Editar Anúncio</span></div>
@@ -73,10 +74,9 @@ function abrirPop(url){
 	
 	<div id="sep_top_reserva"></div>
 	
-	<div id="listagem_reservas">
-		<div class="topo_edicao">
-			<div class="mapa_planta_reserva"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="140" height="104" /></div>
-
+<div id="listagem_reservas">
+	<div class="topo_edicao">
+	<div class="mapa_planta_reserva"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="140" height="104" /></div>
 
 	<div class="endereco_bairro">
 			<table width="100%" border="0" > 
