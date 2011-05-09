@@ -17,37 +17,40 @@
 <title>Buzkaza - em casa, onde estiver</title>
 
 <link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
-
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css" />
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/size_campos.css"/>
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/detalhe_imovel.css"/>
-
 <link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
 <link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/tabs.css" media="screen"/>
-
-
 <script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
 <script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
 <link rel="stylesheet" type="text/css" href="/buzkaza/jqtransformplugin/jqtransform.css" media="all" />
-
 <script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>
 <script type="text/javascript" src="/buzkaza/_js/tabs.js"></script>
-
-
-
 <link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
 <script type="text/javascript" src="/buzkaza/_js/function.js"></script>
 <script type="text/javascript" src="/buzkaza/_js/function_calcular_data.js"></script>
-
 <script language="javascript">
-
 $(document).ready(function()
 {
 	$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
 }
 );
+</script>
+<script>
+$(function(){
+$('#sep_top_reserva').corner('rounded 7px');
+
+	$("#busca_home").corner("bottom 7px");
+	$("#mapa_").corner("bottom 7px");
+	});
+</script>
+<script>
+function abrirPop(url){
+	window.open(url,"fotos","menubar=0,resizable=0,width=600,height=500, scrollbars=1");
+}
 </script>
 </head>
 <body>
@@ -75,15 +78,15 @@ $(document).ready(function()
     <!-- ****************** -->
 
 <div id="meio_reserva">
-<div class="top_reserva">
-	<div class="txt_meus_anuncios">Solicitação de Reserva</div>
+	<div class="top_reserva">
+		<div class="txt_meus_anuncios"><span class="MyriadPro24">Solicitação de Reserva</span></div>
+	</div>
 </div>
 
-</div>
-<div id="sep_top_reserva_fina"></div>
+<div id="sep_top_reserva"></div>
+
 <div id="listagem_reservas">
-
-<div class="topo_edicao">
+	<div class="topo_edicao">
 	<div class="mapa_planta_reserva"><img src="/buzkaza/imagens_usuarios/${reserva.imovel.primeirafoto}" width="140" height="104" /></div>
 
 	<div class="endereco_bairro">
@@ -91,29 +94,35 @@ $(document).ready(function()
 			  <tr valign="top">
 			    <td width="58%" valign="top">
 			    	<span class="tit_azul_detalhes">${reserva.imovel.bairro}, ${reserva.imovel.municipio} - ${reserva.imovel.estado.codigo}</span><br />
-	    			<span class="txt_cinza_detalhes">${reserva.imovel.logradouro}, ${reserva.imovel.numero} - ${reserva.imovel.complemento} - Cep ${reserva.imovel.cep}<br />
-    					
-    					ID: ${reserva.imovel.usuarioProprietario.codigo}-${reserva.imovel.codigo}</span>
+	    			<span class="txt_cinza_detalhes">${reserva.imovel.logradouro}, ${reserva.imovel.numero} - ${reserva.imovel.complemento} - Cep ${reserva.imovel.cep}<br />    					
+    				<strong>ID do imóvel:</strong> ${reserva.imovel.usuarioProprietario.codigo}-${reserva.imovel.codigo}</span>
 			    </td>
 			    <td width="42%" valign="top">
 				    <span class="txt_cinza_detalhes">
-				      	Distância do centro: ${reserva.imovel.distanciaCentro}Km<br />
-					    					    
+				    	<span class="arial12boldazul">Perfil do Imóvel:</span> ${reserva.imovel.tipoImovel.nome}<br />
+				      	<span class="arial12boldazul">Distância do centro:</span> ${reserva.imovel.distanciaCentro}km<br />					    					    
 					    
-					    
+					    <div class="icons_admin">
 					    <logic:notEmpty name="reserva" property="imovel.linkGoogleMaps">
-								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
+								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe"><div class="icon_mapa_admin">Mapa</div></a>
 						</logic:notEmpty>
 						<logic:empty name="reserva" property="imovel.linkGoogleMaps">
-								Sem mapa<br />
+								<div class="icon_nomapa_admin">Sem mapa</div>
+						</logic:empty>		
+										
+						<logic:notEmpty name="reserva" property="imovel.linkYouTube">
+								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe"><div class="icon_youtube_admin">Vídeo</div></a>
+						</logic:notEmpty>						
+						<logic:empty name="reserva" property="imovel.linkYouTube">
+								<div class="icon_noyoutube_admin">Sem vídeo</div>
 						</logic:empty>
 						
-						<logic:notEmpty name="reserva" property="imovel.linkYouTube">
-								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
-						</logic:notEmpty>
-						<logic:empty name="reserva" property="imovel.linkYouTube">
-								Sem vídeo<br />
-						</logic:empty>
+						<a href='#TB_inline?height=570&amp;width=610&inlineId=thickbox_foto' class="thickbox"><div class="icon_fotos_admin">Fotos</div></a>
+						<div id="thickbox_foto" style="visibility:hidden; display:none;">			
+							<iframe src="/DB4-BuskazaWeb/imovel/foto.do?act=listarFotosImovel&ci=${reserva.imovel.codigo}" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_foto" noframeborder="0"  frameborder="0"></iframe>
+						</div>
+						
+						</div>
 					    
 					    
 					    <div id="thickbox_mapa" style="visibility:hidden; display:none;">            
@@ -151,7 +160,8 @@ $(document).ready(function()
 			</table>
 	</div>
 </div>
-<div id="sep_top_reserva"></div>
+
+<div id="sep_top_reserva_fina"></div>
 
 <div class="meio_calculo_reserva">
 
@@ -189,13 +199,13 @@ $(document).ready(function()
             <div class="box_data_reserva">
             		<ul class="data_reserva_ul">
                         <li class="data_texto1">Total</li>
-                        <li class="data_texto2" id="data_total"></li>
-                        <li class="data_texto3">
+                        <li class="data_texto2" id="data_total">                       
                         <script language="javascript">
                         <!--
                         		calcularData( '<bean:write name="reserva" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="reserva" property="periodoFinal" format="dd/MM/yyyy"/>');
                      	-->
                      	</script>
+                     	<li class="data_texto1">Dias</li>
                      	</li>
                     </ul>
             </div>
@@ -203,24 +213,18 @@ $(document).ready(function()
 </div>
 
 <div class="pagamento_info">
-
-<span class="titulo_azul">Pagamento</span><br /><br />
-
-<strong>Sinal</strong><br />
-O Sinal deverá ser pago na confirmação da reserva. Este valor é referente a taxa de transação do Buzkaza.
-<br /><br />
-
-<strong>Saldo no check in</strong><br />
-O Saldo será pago diretamente ao proprietário, conforme instruções de pagamento.
-<br /><br />
-
-
-
+	<span class="arial12boldazul">Pagamento</span><br /><br />
+	<strong>Sinal</strong><br />
+	O Sinal deverá ser pago na confirmação da reserva. Este valor é referente a taxa de transação do Buzkaza.
+	<br /><br />
+	<strong>Saldo no check in</strong><br />
+	O Saldo será pago diretamente ao proprietário, conforme instruções de pagamento.
+	<br /><br />
 </div>
 
-
-<div id="sep_top_reserva"></div>
-
+<br />
+<div id="sep_top_reserva_fina2"></div>
+<br />
 
 <html:form action="/usuario/reserva.do?act=incluirReserva" method="POST" >
 	    
@@ -236,8 +240,7 @@ O Saldo será pago diretamente ao proprietário, conforme instruções de pagamento.
 </logic:equal>
 <logic:notEqual name="reserva" property="imovel.permiteOpcaoPagamento" value="true">
 	<html:hidden property="valor" value="${reserva.valor}"/>
-</logic:notEqual>
-		    
+</logic:notEqual>	    
 
 		    
 <html:hidden property="codigoImovel" value="${reserva.imovel.codigo}"/> 
@@ -249,24 +252,16 @@ O Saldo será pago diretamente ao proprietário, conforme instruções de pagamento.
 <html:hidden property="anoPeriodoFinal" value="${(reserva.periodoFinal.year)+1900}"/>
 
 	    
-<div class="form_efeutar_pagamento">
-	<input value="Confirmar" type="image" src="/buzkaza/_img/btn_efetuar_pagamento.jpg" class="btn_efetuar_pagamento" />
+<div class="btnConfirmarReserva">
+	<input value="Confirmar" type="image" src="/buzkaza/_img/btn_confirmar_reserva.jpg" class="btn_efetuar_pagamento" />
 </div>
 
 </html:form>
 
+			</div>
+		</div>
+	</div>
 </div>
-
-</div>
-
-
-
-</div>
-
-</div>
-
-
-<br /><br />
 
 <jsp:include page="../rodape.jsp"/>
 
