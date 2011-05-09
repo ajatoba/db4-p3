@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
@@ -19,6 +20,7 @@ import javax.persistence.Query;
 import org.apache.log4j.jmx.Agent;
 import org.hibernate.CacheMode;
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.MatchMode;
@@ -70,7 +72,15 @@ public class ImovelBean implements ImovelBeanLocal {
 		    session = (Session) em.getDelegate();  
 		}
 		
-		Criteria c = session.createCriteria(Imovel.class); 
+		Criteria c = session.createCriteria(Imovel.class);
+		
+		c.setFetchMode("fotos", FetchMode.EAGER);
+		c.setFetchMode("anuncios", FetchMode.EAGER);
+		c.setFetchMode("reservas", FetchMode.EAGER);
+		c.setFetchMode("equipamentos", FetchMode.EAGER);
+		
+		
+		
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);
 		
@@ -83,16 +93,19 @@ public class ImovelBean implements ImovelBeanLocal {
         } 
         
         if (imovel.getEquipamentos() != null && imovel.getEquipamentos().size() > 0) { 
-        	Criteria joinEquipamento = c.createCriteria("equipamentos", JoinFragment.INNER_JOIN);	
+        	Criteria joinEquipamento = c.createCriteria("equipamentos", JoinFragment.INNER_JOIN);
+        	joinEquipamento.setFetchMode("equipamentos",FetchMode.LAZY);
         	joinEquipamento.add (Restrictions.in("codigo", UtilsCollections.listarPropriedadeInteger(imovel.getEquipamentos(),"codigo"))); 
         } 
         
         
         if (anuncio != null) { 
         	Criteria joinPeriodoAnuncio = c.createCriteria("anuncios", JoinFragment.LEFT_OUTER_JOIN);	
+        	joinPeriodoAnuncio.setFetchMode("anuncios", FetchMode.LAZY);
         	
         	if(anuncio.getTipoAnuncio() != null){
 	        	if(anuncio.getTipoAnuncio().getCodigo() != Constants.TIPO_ANUNCIO_PACOTE_FECHADO){
+	        		
 	        		joinPeriodoAnuncio.add (Restrictions.ne("tipoAnuncio.codigo", Constants.TIPO_ANUNCIO_PACOTE_FECHADO));//NÃO ACHA OS PACOTES FECHADOS
 	        	}else if (anuncio.getTipoAnuncio().getCodigo() == Constants.TIPO_ANUNCIO_PACOTE_FECHADO){
 	        		joinPeriodoAnuncio.add (Restrictions.eq("tipoAnuncio.codigo", Constants.TIPO_ANUNCIO_PACOTE_FECHADO));//SÓ ACHA OS PACOTES FECHADOS
@@ -160,9 +173,12 @@ public class ImovelBean implements ImovelBeanLocal {
 		    session = (Session) em.getDelegate();  
 		}
 		
-		Criteria c = session.createCriteria(Imovel.class); 
+		Criteria c = session.createCriteria(Imovel.class);
+		c.setFetchMode("fotos", FetchMode.EAGER);
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);	
+		
+		
 		
         if (usuarioProprietario != null && usuarioProprietario > 0) {        
         	c.add(Restrictions.eq("usuarioProprietario.codigo",usuarioProprietario)); 
@@ -203,8 +219,54 @@ public class ImovelBean implements ImovelBeanLocal {
 	
 	public Imovel getImovel(Integer codigoImovel){
 		
-		return em.find(Imovel.class, codigoImovel);
+		Session session;  
+		if (em.getDelegate() instanceof EntityManagerImpl) {  
+		  EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
+		  session = entityManagerImpl.getSession();  
+		} else {  
+		  session = (Session) em.getDelegate();  
+		}
 		
+		Criteria c = session.createCriteria(Imovel.class);
+		c.add(Restrictions.eq("codigo", codigoImovel));
+		
+		c.setFetchMode("fotos", FetchMode.LAZY);
+		c.setFetchMode("anuncios", FetchMode.LAZY);
+		c.setFetchMode("tiposPagamento", FetchMode.LAZY);		
+		c.setFetchMode("reservas", FetchMode.LAZY);
+		
+		c.setCacheable(true);
+		c.setCacheMode(CacheMode.NORMAL);
+
+
+		return (Imovel) c.uniqueResult();
+	}
+	
+	
+	
+	
+	public Imovel getImovelEditar(Integer codigoImovel){
+		
+		Session session;  
+		if (em.getDelegate() instanceof EntityManagerImpl) {  
+		  EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
+		  session = entityManagerImpl.getSession();  
+		} else {  
+		  session = (Session) em.getDelegate();  
+		}
+		
+		Criteria c = session.createCriteria(Imovel.class);
+		c.add(Restrictions.eq("codigo", codigoImovel));
+		
+		c.setFetchMode("fotos", FetchMode.LAZY);	
+		c.setFetchMode("equipamentos", FetchMode.EAGER);
+		c.setFetchMode("idiomas", FetchMode.LAZY);
+		
+		c.setCacheable(true);
+		c.setCacheMode(CacheMode.NORMAL);
+
+
+		return (Imovel) c.uniqueResult();
 	}
 	
 	public Integer alterarImovel(Imovel imovel){		
