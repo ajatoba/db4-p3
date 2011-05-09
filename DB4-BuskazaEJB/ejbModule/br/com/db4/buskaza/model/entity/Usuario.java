@@ -61,7 +61,7 @@ public class Usuario extends Pessoa implements Serializable {
 	protected boolean confirmado;
 	
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_usuario_proprietario")
 	protected Set<Imovel> imoveis;
 	
