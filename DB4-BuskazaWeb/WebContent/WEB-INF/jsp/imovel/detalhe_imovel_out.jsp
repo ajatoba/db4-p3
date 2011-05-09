@@ -17,16 +17,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Buzkaza - em casa, onde estiver</title>
 
-	<link href="/buzkaza/_css/detalhe_imovel.css" rel="stylesheet" type="text/css"/>
-	<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
-	<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
-	<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/_css/detalhe_imovel.css" rel="stylesheet" type="text/css"/>
+<link href="/buzkaza/_css/cadastro.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/_css/reserva.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/_css/estilo.css" rel="stylesheet" type="text/css" />
 	
-	<script type="text/javascript" src="/buzkaza/_js/jquery-1.4.2.min.js" ></script>
-	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
-	<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>	
-	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
-	<script type="text/javascript" src="/buzkaza/_js/function_calcular_data.js"></script>
+<script type="text/javascript" src="/buzkaza/_js/jquery-1.4.2.min.js" ></script>
+<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
+<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>	
+<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+<script type="text/javascript" src="/buzkaza/_js/function_calcular_data.js"></script>
 	
 	<!-- calendário -->
 		<script type="text/javascript" charset="utf-8" src="/buzkaza/_js/date.js"></script>
@@ -258,7 +258,6 @@ function somaDias( txtData, DiasAdd )
             <script language="javascript">
             <!--
             	trocarImageDetalhe('<bean:write name="imovel" property="primeirafoto"/>');
-
             	calcularDataDetalhe( '${diaInicial}/${mesInicial}/${anoInicial}' , '${diaFinal}/${mesFinal}/${anoFinal}');
         	-->
             </script>
@@ -268,7 +267,7 @@ function somaDias( txtData, DiasAdd )
             	<span class="tit_azul_detalhes">${imovel.bairro}, ${imovel.municipio} - ${imovel.estado.codigo}</span><br />
                 <span class="arial13Cinza">
                 	${imovel.logradouro}, ${imovel.numero} - ${imovel.complemento} - Cep ${imovel.cep}<br />
-					id: <bean:write name="imovel" property="usuarioProprietario.codigo"/>-<bean:write name="imovel" property="codigo"/><br /><br /></span>
+					ID do imóvel: <bean:write name="imovel" property="usuarioProprietario.codigo"/>-<bean:write name="imovel" property="codigo"/><br /><br /></span>
 					
 				<logic:notEmpty name="imovel" property="linkYouTube">
 				<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">
@@ -370,17 +369,16 @@ function listaDadas(){
 				                  <td width="28%" class="txt_legenda">Reservado</td>
 				                  <td width="5%"><div class="box_legenda_cor cor_baixa_temporada"></div></td>
 				                  <td width="29%" class="txt_legenda">Baixa Temporada</td>
-				                  <td width="5%"><div class="box_legenda_cor cor_data_especial"></div></td>
-				                  <td width="28%" class="txt_legenda">Data Especial</td>
-				                </tr>
-				                <tr>
-				                 
-				                  <td><div class="box_legenda_cor cor_pacote_fechado"></div></td>
-				                  <td class="txt_legenda">Pacote Fechado</td>
 				                  <td><div class="box_legenda_cor cor_media_temporada"></div></td>
 				                  <td class="txt_legenda">Média Temporada</td>
-				                  <td>&nbsp;</td>
-				                  <td>&nbsp;</td>
+				                </tr>
+				                <tr>
+								  <td><div class="box_legenda_cor cor_alta_temporada"></div></td>
+				                  <td class="txt_legenda">Alta Temporada</td>
+				                  <td><div class="box_legenda_cor cor_pacote_fechado"></div></td>
+				                  <td class="txt_legenda">Pacote Fechado</td>
+				                  <td width="5%"><div class="box_legenda_cor cor_data_especial"></div></td>
+				                  <td width="28%" class="txt_legenda">Data Especial</td>
 				                </tr>
 								<!--
 				                <tr>
@@ -425,9 +423,7 @@ function listaDadas(){
 	  			</logic:notEmpty>	  					
 				<logic:empty name="imovel" property="tiposPagamento">
 	  				<span class="txt_cinza_detalhes">Não foram cadastrados tipos de pagamento para esse imóvel. Após efetuar a reserva, consulte o proprietário.</span>
-	  			</logic:empty>
-
-	  					
+	  			</logic:empty>	  					
             			             
             </div>
             <div style="width:100%; display:table; width:590px; margin-bottom:35px;">
