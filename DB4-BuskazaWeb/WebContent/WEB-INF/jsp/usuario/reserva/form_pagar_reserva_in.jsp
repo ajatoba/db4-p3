@@ -9,34 +9,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Buzkaza - em casa, onde estiver</title>
-	
-	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/cadastro.css"/>
-
-	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
-	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css" />
-	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/size_campos.css"/>
-	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/detalhe_imovel.css"/>
-	
-	<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
-	<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
-
-	<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
-	<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
-	<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>	
-	
-	<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
-	<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
-	<script type="text/javascript" src="/buzkaza/_js/function_calcular_data.js"></script>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Buzkaza - em casa, onde estiver</title>	
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/cadastro.css"/>
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/reserva.css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/estilo.css" />
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/size_campos.css"/>
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/detalhe_imovel.css"/>	
+<link href="/buzkaza/jqtransformplugin/jqtransform.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/buzkaza/webfontkit-20101006-104039/stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="/buzkaza/webfontkit-20110225-090425/stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/buzkaza/requiered/jquery.js" ></script>
+<script type="text/javascript" src="/buzkaza/jqtransformplugin/jquery.jqtransform.js" ></script>
+<script type="text/javascript" src="/buzkaza/_js/jquery.corner.js" ></script>		
+<link rel="stylesheet" type="text/css" href="/buzkaza/_css/menu_down.css" />
+<script type="text/javascript" src="/buzkaza/_js/function.js"></script>
+<script type="text/javascript" src="/buzkaza/_js/function_calcular_data.js"></script>
 <script>
 	$(function(){
 	
 	$('#sep_top_reserva').corner('rounded 7px');
 	
 	});			
+</script>
+<script>
+function abrirPop(url){
+	window.open(url,"fotos","menubar=0,resizable=0,width=600,height=500, scrollbars=1");
+}
 </script>
 </head>
 
@@ -45,56 +44,58 @@
 <!-- topo com linha azul -->
 <jsp:include page="../topo.jsp"/>
 
-
 <div id="cont_reserva2">
 
 <div id="meio_reserva">
-<div class="top_reserva">
-	<div class="txt_meus_anuncios">Pagar Reserva</div>
+	<div class="top_reserva">
+		<div class="txt_meus_anuncios"><span class="MyriadPro24">Efetuar Pagamento</span></div>
+	</div>
 </div>
 
-</div>
-<div id="sep_top_reserva_fina"></div>
+<div id="sep_top_reserva"></div>
 
 <div id="listagem_reservas">
-
-
 	<logic:present name="reservaPagar">
+		<div class="topo_edicao">
+		<div class="mapa_planta_reserva"><img src="/buzkaza/imagens_usuarios/${reservaPagar.imovel.primeirafoto}" width="140" height="104" /></div>
 
-		
-<div class="topo_edicao">
-	<div class="mapa_planta_reserva"><img src="/buzkaza/imagens_usuarios/${reservaPagar.imovel.primeirafoto}" width="140" height="104" /></div>
-
-	<div class="endereco_bairro">
+		<div class="endereco_bairro">
 			<table width="100%" border="0" > 
 			  <tr valign="top">
 			    <td width="58%" valign="top">
 			    	<span class="tit_azul_detalhes">${reservaPagar.imovel.bairro}, ${reservaPagar.imovel.municipio} - ${reservaPagar.imovel.estado.codigo}</span><br />
 	    			<span class="txt_cinza_detalhes">${reservaPagar.imovel.logradouro}, ${reservaPagar.imovel.numero} - ${reservaPagar.imovel.complemento} - Cep ${reservaPagar.imovel.cep}<br />
-    					
-    					ID: ${reservaPagar.imovel.usuarioProprietario.codigo}-${reservaPagar.imovel.codigo}</span>
+    				<strong>ID do imóvel:</strong> ${reservaPagar.imovel.usuarioProprietario.codigo}-${reservaPagar.imovel.codigo}</span>
 			    </td>
 			    <td width="42%" valign="top">
 				    <span class="txt_cinza_detalhes">
-				      	Distância do centro: ${reservaPagar.imovel.distanciaCentro}Km<br />
+				    	<span class="arial12boldazul">Perfil do Imóvel:</span> ${reservaPagar.imovel.tipoImovel.nome}<br />
+				      	<span class="arial12boldazul">Distância do centro:</span> ${reservaPagar.imovel.distanciaCentro}km<br />
 				      	<!-- 
 					    <a href='${reservaPagar.imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
 					    <a href='${reservaPagar.imovel.linkYouTube}' class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
 					     -->
-					    
+					    <div class="icons_admin">
 						<logic:notEmpty name="reservaPagar" property="imovel.linkGoogleMaps">
-								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe">Mapa(Google Maps)</a><br />
+								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_mapa' class="thickbox link_reserva_detalhe"><div class="icon_mapa_admin">Mapa</div></a>
 						</logic:notEmpty>
 						<logic:empty name="reservaPagar" property="imovel.linkGoogleMaps">
-								Sem mapa<br />
+								<div class="icon_nomapa_admin">Sem mapa</div>
 						</logic:empty>
 						
 						<logic:notEmpty name="reservaPagar" property="imovel.linkYouTube">
-								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe">Vídeo(YouTube)</a><br />
+								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe"><div class="icon_youtube_admin">Vídeo</div></a>
 						</logic:notEmpty>
 						<logic:empty name="reservaPagar" property="imovel.linkYouTube">
-								Sem vídeo<br />
+								<div class="icon_noyoutube_admin">Sem vídeo</div>
 						</logic:empty>
+						
+						<a href='#TB_inline?height=570&amp;width=610&inlineId=thickbox_foto' class="thickbox"><div class="icon_fotos_admin">Fotos</div></a>
+						<div id="thickbox_foto" style="visibility:hidden; display:none;">			
+							<iframe src="/DB4-BuskazaWeb/imovel/foto.do?act=listarFotosImovel&ci=${reserva.imovel.codigo}" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_foto" noframeborder="0"  frameborder="0"></iframe>
+						</div>
+						
+						</div>
 					    
 					    
 					    <div id="thickbox_mapa" style="visibility:hidden; display:none;">            
@@ -132,7 +133,8 @@
 			</table>
 	</div>
 </div>
-<div id="sep_top_reserva"></div>
+
+<div id="sep_top_reserva_fina"></div>
 
 <div class="meio_calculo_reserva">
 
@@ -142,7 +144,7 @@
                     <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${(( reservaPagar.valor + ( reservaPagar.valor *15/100)))}"/></div>
             </div>
             <div class="calculo_amarelo">
-                    <div class="calculo_total_info">Taxa de reserva:</div>
+                    <div class="calculo_total_info">Sinal:</div>
                     <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((reservaPagar.valor*15/100))}"/></div>
             </div>
             <div class="calculo_cinza">
@@ -169,37 +171,35 @@
             <div class="box_data_reserva">
             		<ul class="data_reserva_ul">
                         <li class="data_texto1">Total</li>
-                        <li class="data_texto2" id="data_total"></li>
-                        <li class="data_texto3">
+                        <li class="data_texto2" id="data_total">
                         <script language="javascript">
                         <!--
                         		calcularData( '<bean:write name="reservaPagar" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="reservaPagar" property="periodoFinal" format="dd/MM/yyyy"/>');
                      	-->
                      	</script>
                      	</li>
+                     	<li class="data_texto1">Dias</li>
                     </ul>
             </div>
     </div>
 </div>
+
 <div class="pagamento_info">
-
-<span class="titulo_azul">Pagamento</span><br /><br />
-
-<strong>Sinal</strong><br />
-O Sinal deverá ser pago na confirmação da reserva. Este valor é referente a taxa de transação do Buzkaza.
-<br /><br />
-
-<strong>Saldo no check in</strong><br />
-O Saldo será pago diretamente ao proprietário, conforme instruções de pagamento.
-<br /><br />
-
-
+	<span class="arial12boldazul">Pagamento</span><br /><br />
+	<strong>Sinal</strong><br />
+	O Sinal deverá ser pago na confirmação da reserva. Este valor é referente a taxa de transação do Buzkaza.
+	<br /><br />
+	<strong>Saldo no check in</strong><br />
+	O Saldo será pago diretamente ao proprietário, conforme instruções de pagamento.
+	<br /><br />
 </div>
-<div id="sep_top_reserva"></div>
+
+<br />
+<div id="sep_top_reserva_fina2"></div>
+<br />
 
 <div class="form_efeutar_pagamento">
-		<span class="titulo_azul">Forma de Pagamento</span><br /><br />
-		<table cellpadding="10" cellspacing="10">
+		<table cellpadding="0" cellspacing="0" align="right">
 		<tr>
 			<!--
 			<td>
@@ -241,7 +241,10 @@ O Saldo será pago diretamente ao proprietário, conforme instruções de pagamento.
 					
 					<input type="hidden" name="descricao" value="Aluguel do Imóvel de Código:${reservaPagar.imovel.codigo}">
 					<input type="hidden" name="url_retorno" value="http://www.buzkaza.com.br">
-					<a href="#" onclick="javascript:document.moip.submit();" border="0"><img src="http://www.moip.com.br/img/novas/moip.gif" border="0" width="70" height="35"/></a>
+					
+					<div class="btnEfetuarPagamento">
+					<a href="#" onclick="javascript:document.moip.submit();" border="0"><img src="/buzkaza/_img/btn_efetuar_pagamento.jpg" border="0" width="365" height="49"/></a>
+					</div>
 					
 				</form>
 				<script language="javascript">
@@ -261,9 +264,6 @@ O Saldo será pago diretamente ao proprietário, conforme instruções de pagamento.
 	<logic:notPresent name="reservaPagar">
 		Não é possível pagar essa reserva.
 	</logic:notPresent>
-
-
-<br /><br />
 
 
 <!--FIM CADASTRO-->
