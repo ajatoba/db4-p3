@@ -273,6 +273,7 @@ public class ImovelAction extends DispatchAction {
 		//Setando demais atributos do form
 		imovel.setCalcao(form.getCalcao());
 		
+		
 		if (form.getCamas() != null )
 			imovel.setCamas(form.getCamas());
 		
@@ -456,7 +457,7 @@ public class ImovelAction extends DispatchAction {
 			{
 				carregaListas(request);	
 				ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
-				Imovel imovel = imovelEjb.getImovel(Integer.parseInt(codigoImovel));
+				Imovel imovel = imovelEjb.getImovelEditar(Integer.parseInt(codigoImovel));
 				
 				ImovelForm imovelForm = (ImovelForm)form;	
 				
@@ -786,7 +787,7 @@ public class ImovelAction extends DispatchAction {
 				carregaListas(request);	
 				ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
 				
-				Imovel imovel = imovelEjb.getImovel(Integer.valueOf(codigoImovel));
+				Imovel imovel = imovelEjb.getImovelDetalhes(Integer.valueOf(codigoImovel));
 				
 				request.setAttribute("imovel", imovel);
 				
