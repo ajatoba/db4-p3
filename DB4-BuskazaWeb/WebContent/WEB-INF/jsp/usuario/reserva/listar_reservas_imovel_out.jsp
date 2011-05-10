@@ -72,12 +72,14 @@ function submitForm(status){
 			                
 			                
 			            </li>
-			            <!--  
-			            <li class="res_2"><a href="#" onclick="javascript:submitForm(1);" border="0"><img src="/buzkaza/_img/botao_confirmar.jpg" width="91" height="30" border="0"/></a></li>
-			            <li class="res_3"><a href="#" onclick="javascript:submitForm(2);" border="0"><img src="/buzkaza/_img/botao_negar.jpg" width="91" height="30" border="0"/></a></li>
-			            -->        
-			            <li class="res_2"><a href="#" onclick="javascript:submitForm(1);" border="0"><img src="/buzkaza/_img/botao_confirmar.jpg" width="91" height="30" border="0"/></a></li>
-			            <li class="res_3"><a href="#" onclick="javascript:submitForm(5);" border="0"><img src="/buzkaza/_img/botao_negar.jpg" width="91" height="30" border="0"/></a></li>
+			            <li class="res_4">
+				            <logic:equal name="rim" property="status" value="4">        
+				            		<div class="res_2"><a href="#" onclick="javascript:submitForm(1);" border="0"><img src="/buzkaza/_img/botao_confirmar.jpg" width="91" height="30" border="0"/></a></div>
+				            </logic:equal>
+				            <logic:notEqual  name="rim" property="status" value="4">
+				            		<div class="res_3"><a href="#" onclick="javascript:submitForm(5);" border="0"><img src="/buzkaza/_img/botao_negar.jpg" width="91" height="30" border="0"/></a></div>
+				            </logic:notEqual>
+			            </li>
 			        </ul>
 			        
 			        <script language="javascript">
