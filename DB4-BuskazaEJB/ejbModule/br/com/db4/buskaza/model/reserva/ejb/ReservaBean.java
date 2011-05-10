@@ -141,18 +141,34 @@ public class ReservaBean implements ReservaBeanLocal {
         c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
         return c.list(); 
 	}
-	
+	/*
 	public Integer incluirReserva(Reserva reserva) {
-	
+		
 		em.persist(reserva);
 		if(!em.contains(reserva))
         {
 			reserva = em.merge(reserva);
         }
+		return reserva.getCodigo();
 		
+	}
+	*/
+	
+	public Integer incluirReserva(Reserva reserva) {
+
+
+		Imovel im = em.find(Imovel.class, reserva.getImovel().getCodigo());
+
+		reserva.setImovel(im);
+
+		em.persist(reserva);
+		if(!em.contains(reserva))
+		       {
+		reserva = em.merge(reserva);
+		       }
 		return reserva.getCodigo();
 
-	}
+		}
 	
 	public Integer aprovarReserva(Reserva reserva) {
 		Reserva reservaR = getReserva(reserva.getCodigo());
