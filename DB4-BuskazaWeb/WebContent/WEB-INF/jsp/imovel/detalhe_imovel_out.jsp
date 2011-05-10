@@ -341,10 +341,6 @@ function listaDadas(){
 		calcularData( '<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>', color);	
 	</logic:iterate>
 
-	<logic:iterate id="bl" name="imovel" property="bloqueios">
-			var color="#2980C5";		
-			calcularData( '<bean:write name="bl" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="bl" property="dataFinal" format="dd/MM/yyyy"/>', color);	
-	</logic:iterate>
 
 	<logic:iterate id="rs" name="imovel" property="reservas">
 		<logic:equal name="rs" property="status" value="1">
