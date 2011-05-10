@@ -40,7 +40,7 @@ public class Imovel implements Serializable{
 	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
 	private Collection<Foto> fotos;
 	
-	@OneToMany(fetch=FetchType.EAGER)	
+	@OneToMany(fetch=FetchType.LAZY)	
 	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
 	private Set<Anuncio> anuncios;
 	
