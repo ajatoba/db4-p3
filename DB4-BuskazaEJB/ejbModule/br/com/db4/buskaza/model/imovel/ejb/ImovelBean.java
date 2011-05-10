@@ -230,10 +230,10 @@ public class ImovelBean implements ImovelBeanLocal {
 		Criteria c = session.createCriteria(Imovel.class);
 		c.add(Restrictions.eq("codigo", codigoImovel));
 		
-		c.setFetchMode("fotos", FetchMode.LAZY);
-		c.setFetchMode("anuncios", FetchMode.LAZY);
-		c.setFetchMode("tiposPagamento", FetchMode.LAZY);		
-		c.setFetchMode("reservas", FetchMode.LAZY);
+		c.setFetchMode("fotos", FetchMode.EAGER);
+		c.setFetchMode("anuncios", FetchMode.EAGER);
+		c.setFetchMode("tiposPagamento", FetchMode.EAGER);		
+		c.setFetchMode("reservas", FetchMode.EAGER);
 		
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);
@@ -258,9 +258,9 @@ public class ImovelBean implements ImovelBeanLocal {
 		Criteria c = session.createCriteria(Imovel.class);
 		c.add(Restrictions.eq("codigo", codigoImovel));
 		
-		c.setFetchMode("fotos", FetchMode.LAZY);	
-		c.setFetchMode("equipamentos", FetchMode.LAZY);
-		c.setFetchMode("idiomas", FetchMode.LAZY);
+		c.setFetchMode("fotos", FetchMode.EAGER);	
+		c.setFetchMode("equipamentos", FetchMode.EAGER);
+		c.setFetchMode("idiomas", FetchMode.EAGER);
 		
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);
@@ -284,12 +284,12 @@ public class ImovelBean implements ImovelBeanLocal {
 		Criteria c = session.createCriteria(Imovel.class);
 		c.add(Restrictions.eq("codigo", codigoImovel));
 		
-		c.setFetchMode("fotos", FetchMode.LAZY);	
-		c.setFetchMode("equipamentos", FetchMode.LAZY);
-		c.setFetchMode("idiomas", FetchMode.LAZY);
-		c.setFetchMode("anuncios", FetchMode.LAZY);
-		c.setFetchMode("tiposPagamento", FetchMode.LAZY);		
-		c.setFetchMode("reservas", FetchMode.LAZY);
+		c.setFetchMode("fotos", FetchMode.EAGER);	
+		c.setFetchMode("equipamentos", FetchMode.EAGER);
+		c.setFetchMode("idiomas", FetchMode.EAGER);
+		c.setFetchMode("anuncios", FetchMode.EAGER);
+		c.setFetchMode("tiposPagamento", FetchMode.EAGER);		
+		c.setFetchMode("reservas", FetchMode.EAGER);
 		
 		
 		
