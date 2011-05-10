@@ -274,11 +274,12 @@ function somaDias( txtData, DiasAdd )
 				<div class="icon_youtube_admin">Vídeo</div></a>
 				</logic:notEmpty>
 				
-				<a href='#TB_inline?height=570&amp;width=610&inlineId=thickbox_foto' class="thickbox"><div class="icon_fotos_admin">Fotos</div></a>
+				<a href='#TB_inline?height=600&amp;width=610&inlineId=thickbox_foto' class="thickbox"><div class="icon_fotos_admin">Fotos</div></a>
 					<div id="thickbox_foto" style="visibility:hidden; display:none;">			
-					<iframe src="/DB4-BuskazaWeb/imovel/foto.do?act=listarFotosImovel&ci=${imovel.codigo}" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_foto" noframeborder="0"  frameborder="0"></iframe>
+						<iframe src="/DB4-BuskazaWeb/imovel/foto.do?act=listarFotosImovel&ci=${imovel.codigo}" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_foto" noframeborder="0"  frameborder="0"></iframe>
 					</div>
-                <br /><br />
+					
+                	<br /><br />
                 
                 <div class="div_sep_enderecos_detalhes">
                 <span class="arial12boldazul">Tipo de Imovel:</span><span class="txt_cinza_detalhes"> ${imovel.tipoImovel.nome}</span><br />
