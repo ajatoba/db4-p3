@@ -67,7 +67,7 @@ public class Reserva implements Serializable {
 	@JoinColumn(name = "id_locatario")
 	private Usuario locatario;
 	
-	@OneToOne(cascade = { CascadeType.ALL }, fetch=FetchType.LAZY)	
+	@ManyToOne(cascade = { CascadeType.ALL }, fetch=FetchType.LAZY)	
 	@JoinColumn(name = "id_imovel")	
 	private Imovel imovel;
 
