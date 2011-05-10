@@ -16,6 +16,7 @@
 </head>
 <body style="overflow-x: hidden">
 
+<div class="foto_slideshow">>
 
 <ul id="slideshow">
 
@@ -25,10 +26,8 @@
 		<h3></h3>
 		<span>/buzkaza/imagens_usuarios/<bean:write name="foto" property="caminho"/></span>
 		<p></p>
-		<img src="/buzkaza/imagens_usuarios/<bean:write name="foto" property="caminhoThumbnail" />" width="140" height="94" />
+		<img src="/buzkaza/imagens_usuarios/<bean:write name="foto" property="caminhoThumbnail" />" width="89" height="67" />
 	</li>
-		
-		
 		<br><br>
 	</logic:iterate>
 </logic:present>
@@ -74,5 +73,7 @@
 		slideshow.init("slideshow","image","imgprev","imgnext","imglink");
 	}
 </script>
+
+</div>
 </body>
 </html>
