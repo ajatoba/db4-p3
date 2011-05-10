@@ -45,10 +45,33 @@ public class ReservaBean implements ReservaBeanLocal {
 		} else {  
 		  session = (Session) em.getDelegate();  
 		}
+		
+		Criteria c = session.createCriteria(Reserva.class);
+		c.setCacheable(true);
+		c.setFetchMode("imovel", FetchMode.EAGER);
+		c.setCacheMode(CacheMode.NORMAL);
+		c.addOrder(Order.desc("dataReserva"));
+		
+		
+		/*
+		
 		Criteria c = session.createCriteria(Reserva.class);
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);
 		c.addOrder(Order.desc("dataReserva"));
+
+		c.createAlias("imovel", "im");
+		c.add( Restrictions.eqProperty("imovel.codigo", "im.codigo") );
+		
+		
+		Criteria c = session.createCriteria(Reserva.class);
+		c.setCacheable(true);
+		c.setCacheMode(CacheMode.NORMAL);
+		c.addOrder(Order.desc("dataReserva"));
+
+		Criteria cImovel = session.createCriteria("imovel");
+		cImovel.setFetchMode("imovel", FetchMode.EAGER);
+		*/
 
 		if (usuarioProprietario != null && usuarioProprietario > 0) { 
 
@@ -120,6 +143,7 @@ public class ReservaBean implements ReservaBeanLocal {
 	}
 	
 	public Integer incluirReserva(Reserva reserva) {
+	
 		em.persist(reserva);
 		if(!em.contains(reserva))
         {
