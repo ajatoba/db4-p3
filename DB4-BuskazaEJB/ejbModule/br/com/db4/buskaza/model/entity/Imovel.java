@@ -36,7 +36,7 @@ public class Imovel implements Serializable{
 	@Column(name = "id_imovel")
 	private Integer codigo;
 		
-	@OneToMany(cascade = { CascadeType.PERSIST }, fetch=FetchType.LAZY)	
+	@OneToMany(cascade = { CascadeType.PERSIST }, fetch=FetchType.EAGER)	
 	@JoinColumn(referencedColumnName="id_imovel",name="id_imovel")  
 	private Collection<Foto> fotos;
 	
