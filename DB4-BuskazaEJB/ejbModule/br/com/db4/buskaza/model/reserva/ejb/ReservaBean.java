@@ -35,6 +35,9 @@ public class ReservaBean implements ReservaBeanLocal {
 	
 	
 	public List<Reserva> listarReservas(Integer usuarioProprietario){
+		
+		System.out.println("LISTANDO RESERVA");
+		
 		Session session;  
 		if (em.getDelegate() instanceof EntityManagerImpl) {  
 		  EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
@@ -47,21 +50,15 @@ public class ReservaBean implements ReservaBeanLocal {
 		c.setCacheMode(CacheMode.NORMAL);
 		c.addOrder(Order.desc("dataReserva"));
 
-		c.setFetchMode("imovel", FetchMode.LAZY);
-
 		if (usuarioProprietario != null && usuarioProprietario > 0) { 
 
 		  c.add(Restrictions.eq("locatario.codigo", usuarioProprietario));
 		      
 		} 
 
-		Criteria joinImovel = c.createCriteria("imovel", JoinFragment.INNER_JOIN);        
-		joinImovel.setFetchMode("fotos", FetchMode.LAZY);
-
-
-		       
-		       c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
-		       return c.list(); 
+		c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
+		return c.list();
+		
 		}
 	/*
 	public List<Reserva> listarReservas(Integer usuarioProprietario){
