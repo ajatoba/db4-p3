@@ -75,11 +75,7 @@ function submitForm(status){
 			            </li>
 			            <li class="res_4">
 				            <logic:equal name="rim" property="status" value="4">
-				            
-				            		
 				            	<div class="res_2"><a href="#" onclick="javascript:submitForm(9);" border="0"><img src="/buzkaza/_img/botao_confirmar.jpg" width="91" height="30" border="0"/></a></div>
-				            		
-				            		
 				            </logic:equal>
 				            <logic:notEqual name="rim" property="status" value="4">
 				            
