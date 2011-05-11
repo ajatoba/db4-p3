@@ -188,6 +188,15 @@ public class ImovelAction extends DispatchAction {
 		}
 		
 		
+		
+		request.setAttribute("bus_cidade", request.getParameter("municipio"));
+		request.setAttribute("bus_estado", request.getParameter("imovelEntity.estado.codigo"));		
+		
+		request.setAttribute("quartos", request.getParameter("quartos"));
+		request.setAttribute("metragem", request.getParameter("metragem"));
+		request.setAttribute("capacidade", request.getParameter("capacidade"));
+		
+		
 		request.setAttribute("periodoBuscado", reserva);
 		request.setAttribute("qtdDias", qtdDias);
 		request.setAttribute("imoveisValor", imoveisValor);
@@ -799,8 +808,15 @@ public class ImovelAction extends DispatchAction {
 				
 				request.setAttribute("diaFinal", request.getParameter("diaPeriodoFinal"));
 				request.setAttribute("mesFinal", request.getParameter("mesPeriodoFinal"));
-				request.setAttribute("anoFinal", request.getParameter("anoPeriodoFinal"));		
+				request.setAttribute("anoFinal", request.getParameter("anoPeriodoFinal"));	
 				
+				request.setAttribute("bus_cidade", request.getParameter("bus_cidade"));
+				request.setAttribute("bus_estado", request.getParameter("bus_estado"));
+				
+				
+				request.setAttribute("quartos", request.getParameter("quartos"));
+				request.setAttribute("metragem", request.getParameter("metragem"));
+				request.setAttribute("capacidade", request.getParameter("capacidade"));
 				
 				
 			}
