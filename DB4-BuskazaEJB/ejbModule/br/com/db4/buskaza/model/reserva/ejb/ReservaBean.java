@@ -163,12 +163,13 @@ public class ReservaBean implements ReservaBeanLocal {
 
 		em.persist(reserva);
 		if(!em.contains(reserva))
-		       {
-		reserva = em.merge(reserva);
-		       }
+		{
+			reserva = em.merge(reserva);
+		}
+		
 		return reserva.getCodigo();
 
-		}
+	}
 	
 	public Integer aprovarReserva(Reserva reserva) {
 		Reserva reservaR = getReserva(reserva.getCodigo());
