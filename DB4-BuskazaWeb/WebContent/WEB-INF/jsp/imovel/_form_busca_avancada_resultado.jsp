@@ -66,15 +66,7 @@
                 
                 	<html:select property="pais" styleClass="MyriadProRegular" style="width:85px;">
 							<html:option value="1">Brasil</html:option>
-					</html:select>
-					
-					<!-- 
-					<html:select property="pais" styleClass="MyriadProRegular">    		
-						<html:options collection="paises" property="codigo" labelProperty="nome"/>
-					</html:select>
-					
-					 -->
-            
+					</html:select>            
                           </span></td>
               </tr>
             </table>
@@ -106,20 +98,7 @@
 				<html:option value="7">7 Quartos</html:option>
 				<html:option value="8">8 Quartos</html:option>		
 				<html:option value="9">9 Quartos</html:option>						
-				<html:option value="10">10 Quartos</html:option>
-				<!-- 
-				<html:option value="11">11 Quartos</html:option>
-				<html:option value="12">12 Quartos</html:option>
-				<html:option value="13">13 Quartos</html:option>
-				<html:option value="14">14 Quartos</html:option>
-				<html:option value="15">15 Quartos</html:option>
-				<html:option value="16">16 Quartos</html:option>
-				<html:option value="17">17 Quartos</html:option>				
-				<html:option value="18">18 Quartos</html:option>
-				<html:option value="19">19 Quartos</html:option>						
-				<html:option value="20">20 Quartos</html:option>
-				<html:option value="21">21 Quartos</html:option>
-				<html:option value="22">22 Quartos</html:option> -->
+				<html:option value="10">10 Quartos</html:option>				
            </html:select>        
         </td>
         <td>
