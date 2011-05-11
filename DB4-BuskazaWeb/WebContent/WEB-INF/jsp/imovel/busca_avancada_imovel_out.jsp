@@ -187,20 +187,27 @@
                     </logic:equal>
                     
                     <logic:notEqual name="tipoBusca" property="codigo" value="6">
-                    <html:form action="/imovel.do?act=detalheImovel" method="POST" >
-						<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
-						<html:hidden property="ci" value="${ims.key.codigo}"/> 
-						<html:hidden property="valor" value="${ims.value}"/>
-						<html:hidden property="diaPeriodoInicial" value="${periodoBuscado.periodoInicial.date}"/>	
-						<html:hidden property="mesPeriodoInicial" value="${(periodoBuscado.periodoInicial.month)+1}"/>
-						<html:hidden property="anoPeriodoInicial" value="${(periodoBuscado.periodoInicial.year)+1900}"/>
-						<html:hidden property="diaPeriodoFinal" value="${periodoBuscado.periodoFinal.date}"/>	
-						<html:hidden property="mesPeriodoFinal" value="${(periodoBuscado.periodoFinal.month)+1}"/>
-						<html:hidden property="anoPeriodoFinal" value="${(periodoBuscado.periodoFinal.year)+1900}"/>
+	                    <html:form action="/imovel.do?act=detalheImovel" method="POST" >
+							<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
+							<html:hidden property="ci" value="${ims.key.codigo}"/> 
+							<html:hidden property="valor" value="${ims.value}"/>
+							<html:hidden property="diaPeriodoInicial" value="${periodoBuscado.periodoInicial.date}"/>	
+							<html:hidden property="mesPeriodoInicial" value="${(periodoBuscado.periodoInicial.month)+1}"/>
+							<html:hidden property="anoPeriodoInicial" value="${(periodoBuscado.periodoInicial.year)+1900}"/>
+							<html:hidden property="diaPeriodoFinal" value="${periodoBuscado.periodoFinal.date}"/>	
+							<html:hidden property="mesPeriodoFinal" value="${(periodoBuscado.periodoFinal.month)+1}"/>
+							<html:hidden property="anoPeriodoFinal" value="${(periodoBuscado.periodoFinal.year)+1900}"/>
+							
+							
+							<html:hidden property="quartos" value="${quartos}"/>
+							<html:hidden property="metragem" value="${metragem}"/>
+							<html:hidden property="capacidade" value="${capacidade}"/>
+							<html:hidden property="bus_cidade" value="${bus_cidade}"/>
+							<html:hidden property="bus_estado" value="${bus_estado}"/>
 						
-						<div class="botao_reserva1">
-							<input type="image" src="/buzkaza/_img/btn_detalhes.png" width="64" height="24" border="0"/> 
-						</div>
+							<div class="botao_reserva1">
+								<input type="image" src="/buzkaza/_img/btn_detalhes.png" width="64" height="24" border="0"/> 
+							</div>
 						</html:form>
 						
 						<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
