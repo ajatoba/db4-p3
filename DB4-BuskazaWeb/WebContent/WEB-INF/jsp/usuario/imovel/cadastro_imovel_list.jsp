@@ -133,7 +133,7 @@ $(function(){
 					<div id="thickbox_aguardando_confirmacao_${ims.codigo}" style="visibility:hidden; display:none;">            
 			           	<div class="topo"><div id="titulo">Aguardando Confirmação</div></div>
 						<div class="meio_historico">
-			           		 <iframe src="/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=0" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_reserva" noframeborder="0"  frameborder="0"></iframe>
+			           		 <iframe src="/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=4" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_reserva" noframeborder="0"  frameborder="0"></iframe>
 			            </div><div class="baixo"></div>
 			       </div>
 					
@@ -141,7 +141,7 @@ $(function(){
 					<div id="thickbox_reserva_finalizada_${ims.codigo}" style="visibility:hidden; display:none;">            
 			           	<div class="topo"><div id="titulo">Resevas Finalizadas</div></div>
 						<div class="meio_historico">
-			           		 <iframe src="/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=1" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_reserva" noframeborder="0"  frameborder="0"></iframe>
+			           		 <iframe src="/DB4-BuskazaWeb/usuario/reserva.do?act=listarReservasImovel&ci=${ims.codigo}&status=9" id="id" name="id" allowtransparency="0" scrolling="no"  class="iframe_reserva" noframeborder="0"  frameborder="0"></iframe>
 			            </div><div class="baixo"></div>
 			       </div>
 					
