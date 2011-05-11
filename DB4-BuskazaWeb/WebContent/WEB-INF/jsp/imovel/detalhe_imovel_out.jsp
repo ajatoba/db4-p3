@@ -221,7 +221,36 @@ function somaDias( txtData, DiasAdd )
     <!-- ****************** -->
 <div id="cont_reserva">
     <div class="content_detalhes">
-    	<div class="tit_detalheimovel">Detalhes do Imóvel</div>
+    	<div class="top_detalheimovel">
+    	
+    		<html:form method="post" styleId="imovelBuscaForm" action="/imovel.do?act=buscarImovel">				
+				
+				<input type="hidden" name="quartos" value="${quartos}"/>
+				<input type="hidden" name="metragem" value="${metragem}"/>
+				<input type="hidden" name="capacidade" value="${capacidade}"/>
+				 				
+				<input type="hidden" name="tiposAnuncio" value="1" /> 
+				<input type="hidden" name="municipio" value="${bus_cidade}"/>
+				<input type="hidden" name="imovelEntity.estado.codigo" value="${bus_estado}"/> 
+				
+				<input type="hidden" name="diaDataInicialAnuncio" value="${diaInicial}"/>
+				<input type="hidden" name="mesDataInicialAnuncio" value="${mesInicial}"/>				
+				<input type="hidden" name="anoDataInicialAnuncio" value="${anoInicial}"/>
+				
+				
+				<input type="hidden" name="diaDataFinalAnuncio" value="${diaFinal}"/>
+				<input type="hidden" name="mesDataFinalAnuncio" value="${mesFinal}"/>	
+				<input type="hidden" name="anoDataFinalAnuncio" value="${anoFinal}" />
+				
+				
+				
+		    	<div class="tit_detalheimovel">Detalhes do Imóvel</div>
+		    	<div class="detalheimovel_voltar"> &nbsp;&nbsp;<input type="image" src="/buzkaza/_img/btn_voltar_listaranuncios.jpg" width="151" height="31" style=" float:right;" border="0"/></div>
+    	
+			</html:form>    	
+    	
+    	</div>
+    	
         <div id="sep_top_reserva2"></div>
         <div class="top_detalhes"><!--top_detalhes-->
         	<div class="div_fotoprincipal"><img src="/buzkaza/imagens_usuarios/<bean:write name="imovel" property="primeirafoto"/>" width="326" height="259" /></div>
