@@ -284,7 +284,7 @@ public class ImovelBean implements ImovelBeanLocal {
 		Criteria c = session.createCriteria(Imovel.class);
 		c.add(Restrictions.eq("codigo", codigoImovel));
 		
-		c.setFetchMode("fotos", FetchMode.EAGER);	
+		c.setFetchMode("fotos", FetchMode.LAZY);	
 		c.setFetchMode("equipamentos", FetchMode.EAGER);
 		c.setFetchMode("idiomas", FetchMode.EAGER);
 		c.setFetchMode("anuncios", FetchMode.EAGER);
