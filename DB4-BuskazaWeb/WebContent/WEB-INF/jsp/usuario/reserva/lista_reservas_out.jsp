@@ -122,11 +122,11 @@
 										</logic:equal>
 										
 										<logic:equal name="res" property="status" value="3">Boleto Impresso</logic:equal>
-										<logic:equal name="res" property="status" value="4">Concluído</logic:equal>
+										<logic:equal name="res" property="status" value="4">Aguardando Confirmação</logic:equal>
 										<logic:equal name="res" property="status" value="5">Cancelado</logic:equal>
 										<logic:equal name="res" property="status" value="6">Em análise</logic:equal>
 										<logic:equal name="res" property="status" value="7">Estornado</logic:equal>
-										
+										<logic:equal name="res" property="status" value="9">Concluído</logic:equal>
 										
 										
 									</span>
