@@ -222,6 +222,10 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			
 			session.setAttribute(Constants.OBJETO_PAGAR_RESERVA, reserva);
 			
+			
+			
+			
+			
 			//ENVIANDO EMAIL AO PROPRIETÁRIO			
 			MessageResources messageResources = getResources(request, "app");
 			
@@ -305,7 +309,19 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			}
 			
 			
+			mensagem 		= mensagem.replaceAll("<USUARIO>", reserva.getLocatario().getNome());
+			
 			mensagem 		= mensagem.replaceAll("<CODIGO_RESERVA>", String.valueOf(reserva.getCodigo()));
+			//mensagem 		= mensagem.replaceAll("<IDIOMA>", String.valueOf(reserva.getImovel().getIdiomas()));
+			
+			/*
+			mensagem 		= mensagem.replaceAll("<ENDERECO>", reserva.getImovel().getBairro()+", "+ reserva.getImovel().getMunicipio() + " - " +reserva.getImovel().getEstado() );
+			
+			
+			
+			mensagem 		= mensagem.replaceAll("<CHECK_IN>", String.valueOf(reserva.getImovel().getCheckInEntrada()) );
+			mensagem 		= mensagem.replaceAll("<CHECK_OUT>", reserva.getImovel().getCheckInSaida()+ " até "+ reserva.getImovel().getCheckOutSaida() );
+			*/
 			remetente 		= messageResources.getMessage("mail.from");
 			
 			destinatario 	= reserva.getLocatario().getEmail();			
