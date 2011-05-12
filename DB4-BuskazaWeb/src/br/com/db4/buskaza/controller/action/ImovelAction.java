@@ -279,6 +279,8 @@ public class ImovelAction extends DispatchAction {
 		imovel.setCheckOutSaida(checkOutSaida);
 		imovel.setLateCheckOut(lateCheckOut);
 		
+		
+		
 		//Setando demais atributos do form
 		imovel.setCalcao(form.getCalcao());
 		
