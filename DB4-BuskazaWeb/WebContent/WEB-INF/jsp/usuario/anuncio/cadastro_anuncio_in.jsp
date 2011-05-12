@@ -374,8 +374,7 @@ function somaDias( txtData, DiasAdd )
 				                  <td width="5%"><div class="box_legenda_cor cor_data_especial"></div></td>
 				                  <td width="28%" class="txt_legenda">Data Especial</td>
 				                </tr>
-				                <tr>
-				                 
+				                <tr>				                 
 				                  <td><div class="box_legenda_cor cor_pacote_fechado"></div></td>
 				                  <td class="txt_legenda">Pacote Fechado</td>
 				                  <td><div class="box_legenda_cor cor_media_temporada"></div></td>
@@ -383,16 +382,14 @@ function somaDias( txtData, DiasAdd )
 				                  <td>&nbsp;</td>
 				                  <td>&nbsp;</td>
 				                </tr>
-								<!--
-				                <tr>
-				                   <td><div class="box_legenda_cor cor_bloqueado"></div></td>
-				                  <td class="txt_legenda">Bloqueado</td> 
-				                  <td><div class="box_legenda_cor cor_alta_temporada"></div></td>
-				                  <td class="txt_legenda">Alta Temporada</td>
-				                  <td>&nbsp;</td>
-				                  <td>&nbsp;</td>
-				                </tr>
-								--> 
+								<tr>
+									<td><div class="box_legenda_cor cor_alta_temporada"></div></td>
+									<td class="txt_legenda">Alta Temporada</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td> 
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									</tr>
 				                </table>
 				            <!-- ******* -->
 				    </td>
