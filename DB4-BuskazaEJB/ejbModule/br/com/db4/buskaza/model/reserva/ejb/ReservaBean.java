@@ -176,15 +176,28 @@ public class ReservaBean implements ReservaBeanLocal {
 		
 		reservaR.setStatus(reserva.getStatus());
 		
+		Imovel im = em.find(Imovel.class, reserva.getImovel().getCodigo());
+		reservaR.setImovel(im);
+		
 		em.merge(reservaR);
 		
 		return reserva.getCodigo();
 
 	}
-	
+	/*
 	public Reserva getReserva(Integer codigoReserva){
 		return em.find(Reserva.class, codigoReserva);
+	}*/
+	
+	public Reserva getReserva(Integer codigoReserva){
+	       Reserva reserva = em.find(Reserva.class, codigoReserva);
+	       Imovel im = em.find(Imovel.class, codigoReserva);
+	       
+	       reserva.setImovel(im);
+
+	       return reserva;
 	}
+	
 	
 	public List<Reserva> listarReservasImovel(Integer codigoImovel, int mes, int ano){
 		Session session;  
