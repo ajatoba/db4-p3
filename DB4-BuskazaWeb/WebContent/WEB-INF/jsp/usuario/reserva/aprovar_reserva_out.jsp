@@ -50,7 +50,7 @@ a{  font-family:Arial, Helvetica, sans-serif; color:#666666; text-decoration:und
 		</logic:messagesNotPresent>
   	</font>
     <!-- ****************** -->
-<div class="confirmado_sucesso"></div>
+<div class="efetuado_sucesso"></div>
 
 <!-- 
 <p align="center" valign="center" class="MyriadPro24">
