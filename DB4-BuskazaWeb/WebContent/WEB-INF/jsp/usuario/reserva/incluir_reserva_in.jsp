@@ -215,7 +215,7 @@ function abrirPop(url){
 <div class="pagamento_info">
 	<span class="arial12boldazul">Pagamento</span><br /><br />
 	<strong>Sinal</strong><br />
-	O Sinal deverá ser pago na confirmação da reserva. Este valor é referente a taxa de transação do Buzkaza.
+	O Sinal será debitado do cartão de crédito do hospede na confirmação da reserva. Este valor é referente a taxa de transação do Buzkaza.
 	<br /><br />
 	<strong>Saldo no check in</strong><br />
 	O Saldo será pago diretamente ao proprietário, conforme instruções de pagamento.
