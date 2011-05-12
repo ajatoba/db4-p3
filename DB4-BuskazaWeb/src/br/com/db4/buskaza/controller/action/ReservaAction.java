@@ -312,9 +312,18 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			mensagem 		= mensagem.replaceAll("<USUARIO>", reserva.getLocatario().getNome());
 			
 			mensagem 		= mensagem.replaceAll("<CODIGO_RESERVA>", String.valueOf(reserva.getCodigo()));
-			//mensagem 		= mensagem.replaceAll("<IDIOMA>", String.valueOf(reserva.getImovel().getIdiomas()));
+			
+			
+			
+			
+			mensagem 		= mensagem.replaceAll("<ENDERECO>", reserva.getImovel().getBairro()+", "+ reserva.getImovel().getMunicipio() + " - " +reserva.getImovel().getEstado() );
+			
 			
 			/*
+			 
+			mensagem 		= mensagem.replaceAll("<IDIOMA>", String.valueOf(reserva.getImovel().getIdiomas()));
+			
+			
 			mensagem 		= mensagem.replaceAll("<ENDERECO>", reserva.getImovel().getBairro()+", "+ reserva.getImovel().getMunicipio() + " - " +reserva.getImovel().getEstado() );
 			
 			
