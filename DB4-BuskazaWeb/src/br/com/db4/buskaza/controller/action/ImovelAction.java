@@ -146,6 +146,9 @@ public class ImovelAction extends DispatchAction {
 			Date dataInicio = new Date(imovelForm.getAnoDataInicialAnuncio()-1900, imovelForm.getMesDataInicialAnuncio()-1, imovelForm.getDiaDataInicialAnuncio());
 			Date dataFim 	= new Date(imovelForm.getAnoDataFinalAnuncio()-1900, imovelForm.getMesDataFinalAnuncio()-1, imovelForm.getDiaDataFinalAnuncio());
 			
+			System.out.println("DATA INICIAL BUSCADA:" + imovelForm.getDiaDataInicialAnuncio()+ "-" + imovelForm.getMesDataInicialAnuncio() + "-" + imovelForm.getAnoDataInicialAnuncio());
+			System.out.println("DATA FINAL BUSCADA:" + imovelForm.getDiaDataFinalAnuncio()+ "-" + imovelForm.getMesDataFinalAnuncio() + "-" + imovelForm.getAnoDataFinalAnuncio());
+			
 			Anuncio anuncio = new Anuncio();
 			anuncio.setDataInicial(dataInicio);
 			anuncio.setDataFinal(dataFim);
