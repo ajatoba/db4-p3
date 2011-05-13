@@ -291,6 +291,7 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			reserva = reservaEjb.getReserva(codigoReserva);
 			
 			//Setando IMÓVEL
+			/*
 			Imovel imovel = null;
 			try {
 				ImovelBeanLocal imovelEjb = (ImovelBeanLocal) ServiceLocator.getInstance().locateEJB(ImovelBeanLocal.LOCAL);
@@ -300,6 +301,7 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 				e.printStackTrace();
 			}
 			reserva.setImovel(imovel);
+			*/
 			//**************
 			
 			reserva.setStatus(rForm.getStatus());
