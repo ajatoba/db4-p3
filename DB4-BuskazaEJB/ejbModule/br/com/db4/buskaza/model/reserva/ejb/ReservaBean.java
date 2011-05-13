@@ -189,10 +189,7 @@ public class ReservaBean implements ReservaBeanLocal {
 	
 	public Reserva getReserva(Integer codigoReserva){
 	       Reserva reserva = em.find(Reserva.class, codigoReserva);
-	       Imovel im = em.find(Imovel.class, codigoReserva);
 	       
-	       reserva.setImovel(im);
-
 	       return reserva;
 	}
 	
