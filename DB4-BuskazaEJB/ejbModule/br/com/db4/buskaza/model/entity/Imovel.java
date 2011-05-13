@@ -185,7 +185,106 @@ public class Imovel implements Serializable{
 	private double taxaLateCheckin;
 	
 	/*****************************/
+	
+	
+	/* adionado pelo Otavio 13/05/2011 */
+	
+	private String preAgencia;	
+	private String preBanco;	
+	private String preNumBanco;	
+	private String preTitular;	
+	private double prePercentual;	
+	private String preEmailPayPal;	
+	private String preCpf;	
+	private String preContaCorrente;
+	private Integer preCheckIn;
+	
+	
+	
+	public String getPreAgencia() {
+		return preAgencia;
+	}
+	public void setPreAgencia(String preAgencia) {
+		this.preAgencia = preAgencia;
+	}
+	
+	
+	public String getPreBanco() {
+		return preBanco;
+	}
+	public void setPreBanco(String preBanco) {
+		this.preBanco = preBanco;
+	}
+	
+	
+	public String getPreNumBanco() {
+		return preNumBanco;
+	}
+	public void setPreNumBanco(String preNumBanco) {
+		this.preNumBanco = preNumBanco;
+	}
+	
+	
+	public void setPrePercentual(double prePercentual) {
+		this.prePercentual = prePercentual;
+	}
+
+	public double getPrePercentual() {
+		return prePercentual;
+	}
+	
 		
+	
+	public String getPreTitular() {
+		return preTitular;
+	}
+	public void setPreTitular(String preTitular) {
+		this.preTitular = preTitular;
+	}
+	
+	
+	public String getPreEmailPayPal() {
+		return preEmailPayPal;
+	}
+	public void setPreEmailPayPal(String preEmailPayPal) {
+		this.preEmailPayPal = preEmailPayPal;
+	}
+	
+	
+	public String getPreCpf() {
+		return preCpf;
+	}
+	public void setPreCpf(String preCpf) {
+		this.preCpf = preCpf;
+	}
+	
+	
+	public String getPreContaCorrente() {
+		return preContaCorrente;
+	}
+	public void setPreContaCorrente(String preContaCorrente) {
+		this.preContaCorrente = preContaCorrente;
+	}
+	
+	
+	
+	public Integer getPreCheckIn() {
+		return preCheckIn;
+	}
+
+	public void setPreCheckIn(Integer preCheckIn) {
+		this.preCheckIn = preCheckIn;
+	}
+	
+	
+	/* adionado pelo Otavio 13/05/2011 */
+	
+	
+	
+	
+	
+	
+	
 	public String getDdd() {
 		return ddd;
 	}
