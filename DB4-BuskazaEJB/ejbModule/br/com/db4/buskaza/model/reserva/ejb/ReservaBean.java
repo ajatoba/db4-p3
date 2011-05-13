@@ -8,6 +8,7 @@ import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.hibernate.CacheMode;
 import org.hibernate.Criteria;
@@ -24,6 +25,7 @@ import br.com.db4.buskaza.model.entity.Anuncio;
 import br.com.db4.buskaza.model.entity.Bloqueio;
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.Reserva;
+import br.com.db4.buskaza.model.util.Constants;
 
 @Stateless
 @LocalBinding(jndiBinding = ReservaBeanLocal.LOCAL)
@@ -172,14 +174,10 @@ public class ReservaBean implements ReservaBeanLocal {
 	}
 	
 	public Integer aprovarReserva(Reserva reserva) {
-		Reserva reservaR = getReserva(reserva.getCodigo());
+		String sql = "UPDATE Reserva set status = "+ reserva.getStatus() +" where codigo="+reserva.getCodigo();
 		
-		reservaR.setStatus(reserva.getStatus());
-		
-		Imovel im = em.find(Imovel.class, reserva.getImovel().getCodigo());
-		reservaR.setImovel(im);
-		
-		em.merge(reservaR);
+		Query query = em.createQuery(sql);
+		query.executeUpdate();
 		
 		return reserva.getCodigo();
 
@@ -213,7 +211,7 @@ public class ReservaBean implements ReservaBeanLocal {
 		c.setCacheMode(CacheMode.NORMAL);	
 		c.addOrder(Order.desc("dataReserva"));
 		
-		c.add(Restrictions.eq("status",1)); //SÓ PEGA AS RESERVAS APROVADAS!!
+		c.add(Restrictions.eq("status",Constants.STATUS_RESERVA_APROVADA)); //SÓ PEGA AS RESERVAS APROVADAS!!
 		
 	    if (codigoImovel!= null && codigoImovel > 0) {        
 	    	c.add(Restrictions.eq("imovel.codigo",codigoImovel)); 

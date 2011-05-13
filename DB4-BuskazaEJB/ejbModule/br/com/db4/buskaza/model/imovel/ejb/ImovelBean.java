@@ -77,16 +77,12 @@ public class ImovelBean implements ImovelBeanLocal {
 		c.setFetchMode("fotos", FetchMode.EAGER);
 		c.setFetchMode("anuncios", FetchMode.EAGER);
 		c.setFetchMode("reservas", FetchMode.EAGER);
-		c.setFetchMode("equipamentos", FetchMode.EAGER);
-		
-		
+		c.setFetchMode("equipamentos", FetchMode.EAGER);		
 		
 		c.setCacheable(true);
 		c.setCacheMode(CacheMode.NORMAL);
 		
-		c.add(Restrictions.gt("status", -1));
-		
-		
+		c.add(Restrictions.gt("status", -1));		
 		
         if (imovel.getEstado() != null && imovel.getEstado().getCodigo()!= null && imovel.getEstado().getCodigo().length() > 0) {        
         	c.add(Restrictions.eq("estado.codigo", imovel.getEstado().getCodigo())); 
@@ -117,9 +113,9 @@ public class ImovelBean implements ImovelBeanLocal {
         	
         }
         
-        c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_bloqueio where ( ? between dataInicial and dataFinal) or (? between dataInicial and dataFinal)) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
+        c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_bloqueio where id_imovel = {alias}.id_imovel and ( ? between dataInicial and dataFinal) or (? between dataInicial and dataFinal)) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
         
-        c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_reserva where status = "+Constants.STATUS_RESERVA_APROVADA+" and  (( ? between periodoInicial and periodoFinal) or (? between periodoInicial and periodoFinal))) ", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
+        c.add(Restrictions.sqlRestriction(" {alias}.id_imovel not in (select distinct(id_imovel) from tb_reserva where id_imovel = {alias}.id_imovel and status = "+Constants.STATUS_RESERVA_APROVADA+" and  (( ? between periodoInicial and periodoFinal) or (? between periodoInicial and periodoFinal)))", new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType()}));
         
         
         if (imovel.getCapacidade() != 0) { 
