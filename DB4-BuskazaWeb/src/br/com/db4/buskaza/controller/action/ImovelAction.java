@@ -786,6 +786,38 @@ public class ImovelAction extends DispatchAction {
 		
 		if(form.getDiarista()> 0)
 			imovel.setDiarista(form.getDiarista());
+		
+		
+		/* adionado pelo Otavio 13/05/2011 */
+		if(form.getPreAgencia()!= null)
+			imovel.setPreAgencia(form.getPreAgencia());
+		
+		if(form.getPreBanco()!= null)
+			imovel.setPreBanco(form.getPreBanco());
+		
+		if(form.getPreCheckIn() > 0 )
+			imovel.setPreCheckIn(form.getPreCheckIn());
+		
+		if(form.getPreContaCorrente()!= null)
+			imovel.setPreContaCorrente(form.getPreContaCorrente());
+		
+		if(form.getPreCpf()!= null)
+			imovel.setPreCpf(form.getPreCpf());
+		
+		if(form.getPreEmailPayPal()!= null)
+			imovel.setPreEmailPayPal(form.getPreEmailPayPal());
+		
+		if(form.getPreNumBanco()!= null)
+			imovel.setPreNumBanco(form.getPreNumBanco());
+		
+		if(form.getPrePercentual() > 0 )
+			imovel.setPrePercentual(form.getPrePercentual());		
+		
+		if(form.getPreTitular()!= null)
+			imovel.setPreTitular(form.getPreTitular());
+		
+		
+		
 		/*****************************/
 		
 		return imovel;
