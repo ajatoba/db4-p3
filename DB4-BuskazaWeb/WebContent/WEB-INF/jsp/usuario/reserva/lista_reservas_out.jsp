@@ -65,7 +65,7 @@
 	
 	
 		<div id="box_listagem">
-					<div class="foto_reserva"><img src="/buzkaza/imagens_usuarios/<bean:write name="res" property="imovel.primeirafoto"/>" width="132" height="99" /></div>
+					<div class="foto_reserva"><img src="/buzkaza/imagens_usuarios/${res.imovel.primeirafoto}" width="132" height="99" /></div>
 					
 			        <div class="detalhe_reserva3">
 					  		<div class="bairro_reserva">		  
