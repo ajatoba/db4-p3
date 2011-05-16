@@ -14,6 +14,7 @@ import br.com.db4.buskaza.model.entity.Equipamento;
 import br.com.db4.buskaza.model.entity.Estado;
 import br.com.db4.buskaza.model.entity.Idioma;
 import br.com.db4.buskaza.model.entity.Imovel;
+import br.com.db4.buskaza.model.entity.TipoPagamento;
 import br.com.db4.buskaza.model.util.LoggerUtil;
 
 
@@ -29,6 +30,7 @@ public class ImovelForm extends ActionForm {
 		imovelEntity.setIdiomas(new HashSet<Idioma>());
 		imovelEntity.setCamas(new Integer(0).intValue());
 		imovelEntity.setEquipamentos(new HashSet<Equipamento>());
+		imovelEntity.setTiposPagamento(new HashSet<TipoPagamento>());
 		
 		this.indexFotos = 0;
 		this.fotos = new ArrayList<FormFile>();
