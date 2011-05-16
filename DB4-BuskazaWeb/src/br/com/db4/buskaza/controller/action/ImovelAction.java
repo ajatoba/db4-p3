@@ -41,6 +41,7 @@ import br.com.db4.buskaza.model.entity.Pais;
 import br.com.db4.buskaza.model.entity.Reserva;
 import br.com.db4.buskaza.model.entity.TipoAnuncio;
 import br.com.db4.buskaza.model.entity.TipoImovel;
+import br.com.db4.buskaza.model.entity.TipoPagamento;
 import br.com.db4.buskaza.model.entity.Usuario;
 import br.com.db4.buskaza.model.equipamento.ejb.EquipamentoBeanLocal;
 import br.com.db4.buskaza.model.estado.ejb.EstadoBeanLocal;
@@ -529,6 +530,26 @@ public class ImovelAction extends DispatchAction {
 				/****************************/
 				
 				
+				/* CARREGANDO PAGAMENTO */
+				/* adicionado pelo Otavio 13/05/2011 */
+				
+				List<Integer> tipoPagamento = new ArrayList<Integer>();
+				
+				if (imovel.getTiposPagamento()!=null && imovel.getTiposPagamento().size() > 0) {					
+					Iterator<TipoPagamento> it = imovel.getTiposPagamento().iterator();
+					Integer []iArrayTipo = new Integer[imovel.getTiposPagamento().size()];
+					int x=0;
+					while (it.hasNext()) {
+						iArrayTipo[x] = it.next().getCodigo();
+						x=x+1;
+					}
+					imovelForm.setTiposPagamento(iArrayTipo);
+				}
+				/****************************/
+				
+				
+				
+				
 				
 				request.setAttribute("imovel", imovel);
 			}
@@ -687,6 +708,40 @@ public class ImovelAction extends DispatchAction {
 		if(equipamentos !=null && equipamentos.size()>0){
 			imovel.setEquipamentos(equipamentos);
 		}
+		
+		
+		
+		/******  TIPO DE PAGAMENTO *******/
+		
+		Set<TipoPagamento> tipoPagamentos = null;
+		TipoPagamento tipoPagamento = null;
+		
+		Integer[] tipoPagamentosBoxes = form.getTiposPagamento();
+		
+		if(tipoPagamentosBoxes != null && tipoPagamentosBoxes.length >0){
+			
+			
+			tipoPagamentos = new HashSet<TipoPagamento>();
+			for (int x=0; x < tipoPagamentosBoxes.length; x++){
+				
+				tipoPagamento = new TipoPagamento();
+				tipoPagamento.setCodigo(tipoPagamentosBoxes[x].intValue());
+				
+				tipoPagamentos.add(tipoPagamento);
+			}			
+		}
+		
+		if(tipoPagamentos !=null && tipoPagamentos.size()>0){
+			imovel.setTiposPagamento(tipoPagamentos);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		if(form.getCheckInEntradaHora() != null && form.getCheckInEntradaMinuto()!= null)		
 			checkInEntrada = new Date(0,0,0,form.getCheckInEntradaHora().intValue(), form.getCheckInEntradaMinuto().intValue());
