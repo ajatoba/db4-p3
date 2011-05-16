@@ -584,52 +584,46 @@ function abrirPop(url){
 		</table>  
 </div>
 
-<br><br>
+<br /><br />
+
+<div id="formulario_edicao" class="txt_caracteristicas">
+
+	<div class="txt_caracteristica">Opções de pagamento</div>
+	<div class="arial13Cinza">Opções aceitas pelo proprietário no Check in para o pagamento da tarifa e taxas extras.</div>
+	
+	<br />
+		<div class="pre_0">	
+			<div class="pre_1">Percentual </div>
+			<html:text name="imovel" property="prePercentual" size="30" style="width:40px;"/> 
+			<div class="pre_2"> do Saldo. Prazo para pagamento antes do Check in </div>
+			<html:text name="imovel" property="preCheckIn" size="30" style="width:40px;"/> 
+			<div class="pre_2"> ? Informe e-mail para credito no Pay Pal: </div>
+			<html:text name="imovel" property="preEmailPayPal" size="150" style="width:160px;"/>
+		</div>
+		<div class="pre_3">
+				Informe Conta Corrente para Credito:
+		</div>
+		
+		<div class="pre_4">	
+				<div class="pre_1">Banco: </div>
+				<html:text name="imovel" property="preBanco" size="110" style="width:120px;"/> 
+				<div class="pre_2">Nº do Banco:</div>
+				<html:text name="imovel" property="preNumBanco" size="70" style="width:90px;"/> 
+				<div class="pre_2">Ag: </div>
+				<html:text name="imovel" property="preAgencia" size="90" style="width:100px;"/>
+				<div class="pre_2">C/C: </div>
+				<html:text name="imovel" property="preContaCorrente" size="90" style="width:100px;"/>
+		</div>
+		<div class="pre_4">		
+				<div class="pre_1">Titular: </div>
+				<html:text name="imovel" property="preTitular" size="275" style="width:285px;"/>
+				<div class="pre_2">CPF: </div>
+				<html:text name="imovel" property="preCpf" size="90" style="width:100px;"/>
+		</div>
+		<br /><br />
+</div>
 
 
-
-<table  border="0">
-		<tr>
-			<td>Agência </td>
-			<td><html:text name="imovel" property="preAgencia" size="90" style="width:100px;"/></td>
-		</tr>
-		<tr>
-			<td>Banco </td>
-			<td><html:text name="imovel" property="preBanco" size="90" style="width:100px;"/></td>
-		</tr>
-		<tr>
-			<td>Num Banco </td>
-			<td><html:text name="imovel" property="preNumBanco" size="90" style="width:100px;"/></td>
-		</tr>
-		<tr>
-			<td>Titular </td>
-			<td><html:text name="imovel" property="preTitular" size="90" style="width:100px;"/></td>
-		</tr>
-		<tr>
-			<td>Email PayPal </td>
-			<td><html:text name="imovel" property="preEmailPayPal" size="90" style="width:100px;"/></td>
-		</tr>
-		<tr>
-			<td>Percentual </td>
-			<td><html:text name="imovel" property="preEmailPayPal" size="90" style="width:100px;"/></td>
-		</tr>
-		<tr>
-			<td> Cpf </td>
-			<td><html:text name="imovel" property="preCpf" size="90" style="width:100px;"/></td>
-		</tr>
-		<tr>
-			<td>Conta Corrente</td>
-			<td><html:text name="imovel" property="preContaCorrente" size="90" style="width:100px;"/></td>
-		</tr>
-		<tr>
-			<td>Check In </td>
-			<td><html:text name="imovel" property="preCheckIn" size="90" style="width:100px;"/></td>
-		</tr>
-</table>
-
-
-
-<!-- 
 <div id="formulario_edicao2">
 	<html:hidden property="permitirEntrada" value="true"/>
 	<div class="txt_caracteristica">Opções de pagamento</div>
@@ -637,26 +631,36 @@ function abrirPop(url){
 	<table border="0" class="box_opcao_pag_info">
 		<tr>
 			<td>
+			
 			<span class="txt_caracteristicas">
-				<logic:present name="tiposPagamento">
-				<logic:notEmpty name="tiposPagamento">	
-					<table>
-						<logic:iterate name="tiposPagamento" id="tipoPagamento">
-							<div class="boxe_opcao_pagamento">
-							<input type="checkbox" name="tiposPagamento" value="<bean:write name="tipoPagamento" property="codigo"/>"><div class="sepf2"><bean:write name="tipoPagamento" property="nome"/></div>
-							</div>										
-						</logic:iterate>
-					</table>
-				</logic:notEmpty>
-				</logic:present>
+				
+				
+				<table>
+					<logic:iterate name="tiposPagamento" id="tipoPagamento">
+						
+			    			<div class="boxe_opcao_pagamento">									
+					    		<html:multibox property="tiposPagamento"> 
+									<bean:write name="tipoPagamento" property="codigo"/>
+								</html:multibox>
+								
+								<div class="sepf2">
+									<bean:write name="tipoPagamento" property="nome"/>
+								</div>
+							</div>
+			        	
+	           		</logic:iterate>
+           		</table>
+				
+				
+				
+				
 			</span>	
 			</td>
 		</tr>				                
 	</table>	    
 </div>
--->
 
-
+</div>
 
 
 
