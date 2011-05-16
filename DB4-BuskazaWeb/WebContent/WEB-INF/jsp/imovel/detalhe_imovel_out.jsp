@@ -424,7 +424,7 @@ function listaDadas(){
         	</div><!-- Inicio Legendas -->
         </div> <!-- FIM Planta e Disponibilidades -->
 
-        	<div style="display:table;">
+        	<div style="width:590px; display:table;">
             <div class="tit_arialbullet">Equipamentos e Facilidades</div>
             	<div style="width:100%; display:table; width:590px; margin-bottom:35px;">
             	<logic:iterate name="imovel" property="equipamentos" id="equipamento">
@@ -434,6 +434,24 @@ function listaDadas(){
 	  				<span class="txt_cinza_detalhes">Não foram cadastrados equipamentos para esse imóvel. Após efetuar a reserva consulte o proprietário.</span>
 	  			</logic:empty>				
             </div>
+            
+            
+            <div style="width:100%; display:table; width:590px; margin-bottom:10px;">
+            	<div class="tit_arialbullet">Condições de Pagamento no Check In</div>
+            	<div class="div_sep_enderecos_detalhes">
+	                	<span class="arial12boldazul">CheckIn:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preCheckIn"/> dias</span><br />
+	                	<span class="arial12boldazul">Percentual:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="prePercentual"/></span><br />
+	                	<span class="arial12boldazul">Email PayPal:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preEmailPayPal"/></span><br />
+	                	<span class="arial12boldazul">Titular:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preTitular"/></span><br />
+                </div>
+                <div class="div_sep_enderecos_detalhes">
+	                	<span class="arial12boldazul">Banco:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preBanco"/></span><br />
+	                	<span class="arial12boldazul">N° do Banco:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preNumBanco"/></span><br />
+	                	<span class="arial12boldazul">Agência:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preAgencia"/></span><br />
+	                	<span class="arial12boldazul">Conta Corrente:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preContaCorrente"/></span><br />
+                </div>
+            </div>
+            
             
             <div style="width:100%; display:table; width:590px; margin-bottom:10px;">            	
 				<logic:notEmpty name="imovel" property="tiposPagamento">
