@@ -643,32 +643,6 @@ function somaDias( txtData, DiasAdd )
  
 <div class="divSep"></div>
 
-<div id="formulario_edicao2">
-	<html:hidden property="permitirEntrada" value="true"/>
-	<div class="txt_caracteristica">Opções de pagamento</div>
-	<div class="arial13Cinza">Opções aceitas pelo proprietário no Check in para o pagamento da tarifa e taxas extras.</div>
-	<table border="0" class="box_opcao_pag_info">
-		<tr>
-			<td>
-			<span class="txt_caracteristicas">
-				<logic:present name="tiposPagamento">
-				<logic:notEmpty name="tiposPagamento">	
-					<table>
-						<logic:iterate name="tiposPagamento" id="tipoPagamento">
-							<div class="boxe_opcao_pagamento">
-							<input type="checkbox" name="tiposPagamento" value="<bean:write name="tipoPagamento" property="codigo"/>"><div class="sepf2"><bean:write name="tipoPagamento" property="nome"/></div>
-							</div>										
-						</logic:iterate>
-					</table>
-				</logic:notEmpty>
-				</logic:present>
-			</span>	
-			</td>
-		</tr>				                
-	</table>	    
-</div>
-
-<br /><br />
 <div class="btnSalvarEdicao"><a href="javascript:void(0)"><img src="/buzkaza/_img/btnSalvar.jpg" width="265" height="50" border="0" id="botao_salvar_dispo"/></a></div>
 </html:form>	    
 
