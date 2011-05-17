@@ -187,7 +187,7 @@ public class Imovel implements Serializable{
 	/*****************************/
 	
 	
-	/* adionado pelo Otavio 13/05/2011 */
+	/* adicionado pelo Otavio 13/05/2011 */
 	
 	private String preAgencia;	
 	private String preBanco;	
@@ -277,7 +277,7 @@ public class Imovel implements Serializable{
 	}
 	
 	
-	/* adionado pelo Otavio 13/05/2011 */
+	/* adicionado pelo Otavio 13/05/2011 */
 	
 	
 	
