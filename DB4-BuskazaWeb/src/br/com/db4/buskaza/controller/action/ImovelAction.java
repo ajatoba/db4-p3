@@ -853,6 +853,9 @@ public class ImovelAction extends DispatchAction {
 		if(form.getPreCheckIn() > 0 )
 			imovel.setPreCheckIn(form.getPreCheckIn());
 		
+		if(form.getPreCheckIn2() > 0 )
+			imovel.setPreCheckIn2(form.getPreCheckIn2());
+		
 		if(form.getPreContaCorrente()!= null)
 			imovel.setPreContaCorrente(form.getPreContaCorrente());
 		
@@ -866,7 +869,10 @@ public class ImovelAction extends DispatchAction {
 			imovel.setPreNumBanco(form.getPreNumBanco());
 		
 		if(form.getPrePercentual() > 0 )
-			imovel.setPrePercentual(form.getPrePercentual());		
+			imovel.setPrePercentual(form.getPrePercentual());
+		
+		if(form.getPrePercentual2() > 0 )
+			imovel.setPrePercentual2(form.getPrePercentual2());
 		
 		if(form.getPreTitular()!= null)
 			imovel.setPreTitular(form.getPreTitular());
