@@ -193,11 +193,13 @@ public class Imovel implements Serializable{
 	private String preBanco;	
 	private String preNumBanco;	
 	private String preTitular;	
-	private double prePercentual;	
+	private double prePercentual;
+	private double prePercentual2;
 	private String preEmailPayPal;	
 	private String preCpf;	
 	private String preContaCorrente;
 	private Integer preCheckIn;
+	private Integer preCheckIn2;
 	
 	
 	
@@ -228,11 +230,17 @@ public class Imovel implements Serializable{
 	public void setPrePercentual(double prePercentual) {
 		this.prePercentual = prePercentual;
 	}
-
 	public double getPrePercentual() {
 		return prePercentual;
 	}
 	
+	
+	public void setPrePercentual2(double prePercentual2) {
+		this.prePercentual2 = prePercentual2;
+	}
+	public double getPrePercentual2() {
+		return prePercentual2;
+	}	
 		
 	
 	public String getPreTitular() {
@@ -271,9 +279,16 @@ public class Imovel implements Serializable{
 	public Integer getPreCheckIn() {
 		return preCheckIn;
 	}
-
 	public void setPreCheckIn(Integer preCheckIn) {
 		this.preCheckIn = preCheckIn;
+	}
+	
+	
+	public Integer getPreCheckIn2() {
+		return preCheckIn2;
+	}
+	public void setPreCheckIn2(Integer preCheckIn2) {
+		this.preCheckIn2 = preCheckIn2;
 	}
 	
 	
