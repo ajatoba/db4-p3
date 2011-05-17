@@ -485,7 +485,7 @@ function abrirPop(url){
 					      		<tr>
 					        		<td colspan="3" class="MyriadProRegular">
 					       				<logic:iterate name="equipamentos" id="equipamento">
-							    			<div id="sep_form_busca" class="txt_form">
+							    			<div id="sep_form_edit_equip" class="txt_form">
 							           			<div class="equip_top1">									
 										    		<html:multibox property="equipamentos"> 
 														<bean:write name="equipamento" property="codigo"/>
@@ -512,7 +512,7 @@ function abrirPop(url){
 		<tr>
 	  		<td class="arial13Cinza">Todas as taxas extras, incluindo taxa de Check-in e Check-out fora de horário, deverão ser pagas em dinheiro ao proprietário. Apenas iremos informar os valores.</td>
   		</tr>
-  		<tr><td height="25" colspan="5">&nbsp;</td></tr><!--TR separadora-->
+  		<tr><td height="15" colspan="5">&nbsp;</td></tr><!--TR separadora-->
   		<tr>
         	<td class="txt_caracteristicas" colspan="2">
 				<table border="0" cellpadding="0" cellspacing="0">
@@ -588,17 +588,34 @@ function abrirPop(url){
 
 <div id="formulario_edicao" class="txt_caracteristicas">
 
-	<div class="txt_caracteristica">Opções de pagamento</div>
-	<div class="arial13Cinza">Opções aceitas pelo proprietário no Check in para o pagamento da tarifa e taxas extras.</div>
+	<div class="txt_caracteristica">Procedimento Pagamento</div>
+	<div class="arial13Cinza">
+			Configue como será feito o recebimento da reserva
+	</div>
+	
 	
 	<br />
 		<div class="pre_0">	
-			<div class="pre_1">Percentual </div>
-			<html:text name="imovel" property="prePercentual" size="30" style="width:40px;"/> 
-			<div class="pre_2"> do Saldo. Prazo para pagamento antes do Check in </div>
-			<html:text name="imovel" property="preCheckIn" size="30" style="width:40px;"/> 
-			<div class="pre_2"> ? Informe e-mail para credito no Pay Pal: </div>
-			<html:text name="imovel" property="preEmailPayPal" size="150" style="width:160px;"/>
+		
+		
+			<table border="0" cellspacing="0" cellpadding="2">
+              <tr height="50">
+                <td><html:text name="imovel" property="prePercentual" size="40" style="width:50px;"/> </td>
+                <td><div class="pre_2">% do saldo  </div></td>
+                <td><html:text name="imovel" property="preCheckIn" size="40" style="width:50px;"/> </td>
+                <td><div class="pre_2"> dias antes do checkin</div></td>
+              </tr>
+              <tr height="50">
+                <td><html:text name="imovel" property="prePercentual2" size="40" style="width:50px;"/> </td>
+                <td><div class="pre_2">% do saldo  </div></td>
+                <td><html:text name="imovel" property="preCheckIn2" size="40" style="width:50px;"/> </td>
+                <td><div class="pre_2"> dias antes do checkin</div></td>
+              </tr>
+            </table>
+		</div>
+		<div class="pre_0">		
+			<div class="pre_1">Em caso de pagamento pelo PayPal digite o email</div>
+			<div class="pre_5"><html:text name="imovel" property="preEmailPayPal" size="150" style="width:160px;"/></div>
 		</div>
 		<div class="pre_3">
 				Informe Conta Corrente para Credito:
