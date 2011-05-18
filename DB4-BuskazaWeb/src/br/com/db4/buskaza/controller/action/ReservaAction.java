@@ -1,8 +1,10 @@
 package br.com.db4.buskaza.controller.action;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,9 +26,11 @@ import br.com.db4.buskaza.controller.util.Constants;
 import br.com.db4.buskaza.controller.util.SendMail;
 import br.com.db4.buskaza.model.anuncio.ejb.AnuncioBeanLocal;
 import br.com.db4.buskaza.model.entity.Anuncio;
+import br.com.db4.buskaza.model.entity.Equipamento;
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.Reserva;
 import br.com.db4.buskaza.model.entity.Usuario;
+import br.com.db4.buskaza.model.equipamento.ejb.EquipamentoBeanLocal;
 import br.com.db4.buskaza.model.imovel.ejb.ImovelBeanLocal;
 import br.com.db4.buskaza.model.reserva.ejb.ReservaBeanLocal;
 import br.com.db4.buskaza.model.util.ServiceLocator;
@@ -329,7 +333,6 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			
 			mensagem 		= mensagem.replaceAll("<ENDERECO>", reserva.getImovel().getLogradouro()+", "+reserva.getImovel().getNumero() +" - "+ reserva.getImovel().getComplemento() + " Cep: "+ reserva.getImovel().getCep()+ "<br>"+
 																reserva.getImovel().getBairro()+", "+ reserva.getImovel().getMunicipio() + " - " +reserva.getImovel().getEstado().getCodigo() );
-
 			
 			
 			mensagem 		= mensagem.replaceAll("<VALOR_RESERVA>", 		String.valueOf( reserva.getValor() + ( reserva.getValor() *15/100)) );
@@ -338,25 +341,56 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			
 			
 			
-			mensagem 		= mensagem.replaceAll("<CHECK_OUT>", reserva.getImovel().getCheckInSaida().getHours()+ ":" + reserva.getImovel().getCheckInSaida().getMinutes()+ " até "+
-																reserva.getImovel().getCheckOutSaida().getHours()+ ":" + reserva.getImovel().getCheckOutSaida().getMinutes() );
+			
+			Date dataInicio = new Date(reserva.getPeriodoInicial().getYear()-1900, reserva.getPeriodoInicial().getMonth()-1, reserva.getPeriodoInicial().getDay());
+			Date dataFim 	= new Date(reserva.getPeriodoFinal().getYear()-1900, reserva.getPeriodoFinal().getMonth()-1, reserva.getPeriodoFinal().getDay());
+			
+			int qtdDias = 0;
+			qtdDias = (CalendarioUtil.getInstance().getDiasPeriodoMes(dataInicio, dataFim)).size();
+			
+			
+			mensagem 		= mensagem.replaceAll("<QTD_DIAS>", String.valueOf( qtdDias));
+			mensagem 		= mensagem.replaceAll("<DATA_IN>",  reserva.getPeriodoInicial().getDay()+ "/" + reserva.getPeriodoInicial().getMonth()+ "/" + reserva.getPeriodoInicial().getYear()  );
+			mensagem 		= mensagem.replaceAll("<DATA_FIM>",  reserva.getPeriodoFinal().getDay()+ "/" + reserva.getPeriodoFinal().getMonth()+ "/" + reserva.getPeriodoFinal().getYear()  );
+			
+			
+			mensagem 		= mensagem.replaceAll("<CALCAO>", String.valueOf( reserva.getImovel().getCalcao()) );
+			mensagem 		= mensagem.replaceAll("<LUZ>", String.valueOf( reserva.getImovel().getEnergia()) );
+			mensagem 		= mensagem.replaceAll("<AGUA>", String.valueOf( reserva.getImovel().getTaxaAgua()) );
+			mensagem 		= mensagem.replaceAll("<LIMPAZA>", String.valueOf( reserva.getImovel().getDiarista()) );			
+			mensagem 		= mensagem.replaceAll("<GAS>", String.valueOf( reserva.getImovel().getTaxaGas()) );
+			
+			
+			mensagem 		= mensagem.replaceAll("<PRE_PAGAMENTO>", 	"O proprietário desse imóvel exige "  + reserva.getImovel().getPrePercentual()+
+																		"%, até " + reserva.getImovel().getPreCheckIn()+
+																		" dias antes do Check In, e outros  " + reserva.getImovel().getPrePercentual2()+
+																		"%, até " + reserva.getImovel().getPreCheckIn2()+ " dias antes do Check In.<br />"+
+																		"O pagamento dessa tarifa pode ser feita por Deposito em Conta Corrente ou PayPal<br /><br />"+
+																		"Reservas efetuadas em datas com inicio igual ou superior a 3 dias, o pagamento do percentual antes do Check In, deverá ser pago 24h.");
+			
+			
+			mensagem 		= mensagem.replaceAll("<CHECK_IN>", reserva.getImovel().getCheckInEntrada().getHours()+ ":" + reserva.getImovel().getCheckInEntrada().getMinutes()+ " até "+
+																reserva.getImovel().getCheckOutEntrada().getHours()+ ":" + reserva.getImovel().getCheckOutEntrada().getMinutes());			
+			mensagem 		= mensagem.replaceAll("<TAXA_CHECK_IN>", String.valueOf(reserva.getImovel().getTaxaLateCheckin()));
 			
 			
 			
-			
-			
-			/*
-			 
-			
-			
-			
-			mensagem 		= mensagem.replaceAll("<ENDERECO>", reserva.getImovel().getBairro()+", "+ reserva.getImovel().getMunicipio() + " - " +reserva.getImovel().getEstado() );
+			mensagem 		= mensagem.replaceAll("<CHECK_OUT>", reserva.getImovel().getCheckInSaida().getHours()+ ":" + reserva.getImovel().getCheckInSaida().getMinutes()+ " até "+																
+																reserva.getImovel().getCheckOutSaida().getHours()+ ":" + reserva.getImovel().getCheckOutSaida().getMinutes());
+			mensagem 		= mensagem.replaceAll("<TAXA_CHECK_OUT>", String.valueOf( reserva.getImovel().getTaxaLateCheckout()));
 			
 			
 			
-			mensagem 		= mensagem.replaceAll("<CHECK_IN>", String.valueOf(reserva.getImovel().getCheckInEntrada()) );
-			mensagem 		= mensagem.replaceAll("<CHECK_OUT>", reserva.getImovel().getCheckInSaida()+ " até "+ reserva.getImovel().getCheckOutSaida() );
-			*/
+			mensagem 		= mensagem.replaceAll("<RESPONSAVEL>", reserva.getImovel().getNomeCheckIn());
+			
+			mensagem 		= mensagem.replaceAll("<TEL1>", reserva.getImovel().getDdd() +" "+ reserva.getImovel().getTelefone());
+			mensagem 		= mensagem.replaceAll("<TEL2>",	reserva.getImovel().getDdd2() +" "+reserva.getImovel().getTelefone2());
+			
+			mensagem 		= mensagem.replaceAll("<CONTATO1>",	reserva.getImovel().getEmailCheckin());
+			mensagem 		= mensagem.replaceAll("<CONTATO1>",	reserva.getImovel().getEmailCheckin2());
+			
+			
+			
 			remetente 		= messageResources.getMessage("mail.from");
 			
 			destinatario 	= reserva.getLocatario().getEmail();			
