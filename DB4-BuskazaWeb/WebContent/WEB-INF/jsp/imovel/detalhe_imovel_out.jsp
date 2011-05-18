@@ -437,7 +437,7 @@ function listaDadas(){
             
             
             <div style="width:100%; display:table; width:590px; margin-bottom:20px;">
-            	<div class="tit_arialbullet">Condições de Pagamento da Tarifa Antes do Check In</div>
+            	<div class="tit_arialbullet">Condições de pagamento da tarifa antes Check in</div>
             	<div class="div_sep_enderecos_detalhes">
             			<span class="txt_cinza_detalhes">O proprietário desse imóvel exige <span class="arial12boldazul"> <bean:write name="imovel" property="prePercentual"/>%</span>, até <bean:write name="imovel" property="preCheckIn"/> dias antes do Check In, e outros <span class="arial12boldazul"><bean:write name="imovel" property="prePercentual2"/>%</span>, até <bean:write name="imovel" property="preCheckIn2"/> dias antes do Check In.</span><br />
             			<span class="txt_cinza_detalhes">O pagamento dessa tarifa pode ser feita por Deposito em Conta Corrente ou PayPal</span><br /><br />
@@ -458,7 +458,7 @@ function listaDadas(){
             </div>            
             
             <div style="width:100%; display:table; width:590px; margin-bottom:20px;">
-            	<div class="tit_arialbullet">Condições de pagamento no Check in</div>            	
+            	<div class="tit_arialbullet">Condições de pagamento da tarifa no Check in</div>            	
 				<logic:notEmpty name="imovel" property="tiposPagamento">
 				            <div style="width:100%; display:table; width:590px; margin-bottom:10px;">
 				            	<div class="txt_cinza_detalhes">
@@ -471,17 +471,13 @@ function listaDadas(){
 	  				
 	  			</logic:notEmpty>	  					
 				<logic:empty name="imovel" property="tiposPagamento">
-					<div class="tit_arialbullet">Condições de pagamento no Check in</div>  
+					<div class="tit_arialbullet">Condições de pagamento da tarifa no Check in</div>  
 	  				<span class="txt_cinza_detalhes">Não foram cadastrados formas de pagamento para esse imóvel. Após efetuar a reserva, consulte o proprietário.</span>
 	  			</logic:empty>	  					
             			             
             </div>
-            <div style="width:100%; display:table; width:590px; margin-bottom:35px;">
-            	<span class="arial12boldazul">Horário de Check In:</span><span class="txt_cinza_detalhes"> de <bean:write name="imovel" property="checkInEntrada" format="HH:mm"/> até <bean:write name="imovel" property="checkInSaida" format="HH:mm"/> - R$ <bean:write name="imovel" property="taxaLateCheckin"/> para check in fora do horário</span><br />
-                <span class="arial12boldazul">Horário de Check Out:</span><span class="txt_cinza_detalhes"> de <bean:write name="imovel" property="checkOutEntrada" format="HH:mm"/> até <bean:write name="imovel" property="checkOutSaida" format="HH:mm"/> - R$ <bean:write name="imovel" property="taxaLateCheckout"/> para check out fora do horário</span><br />
-            </div>
             
-            <div class="tit_arialbullet">Taxas Extras</div>
+            	<div class="tit_arialbullet">Taxas Extras</div>
             	<div class="div_sep_enderecos_detalhes">
                 	<span class="arial12boldazul">Caução:</span><span class="txt_cinza_detalhes"> R$ <bean:write name="imovel" property="calcao"/></span><br />
                 	<span class="arial12boldazul">Eletricidade:</span><span class="txt_cinza_detalhes"> R$ <bean:write name="imovel" property="energia"/></span><br />
@@ -491,6 +487,12 @@ function listaDadas(){
                 	<span class="arial12boldazul">Gás:</span><span class="txt_cinza_detalhes"> R$ <bean:write name="imovel" property="taxaGas"/></span><br />
                 	<span class="arial12boldazul">Limpeza:</span><span class="txt_cinza_detalhes"> R$ <bean:write name="imovel" property="diarista"/></span><br />
                 </div>
+                
+            	<div style="width:100%; display:table; width:590px; margin-bottom:35px;">
+            		<span class="arial12boldazul">Horário de Check In:</span><span class="txt_cinza_detalhes"> de <bean:write name="imovel" property="checkInEntrada" format="HH:mm"/> até <bean:write name="imovel" property="checkInSaida" format="HH:mm"/> - R$ <bean:write name="imovel" property="taxaLateCheckin"/> para check in fora do horário</span><br />
+                	<span class="arial12boldazul">Horário de Check Out:</span><span class="txt_cinza_detalhes"> de <bean:write name="imovel" property="checkOutEntrada" format="HH:mm"/> até <bean:write name="imovel" property="checkOutSaida" format="HH:mm"/> - R$ <bean:write name="imovel" property="taxaLateCheckout"/> para check out fora do horário</span><br />
+            	</div>
+            
             </div>
         
         </div>
