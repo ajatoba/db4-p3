@@ -171,6 +171,8 @@ public class ImovelForm extends ActionForm {
 	
 	/* adionado pelo Otavio 13/05/2011 */
 	
+	
+	private boolean prePagamento;	
 	private String preAgencia;	
 	private String preBanco;	
 	private String preNumBanco;	
@@ -183,6 +185,13 @@ public class ImovelForm extends ActionForm {
 	private Integer preCheckIn;
 	private Integer preCheckIn2;
 	
+	
+	public boolean isPrePagamento() {
+		return prePagamento;
+	}
+	public void setPrePagamento(boolean prePagamento) {
+		this.prePagamento = prePagamento;
+	}
 	
 	
 	public String getPreAgencia() {
