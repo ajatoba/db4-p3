@@ -40,6 +40,23 @@
 <script language="javascript">
 $(function(){
 	$('form').jqTransform({imgPath:'/buzkaza/jqtransformplugin/img/'});
+
+
+	if( $("#link_pre_pagamento:checked").length ){
+		$("#prepagamento").slideDown("slow");
+	}	
+	
+	$("#link_pre_pagamento").click(function () {
+		
+		if( $("#link_pre_pagamento:checked").length ){		
+      		$("#prepagamento").slideUp("slow");
+		}else
+		{
+			$("#prepagamento").slideDown("slow");
+		}		
+    });
+
+    
 });
 </script>
 
@@ -590,32 +607,39 @@ function abrirPop(url){
 
 	<div class="txt_caracteristica">Procedimento Pagamento</div>
 	<div class="arial13Cinza">
-			Configue como será feito o recebimento da reserva
+			Configue como será feito o recebimento da reserva<br /><br />
+			
+			<span class="txt_caracteristicas">Exige Pré Pagamento do Saldo?</span><br />
+
+            <div class="pre_0">
+                <div class="equip_top1">
+                	<html:checkbox name="imovel" property="prePagamento" styleId="link_pre_pagamento" />
+                </div>
+                <div class="equip_top2"><span class="txt_caracteristicas">Sim</span></div>
+			</div>
 	</div>
 	
-	
-	<br />
-		<div class="pre_0">	
-		
-		
-			<table border="0" cellspacing="0" cellpadding="2">
-              <tr height="50">
-                <td><html:text name="imovel" property="prePercentual" size="40" style="width:50px;"/> </td>
-                <td><div class="pre_2">% do saldo  </div></td>
-                <td><html:text name="imovel" property="preCheckIn" size="40" style="width:50px;"/> </td>
-                <td><div class="pre_2"> dias antes do checkin</div></td>
-              </tr>
-              <tr height="50">
-                <td><html:text name="imovel" property="prePercentual2" size="40" style="width:50px;"/> </td>
-                <td><div class="pre_2">% do saldo  </div></td>
-                <td><html:text name="imovel" property="preCheckIn2" size="40" style="width:50px;"/> </td>
-                <td><div class="pre_2"> dias antes do checkin</div></td>
-              </tr>
-            </table>
+	<div id="prepagamento" style="display:none">
+		<br />
+		<div class="pre_0">
+				<table border="0" cellspacing="0" cellpadding="2">
+	              <tr height="50">
+	                <td><html:text name="imovel" property="prePercentual" size="40" style="width:50px;"/> </td>
+	                <td><div class="pre_2">% do saldo  </div></td>
+	                <td><html:text name="imovel" property="preCheckIn" size="40" style="width:50px;"/> </td>
+	                <td><div class="pre_2"> dias antes do checkin</div></td>
+	              </tr>
+	              <tr height="50">
+	                <td><html:text name="imovel" property="prePercentual2" size="40" style="width:50px;"/> </td>
+	                <td><div class="pre_2">% do saldo  </div></td>
+	                <td><html:text name="imovel" property="preCheckIn2" size="40" style="width:50px;"/> </td>
+	                <td><div class="pre_2"> dias antes do checkin</div></td>
+	              </tr>
+	            </table>
 		</div>
 		<div class="pre_0">		
-			<div class="pre_1">Em caso de pagamento pelo PayPal digite o email</div>
-			<div class="pre_5"><html:text name="imovel" property="preEmailPayPal" size="150" style="width:160px;"/></div>
+				<div class="pre_1">Em caso de pagamento pelo PayPal digite o email</div>
+				<div class="pre_5"><html:text name="imovel" property="preEmailPayPal" size="150" style="width:160px;"/></div>
 		</div>
 		<div class="pre_3">
 				Informe Conta Corrente para Credito:
@@ -637,6 +661,8 @@ function abrirPop(url){
 				<div class="pre_2">CPF: </div>
 				<html:text name="imovel" property="preCpf" size="90" style="width:100px;"/>
 		</div>
+		
+	</div>
 		<br /><br />
 </div>
 
