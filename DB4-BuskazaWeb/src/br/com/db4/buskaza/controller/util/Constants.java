@@ -96,9 +96,9 @@ public interface Constants {
 	
 	public static final Integer STATUS_RESERVA_AGUARDANDO_APROVACAO = 0;
 	
-	public static final Integer STATUS_RESERVA_APROVADA = 1;
+	public static final Integer STATUS_RESERVA_APROVADA = 9;
 	
-	public static final Integer STATUS_RESERVA_NEGADA = 2;
+	public static final Integer STATUS_RESERVA_NEGADA = 5;
 
 	
 
