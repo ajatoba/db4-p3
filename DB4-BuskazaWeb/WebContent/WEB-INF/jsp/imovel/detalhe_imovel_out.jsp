@@ -437,14 +437,16 @@ function listaDadas(){
             
             
             <div style="width:100%; display:table; width:590px; margin-bottom:20px;">
-            	<div class="tit_arialbullet">Condições de Pagamento no Check In</div>
+            	<div class="tit_arialbullet">Condições de Pagamento Antes do Check In</div>
             	<div class="div_sep_enderecos_detalhes">
-	                	<span class="arial12boldazul">CheckIn:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preCheckIn"/> dias</span><br />
-	                	<span class="arial12boldazul">Percentual:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="prePercentual"/></span><br />
-	                	<span class="arial12boldazul">CheckIn:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preCheckIn2"/> dias</span><br />
-	                	<span class="arial12boldazul">Percentual:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="prePercentual2"/></span><br />
-	                	<span class="arial12boldazul">Email PayPal:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preEmailPayPal"/></span><br />	                	
+            			<span class="txt_cinza_detalhes">Pagamento de</span><span class="arial12boldazul"> <bean:write name="imovel" property="prePercentual"/>%</span>até <bean:write name="imovel" property="preCheckIn"/> dias antes do Check In.
+            			<span class="txt_cinza_detalhes">Pagamento de</span><span class="arial12boldazul"> <bean:write name="imovel" property="prePercentual2"/>%</span>até <bean:write name="imovel" property="preCheckIn2"/> dias antes do Check In.<br />
+            			<span class="txt_cinza_detalhes">Forma de pagamento aceita Deposito em Conta Corrente ou PayPal</span><br />
+            			<!--  
+	                	<span class="arial12boldazul">Email PayPal:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preEmailPayPal"/></span><br />
+	                	-->	                	
                 </div>
+                <!--
                 <div class="div_sep_enderecos_detalhes">
 	                	<span class="arial12boldazul">Banco:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preBanco"/></span><br />
 	                	<span class="arial12boldazul">N° do Banco:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preNumBanco"/></span><br />
@@ -452,6 +454,7 @@ function listaDadas(){
 	                	<span class="arial12boldazul">Conta Corrente:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preContaCorrente"/></span><br />
 	                	<span class="arial12boldazul">Titular:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preTitular"/></span><br />
                 </div>
+                -->
             </div>
             
             
