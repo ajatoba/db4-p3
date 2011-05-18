@@ -469,9 +469,9 @@ function listaDadas(){
 			  					<div class="box_equipamentos"><bean:write name="tipoPagamento" property="nome"/></div>	
 			  				</logic:iterate>
 	  				
-	  			</logic:notEmpty>
-	  			<div class="tit_arialbullet">Condições de pagamento no Check in</div>  	  					
+	  			</logic:notEmpty>	  					
 				<logic:empty name="imovel" property="tiposPagamento">
+					<div class="tit_arialbullet">Condições de pagamento no Check in</div>  
 	  				<span class="txt_cinza_detalhes">Não foram cadastrados formas de pagamento para esse imóvel. Após efetuar a reserva, consulte o proprietário.</span>
 	  			</logic:empty>	  					
             			             
