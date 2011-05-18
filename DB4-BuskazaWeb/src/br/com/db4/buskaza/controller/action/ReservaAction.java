@@ -327,15 +327,27 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			
 			mensagem 		= mensagem.replaceAll("<CODIGO_RESERVA>", String.valueOf(reserva.getCodigo()));
 			
+			mensagem 		= mensagem.replaceAll("<ENDERECO>", reserva.getImovel().getLogradouro()+", "+reserva.getImovel().getNumero() +" - "+ reserva.getImovel().getComplemento() + " Cep: "+ reserva.getImovel().getCep()+ "<br>"+
+																reserva.getImovel().getBairro()+", "+ reserva.getImovel().getMunicipio() + " - " +reserva.getImovel().getEstado().getCodigo() );
+
+			
+			
+			mensagem 		= mensagem.replaceAll("<VALOR_RESERVA>", 		String.valueOf( reserva.getValor() + ( reserva.getValor() *15/100)) );
+			mensagem 		= mensagem.replaceAll("<VALOR_TAXA_RESERVA>", 	String.valueOf(  (reserva.getValor()*15/100)  ));
+			mensagem 		= mensagem.replaceAll("<VALOR_SALDO_RESERVA>",	String.valueOf( reserva.getValor()));
 			
 			
 			
-			mensagem 		= mensagem.replaceAll("<ENDERECO>", reserva.getImovel().getBairro()+", "+ reserva.getImovel().getMunicipio() + " - " +reserva.getImovel().getEstado() );
+			mensagem 		= mensagem.replaceAll("<CHECK_OUT>", reserva.getImovel().getCheckInSaida().getHours()+ ":" + reserva.getImovel().getCheckInSaida().getMinutes()+ " até "+
+																reserva.getImovel().getCheckOutSaida().getHours()+ ":" + reserva.getImovel().getCheckOutSaida().getMinutes() );
+			
+			
+			
 			
 			
 			/*
 			 
-			mensagem 		= mensagem.replaceAll("<IDIOMA>", String.valueOf(reserva.getImovel().getIdiomas()));
+			
 			
 			
 			mensagem 		= mensagem.replaceAll("<ENDERECO>", reserva.getImovel().getBairro()+", "+ reserva.getImovel().getMunicipio() + " - " +reserva.getImovel().getEstado() );
