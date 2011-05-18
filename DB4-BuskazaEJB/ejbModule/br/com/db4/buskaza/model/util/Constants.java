@@ -18,7 +18,7 @@ public class Constants {
 	//STATUS DAS RESERVAS	
 	public static final int STATUS_RESERVA_AGUARDANDO_APROVACAO = 0;
 	
-	public static final int STATUS_RESERVA_APROVADA = 4;
+	public static final int STATUS_RESERVA_APROVADA = 1;
 	
 	public static final int STATUS_RESERVA_NEGADA = 2;
 	
