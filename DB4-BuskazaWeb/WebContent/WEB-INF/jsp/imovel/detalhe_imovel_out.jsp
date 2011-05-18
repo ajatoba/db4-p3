@@ -437,11 +437,11 @@ function listaDadas(){
             
             
             <div style="width:100%; display:table; width:590px; margin-bottom:20px;">
-            	<div class="tit_arialbullet">Condições de Pagamento Antes do Check In</div>
+            	<div class="tit_arialbullet">Condições de Pagamento da Tarifa Antes do Check In</div>
             	<div class="div_sep_enderecos_detalhes">
-            			<span class="txt_cinza_detalhes">Pagamento de</span><span class="arial12boldazul"> <bean:write name="imovel" property="prePercentual"/>%</span>até <bean:write name="imovel" property="preCheckIn"/> dias antes do Check In.
-            			<span class="txt_cinza_detalhes">Pagamento de</span><span class="arial12boldazul"> <bean:write name="imovel" property="prePercentual2"/>%</span>até <bean:write name="imovel" property="preCheckIn2"/> dias antes do Check In.<br />
-            			<span class="txt_cinza_detalhes">Forma de pagamento aceita Deposito em Conta Corrente ou PayPal</span><br />
+            			<span class="txt_cinza_detalhes">O proprietário desse imóvel exige <span class="arial12boldazul"> <bean:write name="imovel" property="prePercentual"/>%</span>, até <bean:write name="imovel" property="preCheckIn"/> dias antes do Check In, e outros <span class="arial12boldazul"><bean:write name="imovel" property="prePercentual2"/>%</span>, até <bean:write name="imovel" property="preCheckIn2"/> dias antes do Check In.</span><br />
+            			<span class="txt_cinza_detalhes">O pagamento dessa tarifa pode ser feita por Deposito em Conta Corrente ou PayPal</span><br /><br />
+            			<span class="txt_cinza_detalhes">Reservas efetuadas em datas com inicio igual ou superior a 3 dias, o pagamento do percentual antes do Check In, deverá ser pago 24h.
             			<!--  
 	                	<span class="arial12boldazul">Email PayPal:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preEmailPayPal"/></span><br />
 	                	-->	                	
@@ -455,22 +455,24 @@ function listaDadas(){
 	                	<span class="arial12boldazul">Titular:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preTitular"/></span><br />
                 </div>
                 -->
-            </div>
+            </div>            
             
-            
-            <div style="width:100%; display:table; width:590px; margin-bottom:20px;">            	
+            <div style="width:100%; display:table; width:590px; margin-bottom:20px;">
+            	<div class="tit_arialbullet">Condições de pagamento no Check in</div>            	
 				<logic:notEmpty name="imovel" property="tiposPagamento">
 				            <div style="width:100%; display:table; width:590px; margin-bottom:10px;">
-				            	<div class="txt_cinza_detalhes">Opções aceitas pelo proprietário no Check in para o pagamento da tarifa e taxas extras.</div>
+				            	<div class="txt_cinza_detalhes">
+				            	Formas de pagamento aceitas para pagamento do saldo restante (ou integral) e/ou das taxas extras no Check In.</div>
 				            </div>
 					
 			  				<logic:iterate name="imovel" id="tipoPagamento" property="tiposPagamento">
 			  					<div class="box_equipamentos"><bean:write name="tipoPagamento" property="nome"/></div>	
 			  				</logic:iterate>
 	  				
-	  			</logic:notEmpty>	  					
+	  			</logic:notEmpty>
+	  			<div class="tit_arialbullet">Condições de pagamento no Check in</div>  	  					
 				<logic:empty name="imovel" property="tiposPagamento">
-	  				<span class="txt_cinza_detalhes">Não foram cadastrados tipos de pagamento para esse imóvel. Após efetuar a reserva, consulte o proprietário.</span>
+	  				<span class="txt_cinza_detalhes">Não foram cadastrados formas de pagamento para esse imóvel. Após efetuar a reserva, consulte o proprietário.</span>
 	  			</logic:empty>	  					
             			             
             </div>
