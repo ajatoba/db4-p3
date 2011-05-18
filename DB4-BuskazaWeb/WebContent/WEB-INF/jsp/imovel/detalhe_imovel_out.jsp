@@ -436,26 +436,27 @@ function listaDadas(){
             </div>
             
             
-            <div style="width:100%; display:table; width:590px; margin-bottom:10px;">
+            <div style="width:100%; display:table; width:590px; margin-bottom:20px;">
             	<div class="tit_arialbullet">Condições de Pagamento no Check In</div>
             	<div class="div_sep_enderecos_detalhes">
 	                	<span class="arial12boldazul">CheckIn:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preCheckIn"/> dias</span><br />
 	                	<span class="arial12boldazul">Percentual:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="prePercentual"/></span><br />
-	                	<span class="arial12boldazul">Email PayPal:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preEmailPayPal"/></span><br />
-	                	<span class="arial12boldazul">Titular:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preTitular"/></span><br />
+	                	<span class="arial12boldazul">CheckIn:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preCheckIn2"/> dias</span><br />
+	                	<span class="arial12boldazul">Percentual:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="prePercentual2"/></span><br />
+	                	<span class="arial12boldazul">Email PayPal:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preEmailPayPal"/></span><br />	                	
                 </div>
                 <div class="div_sep_enderecos_detalhes">
 	                	<span class="arial12boldazul">Banco:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preBanco"/></span><br />
 	                	<span class="arial12boldazul">N° do Banco:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preNumBanco"/></span><br />
 	                	<span class="arial12boldazul">Agência:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preAgencia"/></span><br />
 	                	<span class="arial12boldazul">Conta Corrente:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preContaCorrente"/></span><br />
+	                	<span class="arial12boldazul">Titular:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preTitular"/></span><br />
                 </div>
             </div>
             
             
-            <div style="width:100%; display:table; width:590px; margin-bottom:10px;">            	
+            <div style="width:100%; display:table; width:590px; margin-bottom:20px;">            	
 				<logic:notEmpty name="imovel" property="tiposPagamento">
-				            <div class="tit_arialbullet2">Condições de Pagamento no Check In</div>
 				            <div style="width:100%; display:table; width:590px; margin-bottom:10px;">
 				            	<div class="txt_cinza_detalhes">Opções aceitas pelo proprietário no Check in para o pagamento da tarifa e taxas extras.</div>
 				            </div>
