@@ -844,6 +844,14 @@ public class ImovelAction extends DispatchAction {
 		
 		
 		/* adionado pelo Otavio 13/05/2011 */
+		
+		if(form.isPrePagamento() == true )
+			imovel.setPrePagamento(form.isPrePagamento());
+		
+		if(form.isPrePagamento() == false )
+			imovel.setPrePagamento(form.isPrePagamento());
+		
+		
 		if(form.getPreAgencia()!= null)
 			imovel.setPreAgencia(form.getPreAgencia());
 		
