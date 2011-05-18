@@ -455,7 +455,7 @@ function listaDadas(){
 	                	<span class="arial12boldazul">Titular:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preTitular"/></span><br />
                 </div>
                 -->
-            </div>            
+            </div>
             
             <div style="width:100%; display:table; width:590px; margin-bottom:20px;">
             	<div class="tit_arialbullet">Condições de pagamento da tarifa no Check in</div>            	
