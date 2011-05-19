@@ -16,9 +16,9 @@
 <script type="text/javascript" src="/buzkaza/_js/function_calcular_data.js"></script>
 
 <script>
-function submitForm(status){
-	document.forms[0].status.value=status;
-	document.forms[0].submit();
+function submitForm(status, id){
+	document.getElementById("status_" + id).value = status;
+	document.getElementById("form_total_" + id).submit();
 }
 
 </script>
@@ -42,67 +42,74 @@ function submitForm(status){
     
       	<logic:iterate id="rim" name="reservasImovel">
       
-      		<% index = index+1; %>
-
-	      <html:form action="/usuario/reserva.do?act=aprovarReserva" method="POST">
-	      <html:hidden property="status"/>
-	      <html:hidden property="codigo" value="${rim.codigo}"/>
-      
-      
-			    <div class="reserva_historico_box">
-			        <div class="reserva_historico_box_usuario">
-			            O usuário <span id="azul">${rim.locatario.nome}</span> deseja reservar o seu imóvel.
-			        </div>
-			        <ul class="reserva_historico_ul">  
-			            <li class="res_1">
-			                <span id="data_total_<% out.print( index ); %>_${rim.codigo}"></span> dia(s) - <bean:write name="rim" property="periodoInicial" format="dd/MM/yyyy"/> a 
-			                <bean:write name="rim" property="periodoFinal" format="dd/MM/yyyy"/><br />   
-			                Total: R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( rim.valor + ( rim.valor *15/100))}"/>
-			                <br>
-			                
-			                <logic:equal name="rim" property="status" value="0">Aguardando pagamento</logic:equal>
-                    		<logic:equal name="rim" property="status" value="1">Autorizado</logic:equal>
-							<logic:equal name="rim" property="status" value="2">Iniciado</logic:equal>							
-							<logic:equal name="rim" property="status" value="3">Boleto Impresso</logic:equal>
-							<logic:equal name="rim" property="status" value="4">Pagamento Efetuado</logic:equal>
-							<logic:equal name="rim" property="status" value="5">Cancelado</logic:equal>
-							<logic:equal name="rim" property="status" value="6">Em análise</logic:equal>
-							<logic:equal name="rim" property="status" value="7">Estornado</logic:equal>
-							<logic:equal name="rim" property="status" value="9">Concluído</logic:equal>
-			                
-			                
-			                
-			            </li>
-			            <li class="res_4">
-				            <logic:equal name="rim" property="status" value="4">
-				            	<div class="res_3"><a href="#" onclick="javascript:submitForm(5);" border="0"><img src="/buzkaza/_img/botao_negar.jpg" width="91" height="30" border="0"/></a></div>
-				            	<div class="res_2"><a href="#" onclick="javascript:submitForm(9);" border="0"><img src="/buzkaza/_img/botao_confirmar.jpg" width="91" height="30" border="0"/></a></div>				            	
-				            </logic:equal>
-				            <logic:notEqual name="rim" property="status" value="4">
-				            
-				            		
-				            		<logic:equal name="rim" property="status" value="9">    
-											<div class="res_2"></div>
-									</logic:equal>
-									<logic:notEqual name="rim" property="status" value="9">
-				            				<div class="res_3"><a href="#" onclick="javascript:submitForm(5);" border="0"><img src="/buzkaza/_img/botao_negar.jpg" width="91" height="30" border="0"/></a></div>
-				            		</logic:notEqual>
-				            		
-				            </logic:notEqual>
-				            
-				            
-				            
-			            </li>
-			        </ul>
-			        
-			        <script language="javascript">
-                    <!--
-                    	calcularDataListaReserva( '<bean:write name="rim" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="rim" property="periodoFinal" format="dd/MM/yyyy"/>', 'data_total_<% out.print( index ); %>_${rim.codigo}');
-                   	-->
-                   	</script>
-			    </div>		   
-		   
+      		
+      		
+      		<logic:notEqual name="rim" property="status" value="2">	
+			<% index = index+1; %>
+			
+				      <html:form styleId="form_total_${rim.codigo}" action="/usuario/reserva.do?act=aprovarReserva" method="post">
+				      <html:hidden property="status" styleId="status_${rim.codigo}"/>
+				      <html:hidden property="codigo" value="${rim.codigo}"/>
+			      
+			      
+						    <div class="reserva_historico_box">
+						        <div class="reserva_historico_box_usuario">
+						            O usuário <span id="azul">${rim.locatario.nome}</span> deseja reservar o seu imóvel.
+						        </div>
+						        <ul class="reserva_historico_ul">  
+						            <li class="res_1">
+						                <span id="data_total_<% out.print( index ); %>_${rim.codigo}"></span> dia(s) - <bean:write name="rim" property="periodoInicial" format="dd/MM/yyyy"/> a 
+						                <bean:write name="rim" property="periodoFinal" format="dd/MM/yyyy"/><br />   
+						                Total: R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( rim.valor + ( rim.valor *15/100))}"/>
+						                <br>
+						                
+						                <logic:equal name="rim" property="statusMoip" value="0">Aguardando pagamento</logic:equal>
+			                    		<logic:equal name="rim" property="statusMoip" value="1">Autorizado</logic:equal>
+										<logic:equal name="rim" property="statusMoip" value="2">Iniciado</logic:equal>							
+										<logic:equal name="rim" property="statusMoip" value="3">Boleto Impresso</logic:equal>
+										<logic:equal name="rim" property="statusMoip" value="4">Pagamento Efetuado</logic:equal>
+										<logic:equal name="rim" property="statusMoip" value="5">Cancelado</logic:equal>
+										<logic:equal name="rim" property="statusMoip" value="6">Em análise</logic:equal>
+										<logic:equal name="rim" property="statusMoip" value="7">Estornado</logic:equal>
+										<logic:equal name="rim" property="statusMoip" value="9">Concluído</logic:equal>
+						                
+						                
+						                
+						            </li>
+						            <li class="res_4">
+							            <logic:equal name="rim" property="statusMoip" value="4">
+							            	<div class="res_3"><a href="#" onclick="javascript:submitForm(2, ${rim.codigo});" border="0"><img src="/buzkaza/_img/botao_negar.jpg" width="91" height="30" border="0"/></a></div>
+							            	<div class="res_2"><a href="#" onclick="javascript:submitForm(1, ${rim.codigo});" border="0"><img src="/buzkaza/_img/botao_confirmar.jpg" width="91" height="30" border="0"/></a></div>				            	
+							            </logic:equal>
+							            <logic:notEqual name="rim" property="statusMoip" value="4">
+							            
+							            		
+							            		<logic:equal name="rim" property="statusMoip" value="9">    
+														<div class="res_2"></div>
+												</logic:equal>
+												<logic:notEqual name="rim" property="statusMoip" value="9">
+							            				<div class="res_3"><a href="#" onclick="javascript:submitForm(2, ${rim.codigo});" border="0"><img src="/buzkaza/_img/botao_negar.jpg" width="91" height="30" border="0"/></a></div>
+							            		</logic:notEqual>
+							            		
+							            </logic:notEqual>
+							            
+							            
+							            
+						            </li>
+						        </ul>
+						        
+						        <script language="javascript">
+			                    <!--
+			                    	calcularDataListaReserva( '<bean:write name="rim" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="rim" property="periodoFinal" format="dd/MM/yyyy"/>', 'data_total_<% out.print( index ); %>_${rim.codigo}');
+			                   	-->
+			                   	</script>
+						    </div>		   
+		   			
+		   			
+		   			
 			</html:form>
+			
+			</logic:notEqual>
     	</logic:iterate>
     	
     	<script language="javascript">
