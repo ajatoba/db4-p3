@@ -28,6 +28,8 @@ public class ReservaForm extends ActionForm {
 	
 	private int status;
 	
+	private int statusMoip;
+	
 	public int getStatus() {
 		return status;
 	}
@@ -35,6 +37,15 @@ public class ReservaForm extends ActionForm {
 
 	public void setStatus(int status) {
 		this.status = status;
+	}
+	
+	
+	
+	public int getStatusMoip() {
+		return statusMoip;
+	}
+	public void setStatusMoip(int statusMoip) {
+		this.statusMoip = statusMoip;
 	}
 
 
