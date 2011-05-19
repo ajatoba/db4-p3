@@ -23,6 +23,7 @@ import org.jboss.ejb3.annotation.LocalBinding;
 
 import br.com.db4.buskaza.model.entity.Anuncio;
 import br.com.db4.buskaza.model.entity.Bloqueio;
+import br.com.db4.buskaza.model.entity.Equipamento;
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.Reserva;
 import br.com.db4.buskaza.model.util.Constants;
@@ -112,7 +113,7 @@ public class ReservaBean implements ReservaBeanLocal {
         return c.list(); 
 	}*/
 	
-	public List<Reserva> listarReservasImovel(Integer codigoImovel, int status){
+	public List<Reserva> listarReservasImovelConfirmar(Integer codigoImovel, int status, int statusMoip){
 		
 		//ESSE MÉTODO LISTA AS RESERVAS DE ACORDO COM O STATUS
 		//0 - PENDENTE DE APROVAÇÃO; 1 - APROVADA; 2 - NEGADA
@@ -128,16 +129,17 @@ public class ReservaBean implements ReservaBeanLocal {
 		Criteria c = session.createCriteria(Reserva.class); 
 		
 		c.setCacheable(true);
+		c.setFetchMode("equipamentos", FetchMode.EAGER);
 		c.setCacheMode(CacheMode.NORMAL);	
 		c.addOrder(Order.desc("dataReserva"));
 		
         if (codigoImovel != null && codigoImovel > 0) { 
         	c.add(Restrictions.eq("imovel.codigo", codigoImovel));
-        	
         } 
         
         if(status >= 0){//POIS -1 DEVE LISTAR TODAS AS RESERVAS
         	c.add(Restrictions.eq("status", status));
+        	c.add(Restrictions.eq("statusMoip", statusMoip));
         }
         
         c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
@@ -174,24 +176,96 @@ public class ReservaBean implements ReservaBeanLocal {
 	}
 	
 	public Integer aprovarReserva(Reserva reserva) {
-		String sql = "UPDATE Reserva set status = "+ reserva.getStatus() +" where codigo="+reserva.getCodigo();
+		String sql = "UPDATE Reserva set status = "+ reserva.getStatus() +", statusMoip = "+ reserva.getStatusMoip() +"  where codigo="+reserva.getCodigo();
+		
+		Query query = em.createQuery(sql);
+		query.executeUpdate();		
+		
+		return reserva.getCodigo();
+
+	}
+	
+	
+	
+	/*
+	 
+	  public Integer aprovarReserva(Reserva reserva) {
+		String sql = "UPDATE Reserva set status = "+ reserva.getStatus() +", statusMoip = "+ reserva.getStatusMoip() +"  where codigo="+reserva.getCodigo();
 		
 		Query query = em.createQuery(sql);
 		query.executeUpdate();
 		
 		return reserva.getCodigo();
-
-	}
-	/*
+	
+		}
+	  
+	 
 	public Reserva getReserva(Integer codigoReserva){
 		return em.find(Reserva.class, codigoReserva);
-	}*/
+	}
+	
+	public Reserva getReserva(Integer codigoReserva){
+	        Reserva reserva = em.find(Reserva.class, codigoReserva);
+	       
+	       
+	       
+	       
+	       Session session;  
+			if (em.getDelegate() instanceof EntityManagerImpl) {  
+			    EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
+			    session = entityManagerImpl.getSession();  
+			} else {  
+			    session = (Session) em.getDelegate();  
+			}
+			
+			Criteria c = session.createCriteria(Imovel.class); 
+			
+			c.setFetchMode("equipamentos", FetchMode.EAGER);		
+			c.setFetchMode("reserva", FetchMode.EAGER);
+			
+			c.setCacheable(true);			
+			c.setCacheMode(CacheMode.NORMAL);			
+			c.add(Restrictions.eq("reserva.codigo", codigoReserva ));
+			
+			return (Reserva) c.uniqueResult();
+	       
+	       //return reserva;
+	}
+	*/
 	
 	public Reserva getReserva(Integer codigoReserva){
 	       Reserva reserva = em.find(Reserva.class, codigoReserva);
-	       
 	       return reserva;
 	}
+	
+	
+	
+	public Imovel getImovelEquipReserva(Integer codigoImovel){
+       
+        Session session;  
+		if (em.getDelegate() instanceof EntityManagerImpl) {  
+		  EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();  
+		  session = entityManagerImpl.getSession();  
+		} else {  
+		  session = (Session) em.getDelegate();  
+		}
+		
+		Criteria c = session.createCriteria(Imovel.class);
+		c.add(Restrictions.eq("codigo", codigoImovel));
+		
+		c.setFetchMode("equipamentos", FetchMode.EAGER);
+		c.setFetchMode("idiomas", FetchMode.EAGER);
+		c.setFetchMode("tiposPagamento", FetchMode.EAGER);
+		
+		c.setCacheable(true);
+		c.setCacheMode(CacheMode.NORMAL);
+
+		return (Imovel) c.uniqueResult();
+}
+	
+	
+	
+	
 	
 	
 	public List<Reserva> listarReservasImovel(Integer codigoImovel, int mes, int ano){
