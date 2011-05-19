@@ -51,6 +51,9 @@ public class Reserva implements Serializable {
 	
 	@NotNull
 	private Integer status = 0; //0 - Em avaliação / 1 - Confirmada  / 2 - Cancelada / 3 -  Concluida 
+	
+	@NotNull
+	private Integer statusMoip = 0;
 	/* 
 	  	novos STATUS vindos do MOIP
 		1 autorizado
@@ -127,6 +130,14 @@ public class Reserva implements Serializable {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+	
+	
+	public Integer getStatusMoip() {
+		return statusMoip;
+	}
+	public void setStatusMoip(Integer statusMoip) {
+		this.statusMoip = statusMoip;
 	}
 
 	public Usuario getLocatario() {
