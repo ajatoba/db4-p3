@@ -1,7 +1,9 @@
 package br.com.db4.buskaza.controller.action;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -18,19 +20,18 @@ import org.apache.struts.action.ActionMessages;
 import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.util.MessageResources;
 
-import br.com.db4.buskaza.controller.form.ImovelForm;
+
 import br.com.db4.buskaza.controller.form.ReservaForm;
 import br.com.db4.buskaza.controller.util.Calendario;
 import br.com.db4.buskaza.controller.util.CalendarioUtil;
 import br.com.db4.buskaza.controller.util.Constants;
 import br.com.db4.buskaza.controller.util.SendMail;
-import br.com.db4.buskaza.model.anuncio.ejb.AnuncioBeanLocal;
-import br.com.db4.buskaza.model.entity.Anuncio;
 import br.com.db4.buskaza.model.entity.Equipamento;
+import br.com.db4.buskaza.model.entity.Idioma;
 import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.Reserva;
+import br.com.db4.buskaza.model.entity.TipoPagamento;
 import br.com.db4.buskaza.model.entity.Usuario;
-import br.com.db4.buskaza.model.equipamento.ejb.EquipamentoBeanLocal;
 import br.com.db4.buskaza.model.imovel.ejb.ImovelBeanLocal;
 import br.com.db4.buskaza.model.reserva.ejb.ReservaBeanLocal;
 import br.com.db4.buskaza.model.util.ServiceLocator;
@@ -147,12 +148,13 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 		Integer codigoImovel = Integer.parseInt(request.getParameter("ci"));
 		
 		int status = Integer.parseInt(request.getParameter("status"));
+		int statusMoip = Integer.parseInt(request.getParameter("statusMoip"));
 		
 		try {					
 			ReservaBeanLocal reservaEjb = (ReservaBeanLocal) ServiceLocator.getInstance().locateEJB(ReservaBeanLocal.LOCAL);			
 			
 			
-			reservas = reservaEjb.listarReservasImovel(codigoImovel, status);
+			reservas = reservaEjb.listarReservasImovelConfirmar(codigoImovel, status, statusMoip);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -287,6 +289,7 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 		int codigoReserva = Integer.parseInt(request.getParameter("codigo"));
 		
 		Reserva reserva = null;
+		Imovel imoveleq = null;
 		
 		try {
 			
@@ -310,6 +313,13 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			
 			reserva.setStatus(rForm.getStatus());
 			
+			if (reserva.getStatus() == Constants.STATUS_RESERVA_APROVADA) {
+				reserva.setStatusMoip(9);
+			}else if (reserva.getStatus() == Constants.STATUS_RESERVA_NEGADA) {				
+				reserva.setStatusMoip(0);
+			}
+			
+			
 			codigoReserva = reservaEjb.aprovarReserva(reserva);
 			
 			//ENVIANDO EMAIL AO LOCATÁRIO			
@@ -321,10 +331,54 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			if (reserva.getStatus() == Constants.STATUS_RESERVA_APROVADA) {
 				mensagem  		= messageResources.getMessage("aprovacaoReserva.mensagem");
 				assunto 		= messageResources.getMessage("aprovacaoReserva.assunto");
+				
+				reserva.setStatusMoip(9);
+				
 			}else if (reserva.getStatus() == Constants.STATUS_RESERVA_NEGADA) {			
 				mensagem  		= messageResources.getMessage("negacaoReserva.mensagem");
 				assunto 		= messageResources.getMessage("negacaoReserva.assunto");
+				
+				reserva.setStatusMoip(0);
 			}
+			
+			
+			imoveleq = reservaEjb.getImovelEquipReserva( reserva.getImovel().getCodigo() );
+			
+			String lista_equip = "", lista_idioma ="", lista_tp ="";
+			
+			
+			/* EQUIPAMENTO */
+			if ( imoveleq.getEquipamentos() !=null && imoveleq.getEquipamentos().size() > 0) {
+				Iterator<Equipamento> it = imoveleq.getEquipamentos().iterator();
+				
+				while (it.hasNext()) {					
+					lista_equip = lista_equip + it.next().getNome() + ", ";
+				}
+			}
+			
+			/* IDIOMA */
+			if ( imoveleq.getIdiomas() !=null && imoveleq.getIdiomas().size() > 0) {
+				Iterator<Idioma> it_idi = imoveleq.getIdiomas().iterator();
+				
+				while (it_idi.hasNext()) {					
+					lista_idioma = lista_idioma + it_idi.next().getNome() + ", ";
+				}
+			}
+			
+			/* TIPO DE PAGAMENTO */
+			if ( imoveleq.getTiposPagamento() !=null && imoveleq.getTiposPagamento().size() > 0) {
+				Iterator<TipoPagamento> it_tp = imoveleq.getTiposPagamento().iterator();
+				
+				while (it_tp.hasNext()) {					
+					lista_tp = lista_tp + it_tp.next().getNome() + ", ";
+				}
+			}
+			mensagem 		= mensagem.replaceAll("<EQUIPAMENTO>", lista_equip );
+			mensagem 		= mensagem.replaceAll("<IDIOMA>", lista_idioma );
+			mensagem 		= mensagem.replaceAll("<FORMA_PAGAMENTO>", lista_tp );
+			
+			
+			
 			
 			
 			mensagem 		= mensagem.replaceAll("<USUARIO>", reserva.getLocatario().getNome());
@@ -350,8 +404,8 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			
 			
 			mensagem 		= mensagem.replaceAll("<QTD_DIAS>", String.valueOf( qtdDias));
-			mensagem 		= mensagem.replaceAll("<DATA_IN>",  reserva.getPeriodoInicial().getDay()+ "/" + reserva.getPeriodoInicial().getMonth()+ "/" + reserva.getPeriodoInicial().getYear()  );
-			mensagem 		= mensagem.replaceAll("<DATA_FIM>",  reserva.getPeriodoFinal().getDay()+ "/" + reserva.getPeriodoFinal().getMonth()+ "/" + reserva.getPeriodoFinal().getYear()  );
+			mensagem 		= mensagem.replaceAll("<DATA_IN>",  reserva.getPeriodoInicial().getDay()+ "/" + (reserva.getPeriodoInicial().getMonth()+1)+ "/" + (reserva.getPeriodoInicial().getYear() +1900) );
+			mensagem 		= mensagem.replaceAll("<DATA_FIM>",  reserva.getPeriodoFinal().getDay()+ "/" + (reserva.getPeriodoFinal().getMonth()+1)+ "/" + (reserva.getPeriodoFinal().getYear()+1900)  );
 			
 			
 			mensagem 		= mensagem.replaceAll("<CALCAO>", String.valueOf( reserva.getImovel().getCalcao()) );
@@ -366,7 +420,15 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 																		" dias antes do Check In, e outros  " + reserva.getImovel().getPrePercentual2()+
 																		"%, até " + reserva.getImovel().getPreCheckIn2()+ " dias antes do Check In.<br />"+
 																		"O pagamento dessa tarifa pode ser feita por Deposito em Conta Corrente ou PayPal<br /><br />"+
-																		"Reservas efetuadas em datas com inicio igual ou superior a 3 dias, o pagamento do percentual antes do Check In, deverá ser pago 24h.");
+																		"Reservas efetuadas em datas com inicio igual ou superior a 3 dias, o pagamento do percentual antes do Check In, deverá ser pago 24h.<br />"+
+																		
+																		"<br>Titular: "+ reserva.getImovel().getPreTitular()+
+																		"<br>Email PayPal: " +reserva.getImovel().getPreEmailPayPal()+
+																		"<br>Banco: " +reserva.getImovel().getPreBanco()+
+																		"<br>N° do Banco: " + reserva.getImovel().getPreNumBanco() +
+																		"<br>Agência: " +reserva.getImovel().getPreAgencia()+
+																		"<br>Conta Corrente: " + reserva.getImovel().getPreContaCorrente()+																		
+																		"<br><br>");
 			
 			
 			mensagem 		= mensagem.replaceAll("<CHECK_IN>", reserva.getImovel().getCheckInEntrada().getHours()+ ":" + reserva.getImovel().getCheckInEntrada().getMinutes()+ " até "+
@@ -387,7 +449,7 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			mensagem 		= mensagem.replaceAll("<TEL2>",	reserva.getImovel().getDdd2() +" "+reserva.getImovel().getTelefone2());
 			
 			mensagem 		= mensagem.replaceAll("<CONTATO1>",	reserva.getImovel().getEmailCheckin());
-			mensagem 		= mensagem.replaceAll("<CONTATO1>",	reserva.getImovel().getEmailCheckin2());
+			mensagem 		= mensagem.replaceAll("<CONTATO2>",	reserva.getImovel().getEmailCheckin2());
 			
 			
 			
