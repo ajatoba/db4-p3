@@ -416,7 +416,7 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			mensagem 		= mensagem.replaceAll("<LIMPAZA>", String.valueOf( reserva.getImovel().getDiarista()) );			
 			mensagem 		= mensagem.replaceAll("<GAS>", String.valueOf( reserva.getImovel().getTaxaGas()) );
 			
-			if( reserva.getImovel().isPrePagamento())
+			if( reserva.getImovel().isPrePagamento()==true)
 			{
 			
 			mensagem 		= mensagem.replaceAll("<PRE_PAGAMENTO>", 	"O proprietário desse imóvel exige "  + reserva.getImovel().getPrePercentual()+
@@ -459,6 +459,12 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			mensagem 		= mensagem.replaceAll("<CONTATO1>",	reserva.getImovel().getEmailCheckin());
 			mensagem 		= mensagem.replaceAll("<CONTATO2>",	reserva.getImovel().getEmailCheckin2());
 			
+			
+			mensagem 		= mensagem.replaceAll("<CONTRATO>",	"Contrato, clique aqui: "+
+																"<a href='http://www.buzkaza.com.br/contrato.php?ir="+ reserva.getCodigo()+ "&idu=" + reserva.getLocatario().getCodigo() + "'>"+
+																"http://www.buzkaza.com.br/contrato.php?ir="+ reserva.getCodigo()+ "&idu=" + reserva.getLocatario().getCodigo()+"</a>");
+			
+
 			
 			
 			remetente 		= messageResources.getMessage("mail.from");
