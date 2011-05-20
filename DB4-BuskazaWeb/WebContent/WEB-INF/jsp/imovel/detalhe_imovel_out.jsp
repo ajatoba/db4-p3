@@ -9,7 +9,6 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <%@page import="br.com.db4.buskaza.model.entity.Imovel"%><html xmlns="http://www.w3.org/1999/xhtml">
@@ -123,7 +122,7 @@ function calcularData( from, to, bg){
 		
 	if( ( from != "") && ( to != "") )
 	{
-			switch ( data1[1] ) {
+		/*	switch ( data1[1] ) {
 				case "01": mes1="Jan"; break;
 				case "02": mes1="Feb"; break;
 				case "03": mes1="Mar";  break;
@@ -158,7 +157,13 @@ function calcularData( from, to, bg){
 			var secondDate = new Date(	data2[0]  + " " + mes2 + " " + data2[2] );
 			
 			var daysDiff = (secondDate.valueOf() - firstDate.valueOf());
-			daysDiff = Math.floor(Math.abs((((daysDiff  / 1000) / 60) / 60) / 24));
+			daysDiff = Math.floor(Math.abs((((daysDiff  / 1000) / 60) / 60) / 24));*/
+
+			var Data1 = new Date( data1[2], data1[1], data1[0]);
+			var Data2 = new Date( data2[2], data2[1], data2[0]);
+			dif = Data2.getTime()-Data1.getTime();
+			dif /= 86400000;
+			daysDiff  = parseInt(dif);
 			
 			
 			for(i=0; i <= daysDiff; i++){
