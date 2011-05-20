@@ -108,12 +108,12 @@ public class ImovelBean implements ImovelBeanLocal {
 	        	}
         	}
         	
-        	/*
+        	
         	joinPeriodoAnuncio.add (Restrictions.le("dataInicial" ,anuncio.getDataInicial()));
         	joinPeriodoAnuncio.add (Restrictions.ge("dataFinal" ,anuncio.getDataFinal()));
-        	*/
         	
-        	joinPeriodoAnuncio.add (Restrictions.sqlRestriction("({alias}.dataInicial between ? and ?) or ( {alias}.dataFinal between ? and ?)",new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal(),anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType(), new org.hibernate.type.DateType(), new org.hibernate.type.DateType()})); 
+        	
+        	//joinPeriodoAnuncio.add (Restrictions.sqlRestriction("({alias}.dataInicial between ? and ?) or ( {alias}.dataFinal between ? and ?)",new Object[]{ anuncio.getDataInicial(), anuncio.getDataFinal(),anuncio.getDataInicial(), anuncio.getDataFinal()}, new Type[] {new org.hibernate.type.DateType(), new org.hibernate.type.DateType(), new org.hibernate.type.DateType(), new org.hibernate.type.DateType()})); 
         	
         }
         
