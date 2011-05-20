@@ -1,10 +1,12 @@
 package br.com.db4.buskaza.controller.action;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -396,24 +398,26 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			
 			
 			
-			Date dataInicio = new Date(reserva.getPeriodoInicial().getYear()-1900, reserva.getPeriodoInicial().getMonth()-1, reserva.getPeriodoInicial().getDay());
-			Date dataFim 	= new Date(reserva.getPeriodoFinal().getYear()-1900, reserva.getPeriodoFinal().getMonth()-1, reserva.getPeriodoFinal().getDay());
+			Date dataInicio = new Date(reserva.getPeriodoInicial().getYear()-1900, reserva.getPeriodoInicial().getMonth()-1, reserva.getPeriodoInicial().getDate());
+			Date dataFim 	= new Date(reserva.getPeriodoFinal().getYear()-1900, reserva.getPeriodoFinal().getMonth()-1, reserva.getPeriodoFinal().getDate());
 			
 			int qtdDias = 0;
 			qtdDias = (CalendarioUtil.getInstance().getDiasPeriodoMes(dataInicio, dataFim)).size();
 			
 			
 			mensagem 		= mensagem.replaceAll("<QTD_DIAS>", String.valueOf( qtdDias));
-			mensagem 		= mensagem.replaceAll("<DATA_IN>",  reserva.getPeriodoInicial().getDay()+ "/" + (reserva.getPeriodoInicial().getMonth()+1)+ "/" + (reserva.getPeriodoInicial().getYear() +1900) );
-			mensagem 		= mensagem.replaceAll("<DATA_FIM>",  reserva.getPeriodoFinal().getDay()+ "/" + (reserva.getPeriodoFinal().getMonth()+1)+ "/" + (reserva.getPeriodoFinal().getYear()+1900)  );
+			mensagem 		= mensagem.replaceAll("<DATA_IN>",  reserva.getPeriodoInicial().getDate()+ "/" + (reserva.getPeriodoInicial().getMonth()+1)+ "/" + (reserva.getPeriodoInicial().getYear() +1900) );
+			mensagem 		= mensagem.replaceAll("<DATA_FIM>",  reserva.getPeriodoFinal().getDate()+ "/" + (reserva.getPeriodoFinal().getMonth()+1)+ "/" + (reserva.getPeriodoFinal().getYear()+1900)  );
 			
 			
-			mensagem 		= mensagem.replaceAll("<CALCAO>", String.valueOf( reserva.getImovel().getCalcao()) );
+			mensagem 		= mensagem.replaceAll("<CALCAO>", String.valueOf( reserva.getImovel().getCalcao()));
 			mensagem 		= mensagem.replaceAll("<LUZ>", String.valueOf( reserva.getImovel().getEnergia()) );
 			mensagem 		= mensagem.replaceAll("<AGUA>", String.valueOf( reserva.getImovel().getTaxaAgua()) );
 			mensagem 		= mensagem.replaceAll("<LIMPAZA>", String.valueOf( reserva.getImovel().getDiarista()) );			
 			mensagem 		= mensagem.replaceAll("<GAS>", String.valueOf( reserva.getImovel().getTaxaGas()) );
 			
+			if( reserva.getImovel().isPrePagamento())
+			{
 			
 			mensagem 		= mensagem.replaceAll("<PRE_PAGAMENTO>", 	"O proprietário desse imóvel exige "  + reserva.getImovel().getPrePercentual()+
 																		"%, até " + reserva.getImovel().getPreCheckIn()+
@@ -429,17 +433,21 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 																		"<br>Agência: " +reserva.getImovel().getPreAgencia()+
 																		"<br>Conta Corrente: " + reserva.getImovel().getPreContaCorrente()+																		
 																		"<br><br>");
-			
+			}else{
+				
+				mensagem 		= mensagem.replaceAll("<PRE_PAGAMENTO>", "O proprietário desse imóvel não exige pré pagamento do saldo<br><br>");
+			}
+				
 			
 			mensagem 		= mensagem.replaceAll("<CHECK_IN>", reserva.getImovel().getCheckInEntrada().getHours()+ ":" + reserva.getImovel().getCheckInEntrada().getMinutes()+ " até "+
 																reserva.getImovel().getCheckOutEntrada().getHours()+ ":" + reserva.getImovel().getCheckOutEntrada().getMinutes());			
-			mensagem 		= mensagem.replaceAll("<TAXA_CHECK_IN>", String.valueOf(reserva.getImovel().getTaxaLateCheckin()));
+			mensagem 		= mensagem.replaceAll("<TAXA_CHECK_IN>", String.valueOf(  reserva.getImovel().getTaxaLateCheckin() ));
 			
 			
 			
 			mensagem 		= mensagem.replaceAll("<CHECK_OUT>", reserva.getImovel().getCheckInSaida().getHours()+ ":" + reserva.getImovel().getCheckInSaida().getMinutes()+ " até "+																
 																reserva.getImovel().getCheckOutSaida().getHours()+ ":" + reserva.getImovel().getCheckOutSaida().getMinutes());
-			mensagem 		= mensagem.replaceAll("<TAXA_CHECK_OUT>", String.valueOf( reserva.getImovel().getTaxaLateCheckout()));
+			mensagem 		= mensagem.replaceAll("<TAXA_CHECK_OUT>", String.valueOf( reserva.getImovel().getTaxaLateCheckout() ));
 			
 			
 			
@@ -474,6 +482,17 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 		
 		return mapping.findForward(Constants.RESERVA_APROVADA);
 	}
+	
+	private String Arredonda(double arr){  
+	     /*double respma =  Math.round( arr * Math.pow( 10 , casas ) ) / Math.pow(10, casas);  
+	     return respma;
+	     */
+	     
+		Locale meuLocal = new Locale( "pt", "BR" );
+		NumberFormat nfVal = NumberFormat.getCurrencyInstance( meuLocal );
+		double  teste = (double) arr;
+		return nfVal.format(teste);
+	} 
 
 	/*
 	 * MÉTODO DESATIVADO PELA DB4 CONFORME SOLICITAÇÃO DE 23/03/2011
