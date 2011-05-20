@@ -441,7 +441,7 @@ function listaDadas(){
             	<div class="div_sep_enderecos_detalhes">
             			<span class="txt_cinza_detalhes">O proprietário desse imóvel exige <span class="arial12boldazul"> <bean:write name="imovel" property="prePercentual"/>%</span>, até <bean:write name="imovel" property="preCheckIn"/> dias antes do Check In, e outros <span class="arial12boldazul"><bean:write name="imovel" property="prePercentual2"/>%</span>, até <bean:write name="imovel" property="preCheckIn2"/> dias antes do Check In.</span><br />
             			<span class="txt_cinza_detalhes">O pagamento dessa tarifa pode ser feita por Deposito em Conta Corrente ou PayPal</span><br /><br />
-            			<span class="txt_cinza_detalhes">Reservas com data inferior ao prazo do pré pagamento antes do Check-in. Deverão ser efetuadas em 24h, após a confirmação da reserva.</span>
+            			<span class="txt_cinza_detalhes">Reservas com data inferior ao prazo do pré pagamento antes do check-in. Deverão ser pagas em 24h, após a confirmação da reserva.</span>
             			<!--  
 	                	<span class="arial12boldazul">Email PayPal:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="preEmailPayPal"/></span><br />
 	                	-->	                	
