@@ -228,21 +228,15 @@ function somaDias( txtData, DiasAdd )
 				<input type="hidden" name="quartos" value="${quartos}"/>
 				<input type="hidden" name="metragem" value="${metragem}"/>
 				<input type="hidden" name="capacidade" value="${capacidade}"/>
-				 				
 				<input type="hidden" name="tiposAnuncio" value="1" /> 
 				<input type="hidden" name="municipio" value="${bus_cidade}"/>
 				<input type="hidden" name="imovelEntity.estado.codigo" value="${bus_estado}"/> 
-				
 				<input type="hidden" name="diaDataInicialAnuncio" value="${diaInicial}"/>
 				<input type="hidden" name="mesDataInicialAnuncio" value="${mesInicial}"/>				
 				<input type="hidden" name="anoDataInicialAnuncio" value="${anoInicial}"/>
-				
-				
 				<input type="hidden" name="diaDataFinalAnuncio" value="${diaFinal}"/>
 				<input type="hidden" name="mesDataFinalAnuncio" value="${mesFinal}"/>	
 				<input type="hidden" name="anoDataFinalAnuncio" value="${anoFinal}" />
-				
-				
 				
 		    	<div class="tit_detalheimovel">Detalhes do Imóvel</div>
 		    	<div class="detalheimovel_voltar"> &nbsp;&nbsp;<input type="image" src="/buzkaza/_img/btn_voltar_listaranuncios.jpg" width="151" height="31" style=" float:right;" border="0"/></div>
@@ -457,8 +451,7 @@ function listaDadas(){
                 -->
             </div>
             
-            <div style="width:100%; display:table; width:590px; margin-bottom:20px;">
-            	<div class="tit_arialbullet">Condições de pagamento da tarifa no Check in</div>            	
+            <div style="width:100%; display:table; width:590px; margin-bottom:20px;">          	
 				<logic:notEmpty name="imovel" property="tiposPagamento">
 				            <div style="width:100%; display:table; width:590px; margin-bottom:10px;">
 				            	<div class="txt_cinza_detalhes">
