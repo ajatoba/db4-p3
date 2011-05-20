@@ -164,6 +164,7 @@ public class ReservaBean implements ReservaBeanLocal {
 		Imovel im = em.find(Imovel.class, reserva.getImovel().getCodigo());
 
 		reserva.setImovel(im);
+		reserva.setStatus(1);
 
 		em.persist(reserva);
 		if(!em.contains(reserva))
