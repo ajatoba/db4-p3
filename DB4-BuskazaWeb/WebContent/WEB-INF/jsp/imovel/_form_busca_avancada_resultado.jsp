@@ -1,7 +1,13 @@
 <!-- _form_busca_avancada_resultado -->
 <html:form method="post" styleId="imovelBuscaForm" action="/imovel.do?act=buscarImovel">
-<html:hidden property="anoDataFinalAnuncio" styleId="anoDataInicialAnuncio" />
-<html:hidden property="anoDataInicialAnuncio" styleId="anoDataInicialAnuncio"/>
+
+<html:hidden property="mesDataInicialAnuncio" styleId="mesDataInicialAnuncio" /> 
+<html:hidden property="mesDataFinalAnuncio" styleId="mesDataFinalAnuncio" /> 
+
+<html:hidden property="anoDataInicialAnuncio" styleId="anoDataInicialAnuncio" />
+<html:hidden property="anoDataFinalAnuncio" styleId="anoDataFinalAnuncio" />
+
+
 
 <div class="buscaOculta">
 
@@ -30,7 +36,7 @@
               <tr>
                 <td><span class="txt_form"><html:text property="municipio" styleId="municipio" styleClass="MyriadProRegular" size="195" style="width:205px;" /></span></td>
                 <td><span class="txt_form">   			 
-                            <html:select property="imovelEntity.estado.codigo" styleId="sigla" styleClass="MyriadProRegular">
+                            <html:select property="imovelEntity.estado.codigo" styleId="sigla" styleClass="MyriadProRegular" style="width: 132px;">
 								<html:option value="">Todos</html:option> 
 								<html:option value="AC">Acre</html:option>
 								<html:option value="AL">Alagoas</html:option>
@@ -290,7 +296,7 @@
           </tr>
           <tr>
             <td height="26" colspan="2"><span class="txt_form">
-            <html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular"style="width:55px;">                        
+            <html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular" style="width:45px;">                        
 			<html:option value="01">01</html:option>
             <html:option value="02">02</html:option>
             <html:option value="03">03</html:option>
@@ -324,22 +330,12 @@
             <html:option value="31">31</html:option>                            
 		</html:select>
         
-        <div class="sepd2">
-			<html:select property="mesDataInicialAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular" style="width:88px;">                        
-	            <html:option value="1">Janeiro</html:option>
-	            <html:option value="2">Fevereiro</html:option>
-	            <html:option value="3">Março</html:option>
-	            <html:option value="4">Abril</html:option>
-	            <html:option value="5">Maio</html:option>
-	            <html:option value="6">Junho</html:option>
-	            <html:option value="7">Julho</html:option>
-	            <html:option value="8">Agosto</html:option>
-	            <html:option value="9">Setembro</html:option>
-	            <html:option value="10">Outubro</html:option>
-				<html:option value="11">Novembro</html:option>
-				<html:option value="12">Dezembro</html:option>                  
-			</html:select>
-		</div>		
+        <div style="margin-left:5px; float:left; display:table;">
+				<div class="sepd" id="mesAnoInicio"></div>          
+				<script>montarMesAnoInicioResultadoBusca()</script>
+		</div>
+			
+				
               </span></td>
           </tr>
           <tr>
@@ -347,7 +343,7 @@
           </tr>
           <tr>
             <td height="26" colspan="2"><span class="txt_form">
-            <html:select property="diaDataFinalAnuncio" title="dia" styleId="diaDataFinalAnuncio" styleClass="MyriadProRegular" style="width:55px;">                        
+            <html:select property="diaDataFinalAnuncio" title="dia" styleId="diaDataFinalAnuncio" styleClass="MyriadProRegular" style="width:45px;">                        
 			<html:option value="01">01</html:option>
             <html:option value="02">02</html:option>
             <html:option value="03">03</html:option>
@@ -381,29 +377,18 @@
             <html:option value="31">31</html:option>                            
 		</html:select>
 		
-		<div class="sepd2">
-			<html:select property="mesDataFinalAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular" style="width:88px;">                        
-	            <html:option value="1">Janeiro</html:option>
-	            <html:option value="2">Fevereiro</html:option>
-	            <html:option value="3">Março</html:option>
-	            <html:option value="4">Abril</html:option>
-	            <html:option value="5">Maio</html:option>
-	            <html:option value="6">Junho</html:option>
-	            <html:option value="7">Julho</html:option>
-	            <html:option value="8">Agosto</html:option>
-	            <html:option value="9">Setembro</html:option>
-	            <html:option value="10">Outubro</html:option>
-				<html:option value="11">Novembro</html:option>
-				<html:option value="12">Dezembro</html:option>                  
-			</html:select>
-      	</div></span></td>
+		<div style="margin-left:5px; float:left; display:table;">
+				<div class="sepd" id="mesAnoFinal"></div>
+				<script>montarMesAnoFinalResultadoBusca()</script>
+		</div>
+				</span></td>
           </tr>
            
           
           </table>
           
  </div>         
- <div class="form_busca_3"><input type="image" src="/buzkaza/_img/btn_buscar_imovel.jpg" width="205" height="30" border="0"/></div>       
+ <div class="form_busca_3"><input type="image" src="/buzkaza/_img/btn_buscar_imovel.jpg" width="180" height="30" border="0"/></div>       
 
 </div>
 
