@@ -35,6 +35,9 @@
 <script type="text/javascript" src="/buzkaza/_js/position.js"></script>
 <script type="text/javascript" src="/buzkaza/_js/autocomplete.js"></script>
 
+<!-- mes - ano -->
+<script type="text/javascript" src="/buzkaza/_js/calendario_busca.js"></script>
+
 <script language="javascript">
 	$(function() {		
 		$.ajax({
