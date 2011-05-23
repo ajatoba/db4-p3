@@ -295,43 +295,45 @@
             <td height="26" colspan="2"><span class="txt_form">&nbsp; Chegada</span></td>
           </tr>
           <tr>
-            <td height="26" colspan="2"><span class="txt_form">
-            <html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular" style="width:45px;">                        
-			<html:option value="01">01</html:option>
-            <html:option value="02">02</html:option>
-            <html:option value="03">03</html:option>
-            <html:option value="04">04</html:option>
-            <html:option value="05">05</html:option>
-            <html:option value="06">06</html:option>
-            <html:option value="07">07</html:option>
-            <html:option value="08">08</html:option>
-            <html:option value="09">09</html:option>                            
-            <html:option value="10">10</html:option>
-            <html:option value="11">11</html:option>
-            <html:option value="12">12</html:option>
-            <html:option value="13">13</html:option>
-			<html:option value="14">14</html:option>
-            <html:option value="15">15</html:option>
-            <html:option value="16">16</html:option>
-            <html:option value="17">17</html:option>
-            <html:option value="18">18</html:option>
-            <html:option value="19">19</html:option>                            
-            <html:option value="20">20</html:option>
-            <html:option value="21">21</html:option>
-            <html:option value="22">22</html:option>
-            <html:option value="23">23</html:option>
-            <html:option value="24">24</html:option>
-            <html:option value="25">25</html:option>
-            <html:option value="26">26</html:option>
-            <html:option value="27">27</html:option>
-            <html:option value="28">28</html:option>
-            <html:option value="29">29</html:option>                            
-            <html:option value="30">30</html:option>
-            <html:option value="31">31</html:option>                            
-		</html:select>
-        
+            <td height="26" colspan="2">
+            <div style=" float:left; display:table;">
+	            <span class="txt_form">
+	            <html:select property="diaDataInicialAnuncio" title="dia" styleId="diaDataInicialAnuncio" styleClass="MyriadProRegular" style="width:45px;">                        
+				<html:option value="01">01</html:option>
+	            <html:option value="02">02</html:option>
+	            <html:option value="03">03</html:option>
+	            <html:option value="04">04</html:option>
+	            <html:option value="05">05</html:option>
+	            <html:option value="06">06</html:option>
+	            <html:option value="07">07</html:option>
+	            <html:option value="08">08</html:option>
+	            <html:option value="09">09</html:option>                            
+	            <html:option value="10">10</html:option>
+	            <html:option value="11">11</html:option>
+	            <html:option value="12">12</html:option>
+	            <html:option value="13">13</html:option>
+				<html:option value="14">14</html:option>
+	            <html:option value="15">15</html:option>
+	            <html:option value="16">16</html:option>
+	            <html:option value="17">17</html:option>
+	            <html:option value="18">18</html:option>
+	            <html:option value="19">19</html:option>                            
+	            <html:option value="20">20</html:option>
+	            <html:option value="21">21</html:option>
+	            <html:option value="22">22</html:option>
+	            <html:option value="23">23</html:option>
+	            <html:option value="24">24</html:option>
+	            <html:option value="25">25</html:option>
+	            <html:option value="26">26</html:option>
+	            <html:option value="27">27</html:option>
+	            <html:option value="28">28</html:option>
+	            <html:option value="29">29</html:option>                            
+	            <html:option value="30">30</html:option>
+	            <html:option value="31">31</html:option>                            
+			</html:select>
+        </div>
         <div style="margin-left:5px; float:left; display:table;">
-				<div class="sepd" id="mesAnoInicio"></div>          
+				<div id="mesAnoInicio"></div>          
 				<script>montarMesAnoInicioResultadoBusca()</script>
 		</div>
 			
@@ -342,43 +344,45 @@
             <td height="26" colspan="2"><span class="txt_form">&nbsp; Partida</span></td>
           </tr>
           <tr>
-            <td height="26" colspan="2"><span class="txt_form">
-            <html:select property="diaDataFinalAnuncio" title="dia" styleId="diaDataFinalAnuncio" styleClass="MyriadProRegular" style="width:45px;">                        
-			<html:option value="01">01</html:option>
-            <html:option value="02">02</html:option>
-            <html:option value="03">03</html:option>
-            <html:option value="04">04</html:option>
-            <html:option value="05">05</html:option>
-            <html:option value="06">06</html:option>
-            <html:option value="07">07</html:option>
-            <html:option value="08">08</html:option>
-            <html:option value="09">09</html:option>                            
-            <html:option value="10">10</html:option>
-            <html:option value="11">11</html:option>
-            <html:option value="12">12</html:option>
-            <html:option value="13">13</html:option>
-			<html:option value="14">14</html:option>
-            <html:option value="15">15</html:option>
-            <html:option value="16">16</html:option>
-            <html:option value="17">17</html:option>
-            <html:option value="18">18</html:option>
-            <html:option value="19">19</html:option>                            
-            <html:option value="20">20</html:option>
-            <html:option value="21">21</html:option>
-            <html:option value="22">22</html:option>
-            <html:option value="23">23</html:option>
-            <html:option value="24">24</html:option>
-            <html:option value="25">25</html:option>
-            <html:option value="26">26</html:option>
-            <html:option value="27">27</html:option>
-            <html:option value="28">28</html:option>
-            <html:option value="29">29</html:option>                            
-            <html:option value="30">30</html:option>
-            <html:option value="31">31</html:option>                            
-		</html:select>
-		
+            <td height="26" colspan="2">
+            <div style=" float:left; display:table;">
+	            <span class="txt_form">
+	            <html:select property="diaDataFinalAnuncio" title="dia" styleId="diaDataFinalAnuncio" styleClass="MyriadProRegular" style="width:45px;">                        
+				<html:option value="01">01</html:option>
+	            <html:option value="02">02</html:option>
+	            <html:option value="03">03</html:option>
+	            <html:option value="04">04</html:option>
+	            <html:option value="05">05</html:option>
+	            <html:option value="06">06</html:option>
+	            <html:option value="07">07</html:option>
+	            <html:option value="08">08</html:option>
+	            <html:option value="09">09</html:option>                            
+	            <html:option value="10">10</html:option>
+	            <html:option value="11">11</html:option>
+	            <html:option value="12">12</html:option>
+	            <html:option value="13">13</html:option>
+				<html:option value="14">14</html:option>
+	            <html:option value="15">15</html:option>
+	            <html:option value="16">16</html:option>
+	            <html:option value="17">17</html:option>
+	            <html:option value="18">18</html:option>
+	            <html:option value="19">19</html:option>                            
+	            <html:option value="20">20</html:option>
+	            <html:option value="21">21</html:option>
+	            <html:option value="22">22</html:option>
+	            <html:option value="23">23</html:option>
+	            <html:option value="24">24</html:option>
+	            <html:option value="25">25</html:option>
+	            <html:option value="26">26</html:option>
+	            <html:option value="27">27</html:option>
+	            <html:option value="28">28</html:option>
+	            <html:option value="29">29</html:option>                            
+	            <html:option value="30">30</html:option>
+	            <html:option value="31">31</html:option>                            
+			</html:select>
+		</div>
 		<div style="margin-left:5px; float:left; display:table;">
-				<div class="sepd" id="mesAnoFinal"></div>
+				<div id="mesAnoFinal"></div>
 				<script>montarMesAnoFinalResultadoBusca()</script>
 		</div>
 				</span></td>
@@ -388,7 +392,7 @@
           </table>
           
  </div>         
- <div class="form_busca_3"><input type="image" src="/buzkaza/_img/btn_buscar_imovel.jpg" width="180" height="30" border="0"/></div>       
+ <div class="form_busca_3"><input type="image" src="/buzkaza/_img/btn_buscar_imovel.jpg" width="170" height="30" border="0"/></div>       
 
 </div>
 
