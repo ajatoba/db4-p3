@@ -97,7 +97,7 @@
 										
 												<form target="_blank" action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip<% out.print( index ); %>" id="moip<% out.print( index ); %>">
 													<input type="hidden" name="id_carteira" value="buzkaza">			
-													<input type="hidden" name="valor" id="valor_reserva" value="${(res.valor*15/100)}00">
+													<input type="hidden" name="valor" id="valor_reserva<% out.print( index ); %>" value="${(res.valor*15/100)}00">
 													<input type="hidden" name="nome" value="${res.locatario.nome}">
 													<input type="hidden" name="pagador_nome" value="${res.locatario.nome}">
 													<input type="hidden" name="pagador_email" value="${res.locatario.email}">
@@ -115,7 +115,7 @@
 												</form>
 												<script language="javascript">
 									                <!--
-									                	calcularvalorMoip( '<fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((res.valor*15/100))}"/>', '<bean:write name="res" property="valor" format="00.00"/>');
+									                	calcularValorMoipListaMinhaReserva( '<fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((res.valor*15/100))}"/>', '<% out.print( index ); %>');
 									                -->
 									            </script>							                
 												<!-- <a href="/DB4-BuskazaWeb/usuario/reserva.do?act=formPagarReserva&cr=${res.codigo}">Efetuar pagamento</a> -->
