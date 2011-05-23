@@ -1,5 +1,6 @@
 package br.com.db4.buskaza.controller.action;
 
+import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -391,9 +392,9 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 																reserva.getImovel().getBairro()+", "+ reserva.getImovel().getMunicipio() + " - " +reserva.getImovel().getEstado().getCodigo() );
 			
 			
-			mensagem 		= mensagem.replaceAll("<VALOR_RESERVA>", 		String.valueOf( reserva.getValor() + ( reserva.getValor() *15/100)) );
-			mensagem 		= mensagem.replaceAll("<VALOR_TAXA_RESERVA>", 	String.valueOf(  (reserva.getValor()*15/100)  ));
-			mensagem 		= mensagem.replaceAll("<VALOR_SALDO_RESERVA>",	String.valueOf( reserva.getValor()));
+			mensagem 		= mensagem.replaceAll("<VALOR_RESERVA>", 		String.valueOf( 	Arredonda( reserva.getValor() + ( reserva.getValor() *15/100))) );
+			mensagem 		= mensagem.replaceAll("<VALOR_TAXA_RESERVA>", 	String.valueOf(  	Arredonda( (reserva.getValor()*15/100)  )) );
+			mensagem 		= mensagem.replaceAll("<VALOR_SALDO_RESERVA>",	String.valueOf( 	Arredonda( reserva.getValor())));
 			
 			
 			
@@ -410,11 +411,11 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			mensagem 		= mensagem.replaceAll("<DATA_FIM>",  reserva.getPeriodoFinal().getDate()+ "/" + (reserva.getPeriodoFinal().getMonth()+1)+ "/" + (reserva.getPeriodoFinal().getYear()+1900)  );
 			
 			
-			mensagem 		= mensagem.replaceAll("<CALCAO>", String.valueOf( reserva.getImovel().getCalcao()));
-			mensagem 		= mensagem.replaceAll("<LUZ>", String.valueOf( reserva.getImovel().getEnergia()) );
-			mensagem 		= mensagem.replaceAll("<AGUA>", String.valueOf( reserva.getImovel().getTaxaAgua()) );
-			mensagem 		= mensagem.replaceAll("<LIMPAZA>", String.valueOf( reserva.getImovel().getDiarista()) );			
-			mensagem 		= mensagem.replaceAll("<GAS>", String.valueOf( reserva.getImovel().getTaxaGas()) );
+			mensagem 		= mensagem.replaceAll("<CALCAO>", String.valueOf(	Arredonda( reserva.getImovel().getCalcao()) ));
+			mensagem 		= mensagem.replaceAll("<LUZ>", String.valueOf(		Arredonda( reserva.getImovel().getEnergia())) );
+			mensagem 		= mensagem.replaceAll("<AGUA>", String.valueOf(		Arredonda( reserva.getImovel().getTaxaAgua())) );
+			mensagem 		= mensagem.replaceAll("<LIMPAZA>", String.valueOf( 	Arredonda( reserva.getImovel().getDiarista())) );			
+			mensagem 		= mensagem.replaceAll("<GAS>", String.valueOf( 		Arredonda( reserva.getImovel().getTaxaGas())) );
 			
 			if( reserva.getImovel().isPrePagamento()==true)
 			{
@@ -441,13 +442,13 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			
 			mensagem 		= mensagem.replaceAll("<CHECK_IN>", reserva.getImovel().getCheckInEntrada().getHours()+ ":" + reserva.getImovel().getCheckInEntrada().getMinutes()+ " até "+
 																reserva.getImovel().getCheckOutEntrada().getHours()+ ":" + reserva.getImovel().getCheckOutEntrada().getMinutes());			
-			mensagem 		= mensagem.replaceAll("<TAXA_CHECK_IN>", String.valueOf(  reserva.getImovel().getTaxaLateCheckin() ));
+			mensagem 		= mensagem.replaceAll("<TAXA_CHECK_IN>", String.valueOf(  Arredonda( reserva.getImovel().getTaxaLateCheckin()) ));
 			
 			
 			
 			mensagem 		= mensagem.replaceAll("<CHECK_OUT>", reserva.getImovel().getCheckInSaida().getHours()+ ":" + reserva.getImovel().getCheckInSaida().getMinutes()+ " até "+																
 																reserva.getImovel().getCheckOutSaida().getHours()+ ":" + reserva.getImovel().getCheckOutSaida().getMinutes());
-			mensagem 		= mensagem.replaceAll("<TAXA_CHECK_OUT>", String.valueOf( reserva.getImovel().getTaxaLateCheckout() ));
+			mensagem 		= mensagem.replaceAll("<TAXA_CHECK_OUT>", String.valueOf( Arredonda( reserva.getImovel().getTaxaLateCheckout()) ));
 			
 			
 			
@@ -489,15 +490,12 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 		return mapping.findForward(Constants.RESERVA_APROVADA);
 	}
 	
-	private String Arredonda(double arr){  
-	     /*double respma =  Math.round( arr * Math.pow( 10 , casas ) ) / Math.pow(10, casas);  
-	     return respma;
-	     */
+	private BigDecimal Arredonda(double arr){  
 	     
-		Locale meuLocal = new Locale( "pt", "BR" );
-		NumberFormat nfVal = NumberFormat.getCurrencyInstance( meuLocal );
-		double  teste = (double) arr;
-		return nfVal.format(teste);
+		BigDecimal teste = new BigDecimal(arr);
+		teste = teste.setScale(2, BigDecimal.ROUND_HALF_UP);
+		
+		return teste;
 	} 
 
 	/*
