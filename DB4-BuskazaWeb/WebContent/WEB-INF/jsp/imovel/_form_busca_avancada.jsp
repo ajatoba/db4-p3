@@ -2,6 +2,14 @@
 
 <input type="hidden" name="tiposAnuncio" id="tiposAnuncio" value="1">
 
+<input type="hidden" name="mesDataInicialAnuncio" id="mesDataInicialAnuncio" /> 
+<input type="hidden" name="mesDataFinalAnuncio" id="mesDataFinalAnuncio" /> 
+
+<input type="hidden" name="anoDataInicialAnuncio" id="anoDataInicialAnuncio" value="2011" />
+<input type="hidden" name="anoDataFinalAnuncio" id="anoDataFinalAnuncio" value="2011" />
+        
+        
+
 <div class="MyriadProRegular">
   <div class="form_01">
   	<table border="0" align="center" cellpadding="0" cellspacing="2" class="txt_form">
@@ -280,31 +288,11 @@
 		            		<html:option value="31">31</html:option>                            
 						</html:select>
 				</div>
-				<div class="sep10">
-					<html:select property="mesDataInicialAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">                        
-	            		<html:option value="1">Janeiro</html:option>
-	            		<html:option value="2">Fevereiro</html:option>
-	            		<html:option value="3">Março</html:option>
-	            		<html:option value="4">Abril</html:option>
-	            		<html:option value="5">Maio</html:option>
-	            		<html:option value="6">Junho</html:option>
-	            		<html:option value="7">Julho</html:option>
-	            		<html:option value="8">Agosto</html:option>
-	            		<html:option value="9">Setembro</html:option>
-	            		<html:option value="10">Outubro</html:option>
-						<html:option value="11">Novembro</html:option>
-						<html:option value="12">Dezembro</html:option>                  
-					</html:select>
-      			</div>
-      			<div class="sepd">
-	      			<html:select property="anoDataInicialAnuncio" title="Ano" styleId="anoDataInicialAnuncio" styleClass="MyriadProRegular">
-	        			<html:option value="2011">2011</html:option>
-		        		<html:option value="2012">2012</html:option>
-		        		<html:option value="2013">2013</html:option>
-		        		<html:option value="2014">2014</html:option>
-		        		<html:option value="2015">2015</html:option> 
-	        		</html:select>
-        		</div>
+			<div style="margin-left:5px; float:left; display:table;">
+				<div class="sepd" id="mesAnoInicio"></div>          
+				<script>montarMesAnoInicio()</script>
+			</div>
+        		
         </td><!-- Final TD Data Inicial -->
         
           		<td>
@@ -343,31 +331,14 @@
 	            			<html:option value="31">31</html:option>                            
 						</html:select>
 					</div>
-					<div class="sep10">
-						<html:select property="mesDataFinalAnuncio" title="mesDataInicialAnuncio" styleId="mesDataInicial" styleClass="MyriadProRegular">
-		            		<html:option value="1">Janeiro</html:option>
-		            		<html:option value="2">Fevereiro</html:option>
-		            		<html:option value="3">Março</html:option>
-		            		<html:option value="4">Abril</html:option>
-		            		<html:option value="5">Maio</html:option>
-		            		<html:option value="6">Junho</html:option>
-		            		<html:option value="7">Julho</html:option>
-		            		<html:option value="8">Agosto</html:option>
-		            		<html:option value="9">Setembro</html:option>
-		            		<html:option value="10">Outubro</html:option>
-							<html:option value="11">Novembro</html:option>
-							<html:option value="12">Dezembro</html:option>                  
-						</html:select>                       
-					</div>
-      				<div class="seps">
-	      				<html:select property="anoDataFinalAnuncio" title="Ano" styleId="anoDataInicialAnuncio" styleClass="MyriadProRegular">
-	        				<html:option value="2011">2011</html:option>
-		        			<html:option value="2012">2012</html:option>
-		        			<html:option value="2013">2013</html:option>
-		        			<html:option value="2014">2014</html:option>
-		        			<html:option value="2015">2015</html:option> 
-	        			</html:select>
-	     			</div>
+					
+					
+					
+				<div style="margin-left:5px; float:left; display:table;">
+						<div class="sepd" id="mesAnoFinal"></div>
+						<script>montarMesAnoFinal()</script>
+				</div>
+					
 	     		</td>
           </tr>
         </table></td>
