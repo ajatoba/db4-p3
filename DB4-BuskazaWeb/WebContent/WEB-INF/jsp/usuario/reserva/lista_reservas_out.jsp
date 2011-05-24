@@ -91,9 +91,34 @@
 										                  
 										<br />                  
 										                    
-			                    		<logic:equal name="res" property="status" value="0">Em análise</logic:equal>
-			                    		<logic:equal name="res" property="status" value="1">Autorizado</logic:equal>
-										<logic:equal name="res" property="status" value="2">
+			                    		<logic:equal name="res" property="statusMoip" value="0">Em análise<br/>
+			                    		
+			                    				<form target="_blank" action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip<% out.print( index ); %>" id="moip<% out.print( index ); %>">
+													<input type="hidden" name="id_carteira" value="buzkaza">			
+													<input type="hidden" name="valor" id="valor_reserva<% out.print( index ); %>" value="${(res.valor*15/100)}00">
+													<input type="hidden" name="nome" value="${res.locatario.nome}">
+													<input type="hidden" name="pagador_nome" value="${res.locatario.nome}">
+													<input type="hidden" name="pagador_email" value="${res.locatario.email}">
+													<input type="hidden" name="id_transacao" value="${res.codigo}">													
+													
+													<input type="hidden" name="pagador_cidade" value=""/>
+													<input type="hidden" name="pagador_estado" value=""/>
+													<input type="hidden" name="pagador_cep" value=""/>																
+																			
+													<input type="hidden" name="descricao" value="Aluguel do Imóvel de Código:${res.imovel.codigo}">
+													<input type="hidden" name="url_retorno" value="http://www.buzkaza.com.br">
+													<a href="#" onclick="javascript:document.moip<% out.print( index ); %>.submit();" border="0">Efetuar pagamento</a>		
+												</form>
+												<script language="javascript">
+									                <!--
+									                	calcularValorMoipListaMinhaReserva( '<fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((res.valor*15/100))}"/>', '<% out.print( index ); %>');
+									                -->
+									            </script>
+			                    		
+			                    		
+			                    		</logic:equal>
+			                    		<logic:equal name="res" property="statusMoip" value="1">Autorizado</logic:equal>
+										<logic:equal name="res" property="statusMoip" value="2">
 										
 												<form target="_blank" action="https://www.moip.com.br/PagamentoMoIP.do" method="post" name="moip<% out.print( index ); %>" id="moip<% out.print( index ); %>">
 													<input type="hidden" name="id_carteira" value="buzkaza">			
@@ -103,12 +128,10 @@
 													<input type="hidden" name="pagador_email" value="${res.locatario.email}">
 													<input type="hidden" name="id_transacao" value="${res.codigo}">
 													
-													
 													<input type="hidden" name="pagador_cidade" value=""/>
 													<input type="hidden" name="pagador_estado" value=""/>
 													<input type="hidden" name="pagador_cep" value=""/>
-																			
-																			
+													
 													<input type="hidden" name="descricao" value="Aluguel do Imóvel de Código:${res.imovel.codigo}">
 													<input type="hidden" name="url_retorno" value="http://www.buzkaza.com.br">
 													<a href="#" onclick="javascript:document.moip<% out.print( index ); %>.submit();" border="0">Efetuar pagamento</a>		
@@ -121,13 +144,12 @@
 												<!-- <a href="/DB4-BuskazaWeb/usuario/reserva.do?act=formPagarReserva&cr=${res.codigo}">Efetuar pagamento</a> -->
 										</logic:equal>
 										
-										<logic:equal name="res" property="status" value="3">Boleto Impresso</logic:equal>
-										<logic:equal name="res" property="status" value="4">Aguardando Confirmação</logic:equal>
-										<logic:equal name="res" property="status" value="5">Cancelado</logic:equal>
-										<logic:equal name="res" property="status" value="6">Em análise</logic:equal>
-										<logic:equal name="res" property="status" value="7">Estornado</logic:equal>
-										<logic:equal name="res" property="status" value="9">Concluído</logic:equal>
-										
+										<logic:equal name="res" property="statusMoip" value="3">Boleto Impresso</logic:equal>
+										<logic:equal name="res" property="statusMoip" value="4">Aguardando Confirmação</logic:equal>
+										<logic:equal name="res" property="statusMoip" value="5">Cancelado</logic:equal>
+										<logic:equal name="res" property="statusMoip" value="6">Em análise</logic:equal>
+										<logic:equal name="res" property="statusMoip" value="7">Estornado</logic:equal>
+										<logic:equal name="res" property="statusMoip" value="9">Concluído</logic:equal>
 										
 									</span>
 			               </div>
@@ -165,8 +187,6 @@
 
 
 <div class="nenhuma_reserva"> </div>
-
-
 
 </logic:notPresent>
 
