@@ -61,12 +61,14 @@ public class SendMail {
            props.put("mail.smtp.host", mailSMTPServer); //server SMTP do GMAIL  
            props.put("mail.smtp.auth", "true"); //ativa autenticacao  
            props.put("mail.smtp.user", from); //usuario ou seja, a conta que esta enviando o email (tem que ser do GMAIL)  
-           props.put("mail.debug", "true");  
+           props.put("mail.debug", "true");           
            props.put("mail.smtp.port", mailSMTPServerPort); //porta  
            props.put("mail.smtp.socketFactory.port", mailSMTPServerPort); //mesma porta para o socket  
            props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");  
            props.put("mail.smtp.socketFactory.fallback", "false");  
-             
+           props.put("mail.mime.charset", "UTF-8");
+           
+           
            //Cria um autenticador que sera usado a seguir  
            SimpleAuth auth = null;  
            auth = new SimpleAuth (user,password);  
