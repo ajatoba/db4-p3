@@ -378,7 +378,7 @@
   
 <div class="btn_busca"><input type="image" src="/buzkaza/_img/btn_buscar.jpg" width="211" height="30" border="0"/></div>  
 
-<br /><br />
+<br /><br /><br />
 
 </div>
 </html:form>
