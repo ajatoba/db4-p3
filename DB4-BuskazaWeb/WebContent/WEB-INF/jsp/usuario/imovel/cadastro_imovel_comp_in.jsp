@@ -607,7 +607,7 @@ function abrirPop(url){
 
 	<div class="txt_caracteristica">Procedimento Pagamento</div>
 	<div class="arial13Cinza">
-			Configue como será feito o recebimento da reserva<br /><br />
+			Configure como será feito o recebimento da reserva<br /><br />
 			
 			<span class="txt_caracteristicas">Exige Pré Pagamento do Saldo?</span><br />
 
