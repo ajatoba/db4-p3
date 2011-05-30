@@ -681,22 +681,19 @@ function abrirPop(url){
 				<table>
 					<logic:iterate name="tiposPagamento" id="tipoPagamento">
 						
-			    			<div class="boxe_opcao_pagamento">									
-					    		<html:multibox property="tiposPagamento"> 
-									<bean:write name="tipoPagamento" property="codigo"/>
-								</html:multibox>
-								
-								<div class="sepf2">
-									<bean:write name="tipoPagamento" property="nome"/>
+			    			<div class="boxe_opcao_pagamento">
+			    				<div class="equip_top1">									
+							    		<html:multibox property="tiposPagamento"> 
+											<bean:write name="tipoPagamento" property="codigo"/>
+										</html:multibox>
+								</div>
+								<div class="equip_top2">
+										<bean:write name="tipoPagamento" property="nome"/>
 								</div>
 							</div>
 			        	
 	           		</logic:iterate>
            		</table>
-				
-				
-				
-				
 			</span>	
 			</td>
 		</tr>				                
