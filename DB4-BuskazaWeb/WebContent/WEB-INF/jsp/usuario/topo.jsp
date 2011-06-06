@@ -12,6 +12,8 @@
   <!--TOPO-->
   <div id="top">
     <div class="topo_menu">
+    	<a href="index.html"><div class="txt_02">Página Inicial</div></a>
+    	
       <div class="txt_01"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2F%23%21%2Fpages%2FBuzkaza-em-casa-onde-estiver%2F170687929624966&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe></div>
       <!--<div class="txt_02">Quem Somos</div>
       <div class="txt_03">Mapa do Site</div>
