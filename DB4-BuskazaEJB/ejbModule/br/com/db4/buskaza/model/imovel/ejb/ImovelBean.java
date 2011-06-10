@@ -292,7 +292,7 @@ public class ImovelBean implements ImovelBeanLocal {
 		c.setFetchMode("anuncios", FetchMode.EAGER);
 		c.setFetchMode("tiposPagamento", FetchMode.EAGER);		
 		c.setFetchMode("reservas", FetchMode.EAGER);
-		
+		c.setFetchMode("bloqueios", FetchMode.EAGER);
 		
 		
 		c.setCacheable(true);
