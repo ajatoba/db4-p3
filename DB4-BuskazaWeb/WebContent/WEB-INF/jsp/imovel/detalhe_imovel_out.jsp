@@ -122,42 +122,6 @@ function calcularData( from, to, bg){
 		
 	if( ( from != "") && ( to != "") )
 	{
-		/*	switch ( data1[1] ) {
-				case "01": mes1="Jan"; break;
-				case "02": mes1="Feb"; break;
-				case "03": mes1="Mar";  break;
-				case "04": mes1="Apr";  break;
-				case "05": mes1="May";  break;
-				case "06": mes1="Jun";  break;
-				case "07": mes1="Jul";  break;
-				case "08": mes1="Aug";  break;
-				case "09": mes1="Sep";  break;
-				case "10": mes1="Oct";  break;
-				case "11": mes1="Nov";  break;
-				case "12": mes1="Dec";  break;
-				default: mes1:"Jan";  break;
-			}
-			
-			switch ( data2[1] ) {
-				case "01": mes2="Jan";  break;
-				case "02": mes2="Feb";  break;
-				case "03": mes2="Mar";  break;
-				case "04": mes2="Apr";  break;
-				case "05": mes2="May";  break;
-				case "06": mes2="Jun";  break;
-				case "07": mes2="Jul";  break;
-				case "08": mes2="Aug";  break;
-				case "09": mes2="Sep";  break;
-				case "10": mes2="Oct";  break;
-				case "11": mes2="Nov";  break;
-				case "12": mes2="Dec";  break;
-				default: mes2:"Jan";  break;
-			}
-			var firstDate = new Date(	data1[0]  + " " + mes1 + " " + data1[2] );
-			var secondDate = new Date(	data2[0]  + " " + mes2 + " " + data2[2] );
-			
-			var daysDiff = (secondDate.valueOf() - firstDate.valueOf());
-			daysDiff = Math.floor(Math.abs((((daysDiff  / 1000) / 60) / 60) / 24));*/
 
 			var Data1 = new Date( data1[2], data1[1], data1[0]);
 			var Data2 = new Date( data2[2], data2[1], data2[0]);
@@ -370,7 +334,11 @@ function listaDadas(){
 		calcularData( '<bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/>', color);	
 	</logic:iterate>
 
-
+	<logic:iterate id="bl" name="imovel" property="bloqueios">
+		var color="#2980C5";		
+		calcularData( '<bean:write name="bl" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="bl" property="dataFinal" format="dd/MM/yyyy"/>', color);	
+	</logic:iterate>
+	
 	<logic:iterate id="rs" name="imovel" property="reservas">
 		<logic:equal name="rs" property="status" value="1">
 			var color="#d62222";		
@@ -405,16 +373,14 @@ function listaDadas(){
 				                  <td width="5%"><div class="box_legenda_cor cor_data_especial"></div></td>
 				                  <td width="28%" class="txt_legenda">Data Especial</td>
 				                </tr>
-								<!--
 				                <tr>
-				                   <td><div class="box_legenda_cor cor_bloqueado"></div></td>
+				                  <td><div class="box_legenda_cor cor_bloqueado"></div></td>
 				                  <td class="txt_legenda">Bloqueado</td> 
-				                  <td><div class="box_legenda_cor cor_alta_temporada"></div></td>
-				                  <td class="txt_legenda">Alta Temporada</td>
+				                  <td>&nbsp;</td>
+				                  <td>&nbsp;</td>
 				                  <td>&nbsp;</td>
 				                  <td>&nbsp;</td>
 				                </tr>
-								--> 
 				                </table>
 				            <!-- ******* -->
 				    </td>
