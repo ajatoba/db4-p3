@@ -127,43 +127,6 @@ function calcularData( from, to, bg){
 		
 	if( ( from != "") && ( to != "") )
 	{
-		/*	switch ( data1[1] ) {
-				case "01": mes1="Jan"; break;
-				case "02": mes1="Feb"; break;
-				case "03": mes1="Mar";  break;
-				case "04": mes1="Apr";  break;
-				case "05": mes1="May";  break;
-				case "06": mes1="Jun";  break;
-				case "07": mes1="Jul";  break;
-				case "08": mes1="Aug";  break;
-				case "09": mes1="Sep";  break;
-				case "10": mes1="Oct";  break;
-				case "11": mes1="Nov";  break;
-				case "12": mes1="Dec";  break;
-				default: mes1:"Jan";  break;
-			}
-			
-			switch ( data2[1] ) {
-				case "01": mes2="Jan";  break;
-				case "02": mes2="Feb";  break;
-				case "03": mes2="Mar";  break;
-				case "04": mes2="Apr";  break;
-				case "05": mes2="May";  break;
-				case "06": mes2="Jun";  break;
-				case "07": mes2="Jul";  break;
-				case "08": mes2="Aug";  break;
-				case "09": mes2="Sep";  break;
-				case "10": mes2="Oct";  break;
-				case "11": mes2="Nov";  break;
-				case "12": mes2="Dec";  break;
-				default: mes2:"Jan";  break;
-			}
-			var firstDate = new Date(	data1[0]  + " " + mes1 + " " + data1[2] );
-			var secondDate = new Date(	data2[0]  + " " + mes2 + " " + data2[2] );
-			
-			var daysDiff = (secondDate.valueOf() - firstDate.valueOf());
-			daysDiff = Math.floor(Math.abs((((daysDiff  / 1000) / 60) / 60) / 24));*/
-
 			var Data1 = new Date( data1[2], data1[1], data1[0]);
 			var Data2 = new Date( data2[2], data2[1], data2[0]);
 			dif = Data2.getTime()-Data1.getTime();
@@ -357,6 +320,16 @@ function somaDias( txtData, DiasAdd )
 						calcularData( '<bean:write name="rs" property="periodoInicial" format="dd/MM/yyyy"/>', '<bean:write name="rs" property="periodoFinal" format="dd/MM/yyyy"/>', color);
 						</logic:equal>
 					</logic:iterate>
+
+
+					<logic:iterate id="bl" name="imovel" property="bloqueios">
+					
+						var color="#2980C5";
+					
+						calcularData( '<bean:write name="bl" property="dataInicial" format="dd/MM/yyyy"/>', '<bean:write name="bl" property="dataFinal" format="dd/MM/yyyy"/>', color);	
+					</logic:iterate>
+
+				
 				 }
 				
 				
@@ -377,25 +350,25 @@ function somaDias( txtData, DiasAdd )
 				                  <td width="28%" class="txt_legenda">Reservado</td>
 				                  <td width="5%"><div class="box_legenda_cor cor_baixa_temporada"></div></td>
 				                  <td width="29%" class="txt_legenda">Baixa Temporada</td>
+				                  <td><div class="box_legenda_cor cor_media_temporada"></div></td>
+				                  <td class="txt_legenda">Média Temporada</td>
+				                </tr>
+				                <tr>
+								  <td><div class="box_legenda_cor cor_alta_temporada"></div></td>
+				                  <td class="txt_legenda">Alta Temporada</td>
+				                  <td><div class="box_legenda_cor cor_pacote_fechado"></div></td>
+				                  <td class="txt_legenda">Pacote Fechado</td>
 				                  <td width="5%"><div class="box_legenda_cor cor_data_especial"></div></td>
 				                  <td width="28%" class="txt_legenda">Data Especial</td>
 				                </tr>
-				                <tr>				                 
-				                  <td><div class="box_legenda_cor cor_pacote_fechado"></div></td>
-				                  <td class="txt_legenda">Pacote Fechado</td>
-				                  <td><div class="box_legenda_cor cor_media_temporada"></div></td>
-				                  <td class="txt_legenda">Média Temporada</td>
+				                <tr>
+				                  <td><div class="box_legenda_cor cor_bloqueado"></div></td>
+				                  <td class="txt_legenda">Bloqueado</td> 
+				                  <td>&nbsp;</td>
+				                  <td>&nbsp;</td>
 				                  <td>&nbsp;</td>
 				                  <td>&nbsp;</td>
 				                </tr>
-								<tr>
-									<td><div class="box_legenda_cor cor_alta_temporada"></div></td>
-									<td class="txt_legenda">Alta Temporada</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td> 
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									</tr>
 				                </table>
 				            <!-- ******* -->
 				    </td>
@@ -496,10 +469,28 @@ function somaDias( txtData, DiasAdd )
 	       			
 	     		</tr>
 	     		<tr>
-	     			<td>	       		
+	     			<td>
+	     			<!-- 	   tipo de disponibilidade vindas do banco    		
 			       		<div class="sep10"><html:select property="tipoAnuncio" styleId="tipoAnuncio" onchange="selecionarTipoDispo()">
 							<html:options collection="tiposAnuncio" property="codigo" labelProperty="nome"/>
-						</html:select></div></td>
+						</html:select></div>
+						 -->
+						
+
+						<div class="sep10">
+						<html:select property="tipoAnuncio" styleId="tipoAnuncio" onchange="selecionarTipoDispo()">
+							<html:option value="0">Selecione</html:option> 
+							<html:option value="2">Alta Temporada</html:option>
+							<html:option value="3">Baixa Temporada</html:option>
+							<html:option value="1">Bloqueado</html:option>
+							<html:option value="5">Data Especial</html:option>
+							<html:option value="4">Média Temporada</html:option>	
+							<html:option value="6">Pacote Fechado</html:option>
+						</html:select>
+						</div>				
+						
+						
+						</td>
 	       			<td class="iddiarias"><div class="sep10"><html:text property="tarifaDiaria" styleClass="number,MyriadProRegular" styleId="tarifaDiaria" maxlength="10" size="70" style="width:100px;" /></div></td>
 	       			<td class="iddiarias"><div class="sep10"><html:text property="tarifaSemanal" styleClass="number,MyriadProRegular" styleId="tarifaSemanal" maxlength="10" size="70" style="width:100px;" /></div></td>
 	       			<td class="iddiarias"><div class="sep10"><html:text property="tarifaQuinzenal" styleClass="number,MyriadProRegular" styleId="tarifaQuinzenal" maxlength="10" size="70" style="width:100px;" /></div></td>
