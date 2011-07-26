@@ -6,6 +6,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld"  prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
+<%@ taglib uri="/WEB-INF/tld/formatter.tld" prefix="ff" %>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -204,7 +205,7 @@ function somaDias( txtData, DiasAdd )
 
 						    <span class="txt_cinza_detalhes">
 						    	<span class="arial12boldazul">Perfil do Imóvel:</span> ${imovel.tipoImovel.nome}<br />
-						      	<span class="arial12boldazul">Distância do centro:</span> ${imovel.distanciaCentro}km<br />
+						      	<span class="arial12boldazul">Distância do centro:</span> <ff:format value="${imovel.distanciaCentro}"/>km<br />
 						      
 						      <div class="icons_admin">
 						      <logic:notEmpty name="imovel" property="linkGoogleMaps">
@@ -298,6 +299,7 @@ function somaDias( txtData, DiasAdd )
 				
 				function listaDadas(){
 					<logic:iterate id="an" name="imovel" property="anuncios">
+					
 				
 						<logic:equal name="an" property="tipoAnuncio.codigo" value="0">var color="#FFF"; </logic:equal>
 						<logic:equal name="an" property="tipoAnuncio.codigo" value="1">var color="#2980C5"; </logic:equal>			  		
@@ -412,11 +414,11 @@ function somaDias( txtData, DiasAdd )
 	
 		    			<div class="preco_data2"><bean:write name="an" property="dataInicial" format="dd/MM/yyyy"/></div>
 		                <div class="preco_data2"><bean:write name="an" property="dataFinal" format="dd/MM/yyyy"/></div>
-		                <div class="preco_valor2"><bean:write name="an" property="tarifaDiaria"/></div>
-		                <div class="preco_valor3"><bean:write name="an" property="tarifaSemanal"/></div>
-		                <div class="preco_valor3"><bean:write name="an" property="tarifaQuinzenal"/></div>
-		                <div class="preco_valor3"><bean:write name="an" property="tarifaMensal"/></div>
-		                <div class="preco_valor_pacote2"><bean:write name="an" property="tarifaPacoteFechado"/></div>	    
+		                <div class="preco_valor2"><ff:format value="${an.tarifaDiaria}" /></div>
+		                <div class="preco_valor3"><ff:format value="${an.tarifaSemanal}" /></div>
+		                <div class="preco_valor3"><ff:format value="${an.tarifaQuinzenal}" /></div>
+		                <div class="preco_valor3"><ff:format value="${an.tarifaMensal}" /></div>
+		                <div class="preco_valor_pacote2"><ff:format value="${an.tarifaPacoteFechado}" /></div>	    
 	
 		  		</font>	  		
 		  	</td>

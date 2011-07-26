@@ -2,6 +2,8 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld"  prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld"  prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
+<%@ taglib uri="/WEB-INF/tld/formatter.tld" prefix="ff" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -106,7 +108,7 @@ function abrirPop(url){
 			    <td width="42%" valign="top">			    	
 				    <span class="txt_cinza_detalhes">
 				    	<span class="arial12boldazul">Perfil do Imóvel:</span> ${imovel.tipoImovel.nome}<br />
-						<span class="arial12boldazul">Distância do centro:</span> ${imovel.distanciaCentro}km<br />
+						<span class="arial12boldazul">Distância do centro:</span> <ff:format value="${imovel.distanciaCentro}"/>km<br />
 				      
 				      <div class="icons_admin">
 				      
@@ -194,7 +196,7 @@ function abrirPop(url){
 								      </tr>
 								      <tr class="txt_caracteristicas">
 								      	<td width="160">
-								      	<html:text name="imovel" property="distanciaCentro"  size="100" style="width:90px;"/><div class="sept">&nbsp;&nbsp;km</div></td>
+								      	<ff:edit name="distanciaCentro" value="${imovel.distanciaCentro}"  size="100" style="width:90px;"/><div class="sept">&nbsp;&nbsp;km</div></td>
 								      	<td width="146">
 								        	<html:select name="imovel" property="metragem" styleId="metragem" style="width:103px;">
 								      			<html:option value="20.0">20m</html:option>
@@ -468,9 +470,9 @@ function abrirPop(url){
 						      <td>Água:</td>
 					      </tr>
 					      <tr>
-						      <td><html:text name="imovel" property="calcao" size="90" style="width:100px;"/></td>
-						      <td><html:text name="imovel" property="energia" size="90" style="width:100px;"/></td>
-						      <td><html:text name="imovel" property="taxaAgua" size="90" style="width:100px;"/></td>
+						      <td><ff:edit name="calcao" value="${imovel.calcao}" size="90" style="width:100px;"/></td>
+						      <td><ff:edit name="energia" value="${imovel.energia}" size="90" style="width:100px;"/></td>
+						      <td><ff:edit name="taxaAgua" value="${imovel.taxaAgua}" size="90" style="width:100px;"/></td>
 					      </tr>
 					      <tr class="txt_caracteristicas">
 						      <td>Gás:</td>
@@ -478,8 +480,8 @@ function abrirPop(url){
 						      <td></td>
 					      </tr>
 					      <tr>
-						      <td><html:text name="imovel" property="taxaGas" size="90" style="width:100px;"/></td>
-						      <td><html:text name="imovel" property="diarista" size="90" style="width:100px;"/></td>
+						      <td><ff:edit name="taxaGas" value="${imovel.taxaGas}" size="90" style="width:100px;"/></td>
+						      <td><ff:edit name="diarista" value="${imovel.diarista}" size="90" style="width:100px;"/></td>
 						      <td></td>
 					      </tr>
 					      <tr><td height="40" colspan="5">&nbsp;</td></tr>
@@ -592,8 +594,8 @@ function abrirPop(url){
                     	<td>Taxa para Check-out fora do horário:</td>
                     </tr>							                      	  
                     <tr>
-                    	<td><html:text name="imovel" property="taxaLateCheckin" size="90" style="width:100px;"/></td>
-                    	<td><html:text name="imovel" property="taxaLateCheckout" size="90" style="width:100px;"/></td>
+                    	<td><ff:edit name="taxaLateCheckin" value="${imovel.taxaLateCheckin}" size="90" style="width:100px;"/></td>
+                    	<td><ff:edit name="taxaLateCheckout" value="${imovel.taxaLateCheckout}" size="90" style="width:100px;"/></td>
                     </tr>
                 </table><!--Final table Check-in/out-->
              </td><!--Final td Check-in/out-->
@@ -624,13 +626,13 @@ function abrirPop(url){
 		<div class="pre_0">
 				<table border="0" cellspacing="0" cellpadding="2">
 	              <tr height="50">
-	                <td><html:text name="imovel" property="prePercentual" size="40" style="width:50px;"/> </td>
+	                <td><ff:edit name="prePercentual" value="${imovel.prePercentual}" size="40" style="width:50px;"/> </td>
 	                <td><div class="pre_2">% do saldo  </div></td>
 	                <td><html:text name="imovel" property="preCheckIn" size="40" style="width:50px;"/> </td>
 	                <td><div class="pre_2"> dias antes do checkin</div></td>
 	              </tr>
 	              <tr height="50">
-	                <td><html:text name="imovel" property="prePercentual2" size="40" style="width:50px;"/> </td>
+	                <td><ff:edit name="prePercentual2" value="${imovel.prePercentual2}" size="40" style="width:50px;"/> </td>
 	                <td><div class="pre_2">% do saldo  </div></td>
 	                <td><html:text name="imovel" property="preCheckIn2" size="40" style="width:50px;"/> </td>
 	                <td><div class="pre_2"> dias antes do checkin</div></td>

@@ -5,6 +5,7 @@
 
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="/WEB-INF/tld/formatter.tld" prefix="ff" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -78,7 +79,7 @@
 										%>
 										<span class="txt_cinza_detalhes">
 											Valor de <span id="data_total_<% out.print( index ); %>_${res.imovel.codigo}"></span> dia(s)&nbsp;
-											R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( res.valor + ( res.valor *15/100))}"/>
+											R$ <ff:format value="${( res.valor + ( res.valor *15/100))}"/>
 										</span>
 										
 										
@@ -111,7 +112,7 @@
 												</form>
 												<script language="javascript">
 									                <!--
-									                	calcularValorMoipListaMinhaReserva( '<fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((res.valor*15/100))}"/>', '<% out.print( index ); %>');
+									                	calcularValorMoipListaMinhaReserva( '<ff:format value="${((res.valor*15/100))}"/>', '<% out.print( index ); %>');
 									                -->
 									            </script>
 			                    		
@@ -138,7 +139,7 @@
 												</form>
 												<script language="javascript">
 									                <!--
-									                	calcularValorMoipListaMinhaReserva( '<fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((res.valor*15/100))}"/>', '<% out.print( index ); %>');
+									                	calcularValorMoipListaMinhaReserva( '<ff:format value="${((res.valor*15/100))}"/>', '<% out.print( index ); %>');
 									                -->
 									            </script>							                
 												<!-- <a href="/DB4-BuskazaWeb/usuario/reserva.do?act=formPagarReserva&cr=${res.codigo}">Efetuar pagamento</a> -->

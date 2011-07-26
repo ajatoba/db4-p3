@@ -4,6 +4,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="/WEB-INF/tld/formatter.tld" prefix="ff" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -141,15 +142,15 @@ function abrirPop(url){
 	<div class="calculo_reserva">
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Total da Reserva:</div>
-                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${(( reservaPagar.valor + ( reservaPagar.valor *15/100)))}"/></div>
+                    <div class="calculo_total_valor">R$ <ff:format value="${(( reservaPagar.valor + ( reservaPagar.valor *15/100)))}"/></div>
             </div>
             <div class="calculo_amarelo">
                     <div class="calculo_total_info">Sinal:</div>
-                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((reservaPagar.valor*15/100))}"/></div>
+                    <div class="calculo_total_valor">R$ <ff:format value="${((reservaPagar.valor*15/100))}"/></div>
             </div>
             <div class="calculo_cinza">
                     <div class="calculo_total_info">Saldo no Check in:</div>
-                    <div class="calculo_total_valor">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${(reservaPagar.valor)}"/></div>
+                    <div class="calculo_total_valor">R$ <ff:format value="${(reservaPagar.valor)}"/></div>
             </div>
     </div>
     
@@ -249,7 +250,7 @@ function abrirPop(url){
 				</form>
 				<script language="javascript">
                 <!--
-                	calcularvalorMoip( '<fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${((reservaPagar.valor*15/100))}"/>', '<bean:write name="reservaPagar" property="valor" format="00.00"/>');
+                	calcularvalorMoip( '<ff:format value="${((reservaPagar.valor*15/100))}"/>', '<bean:write name="reservaPagar" property="valor" format="00.00"/>');
                 	montarCepMoip('${reservaPagar.locatario.endereco.cep}' );
                 -->
                 </script>

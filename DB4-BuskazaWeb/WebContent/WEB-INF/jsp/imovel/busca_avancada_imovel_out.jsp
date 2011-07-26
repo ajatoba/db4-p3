@@ -4,7 +4,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
+<%@ taglib uri="/WEB-INF/tld/formatter.tld" prefix="ff" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -258,13 +258,13 @@
 	                          <div class="bustotal">
 	                              Valor total<br />
 	                                <span class="valor_cinza"><bean:write name="qtdDias"/> Dia(s):<br /></span>
-	                                <span class="valor_azul">R$  <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( ims.value + ( ims.value  *15/100))}"/> </span>                        
+	                                <span class="valor_azul">R$ <ff:format value="${( ims.value + ( ims.value  *15/100))}"/> </span>                        
 	                          </div>
 	                       </div>
 	                       <div class="box_busca_valor_media">
 	                            <div class="busmedia">               
 	                                Média da Diária:<br />
-	                                <span class="valor_cinza">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( ims.value + ( ims.value  *15/100)) /qtdDias}"/> </span>
+	                                <span class="valor_cinza">R$ <ff:format value="${( ims.value + ( ims.value  *15/100)) /qtdDias}"/> </span>
 	                       		</div>
 	                      	</div>
 	                  </div>

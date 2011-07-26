@@ -8,6 +8,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="/WEB-INF/tld/formatter.tld" prefix="ff" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -229,8 +230,8 @@ function somaDias( txtData, DiasAdd )
                     	<span class="data_check">${diaFinal}/${mesFinal}/${anoFinal}</span>
                     </div>                    
                 </div><!--fim check_inout-->
-                <div class="div_valor_amarela">Reserva (<span id="data_total"></span> dias): <strong>R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor )}"/></strong></div>
-        		<div class="div_valor_amarela">Sinal: <strong>R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( valor *15/100 )}"/></strong></div>
+                <div class="div_valor_amarela">Reserva (<span id="data_total"></span> dias): <strong>R$ <ff:format value="${( valor )}"/></strong></div>
+        		<div class="div_valor_amarela">Sinal: <strong>R$ <ff:format value="${( valor *15/100 )}"/></strong></div>
                 <div class="btn_reservar_detalhes">
                 	<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
 						<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
@@ -281,7 +282,7 @@ function somaDias( txtData, DiasAdd )
                 
                 <div class="div_sep_enderecos_detalhes">
                 <span class="arial12boldazul">Capacidade:</span><span class="txt_cinza_detalhes"> ${imovel.capacidade} pessoa(s)</span><br />
-                <span class="arial12boldazul">Distância do Centro:</span><span class="txt_cinza_detalhes"> <bean:write name="imovel" property="distanciaCentro"/>km</span><br />
+                <span class="arial12boldazul">Distância do Centro:</span><span class="txt_cinza_detalhes"> <ff:format value="${imovel.distanciaCentro}"/>km</span><br />
                 <span class="arial12boldazul">Cama(s):</span><span class="txt_cinza_detalhes"> ${imovel.camas}</span><br />
                 </div>
                 

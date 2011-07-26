@@ -4,6 +4,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld"  prefix="logic"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="/WEB-INF/tld/formatter.tld" prefix="ff" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -60,7 +61,7 @@ function submitForm(status, id){
 						            <li class="res_1">
 						                <span id="data_total_<% out.print( index ); %>_${rim.codigo}"></span> dia(s) - <bean:write name="rim" property="periodoInicial" format="dd/MM/yyyy"/> a 
 						                <bean:write name="rim" property="periodoFinal" format="dd/MM/yyyy"/><br />   
-						                Total: R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${( rim.valor + ( rim.valor *15/100))}"/>
+						                Total: R$ <ff:format value="${( rim.valor + ( rim.valor *15/100))}"/>
 						                <br>
 						                
 						                <logic:equal name="rim" property="statusMoip" value="0">Aguardando pagamento</logic:equal>
