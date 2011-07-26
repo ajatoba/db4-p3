@@ -142,4 +142,8 @@
 			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
 	</plug-in>
 
+	<plug-in className="br.com.db4.buskaza.controller.plugin.LoadConverters">
+	</plug-in>	
+	
+
 </struts-config>
