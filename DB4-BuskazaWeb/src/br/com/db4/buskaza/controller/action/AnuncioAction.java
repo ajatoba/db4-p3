@@ -24,6 +24,7 @@ import org.apache.struts.util.MessageResources;
 import br.com.db4.buskaza.controller.exception.ValidacaoFormException;
 import br.com.db4.buskaza.controller.form.AnuncioForm;
 import br.com.db4.buskaza.controller.form.UsuarioForm;
+import br.com.db4.buskaza.controller.plugin.DoubleConverterBR;
 import br.com.db4.buskaza.controller.util.Calendario;
 import br.com.db4.buskaza.controller.util.CalendarioUtil;
 import br.com.db4.buskaza.controller.util.Constants;
@@ -109,7 +110,7 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 			*/
 			request.setAttribute("imovel", im );
 			
-			//CAREGANDO CALENDÁRIO DE ANÚNCIOS
+			//CAREGANDO CALENDï¿½RIO DE ANï¿½NCIOS
 			/*
 			Map<String,Calendario> calendarioAnuncio = CalendarioUtil.getInstance().montaCalendarioAnuncio(mesCalendario, anoCalendario, anuncios, im );
 			
@@ -145,7 +146,7 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 			anuncio.setImovel(imovel);
 			
 			
-			//FAZENDO BLOQUEIO DO PERÍODO, SE FOR O CASO
+			//FAZENDO BLOQUEIO DO PERï¿½ODO, SE FOR O CASO
 			//anuncio.getCodigo()==1 //BLOQUEAR
 			if (anuncio.getTipoAnuncio().getCodigo() == 1) {
 				BloqueioBeanLocal bloqueioEjb = (BloqueioBeanLocal) ServiceLocator.getInstance().locateEJB(BloqueioBeanLocal.LOCAL);
@@ -156,7 +157,7 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 				try {					
 					Integer codigoBloqueio = bloqueioEjb.incluirBloqueio(bloqueio);
 					if (codigoBloqueio > 0) {
-						request.setAttribute(Constants.SUCESSO_PARAMETER,"Período Bloqueado com Sucesso" );
+						request.setAttribute(Constants.SUCESSO_PARAMETER,"Perï¿½odo Bloqueado com Sucesso" );
 						request.setAttribute("ci",codigoImovel);
 						return formCadastroAnuncio(mapping, form, request, response);
 					}
@@ -171,8 +172,8 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 			
 			//******************************************
 			
-			//VERIFICAR SE O PERÍODO SELECIONADO JÁ ESTÁ CADASTRADO
-			//SÓ FAÇO ESSE TESTE SE O USUÁRIO NÃO ESTIVER TENTANDO BLOQUEAR UM PERÍODO
+			//VERIFICAR SE O PERï¿½ODO SELECIONADO Jï¿½ ESTï¿½ CADASTRADO
+			//Sï¿½ FAï¿½O ESSE TESTE SE O USUï¿½RIO Nï¿½O ESTIVER TENTANDO BLOQUEAR UM PERï¿½ODO
 			//anuncio.getCodigo()==1 //BLOQUEAR
 			if (anuncio.getTipoAnuncio().getCodigo() != 1) {
 				boolean periodoDisponivel = true;
@@ -221,7 +222,7 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 				
 				imovel.setTiposPagamento(tiposPagamento);
 				
-				System.out.println("ALTERANDO O IMÓVEL");
+				System.out.println("ALTERANDO O IMï¿½VEL");
 				imovelEjb.alterarImovel(imovel);
 				
 			}
@@ -236,7 +237,7 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 		    return formCadastroAnuncio(mapping, form, request, response);	
 		}
 		
-		request.setAttribute(Constants.SUCESSO_PARAMETER,"Anúncio realizado com sucesso");
+		request.setAttribute(Constants.SUCESSO_PARAMETER,"Anï¿½ncio realizado com sucesso");
 		request.setAttribute("ci",codigoImovel);
 		//return mapping.findForward(Constants.FORWARD_ANUNCIO_IN);
 		return formCadastroAnuncio(mapping, form, request, response);
@@ -314,7 +315,7 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 		
 		Anuncio anuncio= form.getAnuncioEntity();	
 		
-		//Setando data inicial do anúncio
+		//Setando data inicial do anï¿½ncio
 		Date dataInicial = new Date(form.getAnoDataInicial()-1900, form.getMesDataInicial()-1,form.getDiaDataInicial());		
 		anuncio.setDataInicial(dataInicial);
 		
@@ -328,11 +329,13 @@ public ActionForward listarAnuncios(ActionMapping mapping, ActionForm form, Http
 		anuncio.setDataAnuncio(new Date());
 		anuncio.setTipoAnuncio(tipo);
 		
-		anuncio.setTarifaDiaria(form.getTarifaDiaria());	
-		anuncio.setTarifaSemanal(form.getTarifaSemanal());	
-		anuncio.setTarifaMensal(form.getTarifaMensal());	
-		anuncio.setTarifaQuinzenal(form.getTarifaQuinzenal());
-		anuncio.setTarifaPacoteFechado(form.getTarifaPacoteFechado());
+		System.out.println("---- tarifa diaria = " + form.getTarifaDiaria() );
+		
+		anuncio.setTarifaDiaria(DoubleConverterBR.getInstance().toDouble( form.getTarifaDiaria()));	
+		anuncio.setTarifaSemanal(DoubleConverterBR.getInstance().toDouble( form.getTarifaSemanal()));	
+		anuncio.setTarifaMensal(DoubleConverterBR.getInstance().toDouble( form.getTarifaMensal()));	
+		anuncio.setTarifaQuinzenal(DoubleConverterBR.getInstance().toDouble( form.getTarifaQuinzenal()));
+		anuncio.setTarifaPacoteFechado(DoubleConverterBR.getInstance().toDouble( form.getTarifaPacoteFechado()));
 		
 		if(form.isPermitirEntrada())
 			anuncio.setPermitirEntrada(form.isPermitirEntrada());

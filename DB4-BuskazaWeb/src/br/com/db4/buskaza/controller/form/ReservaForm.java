@@ -24,7 +24,7 @@ public class ReservaForm extends ActionForm {
 	
 	private int codigoImovel;
 	
-	private double valor;
+	private String valor;
 	
 	private int status;
 	
@@ -118,17 +118,6 @@ public class ReservaForm extends ActionForm {
 		this.anoPeriodoFinal = anoPeriodoFinal;
 	}
 
-
-	public double getValor() {
-		return valor;
-	}
-
-
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
-
-
 	public Reserva getReservaEntity() {
 		return reservaEntity;
 	}
@@ -141,6 +130,16 @@ public class ReservaForm extends ActionForm {
 
 	public ReservaForm(){
 		reservaEntity = new Reserva();		
+	}
+
+
+	public String getValor() {
+		return valor;
+	}
+
+
+	public void setValor(String valor) {
+		this.valor = valor;
 	}		
 	
 }

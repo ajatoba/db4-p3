@@ -28,6 +28,7 @@ import br.com.db4.buskaza.controller.exception.ValidacaoFormException;
 import br.com.db4.buskaza.controller.form.ImovelForm;
 import br.com.db4.buskaza.controller.form.ReservaForm;
 import br.com.db4.buskaza.controller.helper.ImageHelper;
+import br.com.db4.buskaza.controller.plugin.DoubleConverterBR;
 import br.com.db4.buskaza.controller.util.CalendarioUtil;
 import br.com.db4.buskaza.controller.util.Constants;
 import br.com.db4.buskaza.controller.util.ReservaUtil;
@@ -175,7 +176,7 @@ public class ImovelAction extends DispatchAction {
 				
 				imoveisValor.put(imovelPreco, new Double(ReservaUtil.getInstance().calculaPrecoReserva(imovelPreco.getAnuncios(), reserva)));
 				
-				//System.out.println("PREÇO DO ANÚNCIO:" + ReservaUtil.getInstance().calculaPrecoReserva(imovelPreco.getAnuncios(), reserva) );			
+				System.out.println("PREÇO DO ANÚNCIO:" + ReservaUtil.getInstance().calculaPrecoReserva(imovelPreco.getAnuncios(), reserva) );			
 			}
 	        
 	        request.setAttribute("tipoBusca", anuncio.getTipoAnuncio());
@@ -286,7 +287,7 @@ public class ImovelAction extends DispatchAction {
 		
 		
 		//Setando demais atributos do form
-		imovel.setCalcao(form.getCalcao());
+		imovel.setCalcao(DoubleConverterBR.getInstance().toDouble( form.getCalcao()));
 		
 		
 		if (form.getCamas() != null )
@@ -312,18 +313,18 @@ public class ImovelAction extends DispatchAction {
 		if(form.getCondicoes()!= null )
 			imovel.setCondicoes(form.getCondicoes());
 		
-		if(form.getDiarista() >0  )
-			imovel.setDiarista(form.getDiarista());
+		if(DoubleConverterBR.getInstance().toDouble( form.getDiarista()) >0  )
+			imovel.setDiarista(DoubleConverterBR.getInstance().toDouble( form.getDiarista()));
 		
-		if(form.getDistanciaCentro() > 0 )
-			imovel.setDistanciaCentro(form.getDistanciaCentro());
+		if(DoubleConverterBR.getInstance().toDouble( form.getDistanciaCentro()) > 0 )
+			imovel.setDistanciaCentro(DoubleConverterBR.getInstance().toDouble( form.getDistanciaCentro()));
 		
-		if(form.getEnergia() > 0 )
-			imovel.setEnergia(form.getEnergia());
+		if(DoubleConverterBR.getInstance().toDouble( form.getEnergia()) > 0 )
+			imovel.setEnergia(DoubleConverterBR.getInstance().toDouble( form.getEnergia()));
 		
 				
-		if(form.getInternet()> 0 )
-			imovel.setInternet(form.getInternet());
+		if(DoubleConverterBR.getInstance().toDouble( form.getInternet())> 0 )
+			imovel.setInternet(DoubleConverterBR.getInstance().toDouble( form.getInternet()));
 		
 		if(form.getLinkGoogleMaps()!= null ){
 			imovel.setLinkGoogleMaps(form.getLinkGoogleMaps());
@@ -332,8 +333,8 @@ public class ImovelAction extends DispatchAction {
 		if(form.getLogradouro()!= null )
 			imovel.setLogradouro(form.getLogradouro());
 		
-		if(form.getMetragem() > 0 )
-			imovel.setMetragem(form.getMetragem());
+		if(DoubleConverterBR.getInstance().toDouble( form.getMetragem()) > 0 )
+			imovel.setMetragem(DoubleConverterBR.getInstance().toDouble( form.getMetragem()));
 		
 		if(form.getMunicipio()!= null )
 			imovel.setMunicipio(form.getMunicipio());
@@ -389,9 +390,9 @@ public class ImovelAction extends DispatchAction {
 			}
 		}
 		
-		/*ESSE ALGORÍTIMO FOI NECESSÁRIO POR CONTA DAS MUDANÇAS
+		/*ESSE ALGORï¿½TIMO FOI NECESSï¿½RIO POR CONTA DAS MUDANï¿½AS
 		SOLICITADAS PELA DB4 EM 19/04/2011, QUE OBRIGAM A ENTIDADE FOTO
-		A POSSIR UMA CHAVE ESTRANGEIRA DE IMÓVEL
+		A POSSIR UMA CHAVE ESTRANGEIRA DE IMï¿½VEL
 		*/
 		Set<Foto> fotosImovel2 = new HashSet<Foto>();
 		if(fotosImovel!= null && fotosImovel.size() > 0){
@@ -633,7 +634,7 @@ public class ImovelAction extends DispatchAction {
 	}
 	
 	public ActionForward excluirImovel(ActionMapping mapping, ActionForm form, HttpServletRequest request,HttpServletResponse response){
-		//NA VERDADE, NÃO EXCLUI. SOMENTE SETA O STATUS PRA -1
+		//NA VERDADE, Nï¿½O EXCLUI. SOMENTE SETA O STATUS PRA -1
 		
 		try {
 			ImovelForm imovelForm = (ImovelForm)form;		
@@ -776,11 +777,11 @@ public class ImovelAction extends DispatchAction {
 		if(form.getCapacidade() != null)
 			imovel.setCapacidade(form.getCapacidade());
 		
-		if(form.getDistanciaCentro() > 0 )
-			imovel.setDistanciaCentro(form.getDistanciaCentro());
+	//	if(form.getDistanciaCentro() > 0 )
+			imovel.setDistanciaCentro(DoubleConverterBR.getInstance().toDouble( form.getDistanciaCentro()) );
 			
-		if(form.getMetragem() > 0 )
-			imovel.setMetragem(form.getMetragem());
+	//	if(form.getMetragem() > 0 )
+			imovel.setMetragem(DoubleConverterBR.getInstance().toDouble( form.getMetragem()));
 				
 		if(form.getNomeCheckIn()!= null )
 			imovel.setNomeCheckIn(form.getNomeCheckIn());
@@ -821,26 +822,26 @@ public class ImovelAction extends DispatchAction {
 		if(form.getEmailCheckin2() != null)
 			imovel.setEmailCheckin2(form.getEmailCheckin2());
 		
-		if(form.getTaxaAgua()> 0)
-			imovel.setTaxaAgua(form.getTaxaAgua());
+		//if(form.getTaxaAgua()> 0)
+			imovel.setTaxaAgua(DoubleConverterBR.getInstance().toDouble( form.getTaxaAgua()));
 		
-		if(form.getTaxaGas()> 0)
-			imovel.setTaxaGas(form.getTaxaGas());
+		//if(form.getTaxaGas()> 0)
+			imovel.setTaxaGas(DoubleConverterBR.getInstance().toDouble( form.getTaxaGas()));
 		
-		if(form.getTaxaLateCheckout()> 0)
-			imovel.setTaxaLateCheckout(form.getTaxaLateCheckout());
+	//	if(form.getTaxaLateCheckout()> 0)
+			imovel.setTaxaLateCheckout(DoubleConverterBR.getInstance().toDouble( form.getTaxaLateCheckout()));
 		
-		if(form.getTaxaLateCheckin()> 0)
-			imovel.setTaxaLateCheckin(form.getTaxaLateCheckin());
+		//if(form.getTaxaLateCheckin()> 0)
+			imovel.setTaxaLateCheckin(DoubleConverterBR.getInstance().toDouble( form.getTaxaLateCheckin()));
 		
-		if(form.getCalcao()> 0)
-			imovel.setCalcao(form.getCalcao());
+		//if(form.getCalcao()> 0)
+			imovel.setCalcao(DoubleConverterBR.getInstance().toDouble( form.getCalcao()));
 		
-		if(form.getEnergia()> 0)
-			imovel.setEnergia(form.getEnergia());
+	//	if(form.getEnergia()> 0)
+			imovel.setEnergia(DoubleConverterBR.getInstance().toDouble( form.getEnergia()));
 		
-		if(form.getDiarista()> 0)
-			imovel.setDiarista(form.getDiarista());
+		//if(form.getDiarista()> 0)
+			imovel.setDiarista(DoubleConverterBR.getInstance().toDouble( form.getDiarista()));
 		
 		
 		/* adionado pelo Otavio 13/05/2011 */
@@ -876,11 +877,11 @@ public class ImovelAction extends DispatchAction {
 		if(form.getPreNumBanco()!= null)
 			imovel.setPreNumBanco(form.getPreNumBanco());
 		
-		if(form.getPrePercentual() > 0 )
-			imovel.setPrePercentual(form.getPrePercentual());
+	//	if(DoubleConverterBR.getInstance().toDouble( form.getPrePercentual()) > 0 )
+			imovel.setPrePercentual(DoubleConverterBR.getInstance().toDouble( form.getPrePercentual()));
 		
-		if(form.getPrePercentual2() > 0 )
-			imovel.setPrePercentual2(form.getPrePercentual2());
+	//	if(DoubleConverterBR.getInstance().toDouble( form.getPrePercentual2()) > 0 )
+			imovel.setPrePercentual2(DoubleConverterBR.getInstance().toDouble( form.getPrePercentual2()));
 		
 		if(form.getPreTitular()!= null)
 			imovel.setPreTitular(form.getPreTitular());

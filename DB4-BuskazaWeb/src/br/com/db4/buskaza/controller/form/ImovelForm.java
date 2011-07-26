@@ -17,282 +17,253 @@ import br.com.db4.buskaza.model.entity.Imovel;
 import br.com.db4.buskaza.model.entity.TipoPagamento;
 import br.com.db4.buskaza.model.util.LoggerUtil;
 
-
 public class ImovelForm extends ActionForm {
 
 	/**
 	 * 
 	 */
-	
-	public ImovelForm(){
+
+	public ImovelForm() {
 		imovelEntity = new Imovel();
 		imovelEntity.setEstado(new Estado());
 		imovelEntity.setIdiomas(new HashSet<Idioma>());
 		imovelEntity.setCamas(new Integer(0).intValue());
 		imovelEntity.setEquipamentos(new HashSet<Equipamento>());
 		imovelEntity.setTiposPagamento(new HashSet<TipoPagamento>());
-		
+
 		this.indexFotos = 0;
 		this.fotos = new ArrayList<FormFile>();
 	}
-	
+
 	private static final long serialVersionUID = 1L;
 
 	protected Imovel imovelEntity;
-	
+
 	private FormFile planta;
-	
+
 	private FormFile arquivoFoto;
-	
+
 	private List<FormFile> fotos;
-	
+
 	private int indexFotos;
-	
+
 	protected Integer[] equipamentos;
-	
+
 	protected Integer[] tiposPagamento;
-	
+
 	protected Integer capacidade;
-	
+
 	private Integer quartos;
-	
+
 	private Integer camas;
-	
+
 	private Integer[] idiomas;
-	
+
 	private boolean transportePublico;
-	
-	private double metragem;
-	
-	private double distanciaCentro;
-	
+
+	private String metragem;
+
+	private String distanciaCentro;
+
 	private String linkGoogleMaps;
-	
+
 	protected String estado;
-	
+
 	protected Integer pais;
-	
+
 	private String municipio;
-	
+
 	private String complemento;
-	
+
 	private String logradouro;
-	
-	private double energia;
-	
-	private double internet;
-	
-	private double diarista;
-	
-	private String outraTaxaExtra; 
-	
+
+	private String energia;
+
+	private String internet;
+
+	private String diarista;
+
+	private String outraTaxaExtra;
+
 	private String condicoes;
-	
-	private double calcao;
-	
+
+	private String calcao;
+
 	private Integer checkInEntradaHora;
-	
+
 	private Integer checkInSaidaHora;
-	
+
 	private Integer checkOutEntradaHora;
-	
-	private Integer checkOutSaidaHora; 
-	
+
+	private Integer checkOutSaidaHora;
+
 	private Integer lateCheckOutHora;
-	
+
 	private Integer checkInEntradaMinuto;
-	
+
 	private Integer checkInSaidaMinuto;
-	
+
 	private Integer checkOutEntradaMinuto;
-	
-	private Integer checkOutSaidaMinuto; 
-	
+
+	private Integer checkOutSaidaMinuto;
+
 	private Integer lateCheckOutMinuto;
-	
+
 	private String nomeCheckIn;
-	
+
 	private String telefone;
-	
+
 	private String telefone2;
-	
+
 	private String email;
-	
+
 	private String email2;
-	
+
 	private String recepcionista;
-		
+
 	private String bairro;
-	
+
 	private String numero;
-	
+
 	private String cep;
-	
+
 	private Integer tipoImovel;
-	
+
 	private String linkYouTube;
-	
+
 	private String ddd;
-	
+
 	private String ddd2;
-		
-	//Campos para buscar imóveis pela data de anúncio
-	
+
+	// Campos para buscar imï¿½veis pela data de anï¿½ncio
+
 	private int diaDataInicialAnuncio;
 	private int mesDataInicialAnuncio;
 	private int anoDataInicialAnuncio;
-	
+
 	private int diaDataFinalAnuncio;
 	private int mesDataFinalAnuncio;
 	private int anoDataFinalAnuncio;
-	
-	private boolean metro;	
-	private boolean onibus;	
+
+	private boolean metro;
+	private boolean onibus;
 	private boolean trem;
-	
+
 	protected Integer tiposAnuncio;
-	
-	/* NOVOS CAMPOS - 16-04-2011*/
-	
+
+	/* NOVOS CAMPOS - 16-04-2011 */
+
 	private String emailCheckin;
-	
+
 	private String emailCheckin2;
-	
-	private double taxaAgua;
-	
-	private double taxaGas;
-	
-	private double taxaLateCheckout;
-	
-	private double taxaLateCheckin;
-	
+
+	private String taxaAgua;
+
+	private String taxaGas;
+
+	private String taxaLateCheckout;
+
+	private String taxaLateCheckin;
+
 	/*****************************/
-	
-	
+
 	/* adionado pelo Otavio 13/05/2011 */
-	
-	
-	private boolean prePagamento;	
-	private String preAgencia;	
-	private String preBanco;	
-	private String preNumBanco;	
-	private String preTitular;	
-	private double prePercentual;
-	private double prePercentual2;
-	private String preEmailPayPal;	
-	private String preCpf;	
+
+	private boolean prePagamento;
+	private String preAgencia;
+	private String preBanco;
+	private String preNumBanco;
+	private String preTitular;
+	private String prePercentual;
+	private String prePercentual2;
+	private String preEmailPayPal;
+	private String preCpf;
 	private String preContaCorrente;
 	private Integer preCheckIn;
 	private Integer preCheckIn2;
-	
-	
+
 	public boolean isPrePagamento() {
 		return prePagamento;
 	}
+
 	public void setPrePagamento(boolean prePagamento) {
 		this.prePagamento = prePagamento;
 	}
-	
-	
+
 	public String getPreAgencia() {
 		return preAgencia;
 	}
+
 	public void setPreAgencia(String preAgencia) {
 		this.preAgencia = preAgencia;
 	}
-	
-	
+
 	public String getPreBanco() {
 		return preBanco;
 	}
+
 	public void setPreBanco(String preBanco) {
 		this.preBanco = preBanco;
 	}
-	
-	
+
 	public String getPreNumBanco() {
 		return preNumBanco;
 	}
+
 	public void setPreNumBanco(String preNumBanco) {
 		this.preNumBanco = preNumBanco;
 	}
-	
-	
-	public void setPrePercentual(double prePercentual) {
-		this.prePercentual = prePercentual;
-	}
-	public double getPrePercentual() {
-		return prePercentual;
-	}
-	
-	
-	public void setPrePercentual2(double prePercentual2) {
-		this.prePercentual2 = prePercentual2;
-	}
-	public double getPrePercentual2() {
-		return prePercentual2;
-	}
-	
-		
-	
+
 	public String getPreTitular() {
 		return preTitular;
 	}
+
 	public void setPreTitular(String preTitular) {
 		this.preTitular = preTitular;
 	}
-	
-	
+
 	public String getPreEmailPayPal() {
 		return preEmailPayPal;
 	}
+
 	public void setPreEmailPayPal(String preEmailPayPal) {
 		this.preEmailPayPal = preEmailPayPal;
 	}
-	
-	
+
 	public String getPreCpf() {
 		return preCpf;
 	}
+
 	public void setPreCpf(String preCpf) {
 		this.preCpf = preCpf;
 	}
-	
-	
+
 	public String getPreContaCorrente() {
 		return preContaCorrente;
 	}
+
 	public void setPreContaCorrente(String preContaCorrente) {
 		this.preContaCorrente = preContaCorrente;
 	}
-	
-	
-	
+
 	public Integer getPreCheckIn() {
 		return preCheckIn;
 	}
+
 	public void setPreCheckIn(Integer preCheckIn) {
 		this.preCheckIn = preCheckIn;
 	}
-	
-	
+
 	public Integer getPreCheckIn2() {
 		return preCheckIn2;
 	}
+
 	public void setPreCheckIn2(Integer preCheckIn2) {
 		this.preCheckIn2 = preCheckIn2;
 	}
-	
-	
+
 	/* adionado pelo Otavio 13/05/2011 */
-	
-	
-	
-	
-	
-	
-	
-	
+
 	public Integer getTiposAnuncio() {
 		return tiposAnuncio;
 	}
@@ -319,38 +290,6 @@ public class ImovelForm extends ActionForm {
 
 	public void setEmailCheckin2(String emailCheckin2) {
 		this.emailCheckin2 = emailCheckin2;
-	}
-
-	public double getTaxaAgua() {
-		return taxaAgua;
-	}
-
-	public void setTaxaAgua(double taxaAgua) {
-		this.taxaAgua = taxaAgua;
-	}
-
-	public double getTaxaGas() {
-		return taxaGas;
-	}
-
-	public void setTaxaGas(double taxaGas) {
-		this.taxaGas = taxaGas;
-	}
-
-	public double getTaxaLateCheckout() {
-		return taxaLateCheckout;
-	}
-
-	public void setTaxaLateCheckout(double taxaLateCheckout) {
-		this.taxaLateCheckout = taxaLateCheckout;
-	}
-
-	public double getTaxaLateCheckin() {
-		return taxaLateCheckin;
-	}
-
-	public void setTaxaLateCheckin(double taxaLateCheckin) {
-		this.taxaLateCheckin = taxaLateCheckin;
 	}
 
 	public void setTiposAnuncio(Integer tiposAnuncio) {
@@ -428,9 +367,9 @@ public class ImovelForm extends ActionForm {
 	public void setAnoDataFinalAnuncio(int anoDataFinalAnuncio) {
 		this.anoDataFinalAnuncio = anoDataFinalAnuncio;
 	}
-	
-	//************************************
-	
+
+	// ************************************
+
 	public String getLinkYouTube() {
 		return linkYouTube;
 	}
@@ -535,30 +474,6 @@ public class ImovelForm extends ActionForm {
 		this.lateCheckOutMinuto = lateCheckOutMinuto;
 	}
 
-	public double getEnergia() {
-		return energia;
-	}
-
-	public void setEnergia(double energia) {
-		this.energia = energia;
-	}
-
-	public double getInternet() {
-		return internet;
-	}
-
-	public void setInternet(double internet) {
-		this.internet = internet;
-	}
-
-	public double getDiarista() {
-		return diarista;
-	}
-
-	public void setDiarista(double diarista) {
-		this.diarista = diarista;
-	}
-
 	public String getOutraTaxaExtra() {
 		return outraTaxaExtra;
 	}
@@ -573,14 +488,6 @@ public class ImovelForm extends ActionForm {
 
 	public void setCondicoes(String condicoes) {
 		this.condicoes = condicoes;
-	}
-
-	public double getCalcao() {
-		return calcao;
-	}
-
-	public void setCalcao(double calcao) {
-		this.calcao = calcao;
 	}
 
 	public Integer getCheckInEntrada() {
@@ -646,7 +553,7 @@ public class ImovelForm extends ActionForm {
 	public void setRecepcionista(String recepcionista) {
 		this.recepcionista = recepcionista;
 	}
-	
+
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
 	}
@@ -655,36 +562,36 @@ public class ImovelForm extends ActionForm {
 		this.fotos = fotos;
 	}
 
-	public FormFile getArquivoFoto( int in ) {
-        return this.arquivoFoto;
-    }
-	
-    public int getIndexFotos() {
+	public FormFile getArquivoFoto(int in) {
+		return this.arquivoFoto;
+	}
+
+	public int getIndexFotos() {
 		return indexFotos;
 	}
-    
+
 	public void setIndexFotos(int indexFotos) {
 		this.indexFotos = indexFotos;
 	}
 
-    public void setArquivoFoto( int in, FormFile t ) {
-        try {
-            this.arquivoFoto = t;
-            setFotos( t );
-            this.indexFotos++;
-        } catch ( Exception e ) {
-            LoggerUtil.error( "Ocorreu um erro ao atribuir arquivos de um documento", e );
-        }
-    }
+	public void setArquivoFoto(int in, FormFile t) {
+		try {
+			this.arquivoFoto = t;
+			setFotos(t);
+			this.indexFotos++;
+		} catch (Exception e) {
+			LoggerUtil.error("Ocorreu um erro ao atribuir arquivos de um documento", e);
+		}
+	}
 
-    public List<FormFile> getFotos() {
-        return this.fotos;
-    }
-   
-    public void setFotos( FormFile t ) {
-        this.fotos.add( this.indexFotos, t );
-    }
-	
+	public List<FormFile> getFotos() {
+		return this.fotos;
+	}
+
+	public void setFotos(FormFile t) {
+		this.fotos.add(this.indexFotos, t);
+	}
+
 	public Integer getPais() {
 		return pais;
 	}
@@ -708,7 +615,6 @@ public class ImovelForm extends ActionForm {
 	public void setPlanta(FormFile planta) {
 		this.planta = planta;
 	}
-
 
 	public Integer[] getEquipamentos() {
 		return equipamentos;
@@ -741,39 +647,21 @@ public class ImovelForm extends ActionForm {
 	public void setCamas(Integer camas) {
 		this.camas = camas;
 	}
-	
+
 	public Integer[] getIdiomas() {
 		return idiomas;
 	}
 
-	
 	public void setIdiomas(Integer[] idiomas) {
 		this.idiomas = idiomas;
 	}
-	
-	
+
 	public boolean isTransportePublico() {
 		return transportePublico;
 	}
 
 	public void setTransportePublico(boolean transportePublico) {
 		this.transportePublico = transportePublico;
-	}
-
-	public double getMetragem() {
-		return metragem;
-	}
-
-	public void setMetragem(double metragem) {
-		this.metragem = metragem;
-	}
-
-	public double getDistanciaCentro() {
-		return distanciaCentro;
-	}
-
-	public void setDistanciaCentro(double distanciaCentro) {
-		this.distanciaCentro = distanciaCentro;
 	}
 
 	public String getLinkGoogleMaps() {
@@ -815,8 +703,7 @@ public class ImovelForm extends ActionForm {
 	public void setLogradouro(String logradouro) {
 		this.logradouro = logradouro;
 	}
-		
-	
+
 	public String getBairro() {
 		return bairro;
 	}
@@ -832,7 +719,7 @@ public class ImovelForm extends ActionForm {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
-	
+
 	public String getTelefone2() {
 		return telefone2;
 	}
@@ -881,8 +768,100 @@ public class ImovelForm extends ActionForm {
 		this.tiposPagamento = tiposPagamento;
 	}
 
-	
-	
-	
-}
+	public String getMetragem() {
+		return metragem;
+	}
 
+	public void setMetragem(String metragem) {
+		this.metragem = metragem;
+	}
+
+	public String getDistanciaCentro() {
+		return distanciaCentro;
+	}
+
+	public void setDistanciaCentro(String distanciaCentro) {
+		this.distanciaCentro = distanciaCentro;
+	}
+
+	public String getEnergia() {
+		return energia;
+	}
+
+	public void setEnergia(String energia) {
+		this.energia = energia;
+	}
+
+	public String getInternet() {
+		return internet;
+	}
+
+	public void setInternet(String internet) {
+		this.internet = internet;
+	}
+
+	public String getDiarista() {
+		return diarista;
+	}
+
+	public void setDiarista(String diarista) {
+		this.diarista = diarista;
+	}
+
+	public String getCalcao() {
+		return calcao;
+	}
+
+	public void setCalcao(String calcao) {
+		this.calcao = calcao;
+	}
+
+	public String getTaxaAgua() {
+		return taxaAgua;
+	}
+
+	public void setTaxaAgua(String taxaAgua) {
+		this.taxaAgua = taxaAgua;
+	}
+
+	public String getTaxaGas() {
+		return taxaGas;
+	}
+
+	public void setTaxaGas(String taxaGas) {
+		this.taxaGas = taxaGas;
+	}
+
+	public String getTaxaLateCheckout() {
+		return taxaLateCheckout;
+	}
+
+	public void setTaxaLateCheckout(String taxaLateCheckout) {
+		this.taxaLateCheckout = taxaLateCheckout;
+	}
+
+	public String getTaxaLateCheckin() {
+		return taxaLateCheckin;
+	}
+
+	public void setTaxaLateCheckin(String taxaLateCheckin) {
+		this.taxaLateCheckin = taxaLateCheckin;
+	}
+
+	public String getPrePercentual() {
+		return prePercentual;
+	}
+
+	public void setPrePercentual(String prePercentual) {
+		this.prePercentual = prePercentual;
+	}
+
+	public String getPrePercentual2() {
+		return prePercentual2;
+	}
+
+	public void setPrePercentual2(String prePercentual2) {
+		this.prePercentual2 = prePercentual2;
+	}
+
+}
