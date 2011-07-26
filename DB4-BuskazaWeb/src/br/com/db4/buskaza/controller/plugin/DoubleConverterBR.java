@@ -55,5 +55,15 @@ public class DoubleConverterBR implements Converter {
 		}
 		return null;
 	}
+	
+	public String format(Double value){
+		try {
+			return decimalFormat.format(value);
+		} catch (Exception e) {
+			System.out.println("valor inválido : [" + value + "]" + e.getMessage());
+			e.printStackTrace();
+		}
+		return "0,0";		
+	}
 
 }
