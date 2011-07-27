@@ -32,6 +32,10 @@ public class DoubleConverterBR implements Converter {
 	}
 
 	public String cleanNumber(String input) {
+		if( input == null ){
+			return null;
+		}
+		
 		char[] data = input.toCharArray();
 		StringBuffer buffer = new StringBuffer();
 
@@ -49,11 +53,11 @@ public class DoubleConverterBR implements Converter {
 			value = cleanNumber(value);
 			Number numberValue = decimalFormat.parse(value);
 			return new Double(numberValue.doubleValue());
-		} catch (ParseException e) {
+		} catch (Exception e) {
 			System.out.println("valor inválido : [" + value + "]" + e.getMessage());
 			e.printStackTrace();
 		}
-		return null;
+		return 0.0;
 	}
 	
 	public String format(Double value){
