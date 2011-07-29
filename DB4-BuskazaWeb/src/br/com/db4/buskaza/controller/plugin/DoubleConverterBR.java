@@ -51,6 +51,10 @@ public class DoubleConverterBR implements Converter {
 	public Double toDouble(String value) {
 		try {
 			value = cleanNumber(value);
+			if( value == null || value.length() == 0 ){
+				return 0.0;
+			}
+			
 			Number numberValue = decimalFormat.parse(value);
 			return new Double(numberValue.doubleValue());
 		} catch (Exception e) {
