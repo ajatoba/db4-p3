@@ -421,23 +421,23 @@ public ActionForward formReservasPacoteFechado(ActionMapping mapping, ActionForm
 			if( reserva.getImovel().isPrePagamento()==true)
 			{
 			
-			mensagem 		= mensagem.replaceAll("<PRE_PAGAMENTO>", 	"O proprietï¿½rio desse imï¿½vel exige "  + reserva.getImovel().getPrePercentual()+
-																		"%, atï¿½ " + reserva.getImovel().getPreCheckIn()+
+			mensagem 		= mensagem.replaceAll("<PRE_PAGAMENTO>", 	"O proprietário desse imóvel exige "  + reserva.getImovel().getPrePercentual()+
+																		"%, até " + reserva.getImovel().getPreCheckIn()+
 																		" dias antes do Check In, e outros  " + reserva.getImovel().getPrePercentual2()+
-																		"%, atï¿½ " + reserva.getImovel().getPreCheckIn2()+ " dias antes do Check In.<br />"+
+																		"%, até " + reserva.getImovel().getPreCheckIn2()+ " dias antes do Check In.<br />"+
 																		"O pagamento dessa tarifa pode ser feita por Deposito em Conta Corrente ou PayPal<br /><br />"+
-																		"Reservas efetuadas em datas com inicio igual ou superior a 3 dias, o pagamento do percentual antes do Check In, deverï¿½ ser pago 24h.<br />"+
+																		"Reservas efetuadas em datas com inicio igual ou superior a 3 dias, o pagamento do percentual antes do Check In, deverá ser pago 24h.<br />"+
 																		
 																		"<br>Titular: "+ reserva.getImovel().getPreTitular()+
 																		"<br>Email PayPal: " +reserva.getImovel().getPreEmailPayPal()+
 																		"<br>Banco: " +reserva.getImovel().getPreBanco()+
-																		"<br>Nï¿½ do Banco: " + reserva.getImovel().getPreNumBanco() +
-																		"<br>Agï¿½ncia: " +reserva.getImovel().getPreAgencia()+
+																		"<br>Número do Banco: " + reserva.getImovel().getPreNumBanco() +
+																		"<br>Agência: " +reserva.getImovel().getPreAgencia()+
 																		"<br>Conta Corrente: " + reserva.getImovel().getPreContaCorrente()+																		
 																		"<br><br>");
 			}else{
 				
-				mensagem 		= mensagem.replaceAll("<PRE_PAGAMENTO>", "O proprietï¿½rio desse imï¿½vel nï¿½o exige prï¿½ pagamento do saldo<br><br>");
+				mensagem 		= mensagem.replaceAll("<PRE_PAGAMENTO>", "O proprietário desse imóvel não exige pré pagamento do saldo<br><br>");
 			}
 				
 			
