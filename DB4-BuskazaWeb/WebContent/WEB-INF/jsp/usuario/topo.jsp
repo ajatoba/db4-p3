@@ -25,6 +25,7 @@
       <div class="txt_05">Ajuda</div>
       <div class="txt_06">Redes Sociais</div>-->
       <div class="txt_03">Fale Conosco <span class="tel_top">21 2421-2225</span></div>
+      <div class="buzzchat_top"> <a href="http://www.easychat.com.br/easy/iframe_w33.php?chat_id=1944&clie_id=1885&check_sum=5714" target="_blank"><img src="http://www.easychat.com.br/easy/status/1944/1885" border=0> </a> </div>
       <a href="/faq.html"><div class="txt_02">Faq</div></a>
       
       <a href="http://twitter.com/buzkaza" target="_blank"><div class="twitter"></div></a>
@@ -36,9 +37,18 @@
       <div class="options"></div>
     </div>
     <div class="bottom_menu">
-      <a href="/DB4-BuskazaWeb/imovel.do?act=formBuscarImovel"><div class="btn_alugar">alugar imóvel</div></a>
-      <a href="/passo_1_imovel.html"><div class="btn_anunciar">anunciar imóvel</div></a>
-      <a href="http://www.buzkaza.com.br/blog/" target="_black"><div class="btn_blog">blog</div></a>
+      <a href="/DB4-BuskazaWeb/imovel.do?act=formBuscarImovel" title="Alugar Imóvel"><div class="btn_alugar">reservar</div></a>
+
+
+
+<a href="/passo_1_imovel.html" title="Anunciar Imóvel"><div class="btn_anunciar">anunciar grátis</div></a>
+
+
+
+<a href="http://www.buzkaza.com.br/blog/" target="_blank" title="Blog"><div class="btn_blog">blog</div></a>
+
+
+<a href="http://www.buzkaza.com.br/blog/?page_id=113" target="_blank" title="Blog"><div class="btn_blog">como funciona</div></a>
       
       <%if (session.getAttribute("usuario") != null) {%>
       
