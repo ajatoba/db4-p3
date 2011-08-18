@@ -73,7 +73,7 @@ public class ReservaUtil {
 	        //SE FOR PACOTE FECHADO, PEGA O VALOR DO PACOTE
 	        if(((Anuncio)mapa.getValue()).getTipoAnuncio().getCodigo() == 6){
 	        	
-	        	System.out.println("CALCULANDO PREÇO PACOTE FECHADO");
+	        	System.out.println("CALCULANDO PRECO PACOTE FECHADO");
 	        	
 	        	precoTotal = ((Anuncio)mapa.getValue()).getTarifaPacoteFechado();
 	        	
@@ -145,7 +145,7 @@ public class ReservaUtil {
 		anuncio2.setDataFinal(dataFinal2);
 		TipoAnuncio tipoAnuncio2 = new TipoAnuncio();
 		tipoAnuncio2.setCodigo(2);
-		tipoAnuncio2.setNome("Média Temporada");
+		tipoAnuncio2.setNome("Mï¿½dia Temporada");
 		anuncio2.setTipoAnuncio(tipoAnuncio2);		
 		
 		anuncio2.setTarifaDiaria(150.00);
