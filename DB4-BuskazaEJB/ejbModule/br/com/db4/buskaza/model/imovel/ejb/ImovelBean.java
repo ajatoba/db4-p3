@@ -63,6 +63,9 @@ public class ImovelBean implements ImovelBeanLocal {
 	}
 
 	public List<Imovel> buscarImovel(Imovel imovel, Integer codigoPais, Anuncio anuncio) {
+		
+		System.out.println("--- busca imovel versao2011-aug-18");
+	
 		Session session;
 		if (em.getDelegate() instanceof EntityManagerImpl) {
 			EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();
@@ -120,6 +123,9 @@ public class ImovelBean implements ImovelBeanLocal {
 				}
 			}
 
+			System.out.println("data inicial = " + anuncio.getDataInicial());			
+			System.out.println("data final = " + anuncio.getDataFinal());
+			
 			// vacavitoria.com ticket #73
 			joinPeriodoAnuncio.add(Restrictions.ge("dataInicial", anuncio.getDataInicial()));
 			joinPeriodoAnuncio.add(Restrictions.le("dataFinal", anuncio.getDataFinal()));
