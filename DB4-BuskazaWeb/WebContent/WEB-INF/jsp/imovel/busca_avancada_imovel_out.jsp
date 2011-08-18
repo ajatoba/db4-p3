@@ -139,7 +139,7 @@
 <div id="conteudo_result_busca">
 
 <div id="top_resultado">
-	<div class="retorno_busca"><span class="MyriadPro14"> Sua busca retornou: <bean:write name="resultado"/> imóveis</span></div>	
+	<div class="retorno_busca"><span class="MyriadPro14"> Sua busca retornou: <bean:write name="resultado"/> im&oacute;veis</span></div>	
 	<div class="ordenacao_busca"><br /></div>
 </div>
 
@@ -239,7 +239,7 @@
 							<span class="txt_form_titulo">Quartos:</span> <bean:write name="ims" property="key.quartos"/><br />
 							<span class="txt_form_titulo">Metragem:</span> <bean:write name="ims" property="key.metragem"/>m2<br />
 							<span class="txt_form_titulo">Capacidade:</span> <bean:write name="ims" property="key.capacidade"/> pessoa(s)<br />
-							<!-- <span class="txt_form_titulo">Proprietário:</span> <bean:write name="ims" property="key.usuarioProprietario.nome"/><br />-->
+							<!-- <span class="txt_form_titulo">Proprietï¿½rio:</span> <bean:write name="ims" property="key.usuarioProprietario.nome"/><br />-->
 	                    	
 	                    	<!--
 	                    	<logic:notEmpty name="ims" property="key.equipamentos">	
@@ -263,7 +263,7 @@
 	                       </div>
 	                       <div class="box_busca_valor_media">
 	                            <div class="busmedia">               
-	                                Média da Diária:<br />
+	                                M&eacute;dia da Di&aacute;ria:<br />
 	                                <span class="valor_cinza">R$ <ff:format value="${( ims.value + ( ims.value  *15/100)) /qtdDias}"/> </span>
 	                       		</div>
 	                      	</div>

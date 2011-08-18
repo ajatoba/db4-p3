@@ -88,7 +88,7 @@
    <table border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td class="tb_4"><span class="txt_form">&nbsp; Quartos</span></td>
-        <td class="tb_5"><span class="txt_form">&nbsp; Área (m2)</span></td>
+        <td class="tb_5"><span class="txt_form">&nbsp; &Aacute;rea (m2)</span></td>
         <td class="tb_6"><span class="txt_form">&nbsp; Capacidade</span></td>        
       </tr>
       <tr>

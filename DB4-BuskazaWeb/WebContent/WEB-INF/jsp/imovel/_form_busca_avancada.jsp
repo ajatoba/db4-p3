@@ -60,7 +60,7 @@
 					<tr class="txt_caracteristicas">
 	    				<td>Pa&iacute;s</td>
 	    				<td>Quartos</td>
-	    				<td>Área(m2)</td>
+	    				<td>&Aacute;rea(m2)</td>
 	    				<td>Capacidade</td>
 	  				</tr>
 					<tr class="txt_caracteristicas">
@@ -71,7 +71,7 @@
 	      					<html:option value="1">Brasil</html:option>
 						</html:select>
 						</div>
-					</td><!-- Final Dropdown País -->
+					</td><!-- Final Dropdown Pais -->
 	    			<td>
 	    				<div class="sepd">
 	    				<html:select property="quartos" styleClass="MyriadProRegular">
@@ -241,7 +241,7 @@
 	            		</html:select>
 	            	</td><!-- Final Dropdown Capacidade -->
 				</tr>
-		</table><!-- Final Table País, Quarto, Área, Capacidade -->
+		</table><!-- Final Table Paï¿½s, Quarto, ï¿½rea, Capacidade -->
 	</td>
 </tr>
 <tr>
