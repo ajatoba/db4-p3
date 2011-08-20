@@ -53,7 +53,7 @@ $(document).ready(function()
 
 <div id="meio_reserva">
 <div class="top_reserva">
-	<div class="txt_meus_anuncios">Solicitação de Reserva</div>
+	<div class="txt_meus_anuncios">Solicita&ccedil;&atilde;o de Reserva</div>
 </div>
 
 </div>
@@ -61,7 +61,7 @@ $(document).ready(function()
 
 <div id="listagem_reservas">
 
-<div class="texto_reserva_pacote"> O período que você selecionou faz parte de um pacote fechado.  Selecione abaixo:</div>
+<div class="texto_reserva_pacote">O per&iacute;odo que voc&ecirc; selecionou faz parte de um pacote fechado.  Selecione abaixo:</div>
 
 <logic:present name="reserva">
 
@@ -69,8 +69,6 @@ $(document).ready(function()
 
 	<logic:iterate name="reserva" property="imovel.anuncios" id="an">
 		<logic:equal name="an" property="tipoAnuncio.codigo" value="6">
-		
-			
 			
 			<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
 				<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
