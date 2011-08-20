@@ -29,6 +29,8 @@ public class TipoAnuncio implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
+	public static final int PACOTE_FECHADO = 6;
+
 	@Id
 	@GeneratedValue
 	@Column(name = "id_tipo_anuncio")
