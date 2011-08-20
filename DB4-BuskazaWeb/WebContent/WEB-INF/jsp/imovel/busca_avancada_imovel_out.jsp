@@ -170,7 +170,7 @@
                     <br />
                     
                     <logic:equal name="tipoBusca" property="codigo" value="6">
-                    	<html:form action="/usuario/reserva.do?act=formReservasPacoteFechado" method="POST" >
+                    	<html:form action="/usuario/reserva.do?act=formReservas" method="POST" >
 						<html:hidden property="ORIGEM_REQUEST" value="_RESERVA"/>
 						<html:hidden property="codigoImovel" value="${ims.key.codigo}"/> 
 						<html:hidden property="valor" value="${ims.value}"/>
