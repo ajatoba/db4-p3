@@ -62,7 +62,7 @@ public class ReservaAction extends DispatchAction {
 			// vacavitoria.com ticket #91
 			String origemRequest = (String) request.getParameter(Constants.ORIGEM_REQUEST);
 			System.out.println("origem request = " + origemRequest);
-			System.out.println("paramters = " + request.getParameterMap());
+			System.out.println("parameters = " + request.getParameterMap());
 			
 			// verifica se jah escolheu reserva da lista de reservas de pacote
 			// fechado

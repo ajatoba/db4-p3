@@ -66,15 +66,15 @@ function abrirPop(url){
 			    <td width="58%" valign="top">
 			    	<span class="tit_azul_detalhes">${reservaPagar.imovel.bairro}, ${reservaPagar.imovel.municipio} - ${reservaPagar.imovel.estado.codigo}</span><br />
 	    			<span class="txt_cinza_detalhes">${reservaPagar.imovel.logradouro}, ${reservaPagar.imovel.numero} - ${reservaPagar.imovel.complemento} - Cep ${reservaPagar.imovel.cep}<br />
-    				<strong>ID do imóvel:</strong> ${reservaPagar.imovel.usuarioProprietario.codigo}-${reservaPagar.imovel.codigo}</span>
+    				<strong>ID do im&oacute;vel:</strong> ${reservaPagar.imovel.usuarioProprietario.codigo}-${reservaPagar.imovel.codigo}</span>
 			    </td>
 			    <td width="42%" valign="top">
 				    <span class="txt_cinza_detalhes">
-				    	<span class="arial12boldazul">Perfil do Imóvel:</span> ${reservaPagar.imovel.tipoImovel.nome}<br />
-				      	<span class="arial12boldazul">Distância do centro:</span> ${reservaPagar.imovel.distanciaCentro}km<br />
+				    	<span class="arial12boldazul">Perfil do im&oacute;vel:</span> ${reservaPagar.imovel.tipoImovel.nome}<br />
+				      	<span class="arial12boldazul">Dist&acirc;ncia do centro:</span> ${reservaPagar.imovel.distanciaCentro}km<br />
 				      	<!-- 
 					    <a href='${reservaPagar.imovel.linkGoogleMaps}' class="link_reserva_detalhe">Mapa(Google Maps)</a><br />
-					    <a href='${reservaPagar.imovel.linkYouTube}' class="link_reserva_detalhe">Vídeo(YouTube)</a><br />
+					    <a href='${reservaPagar.imovel.linkYouTube}' class="link_reserva_detalhe">V&iacute;deo(YouTube)</a><br />
 					     -->
 					    <div class="icons_admin">
 						<logic:notEmpty name="reservaPagar" property="imovel.linkGoogleMaps">
@@ -85,10 +85,10 @@ function abrirPop(url){
 						</logic:empty>
 						
 						<logic:notEmpty name="reservaPagar" property="imovel.linkYouTube">
-								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe"><div class="icon_youtube_admin">Vídeo</div></a>
+								<a href='#TB_inline?height=420&amp;width=600&inlineId=thickbox_youtube' class="thickbox link_reserva_detalhe"><div class="icon_youtube_admin">V&iacute;deo</div></a>
 						</logic:notEmpty>
 						<logic:empty name="reservaPagar" property="imovel.linkYouTube">
-								<div class="icon_noyoutube_admin">Sem vídeo</div>
+								<div class="icon_noyoutube_admin">Sem V&iacute;deo</div>
 						</logic:empty>
 						
 						<a href='#TB_inline?height=570&amp;width=610&inlineId=thickbox_foto' class="thickbox"><div class="icon_fotos_admin">Fotos</div></a>
@@ -118,7 +118,7 @@ function abrirPop(url){
 						
 						<div id="thickbox_youtube" style="visibility:hidden; display:none;">            
 			            	<div class="topo">
-			                    <div id="titulo">Vídeo</div>
+			                    <div id="titulo">V&iacute;deo</div>
 			                </div>
 							<div class="meio">            
 			            		<div class="divmapa">
@@ -188,10 +188,10 @@ function abrirPop(url){
 <div class="pagamento_info">
 	<span class="arial12boldazul">Pagamento</span><br /><br />
 	<strong>Sinal</strong><br />
-	O Sinal será debitado do cartão de crédito do hospede na confirmação da reserva. Este valor é referente a taxa de transação do Buzkaza.
+	O Sinal ser&aacute; debitado do cart&atilde;o de cr&eacute;dito do hospede na confirma&ccedil;&atilde;o da reserva. Este valor &eacute; referente a taxa de transa&ccedil;&atilde;o do Buzkaza.
 	<br /><br />
 	<strong>Saldo no check in</strong><br />
-	O Saldo será pago diretamente ao proprietário, conforme instruções de pagamento.
+	O Saldo ser&aacute; pago diretamente ao propriet&aacute;rio, conforme instru&ccedil;&otilde;es de pagamento.
 	<br /><br />
 </div>
 
@@ -209,7 +209,7 @@ function abrirPop(url){
 					<input type="hidden" name="business" value="silvio@buzkaza.com.br">
 					<input type="hidden" name="currency_code" value="BRL">
 					<input type="hidden" name="amount" value="<bean:write name="reservaPagar" property="valor" format="##.##"/>">
-					<input type="hidden" name="item_name" value="Aluguel do Imóvel de Código:${reservaPagar.imovel.codigo}">
+					<input type="hidden" name="item_name" value="Aluguel do im&oacute;vel de Cï¿½digo:${reservaPagar.imovel.codigo}">
 					<input type="hidden" name="item_number" value="${reservaPagar.codigo}">
 					<input type="hidden" name="shopping_url" value="http://www.buzkaza.com.br">				
 					<input type="hidden" name="add" value="1">				
@@ -240,7 +240,7 @@ function abrirPop(url){
 					<input type="hidden" name="pagador_estado" value="${reservaPagar.locatario.endereco.estado.codigo}"/>
 					<input type="hidden" name="pagador_cep" id="pagador_cep" value="${reservaPagar.locatario.endereco.cep}"/>
 					
-					<input type="hidden" name="descricao" value="Aluguel do Imóvel de Código:${reservaPagar.imovel.codigo}">
+					<input type="hidden" name="descricao" value="Aluguel do im&oacute;vel de C&oacute;digo:${reservaPagar.imovel.codigo}">
 					<input type="hidden" name="url_retorno" value="http://www.buzkaza.com.br">
 					
 					<div class="btnEfetuarPagamento">
@@ -250,7 +250,7 @@ function abrirPop(url){
 				</form>
 				<script language="javascript">
                 <!--
-                	calcularvalorMoip( '<ff:format value="${((reservaPagar.valor*15/100))}"/>', '<bean:write name="reservaPagar" property="valor" format="00.00"/>');
+                	calcularvalorMoip( '<ff:format plain="true" value="${((reservaPagar.valor*15/100))}"/>', '<bean:write name="reservaPagar" property="valor" format="00.00"/>');
                 	montarCepMoip('${reservaPagar.locatario.endereco.cep}' );
                 -->
                 </script>
@@ -263,9 +263,8 @@ function abrirPop(url){
 	</logic:present>
 	
 	<logic:notPresent name="reservaPagar">
-		Não é possível pagar essa reserva.
+		N&atilde;o foi poss&iacute;vel pagar essa reserva.
 	</logic:notPresent>
-
 
 <!--FIM CADASTRO-->
 </div></div></div>

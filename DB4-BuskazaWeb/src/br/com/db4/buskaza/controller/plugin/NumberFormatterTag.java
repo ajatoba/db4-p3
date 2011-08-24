@@ -18,6 +18,7 @@ public class NumberFormatterTag implements Tag, Serializable {
 	private PageContext pc = null;
 	private Tag parent = null;
 	private Double value = null;
+	private boolean plain = false;
 
 	public void setPageContext(PageContext p) {
 		pc = p;
@@ -34,7 +35,11 @@ public class NumberFormatterTag implements Tag, Serializable {
 
 	public int doStartTag() throws JspException {
 		try {
-			pc.getOut().write(DoubleConverterBR.getInstance().format(value));
+			if( ! plain ){
+				pc.getOut().write(DoubleConverterBR.getInstance().format(value));
+			} else {
+				pc.getOut().write(DoubleConverterBR.getInstance().formatPlain(value));				
+			}
 		} catch(IOException e) {
 			throw new JspTagException("Erro na Tag NumberFormatter ");
 		}
@@ -59,5 +64,14 @@ public class NumberFormatterTag implements Tag, Serializable {
 		this.value = value;
 	}
 
+	public boolean isPlain() {
+		return plain;
+	}
+
+	public void setPlain(boolean plain) {
+		this.plain = plain;
+	}
+
+	
 	
 }
