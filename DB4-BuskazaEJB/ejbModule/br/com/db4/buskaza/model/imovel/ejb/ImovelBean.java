@@ -1,42 +1,32 @@
 package br.com.db4.buskaza.model.imovel.ejb;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
-import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.apache.log4j.jmx.Agent;
 import org.hibernate.CacheMode;
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.criterion.CriteriaSpecification;
+import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.SimpleExpression;
 import org.hibernate.ejb.EntityManagerImpl;
 import org.hibernate.sql.JoinFragment;
 import org.hibernate.type.Type;
 import org.jboss.ejb3.annotation.LocalBinding;
 
 import br.com.db4.buskaza.model.entity.Anuncio;
-import br.com.db4.buskaza.model.entity.Bloqueio;
-import br.com.db4.buskaza.model.entity.Foto;
 import br.com.db4.buskaza.model.entity.Imovel;
-import br.com.db4.buskaza.model.entity.Reserva;
-import br.com.db4.buskaza.model.foto.ejb.FotoBeanLocal;
-import br.com.db4.buskaza.model.util.*;
+import br.com.db4.buskaza.model.util.Constants;
+import br.com.db4.buskaza.model.util.UtilsCollections;
 
 @Stateless
 @LocalBinding(jndiBinding = ImovelBeanLocal.LOCAL)
@@ -63,9 +53,9 @@ public class ImovelBean implements ImovelBeanLocal {
 	}
 
 	public List<Imovel> buscarImovel(Imovel imovel, Integer codigoPais, Anuncio anuncio) {
-		
-		System.out.println("--- busca imovel versao2011-aug-18");
-	
+
+		System.out.println("--- busca imovel versao2011-aug-29");
+
 		Session session;
 		if (em.getDelegate() instanceof EntityManagerImpl) {
 			EntityManagerImpl entityManagerImpl = (EntityManagerImpl) em.getDelegate();
@@ -102,33 +92,59 @@ public class ImovelBean implements ImovelBeanLocal {
 			Criteria joinPeriodoAnuncio = c.createCriteria("anuncios", JoinFragment.LEFT_OUTER_JOIN);
 			joinPeriodoAnuncio.setFetchMode("anuncios", FetchMode.LAZY);
 
+			System.out.println("data inicial = " + anuncio.getDataInicial());
+			System.out.println("data final = " + anuncio.getDataFinal());
+
 			if (anuncio.getTipoAnuncio() != null) {
 				if (anuncio.getTipoAnuncio().getCodigo() != Constants.TIPO_ANUNCIO_PACOTE_FECHADO) {
 
 					joinPeriodoAnuncio
-							.add(Restrictions.ne("tipoAnuncio.codigo", Constants.TIPO_ANUNCIO_PACOTE_FECHADO));// NAO
-					// ACHA
-					// os
-					// pacotes
-					// fechados
+							.add(Restrictions.ne("tipoAnuncio.codigo", Constants.TIPO_ANUNCIO_PACOTE_FECHADO));
+
+					SimpleExpression dataInicial_BEFORE_SearchRange = Restrictions.le("dataInicial", anuncio
+							.getDataInicial());
+					SimpleExpression dataFinal_AFTER_SearchRange = Restrictions.ge("dataFinal", anuncio.getDataFinal());
+
+					// as disponibilidades precisam estas externas ao intervalo
+					// solicitado
+					joinPeriodoAnuncio.add(Restrictions
+							.and(dataInicial_BEFORE_SearchRange, dataFinal_AFTER_SearchRange));
 
 				} else if (anuncio.getTipoAnuncio().getCodigo() == Constants.TIPO_ANUNCIO_PACOTE_FECHADO) {
+
+					// somente pacote fechado
+					// ou seja as datas de diponibilidade precisam estar ENTRE o
+					// intervalo solicitado
+					//
 					joinPeriodoAnuncio
 							.add(Restrictions.eq("tipoAnuncio.codigo", Constants.TIPO_ANUNCIO_PACOTE_FECHADO));// SO
-					// acha
-					// os
-					// pacotes
-					// fechados
+
+					LogicalExpression dataInicial_IN_SearchRange = Restrictions.and(Restrictions.ge("dataInicial",
+							anuncio.getDataInicial()), Restrictions.le("dataInicial", anuncio.getDataFinal()));
+
+					LogicalExpression dataFinal_IN_SearchRange = Restrictions.and(Restrictions.ge("dataFinal", anuncio
+							.getDataInicial()), Restrictions.le("dataFinal", anuncio.getDataFinal()));
+
+					// ambas as condicoes devem ser verdadeiras quando a
+					// pesquisa eh por pacote
+					// fechado
+					joinPeriodoAnuncio.add(Restrictions.or(dataInicial_IN_SearchRange, dataFinal_IN_SearchRange));
 
 				}
-			}
+			} else {
 
-			System.out.println("data inicial = " + anuncio.getDataInicial());			
-			System.out.println("data final = " + anuncio.getDataFinal());
-			
-			// vacavitoria.com ticket #73
-			joinPeriodoAnuncio.add(Restrictions.ge("dataInicial", anuncio.getDataInicial()));
-			joinPeriodoAnuncio.add(Restrictions.le("dataFinal", anuncio.getDataFinal()));
+				// tipo de pacote nao informado
+				// pesquisar intervalo de datas que cubra todos os dias
+				// pesquisados
+				//
+				SimpleExpression dataInicial_BEFORE_SearchRange = Restrictions.le("dataInicial", anuncio
+						.getDataInicial());
+				SimpleExpression dataFinal_AFTER_SearchRange = Restrictions.ge("dataFinal", anuncio.getDataFinal());
+
+				// as disponibilidades precisam estas externas ao intervalo
+				// solicitado
+				joinPeriodoAnuncio.add(Restrictions.and(dataInicial_BEFORE_SearchRange, dataFinal_AFTER_SearchRange));
+			}
 
 			// joinPeriodoAnuncio.add
 			// (Restrictions.sqlRestriction("({alias}.dataInicial between ? and ?) or ( {alias}.dataFinal between ? and ?)",new
@@ -223,9 +239,7 @@ public class ImovelBean implements ImovelBeanLocal {
 			c.add(Restrictions.eq("usuarioProprietario.codigo", usuarioProprietario));
 		}
 
-		c.add(Restrictions.gt("status", -1)); // -1 s�o os exclu�dos, que n�o
-		// devem ser mostrados nunca
-		// mais
+		c.add(Restrictions.gt("status", -1)); // -1 nao devem ser exibidos
 
 		c.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
 		return c.list();
